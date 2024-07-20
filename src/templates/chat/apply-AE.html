@@ -1,0 +1,13 @@
+<form>
+
+  <div class="form-group">
+    <label>{{localize 'ARCHMAGE.duration'}}</label>
+    <select name="duration">
+      {{#select defaultDuration}}
+      {{#each durations as |label duration|}}
+        <option value="{{duration}}">{{localize label}}</option>
+      {{/each}}
+      {{/select}}
+    </select>
+  </div>
+</form>

@@ -925,7 +925,6 @@ export class ActorArchmage extends Actor {
       formula: terms.join(' + '),
       data: data,
       defaultRollMode: rollMode,
-      // abilities: abilities ?? {},
       rollModes: CONFIG.Dice.rollModes
     };
 

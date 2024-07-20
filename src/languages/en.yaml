@@ -51,6 +51,7 @@ ARCHMAGE:
   disengageShort: Disengage
   disengageAdjustment: Disengage Adjustment
   divine: Divine
+  duration: Duration
   edit: Edit
   effects: Effects
   equipment: Equipment
@@ -523,6 +524,8 @@ ARCHMAGE:
     attack: Attack
     attackPlaceholder: "[[d20+@str.mod+@std]] vs. AC"
     attackTitle: Attack formula, such as "[[d20+@str.mod+@std]] vs. AC"
+    Apply: Apply
+    applyAETitle: Apply Active Effect?
     applyDamage: Apply Damage
     breathWeapon: Breath Weapon
     Cancel: Cancel

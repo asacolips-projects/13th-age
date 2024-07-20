@@ -1034,7 +1034,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
 
       // Otherwise, create the AE
       statusEffect.label = game.i18n.localize(statusEffect.label);
-      return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+      return _applyAEDurationDialog(actor, statusEffect, "Unknown");
     }
     else {
       // Just a generic condition, transfer the name
@@ -1042,7 +1042,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
         name: data.name,
         icon: 'icons/svg/aura.svg'
       };
-      return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      return _applyAEDurationDialog(actor, statusEffect, "Unknown");
     }
   }
   else if ( data.type === "effect" ) {
@@ -1051,7 +1051,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
     const effect = sourceActor.effects.get(data.id);
     let effectData = foundry.utils.duplicate(effect);
     console.dir(effectData);
-    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return _applyAEDurationDialog(actor, effectData, "Unknown");
   }
   else if ( data.type == "ongoing-damage" ) {
 
@@ -1072,7 +1072,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
         }
       }
     }
-    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return _applyAEDurationDialog(actor, effectData, data.ends);
   }
 });
 
@@ -1143,9 +1143,49 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
         }
       }
     }
-    return token.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return _applyAEDurationDialog(actor, effectData, data.ends);
   }
 });
+
+function _applyAEDurationDialog(actor, effectData, duration, source=undefined) {
+  if (event.shiftKey) {
+    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+  // Render modal dialog
+  const template = 'systems/archmage/templates/chat/apply-AE.html';
+  let dialogData = {
+    defaultDuration: duration,
+    durations: CONFIG.ARCHMAGE.effectDurationTypes
+  };
+  let do_apply = false;
+  const options = source ? {sourceTurnUuid: source.uuid} : {};
+
+  renderTemplate(template, dialogData).then(dlg => {
+    new Dialog({
+      title: game.i18n.localize("ARCHMAGE.CHAT.applyAETitle"),
+      content: dlg,
+      buttons: {
+        apply: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Apply"),
+          callback: () => { do_apply = true; }
+        },
+        pen1: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+          callback: () => { do_apply = false; }
+        },
+      },
+      default: 'apply',
+      close: html => {
+        if (do_apply) {
+          duration = html.find('[name="duration"]').val();
+          const options = [].includes(duration) ? {sourceTurnUuid: source.uuid} : {};
+          game.archmage.MacroUtils.setDuration(effectData, duration, options);
+          return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+        }
+      }
+    }).render(true);
+  });
+}
 
 Hooks.on("renderJournalSheet", async (app, html, data) => {
   app._element[0].classList.add("archmage-v2");

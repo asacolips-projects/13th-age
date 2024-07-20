@@ -560,7 +560,8 @@ export class MacroUtils {
         data['flags.archmage.duration'] = "StartOfEachTurn";
         break;
       default:
-        console.warn("Unknown duration ", duration);
+        // console.warn("Unknown duration ", duration);
+        data['flags.archmage.duration'] = duration;
     }
 
     return data;
