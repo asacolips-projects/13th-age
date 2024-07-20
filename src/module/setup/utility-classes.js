@@ -562,7 +562,8 @@ export class MacroUtils {
       default:
         // console.warn("Unknown duration ", duration);
         // Condition drag and drop passes the correct data already
-        data['flags.archmage.duration'] = duration;
+        if (data.flags?.archmage?.duration) data.flags.archmage.duration = duration;
+        else data['flags.archmage.duration'] = duration;
     }
 
     return data;
