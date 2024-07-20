@@ -1129,7 +1129,7 @@ async function _applyAE(actor, data, token=undefined) {
 
 async function _applyAEDurationDialog(actor, effectData, duration, source, token=undefined) {
   if (event.shiftKey) {
-    if ( token ) return token.toggleEffect(effectData, {active: true});
+    if ( token ) return token._object.toggleEffect(effectData, {active: true});
     else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
   // Render modal dialog
