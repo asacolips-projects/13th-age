@@ -231,8 +231,9 @@ export class ItemArchmage extends Item {
 
   async _rollTemporaryOverrides() {
     let overrides = {};
+    if (this.type != 'power') return overrides;
     let lvl = this.system.powerLevel?.value ?? 0;
-    if (this.actor.getFlag("archmage", "overridePowerLevel") && this.type == 'power') {
+    if (this.actor.getFlag("archmage", "overridePowerLevel")) {
       lvl = Math.max(this.actor.system.attributes.level.value, lvl);
     }
     if (event.altKey && this.system.powerLevel?.value != undefined) {
