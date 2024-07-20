@@ -1160,7 +1160,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
       default: 'apply',
       close: html => {
         if (do_apply) {
-          duration = html.find('[name="duration"]').val();
+          duration = html.find('[name="duration"]:checked').val();
           let options = []
           if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
             options = {sourceTurnUuid: source};

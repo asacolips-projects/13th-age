@@ -8,13 +8,10 @@
     <span>{{sourceName}}</span>
   </div>
   <div class="form-group">
-    <label>{{localize 'ARCHMAGE.CHAT.duration'}}</label>
-    <select name="duration">
-      {{#select defaultDuration}}
-      {{#each durations as |label duration|}}
-        <option value="{{duration}}">{{localize label}}</option>
-      {{/each}}
-      {{/select}}
-    </select>
+    <label style="align-self: start;">{{localize 'ARCHMAGE.CHAT.duration'}}</label>
+    <div class="form-fields" style="flex-direction: column; align-items: start;">
+      {{radioBoxes 'duration' durations checked=defaultDuration localize=true}}
+    </div>
+
   </div>
 </form>
