@@ -1721,6 +1721,7 @@ export class ActorArchmage extends Actor {
       && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)
       && CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value]) {
       data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value];
+      changes.img = data.img;
     }
     // Update the prototype token.
     if (changes.img || changes.name) {
