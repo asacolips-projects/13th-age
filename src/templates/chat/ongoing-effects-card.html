@@ -11,7 +11,7 @@
 {{!-- Condition row partial. --}}
 {{#*inline "condition"}}
 <div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">
-    <a class="effect-link {{#if effect.otherName}}grid-span-4{{else}}grid-span-7{{/if}}" draggable="true" data-type="condition" data-id="{{effect.id}}" title="" data-name="{{effect.name}}">
+    <a class="effect-link {{#if effect.otherName}}grid-span-4{{else}}grid-span-7{{/if}}" draggable="true" data-type="condition" data-id="{{effect.id}}" title="" data-name="{{effect.name}}" data-source="{{effect.origin}}"s>
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
     </a>
     {{#if effect.otherName}}

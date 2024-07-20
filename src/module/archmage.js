@@ -1017,63 +1017,8 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 /* -------------------------------------------- */
 
-// TODO: When we expand to support Duration, this probably will be more complicated
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-  if ( data.type === "condition" ) {
-    const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
-    if ( statusEffect ) {
-
-      // If we have a Token, just toggle the effect
-      // First load the token from a token actor (is null for linked)
-      let token = actor.token;
-      // If not, look for linked tokens in the scene
-      if (!token) token = canvas.scene.tokens.find(
-          t => (t.data.actorId === actor.id && t.isLinked)
-      );
-      if (token) return token._object.toggleEffect(statusEffect);
-
-      // Otherwise, create the AE
-      statusEffect.label = game.i18n.localize(statusEffect.label);
-      return _applyAEDurationDialog(actor, statusEffect, "Unknown");
-    }
-    else {
-      // Just a generic condition, transfer the name
-      let effectData = {
-        name: data.name,
-        icon: 'icons/svg/aura.svg'
-      };
-      return _applyAEDurationDialog(actor, statusEffect, "Unknown");
-    }
-  }
-  else if ( data.type === "effect" ) {
-    const actorId = data.actorId;
-    const sourceActor = game.actors.get(actorId);
-    const effect = sourceActor.effects.get(data.id);
-    let effectData = foundry.utils.duplicate(effect);
-    console.dir(effectData);
-    return _applyAEDurationDialog(actor, effectData, "Unknown");
-  }
-  else if ( data.type == "ongoing-damage" ) {
-
-    // Load the source actor and grab its image if possible
-    let sourceActor = await fromUuid(data.source);
-    let img = sourceActor?.img ?? "icons/skills/toxins/symbol-poison-drop-skull-green.webp";
-
-    let effectData = {
-      name: data.name,
-      icon: img,
-      origin: data.source,
-      flags: {
-        archmage: {
-          ongoingDamage: data.value,
-          ongoingDamageType: data.damageType,
-          duration: data.ends,
-          tooltip: data.tooltip
-        }
-      }
-    }
-    return _applyAEDurationDialog(actor, effectData, data.ends);
-  }
+  return await _applyAE(actor, data);
 });
 
 /* ---------------------------------------------- */
@@ -1111,20 +1056,40 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     return token;
   }
 
-  if (data.type === 'condition') {
+  const token = findToken();
+  if (!token) return;
+  return await _applyAE(token.actor, data);
+});
 
-    const token = findToken();
-    if (!token) return;
-
-    let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
-
-    // For conditions just toggle the effect
-    return token._object.toggleEffect(statusEffect);
+async function _applyAE(actor, data) {
+  if ( data.type === "condition" ) {
+    let statusEffect = CONFIG.statusEffects.find(x => x.id === data.id || x.id === data.name?.toLowerCase());
+    if ( statusEffect ) {
+      statusEffect = foundry.utils.duplicate(statusEffect);
+      statusEffect.label = game.i18n.localize(statusEffect.name);
+      statusEffect.name = statusEffect.label;
+      statusEffect.origin = data.source;
+      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source);
+    }
+    else {
+      // Just a generic condition, transfer the name
+      let effectData = {
+        name: data.name,
+        icon: 'icons/svg/aura.svg',
+        origin: data.source
+      };
+      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source);
+    }
   }
+  // else if ( data.type === "effect" ) {
+    // const actorId = data.actorId;
+    // const sourceActor = game.actors.get(actorId);
+    // const effect = sourceActor.effects.get(data.id);
+    // let effectData = foundry.utils.duplicate(effect);
+    // console.dir(effectData);
+    // return _applyAEDurationDialog(actor, effectData, "Unknown", data.source);
+  // }
   else if ( data.type == "ongoing-damage" ) {
-
-    const token = findToken();
-    if (!token) return;
 
     // Load the source actor and grab its image if possible
     let sourceActor = await fromUuid(data.source);
@@ -1143,22 +1108,24 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
         }
       }
     }
-    return _applyAEDurationDialog(actor, effectData, data.ends);
+    return await _applyAEDurationDialog(actor, effectData, data.ends, data.source);
   }
-});
+}
 
-function _applyAEDurationDialog(actor, effectData, duration, source=undefined) {
+async function _applyAEDurationDialog(actor, effectData, duration, source) {
   if (event.shiftKey) {
     return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
   // Render modal dialog
+  const sourceActor = await fromUuid(source);
   const template = 'systems/archmage/templates/chat/apply-AE.html';
   let dialogData = {
+    effectName: effectData.name,
+    sourceName: sourceActor?.name ?? "",
     defaultDuration: duration,
     durations: CONFIG.ARCHMAGE.effectDurationTypes
   };
   let do_apply = false;
-  const options = source ? {sourceTurnUuid: source.uuid} : {};
 
   renderTemplate(template, dialogData).then(dlg => {
     new Dialog({
@@ -1178,7 +1145,10 @@ function _applyAEDurationDialog(actor, effectData, duration, source=undefined) {
       close: html => {
         if (do_apply) {
           duration = html.find('[name="duration"]').val();
-          const options = [].includes(duration) ? {sourceTurnUuid: source.uuid} : {};
+          let options = []
+          if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
+            options = {sourceTurnUuid: source};
+          }
           game.archmage.MacroUtils.setDuration(effectData, duration, options);
           return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
         }

@@ -1,7 +1,14 @@
 <form>
-
   <div class="form-group">
-    <label>{{localize 'ARCHMAGE.duration'}}</label>
+    <label>{{localize 'ARCHMAGE.CHAT.effect'}}</label>
+    <span>{{effectName}}</span>
+  </div>
+  <div class="form-group">
+    <label>{{localize 'ARCHMAGE.CHAT.source'}}</label>
+    <span>{{sourceName}}</span>
+  </div>
+  <div class="form-group">
+    <label>{{localize 'ARCHMAGE.CHAT.duration'}}</label>
     <select name="duration">
       {{#select defaultDuration}}
       {{#each durations as |label duration|}}

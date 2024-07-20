@@ -51,7 +51,6 @@ ARCHMAGE:
   disengageShort: Disengage
   disengageAdjustment: Disengage Adjustment
   divine: Divine
-  duration: Duration
   edit: Edit
   effects: Effects
   equipment: Equipment
@@ -541,6 +540,7 @@ ARCHMAGE:
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
     disengage: Disengage Check
+    duration: Duration
     effect: Effect
     epic: Epic Feat
     even: even
@@ -624,6 +624,7 @@ ARCHMAGE:
     sequencerRay: Sequencer File (Ray)
     sequencerSelf: Sequencer File (Self)
     sequencerReverse: Reverse Sequence
+    source: Source
     special: Special
     spellChain: Chain Spell
     spellLevel2: 2nd Level

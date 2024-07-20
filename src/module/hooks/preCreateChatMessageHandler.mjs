@@ -5,13 +5,15 @@ import Triggers from "../Triggers/Triggers.mjs";
 
 export default class preCreateChatMessageHandler {
 
-    static replaceEffectAndConditionReferences(actorDocument, $rows) {
+    static replaceEffectAndConditionReferences(uuid, $rows) {
         let conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
         const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.name)));
 
         function generateConditionLink(name) {
             const condition = conditions.find(x => game.i18n.localize(x.name) === name);
-            return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="">
+            const source = uuid;
+            return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="" 
+                    data-source="${source}">
                     <img class="effects-icon" src="${condition.icon}" />
                     ${name}</a>`;
         }
@@ -118,12 +120,12 @@ export default class preCreateChatMessageHandler {
         let $rows = $content.find('.card-prop');  // Updated later
 
         preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $rows, options);
-        preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $rows);
+        preCreateChatMessageHandler.replaceEffectAndConditionReferences(uuid, $rows);
 
         // Handle conditions in feats as well as traits & nastier specials
         let $otherRows = $content.find('.tag--feat .description, .card-row-description');
         preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $otherRows, options);
-        preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $otherRows);
+        preCreateChatMessageHandler.replaceEffectAndConditionReferences(uuid, $otherRows);
         $content.find('.tag--feat .description, .card-row-description').replaceWith($otherRows);
 
         let sequence = undefined;
