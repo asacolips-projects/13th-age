@@ -730,6 +730,14 @@ export class ActorArchmage extends Actor {
       }
     }
 
+    // Animal companion data
+    let anLvl = actor.system.attributes.level.value;
+    if (item?.system.powerLevel?.value !== undefined) anLvl = item.system.powerLevel.value;
+    data.animalCompanion = {
+      'atk': CONFIG.ARCHMAGE.animalCompanion.attack[anLvl],
+      'dmg': CONFIG.ARCHMAGE.animalCompanion.damage[anLvl]
+    }
+
     // Old syntax shorthand.
     data.attr = data.attributes;
     data.abil = data.abilities;
@@ -753,10 +761,8 @@ export class ActorArchmage extends Actor {
       }
     }
 
-    if (item) {
-      if (item.system.powerLevel?.value) {
-        data.pwrlvl = item.system.powerLevel.value;
-      }
+    if (item?.system.powerLevel?.value) {
+      data.pwrlvl = item.system.powerLevel.value;
     }
 
     return data;

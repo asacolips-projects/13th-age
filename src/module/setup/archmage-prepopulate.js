@@ -16,7 +16,8 @@ export class ArchmagePrepopulate {
    * @returns {string}
    *   Clean class name, such as 'chaosmage'.
    */
-  cleanClassName(className) {
+  cleanClassName(className, drop2e=false) {
+    if (drop2e) className = className.toLowerCase().replace('-2e','').replace('2e','');
     return className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
   }
 
@@ -34,19 +35,24 @@ export class ArchmagePrepopulate {
    */
   async getCompendiums(classes = [], race = '') {
     let validRaces = Object.values(CONFIG.ARCHMAGE.raceList);
-    let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)));
+    let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && !p.metadata.name.includes("2e"));
+    let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
+    if (game.settings.get('archmage', 'secondEdition')) {
+      let classPacks2e = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && p.metadata.name.includes("2e"));
+      if (classPacks2e.length > 0) classPacks = classPacks2e;
+      let racePacks2e = await game.packs.filter(p => p.metadata.name == 'kin-powers-2e');
+      if (racePacks2e.length > 0) racePacks = racePacks2e;
+    }
     let content = {};
 
     // Load racial powers
-    if (race != '') {
+    if (race != '' && racePacks.length > 0) {
       let raceAr = [race];
-      // if (race.includes("-")) raceAr.push(race.replace("-", " "));
       if (race.includes(" ")) raceAr.push(race.replace(" ", "-"));
       for (let i=0; i < validRaces.length; i++) {
         let regexRace = new RegExp("(\\W|^)(" + validRaces[i] + ")(\\W|$)", "i");
         for (const race of raceAr) {
           if (race.match(regexRace)) {
-            let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
             for (let j = 0; j < racePacks.length; j++) {
               let pack = await racePacks[j].getDocuments();
               for (let entry of pack) {
@@ -73,14 +79,16 @@ export class ArchmagePrepopulate {
     // Load class powers
     for (let i = 0; i < classPacks.length; i++) {
       let pack = await classPacks[i].getDocuments();
-      let className = this.cleanClassName(classPacks[i].metadata.name);
+      let className = this.cleanClassName(classPacks[i].metadata.name, true);
       content[className] = {
         name: CONFIG.ARCHMAGE.classList[className],
         content: pack.concat(content[className]?.content || [])
       };
     }
     // Add animal companion to druid and ranger
-    for (let key of ["ranger", "druid"]) {
+    let animalCompanionClasses = ["ranger", "druid"];
+    if (game.settings.get('archmage', 'secondEdition')) animalCompanionClasses = ["druid"];
+    for (let key of animalCompanionClasses) {
       if (classes.includes(key)) {
         let pack = await game.packs.find(p => p.metadata.label == "Animal Companion").getDocuments();
         content[key].content = pack.concat(content[key].content);
@@ -93,7 +101,7 @@ export class ArchmagePrepopulate {
       let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
       let powers = pack.filter(e => {
         let sourceName = e.system?.powerSourceName?.value ?? e.system.group.value;
-        return classes.includes(this.cleanClassName(sourceName))
+        return classes.includes(this.cleanClassName(sourceName, true))
       });
       if (powers.length > 0) {content[key] = {name: key, content: powers};}
     }
@@ -101,6 +109,11 @@ export class ArchmagePrepopulate {
     // Load general feats
     let key = "General Feats";
     let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
+    if (game.settings.get('archmage', 'secondEdition')) {
+      key = "Universal Feats";
+      let pack2e = game.packs.find(p => p.metadata.name == "universal-feats-2e");
+      if (pack2e) pack = await pack2e.getDocuments();
+    }
     content[key] = {name: key, content: pack};
 
     return content;
@@ -114,7 +127,13 @@ export class ArchmagePrepopulate {
    *   pack content.
    */
   async getJournals() {
-    let packs = await game.packs.filter(p => CONFIG.ARCHMAGE.classPacks.includes(p.metadata.name) && p.documentName == 'JournalEntry');
+    let packs = await game.packs.filter(p => CONFIG.ARCHMAGE.classPacks.includes(p.metadata.name) && p.documentName == 'JournalEntry' && !p.metadata.name.includes("2e"));
+    let packs2e = [];
+    if (game.settings.get('archmage', 'secondEdition')) {
+      packs2e = await game.packs.filter(p => CONFIG.ARCHMAGE.classPacks.includes(p.metadata.name) && p.documentName == 'JournalEntry' && p.metadata.name.includes("2e"));
+    }
+    // Load 2e stuff later so it overrides 1e stuff if present
+    packs = packs.concat(packs2e);
     let entries = [];
     for (let i = 0; i < packs.length; i++) {
       let pack = await packs[i].getDocuments();
@@ -222,9 +241,11 @@ export class ArchmagePrepopulate {
         level: p.system.powerLevel.value,
         powerData: p,
         powerCard: chatData,
-        selected: p.system.powerType.value === 'feature'
-          && ['class', 'race'].includes(p.system.powerSource.value)
-          && !actorPowers.includes(p.system.powerOriginName.value)
+        // selected: p.system.powerType.value === 'feature'
+          // && ['class', 'race'].includes(p.system.powerSource.value)
+          // && !actorPowers.includes(p.system.powerOriginName.value)
+        selected: p.system.powerType.value === 'feature' && actorPowers.length == 0
+          && p.system.powerSource.value === 'class'
       };
     });
 
@@ -313,6 +334,7 @@ export class ArchmagePrepopulate {
     };
 
     for (let [classKey, classObject] of Object.entries(classCompendiums)) {
+      classKey = this.cleanClassName(classKey);
       let classPowerPage = await this.renderPowerPage({
         powers: this.getPowersFromPack(classObject.content, actor),
         className: classObject.name,

@@ -205,10 +205,10 @@ system:
         value: other
       quantity:
         type: Number
-        value: 1
+        value: 2
       maxQuantity:
         type: Number
-        value: 1
+        value: 2
 flags: {}
 img: icons/tools/hand/lockpicks-steel-grey.webp
 _id: snv6tvfdvUpLd1D6

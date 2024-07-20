@@ -623,32 +623,32 @@ ARCHMAGE:
     sequencerReverse: Reverse Sequence
     special: Special
     spellChain: Chain Spell
-    spellLevel2: 2nd Level Spell
+    spellLevel2: 2nd Level
     spellLevel2Placeholder: "[[2d6]] damage"
-    spellLevel3: 3rd Level Spell
+    spellLevel3: 3rd Level
     spellLevel3Placeholder: "[[3d6]] damage"
-    spellLevel4: 4th Level Spell
+    spellLevel4: 4th Level
     spellLevel4Placeholder: "[[4d6]] damage"
-    spellLevel5: 5th Level Spell
+    spellLevel5: 5th Level
     spellLevel5Placeholder: "[[5d6]] damage"
-    spellLevel6: 6th Level Spell
+    spellLevel6: 6th Level
     spellLevel6Placeholder: "[[6d6]] damage"
-    spellLevel7: 7th Level Spell
+    spellLevel7: 7th Level
     spellLevel7Placeholder: "[[7d6]] damage"
-    spellLevel8: 8th Level Spell
+    spellLevel8: 8th Level
     spellLevel8Placeholder: "[[8d6]] damage"
-    spellLevel9: 9th Level Spell
+    spellLevel9: 9th Level
     spellLevel9Placeholder: "[[9d6]] damage"
-    spellLevel10: 10th Level Spell
+    spellLevel10: 10th Level
     spellLevel10Placeholder: "[[10d6]] damage"
-    spellLevel11: 11th Level Spell
+    spellLevel11: 11th Level
     spellLevel11Placeholder: "[[11d6]] damage"
-    spellLevelTrigger: Level Spell
+    spellLevelTrigger: Level
     sustainedOrFinal: "Do you want to use the Final Verse instead of the Sustained Effect?"
     sustainedOrFinalTitle: "Use Final Verse"
     sustainPower: "Sustain {power} on {target}+"
     rollTable: RollTable
-    rollTablePlaceholder: Sneak Attack
+    rollTablePlaceholder: Sneak Attack Damage
     rollTableTitle: Name of a roll table to roll on use (only text supported)
     sustainedEffect: Opening and Sustained Effect
     sustainOn: Sustain On
