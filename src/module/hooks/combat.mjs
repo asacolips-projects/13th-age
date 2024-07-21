@@ -27,14 +27,18 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
 
     for (const effect of combatant.actor.effects) {
         if (!effect.active) continue;
+        const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+        effect.isOngoing = isOngoing;
         if (effect.name === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead")) isDead = true;
         const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
-            currentCombatantEffectData.selfEnded.push(effect);
-            effectsToDelete.push(effect.id);
+            // Ensure it's the *next* turn
+            if (combat.round  > effect.duration.startRound
+            || (combat.round == effect.duration.startRound && combat.turn > effect.duration.startTurn)) {
+                currentCombatantEffectData.selfEnded.push(effect);
+                effectsToDelete.push(effect.id);
+            }
         } else if (saveEndsEffects.includes(duration) && (prefix == "End" || (prefix == "Start" && hasImplacable))) {
-            const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
-            effect.isOngoing = isOngoing;
             currentCombatantEffectData.savesEnds.push(effect);
         } else if (duration === `${prefix}OfEachTurn`) {
             currentCombatantEffectData.selfTriggered.push(effect);
@@ -49,11 +53,17 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     for (const otherCombatant of combat.combatants) {
         effectsToDelete = [];
         for (const effect of otherCombatant.actor.effects) {
+            const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+            effect.isOngoing = isOngoing;
             const duration = effect.flags.archmage?.duration || "Unknown";
             if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
-                effect.otherName = otherCombatant.actor.name;
-                currentCombatantEffectData.otherEnded.push(effect);
-                effectsToDelete.push(effect.id);
+                // Ensure it's the *next* turn
+                if (combat.round  > effect.duration.startRound
+                || (combat.round == effect.duration.startRound && combat.turn > effect.duration.startTurn)) {
+                    effect.otherName = otherCombatant.actor.name;
+                    currentCombatantEffectData.otherEnded.push(effect);
+                    effectsToDelete.push(effect.id);
+                }
             }
         }
         // Auto-delete AEs
