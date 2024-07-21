@@ -1135,8 +1135,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
   }
 
   if (event.shiftKey) {
-    if ( token && game.release.version < 12 ) return token._object.toggleEffect(effectData, {active: true});
-    else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
   // Render modal dialog
   const sourceActor = await fromUuid(source);
@@ -1165,8 +1164,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
               options = {sourceTurnUuid: source};
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
-            if ( token && game.release.version < 12 ) return token._object.toggleEffect(effectData, {active: true});
-            else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+            return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },
         pen1: {

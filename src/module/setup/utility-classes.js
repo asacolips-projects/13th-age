@@ -565,6 +565,11 @@ export class MacroUtils {
         if (data.flags?.archmage?.duration) data.flags.archmage.duration = duration;
         else data['flags.archmage.duration'] = duration;
     }
+    // Set Foundry core duration to make the thing appear on tokens
+    data['duration'] = {
+      rounds: 999,
+      turns: 999
+    }
 
     return data;
   }
