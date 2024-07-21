@@ -10,8 +10,11 @@
   <div class="form-group">
     <label style="align-self: start;">{{localize 'ARCHMAGE.CHAT.duration'}}</label>
     <div class="form-fields" style="flex-direction: column; align-items: start;">
+      {{#if defaultDuration}}
       {{radioBoxes 'duration' durations checked=defaultDuration localize=true}}
+      {{else}}
+      {{radioBoxes 'duration' durations localize=true}}
+      {{/if}}
     </div>
-
   </div>
 </form>

@@ -1134,12 +1134,14 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
   }
   // Render modal dialog
   const sourceActor = await fromUuid(source);
+  let durations = foundry.utils.duplicate(CONFIG.ARCHMAGE.effectDurationTypes);
+  delete durations['Unknown'];
   const template = 'systems/archmage/templates/chat/apply-AE.html';
   let dialogData = {
     effectName: effectData.name,
     sourceName: sourceActor?.name ?? "",
-    defaultDuration: duration,
-    durations: CONFIG.ARCHMAGE.effectDurationTypes
+    defaultDuration: duration != 'Unknown' ? duration : "",
+    durations: durations
   };
   let do_apply = false;
 
@@ -1161,6 +1163,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
       close: html => {
         if (do_apply) {
           duration = html.find('[name="duration"]:checked').val();
+          if ( !duration ) duration = "Unknown";
           let options = []
           if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
             options = {sourceTurnUuid: source};
