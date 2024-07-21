@@ -91,13 +91,13 @@ export async function preDeleteCombat(combat, context, options) {
 
             for (const effect of combatant.actor.effects) {
                 if (!effect.active) continue;
+                const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+                effect.isOngoing = isOngoing;
                 const duration = effect.flags.archmage?.duration || "Unknown";
                 // If duration is "Infinite" skip
                 if (duration === "Infinite") continue;
                 // If it's a save-ends effect store it as such
                 else if (saveEndsEffects.includes(duration)) {
-                    const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
-                    effect.isOngoing = isOngoing;
                     currentCombatantEffectData.savesEnds.push(effect);
                 }
                 // If it's unknown also store it as such

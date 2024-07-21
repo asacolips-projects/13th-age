@@ -1089,14 +1089,14 @@ async function _applyAE(actor, data, token=undefined) {
       return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source);
     }
   }
-  // else if ( data.type === "effect" ) {
-    // const actorId = data.actorId;
-    // const sourceActor = game.actors.get(actorId);
-    // const effect = sourceActor.effects.get(data.id);
-    // let effectData = foundry.utils.duplicate(effect);
+  else if ( data.type === "effect" ) {
+    const actorId = data.actorId;
+    const sourceActor = game.actors.get(actorId);
+    const effect = sourceActor.effects.get(data.id);
+    let effectData = foundry.utils.duplicate(effect);
     // console.dir(effectData);
-    // return _applyAEDurationDialog(actor, effectData, "Unknown", data.source);
-  // }
+    return _applyAEDurationDialog(actor, effectData, "Unknown", data.source);
+  }
   else if ( data.type == "ongoing-damage" ) {
 
     // Load the source actor and grab its image if possible
@@ -1128,6 +1128,12 @@ async function _applyAE(actor, data, token=undefined) {
 }
 
 async function _applyAEDurationDialog(actor, effectData, duration, source, token=undefined) {
+  // If no effectData something went wrong, stop gracefully
+  if ( effectData == undefined ) {
+    ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnStatusEffect"));
+    return;
+  }
+  
   if (event.shiftKey) {
     if ( token ) return token._object.toggleEffect(effectData, {active: true});
     else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
