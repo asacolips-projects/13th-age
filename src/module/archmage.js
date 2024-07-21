@@ -869,7 +869,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         preview.classList.remove('colorBlindRG');
         preview.classList.add('colorBlindBY');
         break;
-    
+
       default:
         preview.classList.remove('colorBlindBY');
         preview.classList.remove('colorBlindRG');
@@ -1133,10 +1133,10 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
     ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnStatusEffect"));
     return;
   }
-  
+
   if (event.shiftKey) {
     if ( token ) {
-      if (game.release.version >= 12) return actor.toggleStatusEffect(effectData, {active: true});
+      if (game.release.version >= 12) return actor.toggleStatusEffect(effectData.id, {active: true});
       else return token._object.toggleEffect(effectData, {active: true});
     }
     else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
@@ -1169,7 +1169,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
             if ( token ) {
-              if (game.release.version >= 12) return actor.toggleStatusEffect(effectData, {active: true});
+              if (game.release.version >= 12) return actor.toggleStatusEffect(effectData.id, {active: true});
               else return token._object.toggleEffect(effectData, {active: true});
             }
             else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
