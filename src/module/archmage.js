@@ -1149,7 +1149,6 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
     defaultDuration: duration != 'Unknown' ? duration : "",
     durations: durations
   };
-  let do_apply = false;
 
   renderTemplate(template, dialogData).then(dlg => {
     new Dialog({
@@ -1158,27 +1157,24 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, token
       buttons: {
         apply: {
           label: game.i18n.localize("ARCHMAGE.CHAT.Apply"),
-          callback: () => { do_apply = true; }
+          callback: (html) => {
+            duration = html.find('[name="duration"]:checked').val();
+            if ( !duration ) duration = "Unknown";
+            let options = []
+            if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
+              options = {sourceTurnUuid: source};
+            }
+            game.archmage.MacroUtils.setDuration(effectData, duration, options);
+            if ( token ) return token._object.toggleEffect(effectData, {active: true});
+            else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+          }
         },
         pen1: {
           label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => { do_apply = false; }
+          callback: () => {}
         },
       },
-      default: 'apply',
-      close: html => {
-        if (do_apply) {
-          duration = html.find('[name="duration"]:checked').val();
-          if ( !duration ) duration = "Unknown";
-          let options = []
-          if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
-            options = {sourceTurnUuid: source};
-          }
-          game.archmage.MacroUtils.setDuration(effectData, duration, options);
-          if ( token ) return token._object.toggleEffect(effectData, {active: true});
-          else return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
-        }
-      }
+      default: 'apply'
     }).render(true);
   });
 }
