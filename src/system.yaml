@@ -288,4 +288,8 @@ primaryTokenAttribute: attributes.hp
 manifestPlusVersion: "1.1.0"
 media:
   - type: cover
+    loop: false
+    flags: {}
+  - type: setup
     url: https://mattsmithin-files.s3.amazonaws.com/toolkit13.png
+    thumbnail: https://mattsmithin-files.s3.amazonaws.com/toolkit13.png
