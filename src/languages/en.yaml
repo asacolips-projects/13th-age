@@ -454,8 +454,8 @@ ARCHMAGE:
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
-    rerollAc: Force reroll attack vs. AC
-    rerollSave: Reroll Save
+    rerollAcBonus: Force reroll attack vs. AC
+    rerollSaveBonus: Reroll Save
     strBonus: Strength checks bonus
     toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus
