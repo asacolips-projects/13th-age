@@ -138,7 +138,7 @@ system:
     dex:
       type: Number
       label: Dexterity
-      value: 20
+      value: 19
       min: 3
       mod: 0
     con:
@@ -162,7 +162,7 @@ system:
     cha:
       type: Number
       label: Charisma
-      value: 18
+      value: 17
       min: 3
       mod: 0
   backgrounds:

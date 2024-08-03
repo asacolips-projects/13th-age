@@ -133,13 +133,13 @@ system:
     str:
       type: Number
       label: Strength
-      value: 9
+      value: 14
       min: 3
       mod: 0
     dex:
       type: Number
       label: Dexterity
-      value: 19
+      value: 18
       min: 3
       mod: 0
     con:
@@ -163,7 +163,7 @@ system:
     cha:
       type: Number
       label: Charisma
-      value: 17
+      value: 16
       min: 3
       mod: 0
   backgrounds:
