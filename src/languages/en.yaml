@@ -523,6 +523,8 @@ ARCHMAGE:
     attack: Attack
     attackPlaceholder: "[[d20+@str.mod+@std]] vs. AC"
     attackTitle: Attack formula, such as "[[d20+@str.mod+@std]] vs. AC"
+    Apply: Apply
+    applyAETitle: Apply Active Effect?
     applyDamage: Apply Damage
     breathWeapon: Breath Weapon
     Cancel: Cancel
@@ -538,6 +540,7 @@ ARCHMAGE:
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
     disengage: Disengage Check
+    duration: Duration
     effect: Effect
     epic: Epic Feat
     even: even
@@ -621,6 +624,7 @@ ARCHMAGE:
     sequencerRay: Sequencer File (Ray)
     sequencerSelf: Sequencer File (Self)
     sequencerReverse: Reverse Sequence
+    source: Source
     special: Special
     spellChain: Chain Spell
     spellLevel2: 2nd Level
@@ -760,6 +764,7 @@ ARCHMAGE:
     errNotInteger: must be an integer number
     errNoInitiativeOutsideCombat: Can't roll initiative without an encounter in the combat tracker.
     errOnlyTextRolltables: Only text Roll Tables are supported for now.
+    warnStatusEffect: Effect data empty, can't apply this effect.
     warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
     warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.
     warnMacroItemNotOnActor: Your controlled Actor does not have an item named {item}.
