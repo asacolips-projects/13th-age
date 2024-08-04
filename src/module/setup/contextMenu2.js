@@ -110,7 +110,19 @@ export class ContextMenu2 {
     render(target) {
       let html = $("#context-menu2").length ? $("#context-menu2") : $('<nav id="context-menu2"></nav>');
       let ol = $('<ol class="context-items"></ol>');
-      html.html(ol);
+      html.append($(`<h2>${game.i18n.localize('ARCHMAGE.UI.applyChanges')}</h2>`));
+      html.append(ol);
+
+      // Determine if user-selected targets are allowed.
+      const allowTargeting = game.settings.get('archmage', 'allowTargetDamageApplication');
+      let targetType = game.settings.get('archmage', 'userTargetDamageApplicationType');
+      if (!allowTargeting && targetType !== 'selected') {
+        game.settings.set('archmage', 'userTargetDamageApplicationType', 'selected');
+        targetType = 'selected';
+      }
+
+      // Add default target type.
+      html[0].dataset.target = targetType;
   
       // Build menu items
       for (let item of this.menuItems) {
@@ -125,12 +137,20 @@ export class ContextMenu2 {
         // Construct and add the menu item
         let name = game.i18n.localize(item.name);
         let li = $(`<li class="context-item">${item.icon}${name}</li>`);
+        // If this is the target buttons option, set one of them to active.
+        if (name.includes('data-target="targeted"')) {
+          const button = li.find(`[data-target="${targetType}"]`);
+          button.addClass('active');
+        }
         li.children("i").addClass("fa-fw");
         li.click(e => {
           e.preventDefault();
           e.stopPropagation();
-          item.callback(target);
-          this.close();
+          item.callback(target, e);
+          // If this was a target button, prevent closing the context menu.
+          if (!item?.preventClose) {
+            this.close();
+          }
         });
         ol.append(li);
       }
@@ -140,6 +160,9 @@ export class ContextMenu2 {
   
       // Append to target
       this._setPosition(html, target);
+
+      // Deactivate global tooltip
+      game.tooltip.deactivate();
   
       // Animate open the menu
       return this._animateOpen(html);
