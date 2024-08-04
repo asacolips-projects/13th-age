@@ -10,7 +10,20 @@ export class DamageApplicator {
     return Number.parseInt(roll[0].innerText.trim());
   }
 
-  asDamage(roll, modifier) {
+  getTargets(targetType) {
+    const targets = targetType === 'targeted'
+      ? [...game.user.targets]
+      : canvas.tokens.controlled;
+
+    if (!targets || targets?.length < 1) {
+      ui.notifications.warn(game.i18n.localize(`ARCHMAGE.UI.${targetType === 'targeted' ? 'noTarget' : 'noToken'}`));
+      return [];
+    }
+
+    return targets;
+  }
+
+  asDamage(roll, modifier, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
@@ -20,12 +33,8 @@ export class DamageApplicator {
       toApply = Math.floor(toApply * modifier);
     }
 
-    let selected = canvas.tokens.controlled;
-    if (selected.length === 0) {
-      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.noToken"));
-      return;
-    }
-    selected.forEach(token => {
+    const targets = this.getTargets(targetType);
+    targets.forEach(token => {
       let actorData = foundry.utils.duplicate(token.actor);
       token.actor.update({
         "system.attributes.hp.value": actorData.system.attributes.hp.value - toApply,
@@ -33,7 +42,7 @@ export class DamageApplicator {
     });
   }
 
-  asHealing(roll, modifier) {
+  asHealing(roll, modifier, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
@@ -43,8 +52,8 @@ export class DamageApplicator {
       toApply = Math.floor(toApply * modifier);
     }
 
-    let selected = canvas.tokens.controlled;
-    selected.forEach(token => {
+    const targets = this.getTargets(targetType);
+    targets.forEach(token => {
       let actorData = foundry.utils.duplicate(token.actor);
       token.actor.update({
         "system.attributes.hp.value": Math.max(0, actorData.system.attributes.hp.value) + toApply,
@@ -52,10 +61,10 @@ export class DamageApplicator {
     });
   }
 
-  asTempHealth(roll) {
+  asTempHealth(roll, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
-    let selected = canvas.tokens.controlled;
-    selected.forEach(token => {
+    const targets = this.getTargets(targetType);
+    targets.forEach(token => {
       let actorData = foundry.utils.duplicate(token.actor);
       let hp = actorData.system.attributes["hp"];
       if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
