@@ -633,7 +633,7 @@ export class ItemArchmage extends Item {
     // Now create new AC bonus effect
     let effectData = {
       name: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
-      img: "icons/svg/shield.svg",
+      icon: "icons/svg/shield.svg",
       changes: [{
         key: "system.attributes.ac.value",
         value: bonusMagnitude,
