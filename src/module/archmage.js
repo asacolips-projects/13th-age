@@ -114,6 +114,7 @@ Hooks.once('init', async function() {
     rollItemMacro,
     ActorHelpersV2,
     ArchmageCompendiumBrowserApplication,
+    isSocketGM: () => game.users.activeGM.id === game.user.id,
     system: {
       moduleArt: {
         map: new Map(),
@@ -1460,7 +1461,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 });
 
 function _handleCondButtonMsg(msg) {
-  if (!game.user.isGM) return;
+  if (!game.archmage.isSocketGM) return;
   const chatMessage = game.messages.get(msg.msg);
   if (chatMessage) {
     if (msg.disable) {
@@ -1475,7 +1476,7 @@ function _handleCondButtonMsg(msg) {
 }
 
 function _handlecreateAEsMsg(msg) {
-  if (!game.user.isGM) return;
+  if (!game.archmage.isSocketGM()) return;
   msg.actorIds.forEach(id => {
     const actor = game.actors.get(id);
     actor.createEmbeddedDocuments("ActiveEffect", msg.effects);
@@ -1493,9 +1494,7 @@ function _handlecreateAEsMsg(msg) {
  * @returns {void}
  */
 function _handleApplyDamageHealing(data) {
-  // @todo we need to refactor our isGM handling to prevent
-  // double applications if multiple GMs are logged in.
-  if (!game.user.isGM) return;
+  if (!game.archmage.isSocketGM()) return;
   data.uuids.forEach(uuid => {
     // Retrieve a copy of the actor.
     const token = fromUuidSync(uuid);
