@@ -1482,21 +1482,64 @@ function _handlecreateAEsMsg(msg) {
   });
 }
 
+/**
+ * Handle damage/healing application emitted via sockets.
+ * 
+ * The DamageApplicator class supports applying damage to targeted
+ * tokens as an optional feature, and if doing so, it needs to be
+ * handled via a socket due to user permissions for unowned targets.
+ * 
+ * @param {object} data Operation data from the emitted socket.
+ * @returns {void}
+ */
+function _handleApplyDamageHealing(data) {
+  // @todo we need to refactor our isGM handling to prevent
+  // double applications if multiple GMs are logged in.
+  if (!game.user.isGM) return;
+  data.uuids.forEach(uuid => {
+    // Retrieve a copy of the actor.
+    const token = fromUuidSync(uuid);
+    const actor = token?.actor ?? false;
+    if (actor) {
+      const updates = {};
+      // Handle update operations.
+      if (data.operation === 'damage') {
+        updates[data.attr] = foundry.utils.getProperty(actor, data.attr) - data.value;
+      }
+      else if (data.operation === 'healing') {
+        updates[data.attr] = Math.max(0, foundry.utils.getProperty(actor, data.attr)) + data.value;
+      }
+      else if (data.operation === 'tempHealing') {
+        const hp = {...actor.system.attributes.hp};
+        if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
+        hp.temp = Math.max(hp.temp, data.value);
+        updates[data.attr] = hp.temp;
+      }
+      // Apply the update, if any.
+      if (updates?.[data.attr]) {
+        actor.update(updates);
+      }
+    }
+  });
+}
 
 Hooks.once('ready', async function () {
-  game.socket.on("system.archmage", (msg) => {
-    switch (msg.type) {
+  game.socket.on("system.archmage", (data) => {
+    switch (data.type) {
       case 'shareItem':
-        ItemArchmageSheet.handleShareItem(msg);
+        ItemArchmageSheet.handleShareItem(data);
         break;
       case 'condButton':
-        _handleCondButtonMsg(msg);
+        _handleCondButtonMsg(data);
         break;
       case 'createAEs':
-        _handlecreateAEsMsg(msg);
+        _handlecreateAEsMsg(data);
+        break;
+      case 'applyDamageHealing':
+        _handleApplyDamageHealing(data);
         break;
       default:
-        console.log(msg);
+        console.log(data);
     }
   });
 })

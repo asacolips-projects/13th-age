@@ -34,12 +34,25 @@ export class DamageApplicator {
     }
 
     const targets = this.getTargets(targetType);
-    targets.forEach(token => {
-      let actorData = foundry.utils.duplicate(token.actor);
-      token.actor.update({
-        "system.attributes.hp.value": actorData.system.attributes.hp.value - toApply,
+    // Apply damage if user is a GM.
+    if (game.user.isGM || targetType === 'selected') {
+      targets.forEach(token => {
+        let actorData = foundry.utils.duplicate(token.actor);
+        token.actor.update({
+          "system.attributes.hp.value": actorData.system.attributes.hp.value - toApply,
+        });
       });
-    });
+    }
+    // Otherwise, emit a socket so that a GM user can apply it.
+    else {
+      game.socket.emit('system.archmage', {
+        type: 'applyDamageHealing',
+        uuids: targets.map(t => t.document.uuid),
+        attr: 'system.attributes.hp.value',
+        operation: 'damage',
+        value: toApply,
+      });
+    }
   }
 
   asHealing(roll, modifier, targetType = 'selected') {
@@ -53,25 +66,50 @@ export class DamageApplicator {
     }
 
     const targets = this.getTargets(targetType);
-    targets.forEach(token => {
-      let actorData = foundry.utils.duplicate(token.actor);
-      token.actor.update({
-        "system.attributes.hp.value": Math.max(0, actorData.system.attributes.hp.value) + toApply,
+    // Apply damage if user is a GM.
+    if (game.user.isGM || targetType === 'selected') {
+      targets.forEach(token => {
+        let actorData = foundry.utils.duplicate(token.actor);
+        token.actor.update({
+          "system.attributes.hp.value": Math.max(0, actorData.system.attributes.hp.value) + toApply,
+        });
       });
-    });
+    }
+    // Otherwise, emit a socket so that a GM user can apply it.
+    else {
+      game.socket.emit('system.archmage', {
+        type: 'applyDamageHealing',
+        uuids: targets.map(t => t.document.uuid),
+        attr: 'system.attributes.hp.value',
+        operation: 'healing',
+        value: toApply,
+      });
+    }
   }
 
   asTempHealth(roll, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
     const targets = this.getTargets(targetType);
-    targets.forEach(token => {
-      let actorData = foundry.utils.duplicate(token.actor);
-      let hp = actorData.system.attributes["hp"];
-      if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
-      hp.temp = Math.max(hp.temp, toApply);
-      token.actor.update({
-        "system.attributes.hp.temp": hp.temp,
+    // Apply damage if user is a GM.
+    if (game.user.isGM || targetType === 'selected') {
+      targets.forEach(token => {
+        const hp = {...token.actor.system.attributes.hp};
+        if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
+        hp.temp = Math.max(hp.temp, toApply);
+        token.actor.update({
+          "system.attributes.hp.temp": hp.temp,
+        });
       });
-    });
+    }
+    // Otherwise, emit a socket so that a GM user can apply it.
+    else {
+      game.socket.emit('system.archmage', {
+        type: 'applyDamageHealing',
+        uuids: targets.map(t => t.document.uuid),
+        attr: 'system.attributes.hp.temp',
+        operation: 'tempHealing',
+        value: toApply,
+      });
+    }
   }
 }
