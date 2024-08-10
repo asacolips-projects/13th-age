@@ -239,7 +239,9 @@ module.exports = {
     Tour: false,
     parseMarkdown: false,
     NumericTerm: false,
-    OperatorTerm: false
+    OperatorTerm: false,
+    fromUuid: false,
+    fromUuidSync: false,
   },
 
   overrides: [
