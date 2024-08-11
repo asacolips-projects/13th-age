@@ -1,7 +1,9 @@
 export default class Targeting {
 
-    static getTargetsFromRowText(row_text, $row_self, numTargets) {
-        let targets = [...game.user.targets.values()];
+    static getTargetsFromRowText(row_text, $row_self, numTargets, cachedTargets = []) {
+        let targets = cachedTargets.length < 1
+            ? [...game.user.targets.values()] 
+            : cachedTargets.map(uuid => fromUuidSync(uuid));
 
         if (targets.length == 0) return [];
 

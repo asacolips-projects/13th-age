@@ -1,4 +1,4 @@
-<div class="archmage chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}" {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
+<div class="archmage chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}" {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}} data-actor-uuid="{{actor.uuid}}">
     <header class="card-header flexrow">
         <img src="{{item.img}}" title="{{item.name}} - {{featName}}" width="36" height="36"/>
         <h3 class="ability-usage ability-usage--{{feat.powerUsage.value}}">{{item.name}} - {{featName}}</h3>

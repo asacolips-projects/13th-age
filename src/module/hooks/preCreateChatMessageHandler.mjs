@@ -173,20 +173,20 @@ export default class preCreateChatMessageHandler {
 
                     // Append hit targets to text
                     if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.hit") + ':') && hitEvaluationResults.targetsHit.length > 0) {
-                        $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
+                        $row_self.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
                             hitEvaluationResults.targetsHit,
                             hitEvaluationResults.targetsCrit) + ") </span>")
                     }
                     // Append missed targets to text
                     if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.miss") + ':') && hitEvaluationResults.targetsMissed.length > 0) {
-                        $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
+                        $row_self.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
                             hitEvaluationResults.targetsMissed,
                             hitEvaluationResults.targetsFumbled) + ") </span>")
                     }
                     // Append target defenses to text
                     if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':') && hitEvaluationResults.defenses.length > 0
                         && game.settings.get("archmage", "showDefensesInChat")) {
-                        $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
+                        $row_self.append("<span class='dc-target'> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
                 }
 

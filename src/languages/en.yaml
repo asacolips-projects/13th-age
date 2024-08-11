@@ -34,6 +34,7 @@ ARCHMAGE:
   checkSkillFormat: "{name} Skill Check"
   class: Class
   Conflicted: Conflicted
+  contextReroll: Reroll
   contextApplyDamage: Apply as Damage
   contextApplyDamageHalf: Apply as Half Damage
   contextApplyDamageDouble: Apply as Double Damage

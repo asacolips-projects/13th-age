@@ -126,7 +126,7 @@ export class ContextMenu2 {
   
       // Build menu items
       for (let item of this.menuItems) {
-  
+        
         // Determine menu item visibility (display unless false)
         let display = true;
         if ( item.condition !== undefined ) {

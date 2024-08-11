@@ -115,6 +115,16 @@ export class ItemArchmage extends Item {
       return undefined;
     }
 
+    // Handle flags for rerolls.
+    chatData.flags = chatData.flags ?? {};
+    chatData.flags.archmage = {
+      // Add flags for IDs and targets.
+      actor: itemToRender.actor.uuid,
+      item: itemToRender.uuid,
+      targets: [...game.user.targets.map(t => t.document.uuid)],
+      numTargets: targets,
+    };
+
     return await game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
@@ -828,7 +838,7 @@ export class ItemArchmage extends Item {
         user: game.user.id,
         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
-        speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
+        speaker: game.archmage.ArchmageUtility.getSpeaker(actor),
       };
 
       const templateData = {

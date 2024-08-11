@@ -19,6 +19,9 @@ import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
+import HitEvaluation from "./rolls/HitEvaluation.mjs";
+import Targeting from './rolls/Targeting.mjs';
+import Triggers from './Triggers/Triggers.mjs';
 
 
 Hooks.once('init', async function() {
@@ -1214,7 +1217,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   html.find('.inline-roll--archmage').each(function() {
     var uuid = uuidv4();
     // Add a way to uniquely identify this roll
-    $(this).addClass(uuid);
+    $(this)[0].dataset.uuid = uuid;
     $(this).off("contextmenu");
 
     const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ":";
@@ -1227,9 +1230,11 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     }
 
     const triggerAttack = game.i18n.localize("ARCHMAGE.attack") + ":";
+    let isAttack = false;
     if ($(this).parent()[0].innerText.includes(triggerAttack)) {
       // Ignore if this is a "Attack:" line.
-      return;
+      // return;
+      isAttack = true;
     }
 
     // Determine if applying damage to targets is allowed.
@@ -1243,7 +1248,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     // Build the list of menu items, starting with the target buttons
     // if allowed.
     let menuItems = [];
-    if (allowTargeting) {
+    if (allowTargeting && !isAttack) {
       menuItems.push({
         name: `
           <div class="damage-target flex flexrow">
@@ -1271,74 +1276,212 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       });
     }
 
-    // Add all of the damage/healing options.
-    menuItems.push(
-      {
-        name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
-        icon: '<i class="fas fa-tint"></i>',
-        callback: (inlineRoll, event) => {
-          const menu = inlineRoll.find('#context-menu2')?.[0];
-          const targetType = menu?.dataset?.target ?? 'selected';
-          new DamageApplicator().asDamage(inlineRoll, 1, targetType);
-        }
-      },
-      {
-        name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
-        icon: '<i class="fas fa-tint"></i>',
-        callback: (inlineRoll, event) => {
-          const menu = inlineRoll.find('#context-menu2')?.[0];
-          const targetType = menu?.dataset?.target ?? 'selected';
-          new DamageApplicator().asDamage(inlineRoll, .5, targetType);
-        }
-      },
-      {
-        name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
-        icon: '<i class="fas fa-tint"></i>',
-        callback: (inlineRoll, event) => {
-          const menu = inlineRoll.find('#context-menu2')?.[0];
-          const targetType = menu?.dataset?.target ?? 'selected';
-          new DamageApplicator().asDamage(inlineRoll, 2, targetType);
-        }
-      },
-      {
-        name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
-        icon: '<i class="fas fa-tint"></i>',
-        callback: (inlineRoll, event) => {
-          const menu = inlineRoll.find('#context-menu2')?.[0];
-          const targetType = menu?.dataset?.target ?? 'selected';
-          new DamageApplicator().asDamage(inlineRoll, 3, targetType);
-        }
-      },
-      {
-        name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
-        icon: '<i class="fas fa-medkit"></i>',
-        callback: (inlineRoll, event) => {
-          const menu = inlineRoll.find('#context-menu2')?.[0];
-          const targetType = menu?.dataset?.target ?? 'selected';
-          new DamageApplicator().asHealing(inlineRoll, 1, targetType);
-        }
-      },
-      {
-        name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
-        icon: '<i class="fas fa-medkit"></i>',
-        callback: (inlineRoll, event) => {
-          const menu = inlineRoll.find('#context-menu2')?.[0];
-          const targetType = menu?.dataset?.target ?? 'selected';
-          new DamageApplicator().asHealing(inlineRoll, .5, targetType);
-        }
-      },
-      {
-        name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
-        icon: '<i class="fas fa-heart"></i>',
-        callback: (inlineRoll, event) => {
-          const menu = inlineRoll.find('#context-menu2')?.[0];
-          const targetType = menu?.dataset?.target ?? 'selected';
-          new DamageApplicator().asTempHealth(inlineRoll, targetType);
-        }
-      }
-    );
+    // Add the reroll action regardless of whether or not this is an attack.
+    if (game.user.isGM || options.message.author === game.user.id) {
+      menuItems.push({
+        name: game.i18n.localize("ARCHMAGE.contextReroll"),
+        icon: '<i class="fas fa-rotate-left"></i>',
+        callback: async (inlineroll, event) => {
+          const element = inlineroll[0];
+          const rollRaw = element.dataset?.roll ?? false;
+          // If there's a roll data prop, proceed.
+          if (rollRaw) {
+            // Build a new copy of the roll.
+            const roll = Roll.fromJSON(unescape(rollRaw));
+            // Get the actor and message.
+            const actorElement = element.closest('[data-actor-uuid]');
+            const messageElement = element.closest('[data-message-id]');
+            const actor = actorElement?.dataset?.actorUuid ? await fromUuid(actorElement.dataset.actorUuid) : false;
+            const message = messageElement?.dataset?.messageId ? game.messages.get(messageElement.dataset.messageId) : false;
+            const rowElement = inlineroll.parent('.card-prop');
+            const rowText = rowElement?.text() ?? '';
 
-    new ContextMenu2($(this).parent(), "." + uuid, menuItems);
+            // Only proceed if those were valid.
+            if (actor && message) {
+              // Reroll and store.
+              const rollData = actor.getRollData();
+              roll.data = rollData;
+              const newRoll = await roll.reroll();
+              // Show Dice So Nice roll.
+              if (game.dice3d) {
+                const chatData = {
+                  whisper: message.whisper,
+                  blind: message.blind,
+                  speaker: message.speaker,
+                };
+                await game.archmage.ArchmageUtility.show3DDiceForRoll(newRoll, chatData, messageElement.dataset.messageId)
+              }
+              // Apply changes to the DOM.
+              element.dataset.roll = escape(JSON.stringify(newRoll.toJSON()));
+              const rollContent = element.innerHTML.replace(/(<\/i>)(\s*)(\d+)/g, (full, p1, p2, p3) => `${p1}${p2}${newRoll.total}`);
+              element.innerHTML = rollContent;
+              // Re-evaluate styling for attack lines.
+              if (rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.target")}:`)
+                || rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`)) {
+                // Remove existing crit/fail classes.
+                element.classList.remove('dc-crit');
+                element.classList.remove('dc-fail');
+                // @todo handle actual targets and crit range modifications.
+                const targetOptions = {
+                  numTargets: message?.flags?.archmage?.numTargets ?? 0,
+                  cachedTargets: message?.flags?.archmage?.targets ?? [],
+                };
+                const $attackRow = $(element.closest('.card-prop'));
+                const targets = Targeting.getTargetsFromRowText(rowText, $attackRow, targetOptions.numTargets, targetOptions.cachedTargets);
+                const addEdToCritRange = false;
+                const hitEvaluationResults = HitEvaluation.processRowText(rowText, targets, $attackRow, actor, addEdToCritRange);
+
+                if (hitEvaluationResults.defenses.length > 0) {
+                  // @todo Re-evaluate rolls here.
+                  const rows = element.closest('.card-row').querySelectorAll('.card-prop');
+                  rows.forEach((rowSelf) => {
+                    let $rowSelf = $(rowSelf);
+                    let rowSelfText = $rowSelf.html();
+                    const rowCleanText = $rowSelf.text();
+
+                    // Remove existing targets.
+                    $rowSelf.find('.dc-target')?.remove();
+
+                    // Append hit targets to text
+                    if (rowCleanText.startsWith(game.i18n.localize("ARCHMAGE.CHAT.hit") + ':') && hitEvaluationResults.targetsHit.length > 0) {
+                      $rowSelf.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
+                        hitEvaluationResults.targetsHit,
+                        hitEvaluationResults.targetsCrit) + ") </span>")
+                    }
+                    // Append missed targets to text
+                    if (rowCleanText.startsWith(game.i18n.localize("ARCHMAGE.CHAT.miss") + ':') && hitEvaluationResults.targetsMissed.length > 0) {
+                      $rowSelf.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
+                        hitEvaluationResults.targetsMissed,
+                        hitEvaluationResults.targetsFumbled) + ") </span>")
+                    }
+                    // Append target defenses to text
+                    if (rowCleanText.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':') && hitEvaluationResults.defenses.length > 0
+                      && game.settings.get("archmage", "showDefensesInChat")) {
+                      $rowSelf.append("<span class='dc-target'> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
+                    }
+
+                    let triggerText = rowSelfText.toLowerCase();
+                    if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.natural").toLowerCase()) ||
+                      triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':') ||
+                      triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase() + ':') ||
+                      triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase() + ':') ||
+                      triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitEven").toLowerCase() + ':') ||
+                      triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitOdd").toLowerCase() + ':')) {
+                      let triggers = new Triggers();
+                      let active = triggers.evaluateRow(rowSelfText, hitEvaluationResults.$rolls, hitEvaluationResults);
+
+                      // Remove previous classes.
+                      $rowSelf.removeClass('trigger-unknown')
+                        .removeClass('trigger-active')
+                        .removeClass('trigger-miss')
+                        .removeClass('trigger-inactive');
+  
+                      if (active == undefined) {
+                        $rowSelf.addClass("trigger-unknown");
+                      } else if (active) {
+                        $rowSelf.addClass("trigger-active");
+                        if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':')) {
+                          $rowSelf.addClass("trigger-miss");
+                        }
+                      } else {
+                        $rowSelf.addClass("trigger-inactive");
+                        if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
+                          $rowSelf.addClass("hide");
+                        }
+                      }
+                    }
+                  });
+                }
+              }
+              // Force the context closed since we just manipulated the DOM.
+              if (ui.context) {
+                ui.context.close();
+              }
+              // Add a short timeout to allow the DOM to update before updating the message document.
+              setTimeout(() => {
+                const contentElement = element.closest('[data-actor-uuid]');
+                if (contentElement) {
+                  message.update({content: contentElement.outerHTML});
+                }
+              }, 250);
+            }
+          }
+        }
+      });
+    }
+
+    // Add all of the damage/healing options.
+    if (!isAttack) {
+
+      menuItems.push(
+        {
+          name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
+          icon: '<i class="fas fa-tint"></i>',
+          callback: (inlineRoll, event) => {
+            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const targetType = menu?.dataset?.target ?? 'selected';
+            new DamageApplicator().asDamage(inlineRoll, 1, targetType);
+          }
+        },
+        {
+          name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
+          icon: '<i class="fas fa-tint"></i>',
+          callback: (inlineRoll, event) => {
+            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const targetType = menu?.dataset?.target ?? 'selected';
+            new DamageApplicator().asDamage(inlineRoll, .5, targetType);
+          }
+        },
+        {
+          name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
+          icon: '<i class="fas fa-tint"></i>',
+          callback: (inlineRoll, event) => {
+            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const targetType = menu?.dataset?.target ?? 'selected';
+            new DamageApplicator().asDamage(inlineRoll, 2, targetType);
+          }
+        },
+        {
+          name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
+          icon: '<i class="fas fa-tint"></i>',
+          callback: (inlineRoll, event) => {
+            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const targetType = menu?.dataset?.target ?? 'selected';
+            new DamageApplicator().asDamage(inlineRoll, 3, targetType);
+          }
+        },
+        {
+          name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
+          icon: '<i class="fas fa-medkit"></i>',
+          callback: (inlineRoll, event) => {
+            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const targetType = menu?.dataset?.target ?? 'selected';
+            new DamageApplicator().asHealing(inlineRoll, 1, targetType);
+          }
+        },
+        {
+          name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
+          icon: '<i class="fas fa-medkit"></i>',
+          callback: (inlineRoll, event) => {
+            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const targetType = menu?.dataset?.target ?? 'selected';
+            new DamageApplicator().asHealing(inlineRoll, .5, targetType);
+          }
+        },
+        {
+          name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
+          icon: '<i class="fas fa-heart"></i>',
+          callback: (inlineRoll, event) => {
+            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const targetType = menu?.dataset?.target ?? 'selected';
+            new DamageApplicator().asTempHealth(inlineRoll, targetType);
+          }
+        }
+      );
+    }
+
+    // Bind the context menu to the event.
+    new ContextMenu2($(this).parent(), `[data-uuid=${uuid}]`, menuItems);
   });
   html.find('a.inline-roll--archmage').on('click', async event => {
     event.preventDefault();
