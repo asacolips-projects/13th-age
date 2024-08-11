@@ -352,8 +352,20 @@ export default {
   // Handle created hook.
   async created() {
     console.log("Creating compendium browser powers tab...");
-    // Load the pack index with the fields we need.
-    getPackIndex([
+    // Handle packs.
+    const packIds = game.modules.get('13th-age-core-2e')?.active ? [
+      '13th-age-core-2e.barbarian-2e',
+      '13th-age-core-2e.bard-2e',
+      '13th-age-core-2e.cleric-2e',
+      '13th-age-core-2e.fighter-2e',
+      '13th-age-core-2e.paladin-2e',
+      '13th-age-core-2e.ranger-2e',
+      '13th-age-core-2e.rogue-2e',
+      '13th-age-core-2e.sorcerer-2e',
+      '13th-age-core-2e.wizard-2e',
+      '13th-age-core-2e.kin-powers-2e',
+      '13th-age-core-2e.universal-feats-2e',
+    ] : [
       'archmage.barbarian',
       'archmage.bard',
       'archmage.cleric',
@@ -364,13 +376,10 @@ export default {
       'archmage.rogue',
       'archmage.sorcerer',
       'archmage.wizard',
-      'archmage.chaosmage',
-      'archmage.commander',
-      'archmage.druid',
-      'archmage.monk',
-      'archmage.necromancer',
-      'archmage.occultist',
-    ], [
+    ];
+
+    // Load the pack index with the fields we need.
+    getPackIndex(packIds, [
       'system.powerSourceName.value',
       'system.powerType.value',
       'system.powerLevel.value',
