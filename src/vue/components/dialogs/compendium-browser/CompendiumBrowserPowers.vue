@@ -365,6 +365,12 @@ export default {
       '13th-age-core-2e.wizard-2e',
       '13th-age-core-2e.kin-powers-2e',
       '13th-age-core-2e.universal-feats-2e',
+      'archmage.chaosmage',
+      'archmage.commander',
+      'archmage.druid',
+      'archmage.monk',
+      'archmage.necromancer',
+      'archmage.occultist',
     ] : [
       'archmage.barbarian',
       'archmage.bard',
@@ -376,6 +382,12 @@ export default {
       'archmage.rogue',
       'archmage.sorcerer',
       'archmage.wizard',
+      'archmage.chaosmage',
+      'archmage.commander',
+      'archmage.druid',
+      'archmage.monk',
+      'archmage.necromancer',
+      'archmage.occultist',
     ];
 
     // Load the pack index with the fields we need.
