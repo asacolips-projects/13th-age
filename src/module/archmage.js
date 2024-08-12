@@ -1214,7 +1214,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
   // Override the inline roll click behavior.
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
-  html.find('.inline-roll--archmage').each(function() {
+  html.find('.dice-roll').addClass('dice-roll--archmage');
+  html.find('.inline-roll--archmage, .dice-roll--archmage').each(function() {
     var uuid = uuidv4();
     // Add a way to uniquely identify this roll
     $(this)[0].dataset.uuid = uuid;
@@ -1281,11 +1282,12 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       menuItems.push({
         name: game.i18n.localize("ARCHMAGE.contextReroll"),
         icon: '<i class="fas fa-rotate-left"></i>',
-        callback: async (inlineroll, event) => {
-          const element = inlineroll[0];
+        callback: async (html, event) => {
+          const element = html[0];
           const rollRaw = element.dataset?.roll ?? false;
           // If there's a roll data prop, proceed.
           if (rollRaw) {
+            const inlineroll = html;
             // Build a new copy of the roll.
             const roll = Roll.fromJSON(unescape(rollRaw));
             // Get the actor and message.
@@ -1406,12 +1408,49 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
               }, 250);
             }
           }
+          else {
+            const rollFormula = element.querySelector('.dice-formula')?.innerText ?? false;
+            console.log('rollFormula', element.querySelector('.dice-formula'), rollFormula);
+            if (rollFormula) {
+              const messageElement = element.closest('[data-message-id]');
+              const message = messageElement?.dataset?.messageId ? game.messages.get(messageElement.dataset.messageId) : false;
+              const newRoll = new Roll(rollFormula);
+              await newRoll.evaluate();
+              // Show Dice So Nice roll.
+              if (game.dice3d) {
+                const chatData = {
+                  whisper: message.whisper,
+                  blind: message.blind,
+                  speaker: message.speaker,
+                };
+                await game.archmage.ArchmageUtility.show3DDiceForRoll(newRoll, chatData, messageElement.dataset.messageId)
+              }
+              // @todo also update the dice roll icons.
+              element.querySelector('.dice-total').innerText = newRoll.total;
+              // Force the context closed since we just manipulated the DOM.
+              if (ui.context) {
+                ui.context.close();
+              }
+              // Add a short timeout to allow the DOM to update before updating the message document.
+              setTimeout(() => {
+                const contentElement = element.closest('.dice-roll--archmage');
+                if (contentElement) {
+                  message.update({content: contentElement.outerHTML});
+                }
+              }, 250);
+            }
+          }
         }
       });
     }
 
     // Add all of the damage/healing options.
     if (!isAttack) {
+      function getRollFromElement(element) {
+        return element.hasClass('inline-roll--archmage')
+          ? element
+          : element.find('.dice-total');
+      }
 
       menuItems.push(
         {
@@ -1420,7 +1459,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           callback: (inlineRoll, event) => {
             const menu = inlineRoll.find('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
-            new DamageApplicator().asDamage(inlineRoll, 1, targetType);
+            new DamageApplicator().asDamage(getRollFromElement(inlineRoll), 1, targetType);
           }
         },
         {
@@ -1429,7 +1468,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           callback: (inlineRoll, event) => {
             const menu = inlineRoll.find('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
-            new DamageApplicator().asDamage(inlineRoll, .5, targetType);
+            new DamageApplicator().asDamage(getRollFromElement(inlineRoll), .5, targetType);
           }
         },
         {
@@ -1438,7 +1477,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           callback: (inlineRoll, event) => {
             const menu = inlineRoll.find('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
-            new DamageApplicator().asDamage(inlineRoll, 2, targetType);
+            new DamageApplicator().asDamage(getRollFromElement(inlineRoll), 2, targetType);
           }
         },
         {
@@ -1447,7 +1486,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           callback: (inlineRoll, event) => {
             const menu = inlineRoll.find('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
-            new DamageApplicator().asDamage(inlineRoll, 3, targetType);
+            new DamageApplicator().asDamage(getRollFromElement(inlineRoll), 3, targetType);
           }
         },
         {
@@ -1456,7 +1495,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           callback: (inlineRoll, event) => {
             const menu = inlineRoll.find('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
-            new DamageApplicator().asHealing(inlineRoll, 1, targetType);
+            new DamageApplicator().asHealing(getRollFromElement(inlineRoll), 1, targetType);
           }
         },
         {
@@ -1465,7 +1504,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           callback: (inlineRoll, event) => {
             const menu = inlineRoll.find('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
-            new DamageApplicator().asHealing(inlineRoll, .5, targetType);
+            new DamageApplicator().asHealing(getRollFromElement(inlineRoll), .5, targetType);
           }
         },
         {
@@ -1474,7 +1513,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           callback: (inlineRoll, event) => {
             const menu = inlineRoll.find('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
-            new DamageApplicator().asTempHealth(inlineRoll, targetType);
+            new DamageApplicator().asTempHealth(getRollFromElement(inlineRoll), targetType);
           }
         }
       );
