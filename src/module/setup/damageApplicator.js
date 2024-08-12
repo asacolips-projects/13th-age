@@ -23,7 +23,7 @@ export class DamageApplicator {
     return targets;
   }
 
-  asDamage(roll, modifier, targetType = 'selected') {
+  asDamage(roll, modifier = 1, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
@@ -55,7 +55,7 @@ export class DamageApplicator {
     }
   }
 
-  asHealing(roll, modifier, targetType = 'selected') {
+  asHealing(roll, modifier = 1, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
@@ -87,8 +87,14 @@ export class DamageApplicator {
     }
   }
 
-  asTempHealth(roll, targetType = 'selected') {
+  asTempHealth(roll, modifier = 1, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
+    if (game.settings.get('archmage', 'roundUpDamageApplication')) {
+      toApply = Math.ceil(toApply * modifier);
+    }
+    else {
+      toApply = Math.floor(toApply * modifier);
+    }
     const targets = this.getTargets(targetType);
     // Apply damage if user is a GM.
     if (game.user.isGM || targetType === 'selected') {

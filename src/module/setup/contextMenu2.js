@@ -108,7 +108,7 @@ export class ContextMenu2 {
      * @param target
      */
     render(target) {
-      let html = $("#context-menu2").length ? $("#context-menu2") : $('<nav id="context-menu2"></nav>');
+      let html = $("#context-menu2").length ? $("#context-menu2") : $('<nav id="context-menu2" data-mod="1"></nav>');
       let ol = $('<ol class="context-items"></ol>');
       html.append($(`<h2>${game.i18n.localize('ARCHMAGE.UI.applyChanges')}</h2>`));
       html.append(ol);
@@ -136,7 +136,7 @@ export class ContextMenu2 {
   
         // Construct and add the menu item
         let name = game.i18n.localize(item.name);
-        let li = $(`<li class="context-item">${item.icon}${name}</li>`);
+        let li = $(`<li class="context-item ${item?.id ?? ''}">${item.icon}${name}</li>`);
         // If this is the target buttons option, set one of them to active.
         if (name.includes('data-target="targeted"')) {
           const button = li.find(`[data-target="${targetType}"]`);
