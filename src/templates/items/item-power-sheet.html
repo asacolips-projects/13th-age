@@ -16,6 +16,7 @@
             <nav class="sheet-tabs tabs" data-group="primary">
                 <a class="item" data-tab="description">{{localize 'ARCHMAGE.description'}}</a>
                 <a class="item" data-tab="details">{{localize 'ARCHMAGE.details'}}</a>
+                <a class="item" data-tab="effects">{{localize 'ARCHMAGE.effects'}}</a>
             </nav>
 
             <div class="sheet-tabs-content">
@@ -380,6 +381,61 @@
                       </details>
                   </div>
               </div>
+
+                {{!-- Effects --}}
+                <div class="tab" data-group="primary" data-tab="effects">
+                    <section class="section section--effects">
+                        <section class="effects-group">
+                            <div class="effects-group-header">
+                                <div class="effects-header-title grid effects-grid">
+                                    <h2 class="effects-group-title unit-title">{{localize 'ARCHMAGE.effects'}}</h2>
+                                    <div class="item-controls effect-controls">
+                                        <a class="effect-control" data-action="create" title="{{localize 'ARCHMAGE.EFFECT.AE.new'}}"><i class="fas fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="effects-group-content flexcol">
+                                {{#each effects as |effect effectKey|}}
+                                <li class="item effects-item effect-{{effect._id}} {{#if effect.disabled}}effects-disabled{{/if}}" data-effect-id="{{effect._id}}" data-draggable="true" draggable="true">
+                                    <div class="effects-summary grid effects-grid effects">
+                                        <div class="effects-icon">
+                                            <img src="{{effect.img}}" class="effects-image"/>
+                                        </div>
+                                        <a class="effects-name" data-effects-id="{{effect._id}}">
+                                            <h3 class="effects-title unit-subtitle">{{effect.name}}</h3>
+                                        </a>
+                                        <div class="effects-bonus flexrow">
+                                            {{!-- render bonuses here --}}
+                                            {{#each effect.bonuses as |bonus bonusKey|}}
+                                            <div class="bonus">
+                                                <span class="bonus-label"><i class="{{bonus.icon}}"></i> {{bonus.name}} </span>
+                                                <span class="bonus-mode"><i class="fas fa-{{bonus.mode}}"></i> </span>
+                                                <span class="bonus-value">{{numberFormat bonus.value decimals=0 sign=false}}</span>
+                                            </div>
+                                            {{/each}}
+                                            {{#if effect.ongoingDamage}}
+                                            <div class="bonus">
+                                                <span class="bonus-label"><i class="fas fa-flask-round-poison"></i> {{effect.ongoingDamage}}</span>
+                                            </div>
+                                            {{/if}}
+                                            {{#if effect.duration}}
+                                            <div class="bonus">
+                                                <span class="bonus-label"><i class="fas fa-timer"></i> {{effect.duration}}</span>
+                                            </div>
+                                            {{/if}}
+                                        </div>
+                                        <div class="item-controls effect-controls">
+                                        <a class="effect-control" data-item-id="{{effect._id}}" data-action="toggle" title="{{localize 'ARCHMAGE.EFFECT.AE.toggle'}}"><i class="fas fa-{{#if effect.disabled}}check{{else}}times{{/if}}"></i></a>
+                                        <a class="effect-control" data-item-id="{{effect._id}}" data-action="edit" title="{{localize 'ARCHMAGE.EFFECT.AE.edit'}}"><i class="fas fa-edit"></i></a>
+                                        <a class="effect-control" data-item-id="{{effect._id}}" data-action="delete" title="{{localize 'ARCHMAGE.EFFECT.AE.delete'}}"><i class="fas fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </section>
+                    </section>
+                </div>
             </div>
         </section>
 
