@@ -1092,6 +1092,7 @@ async function _applyAE(actor, data) {
   else if ( data.type === "effect" || data.type === 'ActiveEffect' ) {
     const actorId = data.actorId;
     const sourceActor = game.actors.get(actorId);
+    console.log('data', data);
     const effect = data.uuid ? fromUuidSync(data.uuid) : sourceActor.effects.get(data.id);
     let effectData = foundry.utils.duplicate(effect);
     // console.dir(effectData);
