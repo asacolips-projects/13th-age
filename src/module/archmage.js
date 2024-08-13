@@ -1017,8 +1017,14 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 /* -------------------------------------------- */
 
-Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-  return await _applyAE(actor, data);
+Hooks.on('dropActorSheetData', (actor, sheet, data) => {
+  const types = ['effect', 'ActiveEffect', 'condition', 'ongoing-damage'];
+  if (types.includes(data.type)) {
+    // Render the condition dialog and apply the effect.
+    _applyAE(actor, data);
+    // Return false to prevent Foundry from adding a duplicate effect.
+    return false;
+  }
 });
 
 /* ---------------------------------------------- */
@@ -1071,7 +1077,7 @@ async function _applyAE(actor, data) {
       statusEffect.name = statusEffect.label;
       statusEffect.origin = data.source;
 
-      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source);
+      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
     }
     else {
       // Just a generic condition, transfer the name
@@ -1080,16 +1086,16 @@ async function _applyAE(actor, data) {
         icon: 'icons/svg/aura.svg',
         origin: data.source
       };
-      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source);
+      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
     }
   }
-  else if ( data.type === "effect" ) {
+  else if ( data.type === "effect" || data.type === 'ActiveEffect' ) {
     const actorId = data.actorId;
     const sourceActor = game.actors.get(actorId);
-    const effect = sourceActor.effects.get(data.id);
+    const effect = data.uuid ? fromUuidSync(data.uuid) : sourceActor.effects.get(data.id);
     let effectData = foundry.utils.duplicate(effect);
     // console.dir(effectData);
-    return _applyAEDurationDialog(actor, effectData, "Unknown", data.source);
+    return _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
   }
   else if ( data.type == "ongoing-damage" ) {
 
@@ -1110,16 +1116,21 @@ async function _applyAE(actor, data) {
         }
       }
     }
-    return await _applyAEDurationDialog(actor, effectData, data.ends, data.source);
+    return await _applyAEDurationDialog(actor, effectData, data.ends, data.source, data.type);
   }
 }
 
-async function _applyAEDurationDialog(actor, effectData, duration, source) {
+async function _applyAEDurationDialog(actor, effectData, duration, source, type = null) {
   // If no effectData something went wrong, stop gracefully
   if ( effectData == undefined ) {
     ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnStatusEffect"));
     return;
   }
+
+  // If this isn't an ongoing effect, prevent stacking.
+  const originalEffect = type !== 'ongoing-damage'
+    ? actor.effects.getName(effectData.name)
+    : null;
 
   // Shift bypass
   if (event.shiftKey) {
@@ -1129,7 +1140,9 @@ async function _applyAEDurationDialog(actor, effectData, duration, source) {
       options = {sourceTurnUuid: source};
     }
     game.archmage.MacroUtils.setDuration(effectData, duration, options);
-    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return originalEffect
+      ? originalEffect.update(effectData)
+      : actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   // Render modal dialog
@@ -1159,7 +1172,9 @@ async function _applyAEDurationDialog(actor, effectData, duration, source) {
               options = {sourceTurnUuid: source};
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
-            return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+            return originalEffect
+              ? originalEffect.update(effectData)
+              : actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },
         pen1: {

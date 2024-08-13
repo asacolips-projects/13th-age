@@ -27,6 +27,17 @@ export default class preCreateChatMessageHandler {
         }
     }
 
+    static replaceActiveEffectLinkReferences(uuid, $content) {
+        const elements = $content[0].querySelectorAll('.content-link[data-type="ActiveEffect"]');
+        elements.forEach((element) => {
+            const effect = fromUuidSync(element.dataset.uuid);
+            element.classList.add('effect-link');
+            element.classList.remove('content-link');
+            element.dataset.source = uuid;
+            element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.innerText}`;
+        });
+    }
+
     static replaceOngoingEffectReferences(uuid, $rows, options) {
         // HTML looks like this
         // <div className="card-prop trigger-unknown"><strong>Hit:</strong> <a
@@ -121,6 +132,7 @@ export default class preCreateChatMessageHandler {
 
         preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $rows, options);
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(uuid, $rows);
+        preCreateChatMessageHandler.replaceActiveEffectLinkReferences(uuid, $content);
 
         // Handle conditions in feats as well as traits & nastier specials
         let $otherRows = $content.find('.tag--feat .description, .card-row-description');
