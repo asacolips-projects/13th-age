@@ -1128,11 +1128,6 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
     return;
   }
 
-  // If this isn't an ongoing effect, prevent stacking.
-  const originalEffect = type !== 'ongoing-damage'
-    ? actor.effects.getName(effectData.name)
-    : null;
-
   // Shift bypass
   if (event.shiftKey) {
     if ( !duration ) duration = "Unknown";
@@ -1141,9 +1136,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
       options = {sourceTurnUuid: source};
     }
     game.archmage.MacroUtils.setDuration(effectData, duration, options);
-    return originalEffect
-      ? originalEffect.update(effectData)
-      : actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   // Render modal dialog
@@ -1173,9 +1166,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
               options = {sourceTurnUuid: source};
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
-            return originalEffect
-              ? originalEffect.update(effectData)
-              : actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+            return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },
         pen1: {
