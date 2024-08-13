@@ -1489,7 +1489,6 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           }
           else {
             const rollFormula = element.querySelector('.dice-formula')?.innerText ?? false;
-            console.log('rollFormula', element.querySelector('.dice-formula'), rollFormula);
             if (rollFormula) {
               const messageElement = element.closest('[data-message-id]');
               const message = messageElement?.dataset?.messageId ? game.messages.get(messageElement.dataset.messageId) : false;
@@ -1504,17 +1503,21 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
                 };
                 await game.archmage.ArchmageUtility.show3DDiceForRoll(newRoll, chatData, messageElement.dataset.messageId)
               }
-              // @todo also update the dice roll icons.
-              element.querySelector('.dice-total').innerText = newRoll.total;
+              // Replace the roll contents of the chat message.
+              const content = await newRoll.render();
+              const contentElement = document.createElement('div');
+              contentElement.innerHTML = content.trim();
+              contentElement.querySelector('.dice-roll').classList.add('dice-roll--archmage');
+              element.outerHTML = contentElement.innerHTML;
               // Force the context closed since we just manipulated the DOM.
               if (ui.context) {
                 ui.context.close();
               }
               // Add a short timeout to allow the DOM to update before updating the message document.
               setTimeout(() => {
-                const contentElement = element.closest('.dice-roll--archmage');
-                if (contentElement) {
-                  message.update({content: contentElement.outerHTML});
+                const wrapperElement = messageElement.querySelector('.message-content');
+                if (wrapperElement) {
+                  message.update({content: wrapperElement.innerHTML});
                 }
               }, 250);
             }
