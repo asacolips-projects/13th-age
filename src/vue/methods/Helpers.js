@@ -190,8 +190,8 @@ function replaceActiveEffectLinkReferences(text) {
     const effect = fromUuidSync(uuid);
     // @todo we need to retrieve the actor as the source, not the item if it's an item's effect.
     const parent = effect?.parent?.uuid ? effect.parent : {};
-    // @todo effect UUID isn't working on drop for some reason.
-    return `<a class="effect-link" draggable="true" data-uuid="${uuid}" data-source="${parent?.uuid}" data-actor-id="${parent?.id}" data-type="ActiveEffect" data-tooltip="Base Active Effect">
+    // @todo draggable isn't set here due to a bug with the UUID not being included in the drop data.
+    return `<a class="effect-link" data-uuid="${uuid}" data-source="${parent?.uuid}" data-actor-id="${parent?.id}" data-type="ActiveEffect" data-tooltip="Base Active Effect">
       <img class="effects-icon" src="${effect.img}"/>
       ${effect.name}
     </a>`;
