@@ -1393,8 +1393,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
                 await game.archmage.ArchmageUtility.show3DDiceForRoll(newRoll, chatData, messageElement.dataset.messageId)
               }
               // Apply changes to the DOM.
-              element.dataset.roll = escape(JSON.stringify(newRoll.toJSON()));
               const rollContent = element.innerHTML.replace(/(<\/i>)(\s*)(\d+)/g, (full, p1, p2, p3) => `${p1}${p2}${newRoll.total}`);
+              element.dataset.roll = escape(JSON.stringify(newRoll.toJSON()));
               element.innerHTML = rollContent;
               // Re-evaluate styling for attack lines.
               if (rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.target")}:`)
@@ -1487,6 +1487,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
               }, 250);
             }
           }
+          // Otherwise, handle general purpose rolls.
           else {
             const rollFormula = element.querySelector('.dice-formula')?.innerText ?? false;
             if (rollFormula) {
