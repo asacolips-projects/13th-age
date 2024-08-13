@@ -54,10 +54,33 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
   /* -------------------------------------------- */
 
+  /**
+   * Handle changing a Document's image.
+   * @param {MouseEvent} event  The click event.
+   * @returns {Promise}
+   * @protected
+   */
+  _onEditImage(event) {
+    const attr = event.currentTarget.dataset.edit;
+    const current = foundry.utils.getProperty(this.document, attr);
+    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+    const fp = new FilePicker({
+      current,
+      type: "image",
+      redirectToRoot: img ? [img] : [],
+      callback: path => {
+        event.currentTarget.src = path;
+        this.document.update({[attr]: path});
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10
+    });
+    return fp.browse();
+  }
+
   async _updateObject(event, formData) {
     let ae = foundry.utils.duplicate(this.object);
     ae.name = formData.name;
-    ae.icon = formData.icon;
     ae.description = formData.description;
     ae.origin = formData.origin;
 
