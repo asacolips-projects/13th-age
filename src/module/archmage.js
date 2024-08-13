@@ -19,10 +19,6 @@ import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
-import HitEvaluation from "./rolls/HitEvaluation.mjs";
-import Targeting from './rolls/Targeting.mjs';
-import Triggers from './Triggers/Triggers.mjs';
-
 
 Hooks.once('init', async function() {
 
@@ -417,6 +413,18 @@ Hooks.once('init', async function() {
     type: String,
   });
 
+  game.settings.register('archmage', 'allowRerolls', {
+    name: game.i18n.localize('ARCHMAGE.SETTINGS.allowRerollsName'),
+    hint: game.i18n.localize('ARCHMAGE.SETTINGS.allowRerollsHint'),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: () => {
+      window.location.reload();
+    }
+  });
+
   game.settings.register('archmage', 'rechargeOncePerDay', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayHint"),
@@ -796,12 +804,14 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'hideInsteadOfOpaque',
         'roundUpDamageApplication',
         'allowTargetDamageApplication',
+        'allowRerolls',
         'rechargeOncePerDay',
         'automateBaseStatsFromClass',
         'showPrivateGMAttackRolls',
       ],
       highlights: [
         'allowTargetDamageApplication',
+        'allowRerolls',
       ],
     },
     {
@@ -1356,7 +1366,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     }
 
     // Add the reroll action regardless of whether or not this is an attack.
-    if (game.user.isGM || options.message.author === game.user.id) {
+    const allowRerolls = game.settings.get('archmage', 'allowRerolls') ?? false;
+    if (game.user.isGM || (allowRerolls && options.message.author === game.user.id)) {
       menuItems.push({
         name: game.i18n.localize("ARCHMAGE.contextReroll"),
         id: 'reroll',
