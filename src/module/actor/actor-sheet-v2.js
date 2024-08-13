@@ -145,7 +145,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       if (!this.vueListenersActive) {
         setTimeout(() => {
           this.activateVueListeners($(this.form), true);
-        }, 150);
+        }, 200);
       }
       return;
     }
@@ -167,7 +167,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         // @todo Find a better solution than a timeout.
         setTimeout(() => {
           this.activateVueListeners($(this.form), false);
-        }, 150);
+        }, 200);
       }
     });
 
@@ -994,6 +994,54 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       li.setAttribute('draggable', true);
       li.addEventListener('dragstart', dragHandler, false);
     });
+  }
+
+  /** @override */
+  async _onDropActiveEffect(event, data) {
+    // Run core's effect operations.
+    await super._onDropActiveEffect(event, data);
+
+    // Handle item sorting within the same Actor
+    const effect = await ActiveEffect.implementation.fromDropData(data);
+    const effectData = effect.toObject();
+    if ( this.actor.uuid === effect.parent?.uuid ) return this._onSortEffect(event, effectData);
+  }
+
+  /**
+   * Sort effects on drop. Adapted from ActorSheet._onSortItem().
+   * @param {Event} event
+   * @param {Object} effectData
+   * @private
+   */
+  _onSortEffect(event, effectData) {
+
+    // Get the drag source and drop target
+    const effects = this.actor.effects;
+    const source = effects.get(effectData._id);
+    const dropTarget = event.target.closest("[data-effect-id]");
+    if ( !dropTarget ) return;
+    const target = effects.get(dropTarget.dataset.effectId);
+
+    // Don't sort on yourself
+    if ( source.id === target.id ) return;
+
+    // Identify sibling effects based on adjacent HTML elements
+    const siblings = [];
+    for ( let el of dropTarget.parentElement.children ) {
+      const siblingId = el.dataset.effectId;
+      if ( siblingId && (siblingId !== source.id) ) siblings.push(effects.get(el.dataset.effectId));
+    }
+
+    // Perform the sort
+    const sortUpdates = SortingHelpers.performIntegerSort(source, {target, siblings});
+    const updateData = sortUpdates.map(u => {
+      const update = u.update;
+      update._id = u.target._id;
+      return update;
+    });
+
+    // Perform the update
+    return this.actor.updateEmbeddedDocuments("ActiveEffect", updateData);
   }
 
   _onFocus(event) {
