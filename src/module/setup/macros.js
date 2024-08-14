@@ -259,26 +259,59 @@ export class ArchmageMacros {
    */
   static async fighterDefensiveFighting(speaker, actor, token, character, archmage) {
     if (!actor) return;
-
+    
+    let effects = [];
     let bonus = 2;
-    // If the champion feat in active increase the bonus
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value) bonus = 3;
-    let effects = [
-      { key: "system.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
-    ];
-    // If the adventurer feat in active apply to PD
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'adventurer')[0].isActive.value) {
-      effects.push({ key: "system.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+
+    const is2e = game.settings.get("archmage", "secondEdition");
+    const shieldEquipped = actor.system.attributes?.weapon?.melee?.shield ?? false;
+    const feats = {
+      adventurer: game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'adventurer')[0].isActive.value,
+      champion: game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value,
+      epic: game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'epic')[0].isActive.value,
+    };
+    if (is2e) {
+      // Calculate bonus.
+      bonus = !shieldEquipped ? 1 : 2;
+      if (feats.adventurer) {
+        bonus = !shieldEquipped ? 2 : 3;
+      }
+      // Apply to AC.
+      effects.push({ key: "system.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      // Champion and/or Epic feat applies to PD.
+      if (feats.champion || feats.epic) {
+        effects.push({ key: "system.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      }
+      // Epic feat applies to MD.
+      if (feats.epic) {
+        effects.push({ key: "system.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      }
     }
-    // If the epic feat in active apply to MD
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'epic')[0].isActive.value) {
-      effects.push({ key: "system.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+    else {
+      // If the champion feat in active increase the bonus
+      if (feats.champion) bonus = 3;
+      effects.push({ key: "system.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      // If the adventurer feat in active apply to PD
+      if (feats.adventurer) {
+        effects.push({ key: "system.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      }
+      // If the epic feat in active apply to MD
+      if (feats.epic) {
+        effects.push({ key: "system.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      }
     }
 
+    // @todo change icon to img in v12/v13
     let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
 
-    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    const existingEffect = actor.effects.getName('Defensive Fighting');
+    if (existingEffect) {
+      existingEffect.update(effectData);
+    }
+    else {
+      actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    }
   }
 
   ////////////////////////////////////////////////

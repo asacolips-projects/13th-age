@@ -67,7 +67,7 @@ export default {
     // Define methods.
     function getEffects() {
       let effects = this.actor.effects;
-      this.effects = effects;
+      this.effects = effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     };
     function getChanges(effect) {
       let changes = [];

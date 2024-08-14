@@ -1868,23 +1868,24 @@ async function createArchmageMacro(data, slot) {
   }
   // If it is, retrieve it based on the uuid.
   const item = await Item.fromDropData(data);
-
   // Create the macro command
-  const command = `game.archmage.rollItemMacro("${item.name}");`;
-  let macro = game.macros.find(m => (m.name === item.name) && (m.command === command) && m.author.isSelf);
-  if (!macro) {
-    macro = await Macro.create({
-      name: item.name,
-      type: "script",
-      img: item.img,
-      command: command,
-      flags: {
-        "archmage.itemMacro": true,
-        "archmage.itemUuid": data.uuid
-      }
-    });
-  }
-
+  const command = `game.archmage.rollItemMacro("${item.uuid}");`;
+  // Some compendium entries may have incorrect images for their type.
+  const img = item.img !== CONFIG.ARCHMAGE.defaultTokens.character
+    ? item.img
+    : CONFIG.ARCHMAGE.defaultTokens[item.type];
+  // Create the macro document.
+  const macro = await Macro.create({
+    name: item.name,
+    type: "script",
+    img: img,
+    command: command,
+    flags: {
+      "archmage.itemMacro": true,
+      "archmage.itemUuid": data.uuid
+    }
+  });
+  // Assign it to the hotbar.
   game.user.assignHotbarMacro(macro, slot);
 }
 
@@ -1896,8 +1897,7 @@ async function createArchmageMacro(data, slot) {
  */
 function rollItemMacro(itemData) {
   // Reconstruct the drop data so that we can load the item.
-  // @todo this section isn't currently used, the name section below is used.
-  if (itemData.includes('Actor.') || itemData.includes('Token.')) {
+  if (itemData.includes('Item.')) {
     const dropData = {
       type: 'Item',
       uuid: itemData
