@@ -1390,7 +1390,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
     // Add the reroll action regardless of whether or not this is an attack.
     const allowRerolls = game.settings.get('archmage', 'allowRerolls') ?? false;
-    if (game.user.isGM || (allowRerolls && options.message.author === game.user.id)) {
+    const messageAuthor = options.message?.author ?? options.message?.user;
+    if (game.user.isGM || (allowRerolls && messageAuthor === game.user.id)) {
       menuItems.push({
         name: game.i18n.localize("ARCHMAGE.contextReroll"),
         id: 'reroll',
