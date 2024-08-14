@@ -172,6 +172,7 @@ export class DamageApplicator {
           // Remove existing crit/fail classes.
           element.classList.remove('dc-crit');
           element.classList.remove('dc-fail');
+          element.classList.remove('dc-reroll');
           // @todo handle actual targets and crit range modifications.
           const targetOptions = {
             numTargets: message?.flags?.archmage?.numTargets ?? 0,
