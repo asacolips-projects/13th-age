@@ -504,6 +504,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'compactMode', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.compactModeName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.compactModeHint"),
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'colorBlindMode', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
@@ -822,9 +831,12 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       label: 'ARCHMAGE.SETTINGS.groups.appearance',
       settings: [
         'nightmode',
+        'compactMode',
         'sheetTooltips',
       ],
-      highlights: [],
+      highlights: [
+        'compactMode',
+      ],
     },
     {
       label: 'ARCHMAGE.SETTINGS.groups.accessibility',

@@ -208,6 +208,8 @@ ARCHMAGE:
     multiTargetAttackRollsName: Multi-Target Attack Rolls
     nightmodeHint: Reverse the sheet color scheme into a darkened night mode.
     nightmodeName: Night Mode
+    compactModeHint: Scales down the character sheets to be smaller.
+    compactModeName: Compact Sheet Mode
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
     RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
