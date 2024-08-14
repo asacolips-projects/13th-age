@@ -301,7 +301,8 @@ export class ArchmageMacros {
       }
     }
 
-    let effectData = { label: archmage.item.name, img: archmage.item.img, changes: effects };
+    // @todo change icon to img in v12/v13
+    let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
 
     const existingEffect = actor.effects.getName('Defensive Fighting');
