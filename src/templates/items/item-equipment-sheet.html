@@ -10,246 +10,252 @@
             <nav class="sheet-tabs tabs" data-group="primary">
                 <a class="item" data-tab="description">{{localize 'ARCHMAGE.description'}}</a>
                 <a class="item" data-tab="details">{{localize 'ARCHMAGE.details'}}</a>
+                <a class="item" data-tab="effects">{{localize 'ARCHMAGE.effects'}}</a>
             </nav>
 
             <div class="sheet-tabs-content">
-              <div class="tab" data-group="primary" data-tab="description">
-                  {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
-              </div>
+                <div class="tab" data-group="primary" data-tab="description">
+                    {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
+                </div>
 
-              <div class="tab" data-group="primary" data-tab="details">
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.price'}}</strong>
-                      <input name="system.price.value" type="text" value="{{system.price.value}}"
-                          data-dtype="String" placeholder="{{localize 'ARCHMAGE.ITEM.pricePlaceholder'}}" />
-                  </div>
+                <div class="tab" data-group="primary" data-tab="details">
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.price'}}</strong>
+                        <input name="system.price.value" type="text" value="{{system.price.value}}"
+                            data-dtype="String" placeholder="{{localize 'ARCHMAGE.ITEM.pricePlaceholder'}}" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.active'}}</strong>
-                      <input type="checkbox" name="system.isActive" value="1" data-dtype="Boolean" {{checked system.isActive}} />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.active'}}</strong>
+                        <input type="checkbox" name="system.isActive" value="1" data-dtype="Boolean" {{checked system.isActive}} />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.icons'}}</strong>
-                      <input class="attribute-name" name="system.icons" type="text" value="{{system.icons}}"
-                          data-dtype="String" placeholder="Archmage" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.icons'}}</strong>
+                        <input class="attribute-name" name="system.icons" type="text" value="{{system.icons}}"
+                            data-dtype="String" placeholder="Archmage" />
+                    </div>
 
-                  <div class="settings-group form-group">
-                      <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
-                  </div>
+                    <div class="settings-group form-group">
+                        <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.attack.melee.bonus" type="text" value="{{system.attributes.attack.melee.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.attack.melee.bonus" type="text" value="{{system.attributes.attack.melee.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rangedBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.attack.ranged.bonus" type="text" value="{{system.attributes.attack.ranged.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rangedBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.attack.ranged.bonus" type="text" value="{{system.attributes.attack.ranged.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.divineBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.attack.divine.bonus" type="text" value="{{system.attributes.attack.divine.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.divineBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.attack.divine.bonus" type="text" value="{{system.attributes.attack.divine.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.arcaneBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.arcaneBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group form-group" style="padding-top: 10px;">
-                      <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
-                  </div>
+                    <div class="settings-group form-group" style="padding-top: 10px;">
+                        <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.acBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.ac.bonus" type="text" value="{{system.attributes.ac.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.acBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.ac.bonus" type="text" value="{{system.attributes.ac.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.pdBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.pd.bonus" type="text" value="{{system.attributes.pd.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.pdBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.pd.bonus" type="text" value="{{system.attributes.pd.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.mdBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.md.bonus" type="text" value="{{system.attributes.md.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.mdBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.md.bonus" type="text" value="{{system.attributes.md.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.hpBonus'}}</strong>
-                    <input class="attribute-input" name="system.attributes.hp.bonus" type="text" value="{{system.attributes.hp.bonus}}"
-                        data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.hpBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.hp.bonus" type="text" value="{{system.attributes.hp.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.recoveriesBonus'}}</strong>
-                    <input class="attribute-input" name="system.attributes.recoveries.bonus" type="text" value="{{system.attributes.recoveries.bonus}}"
-                        data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.recoveriesBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.recoveries.bonus" type="text" value="{{system.attributes.recoveries.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.saveBonus'}}</strong>
-                    <input class="attribute-input" name="system.attributes.save.bonus" type="text" value="{{system.attributes.save.bonus}}"
-                        data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.saveBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.save.bonus" type="text" value="{{system.attributes.save.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.saveBonusHPTreshold'}}</strong>
-                    <input class="attribute-input" name="system.attributes.save.threshold" type="text" value="{{system.attributes.save.threshold}}"
-                        data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.saveBonusHPTreshold'}}</strong>
+                        <input class="attribute-input" name="system.attributes.save.threshold" type="text" value="{{system.attributes.save.threshold}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                    {{#if data.secondEdition}}
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.disengageBonus'}}</strong>
-                    {{else}}
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.disengageInitBonus'}}</strong>
-                    {{/if}}
-                    <input class="attribute-input" name="system.attributes.disengage.bonus" type="text" value="{{system.attributes.disengage.bonus}}"
-                        data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        {{#if data.secondEdition}}
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.disengageBonus'}}</strong>
+                        {{else}}
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.disengageInitBonus'}}</strong>
+                        {{/if}}
+                        <input class="attribute-input" name="system.attributes.disengage.bonus" type="text" value="{{system.attributes.disengage.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rerollAcBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.rerollAc.current" type="text" value="{{system.attributes.rerollAc.current}}"
-                          data-dtype="Number" placeholder="0" />
-                      /
-                      <input class="attribute-input" name="system.attributes.rerollAc.bonus" type="text" value="{{system.attributes.rerollAc.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rerollAcBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.rerollAc.current" type="text" value="{{system.attributes.rerollAc.current}}"
+                            data-dtype="Number" placeholder="0" />
+                        /
+                        <input class="attribute-input" name="system.attributes.rerollAc.bonus" type="text" value="{{system.attributes.rerollAc.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rerollSaveBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.rerollSave.current" type="text" value="{{system.attributes.rerollSave.current}}"
-                          data-dtype="Number" placeholder="0" />
-                      /
-                      <input class="attribute-input" name="system.attributes.rerollSave.bonus" type="text" value="{{system.attributes.rerollSave.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rerollSaveBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.rerollSave.current" type="text" value="{{system.attributes.rerollSave.current}}"
+                            data-dtype="Number" placeholder="0" />
+                        /
+                        <input class="attribute-input" name="system.attributes.rerollSave.bonus" type="text" value="{{system.attributes.rerollSave.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group form-group" style="padding-top: 10px;">
-                      <label>{{localize 'ARCHMAGE.ITEM.otherBonuses'}}</label>
-                  </div>
+                    <div class="settings-group form-group" style="padding-top: 10px;">
+                        <label>{{localize 'ARCHMAGE.ITEM.otherBonuses'}}</label>
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.strBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.str.bonus" type="text" value="{{system.attributes.str.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.strBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.str.bonus" type="text" value="{{system.attributes.str.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.dexBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.dex.bonus" type="text" value="{{system.attributes.dex.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.dexBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.dex.bonus" type="text" value="{{system.attributes.dex.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.conBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.con.bonus" type="text" value="{{system.attributes.con.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.conBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.con.bonus" type="text" value="{{system.attributes.con.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.intBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.int.bonus" type="text" value="{{system.attributes.int.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.intBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.int.bonus" type="text" value="{{system.attributes.int.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.wisBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.wis.bonus" type="text" value="{{system.attributes.wis.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.wisBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.wis.bonus" type="text" value="{{system.attributes.wis.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group">
-                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.chaBonus'}}</strong>
-                      <input class="attribute-input" name="system.attributes.cha.bonus" type="text" value="{{system.attributes.cha.bonus}}"
-                          data-dtype="Number" placeholder="0" />
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.chaBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.cha.bonus" type="text" value="{{system.attributes.cha.bonus}}"
+                            data-dtype="Number" placeholder="0" />
+                    </div>
 
-                  <div class="settings-group form-group" style="padding-top: 10px;">
-                      <label>{{localize 'ARCHMAGE.ITEM.chakraSlot'}}</label>
-                  </div>
+                    <div class="settings-group form-group" style="padding-top: 10px;">
+                        <label>{{localize 'ARCHMAGE.ITEM.chakraSlot'}}</label>
+                    </div>
 
-                  <div class="settings-group">
-                      <select class="attribute-input" name="system.chackra" data-type="String">
-                          {{#select system.chackra}}
-                          <option value="none" title="{{localize 'ARCHMAGE.CHAKRA.none'}}">{{localize 'ARCHMAGE.CHAKRA.none'}}</option>
-                          <option value="armor" title="{{localize 'ARCHMAGE.CHAKRA.armorBonus'}}">{{localize 'ARCHMAGE.CHAKRA.armor'}}</option>
-                          <option value="arrow" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.arrow'}}</option>
-                          <option value="belt" title="{{localize 'ARCHMAGE.CHAKRA.beltBonus'}}">{{localize 'ARCHMAGE.CHAKRA.belt'}}</option>
-                          <option value="book" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.book'}}</option>
-                          <option value="boots" title="{{localize 'ARCHMAGE.CHAKRA.bootsBonus'}}">{{localize 'ARCHMAGE.CHAKRA.boots'}}</option>
-                          <option value="cloak" title="{{localize 'ARCHMAGE.CHAKRA.cloakBonus'}}">{{localize 'ARCHMAGE.CHAKRA.cloak'}}</option>
-                          <option value="glove" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.glove'}}</option>
-                          <option value="helmet" title="{{localize 'ARCHMAGE.CHAKRA.helmetBonus'}}">{{localize 'ARCHMAGE.CHAKRA.helmet'}}</option>
-                          <option value="necklace" title="{{localize 'ARCHMAGE.CHAKRA.necklaceBonus'}}">{{localize 'ARCHMAGE.CHAKRA.necklace'}}</option>
-                          <option value="ring" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.ring'}}</option>
-                          <option value="shield" title="{{localize 'ARCHMAGE.CHAKRA.shieldBonus'}}">{{localize 'ARCHMAGE.CHAKRA.shield'}}</option>
-                          <option value="staff" title="{{localize 'ARCHMAGE.CHAKRA.staffBonus'}}">{{localize 'ARCHMAGE.CHAKRA.staff'}}</option>
-                          <option value="symbol" title="{{localize 'ARCHMAGE.CHAKRA.symbolBonus'}}">{{localize 'ARCHMAGE.CHAKRA.symbol'}}</option>
-                          <option value="wand" title="{{localize 'ARCHMAGE.CHAKRA.wandBonus'}}">{{localize 'ARCHMAGE.CHAKRA.wand'}}</option>
-                          <option value="melee" title="{{localize 'ARCHMAGE.CHAKRA.weaponBonus'}}">{{localize 'ARCHMAGE.CHAKRA.melee'}}</option>
-                          <option value="ranged" title="{{localize 'ARCHMAGE.CHAKRA.weaponBonus'}}">{{localize 'ARCHMAGE.CHAKRA.ranged'}}</option>
-                          <option value="wondrous" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.wondrous'}}</option>
-                          {{/select}}
-                      </select>
-                  </div>
+                    <div class="settings-group">
+                        <select class="attribute-input" name="system.chackra" data-type="String">
+                            {{#select system.chackra}}
+                            <option value="none" title="{{localize 'ARCHMAGE.CHAKRA.none'}}">{{localize 'ARCHMAGE.CHAKRA.none'}}</option>
+                            <option value="armor" title="{{localize 'ARCHMAGE.CHAKRA.armorBonus'}}">{{localize 'ARCHMAGE.CHAKRA.armor'}}</option>
+                            <option value="arrow" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.arrow'}}</option>
+                            <option value="belt" title="{{localize 'ARCHMAGE.CHAKRA.beltBonus'}}">{{localize 'ARCHMAGE.CHAKRA.belt'}}</option>
+                            <option value="book" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.book'}}</option>
+                            <option value="boots" title="{{localize 'ARCHMAGE.CHAKRA.bootsBonus'}}">{{localize 'ARCHMAGE.CHAKRA.boots'}}</option>
+                            <option value="cloak" title="{{localize 'ARCHMAGE.CHAKRA.cloakBonus'}}">{{localize 'ARCHMAGE.CHAKRA.cloak'}}</option>
+                            <option value="glove" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.glove'}}</option>
+                            <option value="helmet" title="{{localize 'ARCHMAGE.CHAKRA.helmetBonus'}}">{{localize 'ARCHMAGE.CHAKRA.helmet'}}</option>
+                            <option value="necklace" title="{{localize 'ARCHMAGE.CHAKRA.necklaceBonus'}}">{{localize 'ARCHMAGE.CHAKRA.necklace'}}</option>
+                            <option value="ring" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.ring'}}</option>
+                            <option value="shield" title="{{localize 'ARCHMAGE.CHAKRA.shieldBonus'}}">{{localize 'ARCHMAGE.CHAKRA.shield'}}</option>
+                            <option value="staff" title="{{localize 'ARCHMAGE.CHAKRA.staffBonus'}}">{{localize 'ARCHMAGE.CHAKRA.staff'}}</option>
+                            <option value="symbol" title="{{localize 'ARCHMAGE.CHAKRA.symbolBonus'}}">{{localize 'ARCHMAGE.CHAKRA.symbol'}}</option>
+                            <option value="wand" title="{{localize 'ARCHMAGE.CHAKRA.wandBonus'}}">{{localize 'ARCHMAGE.CHAKRA.wand'}}</option>
+                            <option value="melee" title="{{localize 'ARCHMAGE.CHAKRA.weaponBonus'}}">{{localize 'ARCHMAGE.CHAKRA.melee'}}</option>
+                            <option value="ranged" title="{{localize 'ARCHMAGE.CHAKRA.weaponBonus'}}">{{localize 'ARCHMAGE.CHAKRA.ranged'}}</option>
+                            <option value="wondrous" title="{{localize 'ARCHMAGE.CHAKRA.noBonus'}}">{{localize 'ARCHMAGE.CHAKRA.wondrous'}}</option>
+                            {{/select}}
+                        </select>
+                    </div>
 
-                  <div class="settings-group form-group" style="padding-top: 10px;">
-                      <label>{{localize 'ARCHMAGE.uses'}}</label>
-                  </div>
+                    <div class="settings-group form-group" style="padding-top: 10px;">
+                        <label>{{localize 'ARCHMAGE.uses'}}</label>
+                    </div>
 
-                  <div class="settings-group">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.powerUsage'}}</strong>
-                      <select name="system.powerUsage.value" data-dtype="{{system.powerUsage.type}}">
-                          {{#select system.powerUsage.value}}
-                          <option value="">{{localize 'ARCHMAGE.noneOption'}}</option>
-                          {{#each equipUsages as |name type|}}
-                          <option value="{{type}}">{{name}}</option>
-                          {{/each}}
-                          {{/select}}
-                      </select>
-                  </div>
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.powerUsage'}}</strong>
+                        <select name="system.powerUsage.value" data-dtype="{{system.powerUsage.type}}">
+                            {{#select system.powerUsage.value}}
+                            <option value="">{{localize 'ARCHMAGE.noneOption'}}</option>
+                            {{#each equipUsages as |name type|}}
+                            <option value="{{type}}">{{name}}</option>
+                            {{/each}}
+                            {{/select}}
+                        </select>
+                    </div>
 
-                  <div class="settings-group" title="{{localize 'ARCHMAGE.CHAT.rechargeHint'}}">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.recharge'}}</strong>
-                    <input class="attribute-input" name="system.recharge.value" type="text" value="{{system.recharge.value}}"
-                        data-dtype="{{system.recharge.type}}" placeholder="16" />
-                  </div>
+                    <div class="settings-group" title="{{localize 'ARCHMAGE.CHAT.rechargeHint'}}">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.recharge'}}</strong>
+                        <input class="attribute-input" name="system.recharge.value" type="text" value="{{system.recharge.value}}"
+                            data-dtype="{{system.recharge.type}}" placeholder="16" />
+                    </div>
 
-                  <div class="settings-group" title="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.usesRemaining'}}</strong>
-                    <input class="attribute-input" name="system.quantity.value" type="text" value="{{system.quantity.value}}"
-                        data-dtype="{{system.quantity.type}}" placeholder="1" />
-                  </div>
+                    <div class="settings-group" title="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.usesRemaining'}}</strong>
+                        <input class="attribute-input" name="system.quantity.value" type="text" value="{{system.quantity.value}}"
+                            data-dtype="{{system.quantity.type}}" placeholder="1" />
+                    </div>
 
-                  <div class="settings-group" title="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}">
-                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.usesMax'}}</strong>
-                    <input class="attribute-input" name="system.maxQuantity.value" type="text" value="{{system.maxQuantity.value}}"
-                        data-dtype="{{system.maxQuantity.type}}" placeholder="1" />
-                  </div>
+                    <div class="settings-group" title="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.usesMax'}}</strong>
+                        <input class="attribute-input" name="system.maxQuantity.value" type="text" value="{{system.maxQuantity.value}}"
+                            data-dtype="{{system.maxQuantity.type}}" placeholder="1" />
+                    </div>
 
-                  <div class="form-group form-group-stacked power-macro-editor" title="{{localize 'ARCHMAGE.ITEM.embeddedMacroSummaryTooltip'}}">
-                      <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
-                      <details class="form-details">
-                        <summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary>
-                        <textarea class="attribute-value" name="system.embeddedMacro.value" rows="20"
-                            data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
-                      </details>
-                  </div>
+                    <div class="form-group form-group-stacked power-macro-editor" title="{{localize 'ARCHMAGE.ITEM.embeddedMacroSummaryTooltip'}}">
+                        <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
+                        <details class="form-details">
+                            <summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary>
+                            <textarea class="attribute-value" name="system.embeddedMacro.value" rows="20"
+                                data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
+                        </details>
+                    </div>
 
-              </div>
+                </div>
+
+                {{!-- Effects --}}
+                <div class="tab" data-group="primary" data-tab="effects">
+                    {{> "systems/archmage/templates/items/_item-effect-part.html" effects=effects}}
+                </div>
             </div>
         </section>
 

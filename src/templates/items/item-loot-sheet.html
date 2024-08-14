@@ -4,25 +4,36 @@
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
-    <ol class="item-details">
-        <li>
-            <label>{{localize 'ARCHMAGE.ITEM.quantity'}}</label>
-            <input type="text" name="system.quantity.value" value="{{system.quantity.value}}" data-dtype="{{system.quantity.type}}" />
-        </li>
-        <li>
-            <label>{{localize 'ARCHMAGE.ITEM.price'}}</label>
-            <input type="text" name="system.price.value" value="{{system.price.value}}" data-dtype="{{system.price.type}}" />
-        </li>
-    </ol>
+    <article class="sheet-content">
+        <section class="sheet-body">
+            <nav class="sheet-tabs tabs" data-group="primary">
+                <a class="item" data-tab="details">{{localize 'ARCHMAGE.details'}}</a>
+                <a class="item" data-tab="effects">{{localize 'ARCHMAGE.effects'}}</a>
+            </nav>
+            
+            <div class="sheet-tabs-content">
+                <div class="tab" data-group="primary" data-tab="details">
+                    <ol class="item-details">
+                        <li>
+                            <label>{{localize 'ARCHMAGE.ITEM.quantity'}}</label>
+                            <input type="text" name="system.quantity.value" value="{{system.quantity.value}}" data-dtype="{{system.quantity.type}}" />
+                        </li>
+                        <li>
+                            <label>{{localize 'ARCHMAGE.ITEM.price'}}</label>
+                            <input type="text" name="system.price.value" value="{{system.price.value}}" data-dtype="{{system.price.type}}" />
+                        </li>
+                    </ol>
 
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">{{localize 'ARCHMAGE.description'}}</a>
-    </nav>
+                    {{editor system.description.value target="system.description.value" button=true}}
+                </div>
 
-    <div class="sheet-tabs-content">
-      <div class="tab" data-group="primary" data-tab="description">
-          {{editor system.description.value target="system.description.value" button=true}}
-      </div>
-    </div>
+                {{!-- Effects --}}
+                <div class="tab" data-group="primary" data-tab="effects">
+                    {{> "systems/archmage/templates/items/_item-effect-part.html" effects=effects}}
+                </div>
+            </div>
+        </section>
+    </article>
+
 
 </form>

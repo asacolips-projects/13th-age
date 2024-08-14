@@ -102,6 +102,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   let clean = text ? text?.toString() ?? '' : '';  // cast to string, could be e.g. number
 
   clean = replaceEffectAndConditionReferences(clean)
+  clean = replaceActiveEffectLinkReferences(clean);
 
   // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
   if (diceFormulaMode == 'short') {
@@ -182,6 +183,18 @@ function replaceEffectAndConditionReferences(text) {
     }
 
     return text;
+}
+
+function replaceActiveEffectLinkReferences(text) {
+  return text.replaceAll(/@UUID\[(.*ActiveEffect.*)\]({.*})*/g, (all, uuid, name) => {
+    const effect = fromUuidSync(uuid);
+    const parent = effect?.parent?.uuid ? effect.parent : {};
+    // Not technically draggable due to the item itself being draggable.
+    return `<a class="effect-link" data-uuid="${uuid}" data-source="${parent?.uuid}" data-actor-id="${parent?.id}" data-type="ActiveEffect" data-tooltip="Base Active Effect">
+      <img class="effects-icon" src="${effect.img}"/>
+      ${effect.name}
+    </a>`;
+  });
 }
 
 /**

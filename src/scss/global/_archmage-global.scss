@@ -601,6 +601,17 @@ option[selected] {
         }
       }
     }
+
+    @import '../v2/utils/typography';
+    @import '../v2/utils/variables';
+    @import '../v2/utils/colors';
+    @import '../v2/components/character/effects';
+
+    .section--effects {
+      .effects-grid {
+        grid-template-columns: 40px auto 200px 20px 60px;
+      }
+    }
   }
 
   .mce-tinymce,

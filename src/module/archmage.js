@@ -22,6 +22,10 @@ import { ArchmageCompendiumBrowserApplication } from './applications/compendium-
 
 Hooks.once('init', async function() {
 
+  // Disable legacy transferral on v11 so that it's consistent with v12.
+  // @see https://foundryvtt.com/article/v11-active-effects/
+  CONFIG.ActiveEffect.legacyTransferral = false;
+
   if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
     var cssId = 'archmage-codemirror';
     if (!document.getElementById(cssId))
@@ -1051,8 +1055,14 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 /* -------------------------------------------- */
 
-Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-  return await _applyAE(actor, data);
+Hooks.on('dropActorSheetData', (actor, sheet, data) => {
+  const types = ['effect', 'ActiveEffect', 'condition', 'ongoing-damage'];
+  if (types.includes(data.type)) {
+    // Render the condition dialog and apply the effect.
+    _applyAE(actor, data);
+    // Return false to prevent Foundry from adding a duplicate effect.
+    return false;
+  }
 });
 
 /* ---------------------------------------------- */
@@ -1105,7 +1115,7 @@ async function _applyAE(actor, data) {
       statusEffect.name = statusEffect.label;
       statusEffect.origin = data.source;
 
-      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source);
+      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
     }
     else {
       // Just a generic condition, transfer the name
@@ -1114,16 +1124,17 @@ async function _applyAE(actor, data) {
         icon: 'icons/svg/aura.svg',
         origin: data.source
       };
-      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source);
+      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
     }
   }
-  else if ( data.type === "effect" ) {
+  else if ( data.type === "effect" || data.type === 'ActiveEffect' ) {
     const actorId = data.actorId;
     const sourceActor = game.actors.get(actorId);
-    const effect = sourceActor.effects.get(data.id);
+    console.log('data', data);
+    const effect = data.uuid ? fromUuidSync(data.uuid) : sourceActor.effects.get(data.id);
     let effectData = foundry.utils.duplicate(effect);
     // console.dir(effectData);
-    return _applyAEDurationDialog(actor, effectData, "Unknown", data.source);
+    return _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
   }
   else if ( data.type == "ongoing-damage" ) {
 
@@ -1144,11 +1155,11 @@ async function _applyAE(actor, data) {
         }
       }
     }
-    return await _applyAEDurationDialog(actor, effectData, data.ends, data.source);
+    return await _applyAEDurationDialog(actor, effectData, data.ends, data.source, data.type);
   }
 }
 
-async function _applyAEDurationDialog(actor, effectData, duration, source) {
+async function _applyAEDurationDialog(actor, effectData, duration, source, type = null) {
   // If no effectData something went wrong, stop gracefully
   if ( effectData == undefined ) {
     ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnStatusEffect"));
