@@ -2017,7 +2017,8 @@ option[selected] {
   margin: 0 40px;
 }
 
-a.effect-link {
+a.effect-link,
+.message a.effect-link {
   padding: 0 0 0 20px;
   line-height: 1;
   position: relative;
@@ -2026,6 +2027,9 @@ a.effect-link {
   text-decoration-thickness: 2px;
   border: 1px dashed transparent;
   transition: all ease-in-out 0.25s;
+  background: transparent;
+  border-radius: 0;
+  color: inherit;
 
   &:hover,
   &:focus {

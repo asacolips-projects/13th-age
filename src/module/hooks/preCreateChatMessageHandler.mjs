@@ -32,9 +32,11 @@ export default class preCreateChatMessageHandler {
         elements.forEach((element) => {
             const effect = fromUuidSync(element.dataset.uuid);
             element.classList.add('effect-link');
-            element.classList.remove('content-link');
-            element.dataset.source = uuid;
-            element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.innerText}`;
+            element.dataset.source = effect.parent.uuid;
+            const hasImg = element.querySelector('img');
+            if (!hasImg) {
+                element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.innerText}`;
+            }
         });
     }
 

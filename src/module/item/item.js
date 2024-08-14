@@ -894,6 +894,7 @@ export class ItemArchmage extends Item {
         uuid: effect.uuid,
         img: effect.img,
         name: effect.name,
+        id: effect.id,
       }
     });
   }

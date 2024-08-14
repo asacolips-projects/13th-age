@@ -4,7 +4,7 @@
     <div class="card-effects-row">
         {{#each data.activeEffects as |effect index|}}
         {{log effect}}
-        <a class="effect-link" data-type="ActiveEffect" data-link data-uuid="{{effect.uuid}}" data-source="{{../actor.uuid}}" data-actor-id="{{../actor.id}}" draggable="true">
+        <a class="content-link effect-link" data-type="ActiveEffect" data-uuid="{{effect.uuid}}" data-id="{{effect.id}}" draggable="true">
             <img class="effects-icon" src="{{effect.img}}"/>
             {{effect.name}}
         </a>
