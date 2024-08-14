@@ -100,7 +100,7 @@ Hooks.once('init', async function() {
     type: Boolean,
     default: false,
     config: true,
-    onChange: () => window.location.reload()
+    requiresReload: true
   });
 
   game.archmage = {
@@ -405,9 +405,7 @@ Hooks.once('init', async function() {
     config: true,
     default: false,
     type: Boolean,
-    onChange: () => {
-      window.location.reload();
-    }
+    requiresReload: true
   });
 
   game.settings.register('archmage', 'userTargetDamageApplicationType', {
@@ -424,9 +422,7 @@ Hooks.once('init', async function() {
     config: true,
     default: false,
     type: Boolean,
-    onChange: () => {
-      window.location.reload();
-    }
+    requiresReload: true
   });
 
   game.settings.register('archmage', 'rechargeOncePerDay', {
@@ -510,7 +506,8 @@ Hooks.once('init', async function() {
     scope: 'client',
     config: true,
     default: false,
-    type: Boolean
+    type: Boolean,
+    requiresReload: true
   });
 
   game.settings.register('archmage', 'colorBlindMode', {

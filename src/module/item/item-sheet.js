@@ -94,6 +94,7 @@ export class ItemArchmageSheet extends ItemSheet {
         ? `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`
         : false;
       context.effects[index].bonuses = getChanges(effect);
+      context.effects[index].img = effect?.img ?? effect?.icon;
     }
 
     // Power-specific data

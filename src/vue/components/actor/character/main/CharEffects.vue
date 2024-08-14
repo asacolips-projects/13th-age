@@ -13,7 +13,7 @@
         <li v-for="(effect, effectKey) in effects" :key="effectKey" :class="concat('item effects-item ', concat('effect-', effect._id), (effect.disabled ? ' effects-disabled' : ''))" :data-effect-id="effect._id" data-draggable="true" draggable="true">
           <div class="effects-summary grid effects-grid effects">
             <div class="effects-icon">
-              <img :src="effect.img" class="effects-image"/>
+              <img :src="effect?.img ?? effect?.icon" class="effects-image"/>
             </div>
             <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
               <h3 class="effects-title unit-subtitle">{{effect?.name}}</h3>
