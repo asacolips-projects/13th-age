@@ -1133,17 +1133,27 @@ async function _applyAE(actor, data) {
         icon: 'icons/svg/aura.svg',
         origin: data.source
       };
-      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
+      return await _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
     }
   }
   else if ( data.type === "effect" || data.type === 'ActiveEffect' ) {
-    const actorId = data.actorId;
-    const sourceActor = game.actors.get(actorId);
-    console.log('data', data);
-    const effect = data.uuid ? fromUuidSync(data.uuid) : sourceActor.effects.get(data.id);
+    let effect = null;
+    let sourceDocument = null;
+    if (data.uuid) {
+      effect = fromUuidSync(data.uuid);
+      sourceDocument = effect.parent?.parent ?? effect.parent;
+    }
+    else {
+      const actorId = data.actorId;
+      const sourceActor = game.actors.get(actorId);
+      if (sourceActor) {
+        effect = sourceActor.effects.get(data.id);
+        sourceDocument = sourceActor;
+      }
+    }
     let effectData = foundry.utils.duplicate(effect);
     // console.dir(effectData);
-    return _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
+    return _applyAEDurationDialog(actor, effectData, "Unknown", sourceDocument.uuid, data.type);
   }
   else if ( data.type == "ongoing-damage" ) {
 
