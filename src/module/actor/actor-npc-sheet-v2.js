@@ -17,10 +17,11 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
+    const compactMode = game.settings.get('archmage', 'compactMode');
     foundry.utils.mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'npc-sheet']).filter(c => c !== 'archmage'),
-      width: 640,
-      height: 800,
+      width: compactMode ? 550 : 640,
+      height: compactMode ? 688 : 800,
     });
     return options;
   }

@@ -31,6 +31,12 @@
   @import 'components/journals/icon-background';
   @import 'components/journals/quote';
 
+  &.compact-mode {
+    .window-content {
+      zoom: 0.86;
+    }
+  }
+
   // Character and NPC sheets.
   &.sheet,
   &.archmage-dialog {

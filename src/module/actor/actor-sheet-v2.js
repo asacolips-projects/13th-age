@@ -21,14 +21,20 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
+    const compactMode = game.settings.get('archmage', 'compactMode');
     foundry.utils.mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
-      width: 960,
-      height: 960,
+      width: compactMode ? 826 : 960,
+      height: compactMode ? 750 : 960,
       submitOnClose: true,
       submitOnChange: true,
       dragDrop: [{dragSelector: '.item-list .item', dropSelector: null}]
     });
+
+    if (compactMode) {
+      options.classes.push('compact-mode');
+    }
+
     return options;
   }
 
