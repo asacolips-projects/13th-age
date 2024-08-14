@@ -4,21 +4,37 @@
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
-    <div class="tab archmage-aip">
-        <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.group'}}">
-            <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
-            <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.group'}}"/>
-        </div>
+    <article class="sheet-content">
+        <section class="sheet-body">
+            <nav class="sheet-tabs tabs" data-group="primary">
+                <a class="item" data-tab="details">{{localize 'ARCHMAGE.details'}}</a>
+                <a class="item" data-tab="effects">{{localize 'ARCHMAGE.effects'}}</a>
+            </nav>
 
-				<div class="form-group form-group-stacked power-macro-editor" title="{{localize 'ARCHMAGE.CHAT.embeddedMacroSummaryTooltip'}}">
-						<label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
-						<details class="form-details">
-							<summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary>
-							<textarea class="attribute-value" name="system.embeddedMacro.value" rows="20" title=""
-									data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
-						</details>
-				</div>
+            <div class="sheet-tabs-content">
+                <div class="tab archmage-aip" data-group="primary" data-tab="details">
+                    <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.group'}}">
+                        <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
+                        <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.group'}}"/>
+                    </div>
 
-        {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
-    </div>
+                    <div class="form-group form-group-stacked power-macro-editor" title="{{localize 'ARCHMAGE.CHAT.embeddedMacroSummaryTooltip'}}">
+                        <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
+                        <details class="form-details">
+                            <summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary>
+                            <textarea class="attribute-value" name="system.embeddedMacro.value" rows="20" title="" data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
+                        </details>
+                    </div>
+
+                    {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
+                </div>
+
+                {{!-- Effects --}}
+                <div class="tab" data-group="primary" data-tab="effects">
+                    {{> "systems/archmage/templates/items/_item-effect-part.html" effects=effects}}
+                </div>
+            </div>
+        </section>
+    </article>
+
 </form>

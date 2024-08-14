@@ -126,4 +126,26 @@
       }
     }
   }
+
+  .card-effects {
+    .card-label {
+      display: block;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+  }
+
+  .card-effects-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .effect-link {
+      margin: 0;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-right: 4px;
+    }
+  }
 }

@@ -114,7 +114,7 @@ export class ItemArchmage extends Item {
     if (suppressMessage) {
       return undefined;
     }
-
+    
     return await game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
@@ -878,6 +878,16 @@ export class ItemArchmage extends Item {
     return data;
   }
 
+  _prepareActiveEffectsData(data) {
+    data.activeEffects = [...this.effects.values()].map((effect) => {
+      return {
+        uuid: effect.uuid,
+        img: effect.img,
+        name: effect.name,
+      }
+    });
+  }
+
 
   _powerChatData() {
     const data = foundry.utils.duplicate(this.system);
@@ -973,6 +983,8 @@ export class ItemArchmage extends Item {
       };
     });
 
+    this._prepareActiveEffectsData(data);
+
     data.tags = tags.filter(t => t.value !== null && t.value !== undefined && t.value != '');
     data.properties = properties.filter(p => p.value !== null && p.value !== undefined && p.value != '');
     data.feats = feats.filter(f => f.description !== null && f.description !== undefined && f.description !== '');
@@ -990,31 +1002,37 @@ export class ItemArchmage extends Item {
 
   _equipmentChatData() {
     const data = foundry.utils.duplicate(this.system);
+    this._prepareActiveEffectsData(data);
     return data;
   }
 
   _actionChatData() {
     const data = foundry.utils.duplicate(this.system);
+    this._prepareActiveEffectsData(data);
     return data;
   }
 
   _traitChatData() {
     const data = foundry.utils.duplicate(this.system);
+    this._prepareActiveEffectsData(data);
     return data;
   }
 
   _nastierSpecialChatData() {
     const data = foundry.utils.duplicate(this.system);
+    this._prepareActiveEffectsData(data);
     return data;
   }
 
   _toolChatData() {
     const data = foundry.utils.duplicate(this.system);
+    this._prepareActiveEffectsData(data);
     return data;
   }
 
   _lootChatData() {
     const data = foundry.utils.duplicate(this.system);
+    this._prepareActiveEffectsData(data);
     return data;
   }
 
