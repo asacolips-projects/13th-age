@@ -23,6 +23,9 @@ import { ArchmageCompendiumBrowserApplication } from './applications/compendium-
 
 Hooks.once('init', async function() {
 
+  // Disable legacy transferral on v11 so that it's consistent with v12.
+  CONFIG.ActiveEffect.legacyTransferral = false;
+
   if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
     var cssId = 'archmage-codemirror';
     if (!document.getElementById(cssId))
