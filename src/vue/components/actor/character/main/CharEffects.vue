@@ -16,11 +16,11 @@
               <img :src="effect?.img ?? effect?.icon" class="effects-image"/>
             </div>
             <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
-              <h3 class="effects-title unit-subtitle">{{effect?.name}}</h3>
+              <h3 class="effects-title unit-subtitle">{{effect?.name ?? effect?.label}}</h3>
             </a>
             <div class="effects-bonus flexrow">
               <div class="bonus" v-for="(bonus, bonusKey) in getChanges(effect)" :key="bonusKey">
-                <span class="bonus-label"><i :class="bonus.icon"></i> {{bonus.label}} </span>
+                <span class="bonus-label"><i :class="bonus.icon"></i> {{bonus.name}} </span>
                 <span class="bonus-mode"><i :class="concat('fas fa-', bonus.mode)"></i> </span>
                 <span class="bonus-value">{{numberFormat(bonus.value, 0, false)}}</span>
               </div>
