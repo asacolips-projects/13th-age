@@ -93,7 +93,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     // Retrieve the existing effects.
     const effectData = await this.getData();
-    let changes = effectData?.data?.changes ? effectData.data.changes : [];
+    let changes = effectData?.changes ? effectData.changes : [];
 
     // Build an array of effects from the form data
     let newChanges = [];

@@ -630,7 +630,7 @@ export class ItemArchmage extends Item {
     let alreadyHasBetterBonus = false;
     effects.forEach(e => {
       if (e.name == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
-        if (Number(e.data.changes[0].value) <= bonusMagnitude) {
+        if (Number(e.changes[0].value) <= bonusMagnitude) {
           effectsToDelete.push(e.id);
         }
         else alreadyHasBetterBonus = true;
