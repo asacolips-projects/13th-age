@@ -385,6 +385,33 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
+   * 1.3X.0: Update PC to remove Toughness flag
+   *
+   * @param {object} actor Actor document to update.
+   * @param {object} updateData Update data object to merge changes into.
+   * @returns
+   *   Update object.
+   */
+
+  __migratePCToughnessFlag(actor, updateData={}) {
+    if (!actor || actor.type != "character" || actor.getFlag("archmage", "toughness")) return updateData;
+    let mul = 1;
+    if (game.settings.get("archmage", "secondEdition")) {
+      if (level >= 5) mul = 2;
+      if (level >= 8) mul = 4;
+    } else {
+      if (level <= 4) mul = 1 / 2;
+      else if (level >= 8) mul = 2;
+    }
+    const actorData = actor.system;
+    const bonus = Math.floor(actorData.attributes.hp.base * mul);
+    actor.unsetFlag("archmage", "toughness");
+    return foundry.utils.mergeObject(updateData, {'system.attributes.hp.extra': bonus});
+  }
+
+  /* -------------------------------------------*/
+
+  /**
    * Main entrypoint to execute migrations.
    */
   async executeMigration() {

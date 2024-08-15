@@ -536,22 +536,8 @@ export class ActorArchmage extends Actor {
       let level = data.attributes.level.value;
       if (data.incrementals?.hp && !game.settings.get("archmage", "secondEdition")) level++;
 
-      let toughnessBonus = 0;
-      if (flags.archmage?.toughness) {
-        toughnessBonus = data.attributes.hp.base;
-        let mul = 1;
-        if (game.settings.get("archmage", "secondEdition")) {
-          if (level >= 5) mul = 2;
-          if (level >= 8) mul = 4;
-        } else {
-          if (level <= 4) mul = 1 / 2;
-          else if (level >= 8) mul = 2;
-        }
-        toughnessBonus = Math.floor(toughnessBonus * mul)
-      }
-
       data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0))
-        * hpLevelModifier[level] + hpBonus + toughnessBonus);
+        * hpLevelModifier[level] + hpBonus + data.attributes.hp.extra);
     }
 
     // Recoveries
