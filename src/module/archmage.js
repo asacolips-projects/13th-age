@@ -1153,7 +1153,7 @@ async function _applyAE(actor, data) {
     }
     let effectData = foundry.utils.duplicate(effect);
     // console.dir(effectData);
-    return _applyAEDurationDialog(actor, effectData, "Unknown", sourceDocument.uuid, data.type);
+    return await _applyAEDurationDialog(actor, effectData, "Unknown", sourceDocument?.uuid, data.type);
   }
   else if ( data.type == "ongoing-damage" ) {
 
