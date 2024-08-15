@@ -12,6 +12,7 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/archmage/templates/actors/actor-character-sheet-vue.html",
     "systems/archmage/templates/actors/actor-npc-sheet-vue.html",
 
+    "systems/archmage/templates/chat/_chat-effect-part.html",
     "systems/archmage/templates/chat/action-card.html",
     "systems/archmage/templates/chat/command-card.html",
     "systems/archmage/templates/chat/consumable-card.html",
@@ -33,6 +34,7 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/archmage/templates/chat/tool-roll-dialog.html",
     "systems/archmage/templates/chat/trait-card.html",
 
+    "systems/archmage/templates/items/_item-effect-part.html",
     "systems/archmage/templates/items/item-action-sheet.html",
     "systems/archmage/templates/items/item-class-sheet.html",
     "systems/archmage/templates/items/item-equipment-sheet.html",

@@ -27,6 +27,19 @@ export default class preCreateChatMessageHandler {
         }
     }
 
+    static replaceActiveEffectLinkReferences(uuid, $content) {
+        const elements = $content[0].querySelectorAll('.content-link[data-type="ActiveEffect"]');
+        elements.forEach((element) => {
+            const effect = fromUuidSync(element.dataset.uuid);
+            element.classList.add('effect-link');
+            element.dataset.source = effect.parent.uuid;
+            const hasImg = element.querySelector('img');
+            if (!hasImg) {
+                element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.innerText}`;
+            }
+        });
+    }
+
     static replaceOngoingEffectReferences(uuid, $rows, options) {
         // HTML looks like this
         // <div className="card-prop trigger-unknown"><strong>Hit:</strong> <a
@@ -121,6 +134,7 @@ export default class preCreateChatMessageHandler {
 
         preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $rows, options);
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(uuid, $rows);
+        preCreateChatMessageHandler.replaceActiveEffectLinkReferences(uuid, $content);
 
         // Handle conditions in feats as well as traits & nastier specials
         let $otherRows = $content.find('.tag--feat .description, .card-row-description');
@@ -173,20 +187,20 @@ export default class preCreateChatMessageHandler {
 
                     // Append hit targets to text
                     if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.hit") + ':') && hitEvaluationResults.targetsHit.length > 0) {
-                        $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
+                        $row_self.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
                             hitEvaluationResults.targetsHit,
                             hitEvaluationResults.targetsCrit) + ") </span>")
                     }
                     // Append missed targets to text
                     if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.miss") + ':') && hitEvaluationResults.targetsMissed.length > 0) {
-                        $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
+                        $row_self.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
                             hitEvaluationResults.targetsMissed,
                             hitEvaluationResults.targetsFumbled) + ") </span>")
                     }
                     // Append target defenses to text
                     if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':') && hitEvaluationResults.defenses.length > 0
                         && game.settings.get("archmage", "showDefensesInChat")) {
-                        $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
+                        $row_self.append("<span class='dc-target'> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
                 }
 

@@ -1,4 +1,10 @@
-<div class="archmage chat-card item-card" {{#if actor.id}}data-actor-id="{{actor.id}}"{{/if}} {{#if item.id}}data-item-id="{{item.id}}"{{/if}} {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
+<div
+  class="archmage chat-card item-card" 
+  {{#if actor.id}}data-actor-id="{{actor.id}}"{{/if}}
+  {{#if item.id}}data-item-id="{{item.id}}"{{/if}}
+  {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}
+  {{#if actor.uuid}}data-actor-uuid="{{actor.uuid}}"{{/if}}
+>
   <header class="card-header flexrow">
     {{#if (eq item.img "icons/svg/mystery-man.svg")}}
     {{else}}
@@ -46,6 +52,8 @@
     {{/if}}
     </div>
   </div>
+
+  {{> "systems/archmage/templates/chat/_chat-effect-part.html" data=data actor=actor}}
 
   <footer class="card-footer">
     {{#each data.tags}}

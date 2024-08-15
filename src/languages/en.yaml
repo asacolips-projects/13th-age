@@ -34,6 +34,7 @@ ARCHMAGE:
   checkSkillFormat: "{name} Skill Check"
   class: Class
   Conflicted: Conflicted
+  contextReroll: Reroll
   contextApplyDamage: Apply as Damage
   contextApplyDamageHalf: Apply as Half Damage
   contextApplyDamageDouble: Apply as Double Damage
@@ -207,10 +208,16 @@ ARCHMAGE:
     multiTargetAttackRollsName: Multi-Target Attack Rolls
     nightmodeHint: Reverse the sheet color scheme into a darkened night mode.
     nightmodeName: Night Mode
+    compactModeHint: Scales down the character sheets to be smaller.
+    compactModeName: Compact Sheet Mode
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
     RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
     RoundUpDamageApplicationName: Round damage/healing up (true) or down (false)
+    allowTargetDamageApplicationHint: Whether or not to allow damage and healing on chat messages to be applied to targeted tokens in addition to selected tokens. Targeting does not require permissions, so this can allow players and GMs to apply damage to ANY token they can see.
+    allowTargetDamageApplicationName: Allow target damage application
+    allowRerollsHint: Whether or not to allow non-GM players to reroll their own dice rolls.
+    allowRerollsName: Allow dice rerolls
     secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
     secondEditionName: Use 2e Gamma Playtest Rules
     ShowDebugLogsHint: Turn this on for bug reports
@@ -753,6 +760,9 @@ ARCHMAGE:
     StatusVulnerable: Vulnerable
     StatusWeakened: Weakened
   UI:
+    applyChanges: Apply changes
+    targeted: Targeted
+    selected: Selected
     errMacroSyntax: There was an error in your macro syntax. See the console (F12) for details.
     errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
@@ -768,6 +778,7 @@ ARCHMAGE:
     warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
     warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.
     warnMacroItemNotOnActor: Your controlled Actor does not have an item named {item}.
+    noTarget: No target selected.
     noToken: No token selected.
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.

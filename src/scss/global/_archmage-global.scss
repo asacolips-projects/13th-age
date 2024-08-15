@@ -601,6 +601,17 @@ option[selected] {
         }
       }
     }
+
+    @import '../v2/utils/typography';
+    @import '../v2/utils/variables';
+    @import '../v2/utils/colors';
+    @import '../v2/components/character/effects';
+
+    .section--effects {
+      .effects-grid {
+        grid-template-columns: 40px auto 200px 20px 60px;
+      }
+    }
   }
 
   .mce-tinymce,
@@ -1859,7 +1870,7 @@ option[selected] {
     }
 
     &:hover {
-      transform: scale(1.05);
+      // transform: scale(1.05);
       z-index: 90;
     }
 
@@ -2006,7 +2017,8 @@ option[selected] {
   margin: 0 40px;
 }
 
-a.effect-link {
+a.effect-link,
+.message a.effect-link {
   padding: 0 0 0 20px;
   line-height: 1;
   position: relative;
@@ -2015,6 +2027,9 @@ a.effect-link {
   text-decoration-thickness: 2px;
   border: 1px dashed transparent;
   transition: all ease-in-out 0.25s;
+  background: transparent;
+  border-radius: 0;
+  color: inherit;
 
   &:hover,
   &:focus {
@@ -2034,7 +2049,7 @@ a.effect-link {
     left: 2px;
     top: 0;
     bottom: 0;
-    margin: auto !important;
+    margin: 0 auto !important;
     border: 1px solid black;
     background: #8839a8;
     display: flex;

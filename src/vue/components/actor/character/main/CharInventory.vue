@@ -44,7 +44,7 @@
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
-        <li v-for="(equipment, equipmentKey) in equipmentGroups[groupKey]" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" :data-draggable="draggable" :draggable="draggable">
+        <li v-for="(equipment, equipmentKey) in equipmentGroups[groupKey]" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" data-draggable="true" draggable="true">
           <!-- Clickable equipment header. -->
           <div class="equipment-summary grid equipment-grid equipment">
             <Rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></Rollable>
@@ -129,9 +129,6 @@ export default {
     Rollable
   },
   computed: {
-    draggable() {
-      return this.sortBy == 'custom' ? true : false;
-    },
     classes() {
       return `section section--inventory flexcol`;
     },

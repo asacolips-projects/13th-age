@@ -45,7 +45,7 @@
         </div>
       </div>
       <ul class="power-group-content flexcol">
-        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" :data-draggable="draggable" :draggable="draggable">
+        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-draggable="true" draggable="true">
           <!-- Clickable power header. -->
           <div :class="concat('power-summary grid power-grid ', powerUsageClass(power), (power.system.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
             <Rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></Rollable>
@@ -119,9 +119,6 @@ export default {
     }
   },
   computed: {
-    draggable() {
-      return this.sortBy == 'custom' ? true : false;
-    },
     /**
      * Retrieve the groups as a computed property. Stored as keyed object where
      * the key is the machine name for the group and the value is the label.

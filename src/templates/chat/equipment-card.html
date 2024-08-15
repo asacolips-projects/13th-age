@@ -1,4 +1,4 @@
-<div class="archmage chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}">
+<div class="archmage chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}" data-actor-uuid="{{actor.uuid}}">
     <header class="card-header flexrow">
         <img src="{{item.img}}" title="{{item.name}}" width="36" height="36"/>
         <h3>{{item.name}}</h3>
@@ -12,6 +12,8 @@
             {{{data.description.value}}}
         </div>
     </div>
+
+    {{> "systems/archmage/templates/chat/_chat-effect-part.html" data=data actor=actor}}
 
     <footer class="card-footer">
         {{#each data.properties}}

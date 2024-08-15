@@ -54,6 +54,49 @@ export class ItemArchmageSheet extends ItemSheet {
     // Sequencer support
     context.sequencerEnabled = game.modules.get("sequencer")?.active;
 
+    // Effects.
+    function getChanges(effect) {
+      let changes = [];
+      let modes = [
+        'question',
+        'times',
+        'plus',
+        "minus",
+        'angle-double-down',
+        'angle-double-up',
+        'undo'
+      ]
+      effect.changes.forEach(c => {
+        if (c.key && c.value) {
+          const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
+          let change = {
+            name: label,
+            img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
+            mode: modes[c.mode],
+            value: c.value
+          };
+          if (change.mode === "plus" && change.value < 0) {
+            change.mode = "minus";
+            change.value = Math.abs(change.value);
+          }
+          changes.push(change);
+        }
+      })
+      return changes;
+    }
+    context.effects = this.item.effects.toObject();
+    context.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    for (let [index, effect] of context.effects.entries()) {
+      context.effects[index].duration = effect.flags?.archmage?.duration
+        ? game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration])
+        : false;
+      context.effects[index].ongoingDamage = effect.flags?.archmage?.ongoingDamage
+        ? `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`
+        : false;
+      context.effects[index].bonuses = getChanges(effect);
+      context.effects[index].img = effect?.img ?? effect?.icon;
+    }
+
     // Power-specific data
     if (this.item.type === 'power') {
       context['powerSources'] = CONFIG.ARCHMAGE.powerSources;
@@ -173,6 +216,8 @@ export class ItemArchmageSheet extends ItemSheet {
     super.activateListeners(html);
     const context = await this.getData();
 
+    if (!this.options.editable) return;
+
     // If the _CodeMirror module is enabled, use it to create a code editor for
     // the macro field.
     if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
@@ -192,6 +237,9 @@ export class ItemArchmageSheet extends ItemSheet {
 
     // Feat buttons
     html.on('click', '.feat-edit', (event) => this._updateFeat(event));
+
+    // Effects.
+    html.on('click', '.effect-control', (event) => this._onManageEffect(event));
   }
 
   /**
@@ -292,5 +340,51 @@ export class ItemArchmageSheet extends ItemSheet {
         if (del) await change();
       }
     }).render(true);
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /*  Handle effects -------------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+  _onManageEffect(event) {
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+    const effect = dataset.itemId ? this.document.effects.get(dataset.itemId) : null;
+
+    switch (dataset.action) {
+      case 'create':
+        return this.document.createEmbeddedDocuments('ActiveEffect', [{
+          label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
+          icon: 'icons/svg/aura.svg',
+          origin: this.document.uuid,
+          disabled: false
+        }]);
+
+      case 'edit':
+        return effect.sheet.render(true);
+
+      case 'delete':
+        let del = false;
+        new Dialog({
+          title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
+          content: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+          buttons: {
+            del: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+              callback: () => {del = true;}
+            },
+            cancel: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+              callback: () => {}
+            }
+          },
+          default: 'cancel',
+          close: html => { if (del) return effect.delete(); }
+        }).render(true);
+        break;
+
+      case 'toggle':
+        return effect.update({disabled: !effect.disabled});
+    }
+
   }
 }
