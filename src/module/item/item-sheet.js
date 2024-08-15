@@ -354,7 +354,7 @@ export class ItemArchmageSheet extends ItemSheet {
       case 'create':
         return this.document.createEmbeddedDocuments('ActiveEffect', [{
           label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
-          icon: 'icons/svg/aura.svg',
+          icon: this.document.img || 'icons/svg/aura.svg',
           origin: this.document.uuid,
           disabled: false
         }]);
