@@ -1,20 +1,22 @@
 name: archmage
 id: archmage
 title: 13th Age
-version: "1.30.4"
+version: "1.31.0"
 authors:
   - name: Matt Smith
-    discord: asacolips#1867
+    discord: asacolips
   - name: Cody Swendrowski
-    discord: cswendrowski#9701
+    discord: cswendrowski
   - name: Federico Pederzolli
-    discord: Legofed3#6471
+    discord: legofed3
+  - name: Ben Straub
+    discord: benstraub
 
 description: The official 13th Age system for Foundry Virtual Tabletop.
 
 compatibility:
   minimum: "11"
-  verified: "12.327"
+  verified: "12.331"
   maximum: "12"
 
 esmodules:
@@ -277,7 +279,7 @@ languages:
 socket: true
 url: https://github.com/asacolips-projects/13th-age
 manifest: https://asacolips-artifacts.s3.amazonaws.com/archmage/latest/system.json
-download: https://asacolips-artifacts.s3.amazonaws.com/archmage/1.30.4/archmage.zip
+download: https://asacolips-artifacts.s3.amazonaws.com/archmage/1.31.0/archmage.zip
 changelog: https://github.com/asacolips-projects/13th-age/releases
 initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
 gridDistance: "1"
