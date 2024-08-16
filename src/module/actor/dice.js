@@ -127,14 +127,14 @@ export class DiceArchmage {
     // Modify the roll and handle fast-forwarding
     let adv = 0;
     terms = ['1d20'].concat(terms);
-    if (event.shiftKey) {
+    if (event?.shiftKey) {
       return roll(null, data);
     }
-    else if (event.altKey) {
+    else if (event?.altKey) {
       adv = 1;
       return roll(null, data);
     }
-    else if (event.ctrlKey || event.metaKey) {
+    else if (event?.ctrlKey || event?.metaKey) {
       adv = -1;
       return roll(null, data);
     }
