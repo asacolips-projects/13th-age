@@ -916,7 +916,7 @@ export class ActorArchmage extends Actor {
     };
 
     // Modify the roll and handle fast-forwarding
-    if (event.shiftKey) return roll(null, data);
+    if (event?.shiftKey) return roll(null, data);
     else terms = terms.concat(['@bonus']);
 
     // Render modal dialog
@@ -1006,7 +1006,7 @@ export class ActorArchmage extends Actor {
     let avg = this.getFlag('archmage', 'averageRecoveries');
     let data = {bonus: "", average: avg, createMessage: true};
 
-    if (event.shiftKey) {
+    if (event?.shiftKey) {
       this.rollRecovery(data);
       return;
     }
