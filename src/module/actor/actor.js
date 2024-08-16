@@ -1805,6 +1805,20 @@ export class ActorArchmage extends Actor {
       data.system.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
     }
 
+    // If Extra ho have changed, reflect changes in actual hp
+    let deltaExtra = 0;
+    if (changes.system.attributes?.hp?.extra !== undefined) {
+      deltaExtra = changes.system.attributes.hp.extra - this.system.attributes.hp.extra;
+      if (deltaExtra > 0) {
+        if (data.system.attributes.hp.value !== undefined) {
+          data.system.attributes.hp.value += changes.system.attributes.hp.extra;
+        } else {
+          data.system.attributes.hp.value = this.system.attributes.hp.value + changes.system.attributes.hp.extra;
+        }
+      }
+      maxHp += deltaExtra;
+    }
+
     if (changes.system.attributes?.hp?.value !== undefined
       && changes.system.attributes?.hp?.temp == undefined) {
       // Here we received an update of the total hp but not the temp, check them
