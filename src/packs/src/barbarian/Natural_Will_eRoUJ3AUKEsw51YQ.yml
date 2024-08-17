@@ -213,7 +213,38 @@ system:
         value: null
 flags: {}
 img: icons/magic/defensive/armor-shield-barrier-steel.webp
+effects:
+  - origin: null
+    disabled: false
+    name: Natural Will Defense Bonus
+    img: icons/magic/defensive/armor-shield-barrier-steel.webp
+    _id: CESUEgJMv5CwuRW0
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.md.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!eRoUJ3AUKEsw51YQ.CESUEgJMv5CwuRW0'
 _id: eRoUJ3AUKEsw51YQ
-effects: []
 _key: '!items!eRoUJ3AUKEsw51YQ'
 

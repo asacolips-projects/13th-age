@@ -164,7 +164,69 @@ system:
     value: null
 flags: {}
 img: systems/archmage/assets/icons/skills/light_04.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Bless (Power)
+    img: systems/archmage/assets/icons/skills/light_04.jpg
+    _id: RchFg2itUVx2jKfF
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attackMod.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!k6IACfFF9kcxEEH2.RchFg2itUVx2jKfF'
+  - origin: null
+    disabled: false
+    name: Bless (Broad Effect)
+    img: systems/archmage/assets/icons/skills/light_04.jpg
+    _id: dfbqhTOqV6vD8ftQ
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attackMod.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!k6IACfFF9kcxEEH2.dfbqhTOqV6vD8ftQ'
 _id: k6IACfFF9kcxEEH2
 _key: '!items!k6IACfFF9kcxEEH2'
 
