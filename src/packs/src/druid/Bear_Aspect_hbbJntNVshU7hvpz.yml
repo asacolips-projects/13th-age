@@ -226,6 +226,37 @@ system:
 flags: {}
 img: icons/commodities/claws/claw-bear-brown.webp
 _id: hbbJntNVshU7hvpz
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Bear Aspect Champion Feat Bonus
+    img: icons/commodities/claws/claw-bear-brown.webp
+    _id: CESUEgJMv5CwuRW3
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!hbbJntNVshU7hvpz.CESUEgJMv5CwuRW3'
 _key: '!items!hbbJntNVshU7hvpz'
 
