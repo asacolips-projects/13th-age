@@ -548,8 +548,28 @@ option[selected] {
   }
 
   &.effect-sheet {
-    .description {
-      height: 50%;
+    .tab.active {
+      display: flex;
+      flex-direction: column;
+
+      > * {
+        flex: 0 auto;
+      }
+
+      .description {
+        flex: 1;
+      }
+
+      .prosemirror {
+        .editor-container {
+          margin: 0;
+        }
+
+        .editor-content {
+          background: transparent;
+          border: none;
+        }
+      }
     }
   }
 
