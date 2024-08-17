@@ -9,7 +9,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       height: 550,
       tabs: [{navSelector: ".tabs", contentSelector: "form", initial: "effects"}],
       submitOnClose: true,
-      submitOnChange: false
+      submitOnChange: true,
+      closeOnSubmit: false,
     });
   }
 
@@ -149,6 +150,9 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     // Filter changes for empty form fields.
     ae.changes = ae.changes.filter(c => c.value !== null);
+
+    // Handle details fields.
+    ae.disabled = !!formData?.effect?.disabled;
 
     return this.object.update(ae);
   }

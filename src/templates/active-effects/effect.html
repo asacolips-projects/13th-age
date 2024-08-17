@@ -18,13 +18,6 @@
             <div class="sheet-tabs-content">
                 <!-- Details Tab -->
                 <section class="tab" data-tab="details">
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.Icon" }}</label>
-                        <div class="form-fields">
-                            {{filePicker target="icon" type="image"}}
-                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{effect.icon}}"/>
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Disabled" }}</label>
@@ -38,7 +31,8 @@
                             <input type="text" name="origin" value="{{ effect.origin }}" />
                         </div>
                     </div>
-
+                    {{/if}}
+                    
                     <div class="form-group">
                         <label>{{ localize "EFFECT.TabDuration" }}</label>
                         <div class="form-fields">
@@ -47,16 +41,16 @@
                             </select>
                         </div>
                     </div>
-                    {{/if}}
 
-                    {{#if isItemEffect}}
+                    {{!-- We may enable this later, but for now, disable it. --}}
+                    {{!-- {{#if isItemEffect}}
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Transfer" }}</label>
                         <div class="form-fields">
                             <input type="checkbox" name="effect.transfer" {{checked effect.transfer}}/>
                         </div>
                     </div>
-                    {{/if}}
+                    {{/if}} --}}
 
                     {{#if supportsDescription}}
                     <div class="form-group stacked description">
