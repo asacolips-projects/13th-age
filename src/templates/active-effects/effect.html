@@ -24,6 +24,7 @@
                         <input type="checkbox" name="effect.disabled" {{ checked effect.disabled }}/>
                     </div>
 
+                    {{#if isActorEffect}}
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Origin" }}</label>
                         <div class="form-fields">
