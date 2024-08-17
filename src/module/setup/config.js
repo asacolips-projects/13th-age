@@ -977,6 +977,7 @@ ARCHMAGE.classResources = {
 ARCHMAGE.classResources2e = {
   // List custom resources to configure for classes that use them - added if 2e enabled
   // Stored as an array of two-element arrays with label and reset
+  'barbarian': [["Frenzy", "quickreset"]],
   'bard' : [["Combat Riffs", "quick"], ["Healing Magics", "quick"], ["Miss Me Effects", "quick"]]
 }
 
