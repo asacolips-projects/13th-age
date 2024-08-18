@@ -215,6 +215,7 @@ system:
         value: null
 flags: {}
 img: icons/magic/fire/dagger-rune-enchant-flame-strong-blue-yellow.webp
+_id: u407DdRXjXM0tyq5
 effects:
   - origin: null
     disabled: false
@@ -247,6 +248,5 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
     _key: '!items.effects!u407DdRXjXM0tyq5.2ISRQ1axSG7oVpEd'
-_id: u407DdRXjXM0tyq5
 _key: '!items!u407DdRXjXM0tyq5'
 

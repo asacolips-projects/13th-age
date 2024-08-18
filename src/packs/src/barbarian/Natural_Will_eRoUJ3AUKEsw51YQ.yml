@@ -213,6 +213,7 @@ system:
         value: null
 flags: {}
 img: icons/magic/defensive/armor-shield-barrier-steel.webp
+_id: eRoUJ3AUKEsw51YQ
 effects:
   - origin: null
     disabled: false
@@ -245,6 +246,5 @@ effects:
         ongoingDamageType: ''
         duration: EndOfCombat
     _key: '!items.effects!eRoUJ3AUKEsw51YQ.CESUEgJMv5CwuRW0'
-_id: eRoUJ3AUKEsw51YQ
 _key: '!items!eRoUJ3AUKEsw51YQ'
 
