@@ -624,6 +624,14 @@ export class ActorArchmage extends Actor {
   _prepareNPCData(data, model, flags) {
     // init.mod is used for rolls, while value is used on the sheet.
     data.attributes.init.mod = data.attributes.init.value;
+
+    // Handle stoke.
+    if (data.details.type.value === 'dragon') {
+      data.resources.spendable.stoke.enabled = true;
+    }
+    else {
+      data.resources.spendable.stoke.enabled = false;
+    }
   }
 
   /** @inheritdoc */

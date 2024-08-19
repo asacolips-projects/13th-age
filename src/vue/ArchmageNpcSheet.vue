@@ -20,7 +20,7 @@
       <section class="section section--main flexcol">
 
         <!-- Class resources -->
-        <!-- <CharResources :actor="actor"/> -->
+        <CharResources :actor="actor"/>
 
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
@@ -50,19 +50,6 @@
       </section>
       <!-- /Main content -->
 
-      <!-- Bottom content -->
-      <!-- <section class="section section--bottom flexcol"> -->
-        <!-- Attributes section -->
-        <!-- <NpcAttributes :actor="actor"/> -->
-        <!-- <CharInitiative :actor="actor"/> -->
-        <!-- <CharAbilities :actor="actor"/> -->
-        <!-- <CharBackgrounds :actor="actor"/> -->
-        <!-- <CharIconRelationships :actor="actor"/> -->
-        <!-- <CharOut :actor="actor" :owner="owner"/> -->
-        <!-- <CharIncrementals :actor="actor"/> -->
-      <!-- </section> -->
-      <!-- /Bottom content -->
-
     </section>
     <!-- /Bottom group -->
 
@@ -75,6 +62,7 @@
 import { concat, localize } from '@/methods/Helpers';
 import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import CharEffects from '@/components/actor/character/main/CharEffects.vue';
+import CharResources from '@/components/actor/character/main/CharResources.vue';
 import NpcHeader from '@/components/actor/npc/NpcHeader.vue';
 import NpcActions from '@/components/actor/npc/NpcActions.vue';
 import NpcAttributes from '@/components/actor/npc/NpcAttributes.vue';
@@ -96,6 +84,7 @@ export default {
     NpcModifyLevel,
     CharDetails,
     CharEffects,
+    CharResources,
   },
   setup() {
     return {
