@@ -143,6 +143,7 @@ export class DamageApplicator {
       const actorElement = element.closest('[data-actor-uuid]');
       const messageElement = element.closest('[data-message-id]');
       const actor = actorElement?.dataset?.actorUuid ? await fromUuid(actorElement.dataset.actorUuid) : false;
+      const item = actor && actorElement.dataset?.itemId ? actor.items.get(actorElement.dataset.itemId) : false;
       const message = messageElement?.dataset?.messageId ? game.messages.get(messageElement.dataset.messageId) : false;
       const rowElement = inlineroll.parent('.card-prop');
       const rowText = rowElement?.text() ?? '';
@@ -180,8 +181,18 @@ export class DamageApplicator {
           };
           const $attackRow = $(element.closest('.card-prop'));
           const targets = Targeting.getTargetsFromRowText(rowText, $attackRow, targetOptions.numTargets, targetOptions.cachedTargets);
-          const addEdToCritRange = false;
-          const hitEvaluationResults = HitEvaluation.processRowText(rowText, targets, $attackRow, actor, addEdToCritRange);
+          let addEdToCritRange = false;
+          let addStokeToCritRange = false;
+          if (game.settings.get('archmage', 'secondEdition') && item) {
+            addEdToCritRange = item.system.breathWeapon?.value?.length > 0;
+            if (actor.system.details?.type?.value === 'dragon') {
+              const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
+              if (item.name.toLocaleLowerCase().includes(breathString)) {
+                  addStokeToCritRange = true;
+              }
+          }
+          }
+          const hitEvaluationResults = HitEvaluation.processRowText(rowText, targets, $attackRow, actor, addEdToCritRange, addStokeToCritRange);
 
           if (hitEvaluationResults.defenses.length > 0) {
             // @todo Re-evaluate rolls here.
