@@ -1,0 +1,135 @@
+@container archmage-window-content (max-width: #{$cq-mobile}) {
+  .archmage-v2.sheet.character-sheet {
+    .window-content {
+      .archmage-vue {
+        overflow-y: auto;
+      }
+
+      .archmage-v2-vue {
+        height: auto;
+        flex: 0 0 auto;
+
+        .section--attributes,
+        .section--sidebar,
+        .section--resources,
+        .section--tabs-content {
+          background: $c-white--25;
+          border: 1px solid $c-black--25;
+          padding: 10px;
+          margin: 10px 0;
+        }
+
+        .section--resources {
+          &::after {
+            display: none;
+          }
+        }
+
+        &.nightmode {
+          .section--attributes,
+          .section--sidebar,
+          .section--resources,
+          .section--tabs-content {
+            background: $c-black--25;
+            border: 1px solid $c-white--25;
+          }
+        }
+      }
+
+      .container--top {
+        .character-header {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          .unit--level {
+            grid-column-start: 2;
+            grid-row-start: 1;
+          }
+        }
+
+        .section--attributes {
+          flex-direction: column;
+        }
+
+        .unit--attributes {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+
+          .unit {
+            grid-column-end: span 2;
+          }
+        }
+
+        .unit--saves {
+          grid-column-start: 2;
+
+          &::before {
+            display: none !important;
+          }
+        }
+      }
+
+      .container--bottom {
+        flex-direction: column;
+
+        .section--sidebar,
+        .section--main {
+          height: auto;
+          width: 100%;
+          overflow-x: hidden;
+          overflow-y: hidden;
+          flex: 1;
+        }
+
+        .sheet-tabs {
+          flex-wrap: wrap;
+          margin: 10px 0;
+
+          > span {
+            display: flex;
+          }
+
+          .tab-link {
+            margin: 4px;
+          }
+        }
+
+        .section--resources {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+
+          .unit {
+            max-width: none;
+          }
+        }
+
+        // Space is at a premium on mobile. Hide feats, recharge, and search.
+        .filter-search-powers {
+          display: none;
+        }
+
+        .power-grid {
+          grid-template-columns: 32px auto 0px 44px 0px 36px 64px;
+
+          .power-recharge,
+          .power-feat-pips {
+            display: none;
+          }
+        }
+
+        .equipment-grid {
+          grid-template-columns: 32px auto 36px 0px 0px 0px 36px 56px;
+
+          .equipment-feat-pips,
+          .equipment-bonus,
+          .equipment-chakra,
+          .equipment-recharge {
+            display: none;
+          }
+        }
+
+        .sheet-settings {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+    }
+  }
+}

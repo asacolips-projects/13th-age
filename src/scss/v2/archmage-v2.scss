@@ -37,6 +37,11 @@
     }
   }
 
+  .window-content {
+    container-type: size;
+    container-name: archmage-window-content;
+  }
+
   // Character and NPC sheets.
   &.sheet,
   &.archmage-dialog {
@@ -100,5 +105,6 @@
   @import 'components/chat/ongoing-effects';
 }
 
+@import 'layout/container-queries';
 @import 'theme/nightmode';
 @import 'theme/colormodes';
