@@ -215,6 +215,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     super.activateListeners(html);
     ActorHelpersV2._activatePortraitArtContextMenu(this, html)
 
+    // Close the mobile menu if open.
+    html.on('click', (event) => {
+      const button = event?.target?.closest('.sheet-tabs-toggle') ?? event.target;
+      // Exit early if is the mobile menu button itself, that's handled in the component.
+      if (button?.classList?.contains('sheet-tabs-toggle')) return;
+      // Otherwise close the menu.
+      const parent = event?.target?.classList?.contains('archmage-v2-vue')
+        ? event.target
+        : event?.target?.closest('.archmage-v2-vue');
+      const mobileMenu = parent.querySelector('.tabs--mobile.active');
+      if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+      }
+    })
+
     if (!this.options.editable) return;
 
     // CRUD listeners.

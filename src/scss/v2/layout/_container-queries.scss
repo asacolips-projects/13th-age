@@ -2,7 +2,8 @@
   .archmage-v2.sheet.character-sheet {
     .window-content {
       .archmage-vue {
-        overflow-y: auto;
+        height: 100%;
+        overflow: visible;
       }
 
       .archmage-v2-vue {
@@ -37,14 +38,97 @@
         }
       }
 
-      .container--top {
-        .character-header {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+      .section--tabs-mobile {
+        display: block;
+        position: relative;
+      }
 
-          .unit--level {
-            grid-column-start: 2;
-            grid-row-start: 1;
+      .sheet-tabs-toggle--mobile {
+        width: 44px;
+        height: 44px;
+      }
+
+      .tabs--mobile {
+        display: none;
+        border: none;
+        position: absolute;
+        top: auto;
+        right: 0;
+        background-color: $c-blue;
+        z-index: 99;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0 !important;
+
+        &.active {
+          display: flex;
+        }
+
+        > span {
+          width: 100%;
+          
+          .tab-link {
+            flex: 1;
+            color: $c-white--50;
+            background: transparent;
+
+            &.active,
+            &:hover,
+            &:focus {
+              color: $c-white;  
+            }
+
+            &:hover {
+              background-color: $c-white--25;
+            }
           }
+        }
+      }
+
+      .tab[data-tab][data-group="mobile"] {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+
+      .container--top {
+        display: grid;
+        grid-template-columns: calc(100% - 44px) 44px;
+        grid-gap: 10px;
+
+        .character-header {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          grid-column-start: 1;
+          grid-column-end: span 1;
+          grid-row-start: 1;
+
+          .unit--name {
+            grid-column-start: 1;
+            grid-column-end: span 4;
+          }
+
+          .unit--race { grid-column-end: span 3; }
+          .unit--class { grid-column-end: span 3; }
+          .unit--level { 
+            grid-column-start: 5;
+            grid-row-start: 1;
+            grid-column-end: span 2; 
+          }
+        }
+
+        .section--tabs-mobile {
+          grid-column-start: 2;
+          grid-row-start: 1;
+        }
+
+        .tab.attributes {
+          grid-column-start: 1;
+          grid-column-end: span 2;
+          grid-row-start: 2;
         }
 
         .section--attributes {
@@ -81,6 +165,14 @@
         }
       }
 
+      .tabs--primary {
+        .tab-link {
+          font-size: 16px;
+          padding: 4px 6px;
+          margin: 2px;
+        }
+      }
+
       .container--bottom {
         flex-direction: column;
 
@@ -94,11 +186,20 @@
         }
 
         .section--resources {
+          // display: flex;
+          // flex-direction: row;
+          // flex-wrap: wrap;
           display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(2, minmax(0, 1fr));
 
           .unit {
             max-width: none;
+            margin: 8px 0;
+            border-left: none;
+          }
+
+          .resource-divider {
+            display: none;
           }
         }
 

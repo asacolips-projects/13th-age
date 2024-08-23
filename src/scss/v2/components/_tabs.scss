@@ -47,3 +47,16 @@
     }
   }
 }
+
+// Hide the mobile tabs on desktop sheets.
+.tab.abilities,
+.tab.combat {
+  flex: 1;
+  height: 100%;
+}
+.section--tabs-mobile {
+  display: none;
+}
+.tab[data-tab][data-group="mobile"] {
+  display: block;
+}

@@ -1,7 +1,10 @@
 <template>
-  <section class="section section--tabs flexshrink">
+  <section :class="`section section--tabs section--tabs-${group} flexshrink`">
     <!-- <input type="hidden" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="currentTab"/> -->
-    <nav :class="'sheet-tabs tabs tabs--' + group" :data-group="group">
+    <button v-if="hamburger" :class="`sheet-tabs-toggle sheet-tabs-toggle--${group}`" @click="toggleMenu">
+      <i class="fas fa-bars"></i><span class="visually-hidden"> Toggle Navigation</span>
+    </button>
+    <nav :class="`sheet-tabs tabs tabs--${group}`" :data-group="group">
       <span v-for="(tab, tabKey) in tabs" :key="'tab-' + group + '-' + tabKey">
         <a @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
           <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
@@ -16,7 +19,7 @@
 import { concat, getActor } from '@/methods/Helpers';
 export default {
   name: 'Tabs',
-  props: ['context', 'actor', 'group', 'tabs', 'flags'],
+  props: ['context', 'actor', 'group', 'tabs', 'flags', 'hamburger'],
   setup() {
     return { concat }
   },
@@ -47,6 +50,19 @@ export default {
         getActor(this.actor).then(actor => {
           actor.setFlag('archmage', `sheetDisplay.tabs.${this.group}.value`, this.currentTab);
         });
+      }
+      // Close the mobile menu if open. We also need a click listener in the actor sheet class
+      // to close it as well, ideally.
+      const menu = event?.target?.closest('.section--tabs')?.querySelector('.sheet-tabs');
+      if (menu) {
+        menu.classList.remove('active');
+      }
+    },
+    toggleMenu(event) {
+      const target = event.target;
+      const menu = target?.closest('.section--tabs')?.querySelector('.sheet-tabs');
+      if (menu) {
+        menu.classList.toggle('active');
       }
     },
     getTabClass(tab, index) {
