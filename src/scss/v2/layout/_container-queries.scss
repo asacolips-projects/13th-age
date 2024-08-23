@@ -15,6 +15,7 @@
         .section--tabs-content {
           background: $c-white--25;
           border: 1px solid $c-black--25;
+          border-radius: 4px;
           padding: 10px;
           margin: 10px 0;
         }
@@ -67,6 +68,19 @@
         }
       }
 
+      .sheet-tabs {
+        flex-wrap: wrap;
+        margin: 10px 0;
+
+        > span {
+          display: flex;
+        }
+
+        .tab-link {
+          margin: 4px;
+        }
+      }
+
       .container--bottom {
         flex-direction: column;
 
@@ -77,19 +91,6 @@
           overflow-x: hidden;
           overflow-y: hidden;
           flex: 1;
-        }
-
-        .sheet-tabs {
-          flex-wrap: wrap;
-          margin: 10px 0;
-
-          > span {
-            display: flex;
-          }
-
-          .tab-link {
-            margin: 4px;
-          }
         }
 
         .section--resources {
@@ -128,6 +129,55 @@
 
         .sheet-settings {
           grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+    }
+  }
+
+  .archmage-v2.sheet.npc-sheet {
+    .window-content {
+      .container--top {
+        .unit--attributes {
+          &::before {
+            top: 50%;
+            left: 2px;
+          }
+
+          &::after {
+            display: none;
+          }
+
+          .unit {
+            grid-column-end: span 3;
+          }
+        }
+
+        .unit--saves,
+        .unit--disengage {
+          grid-column-start: auto;
+          position: relative;
+        }
+      }
+
+      .unit--roles {
+        flex-direction: column;
+      }
+
+      .section--main {
+        flex-direction: column;
+      }
+  
+      .section--resources {
+        align-items: flex-center;
+        justify-content: flex-center;
+  
+        .unit {
+          padding: 10px;
+          border: none !important;
+        }
+  
+        .resource-divider {
+          display: none;
         }
       }
     }
