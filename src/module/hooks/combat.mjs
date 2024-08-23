@@ -9,12 +9,17 @@ export async function combatTurn(combat, context, options) {
     const startCombatant = combat.nextCombatant;
     await handleTurnEffects("End", combat, endCombatant, context, options);
     await handleTurnEffects("Start", combat, startCombatant, context, options);
+    if (game.settings.get('archmage', 'secondEdition')) {
+        await handleStoke(combat, context, options);
+    }
 }
 
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
+    // Pseudo combatants may not have an actor.
+    if (!combatant?.actor) return;
 
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
-    const hasImplacable = combatant.actor.flags.archmage?.implacable ?? false;
+    const hasImplacable = combatant?.actor?.flags.archmage?.implacable ?? false;
     const currentCombatantEffectData = {
         selfEnded: [],
         savesEnds: [],
@@ -52,22 +57,24 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     // For each other combatant, check if their EndOfNextSourceTurn effects reference this combatant's actor as the source
     for (const otherCombatant of combat.combatants) {
         effectsToDelete = [];
-        for (const effect of otherCombatant.actor.effects) {
-            const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
-            effect.isOngoing = isOngoing;
-            const duration = effect.flags.archmage?.duration || "Unknown";
-            if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
-                // Ensure it's the *next* turn
-                if (combat.round  > effect.duration.startRound
-                || (combat.round == effect.duration.startRound && combat.turn > effect.duration.startTurn)) {
-                    effect.otherName = otherCombatant.actor.name;
-                    currentCombatantEffectData.otherEnded.push(effect);
-                    effectsToDelete.push(effect.id);
+        if (otherCombatant?.actor?.effects) {
+            for (const effect of otherCombatant.actor.effects) {
+                const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+                effect.isOngoing = isOngoing;
+                const duration = effect.flags.archmage?.duration || "Unknown";
+                if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
+                    // Ensure it's the *next* turn
+                    if (combat.round  > effect.duration.startRound
+                    || (combat.round == effect.duration.startRound && combat.turn > effect.duration.startTurn)) {
+                        effect.otherName = otherCombatant.actor.name;
+                        currentCombatantEffectData.otherEnded.push(effect);
+                        effectsToDelete.push(effect.id);
+                    }
                 }
             }
+            // Auto-delete AEs
+            await otherCombatant.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
         }
-        // Auto-delete AEs
-        await otherCombatant.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
     }
 
     if (!isDead) {
@@ -136,6 +143,17 @@ export async function preDeleteCombat(combat, context, options) {
 
         // Auto-delete AEs
         await combatant.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+    }
+}
+
+async function handleStoke(combat, context, options) {
+    const endCombatant = combat.combatant;
+    if (endCombatant?.actor?.type === 'npc' && endCombatant.actor.system?.details?.type?.value === 'dragon') {
+        const stokeDelta = endCombatant.getFlag('archmage', 'breathUsed') ? -1 : 1;
+        await endCombatant.actor.update({
+            'system.resources.spendable.stoke.current': stokeDelta + (endCombatant.actor.system.resources.spendable.stoke.current ?? 0),
+        });
+        await endCombatant.setFlag('archmage', 'breathUsed', false);
     }
 }
 
