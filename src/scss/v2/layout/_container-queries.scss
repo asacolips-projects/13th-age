@@ -188,6 +188,11 @@
   
           .unit--attributes {
             grid-template-columns: repeat(6, minmax(0, 1fr));
+            padding-bottom: 0;
+
+            &::after {
+              top: calc(50% + 6px);
+            }
   
             .unit {
               grid-column-end: span 2;
@@ -289,9 +294,13 @@
           grid-template-columns: repeat(4, minmax(0, 1fr));
           zoom: 80%;
 
-          &::before,
-          &::after {
+          &::before {
             display: none;
+          }
+
+          &::after {
+            top: 50%;
+            left: 1px;
           }
 
           .unit {
