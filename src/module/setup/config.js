@@ -970,15 +970,15 @@ ARCHMAGE.classes2e = {
 ARCHMAGE.classResources = {
   // List custom resources to configure for classes that use them
   // Stored as an array of two-element arrays with label and reset
-  'chaosmage': [["CM Daily Spells", "full"], ["CM Per-Battle Spells", "quick"]],
-  'druid' : [["TC Daily Spells", "full"]]
+  'chaosmage': [["CM Daily Spells", "full", 2, 2], ["CM Per-Battle Spells", "quick", 1, 1]],
+  'druid' : [["TC Daily Spells", "full", 1, 1]]
 }
 
 ARCHMAGE.classResources2e = {
   // List custom resources to configure for classes that use them - added if 2e enabled
   // Stored as an array of two-element arrays with label and reset
   'barbarian': [["Frenzy", "quickreset"]],
-  'bard' : [["Combat Riffs", "quick"], ["Healing Magics", "quick"], ["Miss Me Effects", "quick"]]
+  'bard' : [["Combat Riffs", "quick", 2, 2], ["Healing Magics", "quick", 2, 2], ["Miss Me Effects", "quick", 2, 2]]
 }
 
 ARCHMAGE.keyModifiers = {
