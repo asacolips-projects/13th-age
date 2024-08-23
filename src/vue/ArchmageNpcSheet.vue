@@ -194,5 +194,9 @@ export default {
       margin-top: 0;
     }
   }
+
+  .section--resources {
+    padding: 10px 0 20px;
+  }
 }
 </style>
