@@ -506,7 +506,7 @@ export class ItemArchmage extends Item {
   }
 
   _rollGetToken(itemToRender) {
-    let tokens = canvas.tokens.controlled;
+    let tokens = canvas?.tokens?.controlled;
     let token = tokens ? tokens[0] : null;
     if (!token || token.actor != itemToRender.actor) {
       tokens = itemToRender.actor.getActiveTokens(true);
