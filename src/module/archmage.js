@@ -186,6 +186,8 @@ Hooks.once('init', async function() {
   });
 
   CONFIG.ARCHMAGE = ARCHMAGE;
+  // Default the 2e constant to false, but the setting will be checked later in the 'ready' hook.
+  CONFIG.ARCHMAGE.is2e = false;
 
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
@@ -690,6 +692,9 @@ Hooks.once('ready', () => {
   addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
+
+  // Add a constant for whether or not we're on 2e.
+  CONFIG.ARCHMAGE.is2e = game.settings.get('archmage', 'secondEdition');
 
   // Add effect link drag data
   document.addEventListener("dragstart", event => {

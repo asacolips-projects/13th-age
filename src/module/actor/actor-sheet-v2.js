@@ -355,7 +355,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       name: game.archmage.ArchmageUtility.formatNewItemName(itemType),
       type: itemType,
       img: img,
-      data: data
+      system: data
     };
     await this.actor.createEmbeddedDocuments('Item', [itemData]);
   }
