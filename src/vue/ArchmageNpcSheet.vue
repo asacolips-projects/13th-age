@@ -20,7 +20,7 @@
       <section class="section section--main flexcol">
 
         <!-- Class resources -->
-        <CharResources :actor="actor"/>
+        <CharResources v-if="hasResources && tabs.primary.actions.active"  :actor="actor"/>
 
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
@@ -171,6 +171,22 @@ export default {
         }
       }
       return foundry.utils.mergeObject(baseFlags, flags);
+    },
+    hasResources() {
+      let hasResources = false;
+      if (this.actor?.system?.resources) {
+        for (let resourceType of Object.values(this.actor.system.resources)) {
+          if (resourceType) {
+            for (let resource of Object.values(resourceType)) {
+              if (resource?.enabled) {
+                hasResources = true;
+                break;
+              }
+            }
+          }
+        }
+      }
+      return hasResources;
     }
   },
   watch: {},
@@ -195,8 +211,50 @@ export default {
     }
   }
 
+  .section--main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
   .section--resources {
     padding: 10px 0 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex: 0 0 140px;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .unit,
+    .unit--custom {
+      flex: 0 auto;
+      max-width: none !important; // @todo clean this up, but it works for now.
+      width: 100%;
+      border-left: none;
+      padding: 0 10px 10px;
+
+      + .unit {
+        border-top: 2px solid $c-black--25;
+        padding-top: 10px;
+      }
+    }
+
+    .unit--custom {
+      border-top: 2px solid $c-black--25;
+      padding-top: 10px;
+    }
+
+    .resource-divider {
+      display: none;
+    }
+  }
+
+  .section--tabs-content {
+    flex: 1;
   }
 }
 </style>
