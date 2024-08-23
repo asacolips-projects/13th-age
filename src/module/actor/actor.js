@@ -1679,6 +1679,14 @@ export class ActorArchmage extends Actor {
           delta.signedString()+" "+suffix,
           foundry.utils.mergeObject(textOptions, overrideOptions)
         );
+        // Flash dynamic token rings.
+        if (token?.ring) {
+          const flashColor = delta < 0 ? Color.fromString('#ff0000') : Color.fromString('#00ff00');
+          token.ring.flashColor(flashColor, {
+            duration: 600,
+            easing: foundry.canvas.tokens.TokenRing.easeTwoPeaks,
+          });
+        }
       }
     }
   }
