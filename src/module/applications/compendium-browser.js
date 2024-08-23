@@ -31,7 +31,8 @@ export class ArchmageCompendiumBrowserApplication extends Application {
 
   /** @override */
   static get defaultOptions() {
-    return {...super.defaultOptions,
+    const nightMode = game.settings.get("archmage", "nightmode");
+    const options = {...super.defaultOptions,
       classes: [
         'form',
         'archmage-v2',
@@ -45,6 +46,12 @@ export class ArchmageCompendiumBrowserApplication extends Application {
       height: 775,
       resizable: true,
     };
+
+    if (nightMode) {
+      options.classes.push('nightmode');
+    }
+
+    return options;
   }
 
   /** @override */

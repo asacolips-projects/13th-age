@@ -22,6 +22,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     const compactMode = game.settings.get('archmage', 'compactMode');
+    const nightMode = game.settings.get("archmage", "nightmode");
     foundry.utils.mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
       width: compactMode ? 826 : 960,
@@ -33,6 +34,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     if (compactMode) {
       options.classes.push('compact-mode');
+    }
+
+    if (nightMode) {
+      options.classes.push('nightmode');
     }
 
     return options;

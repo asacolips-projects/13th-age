@@ -1,14 +1,57 @@
-@container archmage-window-content (max-width: #{$cq-mobile}) {
-  .archmage-v2.sheet.character-sheet {
+// Bandaid fixes to make small window sizes more palatable.
+@container archmage-window-content (max-width: #{$cq-tablet}) {
+  .archmage-v2.sheet {
     .window-content {
+      .unit--attributes {
+        zoom: 80%;
+      }
+
+      .tab.abilities {
+        flex: 0 0 200px;
+      }
+      .section--sidebar {
+        zoom: 80%;
+      }
+
+      .section--resources {
+        zoom: 90%;
+      }
+
+      .tabs {
+        zoom: 80%;
+      }
+    }
+  }
+}
+
+// Mobile layout.
+@container archmage-window-content (max-width: #{$cq-mobile}) {
+  .archmage-v2.sheet {
+    .window-content {
+      // Undo the tablet styles. ------------------------
+      .unit--attributes,
+      .section--resources,
+      .tabs,
+      .section--sidebar {
+        zoom: 100%;
+      }
+
+      .tab.abilities {
+        flex: 1;
+      }
+      // End the tablet styles section ------------------
+
       .archmage-vue {
         height: 100%;
-        overflow: visible;
+        overflow-y: auto;
+        scrollbar-color: $c-blue transparent;
+        scrollbar-width: thin;
       }
 
       .archmage-v2-vue {
         height: auto;
         flex: 0 0 auto;
+        min-height: 100%;
 
         .section--attributes,
         .section--sidebar,
@@ -36,220 +79,223 @@
             border: 1px solid $c-white--25;
           }
         }
-      }
-
-      .section--tabs-mobile {
-        display: block;
-        position: relative;
-      }
-
-      .sheet-tabs-toggle--mobile {
-        width: 44px;
-        height: 44px;
-      }
-
-      .tabs--mobile {
-        display: none;
-        border: none;
-        position: absolute;
-        top: auto;
-        right: 0;
-        background-color: $c-blue;
-        z-index: 99;
-        flex-direction: column;
-        justify-content: stretch;
-        align-items: flex-start;
-        padding: 0;
-        margin: 0 !important;
-
-        &.active {
-          display: flex;
-        }
-
-        > span {
-          width: 100%;
-          
-          .tab-link {
-            flex: 1;
-            color: $c-white--50;
-            background: transparent;
-
-            &.active,
-            &:hover,
-            &:focus {
-              color: $c-white;  
-            }
-
-            &:hover {
-              background-color: $c-white--25;
-            }
-          }
-        }
-      }
-
-      .tab[data-tab][data-group="mobile"] {
-        display: none;
-
-        &.active {
-          display: block;
-        }
-      }
-
-      .container--top {
-        display: grid;
-        grid-template-columns: calc(100% - 44px) 44px;
-        grid-gap: 10px;
-
-        .character-header {
-          grid-template-columns: repeat(6, minmax(0, 1fr));
-          grid-column-start: 1;
-          grid-column-end: span 1;
-          grid-row-start: 1;
-
-          .unit--name {
-            grid-column-start: 1;
-            grid-column-end: span 4;
-          }
-
-          .unit--race { grid-column-end: span 3; }
-          .unit--class { grid-column-end: span 3; }
-          .unit--level { 
-            grid-column-start: 5;
-            grid-row-start: 1;
-            grid-column-end: span 2; 
-          }
-        }
 
         .section--tabs-mobile {
-          grid-column-start: 2;
-          grid-row-start: 1;
-        }
-
-        .tab.attributes {
-          grid-column-start: 1;
-          grid-column-end: span 2;
-          grid-row-start: 2;
-        }
-
-        .section--attributes {
-          flex-direction: column;
-        }
-
-        .unit--attributes {
-          grid-template-columns: repeat(6, minmax(0, 1fr));
-
-          .unit {
-            grid-column-end: span 2;
+          display: block;
+          position: relative;
+  
+          &:hover {
+            .tabs--mobile {
+              display: flex;
+            }
           }
         }
-
-        .unit--saves {
-          grid-column-start: 2;
-
-          &::before {
-            display: none !important;
-          }
-        }
-      }
-
-      .sheet-tabs {
-        flex-wrap: wrap;
-        margin: 10px 0;
-
-        > span {
-          display: flex;
-        }
-
-        .tab-link {
-          margin: 4px;
-        }
-      }
-
-      .tabs--primary {
-        .tab-link {
-          font-size: 16px;
-          padding: 4px 6px;
-          margin: 2px;
-        }
-      }
-
-      .container--bottom {
-        flex-direction: column;
-
-        .section--sidebar,
-        .section--main {
-          height: auto;
+  
+        .sheet-tabs-toggle--mobile {
           width: 100%;
-          overflow-x: hidden;
-          overflow-y: hidden;
-          flex: 1;
+          height: 44px;
         }
-
-        .section--resources {
-          // display: flex;
-          // flex-direction: row;
-          // flex-wrap: wrap;
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-
-          .unit {
-            max-width: none;
-            margin: 8px 0;
-            border-left: none;
-          }
-
-          .resource-divider {
-            display: none;
-          }
-        }
-
-        // Space is at a premium on mobile. Hide feats, recharge, and search.
-        .filter-search-powers {
+  
+        .tabs--mobile {
           display: none;
+          border: none;
+          position: absolute;
+          top: auto;
+          right: 0;
+          background-color: $c-blue;
+          z-index: 99;
+          flex-direction: column;
+          justify-content: stretch;
+          align-items: flex-start;
+          padding: 0;
+          margin: 0 !important;
+  
+          &.active {
+            display: flex;
+          }
+  
+          > span {
+            width: 100%;
+            
+            .tab-link {
+              flex: 1;
+              color: $c-white--50;
+              background: transparent;
+  
+              &.active,
+              &:hover,
+              &:focus {
+                color: $c-white;  
+              }
+  
+              &:hover {
+                background-color: $c-white--25;
+              }
+            }
+          }
         }
+  
+        .tab[data-tab][data-group="mobile"] {
+          display: none;
+  
+          &.active {
+            display: block;
+          }
+        }
+  
+        .container--top {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+  
+          .character-header {
+            flex: 1;
+            order: 1;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
 
-        .power-grid {
-          grid-template-columns: 32px auto 0px 44px 0px 36px 64px;
-
-          .power-recharge,
-          .power-feat-pips {
+            label {
+              opacity: 0.25;
+            }
+  
+            .unit--name {
+              grid-column-start: 1;
+              grid-column-end: span 4;
+            }
+  
+            .unit--race { grid-column-end: span 3; }
+            .unit--class { grid-column-end: span 3; }
+            .unit--level { 
+              grid-column-start: 5;
+              grid-row-start: 1;
+              grid-column-end: span 2; 
+            }
+          }
+  
+          .section--tabs-mobile {
+            flex: 0 0 44px;
+            margin-left: 10px;
+            order: 2;
+          }
+  
+          .tab.attributes {
+            flex: 100%;
+            order: 3;
+          }
+  
+          .section--attributes {
+            flex-direction: column;
+          }
+  
+          .unit--attributes {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+  
+            .unit {
+              grid-column-end: span 2;
+            }
+          }
+  
+          .unit--saves {
+            grid-column-start: 2;
+          }
+        }
+  
+        .tabs--primary {
+          .tab-link {
+            font-size: 16px;
+            padding: 4px 6px;
+            margin: 2px;
+          }
+        }
+  
+        .container--bottom {
+          flex-direction: column;
+  
+          .section--sidebar,
+          .section--main {
+            height: auto;
+            width: 100%;
+            overflow-x: visible;
+            overflow-y: visible;
+            flex: 1;
+          }
+  
+          .section--resources {
+            // display: flex;
+            // flex-direction: row;
+            // flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+            .unit {
+              max-width: none;
+              margin: 8px 0;
+              border-left: none;
+            }
+  
+            .resource-divider {
+              display: none;
+            }
+          }
+  
+          // Space is at a premium on mobile. Hide feats, recharge, and search.
+          .filter-search-powers {
             display: none;
+          }
+  
+          .power-grid {
+            grid-template-columns: 32px auto 0px 44px 0px 36px 64px;
+  
+            .power-recharge,
+            .power-feat-pips {
+              display: none;
+            }
+          }
+  
+          .equipment-grid {
+            grid-template-columns: 32px auto 36px 0px 0px 0px 36px 56px;
+  
+            .equipment-feat-pips,
+            .equipment-bonus,
+            .equipment-chakra,
+            .equipment-recharge {
+              display: none;
+            }
+          }
+  
+          .sheet-settings {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
           }
         }
 
-        .equipment-grid {
-          grid-template-columns: 32px auto 36px 0px 0px 0px 36px 56px;
-
-          .equipment-feat-pips,
-          .equipment-bonus,
-          .equipment-chakra,
-          .equipment-recharge {
-            display: none;
+        &.character {
+          .unit--saves {
+            &::before {
+              display: none !important;
+            }
           }
-        }
-
-        .sheet-settings {
-          grid-template-columns: repeat(1, minmax(0, 1fr));
         }
       }
-    }
+
+    } // end
   }
 
   .archmage-v2.sheet.npc-sheet {
     .window-content {
       .container--top {
-        .unit--attributes {
-          &::before {
-            top: 50%;
-            left: 2px;
-          }
+        display: flex;
+        flex-direction: column;
 
+        .unit--attributes {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          zoom: 80%;
+
+          &::before,
           &::after {
             display: none;
           }
 
           .unit {
-            grid-column-end: span 3;
+            grid-column-end: span 1;
           }
         }
 
@@ -279,6 +325,26 @@
   
         .resource-divider {
           display: none;
+        }
+      }
+    }
+  }
+}
+
+@container archmage-window-content (max-width: #{$cq-tiny}) {
+  .archmage-v2.sheet {
+    .window-content {
+      .archmage-v2-vue.npc {
+        .container--top {
+          .unit--attributes {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .unit--saves {
+            &::before {
+              display: none;
+            }
+          }
         }
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <div :class="concat('archmage-v2-vue flexcol ', nightmode)" @click="toggleEditWrappers">
+  <div :class="concat('archmage-v2-vue npc flexcol ', nightmode)" @click="toggleEditWrappers">
 
     <!-- Top group -->
     <section class="container container--top flexcol">
