@@ -179,7 +179,69 @@ system:
     value: null
 flags: {}
 img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Spirits of the Righteous (Hit)
+    img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
+    _id: 8W2C23zZkIWLt77C
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '4'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextSourceTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!753LlseCsoBfKant.8W2C23zZkIWLt77C'
+  - origin: mull
+    disabled: false
+    name: Spirits of the Righteous (Miss)
+    img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
+    _id: UtHylz4juOVCLYPE
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextSourceTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!753LlseCsoBfKant.UtHylz4juOVCLYPE'
 _id: 753LlseCsoBfKant
 _key: '!items!753LlseCsoBfKant'
 

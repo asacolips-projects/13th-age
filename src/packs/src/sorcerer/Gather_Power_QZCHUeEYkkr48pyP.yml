@@ -259,6 +259,111 @@ system:
 flags: {}
 img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
 _id: QZCHUeEYkkr48pyP
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Chaotic Defense Bonus (Adventurer)
+    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+    _id: enEqCVZQMJUc06dX
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!QZCHUeEYkkr48pyP.enEqCVZQMJUc06dX'
+  - origin: null
+    disabled: false
+    name: Chaotic Defense Bonus (Champion)
+    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+    _id: S05dVICrz0ZtGCCI
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+      - key: system.attributes.pd.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!QZCHUeEYkkr48pyP.S05dVICrz0ZtGCCI'
+  - origin: null
+    disabled: false
+    name: Chaotic Defense Bonus (Epic)
+    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+    _id: lB6vPLCwTOCp7co9
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+      - key: system.attributes.md.value
+        value: '1'
+        mode: 2
+        priority: null
+      - key: system.attributes.pd.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!QZCHUeEYkkr48pyP.lB6vPLCwTOCp7co9'
 _key: '!items!QZCHUeEYkkr48pyP'
 

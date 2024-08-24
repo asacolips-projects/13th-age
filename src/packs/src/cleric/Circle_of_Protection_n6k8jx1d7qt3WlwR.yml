@@ -178,7 +178,100 @@ system:
     value: null
 flags: {}
 img: systems/archmage/assets/icons/spells/haste-royal-3.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Circle of Protection (AC)
+    img: systems/archmage/assets/icons/spells/haste-royal-3.jpg
+    _id: 0RBGEnffKIxRSqDo
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!n6k8jx1d7qt3WlwR.0RBGEnffKIxRSqDo'
+  - origin: null
+    disabled: false
+    name: Circle of Protection (PD)
+    img: systems/archmage/assets/icons/spells/haste-royal-3.jpg
+    _id: 446GJCehdn0RWmN7
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pd.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!n6k8jx1d7qt3WlwR.446GJCehdn0RWmN7'
+  - origin: null
+    disabled: false
+    name: Circle of Protection (MD)
+    img: systems/archmage/assets/icons/spells/haste-royal-3.jpg
+    _id: INRI7FLRwbBhpQo8
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.md.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!n6k8jx1d7qt3WlwR.INRI7FLRwbBhpQo8'
 _id: n6k8jx1d7qt3WlwR
 _key: '!items!n6k8jx1d7qt3WlwR'
 

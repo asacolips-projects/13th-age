@@ -2267,10 +2267,10 @@ export class ActorArchmage extends Actor {
 
       // Configure resource
       data.system.resources.spendable[resId] = {
-        current: 1,
+        current: res.length > 2 ? res[2] : 0,
         enabled: true,
         label: res[0],
-        max: 1,
+        max: res.length > 3 ? res[3] : 0,
         rest: res[1]
       };
     }

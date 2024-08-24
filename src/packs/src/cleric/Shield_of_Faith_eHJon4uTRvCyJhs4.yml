@@ -158,7 +158,69 @@ system:
     value: null
 flags: {}
 img: systems/archmage/assets/icons/skills/weapon_16.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Shield of Faith (Power)
+    img: systems/archmage/assets/icons/skills/weapon_16.jpg
+    _id: puV1sHLd45FW8GQ0
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!eHJon4uTRvCyJhs4.puV1sHLd45FW8GQ0'
+  - origin: null
+    disabled: false
+    name: Shield of Faith (Broad Effect)
+    img: systems/archmage/assets/icons/skills/weapon_16.jpg
+    _id: zj4C72OPqdJa9yxd
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!eHJon4uTRvCyJhs4.zj4C72OPqdJa9yxd'
 _id: eHJon4uTRvCyJhs4
 _key: '!items!eHJon4uTRvCyJhs4'
 

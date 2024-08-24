@@ -630,8 +630,8 @@ export class ItemArchmage extends Item {
     if (itemToRender.type != "power") return;
     if (!itemToRender.actor.system.details.detectedClasses?.includes("monk")) return;
 
-    let effects = itemToRender.actor.effects;
-    let group = itemToRender.system.group.value.toLowerCase();
+    const effects = itemToRender.actor.effects;
+    const group = itemToRender.system.group.value?.toLowerCase();
     let bonusMagnitudeMap = {};
     bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
     bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.flow")] = 2;

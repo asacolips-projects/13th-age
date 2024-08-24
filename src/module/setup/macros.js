@@ -193,6 +193,8 @@ export class ArchmageMacros {
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
+  //TODO: StrengthoftheGods
+
   ////////////////////////////////////////////////
   /**
    * Commander Macros.
@@ -301,8 +303,7 @@ export class ArchmageMacros {
       }
     }
 
-    // @todo change icon to img in v12/v13
-    let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
+    let effectData = { label: archmage.item.name, img: archmage.item.img, changes: effects };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
 
     const existingEffect = actor.effects.getName('Defensive Fighting');
@@ -313,6 +314,8 @@ export class ArchmageMacros {
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
     }
   }
+
+  //TODO: GritAndScrap2e
 
   ////////////////////////////////////////////////
   /**
