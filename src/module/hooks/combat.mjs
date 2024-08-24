@@ -186,6 +186,8 @@ async function handleStoke(combat, context, options) {
             'system.resources.spendable.stoke.current': stokeDelta + (endCombatant.actor.system.resources.spendable.stoke.current ?? 0),
         });
         await endCombatant.setFlag('archmage', 'breathUsed', false);
+        // Show scrolling text for the update.
+        endCombatant.actor._showScrollingText(stokeDelta, game.i18n.localize('ARCHMAGE.CHARACTER.RESOURCES.stoke'), {}, '#1776D5');
     }
 }
 
