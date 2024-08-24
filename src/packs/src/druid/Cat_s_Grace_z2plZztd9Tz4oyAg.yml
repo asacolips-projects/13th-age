@@ -180,6 +180,37 @@ system:
 flags: {}
 img: icons/creatures/abilities/cougar-pounce-stalk-black.webp
 _id: z2plZztd9Tz4oyAg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Cat's Grace Bonus
+    img: icons/creatures/abilities/cougar-pounce-stalk-black.webp
+    _id: CESUEgJMv5CwuRWB
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!z2plZztd9Tz4oyAg.CESUEgJMv5CwuRWB'
 _key: '!items!z2plZztd9Tz4oyAg'
 

@@ -215,7 +215,38 @@ system:
     value: null
 flags: {}
 img: systems/archmage/assets/icons/skills/blue_18.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Abjuration Defense Bonus
+    img: systems/archmage/assets/icons/skills/blue_18.jpg
+    _id: P9CLbENSf63bOwp6
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '4'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!SRVJqBD70Kc0kykv.P9CLbENSf63bOwp6'
 _id: SRVJqBD70Kc0kykv
 _key: '!items!SRVJqBD70Kc0kykv'
 

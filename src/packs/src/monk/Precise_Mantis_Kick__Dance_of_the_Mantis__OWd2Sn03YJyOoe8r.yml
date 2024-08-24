@@ -180,7 +180,38 @@ system:
     value: Finishing
 flags: {}
 img: systems/archmage/assets/icons/skills/weapon_20.jpg
-effects: []
+effects: 
+  - origin: null
+    disabled: false
+    name: Precise Mantis Kick Even Miss Bonus
+    img: systems/archmage/assets/icons/skills/weapon_20.jpg
+    _id: CESUEgJMv5CwuRWF
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.critMod.atk.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!OWd2Sn03YJyOoe8r.CESUEgJMv5CwuRWF'
 _id: OWd2Sn03YJyOoe8r
 _key: '!items!OWd2Sn03YJyOoe8r'
 

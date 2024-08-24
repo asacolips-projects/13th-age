@@ -162,7 +162,46 @@ system:
     value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/violet_15.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Path of the Perfect Warrior Bonus
+    img: systems/archmage/assets/icons/skills/violet_15.jpg
+    _id: CESUEgJMv5CwuRWE
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.weapon.jab.dice
+        value: 'd8'
+        mode: 5
+        priority: null
+      - key: system.attributes.weapon.punck.dice
+        value: 'd10'
+        mode: 5
+        priority: null
+      - key: system.attributes.weapon.kick.dice
+        value: 'd12'
+        mode: 5
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!arZMdqXKabgofT70.CESUEgJMv5CwuRWE'
 _id: arZMdqXKabgofT70
 _key: '!items!arZMdqXKabgofT70'
 

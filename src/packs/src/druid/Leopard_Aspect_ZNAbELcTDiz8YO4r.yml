@@ -165,6 +165,41 @@ system:
 flags: {}
 img: icons/creatures/abilities/paw-print-orange.webp
 _id: ZNAbELcTDiz8YO4r
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Leopard Aspect Adept Bonus
+    img: icons/creatures/abilities/paw-print-orange.webp
+    _id: CESUEgJMv5CwuRW5
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+      - key: system.attributes.disengageBonus
+        value: '5'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!ZNAbELcTDiz8YO4r.CESUEgJMv5CwuRW5'
 _key: '!items!ZNAbELcTDiz8YO4r'
 

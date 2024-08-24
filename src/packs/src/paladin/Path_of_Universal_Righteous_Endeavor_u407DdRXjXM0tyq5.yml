@@ -216,6 +216,37 @@ system:
 flags: {}
 img: icons/magic/fire/dagger-rune-enchant-flame-strong-blue-yellow.webp
 _id: u407DdRXjXM0tyq5
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Path of Universal Righteous Endeavor
+    img: icons/magic/holy/saint-glass-portrait-halo.webp
+    _id: 2ISRQ1axSG7oVpEd
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.saves.bonus
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!u407DdRXjXM0tyq5.2ISRQ1axSG7oVpEd'
 _key: '!items!u407DdRXjXM0tyq5'
 

@@ -181,6 +181,37 @@ system:
 flags: {}
 img: icons/commodities/biological/shell-ribbed-grey.webp
 _id: iybJ4aKleC1qFbgd
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Behemoth's Endurance Bonus
+    img: icons/commodities/biological/shell-ribbed-grey.webp
+    _id: CESUEgJMv5CwuRW9
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.pd.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!iybJ4aKleC1qFbgd.CESUEgJMv5CwuRW9'
 _key: '!items!iybJ4aKleC1qFbgd'
 

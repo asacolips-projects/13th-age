@@ -229,6 +229,45 @@ system:
 flags: {}
 img: icons/magic/nature/wolf-paw-glow-orange.webp
 _id: QwM8fF9X3ssrgcam
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Bear Aspect Champion Feat Bonus
+    img: icons/magic/nature/wolf-paw-glow-orange.webp
+    _id: CESUEgJMv5CwuRW8
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+      - key: system.attributes.pd.value
+        value: '2'
+        mode: 2
+        priority: null
+      - key: system.attributes.md.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!QwM8fF9X3ssrgcam.CESUEgJMv5CwuRW8'
 _key: '!items!QwM8fF9X3ssrgcam'
 

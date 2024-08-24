@@ -194,6 +194,37 @@ system:
 flags: {}
 img: icons/magic/life/cross-explosion-burst-green.webp
 _id: tLyfrVKDvwsXlc0m
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Strong Guard Defense Bonus
+    img: icons/magic/life/cross-explosion-burst-green.webp
+    _id: RchFg2itUVx2jKfF
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: StartOfNextSourceTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!tLyfrVKDvwsXlc0m.RchFg2itUVx2jKfF'
 _key: '!items!tLyfrVKDvwsXlc0m'
 
