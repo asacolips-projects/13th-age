@@ -22,6 +22,12 @@
       color: $c-white;
     }
 
+    .crit {
+      background: $c-hit-bg;
+      color: $c-hit;
+      font-weight: bold;
+    }
+
     .effects-wrapper {
       margin: 0;
       border: 1px solid #176527;

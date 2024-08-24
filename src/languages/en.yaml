@@ -194,7 +194,7 @@ ARCHMAGE:
     automateHPConditionsName: Auto-manage Dead and Staggered
     ColorblindHint: Change the colors of the power cards to a more accessibile color palette.
     ColorblindName: Enable Colorblind Accessibility Mode
-    ColorblindIssuesMessage: We're always trying to improve our accessibility. Suggest accessibility improvements at <a href="https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues/new" target="_blank">our issue tracker</a> and include the <strong>a11y</strong> label. 
+    ColorblindIssuesMessage: We're always trying to improve our accessibility. Suggest accessibility improvements at <a href="https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues/new" target="_blank">our issue tracker</a> and include the <strong>a11y</strong> label.
     ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
     ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
     ColorblindOptionDefault: Default Colors
@@ -596,6 +596,7 @@ ARCHMAGE:
     NoUsesMsg: No uses left, do you want to use this anyway?
     numbersOnly: Numbers only, such as '16'
     odd: odd
+    ongoingDamageTooltip: '{damage} ongoing {type} damage'
     ongoingDamage: '{target} takes [[{damage}]] ongoing {type}damage due to {source}'
     ongoingSelfEnded: The following Effects <strong>have ended on this</strong> Actor
     ongoingOtherEnded: The following Effects <strong>have ended on another</strong> Actor
