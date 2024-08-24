@@ -60,6 +60,7 @@
 }
 
 // Grid offset.
+.grid-start-1 { grid-column-start: 1 }
 .grid-start-2 { grid-column-start: 2 }
 .grid-start-3 { grid-column-start: 3 }
 .grid-start-4 { grid-column-start: 4 }
@@ -72,6 +73,7 @@
 .grid-start-11 { grid-column-start: 11 }
 .grid-start-12 { grid-column-start: 12 }
 
+.grid-span-1 { grid-column-end: span 1 }
 .grid-span-2 { grid-column-end: span 2 }
 .grid-span-3 { grid-column-end: span 3 }
 .grid-span-4 { grid-column-end: span 4 }

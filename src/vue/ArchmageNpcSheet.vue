@@ -20,7 +20,7 @@
       <section class="section section--main flexcol">
 
         <!-- Class resources -->
-        <!-- <CharResources :actor="actor"/> -->
+        <CharResources v-if="hasResources && tabs.primary.actions.active"  :actor="actor"/>
 
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
@@ -50,19 +50,6 @@
       </section>
       <!-- /Main content -->
 
-      <!-- Bottom content -->
-      <!-- <section class="section section--bottom flexcol"> -->
-        <!-- Attributes section -->
-        <!-- <NpcAttributes :actor="actor"/> -->
-        <!-- <CharInitiative :actor="actor"/> -->
-        <!-- <CharAbilities :actor="actor"/> -->
-        <!-- <CharBackgrounds :actor="actor"/> -->
-        <!-- <CharIconRelationships :actor="actor"/> -->
-        <!-- <CharOut :actor="actor" :owner="owner"/> -->
-        <!-- <CharIncrementals :actor="actor"/> -->
-      <!-- </section> -->
-      <!-- /Bottom content -->
-
     </section>
     <!-- /Bottom group -->
 
@@ -75,6 +62,7 @@
 import { concat, localize } from '@/methods/Helpers';
 import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import CharEffects from '@/components/actor/character/main/CharEffects.vue';
+import CharResources from '@/components/actor/character/main/CharResources.vue';
 import NpcHeader from '@/components/actor/npc/NpcHeader.vue';
 import NpcActions from '@/components/actor/npc/NpcActions.vue';
 import NpcAttributes from '@/components/actor/npc/NpcAttributes.vue';
@@ -96,6 +84,7 @@ export default {
     NpcModifyLevel,
     CharDetails,
     CharEffects,
+    CharResources,
   },
   setup() {
     return {
@@ -182,6 +171,26 @@ export default {
         }
       }
       return foundry.utils.mergeObject(baseFlags, flags);
+    },
+    hasResources() {
+      let hasResources = false;
+      if (this.actor?.system?.resources) {
+        for (let resourceType of Object.values(this.actor.system.resources)) {
+          if (resourceType) {
+            for (let [k,resource] of Object.entries(resourceType)) {
+              // Exclude stoke if this is a 1e game.
+              if (CONFIG.ARCHMAGE.is2e || k !== 'stoke') {
+                // Otherwise update the hasResources value.
+                if (resource?.enabled) {
+                  hasResources = true;
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+      return hasResources;
     }
   },
   watch: {},
@@ -204,6 +213,52 @@ export default {
     nav.tabs {
       margin-top: 0;
     }
+  }
+
+  .section--main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .section--resources {
+    padding: 10px 0 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex: 0 0 140px;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .unit,
+    .unit--custom {
+      flex: 0 auto;
+      max-width: none !important; // @todo clean this up, but it works for now.
+      width: 100%;
+      border-left: none;
+      padding: 0 10px 10px;
+
+      + .unit {
+        border-top: 2px solid $c-black--25;
+        padding-top: 10px;
+      }
+    }
+
+    .unit--custom {
+      border-top: 2px solid $c-black--25;
+      padding-top: 10px;
+    }
+
+    .resource-divider {
+      display: none;
+    }
+  }
+
+  .section--tabs-content {
+    flex: 1;
   }
 }
 </style>

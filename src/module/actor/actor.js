@@ -1651,7 +1651,7 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  _showScrollingText(delta, suffix="", overrideOptions={}) {
+  _showScrollingText(delta, suffix="", overrideOptions={}, ringColor = null) {
     // Show scrolling text of hp update
     const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
     if (delta != 0 && tokens.length > 0) {
@@ -1671,6 +1671,15 @@ export class ActorArchmage extends Actor {
           delta.signedString()+" "+suffix,
           foundry.utils.mergeObject(textOptions, overrideOptions)
         );
+        // Flash dynamic token rings.
+        if (token?.ring) {
+          let flashColor = delta < 0 ? Color.fromString('#ff0000') : Color.fromString('#00ff00');
+          if (ringColor) flashColor = Color.fromString(ringColor);
+          token.ring.flashColor(flashColor, {
+            duration: 600,
+            easing: foundry.canvas.tokens.TokenRing.easeTwoPeaks,
+          });
+        }
       }
     }
   }

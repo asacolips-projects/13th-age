@@ -1,7 +1,7 @@
 <template>
   <section class="section section--resources flexrow flexshrink" :data-resource-count="resourceCount" :data-custom-count="customResourceCount">
     <!-- Command Points -->
-    <section v-if="actor.system.resources.perCombat.commandPoints?.enabled" class="unit unit--command-points">
+    <section v-if="actor.system.resources?.perCombat?.commandPoints?.enabled" class="unit unit--command-points">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.commandPoints')}}</h2>
       <div class="resource flexrow">
         <div class="resource--left">
@@ -25,21 +25,21 @@
       </div>
     </section>
     <!-- Focus -->
-    <section v-if="actor.system.resources.perCombat.focus?.enabled" class="unit unit--focus">
+    <section v-if="actor.system.resources?.perCombat?.focus?.enabled" class="unit unit--focus">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.focus')}}</h2>
       <div class="resource flexrow">
         <input type="checkbox" name="system.resources.perCombat.focus.current" v-model="focus">
       </div>
     </section>
     <!-- Momentum -->
-    <section v-if="actor.system.resources.perCombat.momentum?.enabled" class="unit unit--momentum">
+    <section v-if="actor.system.resources?.perCombat?.momentum?.enabled" class="unit unit--momentum">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.momentum')}}</h2>
       <div class="resource flexrow">
         <input type="checkbox" name="system.resources.perCombat.momentum.current" v-model="momentum">
       </div>
     </section>
     <!-- Combat Rhythm -->
-    <section v-if="actor.system.resources.perCombat.rhythm?.enabled && secondEdition" class="unit unit--rhythm">
+    <section v-if="actor.system.resources?.perCombat?.rhythm?.enabled && secondEdition" class="unit unit--rhythm">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm')}}</h2>
       <div class="resource flexrow">
         <select name="system.resources.perCombat.rhythm.current" v-model="rhythm">
@@ -47,6 +47,13 @@
           <option value="offense">{{localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense')}}</option>
           <option value="defense">{{localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense')}}</option>
         </select>
+      </div>
+    </section>
+    <!-- Stoke -->
+    <section v-if="CONFIG.ARCHMAGE.is2e && actor.system.resources.spendable.stoke?.enabled" class="unit unit--has-max unit--stoke">
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.stoke')}}</h2>
+      <div class="resource flexrow">
+        <input type="number" name="system.resources.spendable.stoke.current" class="resource-current" v-model="stoke.current">
       </div>
     </section>
     <!-- Rerolls -->
@@ -75,7 +82,7 @@
       </div>
     </section>
     <!-- Rests -->
-    <section class="unit unit--rest">
+    <section v-if="actor.type === 'character'" class="unit unit--rest">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHAT.Rests')}}</h2>
       <div class="resource flexcol">
         <button type="button" class="rest rest--quick" data-rest-type="quick" :data-tooltip="tooltip('pcRestQuick')"><i class="fas fa-campground"></i> {{localize('ARCHMAGE.CHAT.QuickRest')}}</button>
@@ -106,7 +113,8 @@ export default {
     return {
       concat,
       localize,
-      tooltip
+      tooltip,
+      CONFIG,
     }
   },
   components: {
@@ -120,6 +128,10 @@ export default {
       ki: {
         value: 0,
         max: 0
+      },
+      stoke: {
+        enabled: false,
+        current: 0,
       },
       rerolls: {
         AC: {
@@ -148,13 +160,14 @@ export default {
     },
     resourceCount() {
       let count = 0;
-      if (this.actor.system.resources.perCombat.commandPoints.enabled) count++;
-      if (this.actor.system.resources.spendable.ki.enabled) count++;
-      if (this.actor.system.resources.spendable.rerolls.enabled) count++;
-      if (this.actor.system.resources.perCombat.focus.enabled) count++;
-      if (this.actor.system.resources.perCombat.momentum.enabled) count++;
+      if (this.actor.system.resources.perCombat?.commandPoints?.enabled) count++;
+      if (this.actor.system.resources.spendable?.ki?.enabled) count++;
+      if (this.actor.system.resources.spendable?.rerolls?.enabled) count++;
+      if (this.actor.system.resources.perCombat?.focus?.enabled) count++;
+      if (this.actor.system.resources.perCombat?.momentum?.enabled) count++;
       if ( game.settings.get('archmage', 'secondEdition') ) {
-        if (this.actor.system.resources.perCombat.rhythm.enabled) count++;
+        if (this.actor.system.resources.perCombat?.rhythm?.enabled) count++;
+        if (this.actor.system.resources.spendable?.stoke?.enabled) count++;
       }
       return count;
     },
@@ -165,13 +178,14 @@ export default {
   },
   methods: {
     updateResourceProps() {
-      this.commandPoints = this.actor.system.resources.perCombat.commandPoints.current;
-      this.momentum = this.actor.system.resources.perCombat.momentum.current;
-      this.focus = this.actor.system.resources.perCombat.focus.current;
-      this.ki = this.actor.system.resources.spendable.ki;
-      this.rerolls = this.actor.system.resources.spendable.rerolls;
+      this.commandPoints = this.actor.system.resources.perCombat?.commandPoints?.current;
+      this.momentum = this.actor.system.resources.perCombat?.momentum?.current;
+      this.focus = this.actor.system.resources.perCombat?.focus?.current;
+      this.ki = this.actor.system.resources.spendable?.ki;
+      this.rerolls = this.actor.system.resources.spendable?.rerolls;
       if ( game.settings.get('archmage', 'secondEdition') ) {
-        this.rhythm = this.actor.system.resources.perCombat.rhythm.current;
+        this.stoke = this.actor.system.resources.spendable?.stoke;
+        this.rhythm = this.actor.system.resources.perCombat?.rhythm?.current;
       }
     }
   },

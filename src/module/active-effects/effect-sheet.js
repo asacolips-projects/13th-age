@@ -49,6 +49,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     context.duration = context.effect.flags.archmage?.duration || "Unknown";
     context.ongoingDamage = context.effect.flags.archmage?.ongoingDamage || 0;
     context.ongoingDamageType = context.effect.flags.archmage?.ongoingDamageType || "";
+    context.ongoingDamageCrit = context.effect.flags.archmage?.ongoingDamageCrit || false;
 
     return context;
   }
@@ -89,7 +90,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     ae.flags.archmage = {
       duration: formData.duration,
       ongoingDamage: formData.ongoingDamage,
-      ongoingDamageType: formData.ongoingDamageType
+      ongoingDamageType: formData.ongoingDamageType,
+      ongoingDamageCrit: formData.ongoingDamageCrit,
     };
 
     // Retrieve the existing effects.

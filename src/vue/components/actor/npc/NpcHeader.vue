@@ -206,6 +206,22 @@
 .archmage-v2.npc-sheet {
   .npc-header {
     position: relative;
+
+    .unit {
+      input,
+      .rollable--init {
+        font-family: $font-stack-base;
+        font-size: $font-xs;
+        font-weight: normal;
+        border-color: transparent;
+      }
+
+      input:hover,
+      input:focus,
+      .edit-wrapper input {
+        border-bottom: 2px solid;
+      }
+    }
   }
 
   .section--details,
@@ -225,22 +241,6 @@
     #context-menu {
       left: auto;
       right: 0;
-    }
-  }
-
-  .unit {
-    input,
-    .rollable--init {
-      font-family: $font-stack-base;
-      font-size: $font-xs;
-      font-weight: normal;
-      border-color: transparent;
-    }
-
-    input:hover,
-    input:focus,
-    .edit-wrapper input {
-      border-bottom: 2px solid;
     }
   }
 

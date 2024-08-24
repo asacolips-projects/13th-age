@@ -186,6 +186,8 @@ Hooks.once('init', async function() {
   });
 
   CONFIG.ARCHMAGE = ARCHMAGE;
+  // Default the 2e constant to false, but the setting will be checked later in the 'ready' hook.
+  CONFIG.ARCHMAGE.is2e = false;
 
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
@@ -691,6 +693,9 @@ Hooks.once('ready', () => {
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
 
+  // Add a constant for whether or not we're on 2e.
+  CONFIG.ARCHMAGE.is2e = game.settings.get('archmage', 'secondEdition');
+
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
     if ( !event.target.classList.contains("effect-link") ) return;
@@ -1108,7 +1113,6 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     }
     return token;
   }
-
   const token = findToken();
   if (!token) return;
   return await _applyAE(token.actor, data);
@@ -1117,12 +1121,19 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
 async function _applyAE(actor, data) {
 
   if ( data.type === "condition" ) {
+    // Handle hampered in 2e.
+    if (CONFIG.ARCHMAGE.is2e && data.id === 'hampered') {
+      data.id = 'hindered';
+    }
+    // Check for existing statuses.
     let statusEffect = CONFIG.statusEffects.find(x => x.id === data.id || x.id === data.name?.toLowerCase());
     if ( statusEffect ) {
       statusEffect = foundry.utils.duplicate(statusEffect);
       statusEffect.label = game.i18n.localize(statusEffect.name);
       statusEffect.name = statusEffect.label;
       statusEffect.origin = data.source;
+      // Add it as a status so that it can be toggled on the token.
+      statusEffect.statuses = [statusEffect.id];
 
       return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
     }
@@ -1169,6 +1180,7 @@ async function _applyAE(actor, data) {
         archmage: {
           ongoingDamage: data.value,
           ongoingDamageType: data.damageType,
+          ongoingDamageCrit: false,
           duration: data.ends,
           tooltip: data.tooltip
         }
@@ -1204,6 +1216,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
   let dialogData = {
     effectName: effectData.name,
     sourceName: sourceActor?.name ?? "",
+    ongoing: effectData?.flags?.archmage?.ongoingDamage ?? false,
     defaultDuration: duration != 'Unknown' ? duration : "",
     durations: durations
   };
@@ -1217,10 +1230,20 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
           label: game.i18n.localize("ARCHMAGE.CHAT.Apply"),
           callback: (html) => {
             duration = html.find('[name="duration"]:checked').val();
+            const ongoing = {
+              half: html.find('[name="ongoingHalf"]')?.is(":checked") ?? false,
+              crit: html.find('[name="ongoingCrit"]')?.is(":checked") ?? false,
+            };
             if ( !duration ) duration = "Unknown";
             let options = {};
             if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
               options = {sourceTurnUuid: source};
+            }
+            if (ongoing.half) {
+              effectData.flags.archmage.ongoingDamage = Math.floor(Number(effectData.flags.archmage.ongoingDamage) / 2);
+            }
+            if (ongoing.crit) {
+              effectData.flags.archmage.ongoingDamageCrit = true;
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
@@ -1468,6 +1491,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     const uuid = parent.dataset.uuid;
     const actor = await fromUuid(uuid);
     const effectId = parent.dataset.effectId;
+    const effect = actor.effects.get(effectId);
     switch (action) {
       case "apply":
         const value = parent.dataset.value;
@@ -1476,6 +1500,10 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         await actor.update({ "system.attributes.hp.value": base - value });
         if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
         else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectApplied.${effectId}`});
+        // Unset crit flag on ongoing damage if needed.
+        if (effect?.flags?.archmage?.ongoingDamageCrit === true) {
+          await effect.update({'flags.archmage.ongoingDamageCrit': false});
+        }
         break;
       case "save":
         const duration = parent.dataset.save;
@@ -1558,11 +1586,11 @@ function _handlecreateAEsMsg(msg) {
 
 /**
  * Handle damage/healing application emitted via sockets.
- * 
+ *
  * The DamageApplicator class supports applying damage to targeted
  * tokens as an optional feature, and if doing so, it needs to be
  * handled via a socket due to user permissions for unowned targets.
- * 
+ *
  * @param {object} data Operation data from the emitted socket.
  * @returns {void}
  */

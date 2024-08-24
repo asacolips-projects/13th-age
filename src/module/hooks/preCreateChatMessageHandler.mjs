@@ -125,8 +125,16 @@ export default class preCreateChatMessageHandler {
 
         // In 2e sorcerer breath spells add the E.D. to their crit range
         let addEdToCritRange = false;
+        let addStokeToCritRange = false;
         if (game.settings.get("archmage", "secondEdition")) {
-          addEdToCritRange = options.item.system.breathWeapon?.value?.length > 0;
+            addEdToCritRange = options.item.system.breathWeapon?.value?.length > 0;
+            // Dragons also can increase their crit range.
+            if (options.actor.system.details?.type?.value === 'dragon') {
+                const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
+                if (options.item.name.toLocaleLowerCase().includes(breathString)) {
+                    addStokeToCritRange = true;
+                }
+            }
         }
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
@@ -179,7 +187,7 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
-                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, addEdToCritRange);
+                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, addEdToCritRange, addStokeToCritRange);
                 }
 
                 if (hitEvaluationResults) {

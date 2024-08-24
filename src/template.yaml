@@ -82,9 +82,67 @@ Actor:
         biography:
           type: String
           label: Biography
+      resources:
+        perCombat: {}
+        spendable:
+          custom1:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom2:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom3:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom4:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom5:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom6:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom7:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom8:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom9:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
   character:
     templates:
       - standard
+      - resources
     abilities:
       str:
         type: Number
@@ -353,54 +411,6 @@ Actor:
           max: 0
           enabled: false
           rest: "none"
-        custom2:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom3:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom4:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom5:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom6:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom7:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom8:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom9:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
         rerolls:
           enabled: false
           AC:
@@ -433,6 +443,7 @@ Actor:
   npc:
     templates:
       - standard
+      - resources
     details:
       flavor:
         value: ''
@@ -448,6 +459,12 @@ Actor:
         value: ''
       vulnerability:
         value: ''
+    resources:
+      perCombat: {}
+      spendable:
+        stoke:
+          enabled: false
+          current: 0
 Item:
   types:
     - power

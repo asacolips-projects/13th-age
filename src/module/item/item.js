@@ -93,6 +93,20 @@ export class ItemArchmage extends Item {
     await this._handleBreathSpell(itemToRender);
     await this._handleRetainFocus(itemToRender, hitEvalRes, actorUpdateData, chatData);
 
+    // Set a flag for stoke adjustments.
+    if (CONFIG.ARCHMAGE.is2e) {
+      if (this.actor.type === 'npc' && this.actor.system?.resources?.spendable?.stoke?.enabled) {
+        if (game.combat?.combatant) {
+          const combatantUuid = game.combat.combatant?.actor?.uuid;
+          const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
+          if (combatantUuid && combatantUuid == this.actor.uuid && this.name.toLocaleLowerCase().includes(breathString)) {
+            // This will be set to false at the start of the actor's turn.
+            game.combat.combatant.setFlag('archmage', 'breathUsed', true);
+          }
+        }
+      }
+    }
+
     // Run embedded macro.
     let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token, usageMode);
     // Unpack macro data in case a sloppy macro replaces instead of modifying variables
