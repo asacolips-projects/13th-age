@@ -1113,7 +1113,6 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     }
     return token;
   }
-
   const token = findToken();
   if (!token) return;
   return await _applyAE(token.actor, data);
@@ -1122,12 +1121,19 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
 async function _applyAE(actor, data) {
 
   if ( data.type === "condition" ) {
+    // Handle hampered in 2e.
+    if (CONFIG.ARCHMAGE.is2e && data.id === 'hampered') {
+      data.id = 'hindered';
+    }
+    // Check for existing statuses.
     let statusEffect = CONFIG.statusEffects.find(x => x.id === data.id || x.id === data.name?.toLowerCase());
     if ( statusEffect ) {
       statusEffect = foundry.utils.duplicate(statusEffect);
       statusEffect.label = game.i18n.localize(statusEffect.name);
       statusEffect.name = statusEffect.label;
       statusEffect.origin = data.source;
+      // Add it as a status so that it can be toggled on the token.
+      statusEffect.statuses = [statusEffect.id];
 
       return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
     }
