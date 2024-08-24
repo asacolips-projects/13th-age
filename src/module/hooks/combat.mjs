@@ -9,7 +9,7 @@ export async function combatTurn(combat, context, options) {
     const startCombatant = combat.nextCombatant;
     await handleTurnEffects("End", combat, endCombatant, context, options);
     await handleTurnEffects("Start", combat, startCombatant, context, options);
-    if (game.settings.get('archmage', 'secondEdition')) {
+    if (CONFIG.ARCHMAGE.is2e) {
         await handleStoke(combat, context, options);
     }
 }

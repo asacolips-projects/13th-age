@@ -94,7 +94,7 @@ export class ItemArchmage extends Item {
     await this._handleRetainFocus(itemToRender, hitEvalRes, actorUpdateData, chatData);
 
     // Set a flag for stoke adjustments.
-    if (game.settings.get('archmage', 'secondEdition')) {
+    if (CONFIG.ARCHMAGE.is2e) {
       if (this.actor.type === 'npc' && this.actor.system?.resources?.spendable?.stoke?.enabled) {
         if (game.combat?.combatant) {
           const combatantUuid = game.combat.combatant?.actor?.uuid;

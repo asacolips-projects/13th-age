@@ -12,7 +12,7 @@
       <!-- Resource Settings -->
       <div class="unit unit--resources">
         <!-- Stoke -->
-        <div v-if="actor?.system?.resources?.spendable?.stoke" class="settings-resource">
+        <div v-if="CONFIG.ARCHMAGE.is2e && actor?.system?.resources?.spendable?.stoke" class="settings-resource">
           <input type="checkbox" name="system.resources.spendable.stoke.enabled" v-model="actor.system.resources.spendable.stoke.enabled">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.CHARACTER.RESOURCES.stoke')}}</strong>
         </div>
@@ -34,7 +34,8 @@ export default {
   setup() {
     return {
       concat,
-      localize
+      localize,
+      CONFIG,
     }
   },
   computed: {

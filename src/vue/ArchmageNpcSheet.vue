@@ -177,10 +177,14 @@ export default {
       if (this.actor?.system?.resources) {
         for (let resourceType of Object.values(this.actor.system.resources)) {
           if (resourceType) {
-            for (let resource of Object.values(resourceType)) {
-              if (resource?.enabled) {
-                hasResources = true;
-                break;
+            for (let [k,resource] of Object.entries(resourceType)) {
+              // Exclude stoke if this is a 1e game.
+              if (CONFIG.ARCHMAGE.is2e || k !== 'stoke') {
+                // Otherwise update the hasResources value.
+                if (resource?.enabled) {
+                  hasResources = true;
+                  break;
+                }
               }
             }
           }
