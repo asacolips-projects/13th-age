@@ -180,7 +180,7 @@ export async function preDeleteCombat(combat, context, options) {
 
 async function handleStoke(combat, context, options) {
     const endCombatant = combat.combatant;
-    if (endCombatant?.actor?.type === 'npc' && endCombatant.actor.system?.details?.type?.value === 'dragon') {
+    if (endCombatant?.actor?.type === 'npc' && endCombatant.actor.system?.resources?.spendable?.stoke?.enabled) {
         const stokeDelta = endCombatant.getFlag('archmage', 'breathUsed') ? -1 : 1;
         await endCombatant.actor.update({
             'system.resources.spendable.stoke.current': stokeDelta + (endCombatant.actor.system.resources.spendable.stoke.current ?? 0),
