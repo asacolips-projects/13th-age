@@ -7,6 +7,13 @@
     <label>{{localize 'ARCHMAGE.CHAT.source'}}</label>
     <span>{{sourceName}}</span>
   </div>
+  {{#if ongoing}}
+  <div class="form-group">
+    <label>{{localize 'ARCHMAGE.ITEM.ongoingDamage'}}</label>
+    <label><input type="checkbox" name="ongoingHalf" />Half damage</label>
+    <label><input type="checkbox" name="ongoingCrit" />Critical Hit</label>
+  </div>
+  {{/if}}
   <div class="form-group">
     <label style="align-self: start;">{{localize 'ARCHMAGE.CHAT.duration'}}</label>
     <div class="form-fields" style="flex-direction: column; align-items: start;">
