@@ -337,6 +337,14 @@
           .sheet-settings {
             grid-template-columns: repeat(1, minmax(0, 1fr));
           }
+
+          .effects-grid {
+            grid-template-columns: 40px auto 0px 0px 60px;
+          }
+
+          .effects-bonus {
+            display: none;
+          }
         }
 
         &.character {
