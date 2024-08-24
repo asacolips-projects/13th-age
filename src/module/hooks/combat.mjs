@@ -9,7 +9,7 @@ export async function combatTurn(combat, context, options) {
     const startCombatant = combat.nextCombatant;
     await handleTurnEffects("End", combat, endCombatant, context, options);
     await handleTurnEffects("Start", combat, startCombatant, context, options);
-    if (game.settings.get('archmage', 'secondEdition')) {
+    if (CONFIG.ARCHMAGE.is2e) {
         await handleStoke(combat, context, options);
     }
 }
@@ -180,7 +180,7 @@ export async function preDeleteCombat(combat, context, options) {
 
 async function handleStoke(combat, context, options) {
     const endCombatant = combat.combatant;
-    if (endCombatant?.actor?.type === 'npc' && endCombatant.actor.system?.details?.type?.value === 'dragon') {
+    if (endCombatant?.actor?.type === 'npc' && endCombatant.actor.system?.resources?.spendable?.stoke?.enabled) {
         const stokeDelta = endCombatant.getFlag('archmage', 'breathUsed') ? -1 : 1;
         await endCombatant.actor.update({
             'system.resources.spendable.stoke.current': stokeDelta + (endCombatant.actor.system.resources.spendable.stoke.current ?? 0),

@@ -50,7 +50,7 @@
       </div>
     </section>
     <!-- Stoke -->
-    <section v-if="actor.system.resources.spendable.stoke?.enabled" class="unit unit--has-max unit--stoke">
+    <section v-if="CONFIG.ARCHMAGE.is2e && actor.system.resources.spendable.stoke?.enabled" class="unit unit--has-max unit--stoke">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.stoke')}}</h2>
       <div class="resource flexrow">
         <input type="number" name="system.resources.spendable.stoke.current" class="resource-current" v-model="stoke.current">
@@ -113,7 +113,8 @@ export default {
     return {
       concat,
       localize,
-      tooltip
+      tooltip,
+      CONFIG,
     }
   },
   components: {
