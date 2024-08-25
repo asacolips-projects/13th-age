@@ -563,6 +563,7 @@ ARCHMAGE:
     FullHealBody: Regain all health, recoveries, and power uses.
     FullHealHP: reset to maximum
     group: Group
+    groupTitle: Custom group used to organize this on character sheets.
     hit: Hit
     hitPlaceholder: "[[@wpn.m.dice+@str.dmg]] damage"
     hitTitle: Effects on successful hit, for example "[[@wpn.m.dice+@str.dmg]] damage"

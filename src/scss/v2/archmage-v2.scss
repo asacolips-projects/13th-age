@@ -100,5 +100,12 @@
   @import 'components/chat/ongoing-effects';
 }
 
+// Global AppV2 styles.
+.archmage-appv2-vue {
+  ::placeholder {
+    opacity: 0.25;
+  }
+}
+
 @import 'theme/nightmode';
 @import 'theme/colormodes';

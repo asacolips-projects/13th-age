@@ -19,7 +19,7 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
 
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ["archmage-appv2", "item"],
+    classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
     actions: {
       onEditImage: this._onEditImage,
       viewDoc: this._viewEffect,
@@ -27,8 +27,10 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       deleteDoc: this._deleteEffect,
       toggleEffect: this._toggleEffect
     },
+    tag: 'form',
     form: {
-      submitOnChange: true
+      submitOnChange: true,
+      submitOnClose: true,
     },
     // Custom property that's merged into `this.options`
     dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
@@ -56,6 +58,9 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
     };
+
+    // Handle select fields.
+    // context.system.powerSource.options = CONFIG
 
     context.editors = {
       'system.description.value': {

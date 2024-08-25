@@ -87,7 +87,7 @@ export default function VueRenderingMixin(BaseApplication) {
           // Data available in the template.
           data() {
             return {
-              context: context,
+              context: context
             }
           },
           // Components allowed by the application.
@@ -99,11 +99,15 @@ export default function VueRenderingMixin(BaseApplication) {
               for (let key of Object.keys(this.context)) {
                 if (newContext[key]) {
                   this.context[key] = newContext[key];
-                }              
+                }
               }
             }
           }
-        })
+        });
+        // Expose global Foundry variables.
+        this.vueApp.config.globalProperties.game = game;
+        this.vueApp.config.globalProperties.CONFIG = CONFIG;
+        this.vueApp.config.globalProperties.foundry = foundry;
         
         // Mount and store the vue application.
         this.vueRoot = this.vueApp.mount(target);
@@ -130,13 +134,14 @@ export default function VueRenderingMixin(BaseApplication) {
       async _renderHTML(context, options) {
         // Update the application root with new values.
         this.vueRoot.updateContext(context);
+        console.log('updated', context);
         // Return an empty string to prevent errors.
         return '';
       }
 
       /** @override */
-      _replaceHTML(result, context, options) {
-        // Pass, we don't need this in Vue-land!
+      _replaceHTML(result, content, options) {
+        content.insertAdjacentHTML("beforeend", result);
       }
 
       /**
