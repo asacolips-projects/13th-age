@@ -163,6 +163,36 @@
     }
   }
 
+  .section--main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+    overflow: hidden;
+
+    .section--fields {
+      flex: 0 0 440px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .tab {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+    }
+
+    .section--preview {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+      border: 1px solid;
+      border-radius: 4px;
+      margin-left: 16px;
+    }
+  }
+
   ::placeholder {
     opacity: 0.25;
   }
