@@ -24,3 +24,8 @@ export { default as Progress } from '@/components/parts/Progress.vue';
 export { default as Tabs } from '@/components/parts/Tabs.vue';
 export { default as Tab } from '@/components/parts/Tab.vue';
 export { default as Editor } from '@/components/parts/Editor.vue';
+export { default as Prosemirror } from '@/components/parts/Prosemirror.vue';
+export { default as TextareaGrow } from '@/components/parts/TextareaGrow.vue';
+
+export { default as PowerAttack } from '@/components/item/power/PowerAttack.vue';
+export { default as PowerDetails } from '@/components/item/power/PowerDetails.vue';

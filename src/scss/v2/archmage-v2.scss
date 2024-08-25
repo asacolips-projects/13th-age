@@ -104,6 +104,38 @@
 .archmage-appv2 {
   max-height: 90vh;
 
+  @import 'base/textarea-grow';
+
+  textarea,
+  .grow-wrap > textarea {
+    background: var(--color-cool-4);
+    border: 1px solid transparent;
+    color: var(--color-light-3);
+    border-radius: 4px;
+    padding: 0.5rem;
+    flex: 2;
+    max-width: none;
+
+    &:hover,
+    &:focus {
+      background: var(--color-cool-4);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-cool-3);
+      box-shadow: 0 0 5px var(--color-shadow-primary);
+    }
+  }
+
+  .grow-wrap::after {
+    padding: 0.5rem;
+  }
+
+  // @todo figure out how to fix this hack properly.
+  .window-content {
+    margin-top: -16px;
+  }
+
   .window-content,
   .archmage-appv2-vue {
     height: 100%;

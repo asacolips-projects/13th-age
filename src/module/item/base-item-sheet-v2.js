@@ -12,7 +12,8 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       viewDoc: this._viewEffect,
       createDoc: this._createEffect,
       deleteDoc: this._deleteEffect,
-      toggleEffect: this._toggleEffect
+      toggleEffect: this._toggleEffect,
+      showItemArtwork: this.#onShowItemArtwork,
     },
     form: {
       submitOnChange: true
@@ -368,5 +369,15 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       };
       return new DragDrop(d);
     });
+  }
+
+  /**
+   * Handle header control button clicks to display actor portrait artwork.
+   * @this {ActorSheetV2}
+   * @param {PointerEvent} event
+   */
+  static #onShowItemArtwork(event) {
+    const {img, name, uuid} = this.document;
+    new ImagePopout(img, {title: name, uuid: uuid}).render(true);
   }
 }

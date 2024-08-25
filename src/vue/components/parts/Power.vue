@@ -23,13 +23,15 @@
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="power-details flexcol">
       <div v-if="power.system.description.value" class="power-detail power-detail--description">
-        <Suspense>
+        <span v-if="enriched" class="power-detail-value" v-html="enriched['system.description.value'].enriched"></span>
+        <Suspense v-else>
           <Enriched tag="span" class="power-detail-value" :text="power.system.description.value" :diceFormulaMode="diceFormulaMode" />
         </Suspense>
       </div>
       <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
         <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
-        <Suspense>
+        <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
+        <Suspense v-else>
           <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field"/>
         </Suspense>
       </div>
@@ -39,7 +41,7 @@
       <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="`power-feat ${feat.isActive.value || includeTitle ? 'active' : ''}`">
         <strong class="feat-detail-label">{{localize(`ARCHMAGE.CHAT.${feat.tier?.value}`)}}:</strong>
         <div class="flexrow">
-          <Suspense>
+          <Suspense v-if="!enriched">
             <Enriched tag="div" class="power-detail-content" :text="feat.description.value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData"/>
           </Suspense>
           <div class="feat-uses" v-if="feat.isActive.value">
@@ -57,7 +59,7 @@ import { localize } from '@/methods/Helpers';
 import Enriched from '@/components/parts/Enriched.vue';
 export default {
   name: 'Power',
-  props: ['power', 'actor', 'context', 'include-title'],
+  props: ['power', 'actor', 'context', 'include-title', 'enriched'],
   components: {
     Enriched
   },
