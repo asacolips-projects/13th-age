@@ -47,7 +47,7 @@
       <ul class="power-group-content flexcol">
         <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-draggable="true" draggable="true">
           <!-- Clickable power header. -->
-          <div :class="concat('power-summary grid power-grid ', powerUsageClass(power), (power.system.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
+          <div :class="`power-summary grid power-grid ${powerUsageClass(power)} ${power.system.trigger.value ? 'power-summary--trigger' : ''} ${activePowers[power._id] ? 'active' : ''}`">
             <Rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></Rollable>
             <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
               <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>

@@ -27,6 +27,13 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       deleteDoc: this._deleteEffect,
       toggleEffect: this._toggleEffect
     },
+    position: {
+      width: 500,
+      height: 500,
+    },
+    window: {
+      resizable: true,
+    },
     tag: 'form',
     form: {
       submitOnChange: true,
@@ -50,6 +57,8 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       // Adding system and flags for easier access
       system: this.item.system,
       flags: this.item.flags,
+      // Rolldata.
+      rollData: this.actor?.getRollData() ?? {},
       // Adding a pointer to CONFIG.ARCHMAGE
       config: CONFIG.ARCHMAGE,
       

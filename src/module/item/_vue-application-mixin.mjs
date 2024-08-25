@@ -134,14 +134,13 @@ export default function VueRenderingMixin(BaseApplication) {
       async _renderHTML(context, options) {
         // Update the application root with new values.
         this.vueRoot.updateContext(context);
-        console.log('updated', context);
         // Return an empty string to prevent errors.
         return '';
       }
 
       /** @override */
       _replaceHTML(result, content, options) {
-        content.insertAdjacentHTML("beforeend", result);
+        // Pass. We don't need this in Vue land! But Foundry itself does...
       }
 
       /**

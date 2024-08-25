@@ -101,7 +101,36 @@
 }
 
 // Global AppV2 styles.
-.archmage-appv2-vue {
+.archmage-appv2 {
+  max-height: 90vh;
+
+  .window-content,
+  .archmage-appv2-vue {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+
+    > .tab {
+      height: 100%;
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+  
+  .power.include-title {
+    .power-summary,
+    .power-header-labels {
+      min-height: 32px;
+      grid-template-columns: 0 auto 0 44px 60px 36px 0 !important;
+    }
+  }
+
+  .theme-dark & {
+    .expression {
+      color: $c-fail;
+    }
+  }
+
   ::placeholder {
     opacity: 0.25;
   }

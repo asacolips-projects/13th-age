@@ -17,6 +17,14 @@
 
     <Tabs :tabs="tabs.primary" no-span="true"/>
 
+    <Tab group="primary" :tab="tabs.primary.preview">
+      <div class="archmage-v2 sheet">
+        <section class="section--powers">
+          <Power :power="context.item" :context="context" include-title="true"/>
+        </section>
+      </div>
+    </Tab>
+
     <Tab group="primary" :tab="tabs.primary.details">
       <fieldset class="fieldset-details">
         <legend>Details</legend>
@@ -32,21 +40,26 @@
           <input type="text" name="system.group.value" 
             v-model="context.item.system.group.value"
             :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.groupTitle')"
+            data-tooltip-direction="LEFT"
           />
         </div>
   
         <div class="form-group">
           <label>{{game.i18n.localize('ARCHMAGE.CHAT.powerSourceName')}}</label>
-          <input type="text" name="system.powerSourceName.value" 
+          <input type="text" name="system.powerSourceName.value"
             v-model="context.item.system.powerSourceName.value"
             :placeholder="game.i18n.localize('ARCHMAGE.CHAT.powerSourcePlaceholder')"
             :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerSourceTitle')"
+            data-tooltip-direction="LEFT"
           />
         </div>
   
         <div class="form-group">
           <label>{{game.i18n.localize('ARCHMAGE.CHAT.powerSource')}}</label>
-          <select name="system.powerSource.value" v-model="context.item.system.powerSource.value" :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerSourceTypeTitle')">
+          <select name="system.powerSource.value"
+            v-model="context.item.system.powerSource.value"
+            :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerSourceTypeTitle')"
+            data-tooltip-direction="LEFT">
             <option value="">{{ game.i18n.localize('ARCHMAGE.noneOption') }}</option>
             <option v-for="(label, value) in CONFIG.ARCHMAGE.powerSources" :key="value" :value="value">{{ label }}</option>
           </select>
@@ -89,14 +102,20 @@
 import { Tabs, Tab } from '@/components';
 import { reactive, computed } from 'vue';
 import Editor from '@/components/parts/Prosemirror.vue';
+import Power from '@/components/parts/Power.vue';
 
 const props = defineProps(['context']);
 const tabs = reactive({
   primary: {
+    preview: {
+      key: 'preview',
+      label: game.i18n.localize('ARCHMAGE.preview'),
+      active: false,
+    },
     description: {
       key: 'description',
       label: game.i18n.localize('ARCHMAGE.description'),
-      active: true,
+      active: false,
     },
     details: {
       key: 'details',
