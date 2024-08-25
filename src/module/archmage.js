@@ -4,6 +4,7 @@ import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
+import { ArchmageItemSheetV2 } from './item/item-sheet-v2.js';
 import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { MacroUtils } from './setup/utility-classes.js';
@@ -177,8 +178,12 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, {
     label: game.i18n.localize('ARCHMAGE.sheetItem'),
-    makeDefault: true
+    makeDefault: true,
   });
+  Items.registerSheet("archmage", ArchmageItemSheetV2, {
+    label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
+    makeDefault: false,
+  })
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
     label: game.i18n.localize('ARCHMAGE.sheetActiveEffect'),

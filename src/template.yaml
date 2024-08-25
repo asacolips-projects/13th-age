@@ -482,6 +482,7 @@ Item:
       description:
         type: String
         label: Description
+        value: ''
     spendable:
       quantity:
         type: Number
