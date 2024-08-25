@@ -20,11 +20,6 @@
       <section class="section--fields">
         <!-- Tab links -->
         <Tabs :tabs="tabs.primary" no-span="true"/>
-
-        <!-- Simulate the rendered power per the character sheet -->
-        <!-- <Tab group="primary" :tab="tabs.primary.preview">
-          
-        </Tab> -->
     
         <!-- Description tab -->
         <Tab group="primary" :tab="tabs.primary.description">
@@ -33,22 +28,40 @@
     
         <!-- Details fields -->
         <Tab group="primary" :tab="tabs.primary.details">
-          <PowerDetails :item="context.item" />
+          <PowerDetails :item="context.item" :context="context" />
         </Tab>
     
         <!-- Details fields -->
         <Tab group="primary" :tab="tabs.primary.attack">
-          <PowerAttack :item="context.item" />
+          <PowerAttack :item="context.item" :context="context"/>
+        </Tab>
+
+        <!-- Spell Fields -->
+        <Tab group="primary" :tab="tabs.primary.spells">
+          <PowerSpells :item="context.item" :context="context"/>
+        </Tab>
+
+        <!-- Active Effect Fields -->
+        <Tab group="primary" :tab="tabs.primary.effects">
+          <fieldset class="section--effects">
+            <legend>Active Effects</legend>
+            <div class="archmage-v2 sheet">
+              <section class="section--powers">
+                <CharEffects :actor="context.item" :key="context._renderKey"/>
+              </section>
+            </div>
+          </fieldset>
         </Tab>
       </section>
   
-      <aside class="section--preview">
+      <fieldset class="section--preview">
+        <legend>Preview</legend>
         <div class="archmage-v2 sheet">
           <section class="section--powers">
             <Power :power="context.item" :context="context" include-title="true" :enriched="context.editors"/>
           </section>
         </div>
-      </aside>
+      </fieldset>
     </div>
 
   </div>
@@ -62,17 +75,14 @@ import {
   Power,
   PowerDetails,
   PowerAttack,
+  PowerSpells,
+  CharEffects,
 } from '@/components';
 import { reactive } from 'vue';
 
 const props = defineProps(['context']);
 const tabs = reactive({
   primary: {
-    // preview: {
-    //   key: 'preview',
-    //   label: game.i18n.localize('ARCHMAGE.preview'),
-    //   active: false,
-    // },
     description: {
       key: 'description',
       label: game.i18n.localize('ARCHMAGE.description'),
@@ -88,6 +98,16 @@ const tabs = reactive({
       label: 'Attack',
       active: false,
     },
+    spells: {
+      key: 'spells',
+      label: 'Spells',
+      active: false,
+    },
+    effects: {
+      key: 'effects',
+      label: 'Effects',
+      active: false,
+    }
   },
 });
 

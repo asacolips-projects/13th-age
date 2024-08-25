@@ -5,9 +5,6 @@
       <span class="power-name" :data-item-id="power._id">
         <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>
       </span>
-      <div class="power-action" :data-tooltip="localize('ARCHMAGE.action')" v-if="power.system.actionType.value">{{getActionShort(power.system.actionType.value)}}</div>
-      <div class="power-recharge" :data-tooltip="localize('ARCHMAGE.recharge')" v-if="power.system.recharge.value && power.system.powerUsage.value == 'recharge'">{{Number(power.system.recharge.value) || 16}}+</div>
-      <div class="power-uses" :data-tooltip="localize('ARCHMAGE.uses')" :data-item-id="power._id" :data-quantity="power.system.quantity.value"><span v-if="power.system.quantity.value !== null">{{power.system.quantity.value}}</span></div>
     </div>
     <!-- Group, range, and quick info. -->
     <header class="power-header flexcol">

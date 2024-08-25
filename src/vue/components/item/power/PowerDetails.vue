@@ -108,7 +108,7 @@
         <input type="number" name="system.quantity.value" 
           v-model="item.system.quantity.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.usesRemainingHint')"
+          :data-tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')"
           data-tooltip-direction="RIGHT"
         />
       </div>
@@ -120,18 +120,62 @@
         <input type="number" name="system.maxQuantity.value" 
           v-model="item.system.maxQuantity.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.usesMaxHint')"
+          :data-tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')"
           data-tooltip-direction="RIGHT"
         />
       </div>
     </div>
 
+    <div class="form-group">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.resources')}}</label>
+      <div class="field">
+        <input type="text" name="system.resources.value"
+          v-model="item.system.resources.value"
+          :placeholder="game.i18n.localize('ARCHMAGE.CHAT.resourcesPlaceholder')"
+        />
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="fieldset-special">
+    <legend>Automation</legend>
+
+    <div class="form-group">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.rollTable')}}</label>
+      <div class="field">
+        <input type="text" name="system.rollTable.value"
+          v-model="item.system.rollTable.value"
+          :placeholder="game.i18n.localize('ARCHMAGE.CHAT.rollTablePlaceholder')"
+        />
+      </div>
+      <p class="hint">{{ game.i18n.localize('ARCHMAGE.CHAT.rollTableTitle') }}</p>
+    </div>
+
+    <div class="form-group stacked power-macro-editor">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro')}}</label>
+      <p class="hint">Use the field below to write a macro that executes when the power is used. Available variables are:
+       <ul>
+        <li><strong>speaker</strong>: User activing the item.</li>
+        <li><strong>actor</strong>: Actor that owns the item.</li>
+        <li><strong>token</strong>: Active token for the actor that owns the item.</li>
+        <li><strong>archmage</strong>: Wrapper for the global game.archmage object</li>
+       </ul>
+      </p>
+      <div class="field">
+        <textarea class="attribute-value" name="system.embeddedMacro.value"
+          rows="20"
+          v-html="item.system.embeddedMacro.value"
+          spellcheck="false"></textarea>
+      </div>
+    </div>
   </fieldset>
 </template>
 
 <script setup>
   import {
     TextareaGrow,
+    Prosemirror,
+    InlineRollsReferenceHint,
   } from '@/components';
-  const props = defineProps(['item']);
+  const props = defineProps(['item', 'context']);
 </script>

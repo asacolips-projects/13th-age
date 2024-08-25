@@ -131,6 +131,14 @@
     padding: 0.5rem;
   }
 
+  .standard-form {
+    .form-group {
+      > label {
+        line-height: 1.2;
+      }
+    }
+  }
+
   // @todo figure out how to fix this hack properly.
   .window-content {
     margin-top: -16px;
@@ -153,8 +161,12 @@
     .power-summary,
     .power-header-labels {
       min-height: 32px;
-      grid-template-columns: 0 auto 0 44px 60px 36px 0 !important;
+      grid-template-columns: 0 auto 0 0 0 0 0 !important;
     }
+  }
+
+  .power-detail {
+    margin: 6px 0;
   }
 
   .theme-dark & {
@@ -187,9 +199,37 @@
       flex: 1;
       overflow-x: hidden;
       overflow-y: auto;
-      border: 1px solid;
-      border-radius: 4px;
+      // border: 1px solid;
+      // border-radius: 4px;
       margin-left: 16px;
+    }
+  }
+
+  .sheet-tabs {
+    flex-wrap: wrap;
+  }
+
+  prose-mirror {
+    height: auto !important;
+    min-height: 36px;
+    background: var(--color-cool-4);
+    border-radius: 4px;
+
+    &.active {
+      background: transparent;
+      min-height: 200px;
+
+      .editor-container {
+        border: 1px solid;
+        border-color: var(--color-cool-4);
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .section--effects {
+    .effects-grid {
+      grid-template-columns: 40px auto 160px 0px 60px !important;
     }
   }
 

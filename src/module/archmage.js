@@ -732,6 +732,11 @@ Hooks.once('ready', () => {
       // Render the browser.
       compendiumBrowser.render(true);
     }
+
+    if (event?.target?.classList?.contains('archmage-rolls-reference')) {
+      event.preventDefault();
+      new ArchmageReference().render(true);
+    }
   });
 
   // Wait to register the hotbar macros until ready.
@@ -978,13 +983,14 @@ Hooks.on("updateScene", (scene, data, options, userId) => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", async (app, html) => {
-  let button = $(`<button id="archmage-reference-btn" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
+  let button = $(`<button id="archmage-reference-btn" class="archmage-rolls-reference" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
-  button.on('click', ev => {
-    ev.preventDefault();
-    new ArchmageReference().render(true);
-  });
+  // Event trigger has been moved to the ready hook using the archmage-rolls-reference class.
+  // button.on('click', ev => {
+  //   ev.preventDefault();
+  //   new ArchmageReference().render(true);
+  // });
 
   let helpButton = $(`<button id="archmage-help-btn" type="button" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
   html.find('button[data-action="controls"]').after(helpButton);

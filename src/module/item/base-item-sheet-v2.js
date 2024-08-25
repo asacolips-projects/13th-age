@@ -9,10 +9,10 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
     // classes: ["archmage", "item"],
     actions: {
       onEditImage: this._onEditImage,
-      viewDoc: this._viewEffect,
-      createDoc: this._createEffect,
-      deleteDoc: this._deleteEffect,
-      toggleEffect: this._toggleEffect,
+      edit: this._viewEffect,
+      create: this._createEffect,
+      delete: this._deleteEffect,
+      toggle: this._toggleEffect,
       showItemArtwork: this.#onShowItemArtwork,
     },
     form: {
@@ -106,11 +106,14 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @private
    */
   static async _createEffect(event, target) {
+    console.log('create', event);
     // Retrieve the configured document class for ActiveEffect
     const aeCls = getDocumentClass("ActiveEffect");
     // Prepare the document creation data by initializing it a default name.
     // As of v12, you can define custom Active Effect subtypes just like Item subtypes if you want
     const effectData = {
+      icon: this.document.img || 'icons/svg/aura.svg',
+      origin: this.document.uuid,
       name: aeCls.defaultName({
         // defaultName handles an undefined type gracefully
         type: target.dataset.type,
@@ -129,6 +132,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 
     // Finally, create the embedded document!
     await aeCls.create(effectData, { parent: this.item });
+    this.render(true);
   }
 
   /**

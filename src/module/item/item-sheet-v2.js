@@ -65,10 +65,10 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
     classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
     actions: {
       onEditImage: this._onEditImage,
-      viewDoc: this._viewEffect,
-      createDoc: this._createEffect,
-      deleteDoc: this._deleteEffect,
-      toggleEffect: this._toggleEffect
+      edit: this._viewEffect,
+      create: this._createEffect,
+      delete: this._deleteEffect,
+      toggle: this._toggleEffect
     },
     position: {
       width: 860,
@@ -104,7 +104,7 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       owner: this.isOwner,
       limited: this.document.limited,
       // Add the item document.
-      item: this.item,
+      item: this.item.toObject(),
       // Adding system and flags for easier access
       system: this.item.system,
       flags: this.item.flags,
@@ -112,12 +112,15 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       rollData: this.actor?.getRollData() ?? {},
       // Adding a pointer to CONFIG.ARCHMAGE
       config: CONFIG.ARCHMAGE,
-      
+      // Force re-renders. Defined in the vue mixin.
+      _renderKey: this._renderKey ?? 0,
       // @todo add this after switching to DataModel
       // Necessary for formInput and formFields helpers
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
     };
+
+    console.log('context', context);
 
     // Handle enriched fields.
     const enrichmentOptions = {
@@ -149,6 +152,14 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       context.editors[field] = {
         // @todo write a power enricher.
         enriched: await this.wrapRolls(this.item.system[field].value ?? '', [], 'short', {}, field, enrichmentOptions),
+        element: foundry.applications.elements.HTMLProseMirrorElement.create({
+          name: `system.${field}.value`,
+          toggled: true,
+          collaborate: true,
+          documentUUID: this.document.uuid,
+          height: 300,
+          value: context.system[field]?.value ?? '',
+        }),
       };
     }
 

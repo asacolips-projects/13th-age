@@ -1,6 +1,26 @@
 <template>
+  <fieldset class="fieldset-special">
+    <legend>Effect</legend>
+    <InlineRollsReferenceHint/>
+
+    <div class="form-group">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.special')}}</label>
+      <div class="field">
+        <Prosemirror :editable="context.editable" :field="context.editors['special']"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.effect')}}</label>
+      <div class="field">
+        <Prosemirror :editable="context.editable" :field="context.editors['effect']"/>
+      </div>
+    </div>
+  </fieldset>
+
   <fieldset class="fieldset-attack">
     <legend>Attacks</legend>
+    <InlineRollsReferenceHint compact="true"/>
 
     <div class="form-group">
       <label>{{game.i18n.localize('ARCHMAGE.CHAT.attack')}}</label>
@@ -53,6 +73,7 @@
 
   <fieldset class="fieldset-hit">
     <legend>Hit / Miss</legend>
+    <InlineRollsReferenceHint compact="true"/>
 
     <div class="form-group">
       <label>{{game.i18n.localize('ARCHMAGE.CHAT.always')}}</label>
@@ -157,6 +178,7 @@
   import {
     TextareaGrow,
     Prosemirror,
+    InlineRollsReferenceHint,
   } from '@/components';
-  const props = defineProps(['item']);
+  const props = defineProps(['item', 'context']);
 </script>

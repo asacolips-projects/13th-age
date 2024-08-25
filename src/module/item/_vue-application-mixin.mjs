@@ -9,6 +9,9 @@ export default function VueRenderingMixin(BaseApplication) {
       /** Vue root for the mounted application instance. */
       vueRoot = null;
 
+      /** Constant to force updates on change. */
+      _renderKey = 0;
+
       /**
        * Object to store vue parts.
        * 
@@ -132,6 +135,9 @@ export default function VueRenderingMixin(BaseApplication) {
        * @override
        */
       async _renderHTML(context, options) {
+        // Force certain updates.
+        this._renderKey++;
+        context._renderKey = this._renderKey;
         // Update the application root with new values.
         this.vueRoot.updateContext(context);
         // Return an empty string to prevent errors.
