@@ -152,8 +152,6 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       };
     }
 
-    console.log('editors', context.editors);
-
     for (let [field, editor] of Object.entries(context.editors)) {
       if (context.editors[field].element) {
         context.editors[field].element.innerHTML = context.editors[field].enriched;
