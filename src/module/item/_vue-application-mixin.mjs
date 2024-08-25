@@ -155,5 +155,4 @@ export default function VueRenderingMixin(BaseApplication) {
     }
 
     return VueApplication;
-
 }
