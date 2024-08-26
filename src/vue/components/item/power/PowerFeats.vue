@@ -1,14 +1,21 @@
 <template>
   <fieldset class="fieldset-feats">
     <legend>{{ game.i18n.localize('ARCHMAGE.feats') }}</legend>
+    <div class="form-group stacked feat-actions feat-header">
+      <div class="operations">
+        <a class="feat-action feat-create" data-action="createFeat"><i class="fas fa-plus"></i> {{ game.i18n.format('ARCHMAGE.newItem', {item: game.i18n.localize('ARCHMAGE.feat')}) }}</a>
+      </div>
+    </div>
+
     <fieldset v-for="(feat, featKey) in item.system.feats" :key="featKey">
       <div class="form-group stacked feat-actions">
         <div class="operations">
-          <a class="feat-action" data-action="moveFeat" :data-feat-key="featKey" data-direction="up"><i class="fas fa-angle-up"></i></a>
-          <a class="feat-action" data-action="moveFeat" :data-feat-key="featKey" data-direction="down"><i class="fas fa-angle-down"></i></a>
-          <a class="feat-action" data-action="deleteFeat" :data-feat-key="featKey"><i class="fas fa-trash"></i></a>
+          <a class="feat-action feat-move-up" data-action="moveFeatUp" :data-feat-key="featKey"><i class="fas fa-angle-up"></i></a>
+          <a class="feat-action feat-move-down" data-action="moveFeatDown" :data-feat-key="featKey"><i class="fas fa-angle-down"></i></a>
+          <a class="feat-action feat-delete" data-action="deleteFeat" :data-feat-key="featKey"><i class="fas fa-trash"></i></a>
         </div>
       </div>
+
 
       <!-- Active -->
       <div class="form-group">
@@ -72,6 +79,7 @@
           <Prosemirror :editable="context.editable" :field="context.editors[`feat.${featKey}`]"/>
         </div>
       </div>
+
     </fieldset>
   </fieldset>
 </template>

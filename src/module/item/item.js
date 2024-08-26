@@ -999,9 +999,12 @@ export class ItemArchmage extends Item {
     // Add spell level entries only if the current spell level is high enough
     [2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach(i => {
       if (Number(data.powerLevel.value) < i) {
-        effectKeys = effectKeys.filter(x => x != `spellLevel${i}`)
+        effectKeys = effectKeys.filter(field => field != `spellLevel${i}`);
       }
-    })
+    });
+
+    // Also filter out manually hidden spells.
+    effectKeys = effectKeys.filter(field => !data[field]?.hide);
 
     const effects = effectKeys.map(k => {
       return {

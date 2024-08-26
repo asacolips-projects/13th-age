@@ -139,6 +139,19 @@
     }
   }
 
+  .field.flexrow {
+    .flexshrink {
+      flex: 0;
+    }
+
+    .checkbox-disable:checked {
+      &::after {
+        color: $c-progress-dire;
+        content: "\f00d\f00d";
+      }
+    }
+  }
+
   // @todo figure out how to fix this hack properly.
   .window-content {
     margin-top: -16px;
@@ -242,6 +255,19 @@
       .feat-action {
         flex: 0 0 18px;
         text-align: center;
+      }
+
+      .feat-create {
+        flex: 1;
+        text-align: right;
+      }
+    }
+  }
+
+  .fieldset-feats {
+    details[open] {
+      .feat-summary {
+        display: none;
       }
     }
   }

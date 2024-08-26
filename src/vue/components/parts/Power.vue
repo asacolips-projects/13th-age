@@ -25,13 +25,15 @@
           <Enriched tag="span" class="power-detail-value" :text="power.system.description.value" :diceFormulaMode="diceFormulaMode" />
         </Suspense>
       </div>
-      <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
-        <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
-        <Suspense v-else>
-          <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field"/>
-        </Suspense>
-      </div>
+      <template v-for="field in powerDetailFields" :key="field">
+        <div v-if="!power.system[field]?.hide" class="power-detail" :data-field="field">
+          <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
+          <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
+          <Suspense v-else>
+            <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field"/>
+          </Suspense>
+        </div>
+      </template>
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">

@@ -87,6 +87,12 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
         },
       ]
     },
+    actions: {
+      createFeat: this._updateFeat,
+      deleteFeat: this._updateFeat,
+      moveFeatUp: this._updateFeat,
+      moveFeatDown: this._updateFeat,
+    },
     tag: 'form',
     form: {
       submitOnChange: true,
@@ -250,6 +256,99 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       editor.refresh();
     }
     return '';
+  }
+
+  /* ---------------------------------------------------- */
+
+  /**
+   * Add/delete/reorder feats on a power.
+   *
+   * @param {Event} event
+   *   Html event that triggered the method.
+   */
+  static async _updateFeat(event, target) {
+    let dataset = target.dataset;
+
+    let item = this.item;
+    if (item.type != "power") return;
+
+    let featIndex = Number(dataset.featKey);
+    let feats = item.system.feats;
+
+    let change = (async () => {return;});
+    switch(dataset.action) {
+      case 'createFeat':
+        if (feats) feats = Object.values(feats);
+        else feats = [];
+        feats.push({
+          "description": {
+            "type": "String",
+            "value": ""
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": false
+          },
+          "tier": {
+            "type": "String",
+            "value": "adventurer"
+          },
+          "powerUsage": {
+            "type": "String",
+            "value": ""
+          },
+          "quantity": {
+            "type": "Number",
+            "value": null
+          },
+          "maxQuantity": {
+            "type": "Number",
+            "value": null
+          }
+        });
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
+      case 'deleteFeat':
+        change = (async () => {
+          let newFeats = foundry.utils.deepClone(feats);
+          delete newFeats[featIndex];
+          newFeats = Object.assign({}, Object.values(newFeats));  // Re-index from 0
+          let updateData = {'system.feats': newFeats};
+          for (let key of Object.keys(item.system.feats)) {
+            if (!newFeats[key]) updateData[`system.feats.-=${key}`] = null;
+          }
+          await item.update(updateData);
+        });
+        break;
+      case 'moveFeatUp':
+        if (featIndex == 0) return;
+        feats = Object.values(feats);
+        [feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]]
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
+      case 'moveFeatDown':
+        feats = Object.values(feats);
+        if (featIndex >= feats.length - 1) return;
+        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]]
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
+    }
+
+    let bypass = event.shiftKey ? true : false;
+    if (bypass) {
+      await change();
+      return;
+    }
+    foundry.applications.api.DialogV2.prompt({
+      window: {title: 'Delete feat?'},
+      content: `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm")}</p>`,
+      rejectClose: false,
+      ok: {
+        callback: (event, button, dialog) => {
+          change();
+        }
+      }
+    });
   }
 
   /* ---------------------------------------------------- */

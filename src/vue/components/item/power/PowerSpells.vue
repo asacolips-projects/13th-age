@@ -4,12 +4,19 @@
   <fieldset class="fieldset-details">
     <legend>Spells</legend>
     <InlineRollsReferenceHint />
+    <p class="hint">Use the checkboxes next to each spell level to hide that level from chat if it's made redundant by a higher level version of the spell.</p>
 
     <div v-for="level in 11" :key="level" class="form-group">
       <!-- Loop through spell levels 2-11. -->
       <template v-if="level > 1">
         <label>{{game.i18n.localize(`ARCHMAGE.CHAT.spellLevel${level}`)}}</label>
-        <div class="field">
+        <div class="field flexrow">
+          <span class="flexshrink" data-tooltip="Hide from chat" data-tooltip-direction="LEFT">
+            <input type="checkbox" :name="`system.spellLevel${level}.hide`"
+              v-model="item.system[`spellLevel${level}`].hide"
+              class="checkbox-disable"
+            />
+          </span>
           <TextareaGrow :name="`system.spellLevel${level}.value`"
             :value="item.system[`spellLevel${level}`].value"
             :placeholder="game.i18n.localize(`ARCHMAGE.CHAT.spellLevel${level}Placeholder`)"

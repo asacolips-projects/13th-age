@@ -49,6 +49,7 @@
         <Tab group="primary" :tab="tabs.primary.effects">
           <fieldset class="section--effects">
             <legend>Active Effects</legend>
+            <p class="hint">Active Effects will not be applied directly to this item's parent actor, but they will show up as draggable effects on power cards in chat.</p>
             <div class="archmage-v2 sheet">
               <section class="section--powers">
                 <CharEffects :actor="context.item" :key="context._renderKey"/>
