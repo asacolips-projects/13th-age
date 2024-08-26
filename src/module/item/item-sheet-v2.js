@@ -55,6 +55,8 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
     'breathWeapon',
     'recharge',
   ];
+
+  codeMirrorEditors = [];
   
   constructor(options = {}) {
     super(options);
@@ -208,7 +210,7 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       const macroEditors = this.vueRoot.$el.querySelectorAll('.power-macro-editor textarea');
       for (let textarea of macroEditors) {
         // @todo the value is hidden on first load. Not sure why.
-        CodeMirror.fromTextArea(textarea, {
+        const editor = CodeMirror.fromTextArea(textarea, {
           ...CodeMirror.userSettings,
           mode: "javascript",
           lineNumbers: true,
@@ -216,7 +218,9 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
           autofocus: false,
           theme: game.settings.get("archmage", "nightmode") ? 'monokai' : 'default',
           readOnly: textarea.hasAttribute('readonly')
-        }).on('change', (instance) => instance.save());
+        })
+        editor.on('change', (instance) => instance.save());
+        this.codeMirrorEditors.push(editor);
       }
     }
 
@@ -241,6 +245,10 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
    */
   async _renderHTML(context, options) {
     await super._renderHTML(context, options);
+    // Manually refresh codemirror editors.
+    for (let editor of this.codeMirrorEditors) {
+      editor.refresh();
+    }
     return '';
   }
 
