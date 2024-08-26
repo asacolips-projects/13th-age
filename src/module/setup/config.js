@@ -1183,7 +1183,7 @@ FLAGS.characterFlags = {
     type: Boolean
   },
   "implacable": {
-    name: "Implacable",
+    name: "Implacable/Undaunted",
     hint: "Paladin talent to roll saves at the start of your turn instead of at the end of your turn.",
     section: "Feats",
     type: Boolean
