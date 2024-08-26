@@ -593,8 +593,8 @@ export class ActorArchmage extends Actor {
     if (game.settings.get("archmage", "secondEdition")) {
       // Item recovery bonus is applied here, per level
       formulaConst += recoveriesBonus * Number(data.attributes.level?.value);
-      // If we are high level, also add stati extra as per the beta rules
-      formulaConst += Math.max(0, 10*(data.attributes.level?.value - 7));
+      // If we are high level, also add static extra as per the beta rules
+      formulaConst += Math.max(0, 10*(recLevel - 7));
     }
     data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
