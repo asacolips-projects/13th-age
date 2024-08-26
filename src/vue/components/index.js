@@ -31,3 +31,4 @@ export { default as InlineRollsReferenceHint } from '@/components/parts/InlineRo
 export { default as PowerAttack } from '@/components/item/power/PowerAttack.vue';
 export { default as PowerDetails } from '@/components/item/power/PowerDetails.vue';
 export { default as PowerSpells } from '@/components/item/power/PowerSpells.vue';
+export { default as PowerFeats } from '@/components/item/power/PowerFeats.vue';

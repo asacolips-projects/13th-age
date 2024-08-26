@@ -205,8 +205,9 @@
     }
   }
 
-  .sheet-tabs {
+  nav.tabs {
     flex-wrap: wrap;
+    gap: 0;
   }
 
   prose-mirror {
@@ -230,6 +231,24 @@
   .section--effects {
     .effects-grid {
       grid-template-columns: 40px auto 160px 0px 60px !important;
+    }
+  }
+
+  .CodeMirror {
+    pre.CodeMirror-line {
+      padding-left: 36px;
+    }
+  }
+
+  .feat-actions {
+    .operations {
+      display: flex;
+      justify-content: flex-end;
+
+      .feat-action {
+        flex: 0 0 18px;
+        text-align: center;
+      }
     }
   }
 

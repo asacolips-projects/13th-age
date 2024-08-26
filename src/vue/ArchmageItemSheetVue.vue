@@ -41,6 +41,10 @@
           <PowerSpells :item="context.item" :context="context"/>
         </Tab>
 
+        <Tab group="primary" :tab="tabs.primary.feats">
+          <PowerFeats :item="context.item" :context="context"/>
+        </Tab>
+
         <!-- Active Effect Fields -->
         <Tab group="primary" :tab="tabs.primary.effects">
           <fieldset class="section--effects">
@@ -76,6 +80,7 @@ import {
   PowerDetails,
   PowerAttack,
   PowerSpells,
+  PowerFeats,
   CharEffects,
 } from '@/components';
 import { reactive } from 'vue';
@@ -101,6 +106,11 @@ const tabs = reactive({
     spells: {
       key: 'spells',
       label: 'Spells',
+      active: false,
+    },
+    feats: {
+      key: 'feats',
+      label: 'Feats',
       active: false,
     },
     effects: {
