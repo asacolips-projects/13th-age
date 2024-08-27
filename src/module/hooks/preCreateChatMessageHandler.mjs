@@ -129,7 +129,7 @@ export default class preCreateChatMessageHandler {
         if (game.settings.get("archmage", "secondEdition")) {
             addEdToCritRange = options.item.system.breathWeapon?.value?.length > 0;
             // Dragons also can increase their crit range.
-            if (options.actor.system.details?.type?.value === 'dragon') {
+            if (options.actor?.system.details?.type?.value === 'dragon') {
                 const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
                 if (options.item.name.toLocaleLowerCase().includes(breathString)) {
                     addStokeToCritRange = true;

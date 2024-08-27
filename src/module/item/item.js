@@ -9,6 +9,10 @@ const RETAIN_FOCUS_REGEX = /retain focus.+(\d+)[^\d]+(\d+)/i;
  */
 export class ItemArchmage extends Item {
 
+  get itemActor() {
+    return this.actor ?? game.user.character;
+  }
+
   prepareDerivedData() {
     super.prepareDerivedData();
     if (!this.img || this.img == CONFIG.DEFAULT_TOKEN) {
@@ -49,8 +53,8 @@ export class ItemArchmage extends Item {
     let itemToRender = this.clone(tempOverrides, {"save": false, "keepId": true});
 
     // Override level if the actor has the related flag
-    if (this.actor.getFlag("archmage", "overridePowerLevel") && this.type == 'power') {
-      itemToRender.system.powerLevel.value = Math.max(this.actor.system.attributes.level.value, itemToRender.system.powerLevel.value);
+    if (this.itemActor?.getFlag("archmage", "overridePowerLevel") && this.type == 'power') {
+      itemToRender.system.powerLevel.value = Math.max(this.itemActor.system.attributes.level.value, itemToRender.system.powerLevel.value);
     }
 
     // Then check resources.
@@ -64,7 +68,7 @@ export class ItemArchmage extends Item {
     let targets = await this._rollMultiTargets(itemToRender);
 
     // Prepare roll data now.
-    let rollData = itemToRender.actor.getRollData(this);
+    let rollData = this.itemActor?.getRollData(this);
 
     // Handle roll table.
     await this._rollHandleRollTable(itemToRender, rollData);
@@ -79,7 +83,7 @@ export class ItemArchmage extends Item {
     let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {
       targets: targets,
       type: itemToRender.type,
-      actor: itemToRender.actor,
+      actor: this.itemActor ?? null,
       item: itemToRender,
       token: token,
       powerLevel: itemToRender.system.powerLevel?.value,
@@ -95,11 +99,11 @@ export class ItemArchmage extends Item {
 
     // Set a flag for stoke adjustments.
     if (CONFIG.ARCHMAGE.is2e) {
-      if (this.actor.type === 'npc' && this.actor.system?.resources?.spendable?.stoke?.enabled) {
+      if (this.itemActor?.type === 'npc' && this.itemActor?.system?.resources?.spendable?.stoke?.enabled) {
         if (game.combat?.combatant) {
           const combatantUuid = game.combat.combatant?.actor?.uuid;
           const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
-          if (combatantUuid && combatantUuid == this.actor.uuid && this.name.toLocaleLowerCase().includes(breathString)) {
+          if (combatantUuid && combatantUuid == this.itemActor.uuid && this.name.toLocaleLowerCase().includes(breathString)) {
             // This will be set to false at the start of the actor's turn.
             game.combat.combatant.setFlag('archmage', 'breathUsed', true);
           }
@@ -123,7 +127,8 @@ export class ItemArchmage extends Item {
 
     // Perform updates.
     if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
-    if (!foundry.utils.isEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
+    // Only update the actor for owned items.
+    if (!foundry.utils.isEmpty(actorUpdateData)) this.actor?.update(actorUpdateData);
 
     if (suppressMessage) {
       return undefined;
@@ -133,7 +138,7 @@ export class ItemArchmage extends Item {
     chatData.flags = chatData.flags ?? {};
     chatData.flags.archmage = {
       // Add flags for IDs and targets.
-      actor: itemToRender.actor.uuid,
+      actor: this.itemActor?.uuid ?? false,
       item: itemToRender.uuid,
       targets: [...game.user.targets.map(t => t.document.uuid)],
       numTargets: targets,
@@ -167,19 +172,20 @@ export class ItemArchmage extends Item {
 
     const template = `systems/archmage/templates/chat/feat-card.html`;
     const templateData = {
-      actor: this.actor,
+      actor: this.itemActor,
       tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: this,
       feat: feat,
       featName: game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`)
     };
     // Basic chat message data
+    const actor = this.itemActor ?? game.user.character;
     const chatData = {
       user: game.user.id,
       speaker: {
-        actor: this.actor.id,
+        actor: actor?.id ?? null,
         token: null,
-        alias: this.actor.name,
+        alias: actor?.name ?? null,
         scene: game.user.viewedScene
       }
     };
@@ -188,7 +194,7 @@ export class ItemArchmage extends Item {
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
-    let rollData = this.actor.getRollData(this);
+    let rollData = this.itemActor?.getRollData(this) ?? {};
     chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     // Perform updates.
@@ -206,9 +212,11 @@ export class ItemArchmage extends Item {
         && this.system.finalVerse.value) {
       let hasReminder = false;
       const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower", {power: this.name, target: this.system.sustainOn.value});
-      this.actor.effects.forEach(e => {
-        if (e.label == name) hasReminder = true;
-      });
+      if (this.itemActor?.effects) {
+        this.itemActor.effects.forEach(e => {
+          if (e.label == name) hasReminder = true;
+        });
+      }
 
       if (!hasReminder) return "openingEffect";
 
@@ -227,6 +235,8 @@ export class ItemArchmage extends Item {
   async _rollUsesCheck(updateData, usageMode) {
     // If we have a special usage mode skip this check
     if (!["", "openingEffect"].includes(usageMode)) return false;
+    // Only check uses on owned items.
+    if (!this.actor) return false;
     // Update uses left
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
@@ -257,8 +267,8 @@ export class ItemArchmage extends Item {
     let overrides = {};
     if (this.type != 'power') return overrides;
     let lvl = this.system.powerLevel?.value ?? 0;
-    if (this.actor.getFlag("archmage", "overridePowerLevel")) {
-      lvl = Math.max(this.actor.system.attributes.level.value, lvl);
+    if (this.itemActor?.getFlag("archmage", "overridePowerLevel")) {
+      lvl = Math.max(this.itemActor.system.attributes.level.value, lvl);
     }
     if (event.altKey && this.system.powerLevel?.value != undefined) {
       lvl += 1;
@@ -273,6 +283,9 @@ export class ItemArchmage extends Item {
     let resStr = this.system.resources?.value;
     if (!resStr) return false;
 
+    // Exit early with no actor.
+    if (!this.actor) return false;
+
     let resources = resStr.split(",").map(item => item.trim());
     let res = this.actor.system.resources;
     let filter = /^([\+-]*)([0-9]*)\s*(.+)$/;
@@ -284,8 +297,8 @@ export class ItemArchmage extends Item {
       let rolls;
       let origResource = resource;
       if (ir) {
-        rolls = ArchmageRolls.getInlineRolls(resource, itemToRender.actor.getRollData(itemToRender))
-        await ArchmageRolls.rollAll(rolls, itemToRender.actor);
+        rolls = ArchmageRolls.getInlineRolls(resource, this.actor?.getRollData(itemToRender))
+        await ArchmageRolls.rollAll(rolls, this.actor);
         resource = resource.replace(ir[1], rolls[0].total);
       }
 
@@ -508,9 +521,9 @@ export class ItemArchmage extends Item {
   _rollGetToken(itemToRender) {
     let tokens = canvas.tokens.controlled;
     let token = tokens ? tokens[0] : null;
-    if (!token || token.actor != itemToRender.actor) {
-      tokens = itemToRender.actor.getActiveTokens(true);
-      token = tokens.length > 0 ? tokens[0] : null;
+    if (!token || token.actor != this.itemActor) {
+      tokens = this.itemActor?.getActiveTokens(true);
+      token = tokens && tokens.length > 0 ? tokens[0] : null;
     }
     return token;
   }
@@ -533,7 +546,7 @@ export class ItemArchmage extends Item {
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     const templateData = {
-      actor: itemToRender.actor,
+      actor: this.itemActor,
       tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: itemToRender,
       data: itemToRender.getChatData({ rollData: rollData }, true),
@@ -543,7 +556,7 @@ export class ItemArchmage extends Item {
     // Basic chat message data
     let chatData = {
       user: game.user.id,
-      speaker: game.archmage.ArchmageUtility.getSpeaker(itemToRender.actor)
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this.itemActor)
     };
 
     // Toggle default roll mode
@@ -628,9 +641,9 @@ export class ItemArchmage extends Item {
    */
   async _handleMonkFormAC(itemToRender) {
     if (itemToRender.type != "power") return;
-    if (!itemToRender.actor.system.details.detectedClasses?.includes("monk")) return;
+    if (!this.itemActor?.system.details.detectedClasses?.includes("monk")) return;
 
-    const effects = itemToRender.actor.effects;
+    const effects = this.itemActor?.effects;
     const group = itemToRender.system.group.value?.toLowerCase();
     let bonusMagnitudeMap = {};
     bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
@@ -642,15 +655,17 @@ export class ItemArchmage extends Item {
     // Check for other monk AC bonuses
     let effectsToDelete = [];
     let alreadyHasBetterBonus = false;
-    effects.forEach(e => {
-      if (e.name == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
-        if (Number(e.changes[0].value) <= bonusMagnitude) {
-          effectsToDelete.push(e.id);
+    if (effects) {
+      effects.forEach(e => {
+        if (e.name == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
+          if (Number(e.changes[0].value) <= bonusMagnitude) {
+            effectsToDelete.push(e.id);
+          }
+          else alreadyHasBetterBonus = true;
         }
-        else alreadyHasBetterBonus = true;
-      }
-    });
-    await itemToRender.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+      });
+    }
+    await this.itemActor?.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
 
     if (alreadyHasBetterBonus) return;
 
@@ -665,19 +680,19 @@ export class ItemArchmage extends Item {
       }]
     }
     MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
-    await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await this.itemActor?.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   async _handleFighterCombatRhythm(itemToRender, actorUpdateData) {
     if (itemToRender.type != "power") return;
-    if (!itemToRender.actor.system.resources?.perCombat.rhythm.enabled) return;
+    if (!this.itemActor?.system.resources?.perCombat.rhythm.enabled) return;
     if (!actorUpdateData["system.resources.perCombat.rhythm.current"]) return;
 
     // If this power sets offense and we are in defense and vice-versa roll 2d20kh.
     if (
-      (itemToRender.actor.system.resources.perCombat.rhythm.current == "defense"
+      (this.itemActor.system.resources.perCombat.rhythm.current == "defense"
       && actorUpdateData["system.resources.perCombat.rhythm.current"] == "offense") ||
-      (itemToRender.actor.system.resources.perCombat.rhythm.current == "offense"
+      (this.itemActor.system.resources.perCombat.rhythm.current == "offense"
       && actorUpdateData["system.resources.perCombat.rhythm.current"] == "defense")
     ) {
       // Replace "1d20" and "d20" in the attack line with "2d20kh"
@@ -696,14 +711,14 @@ export class ItemArchmage extends Item {
     if (usageMode == "finalverse") {
       // Remove reminder if present
       let effectsToDelete = [];
-      itemToRender.actor.effects.forEach(e => {
+      this.itemActor?.effects.forEach(e => {
         if (e.name == name) effectsToDelete.push(e.id);
       });
-      await itemToRender.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+      await this.itemActor?.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
     } else {
       // Check if we already have the reminder
       let alreadyHasEffect = false;
-      itemToRender.actor.effects.forEach(e => {
+      this.itemActor?.effects.forEach(e => {
         if (e.name == name) alreadyHasEffect = true;
       });
       if (!alreadyHasEffect) {
@@ -718,7 +733,7 @@ export class ItemArchmage extends Item {
           }
         };
         MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
-        await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+        await this.itemActor?.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
     }
   }
@@ -734,7 +749,7 @@ export class ItemArchmage extends Item {
 
     // Check if we already have the effect
     let alreadyHasEffect = false;
-    itemToRender.actor.effects.forEach(e => {
+    this.itemActor?.effects.forEach(e => {
       if (e.name == name) alreadyHasEffect = true;
     });
     if (!alreadyHasEffect) {
@@ -748,13 +763,13 @@ export class ItemArchmage extends Item {
         }
       };
       MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
-      await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      await this.itemActor?.createEmbeddedDocuments("ActiveEffect", [effectData]);
     }
   }
 
   async _handleRetainFocus(itemToRender, hitEvalRes, actorUpdateData, chatData) {
     if (itemToRender.type != "power") return;
-    if (itemToRender.actor.system.resources?.perCombat?.focus?.enabled != true) return;
+    if (this.itemActor?.system.resources?.perCombat?.focus?.enabled != true) return;
 
     const match = itemToRender.system.always?.value?.match(RETAIN_FOCUS_REGEX);
     if (match) {
@@ -796,7 +811,7 @@ export class ItemArchmage extends Item {
       // Add variables to the evaluation scope
       const speaker = ChatMessage.implementation.getSpeaker();
       const character = game.user.character;
-      const actor = itemToRender.actor;
+      const actor = this.itemActor;
 
       // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
       const AsyncFunction = (async function(){}).constructor;
@@ -824,6 +839,8 @@ export class ItemArchmage extends Item {
   async recharge({createMessage=true}={}) {
     // Only update for recharge powers/items.
     if (!this.system?.powerUsage?.value == 'recharge') return;
+    // Only update for owned items.
+    if (!this.actor) return;
 
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
@@ -832,6 +849,7 @@ export class ItemArchmage extends Item {
     let recharge = Number(this.system?.recharge?.value) || 16;
 
     let actor = this.actor;
+
     let maxQuantity = this.system?.maxQuantity?.value ?? 1;
     let currQuantity = this.system?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
@@ -845,7 +863,7 @@ export class ItemArchmage extends Item {
     if (createMessage) {
       // Basic template rendering data
       const template = `systems/archmage/templates/chat/recharge-card.html`
-      const token = actor.token;
+      const token = actor?.token;
 
       // Basic chat message data
       const chatData = {
@@ -937,7 +955,7 @@ export class ItemArchmage extends Item {
       },
       {
         label: data.powerLevel !== undefined ? data.powerLevel.label : 'Level',
-        value: game.i18n.localize('ARCHMAGE.level') + ' ' + (data.powerLevel !== undefined ? data.powerLevel.value : this.actor.system.details.level.value)
+        value: game.i18n.localize('ARCHMAGE.level') + ' ' + (data.powerLevel !== undefined ? data.powerLevel.value : this.itemActor?.system.details.level.value)
       }
     ];
 
