@@ -22,11 +22,6 @@
         <!-- Tab links -->
         <Tabs :tabs="tabs.primary" no-span="true"/>
     
-        <!-- Description tab -->
-        <Tab group="primary" :tab="tabs.primary.description">
-          <Prosemirror :editable="context.editable" :field="context.editors['system.description.value']"/>
-        </Tab>
-    
         <!-- Details fields -->
         <Tab group="primary" :tab="tabs.primary.details">
           <PowerDetails :item="context.item" :context="context"/>
@@ -38,7 +33,7 @@
         </Tab>
 
         <!-- Spell Fields -->
-        <Tab group="primary" :tab="tabs.primary.spells">
+        <Tab group="primary" :tab="tabs.primary.special">
           <PowerSpells :item="context.item" :context="context"/>
         </Tab>
 
@@ -89,16 +84,10 @@ import {
 import { onMounted, reactive, ref, inject } from 'vue';
 
 const itemDocument = inject('itemDocument');
-console.log('doc', itemDocument);
 
 const props = defineProps(['context']);
 const tabs = reactive({
   primary: {
-    description: {
-      key: 'description',
-      label: game.i18n.localize('ARCHMAGE.description'),
-      active: false,
-    },
     details: {
       key: 'details',
       label: game.i18n.localize('ARCHMAGE.details'),
@@ -109,9 +98,9 @@ const tabs = reactive({
       label: 'Attack',
       active: false,
     },
-    spells: {
-      key: 'spells',
-      label: 'Spells',
+    special: {
+      key: 'special',
+      label: 'Special',
       active: false,
     },
     feats: {

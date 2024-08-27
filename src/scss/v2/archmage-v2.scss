@@ -110,11 +110,30 @@
     flex: 0;
   }
 
+  --input-background-color: var(--color-cool-4);
+  --input-border-color: transparent;
+  --input-text-color: var(--color-light-3);
+  --input-placeholder-color: var(--color-light-4);
+  --input-focus-outline-color: var(--color-cool-3);
+
+  .theme-light & {
+    --input-background-color: rgba(0, 0, 0, 0.1);
+    --input-border-color: var(--color-dark-6);
+    --input-text-color: var(--color-dark-2);
+    --input-placeholder-color: var(--color-dark-3);
+    --input-focus-outline-color: var(--color-warm-2);
+
+    .window-content {
+      background: url('#{$assets}/paper-v2.webp');
+      background-size: cover;
+    }
+  }
+
   textarea,
   .grow-wrap > textarea {
-    background: var(--color-cool-4);
-    border: 1px solid transparent;
-    color: var(--color-light-3);
+    background: var(--input-background-color);
+    border: 1px solid var(--input-border-color);
+    color: var(--input-text-color);
     border-radius: 4px;
     padding: 0.5rem;
     flex: 2;
@@ -122,12 +141,22 @@
 
     &:hover,
     &:focus {
-      background: var(--color-cool-4);
+      background: var(--input-background-color);
     }
 
     &:focus {
-      outline: 2px solid var(--color-cool-3);
+      outline: 2px solid var(--input-focus-outline-color);
       box-shadow: 0 0 5px var(--color-shadow-primary);
+    }
+  }
+
+  h2 {
+    color: $c-black;
+    text-shadow: none;
+  }
+  .theme-dark & {
+    h2 {
+      color: $c-white;
     }
   }
 
@@ -243,7 +272,7 @@
   prose-mirror {
     height: auto !important;
     min-height: 36px;
-    background: var(--color-cool-4);
+    background: var(--input-background-color);
     border-radius: 4px;
 
     &.active {
@@ -252,7 +281,7 @@
 
       .editor-container {
         border: 1px solid;
-        border-color: var(--color-cool-4);
+        border-color: var(--input-background-color);
         border-radius: 4px;
       }
     }
@@ -305,6 +334,12 @@
 
   ::placeholder {
     opacity: 0.25;
+  }
+
+  .theme-light & {
+    ::placeholder {
+      opacity: 0.4;
+    }
   }
 }
 

@@ -2,7 +2,7 @@
 
   <!-- Spells -->
   <fieldset class="fieldset-details">
-    <legend>Spells</legend>
+    <legend>Higher Levels</legend>
     <InlineRollsReferenceHint />
     <p class="hint">Use the checkboxes next to each spell level to hide that level from chat if it's made redundant by a higher level version of the spell.</p>
 

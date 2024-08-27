@@ -1,4 +1,9 @@
 <template>
+  <fieldset class="fieldset-description">
+    <legend>Description</legend>
+    <Prosemirror :editable="context.editable" :field="context.editors['system.description.value']"/>
+  </fieldset>
+
   <fieldset class="fieldset-details">
     <legend>Details</legend>
     <div class="form-group">
