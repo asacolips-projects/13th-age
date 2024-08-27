@@ -111,7 +111,10 @@ export default function VueRenderingMixin(BaseApplication) {
         this.vueApp.config.globalProperties.game = game;
         this.vueApp.config.globalProperties.CONFIG = CONFIG;
         this.vueApp.config.globalProperties.foundry = foundry;
-        
+
+        // Expose the document.
+        this.vueApp.provide('itemDocument', this.document);
+
         // Mount and store the vue application.
         this.vueRoot = this.vueApp.mount(target);
 

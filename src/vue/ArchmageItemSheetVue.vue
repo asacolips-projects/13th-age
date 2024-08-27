@@ -11,7 +11,8 @@
         height="100"
         width="100"
       />
-      <div class="header-fields">
+      <div class="header-fields flexrow">
+        <button class="item-roll flexshrink" @click="itemDocument.roll()"><i class="fas fa-dice-d20"></i><span class="visually-hidden"> Send to Chat</span></button>
         <input type="text" name="name" v-model="context.item.name"/>
       </div>
     </header>
@@ -85,7 +86,10 @@ import {
   PowerFeats,
   CharEffects,
 } from '@/components';
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, reactive, ref, inject } from 'vue';
+
+const itemDocument = inject('itemDocument');
+console.log('doc', itemDocument);
 
 const props = defineProps(['context']);
 const tabs = reactive({
