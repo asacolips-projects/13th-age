@@ -27,17 +27,142 @@ system:
     type: Number
     label: Price
     value: 200
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Magic Oil (Champion, Armor)
+    img: systems/archmage/assets/icons/items/potions/major-green.jpg
+    _id: jnS8iXTk9vLhlph0
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!l1EK3xmGFAdGPByu.jnS8iXTk9vLhlph0'
+  - origin: null
+    disabled: false
+    name: Magic Oil (Champion, Melee Weapon)
+    img: systems/archmage/assets/icons/items/potions/major-green.jpg
+    _id: lqlDR6BC1sdep7Nh
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.melee.bonus
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!l1EK3xmGFAdGPByu.lqlDR6BC1sdep7Nh'
+  - origin: null
+    disabled: false
+    name: Magic Oil (Champion, Ranged Weapon)
+    img: systems/archmage/assets/icons/items/potions/major-green.jpg
+    _id: VJZXQ5BBR9RHwuyD
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.ranged.bonus
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!l1EK3xmGFAdGPByu.VJZXQ5BBR9RHwuyD'
+  - origin: null
+    disabled: false
+    name: Magic Oil (Champion, Implement)
+    img: systems/archmage/assets/icons/items/potions/major-green.jpg
+    _id: y4BSKRb2cFd6oQHG
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.divine.bonus
+        value: '2'
+        mode: 2
+        priority: null
+      - key: system.attributes.attack.arcane.bonus
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!l1EK3xmGFAdGPByu.y4BSKRb2cFd6oQHG'
 flags:
   core: {}
 folder: 0mcnzVgWo4dqvS1l
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647893989
-  modifiedTime: 1714647897771
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: l1EK3xmGFAdGPByu
 sort: 500000
 ownership:

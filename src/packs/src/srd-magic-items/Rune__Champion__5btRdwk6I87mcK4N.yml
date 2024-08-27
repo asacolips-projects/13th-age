@@ -1,7 +1,139 @@
 name: Rune (Champion)
 type: loot
 img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Magic Rune (Champion, Armor)
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    _id: jnS8iXTk9vLhlph0
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!5btRdwk6I87mcK4N.jnS8iXTk9vLhlph0'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Champion, Melee Weapon)
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    _id: lqlDR6BC1sdep7Nh
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.melee.bonus
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!5btRdwk6I87mcK4N.lqlDR6BC1sdep7Nh'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Champion, Ranged Weapon)
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    _id: VJZXQ5BBR9RHwuyD
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.ranged.bonus
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!5btRdwk6I87mcK4N.VJZXQ5BBR9RHwuyD'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Champion, Implement)
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    _id: y4BSKRb2cFd6oQHG
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.divine.bonus
+        value: '2'
+        mode: 2
+        priority: null
+      - key: system.attributes.attack.arcane.bonus
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!5btRdwk6I87mcK4N.y4BSKRb2cFd6oQHG'
 flags:
   core: {}
 system:
@@ -12,7 +144,7 @@ system:
     type: String
     label: Description
     value: >-
-      <p>Works as a @UUID[Compendium.world.consumables.eN1gdL3aMG7iALnX]{Magic
+      <p>Works as a @UUID[Compendium.archmage.srd-magic-items.Item.l1EK3xmGFAdGPByu]{Magic
       Oil (Champion)} and provides an additional effect based on what it is
       applied to:</p>
 
@@ -33,13 +165,6 @@ system:
     label: Price
     value: 300
 folder: 0mcnzVgWo4dqvS1l
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647899650
-  modifiedTime: 1714647899650
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: 5btRdwk6I87mcK4N
 sort: 0
 ownership:
