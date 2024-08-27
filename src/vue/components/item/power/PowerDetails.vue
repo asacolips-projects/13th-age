@@ -155,10 +155,10 @@
       <label>{{game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro')}}</label>
       <p class="hint">Use the field below to write a macro that executes when the power is used. Available variables are:
        <ul>
-        <li><strong>speaker</strong>: User activing the item.</li>
+        <li><strong>speaker</strong>: User activating the item.</li>
         <li><strong>actor</strong>: Actor that owns the item.</li>
         <li><strong>token</strong>: Active token for the actor that owns the item.</li>
-        <li><strong>archmage</strong>: Wrapper for the global game.archmage object</li>
+        <li><strong>archmage</strong>: System-specifc data you can modify to implement custom automation that overrides the system's own.</li>
        </ul>
       </p>
       <div class="field">

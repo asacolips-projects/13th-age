@@ -28,7 +28,7 @@
       <!-- Show a hint for spell level 1. -->
       <template v-else>
         <label>1st Level</label>
-        <div class="field"><p class="hint">See the <strong>Hit</strong> field in the <strong>Attack</strong> tab.</p></div>
+        <div class="field"><p class="hint">See the <strong>Hit</strong> and <strong>Effect</strong> fields in the <strong>Attack</strong> tab.</p></div>
       </template>
     </div>
   </fieldset>
