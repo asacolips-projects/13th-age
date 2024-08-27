@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.g6CxCTEvCixS7lrK'
   - name: Heat haze aura
     type: trait
@@ -325,15 +316,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.UN9NjhwOJRvqutYy'
   - name: Enduring flame
     type: nastierSpecial
@@ -361,15 +343,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.kNf9oCS5foUNsIzl'
   - name: Escalating inferno
     type: trait
@@ -402,15 +375,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.4NviszfyXGmhIUFI'
   - name: Resist fire 16+
     type: trait
@@ -439,15 +403,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.7dLP5azluYv2oUGv'
   - name: Heat metal
     type: nastierSpecial
@@ -477,15 +432,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.d0PBmnet1p1tKZKw'
 effects: []
 folder: null
@@ -496,14 +442,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!6LuOZeMQFCRr1Ncc'
 

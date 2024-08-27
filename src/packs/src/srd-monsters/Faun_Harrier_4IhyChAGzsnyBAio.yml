@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!4IhyChAGzsnyBAio.VNJcuD9AZ9LYZAq4'
   - name: 'R: Pinning shot'
     type: action
@@ -353,15 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!4IhyChAGzsnyBAio.trSBr22jN10DWgc2'
   - name: Full destiny
     type: nastierSpecial
@@ -389,15 +371,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!4IhyChAGzsnyBAio.sZKZknJsBcU2LE7G'
   - name: Destiny
     type: trait
@@ -428,15 +401,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!4IhyChAGzsnyBAio.8hKbjN7Yifqef4Bd'
   - name: Path of the Sword
     type: trait
@@ -464,15 +428,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!4IhyChAGzsnyBAio.J37nRMqGwp7m4ezG'
   - name: Path of Song
     type: trait
@@ -504,15 +459,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!4IhyChAGzsnyBAio.f3vMaIULYHoJslsr'
 effects: []
 folder: null
@@ -523,14 +469,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!4IhyChAGzsnyBAio'
 

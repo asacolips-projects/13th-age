@@ -278,15 +278,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.mwerhcLmaKCzPx6r'
   - name: Resist force 16+
     type: trait
@@ -311,15 +302,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.oOtiidLYq6FTEI6W'
   - name: Resist poison 16+
     type: trait
@@ -344,15 +326,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.L7yKyY7hgut2ffmP'
   - name: Indomitable
     type: trait
@@ -378,15 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.BJgSAItIlxRVq1kE'
   - name: Skin of stone
     type: trait
@@ -415,15 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.NTW89gXBDcqgijDW'
   - name: Earthsea
     type: trait
@@ -451,15 +406,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.98qBzazCC9SYOItI'
   - name: Rockslide
     type: trait
@@ -487,15 +433,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.6rx0QHVsfCDItU5t'
   - name: (Choose 1-3 of these)
     type: trait
@@ -520,15 +457,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.on0tD6JEDRgJR78z'
   - name: Mending earth
     type: trait
@@ -557,15 +485,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.P4oZszeKhLclz9rr'
   - name: 'Vulnerability: thunder'
     type: trait
@@ -593,15 +512,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!06cof8vebYAe2YRf.P1wqvM0FfYX4lLTh'
 effects: []
 folder: null
@@ -616,15 +526,6 @@ flags:
         primary:
           value: actions
   core: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 sort: 0
 _key: '!actors!06cof8vebYAe2YRf'
 

@@ -230,17 +230,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!SSUTh5xDMEmUQ4Ea.sZ3XJkt8jaapi5iw'
   - _id: 2l4NF4kiYN6KSt9Y
     flags: {}
@@ -264,17 +253,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!SSUTh5xDMEmUQ4Ea.2l4NF4kiYN6KSt9Y'
 effects: []
 folder: null
@@ -359,14 +337,5 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!SSUTh5xDMEmUQ4Ea'
 

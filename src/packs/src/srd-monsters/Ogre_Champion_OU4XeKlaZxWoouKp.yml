@@ -232,17 +232,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!OU4XeKlaZxWoouKp.52KJPnFFTkIuxoVK'
   - _id: 28yDYCgxU0wrgaXG
     flags: {}
@@ -292,17 +281,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!OU4XeKlaZxWoouKp.28yDYCgxU0wrgaXG'
   - _id: UF9WDnno4K3n1vvz
     flags: {}
@@ -327,17 +305,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!OU4XeKlaZxWoouKp.UF9WDnno4K3n1vvz'
   - _id: vXZJbp3LZqbDUKPK
     flags: {}
@@ -361,17 +328,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!OU4XeKlaZxWoouKp.vXZJbp3LZqbDUKPK'
   - _id: NYdNMaEQUjOzllvn
     flags: {}
@@ -395,17 +351,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!OU4XeKlaZxWoouKp.NYdNMaEQUjOzllvn'
 effects: []
 folder: null
@@ -490,14 +435,5 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!OU4XeKlaZxWoouKp'
 

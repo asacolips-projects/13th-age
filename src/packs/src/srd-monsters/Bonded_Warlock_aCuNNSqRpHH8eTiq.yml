@@ -292,15 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!aCuNNSqRpHH8eTiq.D14BZzYxtkO31wE7'
   - name: 'C: Violent dispelling'
     type: action
@@ -360,15 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!aCuNNSqRpHH8eTiq.Ld8JLmCNOx7fYzoE'
   - name: 'R: Hexplosion'
     type: action
@@ -431,15 +413,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!aCuNNSqRpHH8eTiq.Otfx22wGO41ZithE'
   - name: Spell absorption
     type: nastierSpecial
@@ -469,15 +442,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!aCuNNSqRpHH8eTiq.WyyYwAkCAEckKic1'
   - name: Warlock’s warp
     type: nastierSpecial
@@ -505,15 +469,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!aCuNNSqRpHH8eTiq.MH87aufLOt8vrnom'
   - name: Violent undoing
     type: nastierSpecial
@@ -544,15 +499,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!aCuNNSqRpHH8eTiq.b2kVkFfdJ9NDFKGm'
 effects: []
 folder: null
@@ -563,14 +509,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!aCuNNSqRpHH8eTiq'
 

@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!bnk1gkoRLv8V0e2T.koVr5mSnybt0QgTh'
   - name: Small and nimble
     type: trait
@@ -323,15 +314,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!bnk1gkoRLv8V0e2T.y8SdDM0Vm1Xokqph'
   - name: Disease carrier
     type: nastierSpecial
@@ -359,15 +341,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!bnk1gkoRLv8V0e2T.KdBmcdgUa1tCkEpc'
   - name: Overwhelming distraction
     type: nastierSpecial
@@ -395,15 +368,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!bnk1gkoRLv8V0e2T.1YRWCny6hMuZ9rBc'
 effects: []
 folder: null
@@ -414,14 +378,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!bnk1gkoRLv8V0e2T'
 

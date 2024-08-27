@@ -289,15 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ot6DzpD6S4MAQZyW.aurfSVoDLfEZVylj'
   - name: 'R: Fanged shadows'
     type: action
@@ -355,15 +346,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ot6DzpD6S4MAQZyW.W3zOvnvP6uYgCS32'
   - name: Empowered by death
     type: trait
@@ -393,15 +375,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ot6DzpD6S4MAQZyW.aEgqSp9S9DHrwgF2'
   - name: Open maw
     type: trait
@@ -433,15 +406,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ot6DzpD6S4MAQZyW.n8g6jyjuwnqwxUGk'
   - name: Fear aura
     type: nastierSpecial
@@ -470,15 +434,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ot6DzpD6S4MAQZyW.W7k2g5s0kpp1AWoT'
 effects: []
 folder: null
@@ -489,14 +444,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!ot6DzpD6S4MAQZyW'
 

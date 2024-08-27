@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!GsaLjhm6bCOc374O.EkIj4WKbWE8G8Uli'
   - name: 'R: Ossifying arrow'
     type: action
@@ -356,15 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!GsaLjhm6bCOc374O.9G4KnZxt6U8MQKOc'
   - name: Freakish speed
     type: trait
@@ -393,15 +375,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!GsaLjhm6bCOc374O.DvAM6QeL4uMFpVLo'
   - name: Resist magic 13+
     type: nastierSpecial
@@ -431,15 +404,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!GsaLjhm6bCOc374O.fX3DZwSAdjpy8GjG'
 effects: []
 folder: null
@@ -450,15 +414,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 sort: 0
 _key: '!actors!GsaLjhm6bCOc374O'
 

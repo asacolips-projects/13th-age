@@ -239,17 +239,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!8xzcKhUF6ke727i6.QNGmm3SXPCxfNZdu'
   - _id: kvmxdkCwqRJ9PonB
     flags: {}
@@ -273,17 +262,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!8xzcKhUF6ke727i6.kvmxdkCwqRJ9PonB'
   - _id: w7MJpgv9TR3yXejM
     flags: {}
@@ -309,32 +287,12 @@ items:
     sort: 200000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!8xzcKhUF6ke727i6.w7MJpgv9TR3yXejM'
 effects: []
 folder: null
 sort: 100001
 flags:
   archmage: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 ownership:
   default: 0
 prototypeToken:

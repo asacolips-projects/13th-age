@@ -289,15 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!JkhKv55xAnVeA4wK.0D9jcjShpTQOvddZ'
   - name: Stinging tentacles
     type: action
@@ -355,15 +346,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!JkhKv55xAnVeA4wK.zoPN0UdYeOdd0WVI'
   - name: 'C: Wrathful tsunami'
     type: action
@@ -421,15 +403,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!JkhKv55xAnVeA4wK.vDi37yPTyBcBVlmw'
   - name: '[Special trigger] C: Acid spew'
     type: action
@@ -487,15 +460,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!JkhKv55xAnVeA4wK.sqyBq9K881D5lS3y'
   - name: Scuttle forth
     type: trait
@@ -527,15 +491,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!JkhKv55xAnVeA4wK.bHFwJPzTAXsdnJvt'
   - name: It’s been fun
     type: trait
@@ -566,15 +521,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!JkhKv55xAnVeA4wK.XXNuOxCMETjQfH7A'
 effects: []
 folder: null
@@ -585,14 +531,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!JkhKv55xAnVeA4wK'
 

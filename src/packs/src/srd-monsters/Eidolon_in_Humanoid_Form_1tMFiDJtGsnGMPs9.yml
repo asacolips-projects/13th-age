@@ -291,15 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!1tMFiDJtGsnGMPs9.67Ads41wWm0n0fgf'
   - name: 'R: Mind-shattering whisper'
     type: action
@@ -357,15 +348,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!1tMFiDJtGsnGMPs9.MrGuWAZs0kuTu5bJ'
   - name: 'C: Transreality tendrils'
     type: action
@@ -423,15 +405,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!1tMFiDJtGsnGMPs9.rJBpL25j4szmbmtn'
   - name: Undying
     type: trait
@@ -465,15 +438,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!1tMFiDJtGsnGMPs9.M6ZLFPLEGV48vWVg'
   - name: Split reality
     type: nastierSpecial
@@ -508,15 +472,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!1tMFiDJtGsnGMPs9.P7udVnaftd8VyYjW'
   - name: Warp time
     type: nastierSpecial
@@ -546,15 +501,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!1tMFiDJtGsnGMPs9.nT6UIUO1wMDlyniG'
   - name: Reshuffle space
     type: nastierSpecial
@@ -584,15 +530,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!1tMFiDJtGsnGMPs9.7owHV0Wz8NseRCce'
 effects: []
 folder: null
@@ -603,14 +540,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!1tMFiDJtGsnGMPs9'
 

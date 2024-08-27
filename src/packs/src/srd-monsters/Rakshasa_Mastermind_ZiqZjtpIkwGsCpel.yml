@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZiqZjtpIkwGsCpel.pKPFLO1M4wEeeDCG'
   - name: 'R: Striped lightning bolts'
     type: action
@@ -355,15 +346,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZiqZjtpIkwGsCpel.5PZGPmvw2Y9caxaP'
   - name: 'C: Rend mind'
     type: action
@@ -421,15 +403,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZiqZjtpIkwGsCpel.6MqUIGooi6G73NE8'
   - name: Hidden plans
     type: trait
@@ -462,15 +435,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZiqZjtpIkwGsCpel.cUTHAGUAig33yI2b'
   - name: Shapechange
     type: trait
@@ -499,15 +463,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZiqZjtpIkwGsCpel.4HFjwFDOTP2M1LrS'
   - name: Lockheart
     type: nastierSpecial
@@ -550,15 +505,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.wXl59oIutrrYcWP5
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZiqZjtpIkwGsCpel.isfSS5zHsBsANw9K'
   - name: Backwards palms
     type: nastierSpecial
@@ -595,15 +541,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.ZmPEgSOjUDCmo9l7
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZiqZjtpIkwGsCpel.G4lRMTi3mawumiHB'
 effects: []
 folder: null
@@ -614,14 +551,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!ZiqZjtpIkwGsCpel'
 

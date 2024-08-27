@@ -235,17 +235,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!q6t8Q3HR3vX1zKIu.9fCL9pu6B4diHsCy'
   - _id: cMkMLmA86r1SVyH7
     flags: {}
@@ -269,17 +258,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!q6t8Q3HR3vX1zKIu.cMkMLmA86r1SVyH7'
   - _id: ZJAsp4zudLGM6bBA
     flags: {}
@@ -304,17 +282,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!q6t8Q3HR3vX1zKIu.ZJAsp4zudLGM6bBA'
   - _id: HXse9Dxiuy9eyk8d
     flags: {}
@@ -338,17 +305,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!q6t8Q3HR3vX1zKIu.HXse9Dxiuy9eyk8d'
 effects: []
 folder: null
@@ -433,14 +389,5 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!q6t8Q3HR3vX1zKIu'
 

@@ -289,15 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.Q6yACiBRmdTwsfeX'
   - name: (Each temple lion has one of the following attacks)
     type: action
@@ -360,15 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.LMP0Aua0od1Ze1xR'
   - name: 'C: Great roar'
     type: action
@@ -426,15 +408,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.QVNnNI2S8zGwaN7H'
   - name: 'R: Magic missiles'
     type: action
@@ -492,15 +465,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.GPcpyGMzwUoDl3K5'
   - name: Haloed mane
     type: trait
@@ -530,15 +494,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.uH7OcYFQclOl2ya5'
   - name: Rocky hide
     type: trait
@@ -566,15 +521,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.XSEmzXi6phyPqRSf'
   - name: 'C: Rumbling omens'
     type: action
@@ -635,15 +581,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.ufSPhzS0dxCFw7jv'
   - name: Mirrored aggression
     type: nastierSpecial
@@ -676,15 +613,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.tLHf2HblAFUJNrWI
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.E0IMBe58ma0jEHbv'
   - name: Statues, statues, everywhere
     type: nastierSpecial
@@ -720,15 +648,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.kKLndh5ZO3uD0yxF
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!zcH0IOSOUVNcsnqt.DP5vUUVPNhBHadTB'
 effects: []
 folder: null
@@ -739,14 +658,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!zcH0IOSOUVNcsnqt'
 

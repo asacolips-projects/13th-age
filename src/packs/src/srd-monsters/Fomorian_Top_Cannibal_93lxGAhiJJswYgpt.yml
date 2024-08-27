@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.rXWTcWcVrTSRuaem'
   - name: Eat the dead
     type: trait
@@ -323,15 +314,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.68PCsQfdx0xranhS'
   - name: Strength from the dead
     type: nastierSpecial
@@ -360,15 +342,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.5wLGkbFVGTvAmd0X'
   - name: 'C: Evil eye'
     type: action
@@ -438,15 +411,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.uzvwbl0AuBWlujZE
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.iSF24eG1WPkLMwk7'
   - name: Fomorian Mutation Nastier Specials
     type: nastierSpecial
@@ -526,15 +490,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.RPSHPuDxI8xAbkrx
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.hOt22ErlQxSOJZHC'
   - name: Extra arm
     type: nastierSpecial
@@ -565,15 +520,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.7gNbOjGT0ObwY5io
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.YjQGD5yWA9UUXBgF'
   - name: Extra eyes
     type: nastierSpecial
@@ -606,15 +552,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.eaGDoO0uXwXEMCi4
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.JQsWwdsIES4fBJG4'
   - name: Fair is foul
     type: nastierSpecial
@@ -645,15 +582,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.dVpx0j28FHVjSHyS
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.10SdbVfzwe1uET0n'
   - name: Thick skin
     type: nastierSpecial
@@ -682,15 +610,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.0yLDKkZjdbi5lirC
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!93lxGAhiJJswYgpt.WRHNvsASSxldAHaz'
 effects: []
 folder: null
@@ -701,14 +620,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!93lxGAhiJJswYgpt'
 

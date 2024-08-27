@@ -432,17 +432,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!d5dsi6r9UdsOrvlQ.H67LPBGH2FFi3Lex'
   - _id: GpzFRdeuE9IDJlAe
     flags: {}
@@ -501,17 +490,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!d5dsi6r9UdsOrvlQ.GpzFRdeuE9IDJlAe'
   - _id: DsykUFnpIFc9Jfmh
     flags: {}
@@ -533,17 +511,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!d5dsi6r9UdsOrvlQ.DsykUFnpIFc9Jfmh'
   - _id: YHnBefmr17m8ZqZp
     flags: {}
@@ -569,17 +536,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!d5dsi6r9UdsOrvlQ.YHnBefmr17m8ZqZp'
 effects: []
 folder: null
@@ -663,14 +619,5 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!d5dsi6r9UdsOrvlQ'
 

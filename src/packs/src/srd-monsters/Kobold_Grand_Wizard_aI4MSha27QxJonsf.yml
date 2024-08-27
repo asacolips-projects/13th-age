@@ -228,18 +228,6 @@ items:
         label: Miss
     sort: 0
     effects: []
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    folder: null
-    ownership:
-      default: 0
     _key: '!actors.items!aI4MSha27QxJonsf.c8wMAcUTqcwTOEGe'
   - _id: AiDxolGygglNqajL
     flags: {}
@@ -286,18 +274,6 @@ items:
         label: Miss
     sort: 100000
     effects: []
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    folder: null
-    ownership:
-      default: 0
     _key: '!actors.items!aI4MSha27QxJonsf.AiDxolGygglNqajL'
   - _id: e2d2yeJX4Ch1SMLB
     flags: {}
@@ -318,18 +294,6 @@ items:
         value: ''
     sort: 200000
     effects: []
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    folder: null
-    ownership:
-      default: 0
     _key: '!actors.items!aI4MSha27QxJonsf.e2d2yeJX4Ch1SMLB'
 effects: []
 ownership:
@@ -411,14 +375,5 @@ prototypeToken:
       scale: 1
       texture: null
 folder: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!aI4MSha27QxJonsf'
 

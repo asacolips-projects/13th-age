@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.mAoBXFQkWUB1Ntbk'
   - name: 'R: Spiked acorn'
     type: action
@@ -353,15 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.yX5McqvtdoOyvbEK'
   - name: 'C: Willowy words'
     type: action
@@ -422,15 +404,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.kMCTZ4C9Jph7jBKG'
   - name: Tree stride
     type: trait
@@ -459,15 +432,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.8YoxaYBSiWXctVct'
   - name: Call tree friends
     type: nastierSpecial
@@ -495,15 +459,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.6oC058TnY4fTXZhf'
   - name: Entrancing beauty
     type: nastierSpecial
@@ -537,15 +492,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.Y3b0nQeT6EVGWiJs'
   - name: Woodland grace
     type: nastierSpecial
@@ -573,15 +519,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.BkOfeTX1lE6oHFII'
   - name: Domain bound
     type: trait
@@ -610,15 +547,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.dZNuOXlFpnn1OzQ2'
   - name: Limited immortality
     type: trait
@@ -650,15 +578,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.VQalLgUCLGaLnDvR'
   - name: Note on types
     type: trait
@@ -687,15 +606,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.5DtwntvmiSLGrcNT'
 effects: []
 folder: null
@@ -706,14 +616,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!MmAQh2bxjyj0Kj5Y'
 

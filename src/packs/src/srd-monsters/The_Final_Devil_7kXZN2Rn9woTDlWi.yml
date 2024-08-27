@@ -234,17 +234,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.gzzJHAHqw0B5Awwc'
   - _id: U50xYCZ7XbA9pxv5
     flags: {}
@@ -296,17 +285,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.U50xYCZ7XbA9pxv5'
   - _id: qXgmUH00B6TS8bGW
     flags: {}
@@ -358,17 +336,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.qXgmUH00B6TS8bGW'
   - _id: VgRu0dKOMzTds7vP
     flags: {}
@@ -390,17 +357,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.VgRu0dKOMzTds7vP'
   - _id: hCovco9nedR0255s
     flags: {}
@@ -422,17 +378,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.hCovco9nedR0255s'
   - _id: dDVllYcWnZUbMbST
     flags: {}
@@ -457,17 +402,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.dDVllYcWnZUbMbST'
   - _id: C37Em4X6e6HPrkZ1
     flags: {}
@@ -491,17 +425,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.C37Em4X6e6HPrkZ1'
   - _id: wsyU3HVyFWxiY8S7
     flags: {}
@@ -527,17 +450,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.wsyU3HVyFWxiY8S7'
   - _id: EABgLNPDA6lNjxrL
     flags: {}
@@ -562,17 +474,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!7kXZN2Rn9woTDlWi.EABgLNPDA6lNjxrL'
 effects: []
 folder: null
@@ -657,14 +558,5 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!7kXZN2Rn9woTDlWi'
 

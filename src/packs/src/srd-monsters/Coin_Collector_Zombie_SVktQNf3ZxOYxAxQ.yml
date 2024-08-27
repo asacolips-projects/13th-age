@@ -290,15 +290,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.OtDoqlaHXFZEFpFf'
   - name: 'Limited Use: Lethal Payout'
     type: action
@@ -366,15 +357,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.yRWIdVlK4dI9Uk0m'
   - name: Coin eater
     type: trait
@@ -405,15 +387,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.kZNVUCWVIqy2DJj8'
   - name: Headshot
     type: trait
@@ -445,15 +418,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.i3KF75smgbbfm5rt.Item.t7tAeLswpYFZpKwy
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.QvPSfR3e4EMZRLnC'
 effects: []
 folder: null
@@ -464,15 +428,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 sort: 0
 _key: '!actors!SVktQNf3ZxOYxAxQ'
 

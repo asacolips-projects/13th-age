@@ -249,15 +249,6 @@ effects:
         duration: EndOfCombat
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!n6k8jx1d7qt3WlwR.0RBGEnffKIxRSqDo'
   - origin: null
     disabled: false
@@ -289,15 +280,6 @@ effects:
         duration: EndOfCombat
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!n6k8jx1d7qt3WlwR.446GJCehdn0RWmN7'
   - origin: null
     disabled: false
@@ -329,26 +311,8 @@ effects:
         duration: EndOfCombat
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!n6k8jx1d7qt3WlwR.INRI7FLRwbBhpQo8'
 _id: n6k8jx1d7qt3WlwR
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 ownership:
   default: 0
 folder: null

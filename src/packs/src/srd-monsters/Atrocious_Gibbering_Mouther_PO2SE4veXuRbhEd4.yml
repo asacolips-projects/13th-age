@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.tnxUjbuGozIv4cwa'
   - name: 'C: Pseudopod grasp'
     type: action
@@ -353,15 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.GocUAqw4GdWNXHve'
   - name: Absorb
     type: action
@@ -423,15 +405,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.mWV8ERTgcrf6sY0c'
   - name: 'C: Gibbering insanity'
     type: action
@@ -489,15 +462,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.g7a4O6Sh63wuf8Jl'
   - name: Really insane terrain
     type: nastierSpecial
@@ -529,15 +493,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.BIAG5hC7XmKIKxwh'
   - name: Stone to flesh
     type: nastierSpecial
@@ -567,15 +522,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.tShfBwXw88Cs6ktQ'
   - name: Eyes everywhere
     type: trait
@@ -604,15 +550,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.LNGqlxsM3pzmRh8m.Item.Bs6KWdjhVvo3QnHs
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.17QNq950a0S58yQi'
   - name: Flows where it likes
     type: trait
@@ -641,15 +578,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.LNGqlxsM3pzmRh8m.Item.iNhGjuHDREjvvYPx
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.1f1ZlRiWX02izKmc'
   - name: Ooze
     type: trait
@@ -681,15 +609,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.LNGqlxsM3pzmRh8m.Item.GJcX8w4n8gdrOIXm
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!PO2SE4veXuRbhEd4.XtFvloODXtRePwwS'
 effects: []
 folder: null
@@ -700,14 +619,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!PO2SE4veXuRbhEd4'
 

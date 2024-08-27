@@ -328,15 +328,6 @@ effects:
         duration: EndOfNextTurn
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!QZCHUeEYkkr48pyP.enEqCVZQMJUc06dX'
   - origin: null
     disabled: false
@@ -372,15 +363,6 @@ effects:
         duration: EndOfNextTurn
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!QZCHUeEYkkr48pyP.S05dVICrz0ZtGCCI'
   - origin: null
     disabled: false
@@ -420,25 +402,7 @@ effects:
         duration: EndOfNextTurn
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!QZCHUeEYkkr48pyP.lB6vPLCwTOCp7co9'
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 ownership:
   default: 0
 folder: null

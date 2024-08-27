@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.vy0FXYaqDW4A6b3g'
   - name: Crushing weight
     type: action
@@ -353,15 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.GQZyp7S2cGYsxm7A'
   - name: 'C: Looming fear'
     type: action
@@ -421,15 +403,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.1rMox8CIXyWLWMTd'
   - name: Devil’s due (Chakra suppression)
     type: trait
@@ -459,15 +432,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.W1MhMIpfRaCifoUl'
   - name: Resist holy 13+
     type: trait
@@ -495,15 +459,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.WDutnoCRyf7wQoi6'
   - name: Friend or enemy?
     type: nastierSpecial
@@ -537,15 +492,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.g2LjsYJ3UpgM5MVW.Item.7rt3Dq83ZNcLsx20
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.tbcXKmgwjE5ysqc8'
   - name: Surprise!
     type: nastierSpecial
@@ -577,15 +523,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.g2LjsYJ3UpgM5MVW.Item.nFZ4ifYG7bnK2S33
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.1ZOqabLQPGhKbWjO'
   - name: Final-gasp soul snatch & escape
     type: nastierSpecial
@@ -678,15 +615,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.g2LjsYJ3UpgM5MVW.Item.IiAid2bYnCFyC4qM
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HXa4eOkbnuLnk6d.ucP5mB1x3Dfyk3Kd'
 effects: []
 folder: null
@@ -697,14 +625,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!6HXa4eOkbnuLnk6d'
 

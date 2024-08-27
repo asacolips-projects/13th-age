@@ -284,26 +284,8 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         duration: StartOfNextSourceTurn
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!M35FiVCHwDChzUHm.CESUEgJMv5CwuRW2'
 _id: M35FiVCHwDChzUHm
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 ownership:
   default: 0
 folder: null

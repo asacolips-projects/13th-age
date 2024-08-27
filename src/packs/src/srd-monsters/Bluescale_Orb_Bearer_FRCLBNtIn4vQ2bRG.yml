@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.8fu9ywxzZSPSd2Nf'
   - name: 'C: Lightning breath'
     type: action
@@ -356,15 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.uhUd2Es01nrvKsUe'
   - name: 'R: Force barbs'
     type: action
@@ -422,15 +404,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.w8smuO7XFwzZlCYD'
   - name: 'C: Arcane discharge'
     type: action
@@ -490,15 +463,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.NHZHGEuAVK2GXeHw'
   - name: Absorb magic
     type: trait
@@ -529,15 +493,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.DC90baAS0d7uL7WV'
   - name: Resist lightning 16+
     type: trait
@@ -566,15 +521,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.Vpf0MxPvDEn2kPyx'
   - name: Tail whip
     type: nastierSpecial
@@ -602,15 +548,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.WWXa9yBA7kDHTcgS'
   - name: Esoteric expulsion
     type: nastierSpecial
@@ -666,15 +603,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.uVMaol2S1kvpVTPg'
   - name: Limited flight
     type: nastierSpecial
@@ -711,15 +639,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.ICkO9AAlK4MeTiX9'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -752,15 +671,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.ljKT1bqBKI0q4MwT'
 effects: []
 folder: null
@@ -771,14 +681,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!FRCLBNtIn4vQ2bRG'
 

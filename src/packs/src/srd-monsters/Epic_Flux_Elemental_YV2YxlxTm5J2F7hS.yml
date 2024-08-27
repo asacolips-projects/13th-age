@@ -278,15 +278,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!YV2YxlxTm5J2F7hS.Skcm8k6i7E7WJzAi'
   - name: Power-up
     type: trait
@@ -314,15 +305,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!YV2YxlxTm5J2F7hS.5DfHXkf3wwDvybS7'
   - name: Wind touch
     type: action
@@ -380,15 +362,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!YV2YxlxTm5J2F7hS.mbdCfnICcKSHQ2GV'
   - name: Rocky fist
     type: action
@@ -446,15 +419,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!YV2YxlxTm5J2F7hS.P8QqgigGnYzfa1fw'
   - name: Scorching hands
     type: action
@@ -512,15 +476,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!YV2YxlxTm5J2F7hS.DNrI8aOpcDAbCbAe'
   - name: Whoosh and a slam
     type: action
@@ -580,15 +535,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!YV2YxlxTm5J2F7hS.3Gnq67NiNhLNroRH'
 effects: []
 folder: null
@@ -603,15 +549,6 @@ flags:
         primary:
           value: actions
   core: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 sort: 0
 _key: '!actors!YV2YxlxTm5J2F7hS'
 

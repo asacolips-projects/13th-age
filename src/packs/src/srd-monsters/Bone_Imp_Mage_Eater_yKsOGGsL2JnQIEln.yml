@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!yKsOGGsL2JnQIEln.4aYeQYWlMUKMx59E'
   - name: Freakish Speed
     type: trait
@@ -324,15 +315,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!yKsOGGsL2JnQIEln.lx7aHhuwAuk7P1Kh'
   - name: Resist Magic 13+
     type: trait
@@ -362,15 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!yKsOGGsL2JnQIEln.Bwt0T5bYdKMZQq6y'
   - name: Magic eater
     type: nastierSpecial
@@ -400,15 +373,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!yKsOGGsL2JnQIEln.kyRpM0DFjCfKVqiY'
 effects: []
 folder: null
@@ -419,15 +383,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 sort: 0
 _key: '!actors!yKsOGGsL2JnQIEln'
 

@@ -292,15 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.tQnPHqSBLVD0vWNH'
   - name: 'C: Seism'
     type: action
@@ -358,15 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.1AhhJveQ5IVNtOeq'
   - name: Heave
     type: action
@@ -427,15 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.j5LRztTftoJ1DvV9'
   - name: Throw enemy
     type: trait
@@ -463,15 +436,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.OujXqhqIrx1nbcD7'
   - name: Thrown adventurer
     type: action
@@ -529,15 +493,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.PqM6ZAysW8beM6Di'
   - name: Blade breaker
     type: nastierSpecial
@@ -569,15 +524,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.p1XmmYXrN1o5imJO'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -608,15 +554,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.zpjUyAhQoI4I5Eh1'
   - name: Lightning-flare
     type: trait
@@ -652,15 +589,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.Udb3CIXOo32j5XIc'
   - name: Thick-skinned
     type: trait
@@ -691,15 +619,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.raGusBwGChStffBE'
 effects: []
 folder: null
@@ -710,14 +629,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!dvutTIhqnM6k9dQW'
 

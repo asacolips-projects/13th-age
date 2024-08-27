@@ -235,17 +235,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.kAhCZTgnoP4ULvsO'
   - _id: fQRAqXu7qGF34TzV
     flags: {}
@@ -303,17 +292,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.fQRAqXu7qGF34TzV'
   - _id: iWtbOaOw9t5KR5bM
     flags: {}
@@ -373,17 +351,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.iWtbOaOw9t5KR5bM'
   - _id: pdz3GiFnD8eVqquM
     flags: {}
@@ -407,17 +374,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.pdz3GiFnD8eVqquM'
   - _id: hGm9hTD08gzzMcvB
     flags: {}
@@ -439,17 +395,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.hGm9hTD08gzzMcvB'
   - _id: yfjIHQaz5i5MMmBG
     flags: {}
@@ -475,17 +420,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.yfjIHQaz5i5MMmBG'
   - _id: hbSDoXvx2wfdCIGM
     flags: {}
@@ -511,17 +445,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    ownership:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.hbSDoXvx2wfdCIGM'
 effects: []
 folder: null
@@ -605,14 +528,5 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!i6WPEodUc7I9xujP'
 

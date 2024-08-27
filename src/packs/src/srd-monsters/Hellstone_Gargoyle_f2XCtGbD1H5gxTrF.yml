@@ -290,15 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!f2XCtGbD1H5gxTrF.k9Vblyk5tGwgTmKR'
   - name: 'R: Foul waterspout'
     type: action
@@ -358,15 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!f2XCtGbD1H5gxTrF.pqIyiFRRYNQokpaR'
   - name: Cloud of dust
     type: trait
@@ -396,15 +378,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!f2XCtGbD1H5gxTrF.eQXZLxYlwMJJqTPk'
   - name: Not-quite-flight
     type: trait
@@ -432,15 +405,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!f2XCtGbD1H5gxTrF.b4s0H3jqhzXf5o5A'
   - name: Part of the scenery
     type: trait
@@ -469,15 +433,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!f2XCtGbD1H5gxTrF.qJO4IkGO4wkMNaqz'
   - name: Grotesque visage
     type: nastierSpecial
@@ -506,15 +461,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!f2XCtGbD1H5gxTrF.7NYSrP6ipDGHJDb7'
   - name: Extra-toxic
     type: nastierSpecial
@@ -540,15 +486,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!f2XCtGbD1H5gxTrF.TeLCXMu079XjoNzv'
 effects: []
 folder: null
@@ -559,14 +496,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!f2XCtGbD1H5gxTrF'
 

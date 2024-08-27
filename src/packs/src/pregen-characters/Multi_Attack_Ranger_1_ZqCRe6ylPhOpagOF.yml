@@ -734,15 +734,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708875693146
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.w1Jh8eQJIl8eY1Nz'
   - name: Elven Grace
     type: power
@@ -977,15 +968,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708875665110
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.aqAMTq0knyr12RGQ'
   - name: Melee attack (Ranger)
     type: power
@@ -1194,15 +1176,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708958207330
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.1pg7NtTnxDVxlMXD'
   - name: Ranged Attack (Ranger)
     type: power
@@ -1411,15 +1384,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708957221088
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.UCqrmOrDrZyw1UhR'
   - name: Double Melee Attack (Attack)
     type: power
@@ -1628,15 +1592,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708875870453
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.6m7TpDLJ8vNZl5HX'
   - name: Double Melee Attack (Talent)
     type: power
@@ -1917,15 +1872,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708875807834
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.8HMJtVTxLUoGEbhl'
   - name: Double Ranged Attack (Attack)
     type: power
@@ -2129,15 +2075,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708875665110
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.QtoZrjDtlyQpsiJr'
   - name: Double Ranged Attack (Talent)
     type: power
@@ -2414,15 +2351,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708875665110
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.EwmBhgTN82HNSvgz'
   - name: Two-Weapon Mastery
     type: power
@@ -2696,15 +2624,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708875665110
-      modifiedTime: 1708875665110
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ZqCRe6ylPhOpagOF.Hg1bTGASzqpJblbn'
 effects: []
 folder: null
@@ -2735,14 +2654,5 @@ flags:
     hideOneUniqueThing: false
     hideSettingsTab: false
     diceFormulaMode: ''
-_stats:
-  systemId: archmage
-  systemVersion: 1.27.0
-  coreVersion: '12.331'
-  createdTime: 1708875595299
-  modifiedTime: 1708958207330
-  lastModifiedBy: tWJ6KkFBgXXy34it
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!ZqCRe6ylPhOpagOF'
 

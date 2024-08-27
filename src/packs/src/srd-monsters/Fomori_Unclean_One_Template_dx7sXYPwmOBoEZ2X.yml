@@ -267,15 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.9w6BotoYlEOBuJix'
   - name: (Choose one or two of the following)
     type: trait
@@ -300,15 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.qJXcI4QplV8RDHza'
   - name: Ugly physique
     type: trait
@@ -337,15 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.TqPJJlV4n5cNNxLV'
   - name: Uncanny speed
     type: trait
@@ -374,15 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.lW8OfVr4wCbcbvDJ'
   - name: Unearthly beauty
     type: trait
@@ -410,15 +374,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.udMvzIx4g8E1OWbg'
   - name: Unhealthy vigor
     type: trait
@@ -447,15 +402,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.t1QzioXgLRnZXqqr'
   - name: Unhinged joints
     type: trait
@@ -484,15 +430,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.DiYbu4uPJfEq5Zy2'
   - name: Unholy regeneration
     type: trait
@@ -521,15 +458,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.psPEZB6VyJ7YdojC'
   - name: Unnatural strength
     type: trait
@@ -561,15 +489,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.TGpOwogFBlsumjGz'
   - name: Unreal scent
     type: trait
@@ -602,15 +521,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.GAbEAz3VnyYl4yMM'
 effects: []
 folder: null
@@ -621,14 +531,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!dx7sXYPwmOBoEZ2X'
 

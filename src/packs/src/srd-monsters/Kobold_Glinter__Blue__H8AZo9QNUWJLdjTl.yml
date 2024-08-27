@@ -289,15 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!H8AZo9QNUWJLdjTl.t2iLqHudaRevRhvR'
   - name: 'R: Stick-launched dart'
     type: action
@@ -358,15 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!H8AZo9QNUWJLdjTl.ztSAAHK16229whiN'
   - name: Home turf tricks
     type: trait
@@ -399,15 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!H8AZo9QNUWJLdjTl.FAIqVADHmZ70aUs2'
   - name: Stubborn resilience
     type: trait
@@ -436,15 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!H8AZo9QNUWJLdjTl.K1OnN9d46DH7nl7W'
   - name: Free-form ability—Unstoppability
     type: trait
@@ -475,15 +439,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!H8AZo9QNUWJLdjTl.NRhHrauTV3oj3x7y'
   - name: Bitter resolve
     type: nastierSpecial
@@ -512,15 +467,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!H8AZo9QNUWJLdjTl.DOjaww5CZffRyGrS'
   - name: Coordinated strike
     type: nastierSpecial
@@ -549,15 +495,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!H8AZo9QNUWJLdjTl.SHoELDBCWn8R3d6p'
 effects: []
 folder: null
@@ -568,14 +505,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!H8AZo9QNUWJLdjTl'
 

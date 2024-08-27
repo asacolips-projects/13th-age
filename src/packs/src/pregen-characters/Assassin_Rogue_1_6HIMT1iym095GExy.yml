@@ -732,15 +732,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708798965030
-      modifiedTime: 1708798965030
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.DGA8Cp1mzFjXQNXo'
   - name: Melee attack (Rogue)
     type: power
@@ -949,15 +940,6 @@ items:
       default: 0
     folder: null
     sort: -100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708798965030
-      modifiedTime: 1708811415774
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.sKyhv0JCIiaJzZ1i'
   - name: Momentum
     type: power
@@ -1172,15 +1154,6 @@ items:
       default: 0
     folder: null
     sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708798965030
-      modifiedTime: 1708799586033
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.MYAaAPBGPjszLz88'
   - name: Ranged Attack (Rogue)
     type: power
@@ -1389,15 +1362,6 @@ items:
       default: 0
     folder: null
     sort: -100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708798965030
-      modifiedTime: 1708883488976
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.MaVKJv9w1afzJyE2'
   - name: Trap Sense
     type: power
@@ -1669,15 +1633,6 @@ items:
       default: 0
     folder: null
     sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708798965030
-      modifiedTime: 1708799589999
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.rLZ7aEYC0MhXga9f'
   - name: Murderous
     type: power
@@ -1944,15 +1899,6 @@ items:
       default: 0
     folder: null
     sort: 100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708798965030
-      modifiedTime: 1708799607888
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.656yVTyIntmOh5ML'
   - name: Shadow Walk
     type: power
@@ -2222,15 +2168,6 @@ items:
       default: 0
     folder: null
     sort: 100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708798965030
-      modifiedTime: 1708799606352
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.cS7QtC39JC3beU3Q'
   - name: Sneak Attack
     type: power
@@ -2504,15 +2441,6 @@ items:
       default: 0
     folder: null
     sort: 100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708799574438
-      modifiedTime: 1708799597180
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.TQYrBLJM2iATiNYb'
   - name: Improved Sneak Attack
     type: power
@@ -2789,15 +2717,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708799574438
-      modifiedTime: 1708811388711
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.bP1OayoLjiHyvQ46'
   - name: Deadly Thrust
     type: power
@@ -3066,15 +2985,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708799743768
-      modifiedTime: 1708883780918
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.ToStjL1qfP6td9v4'
   - name: Evasive Strike
     type: power
@@ -3350,15 +3260,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708799743768
-      modifiedTime: 1708883788398
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.VDNyqm60AVSNw3gk'
   - name: Flying Blade
     type: power
@@ -3628,15 +3529,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708799743768
-      modifiedTime: 1708799743768
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.WxqfGY5Wlh1jANPV'
   - name: Sure Cut
     type: power
@@ -3868,15 +3760,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708799743768
-      modifiedTime: 1708883792818
-      lastModifiedBy: tWJ6KkFBgXXy34it
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!6HIMT1iym095GExy.pIBaHlroRWC4rghC'
 effects: []
 folder: null
@@ -3907,14 +3790,5 @@ flags:
     hideOneUniqueThing: false
     hideSettingsTab: false
     diceFormulaMode: ''
-_stats:
-  systemId: archmage
-  systemVersion: 1.27.0
-  coreVersion: '12.331'
-  createdTime: 1708798606491
-  modifiedTime: 1708883792818
-  lastModifiedBy: tWJ6KkFBgXXy34it
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!6HIMT1iym095GExy'
 

@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.U0Ca4ZsuyuBzsBad'
   - name: Bite
     type: action
@@ -353,15 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.Tz9bHxrC73kc3IyQ'
   - name: Eruption
     type: nastierSpecial
@@ -389,15 +371,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.3q2OHGKuTumoRVzj'
   - name: Xorn ‘cleric’
     type: nastierSpecial
@@ -425,15 +398,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.kxIKYitJoFY2s30b'
   - name: Xorn ‘fighter’
     type: nastierSpecial
@@ -459,15 +423,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.eeT4mZT34b6amqyJ'
   - name: Xorn ‘rogue’
     type: nastierSpecial
@@ -495,15 +450,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.8g8zMPhAI4bvWvNR'
   - name: Xorn ‘wizard’
     type: nastierSpecial
@@ -533,15 +479,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.TWv9gQkrC4Q8ujmO'
   - name: Rock swimming
     type: trait
@@ -569,15 +506,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.brE5KwOFN1xnzAJD'
   - name: 360 degree vision
     type: trait
@@ -605,15 +533,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.AcErrai3rCH4VWIG'
   - name: Penetrating vision
     type: trait
@@ -641,15 +560,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.R69y4t8kBoGW9XbT'
   - name: Resist cold and fire 16+
     type: trait
@@ -679,15 +589,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.6yScYv375aiAevtz'
 effects: []
 folder: null
@@ -698,14 +599,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!3MNGAtjTfqVsjPT4'
 

@@ -289,15 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.XVVOfaUJGpZdbsxJ'
   - name: '[Once per battle] C: Divine proclamation'
     type: action
@@ -359,15 +350,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.TWunB0CiPxaKg20v'
   - name: '[Once per battle] R: Word of judgement'
     type: action
@@ -425,15 +407,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.147mu5CWjvGJwa1P'
   - name: Flight
     type: trait
@@ -461,15 +434,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.ZVtbE8QHbl8GLvfD'
   - name: Chosen ones
     type: trait
@@ -500,15 +464,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.T9ZLOjYV2vo6mo6M'
   - name: Mission from the gods
     type: nastierSpecial
@@ -536,15 +491,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.PAAiEU8qOesYMZRN'
   - name: Undying
     type: trait
@@ -581,15 +527,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.Qlddq7YCa2Ms8l3q'
   - name: Split reality
     type: nastierSpecial
@@ -627,15 +564,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.YLFI485QcFnozcNS'
   - name: Warp time
     type: nastierSpecial
@@ -668,15 +596,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.12mdy75MCpynbdPW'
   - name: Reshuffle space
     type: nastierSpecial
@@ -709,15 +628,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!QJRj6q4fAXmNCfpy.WZre6GKGwKwwMs9T'
 effects: []
 folder: null
@@ -728,14 +638,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!QJRj6q4fAXmNCfpy'
 

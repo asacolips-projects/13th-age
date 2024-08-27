@@ -291,15 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.43SXZlXcMbBz3Nga'
   - name: >-
       [Usually special trigger, but also possible as a standard action] C:
@@ -363,15 +354,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.6KA1Z1kU9XN1NMrG'
   - name: Ignition
     type: action
@@ -431,15 +413,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.HIdvtC8YEyFhE9Xb'
   - name: Flight
     type: trait
@@ -467,15 +440,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.2kVQTuBDv8LQSfQG'
   - name: Flaming wings
     type: trait
@@ -503,15 +467,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.GwtxFdk40puvzwqH'
   - name: Resist fire 16+
     type: trait
@@ -539,15 +494,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.5XvFLjVHpmmtuPTw'
   - name: Spectacular effects
     type: trait
@@ -576,15 +522,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.gzLKQkluZYJbGGVn'
   - name: Reborn in fire
     type: trait
@@ -640,15 +577,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0Hx6lHDEY2v4H0vf.Item.oeyzDa97nafRmcSm
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.99SpZWDSWQI9Cc6v'
   - name: Conflagration of rebirth
     type: action
@@ -709,15 +637,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0Hx6lHDEY2v4H0vf.Item.SpNVY4uMqHcPX9PX
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!ECHt0HNq1krplJBu.7zjmAdegrLmgTUqF'
 effects: []
 folder: null
@@ -728,14 +647,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!ECHt0HNq1krplJBu'
 

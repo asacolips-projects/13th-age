@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.iruaTktWWm999O5x'
   - name: 'R: Accursed bolt'
     type: action
@@ -358,15 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.Ate36zC3aInIjY9P'
   - name: '[Special trigger] Abyssal curse'
     type: action
@@ -424,15 +406,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.twcTNo5aCzOnrvWo'
   - name: 'R: Hellfireball'
     type: action
@@ -494,15 +467,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.gH7Gv3gguT7RZBKQ'
   - name: 'C: Corrupting grasp'
     type: action
@@ -560,15 +524,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.iMHoq7mljUiNtBI1'
   - name: The Demonic Icon’s knowledge
     type: trait
@@ -603,15 +558,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.GxOYbxyC00UsukWR'
   - name: The Demonic Icon’s blessing
     type: trait
@@ -710,15 +656,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.ikkK6kYHWN6mQ84w'
   - name: Ye called in Their name, and I came hither
     type: trait
@@ -758,15 +695,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nc33yJT9Bnu4EI1X.Ehx8HcJnPzgdl9yb'
 effects: []
 folder: null
@@ -777,14 +705,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!nc33yJT9Bnu4EI1X'
 

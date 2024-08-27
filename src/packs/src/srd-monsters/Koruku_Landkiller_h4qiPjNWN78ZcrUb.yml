@@ -291,15 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.iIemtd42r4L27lYG'
   - name: Earth-gouging plates
     type: action
@@ -357,15 +348,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.bWG9wq5pwgpJOmLM'
   - name: Escalating saves
     type: trait
@@ -393,15 +375,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.pVMebtfntKZyazIB'
   - name: Stolen magic (see below)
     type: action
@@ -459,15 +432,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.jrJXYh1V6aDVoWSp'
   - name: 'C: Flame of the Magic Icon'
     type: action
@@ -527,15 +491,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.YqPlZC2gxfEJ3qo0'
   - name: 'C: Snare of the Nature Icon'
     type: action
@@ -595,15 +550,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.9RlRKuTc4WSVsUc2'
   - name: 'C: Roar of the Brute Icon'
     type: action
@@ -663,15 +609,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.rB9GLZQK9s343sap'
   - name: 'C: Treachery of the Draconic Icon'
     type: action
@@ -731,15 +668,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.1xJbX1J1KSkBxtcP'
   - name: 'C: Storm of the Zealous Icon'
     type: action
@@ -799,15 +727,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.z5DKzXRwHJYifioG'
   - name: 'C: Wrath of the sea'
     type: action
@@ -865,15 +784,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.9aFMMgxUsq4SNYGZ'
   - name: Stolen magic
     type: trait
@@ -908,15 +818,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.rebKxseQuhaK3GsX'
   - name: So many servitors
     type: nastierSpecial
@@ -944,15 +845,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!h4qiPjNWN78ZcrUb.DgBb5BBCYFWzQhed'
 effects: []
 folder: null
@@ -963,14 +855,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!h4qiPjNWN78ZcrUb'
 

@@ -250,15 +250,6 @@ effects:
         duration: EndOfNextSourceTurn
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!753LlseCsoBfKant.8W2C23zZkIWLt77C'
   - origin: mull
     disabled: false
@@ -290,26 +281,8 @@ effects:
         duration: EndOfNextSourceTurn
         ongoingDamage: 0
         ongoingDamageType: ''
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!items.effects!753LlseCsoBfKant.UtHylz4juOVCLYPE'
 _id: 753LlseCsoBfKant
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 ownership:
   default: 0
 folder: null

@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.qscskN2Be9q3HGAr'
   - name: 'R: Spit shot'
     type: action
@@ -356,15 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.zRVP7Ht74NTYbCjn'
   - name: '[Special trigger] Pitter patter'
     type: action
@@ -422,15 +404,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.vD9N52EIld6CrLsu'
   - name: '[Special trigger] Leaping strike'
     type: action
@@ -488,15 +461,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.ed9zIdWRlX8kmuTy'
   - name: Fury of the gods
     type: trait
@@ -524,15 +488,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.cyDaLLpAeWhrnl1b'
   - name: Acid rain
     type: trait
@@ -561,15 +516,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.Bc7CunV4Nhf7Cjy6'
   - name: Leaps and bounds
     type: nastierSpecial
@@ -597,15 +543,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.cCD3Snnp4mGicBsw'
   - name: Flight
     type: trait
@@ -638,15 +575,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.8rExRPQ3Pq47Lj50.Item.66dcA6WBSHggpjBN
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.xRrdZ6JZHbEWXxja'
   - name: Swimming
     type: trait
@@ -677,15 +605,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.8rExRPQ3Pq47Lj50.Item.nmFFNWLoHjm6jCtz
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.Fvg3CNRkN7tPHUE2'
   - name: Telepathy
     type: trait
@@ -719,15 +638,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.8rExRPQ3Pq47Lj50.Item.D0GVHu6urDrXc0LL
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!eb0H6U4udfba0qU0.ISJOpfdigR12Q0fx'
 effects: []
 folder: null
@@ -738,14 +648,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!eb0H6U4udfba0qU0'
 

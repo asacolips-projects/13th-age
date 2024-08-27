@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.Kld3SQpAXV3sguCa'
   - name: 'R: Pyroclastic roar'
     type: action
@@ -353,15 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.Xj5D52U7h0eg3rVP'
   - name: Spreading flames
     type: trait
@@ -391,15 +373,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.dmnfZRmsPgEGIDEv'
   - name: Building fire
     type: nastierSpecial
@@ -427,15 +400,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.LZ1cOtKPdBtgj4fK'
   - name: Igneous aura
     type: nastierSpecial
@@ -464,15 +428,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.Gi23GluwNSiNd3ek'
   - name: Escalating inferno
     type: trait
@@ -508,15 +463,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.4NviszfyXGmhIUFI
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.5RGcTTEZ0JLgwd3I'
   - name: Resist fire 16+
     type: trait
@@ -548,15 +494,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.7dLP5azluYv2oUGv
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.8AU9ZuxmERoPAzPq'
   - name: Heat metal
     type: nastierSpecial
@@ -589,15 +526,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.d0PBmnet1p1tKZKw
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!k1MhkxKuWo5SmMlA.YgvglMKFfoAq3sq8'
 effects: []
 folder: null
@@ -608,14 +536,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!k1MhkxKuWo5SmMlA'
 

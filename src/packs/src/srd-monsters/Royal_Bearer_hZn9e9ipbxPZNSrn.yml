@@ -258,15 +258,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!hZn9e9ipbxPZNSrn.vg9xQBpyWJDUEcHR'
   - name: Lost opportunity
     type: trait
@@ -292,15 +283,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!hZn9e9ipbxPZNSrn.AxDD0sayDze2uQY3'
   - name: Ghostly
     type: trait
@@ -330,15 +312,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!hZn9e9ipbxPZNSrn.H26ubl5ebnirZT6m'
   - name: 'R: Lash for thieves'
     type: action
@@ -398,15 +371,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!hZn9e9ipbxPZNSrn.O7ZK2TdRv9B0yrfY'
   - name: 'C: Crushing weight of wealth'
     type: action
@@ -466,15 +430,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!hZn9e9ipbxPZNSrn.LD1Z4q5GSlVvQwrH'
   - name: 'R: The Icon’s due'
     type: action
@@ -538,15 +493,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!hZn9e9ipbxPZNSrn.U2j5uzmiyvHQyBqH'
 effects: []
 folder: null
@@ -557,14 +503,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!hZn9e9ipbxPZNSrn'
 

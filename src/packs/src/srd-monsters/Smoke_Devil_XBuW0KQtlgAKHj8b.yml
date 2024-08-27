@@ -290,15 +290,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.eL6jc8y5n1TT5cNr'
   - name: Ember of hate
     type: trait
@@ -328,15 +319,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.8p2GEstNK0cFyX4B'
   - name: Ember Burst
     type: action
@@ -398,15 +380,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.9v3a7ttLA17Ux1W3'
   - name: Devil's Due (Formless)
     type: trait
@@ -434,15 +407,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.STDcpH0hNVralJd3'
   - name: Flight
     type: trait
@@ -467,15 +431,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.ZRINEuEqsRVZ9npm'
   - name: Resist fire 13+
     type: trait
@@ -502,15 +457,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.zTzOiDMv4lVsaMjm'
   - name: Free-form covert ability - Insinuate
     type: trait
@@ -538,15 +484,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.eslYXfRVSSyymLaJ'
   - name: Smokey Retreat
     type: nastierSpecial
@@ -574,15 +511,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!XBuW0KQtlgAKHj8b.XKectQK1c9W3hKZ5'
 effects: []
 folder: null
@@ -591,14 +519,5 @@ flags:
   archmage: {}
 ownership:
   default: 0
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!XBuW0KQtlgAKHj8b'
 

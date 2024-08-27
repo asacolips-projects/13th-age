@@ -287,15 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.OuBN7mYD7903mF65'
   - name: Drop like a stone
     type: action
@@ -355,15 +346,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.zr61WJcgm4jjv26J'
   - name: (Each hallowed gargoyle has one of the following attacks)
     type: action
@@ -426,15 +408,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.4FR4OV4U7L8zr0qk'
   - name: 'C: Bizarrely beautiful chant'
     type: action
@@ -495,15 +468,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.EX0jpgZBkEP5XjbT'
   - name: 'R: Magic missiles'
     type: action
@@ -561,15 +525,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.zYMhK6E5zIZY1yLI'
   - name: 'C: Denunciation'
     type: action
@@ -629,15 +584,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.BmoBqg21krbpO5XY'
   - name: Halo
     type: trait
@@ -667,15 +613,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.92q9JRaCgwah0Hg6'
   - name: Flight
     type: trait
@@ -707,15 +644,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.lXtwFERHlKht6V5t
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.ytb8qsfxgGb9WDcH'
   - name: Rocky hide
     type: trait
@@ -746,15 +674,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.dKgeCSYaDvZj9Nqf
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.D2wZmfdFXs52eTWf'
   - name: Mirrored aggression
     type: nastierSpecial
@@ -787,15 +706,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.tLHf2HblAFUJNrWI
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.WqGkOZuiQpKXDySw'
   - name: Statues, statues, everywhere
     type: nastierSpecial
@@ -831,15 +741,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.kKLndh5ZO3uD0yxF
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!UcT89YkGypZiqSts.b03AH5mHz0CeXyJE'
 effects: []
 folder: null
@@ -850,14 +751,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!UcT89YkGypZiqSts'
 

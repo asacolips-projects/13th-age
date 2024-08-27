@@ -728,15 +728,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.U59NdGj8hnsqaTIl'
   - name: (Rage) Melee attack
     type: power
@@ -940,15 +931,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.3ZgEcVfsnJthr8sz'
   - name: (Rage) Thrown attack
     type: power
@@ -1152,15 +1134,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.4vMeIoOfxLoRTzy2'
   - name: Barbarian Rage
     type: power
@@ -1429,15 +1402,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.cYScahQJ1OTnkvDm'
   - name: Melee attack (Barbarian)
     type: power
@@ -1641,15 +1605,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801288648
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.zQKcilRXpQBJAiSK'
   - name: Ranged Attack (Barbarian)
     type: power
@@ -1853,15 +1808,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.T9WVfEDd7HF2uTM4'
   - name: Slayer
     type: power
@@ -2130,15 +2076,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.zhj6ba7Jiv6nomDW'
   - name: Strongheart
     type: power
@@ -2403,15 +2340,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.i8K70giP7VTgu6uZ'
   - name: Unstoppable
     type: power
@@ -2675,15 +2603,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.Lb3FeQHgrHzaAMxO'
   - name: Toughness
     type: power
@@ -2911,15 +2830,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '12.331'
-      createdTime: 1708801222478
-      modifiedTime: 1708801226365
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!nleq1FMYYGgTg9Ox.ifdQ1UMVMwCnwy1C'
 effects: []
 folder: null
@@ -2950,14 +2860,5 @@ flags:
     hideOneUniqueThing: false
     hideSettingsTab: false
     diceFormulaMode: ''
-_stats:
-  systemId: archmage
-  systemVersion: 1.27.0
-  coreVersion: '12.331'
-  createdTime: 1708801166031
-  modifiedTime: 1708801389145
-  lastModifiedBy: hsiv4q7EYWxaKXvN
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!nleq1FMYYGgTg9Ox'
 

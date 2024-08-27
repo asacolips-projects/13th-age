@@ -291,15 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.wvH2QLtU9CFnveyd'
   - name: 'C: Mirrorball burst'
     type: action
@@ -359,15 +350,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.zXjvX8N6qm7NcHKQ'
   - name: Gilded claws
     type: action
@@ -425,15 +407,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.xTQCBJT63SVbqfb0'
   - name: 'C: Psychoactive breath'
     type: action
@@ -497,15 +470,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.iqPTi3zwDumgavKL'
   - name: Intermittent breath
     type: trait
@@ -536,15 +500,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.Cw09xyeKQRFcLkJc'
   - name: Wing buffet
     type: trait
@@ -572,15 +527,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.0hFv382xcQ1EayGO'
   - name: '[Once per battle] Cloak of illusion'
     type: trait
@@ -609,15 +555,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.SxUbsPMcsnT2Kk4d'
   - name: Shape-shifter supreme
     type: trait
@@ -653,15 +590,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.6FIQ6Cpm36gjiAk2
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.d2M7uzrZ4rQ9HJBn'
   - name: Cunning escapes
     type: trait
@@ -697,15 +625,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.cHYObdpv2qnaMxNS
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.d4QUp3NlkYF8m7ya'
   - name: '[Once per battle] “No, they’re the real Purple Dragon, shoot them”'
     type: trait
@@ -737,15 +656,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.heMK08L3sB4VBPGz
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.9l3bMpNt5UemzOI0'
   - name: Flight
     type: trait
@@ -777,15 +687,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.cA1Kbd7l1SBlMhVN
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.UAYiPLFrd8bxbmxz'
   - name: Illusionary soiree
     type: trait
@@ -829,15 +730,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.64kKfZlY5Qj4wyvh
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!khOUqTjHj7al85zc.RFEWqkm615It6Rhy'
 effects: []
 folder: null
@@ -848,14 +740,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!khOUqTjHj7al85zc'
 

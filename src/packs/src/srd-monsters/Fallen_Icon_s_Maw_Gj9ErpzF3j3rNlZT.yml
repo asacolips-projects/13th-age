@@ -300,15 +300,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.ch4AF8F78bKD7scW'
   - name: 'R: Charnel storm'
     type: action
@@ -370,15 +361,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.lFjtcSdvN5H7wPwu'
   - name: 'C: Snapping jaws'
     type: action
@@ -436,15 +418,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.gdcaBhF7A9AxA4GD'
   - name: Charnel breath
     type: action
@@ -502,15 +475,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.Nlsqh4bHqInxirur'
   - name: Empowered by death
     type: trait
@@ -540,15 +504,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.rYHVkqNrwxuv5mKF'
   - name: Sweeping shadow
     type: trait
@@ -582,15 +537,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.G7Vwf147DLwdeFtU'
   - name: Fear aura
     type: nastierSpecial
@@ -619,15 +565,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.TEJNHXMsSnSeMO1p'
 effects: []
 folder: null
@@ -638,14 +575,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!Gj9ErpzF3j3rNlZT'
 

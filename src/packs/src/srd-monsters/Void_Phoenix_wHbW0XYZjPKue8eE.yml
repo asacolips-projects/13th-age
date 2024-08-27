@@ -293,15 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.W6N3NKrFeVEcscVR'
   - name: >-
       [Usually special trigger, but also possible as a standard action] C: Void
@@ -363,15 +354,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.bwNqNcNuLd9Ibjlr'
   - name: Flight
     type: trait
@@ -399,15 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.cELbZRCTz8GyO4rC'
   - name: Void aura
     type: trait
@@ -436,15 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.FZgMzP1VpGU9vlAW'
   - name: Resist fire and negative energy 16+
     type: trait
@@ -473,15 +437,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.WW2TEttwI6qs8dw6'
   - name: Spectacular effects
     type: trait
@@ -510,15 +465,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.vM8z2h5VcsYYWXsQ'
   - name: Reborn in void
     type: trait
@@ -572,15 +518,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.ZUQU1Hv5tETviUtu'
   - name: Void rebirth
     type: action
@@ -638,15 +575,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!wHbW0XYZjPKue8eE.gJXZeoNXdXGfVPSd'
 effects: []
 folder: null
@@ -657,14 +585,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!wHbW0XYZjPKue8eE'
 

@@ -230,18 +230,6 @@ items:
         label: Miss
     sort: 0
     effects: []
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    folder: null
-    ownership:
-      default: 0
     _key: '!actors.items!DNHwMQd1AASGQF2V.vPn2ikONq9a4CbsW'
   - _id: Lc9oKAzcG2gMXHnd
     flags: {}
@@ -288,18 +276,6 @@ items:
         label: Miss
     sort: 100000
     effects: []
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    folder: null
-    ownership:
-      default: 0
     _key: '!actors.items!DNHwMQd1AASGQF2V.Lc9oKAzcG2gMXHnd'
   - _id: KUC8xKRTeO4Ml86x
     flags: {}
@@ -322,18 +298,6 @@ items:
         value: ''
     sort: 200000
     effects: []
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    folder: null
-    ownership:
-      default: 0
     _key: '!actors.items!DNHwMQd1AASGQF2V.KUC8xKRTeO4Ml86x'
   - _id: 05L3H6gzctqPk8If
     flags: {}
@@ -359,18 +323,6 @@ items:
         value: ''
     sort: 300000
     effects: []
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    folder: null
-    ownership:
-      default: 0
     _key: '!actors.items!DNHwMQd1AASGQF2V.05L3H6gzctqPk8If'
 effects: []
 ownership:
@@ -452,14 +404,5 @@ prototypeToken:
       scale: 1
       texture: null
 folder: null
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!DNHwMQd1AASGQF2V'
 

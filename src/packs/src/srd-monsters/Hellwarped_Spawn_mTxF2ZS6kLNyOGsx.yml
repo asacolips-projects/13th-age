@@ -289,15 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.FHH7UFC81ZNbFjHO'
   - name: Aberrant attacks - only one (see below)
     type: action
@@ -355,15 +346,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.ONEm1HKMzU590qNA'
   - name: Biting mandibles
     type: action
@@ -425,15 +407,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.KEjdMw1kOd5BqPyC'
   - name: Extra claw
     type: action
@@ -491,15 +464,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.ZOfpkNlEpkFcinsC'
   - name: Lashing tentacle
     type: action
@@ -559,15 +523,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.KgqSzRYkG1HdaC3g'
   - name: 'C: Antennae waveburst'
     type: action
@@ -627,15 +582,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.1Y8HzRGTa5JbWHwH'
   - name: 'R: Shooting quills'
     type: action
@@ -695,15 +641,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.h74OxExuT0qBDSOG'
   - name: Aberrant attacks
     type: trait
@@ -798,15 +735,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.oV0f8XbVmyt4vVO5'
   - name: Infected by hell
     type: trait
@@ -837,15 +765,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.UzT4u2wuM2x8jIJg'
   - name: Mutated form
     type: trait
@@ -947,15 +866,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.jrfzmttzSRRizG9e'
   - name: Special movement
     type: nastierSpecial
@@ -985,15 +895,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.0KSb9Qw38BldTs7K'
   - name: Tough for its kind
     type: nastierSpecial
@@ -1019,15 +920,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.tDCpNUQq5MKOFaN6'
   - name: '[use only when triggered as an aberrant attack] Charging horn slam'
     type: action
@@ -1088,15 +980,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!mTxF2ZS6kLNyOGsx.7kwCVfBktj8PvFkE'
 effects: []
 folder: null
@@ -1107,14 +990,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!mTxF2ZS6kLNyOGsx'
 

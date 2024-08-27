@@ -278,15 +278,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.oOtiidLYq6FTEI6W
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.oOtiidLYq6FTEI6W'
   - name: Resist lightning 16+
     type: trait
@@ -314,15 +305,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.L7yKyY7hgut2ffmP
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.L7yKyY7hgut2ffmP'
   - name: 'C: Burning breath'
     type: action
@@ -380,15 +362,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.Ekv9Hll2kNtbWTXl'
   - name: Ashen earth
     type: trait
@@ -416,15 +389,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.BJgSAItIlxRVq1kE'
   - name: Magma skin
     type: trait
@@ -452,15 +416,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.NTW89gXBDcqgijDW'
   - name: Burning breath
     type: trait
@@ -489,15 +444,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.98qBzazCC9SYOItI'
   - name: Obsidian shards
     type: trait
@@ -525,15 +471,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.6rx0QHVsfCDItU5t'
   - name: (Choose 1-3 of these and the burning breath attack)
     type: trait
@@ -561,15 +498,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.on0tD6JEDRgJR78z
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.on0tD6JEDRgJR78z'
   - name: 'Vulnerability: cold'
     type: trait
@@ -597,15 +525,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.qzyEoFZ8qlbsgFGN'
   - name: Blazing brighter
     type: trait
@@ -634,15 +553,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.mieQLiI99cJqu2tX'
   - name: Heat exhaustion
     type: trait
@@ -670,15 +580,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!FWOn0j9F14gpCIx7.I1c57iOkZSEEkXuu'
 effects: []
 folder: null
@@ -693,15 +594,6 @@ flags:
         primary:
           value: actions
   core: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 sort: 0
 _key: '!actors!FWOn0j9F14gpCIx7'
 

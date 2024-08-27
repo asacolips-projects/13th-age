@@ -288,15 +288,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!iv1HdE32vrCbA73S.e6B7ZDmem64p1Xb0'
   - name: 'R: Hurled spear'
     type: action
@@ -355,15 +346,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!iv1HdE32vrCbA73S.vcdIB8HmFVmNYjmc'
   - name: Strike with advantage
     type: trait
@@ -391,15 +373,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!iv1HdE32vrCbA73S.T4Ra5LjJu3Rjn616'
 effects: []
 folder: null
@@ -408,14 +381,5 @@ flags:
   archmage: {}
 ownership:
   default: 0
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!iv1HdE32vrCbA73S'
 

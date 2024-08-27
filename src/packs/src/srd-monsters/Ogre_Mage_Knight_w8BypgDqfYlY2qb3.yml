@@ -297,15 +297,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.ofMDR0oMKXiaibcR'
   - name: 'R: Magi''s lightning chain'
     type: action
@@ -367,15 +358,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.3lJ8CDph1me81jNg'
   - name: 'C: Cone of Cold'
     type: action
@@ -436,15 +418,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.LYtCCTqF6NsOnwt9'
   - name: 'C: Lightning pulse'
     type: action
@@ -503,15 +476,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.yM3pJrwcwE3AiLvP'
   - name: Voice of thunder
     type: action
@@ -570,15 +534,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.YfHdk7CPDThTH247'
   - name: Resist exceptional attacks 16+
     type: trait
@@ -606,15 +561,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.Rd2eWJBa7AXFWrwG'
   - name: Trollish regeneration 15
     type: trait
@@ -648,15 +594,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.xArIwOvppJbItiOJ'
   - name: Ki
     type: nastierSpecial
@@ -685,15 +622,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.otbZn08rb8s8wl73'
 effects: []
 folder: null
@@ -702,14 +630,5 @@ flags:
   archmage: {}
 ownership:
   default: 0
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 _key: '!actors!w8BypgDqfYlY2qb3'
 

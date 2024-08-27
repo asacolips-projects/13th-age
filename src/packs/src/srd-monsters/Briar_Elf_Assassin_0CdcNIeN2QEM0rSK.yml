@@ -290,15 +290,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.BvLJNL0NwFdcRjjL
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.KQKTmeAlvzSmKCJc'
   - name: 'R: Barbed Arrows'
     type: action
@@ -361,15 +352,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.1s38Tmee9NHmKFTE
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.YNeumqqIKcndRaoP'
   - name: 'Choose one:'
     type: trait
@@ -397,15 +379,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.xvhM3Iuca8y6AqEZ'
   - name: Humanoid
     type: trait
@@ -438,15 +411,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.lr2DPJ2THRwPLF4l'
   - name: Plant
     type: trait
@@ -479,15 +443,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.3VimIVhvVXsx26Qt'
   - name: Undead
     type: trait
@@ -520,15 +475,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.ytoXiVgEZLIxtU06'
   - name: Strength of the forest
     type: nastierSpecial
@@ -557,15 +503,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.UKJo9MJwDE61JdZV'
   - name: Fear Aura
     type: nastierSpecial
@@ -597,15 +534,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.zLfOpspYHImMp1qJ'
   - name: Green walk
     type: action
@@ -669,15 +597,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
     _key: '!actors.items!0CdcNIeN2QEM0rSK.zAQho2qb2R8Ur83x'
 effects: []
 folder: null
@@ -688,15 +607,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
 sort: 0
 _key: '!actors!0CdcNIeN2QEM0rSK'
 
