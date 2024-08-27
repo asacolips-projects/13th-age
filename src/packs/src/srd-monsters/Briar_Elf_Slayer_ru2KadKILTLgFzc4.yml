@@ -94,6 +94,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Briar Elf Slayer
   displayName: 0
@@ -107,6 +167,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +202,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +214,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Thorn Claws
     type: action
@@ -208,6 +289,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.1mZmMIDaa4Yp14AV'
   - name: Counterstrike
     type: trait
@@ -236,6 +326,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.QiESpgLQ7WUsrIs3'
   - name: 'Choose one:'
     type: trait
@@ -260,6 +359,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.94SusmDV6M5tpKXO'
   - name: Thorny carapace
     type: nastierSpecial
@@ -287,6 +395,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.xRpAzzjuruYzGHug'
   - name: Fear Aura
     type: nastierSpecial
@@ -315,6 +432,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.8EMxGqQyHALSOSg8'
   - name: Dark Escalator
     type: nastierSpecial
@@ -343,6 +469,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.4XWng8pvkzI4tHWH'
   - name: '[Special Trigger] R: Bramble bow'
     type: action
@@ -400,6 +535,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.0EzLqYE23l2nyP0a'
   - name: Humanoid
     type: trait
@@ -427,6 +571,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.G3hiBmiknFc0hUZL'
   - name: Plant
     type: trait
@@ -456,6 +609,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.iSCeSCPEgrBR5MsN'
   - name: Undead
     type: trait
@@ -484,6 +646,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!ru2KadKILTLgFzc4.Eky9hI2mlBEeN9aU'
 effects: []
 folder: null
@@ -494,5 +665,15 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+sort: 0
 _key: '!actors!ru2KadKILTLgFzc4'
 

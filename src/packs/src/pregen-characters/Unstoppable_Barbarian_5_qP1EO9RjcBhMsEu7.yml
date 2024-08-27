@@ -128,6 +128,89 @@ system:
       value: ''
     detectedClasses:
       - barbarian
+  resources:
+    perCombat:
+      momentum:
+        enabled: false
+        current: false
+      commandPoints:
+        enabled: false
+        current: 0
+      focus:
+        enabled: false
+        current: false
+      rhythm:
+        enabled: false
+        current: none
+        default: none
+        secondEdition: true
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      ki:
+        enabled: false
+        current: 0
+        max: 0
+      rerolls:
+        enabled: false
+        AC:
+          current: 0
+          max: 0
+        save:
+          current: 0
+          max: 0
   abilities:
     str:
       type: Number
@@ -317,81 +400,6 @@ system:
         type: Boolean
         value: false
       results: []
-  resources:
-    perCombat:
-      momentum:
-        enabled: false
-        current: false
-      commandPoints:
-        enabled: false
-        current: 0
-      focus:
-        enabled: false
-        current: false
-      rhythm:
-        enabled: false
-        current: none
-        default: none
-        secondEdition: true
-    spendable:
-      ki:
-        enabled: false
-        current: 0
-        max: 0
-      custom1:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom2:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom3:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom4:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom5:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom6:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom7:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom8:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom9:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
   incrementals:
     abilityScoreBonus: false
     extraMagicItem: false
@@ -429,6 +437,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -459,6 +472,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -468,9 +484,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: That’s Your Best Shot?
     type: power
@@ -644,6 +673,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -697,10 +730,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708957611601
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.U59NdGj8hnsqaTIl'
   - name: (Rage) Melee attack
     type: power
@@ -871,6 +906,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -903,10 +942,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708801222478
       lastModifiedBy: hsiv4q7EYWxaKXvN
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.3ZgEcVfsnJthr8sz'
   - name: (Rage) Thrown attack
     type: power
@@ -1077,6 +1118,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1109,10 +1154,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708801222478
       lastModifiedBy: hsiv4q7EYWxaKXvN
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.4vMeIoOfxLoRTzy2'
   - name: Barbarian Rage
     type: power
@@ -1283,6 +1330,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1380,10 +1431,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708819328615
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.cYScahQJ1OTnkvDm'
   - name: Melee attack (Barbarian)
     type: power
@@ -1554,6 +1607,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1586,10 +1643,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708801288648
       lastModifiedBy: hsiv4q7EYWxaKXvN
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.zQKcilRXpQBJAiSK'
   - name: Ranged Attack (Barbarian)
     type: power
@@ -1760,6 +1819,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1792,10 +1855,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708801222478
       lastModifiedBy: hsiv4q7EYWxaKXvN
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.T9WVfEDd7HF2uTM4'
   - name: Slayer
     type: power
@@ -1969,6 +2034,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2063,10 +2132,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708819347688
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.zhj6ba7Jiv6nomDW'
   - name: Strongheart
     type: power
@@ -2237,6 +2308,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2330,10 +2405,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708801222478
       lastModifiedBy: hsiv4q7EYWxaKXvN
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.i8K70giP7VTgu6uZ'
   - name: Unstoppable
     type: power
@@ -2507,6 +2584,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2596,10 +2677,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708819340022
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.Lb3FeQHgrHzaAMxO'
   - name: Toughness
     type: power
@@ -2771,6 +2854,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2826,10 +2913,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708801222478
       modifiedTime: 1708801226365
       lastModifiedBy: hsiv4q7EYWxaKXvN
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.ifdQ1UMVMwCnwy1C'
   - name: Violence
     type: power
@@ -3002,6 +3091,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3072,10 +3165,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819386591
       modifiedTime: 1708819386591
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!qP1EO9RjcBhMsEu7.zQBPJ8SH9s6ro0Wb'
 effects: []
 folder: null
@@ -3112,10 +3207,12 @@ flags:
 _stats:
   systemId: archmage
   systemVersion: 1.27.0
-  coreVersion: '11.315'
+  coreVersion: '12.331'
   createdTime: 1708801166031
   modifiedTime: 1708957613059
   lastModifiedBy: tWJ6KkFBgXXy34it
+  compendiumSource: null
+  duplicateSource: null
 _id: qP1EO9RjcBhMsEu7
 sort: 0
 _key: '!actors!qP1EO9RjcBhMsEu7'

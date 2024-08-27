@@ -235,7 +235,16 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.3tExos08lleUG9Nh'
   - _id: isQZ3YM08Sy0ZQCU
@@ -291,7 +300,16 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.isQZ3YM08Sy0ZQCU'
   - _id: 60zA9an1tJHDCr9C
@@ -354,7 +372,16 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.60zA9an1tJHDCr9C'
   - _id: GXAS23NzUEg0jOED
@@ -382,7 +409,16 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.GXAS23NzUEg0jOED'
   - _id: 0gb3G2FIoPJRhLcA
@@ -405,7 +441,16 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.0gb3G2FIoPJRhLcA'
   - _id: CdCIbqatGzCBK6e0
@@ -435,7 +480,16 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.CdCIbqatGzCBK6e0'
   - _id: CCcS0rebhTcInK5z
@@ -471,7 +525,16 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.CCcS0rebhTcInK5z'
 effects: []
@@ -516,14 +579,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -533,8 +603,30 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!6t1WceFl0n8rOgYp'
 

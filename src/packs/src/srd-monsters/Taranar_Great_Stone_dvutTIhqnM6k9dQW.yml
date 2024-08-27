@@ -94,6 +94,66 @@ system:
       value: ''
     vulnerability:
       value: cold, fire
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Taranar Great Stone
   displayName: 0
@@ -107,6 +167,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -137,6 +202,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +214,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Stones’ might
     type: action
@@ -211,6 +292,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.tQnPHqSBLVD0vWNH'
   - name: 'C: Seism'
     type: action
@@ -268,6 +358,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.1AhhJveQ5IVNtOeq'
   - name: Heave
     type: action
@@ -328,6 +427,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.j5LRztTftoJ1DvV9'
   - name: Throw enemy
     type: trait
@@ -355,6 +463,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.OujXqhqIrx1nbcD7'
   - name: Thrown adventurer
     type: action
@@ -412,6 +529,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.PqM6ZAysW8beM6Di'
   - name: Blade breaker
     type: nastierSpecial
@@ -443,6 +569,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.p1XmmYXrN1o5imJO'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -473,6 +608,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.zpjUyAhQoI4I5Eh1'
   - name: Lightning-flare
     type: trait
@@ -508,6 +652,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.Udb3CIXOo32j5XIc'
   - name: Thick-skinned
     type: trait
@@ -538,6 +691,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!dvutTIhqnM6k9dQW.raGusBwGChStffBE'
 effects: []
 folder: null
@@ -548,5 +710,14 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!dvutTIhqnM6k9dQW'
 

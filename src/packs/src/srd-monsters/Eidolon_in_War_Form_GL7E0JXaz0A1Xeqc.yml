@@ -86,12 +86,74 @@ system:
       value: troop
     size:
       value: triple
+    strength:
+      value: ''
     type:
       value: spirit
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Eidolon in War Form
   displayName: 0
@@ -105,6 +167,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +202,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +214,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Scissors, scythes, and chains
     type: action
@@ -206,6 +289,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.k7XyBF5fU68vMciA'
   - name: 'R: See the awful truth'
     type: action
@@ -265,6 +357,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.g0nFfOaLwCQjUR9X'
   - name: 'C: The awful nature of reality'
     type: action
@@ -324,6 +425,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.34VVWGFWSJQl8l1n'
   - name: Undying
     type: trait
@@ -360,6 +470,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.Ut4qIRCoFHt4qtan'
   - name: Split reality
     type: nastierSpecial
@@ -397,6 +516,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.xsWS01vQ324Ic462'
   - name: Warp time
     type: nastierSpecial
@@ -429,6 +557,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.ZN7rkb5teelgs4BX'
   - name: Reshuffle space
     type: nastierSpecial
@@ -461,6 +598,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.LIM03vB1N4YK13v2'
 effects: []
 folder: null
@@ -471,5 +617,14 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!GL7E0JXaz0A1Xeqc'
 

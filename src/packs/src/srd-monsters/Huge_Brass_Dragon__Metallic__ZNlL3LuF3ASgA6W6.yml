@@ -228,7 +228,16 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!ZNlL3LuF3ASgA6W6.v6qWtnR7dj9DUMdA'
   - _id: FyuwGqLu2sPHTDmC
@@ -279,7 +288,16 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!ZNlL3LuF3ASgA6W6.FyuwGqLu2sPHTDmC'
   - _id: 3qDSYeuqs6pKVN7d
@@ -334,7 +352,16 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!ZNlL3LuF3ASgA6W6.3qDSYeuqs6pKVN7d'
   - _id: G2wSuemiKecxHT67
@@ -359,7 +386,16 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!ZNlL3LuF3ASgA6W6.G2wSuemiKecxHT67'
   - _id: tRRbsjgd2f1hfvek
@@ -384,7 +420,16 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!ZNlL3LuF3ASgA6W6.tRRbsjgd2f1hfvek'
 effects: []
@@ -430,6 +475,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-brass.webp
     scaleX: 1
@@ -437,6 +485,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -446,8 +499,30 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!ZNlL3LuF3ASgA6W6'
 

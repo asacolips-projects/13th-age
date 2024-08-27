@@ -86,12 +86,74 @@ system:
       value: troop
     size:
       value: elite
+    strength:
+      value: ''
     type:
       value: elemental
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Great Xorn
   displayName: 0
@@ -105,6 +167,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +202,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +214,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Claw claw claw
     type: action
@@ -204,6 +287,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.U0Ca4ZsuyuBzsBad'
   - name: Bite
     type: action
@@ -261,6 +353,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.Tz9bHxrC73kc3IyQ'
   - name: Eruption
     type: nastierSpecial
@@ -288,6 +389,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.3q2OHGKuTumoRVzj'
   - name: Xorn ‘cleric’
     type: nastierSpecial
@@ -315,6 +425,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.kxIKYitJoFY2s30b'
   - name: Xorn ‘fighter’
     type: nastierSpecial
@@ -340,6 +459,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.eeT4mZT34b6amqyJ'
   - name: Xorn ‘rogue’
     type: nastierSpecial
@@ -367,6 +495,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.8g8zMPhAI4bvWvNR'
   - name: Xorn ‘wizard’
     type: nastierSpecial
@@ -396,6 +533,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.TWv9gQkrC4Q8ujmO'
   - name: Rock swimming
     type: trait
@@ -423,6 +569,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.brE5KwOFN1xnzAJD'
   - name: 360 degree vision
     type: trait
@@ -450,6 +605,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.AcErrai3rCH4VWIG'
   - name: Penetrating vision
     type: trait
@@ -477,6 +641,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.R69y4t8kBoGW9XbT'
   - name: Resist cold and fire 16+
     type: trait
@@ -506,6 +679,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!3MNGAtjTfqVsjPT4.6yScYv375aiAevtz'
 effects: []
 folder: null
@@ -516,5 +698,14 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!3MNGAtjTfqVsjPT4'
 

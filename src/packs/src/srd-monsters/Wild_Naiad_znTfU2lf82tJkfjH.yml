@@ -86,12 +86,74 @@ system:
       value: spoiler
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: elemental
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Wild Naiad
   displayName: 0
@@ -105,6 +167,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +202,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +214,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Fist of water
     type: action
@@ -204,6 +287,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.5hByWaIF50kU46VU'
   - name: 'R: Skipped river stone'
     type: action
@@ -263,6 +355,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.47v73ZJGotQAAFKE'
   - name: 'C: Watery words'
     type: action
@@ -320,6 +421,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.Vz2gSAOiJffJ1BHA'
   - name: The river’s song
     type: trait
@@ -352,6 +462,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.UIv3CAVfL6YPnyUE'
   - name: One with the river
     type: trait
@@ -380,6 +499,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.SAlsoYkVoGW6KOlA'
   - name: Naiad’s cleansing
     type: nastierSpecial
@@ -408,6 +536,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.Xft6LiUezchL9Gob'
   - name: Domain bound
     type: trait
@@ -439,6 +576,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.dZNuOXlFpnn1OzQ2
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.EC9yqrzJyPbJquvm'
   - name: Limited immortality
     type: trait
@@ -473,6 +619,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.VQalLgUCLGaLnDvR
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.eiOtmAXovNPnG4cq'
   - name: Note on types
     type: trait
@@ -504,6 +659,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.5DtwntvmiSLGrcNT
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!znTfU2lf82tJkfjH.LB77R8UJYj1HN7bd'
 effects: []
 folder: null
@@ -514,5 +678,14 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!znTfU2lf82tJkfjH'
 

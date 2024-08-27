@@ -226,7 +226,16 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.VmBgBVJo1FUVXJVi'
   - _id: mcHQQKXNQoND8lfx
@@ -275,7 +284,16 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.mcHQQKXNQoND8lfx'
   - _id: TEMp8E0TybHfnyik
@@ -326,7 +344,16 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.TEMp8E0TybHfnyik'
   - _id: qO3srRhSLlpxNkv4
@@ -349,7 +376,16 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.qO3srRhSLlpxNkv4'
   - _id: M7jtabu0xflXHtOi
@@ -374,7 +410,16 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.M7jtabu0xflXHtOi'
   - _id: zxGTv8jvgvh2DxXj
@@ -399,7 +444,16 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.zxGTv8jvgvh2DxXj'
   - _id: 89WCDsfn6daQiIL2
@@ -427,7 +481,16 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.89WCDsfn6daQiIL2'
   - _id: pBphDFI5lojPwqEp
@@ -452,7 +515,16 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!uhXPwGgX5ZzOKuQn.pBphDFI5lojPwqEp'
 effects: []
@@ -498,6 +570,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp
     scaleX: 1
@@ -505,6 +580,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -514,8 +594,30 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!uhXPwGgX5ZzOKuQn'
 

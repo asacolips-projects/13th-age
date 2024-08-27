@@ -230,7 +230,16 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!GyXxuQTzrOygYw12.050saFMaT2YuRraM'
   - _id: 18lwKx9tJLAymi5C
@@ -284,7 +293,16 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!GyXxuQTzrOygYw12.18lwKx9tJLAymi5C'
   - _id: bpIPwal5ndrSjetE
@@ -335,7 +353,16 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!GyXxuQTzrOygYw12.bpIPwal5ndrSjetE'
   - _id: bNpaBEZVSLBMDDpH
@@ -360,7 +387,16 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!GyXxuQTzrOygYw12.bNpaBEZVSLBMDDpH'
   - _id: TNBm3jNeAazPRe7r
@@ -386,7 +422,16 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!GyXxuQTzrOygYw12.TNBm3jNeAazPRe7r'
   - _id: 2coRnMMYEfbuzwkh
@@ -411,7 +456,16 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!GyXxuQTzrOygYw12.2coRnMMYEfbuzwkh'
 effects: []
@@ -457,6 +511,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
     scaleX: 1
@@ -464,6 +521,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -473,8 +535,30 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!GyXxuQTzrOygYw12'
 

@@ -2,7 +2,7 @@ name: Iconic Spells
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 1
@@ -15,7 +15,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.OmBzEOY5ynq5q91K'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 2
@@ -28,7 +28,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.T7SGRzrYR3qbghLs'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 3
@@ -41,7 +41,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.pTXrMznGqlOG6KSY'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 4
@@ -54,7 +54,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.kwRQDBSNvsGxbZ2x'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 5
@@ -67,7 +67,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.ffPpnOJ6hJE4awDu'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 6
@@ -75,12 +75,12 @@ results:
     drawn: false
     documentCollection: ''
     _id: 015Vl8SvFxTg4iog
-    text: 'Iconic: Great Gold Wyrm '
+    text: 'Iconic: Great Gold Wyrm'
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.015Vl8SvFxTg4iog'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 7
@@ -88,12 +88,12 @@ results:
     drawn: false
     documentCollection: ''
     _id: hxWlc34Vd2D6e2Bw
-    text: 'Iconic: High Druid '
+    text: 'Iconic: High Druid'
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.hxWlc34Vd2D6e2Bw'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 8
@@ -106,7 +106,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.PWHtoEU8zyPDjpIU'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 9
@@ -119,7 +119,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.f7kQ0My6cmLnHO2F'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 10
@@ -132,7 +132,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.SYs09JLbB9AdaQcm'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 11
@@ -145,7 +145,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!NFXhok8zAhpKKS35.bgEndo733aFK4Lbc'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 12
@@ -167,7 +167,14 @@ sort: 0
 ownership:
   default: 0
 _id: NFXhok8zAhpKKS35
-permission:
-  default: 0
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!tables!NFXhok8zAhpKKS35'
 

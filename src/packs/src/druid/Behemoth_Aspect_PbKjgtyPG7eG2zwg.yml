@@ -1,6 +1,4 @@
 name: Behemoth Aspect
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Behemoth Aspect
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 16
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  group:
+    type: String
+    label: Group
+    value: Shifter
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Behemoth Aspect
   powerType:
     type: String
     label: Power Type
     value: power
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -121,21 +139,45 @@ system:
       melee attacks and choose the result you prefer until the end of the battle
       or until you make both rolls for a melee attack and each roll is a natural
       10 or less.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
+    value: ''
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
     value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -145,18 +187,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 16
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -219,10 +257,10 @@ system:
       maxQuantity:
         type: Number
         value: null
-  group:
+  embeddedMacro:
     type: String
-    label: Group
-    value: Shifter
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: icons/commodities/claws/claw-lizard-white-black.webp
 _id: PbKjgtyPG7eG2zwg
@@ -261,6 +299,28 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         duration: EndOfCombat
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!PbKjgtyPG7eG2zwg.CESUEgJMv5CwuRW4'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!PbKjgtyPG7eG2zwg'
 

@@ -131,6 +131,89 @@ system:
       value: ''
     detectedClasses:
       - paladin
+  resources:
+    perCombat:
+      momentum:
+        enabled: false
+        current: false
+      commandPoints:
+        enabled: false
+        current: 0
+      focus:
+        enabled: false
+        current: false
+      rhythm:
+        enabled: false
+        current: none
+        default: none
+        secondEdition: true
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      ki:
+        enabled: false
+        current: 0
+        max: 0
+      rerolls:
+        enabled: false
+        AC:
+          current: 0
+          max: 0
+        save:
+          current: 0
+          max: 0
   abilities:
     str:
       type: Number
@@ -320,81 +403,6 @@ system:
         type: Boolean
         value: false
       results: []
-  resources:
-    perCombat:
-      momentum:
-        enabled: false
-        current: false
-      commandPoints:
-        enabled: false
-        current: 0
-      focus:
-        enabled: false
-        current: false
-      rhythm:
-        enabled: false
-        current: none
-        default: none
-        secondEdition: true
-    spendable:
-      ki:
-        enabled: false
-        current: 0
-        max: 0
-      custom1:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom2:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom3:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom4:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom5:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom6:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom7:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom8:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom9:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
   incrementals:
     abilityScoreBonus: false
     extraMagicItem: false
@@ -432,6 +440,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -462,6 +475,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -471,9 +487,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Halo
     type: power
@@ -647,6 +676,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -707,10 +740,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708819684271
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.bR5V5eQy2pge4r0o'
   - name: (Smite Evil) Melee attack (Daily)
     type: power
@@ -881,6 +916,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -918,10 +957,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708887023689
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.QWDRnMwZjRtJJk3W'
   - name: (Smite Evil) Melee attack (Per-Battle)
     type: power
@@ -1092,6 +1133,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1129,10 +1174,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708886999835
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.I7MOn5fStDUsS84Q'
   - name: Melee attack (Paladin)
     type: power
@@ -1303,6 +1350,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1340,10 +1391,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708820077108
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.HOsiw60ALtCBKWQ5'
   - name: Ranged Attack (Paladin)
     type: power
@@ -1514,6 +1567,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1546,10 +1603,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708819684271
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.FLzrZWqSWOdmFwP2'
   - name: Smite Evil
     type: power
@@ -1725,6 +1784,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1814,10 +1877,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708956821905
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.GhNXhD5Yn6DpfD6U'
   - name: Cleric Training
     type: power
@@ -1990,6 +2055,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2081,10 +2150,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708820230522
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.iXw3ufn7zozwBnKy'
   - name: Divine Domain
     type: power
@@ -2255,6 +2326,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2287,10 +2362,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708819684271
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.2EUJ6s7vMAZPaffa'
   - name: Lay on Hands
     type: power
@@ -2464,6 +2541,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2562,10 +2643,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708820290053
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.JU99fculhr3sGTte'
   - name: Toughness
     type: power
@@ -2737,6 +2820,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2792,10 +2879,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819684271
       modifiedTime: 1708819690250
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.DObx2kfyxmcKG5zl'
   - name: 'Domain: Sun/Anti-Undead'
     type: power
@@ -2968,6 +3057,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3063,10 +3156,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819830938
       modifiedTime: 1708819830938
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: Compendium.archmage.cleric.Item.U5FBNFuKuAp3O5Ev
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.olfGHxmTCHf8IyYx'
   - name: Invocation of Sun/Anti-Undead
     type: power
@@ -3241,6 +3336,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3274,10 +3373,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708819845895
       modifiedTime: 1708819845895
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: Compendium.archmage.cleric.Item.DXKDjQ7EFNBvdi5A
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.U8g1bJJTtmtr2QtJ'
   - name: 'Domain: Trickery/Illusion'
     type: power
@@ -3453,6 +3554,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3529,10 +3634,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708820312558
       modifiedTime: 1708820312558
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: Compendium.archmage.cleric.Item.1Tw7q9thRGbFwNAP
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.YJOlesc3FL5CLsS1'
   - name: Invocation of Trickery/Illusion
     type: power
@@ -3706,6 +3813,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3739,10 +3850,12 @@ items:
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
-      coreVersion: '11.315'
+      coreVersion: '12.331'
       createdTime: 1708820316954
       modifiedTime: 1708820316954
       lastModifiedBy: tWJ6KkFBgXXy34it
+      compendiumSource: Compendium.archmage.cleric.Item.9NCqd3s063scqIuL
+      duplicateSource: null
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.HDGKXsPFKE7FDIIc'
 effects: []
 folder: null
@@ -3779,10 +3892,12 @@ flags:
 _stats:
   systemId: archmage
   systemVersion: 1.27.0
-  coreVersion: '11.315'
+  coreVersion: '12.331'
   createdTime: 1708819553371
   modifiedTime: 1708956821905
   lastModifiedBy: tWJ6KkFBgXXy34it
+  compendiumSource: null
+  duplicateSource: null
 _id: 4ETnAxMTOC0Oy2Nw
 sort: 100000
 _key: '!actors!4ETnAxMTOC0Oy2Nw'

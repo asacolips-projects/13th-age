@@ -94,6 +94,66 @@ system:
       value: ''
     vulnerability:
       value: holy
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fomori Torturer
   displayName: 0
@@ -107,6 +167,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +202,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +214,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Irradiant touch
     type: action
@@ -208,6 +289,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.5SjNnwvjvAfm1YrR'
   - name: 'C: “Kill your friends”'
     type: action
@@ -267,6 +357,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.aV0b8Mm7Z60NjUWl'
   - name: Chaos aura
     type: trait
@@ -312,6 +411,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.e3tdkhwGSdJHrqud'
   - name: Fear aura
     type: trait
@@ -339,6 +447,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.4Tj34O6PiHfVUkR0'
   - name: Power from worship
     type: trait
@@ -368,6 +485,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.nC9AJQqN4fjKLGHi'
   - name: 'R: Eye beam'
     type: action
@@ -430,6 +556,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.IibDY22I36W2wX8U
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.tLhaGCGifi4bWCi9'
   - name: Draining bite
     type: action
@@ -492,6 +627,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.eswlNTs98Y6wiZJV
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.IxGJqjVOzPqM3UwK'
   - name: —House of Songs—
     type: nastierSpecial
@@ -520,6 +664,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.dN6joTRlDFDYMgtC
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.fUAjJafs6OOwMEbM'
   - name: Song of the House
     type: nastierSpecial
@@ -553,6 +706,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.lwMsAjpoVncFYAgg
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.oTXBPcRKCTVoFOxU'
   - name: Ear-bleed
     type: nastierSpecial
@@ -585,6 +747,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.4NLrMUdw30hYLVs9
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.EwXbZeYdFwiyceHM'
   - name: Discordancy
     type: nastierSpecial
@@ -616,6 +787,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.NJICCbfIt5VApMJ4
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.NIMPoQbKOF9OmDhS'
   - name: —House of Eyes—
     type: nastierSpecial
@@ -646,6 +826,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.sXBuEqKc3ekPlfdk
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.Ky1OPxHaFYvuShII'
   - name: Hovering flight
     type: nastierSpecial
@@ -676,6 +865,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.xXoWOfvLbPysEIrw
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.YUuGfrjZkASTtHqy'
   - name: Eye beam
     type: nastierSpecial
@@ -706,6 +904,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.NWpJfT8hRTMHF03A
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.fOGUcBNFbzuij4Pd'
   - name: Eye theft
     type: nastierSpecial
@@ -739,6 +946,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.eOT4VnuAvr3f8INX
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.Xg5PoohZDa6QAiBO'
   - name: —House of Nightmares—
     type: nastierSpecial
@@ -769,6 +985,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.HPxXB7cJx3xXqgV2
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.hAuZjD17typKsRxu'
   - name: Shifting from Nightmares
     type: nastierSpecial
@@ -800,6 +1025,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.bFvzaY4bI6Za4D1W
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.usGbsbLeanAbmn9Z'
   - name: Nightmares
     type: nastierSpecial
@@ -832,6 +1066,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.LzayEDAGBYlxSzBk
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.GJ4EE6uXeAH8EgUr'
   - name: Skin theft
     type: nastierSpecial
@@ -865,6 +1108,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.oE8Nsyn0FrIZeNjB
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.4HjcN5tu1o43L6q4'
   - name: —House of Spiders—
     type: nastierSpecial
@@ -895,6 +1147,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.MSSKcOq4lt4PDTuW
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.qj0cjnomZGhHePm6'
   - name: Scuttle
     type: nastierSpecial
@@ -925,6 +1186,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.ktGG8Tsg4CyoUQw7
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.C43Co64dS9xDJBEx'
   - name: Bite
     type: nastierSpecial
@@ -956,6 +1226,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.g0j1S6Pf89WJJtfY
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.G8mSY3V3uJhNH6rW'
   - name: Sun-eating
     type: nastierSpecial
@@ -991,6 +1270,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.fWS8WcIc5nAvprxA
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.vtlNBZC6MHI3ry9e'
   - name: —House of Colors—
     type: nastierSpecial
@@ -1021,6 +1309,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.9IdRAVz2G0BbZW75
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.WmVnyGMo1t2wZDCe'
   - name: Color out of time
     type: nastierSpecial
@@ -1052,6 +1349,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.OyptndEigSBlbvui
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.jzonh2dGOe21pK86'
   - name: Color drain
     type: nastierSpecial
@@ -1086,6 +1392,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.3AKolXVUg2okfjyG
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!4pL6dxCToYXWG5eo.sXXG2HnTpswGsRnC'
 effects: []
 folder: null
@@ -1096,5 +1411,14 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!4pL6dxCToYXWG5eo'
 

@@ -94,6 +94,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Hellwarped Brute
   displayName: 0
@@ -107,6 +167,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -137,6 +202,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +214,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Piercing claws
     type: action
@@ -208,6 +289,15 @@ items:
     ownership:
       default: 0
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.62hwTCH0yUIqcBWb'
   - name: Aberrant attacks - only one (see below)
     type: action
@@ -268,6 +358,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.ONEm1HKMzU590qNA
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.cySBzE7z5aqxXrQ1'
   - name: Biting mandibles
     type: action
@@ -332,6 +431,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.KEjdMw1kOd5BqPyC
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.RXzljgsoCNbnfCTz'
   - name: Extra claw
     type: action
@@ -392,6 +500,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.ZOfpkNlEpkFcinsC
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.1QTollkqLNE7hpV7'
   - name: Lashing tentacle
     type: action
@@ -455,6 +572,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.KgqSzRYkG1HdaC3g
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.IehWGRYqop7F8bfr'
   - name: 'C: Antennae waveburst'
     type: action
@@ -517,6 +643,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.1Y8HzRGTa5JbWHwH
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.mKNNAx0Dvfz0tPGo'
   - name: 'R: Shooting quills'
     type: action
@@ -579,6 +714,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.h74OxExuT0qBDSOG
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.EBaNBBbXaTsp1LSY'
   - name: '[use only when triggered as an aberrant attack] Charging horn slam'
     type: action
@@ -642,6 +786,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.7kwCVfBktj8PvFkE
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.HtVymbGAAQoSDbPU'
   - name: Aberrant attacks
     type: trait
@@ -739,6 +892,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.oV0f8XbVmyt4vVO5
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.Nn0O1KrxPg7R51KS'
   - name: Infected by hell
     type: trait
@@ -772,6 +934,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.UzT4u2wuM2x8jIJg
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.hqTeIE7TdRIWn0nf'
   - name: Mutated form
     type: trait
@@ -876,6 +1047,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.jrfzmttzSRRizG9e
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.Lg8tcSFBTVJzeSD0'
   - name: Special movement
     type: nastierSpecial
@@ -908,6 +1088,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.0KSb9Qw38BldTs7K
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.PHVL9U6ZbPiMcar5'
   - name: Tough for its kind
     type: nastierSpecial
@@ -936,6 +1125,15 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.tDCpNUQq5MKOFaN6
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!W6zauvHLbhf2JgWM.ovdPpFjyb7U48YZD'
 effects: []
 folder: null
@@ -946,5 +1144,14 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!W6zauvHLbhf2JgWM'
 

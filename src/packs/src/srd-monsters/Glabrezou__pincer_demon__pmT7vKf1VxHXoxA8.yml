@@ -119,6 +119,66 @@ system:
       value: 8
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: MyO1RxGydpNWDFBB
     flags: {}
@@ -172,7 +232,16 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!pmT7vKf1VxHXoxA8.MyO1RxGydpNWDFBB'
   - _id: KY6XjhQ1basJgMaq
@@ -221,7 +290,16 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!pmT7vKf1VxHXoxA8.KY6XjhQ1basJgMaq'
   - _id: cDOIi0yE6GfilVgz
@@ -272,7 +350,16 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!pmT7vKf1VxHXoxA8.cDOIi0yE6GfilVgz'
   - _id: n8mvnOeVUMjdnBMs
@@ -297,7 +384,16 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!pmT7vKf1VxHXoxA8.n8mvnOeVUMjdnBMs'
   - _id: CdVkFMsbVXdt282H
@@ -323,7 +419,16 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!pmT7vKf1VxHXoxA8.CdVkFMsbVXdt282H'
   - _id: PLnrIdSeIeEd6R4r
@@ -351,7 +456,16 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!pmT7vKf1VxHXoxA8.PLnrIdSeIeEd6R4r'
   - _id: eFwsQvp3dWsaGV7a
@@ -380,7 +494,16 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    ownership:
       default: 0
     _key: '!actors.items!pmT7vKf1VxHXoxA8.eFwsQvp3dWsaGV7a'
 effects: []
@@ -426,6 +549,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
     scaleX: 1
@@ -433,6 +559,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -442,8 +573,30 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!pmT7vKf1VxHXoxA8'
 

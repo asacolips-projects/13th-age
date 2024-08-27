@@ -118,6 +118,66 @@ system:
       value: 0
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 sort: 100001
 flags:
   archmage: {}
@@ -135,6 +195,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
         value: ''
       attack:
         type: ''
@@ -164,6 +228,18 @@ items:
         label: Miss
     sort: 0
     effects: []
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    folder: null
+    ownership:
+      default: 0
     _key: '!actors.items!BUGhPpkGiTWVhrI5.atbxsvJAO7C2iZ9h'
   - _id: 6Dz0wIMwXsu1ZY0B
     flags: {}
@@ -180,8 +256,24 @@ items:
         value: >-
           When a creature is engaged with the squib swarm at the start of its
           turn, it takes cold damage equal to the escalation die.
+      group:
+        type: String
+        label: Group
+        value: ''
     sort: 100000
     effects: []
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    folder: null
+    ownership:
+      default: 0
     _key: '!actors.items!BUGhPpkGiTWVhrI5.6Dz0wIMwXsu1ZY0B'
 effects: []
 ownership:
@@ -221,6 +313,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
     scaleX: 1
@@ -228,6 +323,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -237,10 +337,32 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   alpha: 1
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 folder: null
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!BUGhPpkGiTWVhrI5'
 

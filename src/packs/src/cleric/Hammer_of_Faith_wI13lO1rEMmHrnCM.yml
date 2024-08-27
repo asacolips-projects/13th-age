@@ -1,6 +1,4 @@
 name: Hammer of Faith
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Hammer of Faith
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  group:
+    type: String
+    label: Group
+    value: null
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Cleric
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Hammer of Faith
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -115,18 +133,34 @@ system:
     value: >-
       <p><span>Until the end of the battle, your basic melee attacks use d12s as
       their base weapon damage dice.</span></p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
     value: The spell now requires only a quick action to cast.
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: You deal half damage on misses with basic melee attacks this battle.
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: Once during the battle, you can reroll a basic melee attack.
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
@@ -134,6 +168,14 @@ system:
       For the rest of the battle, change any of your basic melee attack damage
       dice rolls that are less than the escalation die to the escalation die
       value.
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -142,18 +184,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
   embeddedMacro:
     type: String
@@ -166,11 +204,22 @@ system:
 
       game.archmage.ArchmageMacros.clericHammerOfFaith(speaker, actor, token,
       character, archmage);
-  group:
-    value: null
 flags: {}
 img: systems/archmage/assets/icons/skills/weapon_42.jpg
 effects: []
 _id: wI13lO1rEMmHrnCM
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!wI13lO1rEMmHrnCM'
 

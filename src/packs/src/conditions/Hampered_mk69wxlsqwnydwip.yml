@@ -1,11 +1,48 @@
 name: Hampered
-permission:
-  default: 0
-folder: ''
+folder: null
 flags: {}
-content: <p>You can only make basic attacks. You can still move normally.</p>
-img: ''
 _id: mk69wxlsqwnydwip
-pages: []
+pages:
+  - name: Hampered
+    type: text
+    title:
+      show: false
+      level: 1
+    text:
+      format: 1
+      content: <p>You can only make basic attacks. You can still move normally.</p>
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: yZ7ybvesYPUYKtgB
+    system: {}
+    image: {}
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!mk69wxlsqwnydwip.yZ7ybvesYPUYKtgB'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+sort: 0
 _key: '!journal!mk69wxlsqwnydwip'
 

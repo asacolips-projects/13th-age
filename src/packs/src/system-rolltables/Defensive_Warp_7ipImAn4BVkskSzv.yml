@@ -1,6 +1,4 @@
 name: Defensive Warp
-permission:
-  default: 0
 flags:
   core:
     sourceId: RollTable.Tg85xvRd6Mfb3F9n
@@ -9,88 +7,101 @@ description: ''
 results:
   - _id: N8qTjWfc2ydN4JTE
     flags: {}
-    type: 0
+    type: text
     text: >-
       Air: Once before the end of your next turn, you can heal using a recovery
       as a quick action.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 1
       - 1
     drawn: false
+    documentId: null
     _key: '!tables.results!7ipImAn4BVkskSzv.N8qTjWfc2ydN4JTE'
   - _id: jNZz3gEO1GRfiYLm
     flags: {}
-    type: 0
+    type: text
     text: 'Earth: You gain [[@wis.dmg]] temporary hit points.'
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 2
       - 2
     drawn: false
+    documentId: null
     _key: '!tables.results!7ipImAn4BVkskSzv.jNZz3gEO1GRfiYLm'
   - _id: KRm3f2zhWFZKaY80
     flags: {}
-    type: 0
+    type: text
     text: >-
       Fire: Until the end of your next turn, when an enemy moves to engage you,
       it takes [[@wis.dmg]] fire damage.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 3
       - 3
     drawn: false
+    documentId: null
     _key: '!tables.results!7ipImAn4BVkskSzv.KRm3f2zhWFZKaY80'
   - _id: pYhC1c0fgROdmwZU
     flags: {}
-    type: 0
+    type: text
     text: >-
       Water: Until the end of your next turn, when you heal using a recovery,
       add [[@wis.dmg]] hit points.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 4
       - 4
     drawn: false
+    documentId: null
     _key: '!tables.results!7ipImAn4BVkskSzv.pYhC1c0fgROdmwZU'
   - _id: RYPLhh2FxMwQ6xB1
     flags: {}
-    type: 0
+    type: text
     text: 'Metal: Until the end of your next turn, you gain a +2 bonus to AC.'
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 5
       - 5
     drawn: false
+    documentId: null
     _key: '!tables.results!7ipImAn4BVkskSzv.RYPLhh2FxMwQ6xB1'
   - _id: VnTkgoo8HCXwiBfH
     flags: {}
-    type: 0
+    type: text
     text: >-
       Void: Until the end of your next turn, the first time an attack hits you,
       as a free action you can choose to lose [[@lvl]] hit points to force the
       attacker to reroll the attack.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 6
       - 6
     drawn: false
+    documentId: null
     _key: '!tables.results!7ipImAn4BVkskSzv.VnTkgoo8HCXwiBfH'
 formula: 1d6
 replacement: true
 displayRoll: false
 _id: 7ipImAn4BVkskSzv
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!tables!7ipImAn4BVkskSzv'
 

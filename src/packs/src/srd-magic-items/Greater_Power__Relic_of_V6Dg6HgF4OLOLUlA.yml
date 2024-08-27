@@ -59,6 +59,25 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
   isActive: true
   price:
     value: ''
@@ -70,10 +89,12 @@ flags:
 _stats:
   systemId: archmage
   systemVersion: 1.29.2
-  coreVersion: '11.315'
+  coreVersion: '12.331'
   createdTime: 1714648279032
   modifiedTime: 1714648280706
   lastModifiedBy: zQqK0qgL2au7apj0
+  compendiumSource: null
+  duplicateSource: null
 _id: V6Dg6HgF4OLOLUlA
 sort: 500000
 ownership:

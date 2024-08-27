@@ -1,6 +1,4 @@
 name: Chaos Blessing
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Chaos Blessing
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  group:
+    type: String
+    label: Group
+    value: Defense
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Chaos Mage
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Chaos Blessing
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -134,30 +152,54 @@ system:
       nearby ally with the fewest hit points can heal using a recovery. (If
       you&rsquo;re the one with the fewest hit points among you and your nearby
       allies, it&rsquo;s you.)</td></tr></tbody></table>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
     value: >-
       gift and resilience now grant [[12]] temporary hit points; aura/tentacles
       damage is 2d10.  [[2d10]]
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: >-
       gift and resilience now grant [[20]] temporary hit points; aura/tentacles
       damage is 4d10.  [[4d10]]
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: >-
       gift and resilience now grant [[35]] temporary hit points; aura/tentacles
       damage is 6d8.   [[6d8]]
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
     value: >-
       gift and resilience now grant [[60]] temporary hit points; aura/tentacles
       damage is 10d8.   [[10d8]]
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -166,18 +208,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -244,13 +282,26 @@ system:
       maxQuantity:
         type: Number
         value: null
-  group:
+  embeddedMacro:
     type: String
-    label: Group
-    value: Defense
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/protect-eerie-3.jpg
 _id: bdVV5lXG3H3m3MMB
 effects: []
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!bdVV5lXG3H3m3MMB'
 

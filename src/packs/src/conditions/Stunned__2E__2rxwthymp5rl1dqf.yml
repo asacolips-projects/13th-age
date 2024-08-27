@@ -1,15 +1,52 @@
 name: Stunned (2E)
-permission:
-  default: 0
-folder: ''
+folder: null
 flags: {}
-content: >-
-  <p>You take a –4 penalty to defenses and can’t take any actions; but at the
-  start of your turn, roll a hard save (16+). If the save succeeds, you can take
-  one action on your turn. (This save doesn’t solve the stunned condition, it
-  just lets you take one action.)</p>
-img: ''
 _id: 2rxwthymp5rl1dqf
-pages: []
+pages:
+  - name: Stunned (2E)
+    type: text
+    title:
+      show: false
+      level: 1
+    text:
+      format: 1
+      content: >-
+        <p>You take a –4 penalty to defenses and can’t take any actions; but at
+        the start of your turn, roll a hard save (16+). If the save succeeds,
+        you can take one action on your turn. (This save doesn’t solve the
+        stunned condition, it just lets you take one action.)</p>
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: Vfh643rBHWbUcRmQ
+    system: {}
+    image: {}
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!2rxwthymp5rl1dqf.Vfh643rBHWbUcRmQ'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+sort: 0
 _key: '!journal!2rxwthymp5rl1dqf'
 

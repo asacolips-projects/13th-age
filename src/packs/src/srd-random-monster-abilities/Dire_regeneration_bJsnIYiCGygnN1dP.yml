@@ -18,13 +18,20 @@ system:
   embeddedMacro:
     value: ''
 effects: []
-flags: null
+flags: {}
 folder: null
 sort: 0
 ownership:
   default: 0
 _id: bJsnIYiCGygnN1dP
-permission:
-  default: 0
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!items!bJsnIYiCGygnN1dP'
 

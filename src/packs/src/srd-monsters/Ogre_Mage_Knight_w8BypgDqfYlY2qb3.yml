@@ -94,6 +94,66 @@ system:
       value: Exceptional attacks 16+
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Ogre Mage Knight
   displayName: 0
@@ -105,7 +165,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -137,6 +201,8 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   sight:
     enabled: false
     range: 0
@@ -152,6 +218,18 @@ prototypeToken:
   randomImg: false
   appendNumber: false
   prependAdjective: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Naginata
     type: action
@@ -219,6 +297,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.ofMDR0oMKXiaibcR'
   - name: 'R: Magi''s lightning chain'
     type: action
@@ -280,6 +367,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.3lJ8CDph1me81jNg'
   - name: 'C: Cone of Cold'
     type: action
@@ -340,6 +436,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.LYtCCTqF6NsOnwt9'
   - name: 'C: Lightning pulse'
     type: action
@@ -398,6 +503,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.yM3pJrwcwE3AiLvP'
   - name: Voice of thunder
     type: action
@@ -456,6 +570,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.YfHdk7CPDThTH247'
   - name: Resist exceptional attacks 16+
     type: trait
@@ -483,6 +606,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.Rd2eWJBa7AXFWrwG'
   - name: Trollish regeneration 15
     type: trait
@@ -516,6 +648,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.xArIwOvppJbItiOJ'
   - name: Ki
     type: nastierSpecial
@@ -544,6 +685,15 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!actors.items!w8BypgDqfYlY2qb3.otbZn08rb8s8wl73'
 effects: []
 folder: null
@@ -552,5 +702,14 @@ flags:
   archmage: {}
 ownership:
   default: 0
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!actors!w8BypgDqfYlY2qb3'
 

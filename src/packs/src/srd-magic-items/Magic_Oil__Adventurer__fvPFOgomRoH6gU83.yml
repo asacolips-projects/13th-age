@@ -59,6 +59,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!fvPFOgomRoH6gU83.jnS8iXTk9vLhlph1'
   - origin: null
     disabled: false
@@ -91,6 +100,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!fvPFOgomRoH6gU83.lqlDR6BC1sdep7Ni'
   - origin: null
     disabled: false
@@ -123,6 +141,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!fvPFOgomRoH6gU83.VJZXQ5BBR9RHwuyE'
   - origin: null
     disabled: false
@@ -159,6 +186,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!fvPFOgomRoH6gU83.y4BSKRb2cFd6oQHI'
 flags:
   core: {}
@@ -168,5 +204,14 @@ sort: 700000
 ownership:
   default: 0
   zQqK0qgL2au7apj0: 3
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!items!fvPFOgomRoH6gU83'
 

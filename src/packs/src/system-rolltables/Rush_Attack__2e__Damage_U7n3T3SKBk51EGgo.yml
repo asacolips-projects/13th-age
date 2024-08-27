@@ -2,7 +2,7 @@ name: Rush Attack (2e) Damage
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 1
@@ -15,7 +15,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.9i7Fw131LG66pcw5'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 2
@@ -28,7 +28,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.NOtpaCU1b0GbGW1T'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 3
@@ -41,7 +41,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.qo16CSmUTBmgCezX'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 4
@@ -54,7 +54,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.EVE6YA96WghhR6Qa'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 5
@@ -67,7 +67,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.9Q69k3xWJhv9sc47'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 6
@@ -80,7 +80,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.YkVE7LF8EFZOL0nd'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 7
@@ -93,7 +93,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.JQwplMCdh5pv3WdL'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 8
@@ -106,7 +106,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.dFfXaM6DiV5UXJ1D'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 9
@@ -119,7 +119,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.9Cc3qzN9yU06kh19'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 10
@@ -132,7 +132,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.DYHcnD9z5JoxKJcC'
-  - type: 0
+  - type: text
     documentCollection: ''
     weight: 1
     range:
@@ -153,7 +153,16 @@ flags:
 folder: null
 _id: U7n3T3SKBk51EGgo
 sort: 0
-permission:
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
   default: 0
 _key: '!tables!U7n3T3SKBk51EGgo'
 

@@ -33,6 +33,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!mtHqtsRO54qE3v0p.jnS8iXTk9vLhlph2'
   - origin: null
     disabled: false
@@ -65,6 +74,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!mtHqtsRO54qE3v0p.lqlDR6BC1sdep7Nj'
   - origin: null
     disabled: false
@@ -97,6 +115,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!mtHqtsRO54qE3v0p.VJZXQ5BBR9RHwuyF'
   - origin: null
     disabled: false
@@ -133,6 +160,15 @@ effects:
         ongoingDamage: 0
         ongoingDamageType: ''
         ongoingDamageCrit: false
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!items.effects!mtHqtsRO54qE3v0p.y4BSKRb2cFd6oQHJ'
 flags:
   core: {}
@@ -144,8 +180,9 @@ system:
     type: String
     label: Description
     value: >-
-      <p>Works as a @UUID[Compendium.archmage.srd-magic-items.Item.e6y7NbwbpCkIHpjF]{Magic
-      Oil (Epic)} and provides an additional effect based on what it is applied
+      <p>Works as a
+      @UUID[Compendium.archmage.srd-magic-items.Item.e6y7NbwbpCkIHpjF]{Magic Oil
+      (Epic)} and provides an additional effect based on what it is applied
       to:</p>
 
       <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random
@@ -170,5 +207,14 @@ sort: 0
 ownership:
   default: 0
   zQqK0qgL2au7apj0: 3
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
 _key: '!items!mtHqtsRO54qE3v0p'
 

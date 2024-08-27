@@ -1,11 +1,48 @@
 name: Dazed
-permission:
-  default: 0
-folder: ''
+folder: null
 flags: {}
-content: <p>You take a &ndash;4 penalty to attacks.</p>
-img: ''
 _id: dk4ua6smvjafdrqm
-pages: []
+pages:
+  - name: Dazed
+    type: text
+    title:
+      show: false
+      level: 1
+    text:
+      format: 1
+      content: <p>You take a –4 penalty to attacks.</p>
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: X9aGdSzX93xk8fSb
+    system: {}
+    image: {}
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!dk4ua6smvjafdrqm.X9aGdSzX93xk8fSb'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+sort: 0
 _key: '!journal!dk4ua6smvjafdrqm'
 

@@ -1,6 +1,4 @@
 name: Attacking Warp
-permission:
-  default: 0
 flags:
   core:
     sourceId: RollTable.AMxFCU82S7WGM44U
@@ -9,89 +7,102 @@ description: ''
 results:
   - _id: NniTrYCFEwsdIshA
     flags: {}
-    type: 0
+    type: text
     text: 'Air: You gain flight until the end of your next turn.'
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 1
       - 1
     drawn: false
+    documentId: null
     _key: '!tables.results!xtyWhbxF5H2o3F26.NniTrYCFEwsdIshA'
   - _id: s1IhK8XsDjlsmRRX
     flags: {}
-    type: 0
+    type: text
     text: >-
       Earth: Until the end of your next turn, each enemy that misses you with a
       melee attack is *stuck* until the end of its next turn.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 2
       - 2
     drawn: false
+    documentId: null
     _key: '!tables.results!xtyWhbxF5H2o3F26.s1IhK8XsDjlsmRRX'
   - _id: e3Nz9VBOmrlrPED7
     flags: {}
-    type: 0
+    type: text
     text: >-
       Fire: Until the end of your next turn, you can pop free from staggered
       enemies as a quick action.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 3
       - 3
     drawn: false
+    documentId: null
     _key: '!tables.results!xtyWhbxF5H2o3F26.e3Nz9VBOmrlrPED7'
   - _id: iJTdGfcZIJJsOWEM
     flags: {}
-    type: 0
+    type: text
     text: >-
       Water: You gain a [[@dex.mod]] bonus to disengage checks until the end of
       your next turn
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 4
       - 4
     drawn: false
+    documentId: null
     _key: '!tables.results!xtyWhbxF5H2o3F26.iJTdGfcZIJJsOWEM'
   - _id: Sf27m1Fg1L8Kjjso
     flags: {}
-    type: 0
+    type: text
     text: >-
       Metal: Until the end of your next turn, when an enemy disengages from you,
       it takes [[@dex.dmg]] damage.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 5
       - 5
     drawn: false
+    documentId: null
     _key: '!tables.results!xtyWhbxF5H2o3F26.Sf27m1Fg1L8Kjjso'
   - _id: 1XbQGghqSzOnCkxC
     flags: {}
-    type: 0
+    type: text
     text: >-
       Void: During your next turn, you can use a move action to teleport to a
       nearby location you can see.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 1
     range:
       - 6
       - 6
     drawn: false
+    documentId: null
     _key: '!tables.results!xtyWhbxF5H2o3F26.1XbQGghqSzOnCkxC'
 formula: 1d6
 replacement: true
 displayRoll: false
 _id: xtyWhbxF5H2o3F26
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!tables!xtyWhbxF5H2o3F26'
 
