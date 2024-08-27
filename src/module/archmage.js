@@ -1353,7 +1353,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       menuItems.push({
         name: `
           <div class="damage-modifiers flex flexrow">
-            <button type="button" data-mod="0.5">0.5x</button>
+            <button type="button" data-mod="0.25">&frac14;x</button>
+            <button type="button" data-mod="0.5">&frac12;x</button>
             <button type="button" data-mod="1" class="active">1x</button>
             <button type="button" data-mod="1.5">1.5x</button>
             <button type="button" data-mod="2">2x</button>
