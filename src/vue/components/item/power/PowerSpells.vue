@@ -12,10 +12,12 @@
         <label>{{game.i18n.localize(`ARCHMAGE.CHAT.spellLevel${level}`)}}</label>
         <div class="field flexrow">
           <span class="flexshrink" data-tooltip="Hide from chat" data-tooltip-direction="LEFT">
-            <input type="checkbox" :name="`system.spellLevel${level}.hide`"
-              v-model="item.system[`spellLevel${level}`].hide"
-              class="checkbox-disable"
-            />
+            <label><span class="visually-hidden">Hide spell level {{ level }} from chat.</span>
+              <input type="checkbox" :name="`system.spellLevel${level}.hide`"
+                v-model="item.system[`spellLevel${level}`].hide"
+                class="checkbox-disable"
+              />
+            </label>
           </span>
           <TextareaGrow :name="`system.spellLevel${level}.value`"
             :value="item.system[`spellLevel${level}`].value"

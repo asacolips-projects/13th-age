@@ -55,8 +55,6 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
     'breathWeapon',
     'recharge',
   ];
-
-  codeMirrorEditors = [];
   
   constructor(options = {}) {
     super(options);
@@ -113,6 +111,7 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
       limited: this.document.limited,
       // Add the item document.
       item: this.item.toObject(),
+      actor: this.item.parent?.toObject() ?? false,
       // Adding system and flags for easier access
       system: this.item.system,
       flags: this.item.flags,
@@ -172,17 +171,19 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
     }
 
     // Enrich feats.
-    for (let [featKey, feat] of Object.entries(this.item.system.feats)) {
-      context.editors[`feat.${featKey}`] = {
-        enriched: await this.wrapRolls(feat.description.value ?? '', [], 'short', {}, featKey, enrichmentOptions),
-        element: foundry.applications.elements.HTMLProseMirrorElement.create({
-          name: `system.feats.${featKey}.description.value`,
-          toggled: true,
-          collaborate: true,
-          documentUUID: this.document.uuid,
-          height: 300,
-          value: feat.description.value ?? '',
-        }),
+    if (this.item.system.feats) {
+      for (let [featKey, feat] of Object.entries(this.item.system.feats)) {
+        context.editors[`feat.${featKey}`] = {
+          enriched: await this.wrapRolls(feat.description.value ?? '', [], 'short', {}, featKey, enrichmentOptions),
+          element: foundry.applications.elements.HTMLProseMirrorElement.create({
+            name: `system.feats.${featKey}.description.value`,
+            toggled: true,
+            collaborate: true,
+            documentUUID: this.document.uuid,
+            height: 300,
+            value: feat.description.value ?? '',
+          }),
+        }
       }
     }
 
@@ -193,69 +194,6 @@ export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
     }
 
     return context;
-  }
-
-  /* ---------------------------------------------------- */
-
-  /**
-   * Render the outer framing HTMLElement and mount the Vue application.
-   * 
-   * This occurs when the application is opened, but not on subsequent renders.
-   * 
-   * @param {RenderOptions} options
-   * @returns {Promise<HTMLElement>}
-   * 
-   * @protected
-   * @override
-   */
-  async _renderFrame(options) {
-    const element = await super._renderFrame(options);
-
-    // Add codemirror to the macro editor.
-    if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror !== undefined) {
-      const macroEditors = this.vueRoot.$el.querySelectorAll('.power-macro-editor textarea');
-      for (let textarea of macroEditors) {
-        // @todo the value is hidden on first load. Not sure why.
-        const editor = CodeMirror.fromTextArea(textarea, {
-          ...CodeMirror.userSettings,
-          mode: "javascript",
-          lineNumbers: true,
-          inputStyle: "contenteditable",
-          autofocus: false,
-          theme: game.settings.get("archmage", "nightmode") ? 'monokai' : 'default',
-          readOnly: textarea.hasAttribute('readonly')
-        })
-        editor.on('change', (instance) => instance.save());
-        this.codeMirrorEditors.push(editor);
-      }
-    }
-
-    return element;
-  }
-
-  /**
-   * Handle updates for the Vue application instance.
-   * 
-   * Normally, this would render the HTML for the content within the application.
-   * However, for Vue, all we want to do is update the 'context' property that's
-   * passed into the Vue application instance.
-   * 
-   * Unlinke _renderFrame(), this occurs on every update for the application.
-   * 
-   * @param {ApplicationRenderContext} context 
-   * @param {RenderOptions} options 
-   * @returns {Promise<string>}
-   * 
-   * @protected
-   * @override
-   */
-  async _renderHTML(context, options) {
-    await super._renderHTML(context, options);
-    // Manually refresh codemirror editors.
-    for (let editor of this.codeMirrorEditors) {
-      editor.refresh();
-    }
-    return '';
   }
 
   /* ---------------------------------------------------- */

@@ -26,7 +26,7 @@
         </Suspense>
       </div>
       <template v-for="field in powerDetailFields" :key="field">
-        <div v-if="!power.system[field]?.hide" class="power-detail" :data-field="field">
+        <div v-if="!power.system[field]?.hide && canCastSpell(field)" class="power-detail" :data-field="field">
           <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
           <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
           <Suspense v-else>
@@ -40,7 +40,8 @@
       <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="`power-feat ${feat.isActive.value || includeTitle ? 'active' : ''}`">
         <strong class="feat-detail-label">{{localize(`ARCHMAGE.CHAT.${feat.tier?.value}`)}}:</strong>
         <div class="flexrow">
-          <Suspense v-if="!enriched">
+          <div v-if="enriched" class="power-detail-content" v-html="enriched[`feat.${index}`].enriched"></div>
+          <Suspense v-else>
             <Enriched tag="div" class="power-detail-content" :text="feat.description.value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData"/>
           </Suspense>
           <div class="feat-uses" v-if="feat.isActive.value">
@@ -171,12 +172,29 @@ export default {
       let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
       if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
       else if (use == 'cyclic') {
-        if (this.actor.system.attributes.escalation.value > 0
-          && this.actor.system.attributes.escalation.value % 2 == 0) {
+        if (this.actor?.system.attributes.escalation.value > 0
+          && this.actor?.system.attributes.escalation.value % 2 == 0) {
           use = 'at-will cyclic';
         } else use = 'once-per-battle cyclic';
       }
       return use;
+    },
+    /**
+     * Determine if a character is high enough level to cast a spell.
+     * 
+     * @param {string} field Field name, such as "spellLevel1".
+     * @returns {boolean} True if the power's current (or overridden) level
+     *   is greater than or equal to this particular field's level.
+     */
+    canCastSpell(field) {
+      if (!field.includes('spellLevel')) return true;
+
+      const overridePowerLevel = this.actor?.flags?.archmage.overridePowerLevel ?? false;
+      const actorLevel = Number(this.actor?.system?.attributes?.level?.value ?? 1);
+      const powerLevel = Number(this.power.system.powerLevel.value ?? 1);
+      return overridePowerLevel
+        ? Math.max(actorLevel, powerLevel) >= Number(field.match(/\d+/g)?.[0] ?? 0)
+        : powerLevel >= Number(field.match(/\d+/g)?.[0] ?? 0);
     }
   },
   async mounted() {}

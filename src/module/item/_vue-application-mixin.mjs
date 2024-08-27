@@ -140,8 +140,8 @@ export default function VueRenderingMixin(BaseApplication) {
         context._renderKey = this._renderKey;
         // Update the application root with new values.
         this.vueRoot.updateContext(context);
-        // Return an empty string to prevent errors.
-        return '';
+        // Return doesn't matter, Vue handles updates.
+        return;
       }
 
       /** @override */
@@ -158,6 +158,9 @@ export default function VueRenderingMixin(BaseApplication) {
        * @override
        */
       async close(options = {}) {
+        if (this.options.form.submitOnClose) {
+          await this.submit();
+        }
         // Unmount the vue instance.
         if (this.vueApp) this.vueApp.unmount();
         await super.close(options);

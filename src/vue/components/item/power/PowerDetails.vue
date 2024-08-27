@@ -162,10 +162,15 @@
        </ul>
       </p>
       <div class="field">
-        <textarea class="attribute-value" name="system.embeddedMacro.value"
+        <!-- <textarea class="attribute-value"
+          name="system.embeddedMacro.value"
           rows="20"
           v-html="item.system.embeddedMacro.value"
-          spellcheck="false"></textarea>
+          spellcheck="false"></textarea> -->
+        <CodemirrorWrapper class="attribute-value"
+          name="system.embeddedMacro.value"
+          :value="item.system.embeddedMacro.value"
+        />
       </div>
     </div>
   </fieldset>
@@ -174,6 +179,7 @@
 <script setup>
   import {
     TextareaGrow,
+    CodemirrorWrapper,
     Prosemirror,
     InlineRollsReferenceHint,
   } from '@/components';

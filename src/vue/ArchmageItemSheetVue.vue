@@ -28,7 +28,7 @@
     
         <!-- Details fields -->
         <Tab group="primary" :tab="tabs.primary.details">
-          <PowerDetails :item="context.item" :context="context" />
+          <PowerDetails :item="context.item" :context="context"/>
         </Tab>
     
         <!-- Details fields -->
@@ -41,6 +41,7 @@
           <PowerSpells :item="context.item" :context="context"/>
         </Tab>
 
+        <!-- Feats -->
         <Tab group="primary" :tab="tabs.primary.feats">
           <PowerFeats :item="context.item" :context="context"/>
         </Tab>
@@ -49,7 +50,7 @@
         <Tab group="primary" :tab="tabs.primary.effects">
           <fieldset class="section--effects">
             <legend>Active Effects</legend>
-            <p class="hint">Active Effects will not be applied directly to this item's parent actor, but they will show up as draggable effects on power cards in chat.</p>
+            <p class="hint">Active Effects will not be applied directly to this item's parent actor, but they will show up as draggable effects on power cards in chat messages.</p>
             <div class="archmage-v2 sheet">
               <section class="section--powers">
                 <CharEffects :actor="context.item" :key="context._renderKey"/>
@@ -63,7 +64,7 @@
         <legend>Preview</legend>
         <div class="archmage-v2 sheet">
           <section class="section--powers">
-            <Power :power="context.item" :context="context" include-title="true" :enriched="context.editors"/>
+            <Power :power="context.item" :actor="context.actor" :context="context" include-title="true" :enriched="context.editors"/>
           </section>
         </div>
       </fieldset>
@@ -84,7 +85,7 @@ import {
   PowerFeats,
   CharEffects,
 } from '@/components';
-import { reactive } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 
 const props = defineProps(['context']);
 const tabs = reactive({

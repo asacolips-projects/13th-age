@@ -144,10 +144,23 @@
       flex: 0;
     }
 
-    .checkbox-disable:checked {
+    .checkbox-disable {
+      &::before {
+        color: $c-progress-full;
+        content: '\f00c';
+      }
       &::after {
-        color: $c-progress-dire;
-        content: "\f00d\f00d";
+        content: '';
+      }
+
+      &:checked {
+        &::before {
+          content: '';
+        }
+        &::after {
+          color: $c-progress-dire;
+          content: "\f00d\f00d";
+        }
       }
     }
   }
