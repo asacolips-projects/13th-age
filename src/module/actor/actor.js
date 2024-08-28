@@ -593,8 +593,8 @@ export class ActorArchmage extends Actor {
     if (game.settings.get("archmage", "secondEdition")) {
       // Item recovery bonus is applied here, per level
       formulaConst += recoveriesBonus * Number(data.attributes.level?.value);
-      // If we are high level, also add stati extra as per the beta rules
-      formulaConst += Math.max(0, 10*(data.attributes.level?.value - 7));
+      // If we are high level, also add static extra as per the beta rules
+      formulaConst += Math.max(0, 10*(recLevel - 7));
     }
     data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
@@ -854,7 +854,7 @@ export class ActorArchmage extends Actor {
     bonus += (this.system.attributes?.disengageBonus || 0); // From sheet
     if (bonus != 0) terms.push(bonus.toString());
 
-    const dialogOptions = {width: 420};
+    const dialogOptions = {width: 520};
     let situational = 0;
     let data = {};
 
@@ -933,6 +933,20 @@ export class ActorArchmage extends Actor {
         title: title,
         content: dlg,
         buttons: {
+          bon2: {
+            label: '+2',
+            callback: () => {
+              situational = 2;
+              rolled = true;
+            }
+          },
+          bon1: {
+            label: '+1',
+            callback: () => {
+              situational = 1;
+              rolled = true;
+            }
+          },
           normal: {
             label: game.i18n.localize("ARCHMAGE.rollNormal"),
             callback: () => {
@@ -978,6 +992,27 @@ export class ActorArchmage extends Actor {
             label: '-6',
             callback: () => {
               situational = -6;
+              rolled = true;
+            }
+          },
+          pen7: {
+            label: '-7',
+            callback: () => {
+              situational = -7;
+              rolled = true;
+            }
+          },
+          pen8: {
+            label: '-8',
+            callback: () => {
+              situational = -8;
+              rolled = true;
+            }
+          },
+          pen9: {
+            label: '-9',
+            callback: () => {
+              situational = -9;
               rolled = true;
             }
           },
