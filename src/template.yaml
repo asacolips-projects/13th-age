@@ -513,10 +513,16 @@ Item:
         type: Number
         label: Max Uses
         value: null
+    supportsMacro:
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
   power:
     templates:
       - standard
       - usable
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -687,33 +693,11 @@ Item:
       type: String
       label: Roll Table
       value: ''
-    feats:
-      # 0:
-        # description:
-          # type: String
-          # value: ''
-        # isActive:
-          # type: Boolean
-          # value: false
-        # tier:
-          # type: String
-          # value: 'adventurer'
-        # powerUsage:
-          # type: String
-          # value: ''
-        # quantity:
-          # type: Number
-          # value: null
-        # maxQuantity:
-          # type: Number
-          # value: null
-    embeddedMacro:
-      type: String
-      label: Embedded Macro
-      value: ''
+    feats: {}
   trait:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -721,6 +705,7 @@ Item:
   action:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -749,13 +734,10 @@ Item:
     miss:
       type: String
       label: Miss
-    embeddedMacro:
-      type: String
-      label: Embedded Macro
-      value: ''
   nastierSpecial:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group

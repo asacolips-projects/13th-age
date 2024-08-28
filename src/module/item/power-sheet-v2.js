@@ -77,6 +77,36 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
       rollData: this.actor?.getRollData() ?? {},
       // Adding a pointer to CONFIG.ARCHMAGE
       config: CONFIG.ARCHMAGE,
+      // Add tabs:
+      tabs: {
+        primary: {
+          details: {
+            key: 'details',
+            label: game.i18n.localize('ARCHMAGE.details'),
+            active: true,
+          },
+          attack: {
+            key: 'attack',
+            label: 'Attack',
+            active: false,
+          },
+          special: {
+            key: 'special',
+            label: 'Special',
+            active: false,
+          },
+          feats: {
+            key: 'feats',
+            label: 'Feats',
+            active: false,
+          },
+          effects: {
+            key: 'effects',
+            label: 'Effects',
+            active: false,
+          }
+        },
+      },
       // Force re-renders. Defined in the vue mixin.
       _renderKey: this._renderKey ?? 0,
       // @todo add this after switching to DataModel

@@ -20,30 +20,30 @@
     <div class="section--main">
       <section class="section--fields has-preview">
         <!-- Tab links -->
-        <Tabs :tabs="tabs.primary" no-span="true"/>
+        <Tabs :tabs="context.tabs.primary" no-span="true"/>
     
         <!-- Details fields -->
-        <Tab group="primary" :tab="tabs.primary.details">
+        <Tab group="primary" :tab="context.tabs.primary.details">
           <PowerDetails :item="context.item" :context="context"/>
         </Tab>
     
         <!-- Details fields -->
-        <Tab group="primary" :tab="tabs.primary.attack">
+        <Tab group="primary" :tab="context.tabs.primary.attack">
           <PowerAttack :item="context.item" :context="context"/>
         </Tab>
 
         <!-- Spell Fields -->
-        <Tab group="primary" :tab="tabs.primary.special">
+        <Tab group="primary" :tab="context.tabs.primary.special">
           <PowerSpells :item="context.item" :context="context"/>
         </Tab>
 
         <!-- Feats -->
-        <Tab group="primary" :tab="tabs.primary.feats">
+        <Tab group="primary" :tab="context.tabs.primary.feats">
           <PowerFeats :item="context.item" :context="context"/>
         </Tab>
 
         <!-- Active Effect Fields -->
-        <Tab group="primary" :tab="tabs.primary.effects">
+        <Tab group="primary" :tab="context.tabs.primary.effects">
           <fieldset class="section--effects">
             <legend>{{ game.i18n.localize('ARCHMAGE.activeEffects') }}</legend>
             <p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.activeEffectsItemHint')"></p>
@@ -73,7 +73,6 @@
 import {
   Tabs,
   Tab,
-  Prosemirror,
   Power,
   PowerDetails,
   PowerAttack,
@@ -81,39 +80,10 @@ import {
   PowerFeats,
   CharEffects,
 } from '@/components';
-import { onMounted, reactive, ref, inject } from 'vue';
-
-const itemDocument = inject('itemDocument');
+import { inject } from 'vue';
 
 const props = defineProps(['context']);
-const tabs = reactive({
-  primary: {
-    details: {
-      key: 'details',
-      label: game.i18n.localize('ARCHMAGE.details'),
-      active: true,
-    },
-    attack: {
-      key: 'attack',
-      label: 'Attack',
-      active: false,
-    },
-    special: {
-      key: 'special',
-      label: 'Special',
-      active: false,
-    },
-    feats: {
-      key: 'feats',
-      label: 'Feats',
-      active: false,
-    },
-    effects: {
-      key: 'effects',
-      label: 'Effects',
-      active: false,
-    }
-  },
-});
+
+const itemDocument = inject('itemDocument');
 
 </script>

@@ -188,7 +188,7 @@ Hooks.once('init', async function() {
   });
   Items.registerSheet("archmage", ArchmageActionSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
-    types: ["action"],
+    types: ["action", "trait", "nastierSpecial"],
     makeDefault: true,
   })
 

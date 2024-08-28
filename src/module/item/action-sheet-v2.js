@@ -79,7 +79,8 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       // systemFields: this.document.system.schema.fields
     };
 
-    console.log('context', context);
+    // Handle tabs.
+    this._prepareTabs(context);
 
     // Handle enriched fields.
     const enrichmentOptions = {
@@ -111,7 +112,9 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
     };
 
     // Enrich powers and feats.
-    await this._enrichActions(context, enrichmentOptions, editorOptions);
+    if (this.item.type === 'action') {
+      await this._enrichActions(context, enrichmentOptions, editorOptions);
+    }
 
     // Make another pass through the editors to fix the element contents.
     for (let [field, editor] of Object.entries(context.editors)) {
@@ -153,6 +156,41 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
           value: context.system[field]?.value ?? '',
         }),
       };
+    }
+  }
+
+  _prepareTabs(context) {
+    // Initialize tabs.
+    context.tabs = {
+      primary: {},
+    };
+
+    // Tabs available to all items.
+    context.tabs.primary.details = {
+      key: 'details',
+      label: game.i18n.localize('ARCHMAGE.details'),
+      active: false,
+    };
+
+    // Tabs limited to NPCs.
+    if (this.item.type === 'action') {
+      context.tabs.primary.attack = {
+        key: 'attack',
+        label: 'Attack',
+        active: true,
+      };
+    }
+
+    // More tabs available to all items.
+    context.tabs.primary.effects = {
+      key: 'effects',
+      label: 'Effects',
+      active: false,
+    };
+
+    // Ensure we have a default tab.
+    if (this.item.type !== 'action') {
+      context.tabs.primary.details.active = true;
     }
   }
 }
