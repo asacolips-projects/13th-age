@@ -5,6 +5,7 @@ export default class ArchmageRolls {
     let newTargetLine = undefined;
     let targets = 1;
     let nlpMap = {}
+    const actor = item.actor ?? game.user.character;
     for (let i=2; i<=9; i++) {
       nlpMap[game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)+" "] = i;
       nlpMap[i.toString()] = i;
@@ -25,10 +26,10 @@ export default class ArchmageRolls {
         // Remove all numbers with at least 2 digits (so 10+)
         // except for inline rolls (by checking for preceding '[[')
         lineToParse = lineToParse.replace(/(?<!\[\[)[0-9]{2,}/g, '');
-        rolls = ArchmageRolls.getInlineRolls(lineToParse, item.actor.getRollData());
+        rolls = ArchmageRolls.getInlineRolls(lineToParse, actor?.getRollData() ?? {});
         if (rolls != undefined) {
           // Roll the targets now
-          await ArchmageRolls.rollAll(rolls, item.actor);
+          await ArchmageRolls.rollAll(rolls, actor);
           targets = 0;
           newTargetLine = foundry.utils.duplicate(targetLine);
           rolls.forEach(r => {
@@ -59,10 +60,10 @@ export default class ArchmageRolls {
       if (targetLine != null) {
         targetLine = targetLine[0];
         // First check for rolls
-        rolls = ArchmageRolls.getInlineRolls(targetLine, item.actor.getRollData());
+        rolls = ArchmageRolls.getInlineRolls(targetLine, actor?.getRollData());
         if (rolls !== undefined) {
           // Roll the targets now
-          await ArchmageRolls.rollAll(rolls, item.actor);
+          await ArchmageRolls.rollAll(rolls, actor);
           targets = 0;
           rolls.forEach(r => targets += r.total);
         } else {
@@ -86,7 +87,8 @@ export default class ArchmageRolls {
   static addAttackMod(item) {
     // Add @atk.mod modifier to the first inline roll, if it isn't 0
     let attackLine = item.system.attack.value;
-    let atkMod = item.actor.getRollData().atk.mod;
+    const actor = item.actor ?? game.user.character;
+    let atkMod = actor?.getRollData().atk.mod ?? 0;
     if (atkMod) {
       let match = /(\[\[.+?\]\])/.exec(attackLine);
       if (match) {

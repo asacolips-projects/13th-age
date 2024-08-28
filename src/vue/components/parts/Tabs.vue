@@ -5,21 +5,30 @@
       <i class="fas fa-bars"></i><span class="visually-hidden"> Toggle Navigation</span>
     </button>
     <nav :class="`sheet-tabs tabs tabs--${group}`" :data-group="group">
-      <span v-for="(tab, tabKey) in tabs" :key="'tab-' + group + '-' + tabKey">
-        <a @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
+      <template v-if="noSpan">
+        <a v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`" @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey">
           <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
           <span v-if="!tab.hideLabel">{{tab.label}}</span>
         </a>
-      </span>
+      </template>
+      <template v-else>
+        <span v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`">
+          <a @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
+            <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
+            <span v-if="!tab.hideLabel">{{tab.label}}</span>
+          </a>
+        </span>
+      </template>
     </nav>
   </section>
 </template>
 
 <script>
 import { concat, getActor } from '@/methods/Helpers';
+import { toRaw } from 'vue';
 export default {
   name: 'Tabs',
-  props: ['context', 'actor', 'group', 'tabs', 'flags', 'hamburger'],
+  props: ['context', 'actor', 'group', 'tabs', 'flags', 'hamburger', 'no-span'],
   setup() {
     return { concat }
   },
@@ -70,7 +79,12 @@ export default {
     }
   },
   async mounted() {
-    this.currentTab = this.flags.sheetDisplay.tabs[this.group].value ? this.flags.sheetDisplay.tabs[this.group].value : 'details';
+    // Attempt to get the current tab from sheet flags.
+    const flagTab = this.flags?.sheetDisplay?.tabs[this.group]?.value;
+    // Otherwise, attempt to get the current tab from the first active tab.
+    const rawTabs = toRaw(this.tabs);
+    this.currentTab = flagTab ?? (Object.values(rawTabs).find(t => t.active)?.key ?? 'details');
+    // If the tab is hidden, default to details.
     if (this.tabs[this.currentTab].hidden) {
       this.currentTab = 'details';
     }

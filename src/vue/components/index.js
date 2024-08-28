@@ -24,3 +24,16 @@ export { default as Progress } from '@/components/parts/Progress.vue';
 export { default as Tabs } from '@/components/parts/Tabs.vue';
 export { default as Tab } from '@/components/parts/Tab.vue';
 export { default as Editor } from '@/components/parts/Editor.vue';
+export { default as CodemirrorWrapper } from '@/components/parts/CodemirrorWrapper.vue';
+export { default as Prosemirror } from '@/components/parts/Prosemirror.vue';
+export { default as TextareaGrow } from '@/components/parts/TextareaGrow.vue';
+export { default as InlineRollsReferenceHint } from '@/components/parts/InlineRollsReferenceHint.vue';
+export { default as InfoBubble } from '@/components/parts/InfoBubble.vue';
+
+export { default as PowerAttack } from '@/components/item/power/PowerAttack.vue';
+export { default as PowerDetails } from '@/components/item/power/PowerDetails.vue';
+export { default as PowerSpells } from '@/components/item/power/PowerSpells.vue';
+export { default as PowerFeats } from '@/components/item/power/PowerFeats.vue';
+
+export { default as ActionDetails } from '@/components/item/action/ActionDetails.vue';
+export { default as ActionAttack } from '@/components/item/action/ActionAttack.vue';

@@ -13,6 +13,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     this.vueApp = null;
     this.vueRoot = null;
     this.vueListenersActive = false;
+    this._renderKey = 0;
     this.vueComponents = {
       'character-sheet': ArchmageCharacterSheet
     };
@@ -64,7 +65,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       isCharacter: this.actor.type === "character",
       isNPC: this.actor.type === "npc",
       config: CONFIG.ARCHMAGE,
-      rollData: this.actor.getRollData(this.actor)
+      rollData: this.actor.getRollData(this.actor),
+      _renderKey: this._renderKey,
     };
 
     // Convert the actor data into a more usable version.
@@ -123,6 +125,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /** @override */
   render(force=false, options={}) {
+    this._renderKey++;
     const context = this.getData();
 
     // Render the vue application after loading. We'll need to destroy this
@@ -295,6 +298,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     if (html.find('.archmage-v2-vue').length > 0) {
       this.vueListenersActive = true;
     }
+
+    console.log('foobar', html);
 
     this._dragHandler(html);
     this._lockEffectsFields(html);
@@ -1020,6 +1025,37 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       li.setAttribute('draggable', true);
       li.addEventListener('dragstart', dragHandler, false);
     });
+  }
+
+  /**
+   * Callback actions which occur at the beginning of a drag start workflow.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  _onDragStart(event) {
+    const li = event.currentTarget;
+    if ("link" in event.target.dataset) return;
+
+    let dragData = null;
+
+    // Active Effect
+    if (li.dataset.documentClass === 'ActiveEffect') {
+      if (li.dataset.effectId) {
+        const effect = this.actor.effects.get(li.dataset.effectId);
+        dragData = effect.toDragData();
+      }
+    }
+    else if (li.dataset.documentClass === 'Item') {
+      if (li.dataset.itemId) {
+        const item = this.actor.items.get(li.dataset.itemId);
+        dragData = item.toDragData();
+      }
+    }
+
+    if (!dragData) return;
+
+    // Set data transfer
+    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
   }
 
   /** @override */

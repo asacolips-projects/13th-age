@@ -482,6 +482,7 @@ Item:
       description:
         type: String
         label: Description
+        value: ''
     spendable:
       quantity:
         type: Number
@@ -512,10 +513,16 @@ Item:
         type: Number
         label: Max Uses
         value: null
+    supportsMacro:
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
   power:
     templates:
       - standard
       - usable
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -621,42 +628,52 @@ Item:
       label: Effect
       value: ''
     spellLevel2:
+      hide: false
       type: String
       label: 2nd Level Spell
       value: ''
     spellLevel3:
+      hide: false
       type: String
       label: 3rd Level Spell
       value: ''
     spellLevel4:
+      hide: false
       type: String
       label: 4th Level Spell
       value: ''
     spellLevel5:
+      hide: false
       type: String
       label: 5th Level Spell
       value: ''
     spellLevel6:
+      hide: false
       type: String
       label: 6th Level Spell
       value: ''
     spellLevel7:
+      hide: false
       type: String
       label: 7th Level Spell
       value: ''
     spellLevel8:
+      hide: false
       type: String
       label: 8th Level Spell
       value: ''
     spellLevel9:
+      hide: false
       type: String
       label: 9th Level Spell
       value: ''
     spellLevel10:
+      hide: false
       type: String
       label: 10th Level Spell
       value: ''
     spellLevel11:
+      hide: false
       type: String
       label: 11th Level Spell
       value: ''
@@ -676,33 +693,11 @@ Item:
       type: String
       label: Roll Table
       value: ''
-    feats:
-      # 0:
-        # description:
-          # type: String
-          # value: ''
-        # isActive:
-          # type: Boolean
-          # value: false
-        # tier:
-          # type: String
-          # value: 'adventurer'
-        # powerUsage:
-          # type: String
-          # value: ''
-        # quantity:
-          # type: Number
-          # value: null
-        # maxQuantity:
-          # type: Number
-          # value: null
-    embeddedMacro:
-      type: String
-      label: Embedded Macro
-      value: ''
+    feats: {}
   trait:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -710,6 +705,7 @@ Item:
   action:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -741,6 +737,7 @@ Item:
   nastierSpecial:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group

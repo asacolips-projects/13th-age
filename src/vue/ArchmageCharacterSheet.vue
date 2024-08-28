@@ -54,7 +54,7 @@
             </Tab>
             <!-- Effects tab -->
             <Tab group="primary" :tab="tabs.primary.effects">
-              <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags"/>
+              <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags" :key="context._renderKey"/>
             </Tab>
             <!-- Settings tab -->
             <Tab group="primary" :tab="tabs.primary.settings" v-if="shouldDisplaySettingsTab(actor)">

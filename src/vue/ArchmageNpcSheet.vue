@@ -34,7 +34,7 @@
           </Tab>
           <!-- Effects tab -->
           <Tab group="primary" :tab="tabs.primary.effects">
-            <CharEffects :actor="actor" :flags="flags"/>
+            <CharEffects :actor="actor" :flags="flags" :key="context._renderKey"/>
           </Tab>
           <!-- Modify Level tab -->
           <Tab group="primary" :tab="tabs.primary.modifyLevel">

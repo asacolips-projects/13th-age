@@ -4,6 +4,8 @@ import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
+import { ArchmagePowerSheetV2 } from './item/power-sheet-v2.js';
+import { ArchmageActionSheetV2 } from './item/action-sheet-v2.js';
 import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { MacroUtils } from './setup/utility-classes.js';
@@ -177,8 +179,19 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, {
     label: game.i18n.localize('ARCHMAGE.sheetItem'),
-    makeDefault: true
+    makeDefault: true,
   });
+  // AppV2 + Vue based sheets. These will eventually become the default.
+  Items.registerSheet("archmage", ArchmagePowerSheetV2, {
+    label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
+    types: ["power"],
+    makeDefault: false,
+  });
+  Items.registerSheet("archmage", ArchmageActionSheetV2, {
+    label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
+    types: ["action", "trait", "nastierSpecial"],
+    makeDefault: false,
+  })
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
     label: game.i18n.localize('ARCHMAGE.sheetActiveEffect'),
@@ -727,6 +740,11 @@ Hooks.once('ready', () => {
       // Render the browser.
       compendiumBrowser.render(true);
     }
+
+    if (event?.target?.classList?.contains('archmage-rolls-reference')) {
+      event.preventDefault();
+      new ArchmageReference().render(true);
+    }
   });
 
   // Wait to register the hotbar macros until ready.
@@ -973,13 +991,14 @@ Hooks.on("updateScene", (scene, data, options, userId) => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", async (app, html) => {
-  let button = $(`<button id="archmage-reference-btn" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
+  let button = $(`<button id="archmage-reference-btn" class="archmage-rolls-reference" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
-  button.on('click', ev => {
-    ev.preventDefault();
-    new ArchmageReference().render(true);
-  });
+  // Event trigger has been moved to the ready hook using the archmage-rolls-reference class.
+  // button.on('click', ev => {
+  //   ev.preventDefault();
+  //   new ArchmageReference().render(true);
+  // });
 
   let helpButton = $(`<button id="archmage-help-btn" type="button" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
   html.find('button[data-action="controls"]').after(helpButton);
@@ -1198,7 +1217,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
   }
 
   // Shift bypass
-  if (event.shiftKey) {
+  if (event?.shiftKey) {
     if ( !duration ) duration = "Unknown";
     let options = {};
     if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
@@ -1246,6 +1265,8 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
               effectData.flags.archmage.ongoingDamageCrit = true;
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
+            console.log('effectData', effectData);
+            console.log('actor', actor);
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },

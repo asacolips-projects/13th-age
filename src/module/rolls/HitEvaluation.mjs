@@ -14,7 +14,7 @@ export default class HitEvaluation {
         let hasMissed = undefined;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
-        let critRangeMin = 20 - attacker.system.attributes.critMod.atk.value;
+        let critRangeMin = 20 - attacker?.system.attributes.critMod.atk.value;
 
         let $rolls = $row_self.find('.inline-result');
         if ($rolls.length == 0) {
@@ -38,8 +38,8 @@ export default class HitEvaluation {
             let hasFumbled = false;
             let target = (roll_index < targetsToProcess) ? targets[roll_index]: undefined;
             let critRangeMinTarget = critRangeMin - HitEvaluation._getTargetCritDefenseValue(target);
-            if (addEdToCritRange) critRangeMinTarget -= attacker.system.attributes.escalation.value;
-            if (addStokeToCritRange) critRangeMinTarget -= Math.max(attacker.system?.resources?.spendable?.stoke?.current ?? 0, 0);
+            if (addEdToCritRange) critRangeMinTarget -= attacker?.system.attributes.escalation.value ?? 0;
+            if (addStokeToCritRange) critRangeMinTarget -= Math.max(attacker?.system?.resources?.spendable?.stoke?.current ?? 0, 0);
             for (let i = 0; i < roll_data.terms.length; i++) {
               var part = roll_data.terms[i];
               if (part.results) {
@@ -65,7 +65,7 @@ export default class HitEvaluation {
                       hasCrit = true;
                     }
                     // Natural 2, if dual-wielding.
-                    else if (attacker && attacker.type === 'character'
+                    else if (attacker && attacker?.type === 'character'
                       && attacker.system.attributes.weapon.melee.dualwield
                       && r.result === 2 && !r.discarded && !r.rerolled) {
                       $roll_self.addClass('dc-reroll');
@@ -117,12 +117,12 @@ export default class HitEvaluation {
 
     // Get either the Token overridden value or the base sheet value
     static _getTargetDefenseValue(target, defense) {
-        return target.actor.system.attributes[defense]?.value;
+        return target.actor?.system.attributes[defense]?.value;
     }
 
     static _getTargetCritDefenseValue(target) {
       if (!target) return 0;
-      return target.actor.system.attributes.critMod.def.value;
+      return target.actor?.system.attributes.critMod.def.value;
     }
 
     static _getTargetDefense(row_text) {
