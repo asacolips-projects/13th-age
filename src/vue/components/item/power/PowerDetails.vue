@@ -1,13 +1,16 @@
 <template>
   <fieldset class="fieldset-description">
-    <legend>Description</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.description') }}</legend>
     <Prosemirror :editable="context.editable" :field="context.editors['system.description.value']"/>
   </fieldset>
 
   <fieldset class="fieldset-details">
-    <legend>Details</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.details') }}</legend>
     <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.CHAT.powerLevel') }}</label>
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.CHAT.powerLevel') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerLevelTitle')"/>
+      </label>
       <div class="field">
         <input type="number" name="system.powerLevel.value" 
           v-model="item.system.powerLevel.value"
@@ -16,35 +19,40 @@
     </div>
 
     <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.CHAT.group') }}</label>
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.CHAT.group') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.groupTitle')"/>
+      </label>
       <div class="field">
         <input type="text" name="system.group.value" 
           v-model="item.system.group.value"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.groupTitle')"
-          data-tooltip-direction="RIGHT"
         />
       </div>
     </div>
 
     <div class="form-group">
-      <label>{{game.i18n.localize('ARCHMAGE.CHAT.powerOriginName')}}</label>
+      <label>
+        {{game.i18n.localize('ARCHMAGE.CHAT.powerOriginName')}}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerOriginTitle')"/>
+      </label>
       <div class="field">
         <input type="text" name="system.powerOriginName.value" 
           v-model="item.system.powerOriginName.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.powerOriginNamePlaceholder')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerOriginTitle')"
-          data-tooltip-direction="RIGHT"/>
+        />
       </div>
     </div>
 
     <div class="form-group">
-      <label>{{game.i18n.localize('ARCHMAGE.CHAT.powerSourceName')}}</label>
+      <label>
+        {{game.i18n.localize('ARCHMAGE.CHAT.powerSourceName')}}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerSourceTitle')"/>
+      </label>
       <div class="field">
         <input type="text" name="system.powerSourceName.value"
           v-model="item.system.powerSourceName.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.powerSourcePlaceholder')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerSourceTitle')"
-          data-tooltip-direction="RIGHT"/>
+        />
       </div>
     </div>
 
@@ -59,12 +67,12 @@
     </div>
 
     <div class="form-group">
-      <label>{{game.i18n.localize('ARCHMAGE.CHAT.powerSource')}}</label>
+      <label>
+        {{game.i18n.localize('ARCHMAGE.CHAT.powerSource')}}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerSourceTypeTitle')"/>
+      </label>
       <div class="field">
-        <select name="system.powerSource.value"
-          v-model="item.system.powerSource.value"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.powerSourceTypeTitle')"
-          data-tooltip-direction="RIGHT">
+        <select name="system.powerSource.value" v-model="item.system.powerSource.value">
           <option value="">{{ game.i18n.localize('ARCHMAGE.noneOption') }}</option>
           <option v-for="(label, value) in CONFIG.ARCHMAGE.powerSources" :key="value" :value="value">{{ label }}</option>
         </select>
@@ -83,7 +91,7 @@
   </fieldset>
 
   <fieldset class="fieldset-usage">
-    <legend>Usage</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.GROUPS.powerUsage') }}</legend>
 
     <div class="form-group">
       <label>{{game.i18n.localize('ARCHMAGE.CHAT.powerUsage')}}</label>
@@ -96,43 +104,49 @@
     </div>
 
     <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.CHAT.recharge') }}</label>
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.CHAT.recharge') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.rechargeHint')"/>
+      </label>
       <div class="field">
         <input type="number" name="system.recharge.value" 
           v-model="item.system.recharge.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.rechargeHint')"
-          data-tooltip-direction="RIGHT"
         />
       </div>
     </div>
 
     <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.ITEM.usesRemaining') }}</label>
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.ITEM.usesRemaining') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.usesRemainingHint')"/>
+      </label>
       <div class="field">
         <input type="number" name="system.quantity.value" 
           v-model="item.system.quantity.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')"
-          data-tooltip-direction="RIGHT"
         />
       </div>
     </div>
 
     <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.ITEM.usesMax') }}</label>
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.ITEM.usesMax') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.usesMaxHint')"/>
+      </label>
       <div class="field">
         <input type="number" name="system.maxQuantity.value" 
           v-model="item.system.maxQuantity.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')"
-          data-tooltip-direction="RIGHT"
         />
       </div>
     </div>
 
     <div class="form-group">
-      <label>{{game.i18n.localize('ARCHMAGE.CHAT.resources')}}</label>
+      <label>
+        {{game.i18n.localize('ARCHMAGE.CHAT.resources')}}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.resourcesTitle')"/>
+      </label>
       <div class="field">
         <input type="text" name="system.resources.value"
           v-model="item.system.resources.value"
@@ -143,7 +157,7 @@
   </fieldset>
 
   <fieldset class="fieldset-special">
-    <legend>Automation</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.SETTINGS.groups.automation') }}</legend>
 
     <div class="form-group">
       <label>{{game.i18n.localize('ARCHMAGE.CHAT.rollTable')}}</label>
@@ -158,20 +172,8 @@
 
     <div class="form-group stacked power-macro-editor">
       <label>{{game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro')}}</label>
-      <p class="hint">Use the field below to write a macro that executes when the power is used. Available variables are:
-       <ul>
-        <li><strong>speaker</strong>: User activating the item.</li>
-        <li><strong>actor</strong>: Actor that owns the item.</li>
-        <li><strong>token</strong>: Active token for the actor that owns the item.</li>
-        <li><strong>archmage</strong>: System-specifc data you can modify to implement custom automation that overrides the system's own.</li>
-       </ul>
-      </p>
+      <div class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.macroEditorHint')"></div>
       <div class="field">
-        <!-- <textarea class="attribute-value"
-          name="system.embeddedMacro.value"
-          rows="20"
-          v-html="item.system.embeddedMacro.value"
-          spellcheck="false"></textarea> -->
         <CodemirrorWrapper class="attribute-value"
           name="system.embeddedMacro.value"
           :value="item.system.embeddedMacro.value"
@@ -186,6 +188,7 @@
     TextareaGrow,
     CodemirrorWrapper,
     Prosemirror,
+    InfoBubble,
     InlineRollsReferenceHint,
   } from '@/components';
   const props = defineProps(['item', 'context']);

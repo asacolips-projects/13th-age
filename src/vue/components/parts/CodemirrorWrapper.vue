@@ -17,6 +17,11 @@
 
   onMounted(() => {
     if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror !== undefined) {
+      // @todo make this more reactive.
+      let nightmode = game.settings.get('archmage', 'nightmode');
+      if (!nightmode) {
+        nightmode = document.body.classList.contains('theme-dark');
+      }
       // Using a timeout for this is super hacky, but it's what we got.
       const element = textareaRef.value;
       if (element) {
@@ -26,7 +31,7 @@
           lineNumbers: true,
           inputStyle: "contenteditable",
           autofocus: false,
-          theme: game.settings.get("archmage", "nightmode") ? 'monokai' : 'default',
+          theme: nightmode ? 'monokai' : 'default',
           readOnly: element.hasAttribute('readonly')
         });
         // Update the textarea value so Foundry can see it.

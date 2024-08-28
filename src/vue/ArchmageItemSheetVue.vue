@@ -45,8 +45,8 @@
         <!-- Active Effect Fields -->
         <Tab group="primary" :tab="tabs.primary.effects">
           <fieldset class="section--effects">
-            <legend>Active Effects</legend>
-            <p class="hint">Active Effects will not be applied directly to this item's parent actor, but they will show up as draggable effects on power cards in chat messages.</p>
+            <legend>{{ game.i18n.localize('ARCHMAGE.activeEffects') }}</legend>
+            <p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.activeEffectsItemHint')"></p>
             <div class="archmage-v2 sheet">
               <section class="section--powers">
                 <CharEffects :actor="context.item" :key="context._renderKey"/>
@@ -57,7 +57,7 @@
       </section>
   
       <fieldset class="section--preview">
-        <legend>Preview</legend>
+        <legend>{{ game.i18n.localize('Preview') }}</legend>
         <div class="archmage-v2 sheet">
           <section class="section--powers">
             <Power :power="context.item" :actor="context.actor" :context="context" include-title="true" :enriched="context.editors"/>

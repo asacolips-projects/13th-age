@@ -2,17 +2,16 @@
 
   <!-- Spells -->
   <fieldset class="fieldset-details">
-    <legend>Higher Levels</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.CHAT.higherLevels') }}</legend>
     <InlineRollsReferenceHint />
-    <p class="hint">Use the checkboxes next to each spell level to hide that level from chat if it's made redundant by a higher level version of the spell.</p>
-
+    <p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.hideSpellLevelsHint')"></p>
     <div v-for="level in 11" :key="level" class="form-group">
       <!-- Loop through spell levels 2-11. -->
       <template v-if="level > 1">
         <label>{{game.i18n.localize(`ARCHMAGE.CHAT.spellLevel${level}`)}}</label>
         <div class="field flexrow">
-          <span class="flexshrink" data-tooltip="Hide from chat" data-tooltip-direction="LEFT">
-            <label><span class="visually-hidden">Hide spell level {{ level }} from chat.</span>
+          <span class="flexshrink" :data-tooltip="game.i18n.format('ARCHMAGE.CHAT.hideSpellFromChat', {level: level})" data-tooltip-direction="LEFT">
+            <label><span class="visually-hidden" v-html="game.i18n.format('ARCHMAGE.CHAT.hideSpellFromChat', {level: level})"></span>
               <input type="checkbox" :name="`system.spellLevel${level}.hide`"
                 v-model="item.system[`spellLevel${level}`].hide"
                 class="checkbox-disable"
@@ -27,25 +26,26 @@
       </template>
       <!-- Show a hint for spell level 1. -->
       <template v-else>
-        <label>1st Level</label>
-        <div class="field"><p class="hint">See the <strong>Hit</strong> and <strong>Effect</strong> fields in the <strong>Attack</strong> tab.</p></div>
+        <label>{{ game.i18n.localize('ARCHMAGE.CHAT.spellLevel1') }}</label>
+        <div class="field"><p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.firstLevelHint')"></p></div>
       </template>
     </div>
   </fieldset>
 
   <!-- Bard -->
   <fieldset class="fieldset-details">
-    <legend>Bard</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.CLASSES.bard') }}</legend>
     <InlineRollsReferenceHint compact="true"/>
 
     <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.CHAT.sustainOn') }}</label>
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.CHAT.sustainOn') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.sustainOnTitle')"/>
+      </label>
       <div class="field">
         <input type="number" name="system.sustainOn.value" 
           v-model="item.system.sustainOn.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-          :data-tooltip="game.i18n.localize('ARCHMAGE.CHAT.sustainOnTitle')"
-          data-tooltip-direction="RIGHT"
         />
       </div>
     </div>
@@ -67,7 +67,7 @@
 
   <!-- Cleric -->
   <fieldset class="fieldset-details">
-    <legend>Cleric</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.CLASSES.cleric') }}</legend>
     <InlineRollsReferenceHint compact="true"/>
 
     <div class="form-group">
@@ -87,7 +87,7 @@
 
   <!-- Sorcerer -->
   <fieldset class="fieldset-details">
-    <legend>Sorcerer</legend>
+    <legend>{{ game.i18n.localize('ARCHMAGE.CLASSES.sorcerer') }}</legend>
     <InlineRollsReferenceHint compact="true"/>
 
     <div class="form-group">
@@ -110,6 +110,7 @@
   import {
     TextareaGrow,
     Prosemirror,
+    InfoBubble,
     InlineRollsReferenceHint,
   } from '@/components';
   const props = defineProps(['item', 'context']);

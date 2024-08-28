@@ -48,26 +48,28 @@
 
       <!-- Uses remaining -->
       <div class="form-group">
-        <label>{{ game.i18n.localize('ARCHMAGE.ITEM.usesRemaining') }}</label>
+        <label>
+          {{ game.i18n.localize('ARCHMAGE.ITEM.usesRemaining') }}
+          <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')"/>
+        </label>
         <div class="field">
           <input type="number" :name="`system.feats.${featKey}.quantity.value`"
             v-model="item.system.feats[featKey].quantity.value"
             :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-            :data-tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')"
-            data-tooltip-direction="RIGHT"
           />
         </div>
       </div>
 
       <!-- Max uses -->
       <div class="form-group">
-        <label>{{ game.i18n.localize('ARCHMAGE.ITEM.usesMax') }}</label>
+        <label>
+          {{ game.i18n.localize('ARCHMAGE.ITEM.usesMax') }}
+          <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')"/>
+        </label>
         <div class="field">
           <input type="number" :name="`system.feats.${featKey}.maxQuantity.value`"
             v-model="item.system.feats[featKey].maxQuantity.value"
             :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
-            :data-tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')"
-            data-tooltip-direction="RIGHT"
           />
         </div>
       </div>

@@ -305,6 +305,22 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+  CLASSES:
+    barbarian: Barbarian
+    bard: Bard
+    chaosmage: Chaos Mage
+    cleric: Cleric
+    commander: Commander
+    druid: Druid
+    fighter: Fighter
+    monk: Monk
+    necromancer: Necromancer
+    occultist: Occultist
+    paladin: Paladin
+    ranger: Ranger
+    rogue: Rogue
+    sorcerer: Sorcerer
+    wizard: Wizard
   DURATION:
     Infinite: Infinite
     Unknown: Unknown
@@ -568,6 +584,7 @@ ARCHMAGE:
     FullHealHP: reset to maximum
     group: Group
     groupTitle: Custom group used to organize this on character sheets.
+    higherLevels: Higher Levels
     hit: Hit
     hitPlaceholder: "[[@wpn.m.dice+@str.dmg]] damage"
     hitTitle: Effects on successful hit, for example "[[@wpn.m.dice+@str.dmg]] damage"
@@ -580,6 +597,7 @@ ARCHMAGE:
     hitEvenTitle: Effects that happen on even hits
     hitOdd: Odd Hit
     hitOddTitle: Effects that happen on odd hits
+    hitSlashMiss: Hit / Miss
     HP: HP
     iconic: Zenith Feat
     ItemReset: uses restored to
@@ -610,6 +628,7 @@ ARCHMAGE:
     ongoingSelfTriggered: The following Effects <strong>triggered on this</strong> Actor
     hasUnknown: The following Effects with an <strong>unknown duration</strong> are currently active on this Actor
     powerLevel: Level
+    powerLevelTitle: Adjusting the power level will affect which level effects get sent to chat.
     powerSource: Power Source
     powerSourceName: Source Name
     powerSourcePlaceholder: Wizard
@@ -636,6 +655,7 @@ ARCHMAGE:
     RechargeSucc: recharged
     resources: Resources
     resourcesPlaceholder: -2 command points
+    resourcesTitle: Enter a positive or negative number and a resource name that matches one of the resources on your character sheet, such as "-2 command points"
     removeEffect: Remove Effect
     Rest: Rest
     Rests: Rests
@@ -648,6 +668,8 @@ ARCHMAGE:
     special: Special
     specialTitle: Special conditions to use the power.
     spellChain: Chain Spell
+    hideSpellFromChat: Hide spell level {level} from chat.
+    spellLevel1: 1st Level
     spellLevel2: 2nd Level
     spellLevel2Placeholder: "[[2d6]] damage"
     spellLevel3: 3rd Level
@@ -929,6 +951,18 @@ ARCHMAGE:
       Saves are used for anything from power recharges to saves against effects to death saves.
       There are three DCs for saves, if a save doesn't specify a DC, it's a <b>Normal</b> save:<br><b>Easy</b> (6+)<br><b>Normal</b> (11+)<br><b>Hard</b> (16+)
       There are no standard modifiers or bonuses to saves, but some talents, feats and items provide save bonuses.
+    macroEditorHint: |
+      <p>Use the field below to write a macro that executes when the power is used. Available variables are:</p>
+      <ul>
+        <li><strong>speaker</strong>: User activating the item.</li>
+        <li><strong>actor</strong>: Actor that owns the item.</li>
+        <li><strong>token</strong>: Active token for the actor that owns the item.</li>
+        <li><strong>archmage</strong>: System-specifc data you can modify to implement custom automation that overrides the system's own.</li>
+      </ul>
+    hideSpellLevelsHint: |
+      Use the checkboxes next to each spell level to hide that level from chat if it's made redundant by a higher level version of the spell.
+    firstLevelHint: |
+      See the <strong>Hit</strong> and <strong>Effect</strong> fields in the <strong>Attack</strong> tab.
 # Tours
   TOURS:
     '170':
