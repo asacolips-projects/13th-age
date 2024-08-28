@@ -42,7 +42,7 @@
         // Hacky, but refresh the editor content to fix quirks with CodeMirror + Vue.
         setTimeout(() => {
           editor.refresh();
-        }, 25);
+        }, 250);
       }
     }
   });
