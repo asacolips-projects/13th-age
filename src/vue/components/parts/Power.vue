@@ -26,7 +26,7 @@
         </Suspense>
       </div>
       <template v-for="field in powerDetailFields" :key="field">
-        <div v-if="!power.system[field]?.hide && canCastSpell(field)" class="power-detail" :data-field="field">
+        <div v-if="canCastSpell(field)" class="power-detail" :data-field="field">
           <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
           <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
           <Suspense v-else>
@@ -192,9 +192,14 @@ export default {
       const overridePowerLevel = this.actor?.flags?.archmage.overridePowerLevel ?? false;
       const actorLevel = Number(this.actor?.system?.attributes?.level?.value ?? 1);
       const powerLevel = Number(this.power.system.powerLevel.value ?? 1);
-      return overridePowerLevel
-        ? Math.max(actorLevel, powerLevel) >= Number(field.match(/\d+/g)?.[0] ?? 0)
-        : powerLevel >= Number(field.match(/\d+/g)?.[0] ?? 0);
+      const fieldLevel = Number(field.match(/\d+/g)?.[0] ?? 0);
+      const overriddenLevel = overridePowerLevel
+        ? Math.max(actorLevel, powerLevel)
+        : (powerLevel ?? 1);
+
+      if (this.power.system[field]?.hide && overriddenLevel !== fieldLevel) return false;
+
+      return overriddenLevel >= Number(field.match(/\d+/g)?.[0] ?? 0);
     }
   },
   async mounted() {}

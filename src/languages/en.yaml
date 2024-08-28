@@ -5,6 +5,7 @@ ARCHMAGE:
   act: Act.
   action: Action
   actions: Actions
+  activeEffects: Active Effects
   add: Add
   arc: Arc
   arc-desparate: Arc/Desperate
@@ -963,6 +964,8 @@ ARCHMAGE:
       Use the checkboxes next to each spell level to hide that level from chat if it's made redundant by a higher level version of the spell.
     firstLevelHint: |
       See the <strong>Hit</strong> and <strong>Effect</strong> fields in the <strong>Attack</strong> tab.
+    activeEffectsItemHint: |
+      Active Effects will not be applied directly to this item's parent actor, but they will show up as draggable effects on power cards in chat messages.
 # Tours
   TOURS:
     '170':
