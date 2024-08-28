@@ -181,15 +181,16 @@ Hooks.once('init', async function() {
     label: game.i18n.localize('ARCHMAGE.sheetItem'),
     makeDefault: true,
   });
+  // AppV2 + Vue based sheets. These will eventually become the default.
   Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
     types: ["power"],
-    makeDefault: true,
+    makeDefault: false,
   });
   Items.registerSheet("archmage", ArchmageActionSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
     types: ["action", "trait", "nastierSpecial"],
-    makeDefault: true,
+    makeDefault: false,
   })
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {

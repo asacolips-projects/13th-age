@@ -61,9 +61,12 @@ import {
 import { inject, reactive, toRaw } from 'vue';
 
 const props = defineProps(['context']);
+// Convert the tabs into a new reactive variable so that they
+// don't change every time the item is updated.
 const rawTabs = toRaw(props.context.tabs);
 const tabs = reactive({...rawTabs});
-
+// Retrieve a copy of the full item document instance provided by
+// the VueApplicationMixin.
 const itemDocument = inject('itemDocument');
 
 </script>
