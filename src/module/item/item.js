@@ -1022,7 +1022,11 @@ export class ItemArchmage extends Item {
     });
 
     // Also filter out manually hidden spells.
-    effectKeys = effectKeys.filter(field => !data[field]?.hide);
+    effectKeys = effectKeys.filter(field => {
+      console.log(field);
+      console.log(data.powerLevel.value);
+      return !data[field]?.hide || field == `spellLevel${data.powerLevel.value}`;
+    });
 
     const effects = effectKeys.map(k => {
       return {

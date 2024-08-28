@@ -90,6 +90,7 @@
   import {
     TextareaGrow,
     Prosemirror,
+    InfoBubble,
     InlineRollsReferenceHint,
   } from '@/components';
   const props = defineProps(['item', 'context']);
