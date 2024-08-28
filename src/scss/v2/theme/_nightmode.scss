@@ -4,12 +4,13 @@ $c-night: #292929;
 $c-night-darker: #191919;
 $bx-night: inset 0 0 100px 0 $c-night-darker;
 
-.archmage-v2.sheet .window-content,
-.archmage-v2.archmage-dialog .window-content {
-  .archmage-v2-vue.nightmode {
+.archmage-v2.sheet.nightmode .window-content,
+.archmage-v2.archmage-dialog.nightmode .window-content {
+  background: $c-night;
+  box-shadow: $bx-night;
+
+  .archmage-v2-vue {
     // background-image: url('#{$assets}/paper-v2-nightmode.webp');
-    background: $c-night;
-    box-shadow: $bx-night;
     color: $c-white;
 
     .notes {

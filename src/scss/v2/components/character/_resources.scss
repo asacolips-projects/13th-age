@@ -8,8 +8,8 @@
     padding: 0 $padding-md;
     margin: 0;
     border-left: 2px solid $ct-border;
-    max-width: 25%;
-    flex: 0 auto;
+    // max-width: 25%;
+    flex: 0 0 140px;
 
     &:first-child {
       border-left: none;
@@ -24,7 +24,7 @@
     }
 
     .unit--custom {
-      max-width: 33%;
+      // max-width: 33%;
     }
   }
 
@@ -35,7 +35,7 @@
     }
 
     .unit--custom {
-      max-width: 33%;
+      // max-width: 33%;
     }
   }
 
@@ -57,15 +57,15 @@
   }
 
   .unit--command-points {
-    flex: 0 auto;
+    // flex: 0 auto;
   }
 
   .unit--ki {
-    flex: 0 auto;
+    // flex: 0 auto;
   }
 
   .unit--custom {
-    flex: 0 auto;
+    // flex: 0 auto;
   }
 
   input.resource-title-input {
@@ -75,7 +75,7 @@
   }
 
   .unit--rest {
-    flex: 0 auto;
+    // flex: 0 auto;
 
     button + button {
       margin-top: $padding-sm;
