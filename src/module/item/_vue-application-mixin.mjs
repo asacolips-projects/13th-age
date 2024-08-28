@@ -147,6 +147,28 @@ export default function VueRenderingMixin(BaseApplication) {
         return;
       }
 
+      _onRender(context, options) {
+        if (!this.isEditable) {
+          const inputs = this.element.querySelectorAll('input, textarea');
+          const selects = this.element.querySelectorAll('select');
+
+          console.log('inputs', inputs);
+
+          if (inputs) {
+            for (let input of inputs) {
+              input.setAttribute('readonly', true);
+              input.setAttribute('disabled', true);
+            }
+          }
+
+          if (selects) {
+            for (let select of selects) {
+              select.setAttribute('disabled', true);
+            }
+          }
+        }
+      }
+
       /** @override */
       _replaceHTML(result, content, options) {
         // Pass. We don't need this in Vue land! But Foundry itself does...
@@ -161,7 +183,7 @@ export default function VueRenderingMixin(BaseApplication) {
        * @override
        */
       async close(options = {}) {
-        if (this.options.form.submitOnClose) {
+        if (this.options.form.submitOnClose && this.isEditable) {
           await this.submit();
         }
         // Unmount the vue instance.

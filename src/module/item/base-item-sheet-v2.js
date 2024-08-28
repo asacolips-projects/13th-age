@@ -54,6 +54,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   static async _onEditImage(event, target) {
+    if (!this.isEditable) return false;
     const attr = target.dataset.edit;
     const current = foundry.utils.getProperty(this.document, attr);
     const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
@@ -93,6 +94,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   static async _deleteEffect(event, target) {
+    if (!this.isEditable) return;
     const effect = this._getEffect(target);
     await effect.delete();
   }
@@ -106,7 +108,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @private
    */
   static async _createEffect(event, target) {
-    console.log('create', event);
+    if (!this.isEditable) return;
     // Retrieve the configured document class for ActiveEffect
     const aeCls = getDocumentClass("ActiveEffect");
     // Prepare the document creation data by initializing it a default name.
@@ -144,6 +146,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @private
    */
   static async _toggleEffect(event, target) {
+    if (!this.isEditable) return;
     const effect = this._getEffect(target);
     await effect.update({ disabled: !effect.disabled });
   }
@@ -226,6 +229,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   async _onDrop(event) {
+    if (!this.isEditable) return;
     const data = TextEditor.getDragEventData(event);
     const item = this.item;
     const allowed = Hooks.call("dropItemSheetData", item, this, data);
@@ -254,6 +258,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   async _onDropActiveEffect(event, data) {
+    if (!this.isEditable) return false;
     const aeCls = getDocumentClass("ActiveEffect");
     const effect = await aeCls.fromDropData(data);
     if (!this.item.isOwner || !effect) return false;
@@ -270,6 +275,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @returns {Promise|void} Promise for the update applied, or void.
    */
   _onEffectSort(event, effect) {
+    if (!this.isEditable) return;
     const effects = this.item.effects;
     const dropTarget = event.target.closest("[data-effect-id]");
     if (!dropTarget) return;
@@ -311,6 +317,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   async _onDropActor(event, data) {
+    if (!this.isEditable) return false;
     if (!this.item.isOwner) return false;
   }
 
@@ -324,6 +331,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   async _onDropItem(event, data) {
+    if (!this.isEditable) return false;
     if (!this.item.isOwner) return false;
   }
 
@@ -338,6 +346,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   async _onDropFolder(event, data) {
+    if (!this.isEditable) return [];
     if (!this.item.isOwner) return [];
   }
 

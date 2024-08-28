@@ -226,6 +226,8 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
    *   Html event that triggered the method.
    */
   static async _updateFeat(event, target) {
+    if (!this.isEditable) return;
+
     let dataset = target.dataset;
 
     let item = this.item;

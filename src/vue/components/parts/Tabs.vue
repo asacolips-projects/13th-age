@@ -22,6 +22,7 @@
 
 <script>
 import { concat, getActor } from '@/methods/Helpers';
+import { toRaw } from 'vue';
 export default {
   name: 'Tabs',
   props: ['context', 'actor', 'group', 'tabs', 'flags', 'no-span'],
@@ -62,7 +63,12 @@ export default {
     }
   },
   async mounted() {
-    this.currentTab = this.flags?.sheetDisplay?.tabs[this.group]?.value ? this.flags.sheetDisplay.tabs[this.group].value : 'details';
+    // Attempt to get the current tab from sheet flags.
+    const flagTab = this.flags?.sheetDisplay?.tabs[this.group]?.value;
+    // Otherwise, attempt to get the current tab from the first active tab.
+    const rawTabs = toRaw(this.tabs);
+    this.currentTab = flagTab ?? (Object.values(rawTabs).find(t => t.active)?.key ?? 'details');
+    // If the tab is hidden, default to details.
     if (this.tabs[this.currentTab].hidden) {
       this.currentTab = 'details';
     }
