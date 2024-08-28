@@ -20,30 +20,30 @@
     <div class="section--main">
       <section class="section--fields has-preview">
         <!-- Tab links -->
-        <Tabs :tabs="context.tabs.primary" no-span="true"/>
+        <Tabs :tabs="tabs.primary" no-span="true"/>
     
         <!-- Details fields -->
-        <Tab group="primary" :tab="context.tabs.primary.details">
+        <Tab group="primary" :tab="tabs.primary.details">
           <PowerDetails :item="context.item" :context="context"/>
         </Tab>
     
         <!-- Details fields -->
-        <Tab group="primary" :tab="context.tabs.primary.attack">
+        <Tab group="primary" :tab="tabs.primary.attack">
           <PowerAttack :item="context.item" :context="context"/>
         </Tab>
 
         <!-- Spell Fields -->
-        <Tab group="primary" :tab="context.tabs.primary.special">
+        <Tab group="primary" :tab="tabs.primary.special">
           <PowerSpells :item="context.item" :context="context"/>
         </Tab>
 
         <!-- Feats -->
-        <Tab group="primary" :tab="context.tabs.primary.feats">
+        <Tab group="primary" :tab="tabs.primary.feats">
           <PowerFeats :item="context.item" :context="context"/>
         </Tab>
 
         <!-- Active Effect Fields -->
-        <Tab group="primary" :tab="context.tabs.primary.effects">
+        <Tab group="primary" :tab="tabs.primary.effects">
           <fieldset class="section--effects">
             <legend>{{ game.i18n.localize('ARCHMAGE.activeEffects') }}</legend>
             <p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.activeEffectsItemHint')"></p>
@@ -80,10 +80,15 @@ import {
   PowerFeats,
   CharEffects,
 } from '@/components';
-import { inject } from 'vue';
+import { inject, reactive, toRaw } from 'vue';
 
 const props = defineProps(['context']);
-
+// Convert the tabs into a new reactive variable so that they
+// don't change every time the item is updated.
+const rawTabs = toRaw(props.context.tabs);
+const tabs = reactive({...rawTabs});
+// Retrieve a copy of the full item document instance provided by
+// the VueApplicationMixin.
 const itemDocument = inject('itemDocument');
 
 </script>

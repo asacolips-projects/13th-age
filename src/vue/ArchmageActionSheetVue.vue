@@ -20,20 +20,20 @@
     <div class="section--main">
       <section class="section--fields">
         <!-- Tab links -->
-        <Tabs :tabs="context.tabs.primary" no-span="true"/>
+        <Tabs :tabs="tabs.primary" no-span="true"/>
     
         <!-- Details fields -->
-        <Tab group="primary" :tab="context.tabs.primary.details">
+        <Tab group="primary" :tab="tabs.primary.details">
           <ActionDetails :item="context.item" :context="context"/>
         </Tab>
     
         <!-- Attack fields -->
-        <Tab v-if="context.item.type === 'action'" group="primary" :tab="context.tabs.primary.attack">
+        <Tab v-if="context.item.type === 'action'" group="primary" :tab="tabs.primary.attack">
           <ActionAttack :item="context.item" :context="context"/>
         </Tab>
 
         <!-- Active Effect Fields -->
-        <Tab group="primary" :tab="context.tabs.primary.effects">
+        <Tab group="primary" :tab="tabs.primary.effects">
           <fieldset class="section--effects">
             <legend>{{ game.i18n.localize('ARCHMAGE.activeEffects') }}</legend>
             <p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.activeEffectsItemHint')"></p>
@@ -58,9 +58,12 @@ import {
   ActionAttack,
   CharEffects,
 } from '@/components';
-import { inject } from 'vue';
+import { inject, reactive, toRaw } from 'vue';
 
 const props = defineProps(['context']);
+const rawTabs = toRaw(props.context.tabs);
+const tabs = reactive({...rawTabs});
+
 const itemDocument = inject('itemDocument');
 
 </script>
