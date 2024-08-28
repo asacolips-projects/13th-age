@@ -282,12 +282,12 @@ manifest: https://asacolips-artifacts.s3.amazonaws.com/archmage/latest/system.js
 download: https://asacolips-artifacts.s3.amazonaws.com/archmage/1.31.0/archmage.zip
 changelog: https://github.com/asacolips-projects/13th-age/releases
 initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
-gridDistance: "1"
-gridUnits: ''
+grid:
+  distance: 1
+  units: 'Units'
 primaryTokenAttribute: attributes.hp
 
 # Manifest+ Props
-manifestPlusVersion: "1.1.0"
 media:
   - type: cover
     loop: false
