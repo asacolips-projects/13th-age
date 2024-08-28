@@ -28,6 +28,7 @@ export { default as CodemirrorWrapper } from '@/components/parts/CodemirrorWrapp
 export { default as Prosemirror } from '@/components/parts/Prosemirror.vue';
 export { default as TextareaGrow } from '@/components/parts/TextareaGrow.vue';
 export { default as InlineRollsReferenceHint } from '@/components/parts/InlineRollsReferenceHint.vue';
+export { default as InfoBubble } from '@/components/parts/InfoBubble.vue';
 
 export { default as PowerAttack } from '@/components/item/power/PowerAttack.vue';
 export { default as PowerDetails } from '@/components/item/power/PowerDetails.vue';

@@ -14,7 +14,7 @@
             </div>
           </div>
           <ul class="action-group-content flexcol">
-            <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" data-draggable="true" draggable="true">
+            <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" data-document-class="Item" data-draggable="true" draggable="true">
               <!-- Clickable action header. -->
               <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
                 <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">

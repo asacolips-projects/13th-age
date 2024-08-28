@@ -138,6 +138,8 @@
     padding: 0.5rem;
     flex: 2;
     max-width: none;
+    transition: outline-color 0.5s;
+    outline: 1px solid transparent;
 
     &:hover,
     &:focus {
@@ -329,6 +331,15 @@
       .feat-summary {
         display: none;
       }
+    }
+  }
+
+  .info-bubble {
+    color: var(--color-warm-1);
+    margin-left: 4px;
+
+    .theme-light & {
+      color: $c-black;
     }
   }
 

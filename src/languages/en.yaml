@@ -538,6 +538,7 @@ ARCHMAGE:
     attack: Attack
     attackPlaceholder: "[[d20+@str.mod+@std]] vs. AC"
     attackTitle: Attack formula, such as "[[d20+@str.mod+@std]] vs. AC"
+    attacks: Attacks
     Apply: Apply
     applyAETitle: Apply Active Effect?
     applyDamage: Apply Damage
@@ -558,6 +559,7 @@ ARCHMAGE:
     disengage: Disengage Check
     duration: Duration
     effect: Effect
+    effectTitle: General effect of a spell or power when it's used.
     epic: Epic Feat
     even: even
     finalVerse: Final Verse
@@ -644,6 +646,7 @@ ARCHMAGE:
     sequencerReverse: Reverse Sequence
     source: Source
     special: Special
+    specialTitle: Special conditions to use the power.
     spellChain: Chain Spell
     spellLevel2: 2nd Level
     spellLevel2Placeholder: "[[2d6]] damage"

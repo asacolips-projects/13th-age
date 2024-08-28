@@ -1210,7 +1210,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
   }
 
   // Shift bypass
-  if (event.shiftKey) {
+  if (event?.shiftKey) {
     if ( !duration ) duration = "Unknown";
     let options = {};
     if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
@@ -1258,6 +1258,8 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
               effectData.flags.archmage.ongoingDamageCrit = true;
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
+            console.log('effectData', effectData);
+            console.log('actor', actor);
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },
