@@ -18,7 +18,7 @@
     </header>
 
     <div class="section--main">
-      <section class="section--fields">
+      <section class="section--fields has-preview">
         <!-- Tab links -->
         <Tabs :tabs="tabs.primary" no-span="true"/>
     

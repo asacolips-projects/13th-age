@@ -749,6 +749,10 @@ Item:
     miss:
       type: String
       label: Miss
+    embeddedMacro:
+      type: String
+      label: Embedded Macro
+      value: ''
   nastierSpecial:
     templates:
       - standard

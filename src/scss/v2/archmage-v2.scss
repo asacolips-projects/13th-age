@@ -210,6 +210,10 @@
     }
   }
 
+  .field.flexcol {
+    gap: 8px;
+  }
+
   // @todo figure out how to fix this hack properly.
   .window-content {
     margin-top: -16px;
@@ -254,10 +258,14 @@
     overflow: hidden;
 
     .section--fields {
-      flex: 0 0 440px;
+      flex: 1;
       display: flex;
       flex-direction: column;
       overflow: hidden;
+
+      &.has-preview {
+        flex: 0 0 440px;
+      }
 
       .tab {
         flex: 1;

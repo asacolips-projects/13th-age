@@ -4,7 +4,8 @@ import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
-import { ArchmageItemSheetV2 } from './item/item-sheet-v2.js';
+import { ArchmagePowerSheetV2 } from './item/power-sheet-v2.js';
+import { ArchmageActionSheetV2 } from './item/action-sheet-v2.js';
 import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { MacroUtils } from './setup/utility-classes.js';
@@ -180,9 +181,14 @@ Hooks.once('init', async function() {
     label: game.i18n.localize('ARCHMAGE.sheetItem'),
     makeDefault: true,
   });
-  Items.registerSheet("archmage", ArchmageItemSheetV2, {
+  Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
     types: ["power"],
+    makeDefault: true,
+  });
+  Items.registerSheet("archmage", ArchmageActionSheetV2, {
+    label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
+    types: ["action"],
     makeDefault: true,
   })
 

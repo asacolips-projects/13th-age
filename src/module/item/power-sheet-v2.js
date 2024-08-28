@@ -2,15 +2,15 @@ import { ArchmageBaseItemSheetV2 } from "./base-item-sheet-v2.js";
 import { wrapRolls } from "./_item-sheet-helpers.mjs";
 
 import VueRenderingMixin from "./_vue-application-mixin.mjs";
-import { ArchmageItemSheetVue } from "../../vue/components.vue.es.js";
+import { ArchmagePowerSheetVue } from "../../vue/components.vue.es.js";
 
 const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
 
-export class ArchmageItemSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
+export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
   vueParts = {
-    'archmage-item-sheet-vue': {
-      component: ArchmageItemSheetVue,
-      template: `<archmage-item-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-item-sheet-vue>`
+    'archmage-power-sheet-vue': {
+      component: ArchmagePowerSheetVue,
+      template: `<archmage-power-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-power-sheet-vue>`
     }
   }
   
