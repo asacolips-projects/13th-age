@@ -1,7 +1,139 @@
 name: Rune (Adventurer)
 type: loot
 img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Magic Rune (Adventurer, Armor)
+    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+    _id: jnS8iXTk9vLhlph1
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!ievCx711qpOs5aK9.jnS8iXTk9vLhlph1'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Adventurer, Melee Weapon)
+    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+    _id: lqlDR6BC1sdep7Ni
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.melee.bonus
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!ievCx711qpOs5aK9.lqlDR6BC1sdep7Ni'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Adventurer, Ranged Weapon)
+    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+    _id: VJZXQ5BBR9RHwuyE
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.ranged.bonus
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!ievCx711qpOs5aK9.VJZXQ5BBR9RHwuyE'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Adventurer, Implement)
+    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+    _id: y4BSKRb2cFd6oQHI
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.divine.bonus
+        value: '1'
+        mode: 2
+        priority: null
+      - key: system.attributes.attack.arcane.bonus
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!ievCx711qpOs5aK9.y4BSKRb2cFd6oQHI'
 flags:
   core: {}
 system:
@@ -12,8 +144,9 @@ system:
     type: String
     label: Description
     value: >-
-      <p>Works as a @UUID[Compendium.world.consumables.EvsqXxOwmqDsWHcz]{Magic
-      Oil (Adventurer)} and provides an additional effect based on what it is
+      <p>Works as a
+      @UUID[Compendium.archmage.srd-magic-items.Item.fvPFOgomRoH6gU83]{Magic Oil
+      (Adventurer)} and provides an additional effect based on what it is
       applied to:</p>
 
       <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random
@@ -33,17 +166,9 @@ system:
     label: Price
     value: 150
 folder: 0mcnzVgWo4dqvS1l
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647898710
-  modifiedTime: 1714647898710
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: ievCx711qpOs5aK9
 sort: 0
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!ievCx711qpOs5aK9'
 

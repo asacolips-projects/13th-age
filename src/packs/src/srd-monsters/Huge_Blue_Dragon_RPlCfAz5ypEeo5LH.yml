@@ -228,8 +228,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RPlCfAz5ypEeo5LH.WhYAp9jKHlpY0rba'
   - _id: kNrFvCi6flwVeY7N
     flags: {}
@@ -279,8 +277,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RPlCfAz5ypEeo5LH.kNrFvCi6flwVeY7N'
   - _id: du6UN40mFJRBCl0A
     flags: {}
@@ -334,8 +330,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RPlCfAz5ypEeo5LH.du6UN40mFJRBCl0A'
   - _id: BYWZYe0T2TSeVqJ5
     flags: {}
@@ -359,8 +353,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RPlCfAz5ypEeo5LH.BYWZYe0T2TSeVqJ5'
   - _id: O8mqOnWvFL5Hvwkt
     flags: {}
@@ -382,8 +374,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RPlCfAz5ypEeo5LH.O8mqOnWvFL5Hvwkt'
   - _id: 3VttCv0WrDrKKa4q
     flags: {}
@@ -407,8 +397,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RPlCfAz5ypEeo5LH.3VttCv0WrDrKKa4q'
 effects: []
 folder: null
@@ -453,6 +441,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
     scaleX: 1
@@ -460,6 +451,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -469,8 +465,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!RPlCfAz5ypEeo5LH'
 

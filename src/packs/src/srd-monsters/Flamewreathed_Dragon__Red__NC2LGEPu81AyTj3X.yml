@@ -228,8 +228,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.vapoOzENSucCNRet'
   - _id: 31MYT4yzWwEIdnMm
     flags: {}
@@ -285,8 +283,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.31MYT4yzWwEIdnMm'
   - _id: SNMcHSpvLqfTDqj1
     flags: {}
@@ -336,8 +332,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.SNMcHSpvLqfTDqj1'
   - _id: RA96Xl2f5vx0m38P
     flags: {}
@@ -361,8 +355,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.RA96Xl2f5vx0m38P'
   - _id: K91kYAYcUc3Bpmol
     flags: {}
@@ -386,8 +378,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.K91kYAYcUc3Bpmol'
   - _id: 792IKkmLbQD4PTx0
     flags: {}
@@ -412,8 +402,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.792IKkmLbQD4PTx0'
   - _id: NMqK1B7aTsLp6o4j
     flags: {}
@@ -437,8 +425,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.NMqK1B7aTsLp6o4j'
   - _id: VmW0nbD0eSGTqgsz
     flags: {}
@@ -466,8 +452,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.VmW0nbD0eSGTqgsz'
 effects: []
 folder: null
@@ -512,6 +496,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
     scaleX: 1
@@ -519,6 +506,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -528,8 +520,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!NC2LGEPu81AyTj3X'
 

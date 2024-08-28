@@ -1,6 +1,4 @@
 name: Forceful Command
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Forceful Command
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  group:
+    type: String
+    label: Group
+    value: null
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Commander
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Forceful Command
   powerType:
     type: String
     label: Power Type
     value: talent
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -118,21 +136,45 @@ system:
       the escalation die value, or 1 point if the escalation die is still 0.
       That ally gains a +2 bonus to the roll for each point you spend this
       way.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
+    value: ''
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
     value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -142,18 +184,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -215,11 +253,17 @@ system:
       maxQuantity:
         type: Number
         value: 1
-  group:
-    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/red_10.jpg
 effects: []
 _id: ztkChNxMjRSxousJ
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!ztkChNxMjRSxousJ'
 

@@ -62,6 +62,25 @@ system:
       threshold: 10
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
   isActive: true
   price:
     value: ''
@@ -70,17 +89,9 @@ effects: []
 folder: IBGzYvealgID1OwQ
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714648164021
-  modifiedTime: 1714648165074
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: e9uNWg0t4AhgLLiK
 sort: 400000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!e9uNWg0t4AhgLLiK'
 

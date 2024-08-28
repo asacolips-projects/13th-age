@@ -129,6 +129,89 @@ system:
       value: ''
     detectedClasses:
       - wizard
+  resources:
+    perCombat:
+      momentum:
+        enabled: false
+        current: false
+      commandPoints:
+        enabled: false
+        current: 0
+      focus:
+        enabled: false
+        current: false
+      rhythm:
+        enabled: false
+        current: none
+        default: none
+        secondEdition: true
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      ki:
+        enabled: false
+        current: 0
+        max: 0
+      rerolls:
+        enabled: false
+        AC:
+          current: 0
+          max: 0
+        save:
+          current: 0
+          max: 0
   abilities:
     str:
       type: Number
@@ -318,81 +401,6 @@ system:
         type: Boolean
         value: false
       results: []
-  resources:
-    perCombat:
-      momentum:
-        enabled: false
-        current: false
-      commandPoints:
-        enabled: false
-        current: 0
-      focus:
-        enabled: false
-        current: false
-      rhythm:
-        enabled: false
-        current: none
-        default: none
-        secondEdition: true
-    spendable:
-      ki:
-        enabled: false
-        current: 0
-        max: 0
-      custom1:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom2:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom3:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom4:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom5:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom6:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom7:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom8:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom9:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
   incrementals:
     abilityScoreBonus: false
     extraMagicItem: false
@@ -430,6 +438,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -460,6 +473,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -469,9 +485,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Highblood Teleport
     type: power
@@ -643,6 +672,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -693,13 +726,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.2PDVEoIjvgn6uNBp'
   - name: Cantrips
     type: power
@@ -883,6 +909,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -912,13 +942,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.3r6VpL68tH3uHgvC'
   - name: Cyclic Spells
     type: power
@@ -1094,6 +1117,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1123,13 +1150,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.2gKU8W4FEfv9E8jC'
   - name: Melee attack (Wizard)
     type: power
@@ -1300,6 +1320,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1334,13 +1358,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708879112245
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.yL5I25SdpOqQOT8f'
   - name: Overworld Advantage
     type: power
@@ -1514,6 +1531,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1543,13 +1564,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.V4bktvvXvYTQptAc'
   - name: Ranged Attack (Wizard)
     type: power
@@ -1720,6 +1734,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1749,13 +1767,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.GP8RHpmo9Z8Hqppj'
   - name: Ritual Magic
     type: power
@@ -1926,6 +1937,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1980,13 +1995,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.jft2XNMdwGOsJqX4'
   - name: (Cantrip) Alarm
     type: power
@@ -2163,6 +2171,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2197,13 +2209,6 @@ items:
       default: 0
     folder: null
     sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957105924
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.FtataH9teIZEuPXp'
   - name: (Cantrip) Arcane Mark
     type: power
@@ -2378,6 +2383,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2412,13 +2421,6 @@ items:
       default: 0
     folder: null
     sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957108551
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.bzJ9xje6MFgcs7CZ'
   - name: (Cantrip) Ghost Sound
     type: power
@@ -2596,6 +2598,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2630,13 +2636,6 @@ items:
       default: 0
     folder: null
     sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957111318
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.PiWg29zfiNugrweX'
   - name: (Cantrip) Knock
     type: power
@@ -2813,6 +2812,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2847,13 +2850,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957091809
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.dD5SLwbyM4YOyBRx'
   - name: (Cantrip) Light
     type: power
@@ -3027,6 +3023,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3068,13 +3068,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957094239
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.LC9U6G8ROTh9niTg'
   - name: (Cantrip) Mage Hand
     type: power
@@ -3249,6 +3242,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3283,13 +3280,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957096570
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.W94zEVk0Wo88aLYI'
   - name: (Cantrip) Mending
     type: power
@@ -3469,6 +3459,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3503,13 +3497,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957098703
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.He5EDA3xQ8aDWJac'
   - name: (Cantrip) Prestidigitation
     type: power
@@ -3683,6 +3670,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3717,13 +3708,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957101175
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.2WtL6TVCz3qdeDfm'
   - name: (Cantrip) Spark
     type: power
@@ -3899,6 +3883,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3933,13 +3921,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708957103442
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.yUqWZ3aCn3BuLGiW'
   - name: (Utility) Disguise Self
     type: power
@@ -4123,6 +4104,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -4154,13 +4139,6 @@ items:
       default: 0
     folder: null
     sort: 100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708879468652
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.HrQqMZ0MTeubyMEQ'
   - name: (Utility) Feather Fall
     type: power
@@ -4335,6 +4313,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -4366,13 +4348,6 @@ items:
       default: 0
     folder: null
     sort: 100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708879470678
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.a00EbBcrNg61Qyfz'
   - name: (Utility) Hold Portal
     type: power
@@ -4561,6 +4536,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -4592,13 +4571,6 @@ items:
       default: 0
     folder: null
     sort: 100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708879472365
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.tjeMDUBwsDfnABd2'
   - name: Magic Missile
     type: power
@@ -4769,6 +4741,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -4867,13 +4843,6 @@ items:
       default: 0
     folder: null
     sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708879890045
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.XRDeRb8QmxRrnzUx'
   - name: Utility Spell
     type: power
@@ -5044,6 +5013,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -5116,13 +5089,6 @@ items:
       default: 0
     folder: null
     sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708879550753
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.OyzZN1B8BTP5h5r1'
   - name: Cantrip Mastery
     type: power
@@ -5293,6 +5259,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -5347,13 +5317,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.GBCLLiyFpGrUxFLI'
   - name: High Arcana
     type: power
@@ -5535,6 +5498,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -5564,13 +5531,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.wwaUDoi5qScyKcLi'
   - name: Polysyllabic Verbalizations
     type: power
@@ -5751,6 +5711,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -5780,13 +5744,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878950659
-      modifiedTime: 1708878950659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.H3IywBlvSUHM73OI'
   - name: Counter-magic (High Arcana)
     type: power
@@ -5960,6 +5917,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -6027,13 +5988,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879214670
-      modifiedTime: 1708879214670
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.YAoMu2tYJcflreK8'
   - name: Acid Arrow
     type: power
@@ -6214,6 +6168,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -6248,13 +6206,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879560782
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.XZl4hMOQXrX1t2JN'
   - name: Blur
     type: power
@@ -6431,6 +6382,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -6460,13 +6415,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879437515
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.S7aBy9AExurNTgyK'
   - name: Charm Person
     type: power
@@ -6647,6 +6595,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -6681,13 +6633,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879523147
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.wrugtmCDFuwHKMQi'
   - name: (Utility) Levitate
     type: power
@@ -6867,6 +6812,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -6898,13 +6847,6 @@ items:
       default: 0
     folder: null
     sort: -100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879455624
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.781bAqUDfDkQrSeb'
   - name: (Utility) Message
     type: power
@@ -7081,6 +7023,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -7117,13 +7063,6 @@ items:
       default: 0
     folder: null
     sort: -200000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879489180
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.Yx8JajajxarTPNx9'
   - name: (Utility) Speak with Item
     type: power
@@ -7299,6 +7238,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -7328,13 +7271,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879437515
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.eRsGiA2KSPFrwhde'
   - name: Hold Monster
     type: power
@@ -7505,6 +7441,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -7595,13 +7535,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879437515
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.hLEdtxwlGby6aIMc'
   - name: Sleep
     type: power
@@ -7781,6 +7714,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -7810,13 +7747,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879437515
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.jssTRi7PQ9TnpAgX'
   - name: (Utility) Water Breathing
     type: power
@@ -7990,6 +7920,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -8021,13 +7955,6 @@ items:
       default: 0
     folder: null
     sort: -100000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879437515
-      modifiedTime: 1708879463332
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.3rGrBfrx5LfwdIHq'
   - name: Linguist
     type: power
@@ -8199,6 +8126,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -8277,13 +8208,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879884944
-      modifiedTime: 1708957180811
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.K2fVF0GW8Vx1Ig15'
   - name: Precise Shot
     type: power
@@ -8455,6 +8379,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -8505,13 +8433,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708879884944
-      modifiedTime: 1708957186066
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.Okawf30n0S0zqpYN'
 effects: []
 folder: null
@@ -8545,13 +8466,6 @@ flags:
     hideSettingsTab: false
     diceFormulaMode: ''
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.27.0
-  coreVersion: '11.315'
-  createdTime: 1708878801362
-  modifiedTime: 1708957186066
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _id: atT9xG6slENAVPLF
 sort: 0
 _key: '!actors!atT9xG6slENAVPLF'

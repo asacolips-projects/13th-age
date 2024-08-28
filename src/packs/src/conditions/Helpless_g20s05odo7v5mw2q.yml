@@ -1,14 +1,51 @@
 name: Helpless
-permission:
-  default: 0
-folder: ''
+folder: null
 flags: {}
-content: >-
-  <p>If you&rsquo;re *unconscious* or asleep, you&rsquo;re *helpless*. While
-  *helpless*, you take a &ndash;4 penalty to all defenses and you can be the
-  target of a coup de grace.</p>
-img: ''
 _id: g20s05odo7v5mw2q
-pages: []
+pages:
+  - name: Helpless
+    type: text
+    title:
+      show: false
+      level: 1
+    text:
+      format: 1
+      content: >-
+        <p>If you’re *unconscious* or asleep, you’re *helpless*. While
+        *helpless*, you take a –4 penalty to all defenses and you can be the
+        target of a coup de grace.</p>
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: 8cwYRWwmhE6IBYYU
+    system: {}
+    image: {}
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!g20s05odo7v5mw2q.8cwYRWwmhE6IBYYU'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+sort: 0
 _key: '!journal!g20s05odo7v5mw2q'
 

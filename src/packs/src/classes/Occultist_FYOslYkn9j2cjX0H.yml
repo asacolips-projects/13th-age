@@ -1,352 +1,76 @@
 name: Occultist
-permission:
-  default: 0
-folder: ''
+folder: null
 flags: {}
-content: |
-  <div class="l-center">
-    <h1 class="archmage-class-title">Occultist</h1>
-    <div class="grid grid-2col">
-      <div class="details">
-        <p>There is only one occultist, and your one unique thing should account for your knowledge and mastery of powers hidden and occluded.</p>
-        <h2 class="archmage-class-heading">Ability Scores</h2>
-        <p>The occultist gains a +2 class bonus to Intelligence or Wisdom, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>
-        <h2 class="archmage-class-heading">Backgrounds</h2>
-        <p>Possible backgrounds for the occultist’s singular knowledge include: librarian of the forbidden, or wandering mystic. Perhaps the occultist is a holy one whose secret knowledge comes from the heavens, or perhaps she has been touched by the abyss, and her secret knowledge comes from someplace far more sinister.</p>
-        <h2 class="archmage-class-heading">Gear</h2>
-        <p>At 1st level, the occultist starts with the embroidered robes, secret scrolls, and runic vestments that you would expect from someone with such arcane power. He might have a small item that looks like a harmless bauble but whose markings become more intricate and mesmerizing the longer it’s viewed. To defend himself, he has a staff or a dagger hidden under his robe. He also has some personal possessions left over from his earlier life.</p>
-        <h3 class="archmage-class-subheading">Gold Pieces</h3>
-        <p>The occultist may start with either 25 gp or 1d6 x 10 gp.</p>
-      </div>
-      <div class="armor">
-        <h2 class="archmage-class-heading">Armor</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Armor Type</th>
-              <th>Base AC</th>
-              <th>Atk Penalty</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th><em>None</em></th>
-              <td><em>10</em></td>
-              <td><em>—</em></td>
-            </tr>
-            <tr>
-              <th><em>Light</em></th>
-              <td><em>11</em></td>
-              <td><em>—</em></td>
-            </tr>
-            <tr>
-              <th>Heavy</th>
-              <td>13</td>
-              <td>-2</td>
-            </tr>
-            <tr>
-              <th>Shield</th>
-              <td>+1</td>
-              <td>-2</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="grid grid-2col">
-      <div class="melee-weapons">
-        <h2 class="archmage-class-heading">Melee Weapons</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>&nbsp;</th>
-              <th>One-Handed</th>
-              <th>Two-Handed</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Small</th>
-              <td>1d4 dagger</td>
-              <td>1d6 club, staff</td>
-            </tr>
-            <tr>
-              <th>Light or Simple</th>
-              <td>1d6 (-2 atk) mace, shortsword</td>
-              <td>1d8 (-2 atk) spear</td>
-            </tr>
-            <tr>
-              <th>Heavy or Martial</th>
-              <td>1d8 (-4 atk) longsword, warhammer</td>
-              <td>1d10 (-4 atk) greatsword</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="ranged-weapons">
-        <h2 class="archmage-class-heading">Ranged Weapons</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>&nbsp;</th>
-              <th>Thrown</th>
-              <th>Crossbow</th>
-              <th>Bow</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Small</th>
-              <td>1d4 dagger, dart</td>
-              <td>1d4 hand crossbow</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <th>Light or Simple</th>
-              <td>1d6 (-2 atk) javelin</td>
-              <td>1d6 (-1 atk) light crossbow</td>
-              <td>1d6 (-2 atk) shortbow</td>
-            </tr>
-            <tr>
-              <th>Heavy or Martial</th>
-              <td>—</td>
-              <td>1d8 (-4 atk) heavy crossbow</td>
-              <td>1d8 (-5 atk) longbow</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <h2 class="archmage-class-heading">Level Progression</h2>
-  <table>
-    <tbody>
-      <tr>
-        <th>Occultist</th>
-        <th>Total hit points</th>
-        <th>Total Feats</th>
-        <th>Class Talents (M)</th>
-        <th>1st level spell (M)</th>
-        <th>3rd level spell (M)</th>
-        <th>5th level spell (M)</th>
-        <th>7th level spell (M)</th>
-        <th>9th level spell (M)</th>
-        <th>Level-up Ability</th>
-        <th>Damage Bonus From Ability Score</th>
-      </tr>
-      <tr>
-        <th>Level 1 Multiclass</th>
-        <td>(Avg. of both classes) x 3</td>
-        <td>As 1st level PC</td>
-        <td>1 or 2 (3 total)</td>
-        <td>3</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>Not affected</td>
-        <td>ability modifier</td>
-      </tr>
-      <tr>
-        <td>
-        <p><strong>Level 1</strong></p>
-        </td>
-        <td>(6 + CON mod) x 3</td>
-        <td>1 adventurer</td>
-        <td>4</td>
-        <td>4</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>&nbsp;</td>
-        <td>ability modifier</td>
-      </tr>
-      <tr>
-        <th>Level 2</th>
-        <td>(6 + CON mod) x 4</td>
-        <td>2 adventurer</td>
-        <td>4</td>
-        <td>5</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>&nbsp;</td>
-        <td>ability modifier</td>
-      </tr>
-      <tr>
-        <td>
-        <p><strong>Level 3</strong></p>
-        </td>
-        <td>(6 + CON mod) x 5</td>
-        <td>3 adventurer</td>
-        <td>4</td>
-        <td>2</td>
-        <td>3</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>&nbsp;</td>
-        <td>ability modifier</td>
-      </tr>
-      <tr>
-        <th>Level 4</th>
-        <td>(6 + CON mod) x 6</td>
-        <td>4 adventurer</td>
-        <td>4</td>
-        <td>—</td>
-        <td>6</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>+1 to 3 abilities</td>
-        <td>ability modifier</td>
-      </tr>
-      <tr>
-        <td>
-        <p><strong>Level 5</strong></p>
-        </td>
-        <td>(6 + CON mod) x 8</td>
-        <td>4 adventurer; 1 champion</td>
-        <td>5</td>
-        <td>—</td>
-        <td>3</td>
-        <td>3</td>
-        <td>—</td>
-        <td>—</td>
-        <td>&nbsp;</td>
-        <td>2 x ability modifier</td>
-      </tr>
-      <tr>
-        <th>Level 6</th>
-        <td>(6 + CON mod) x 10</td>
-        <td>4 adventurer; 2 champion</td>
-        <td>5</td>
-        <td>—</td>
-        <td>—</td>
-        <td>7</td>
-        <td>—</td>
-        <td>—</td>
-        <td>&nbsp;</td>
-        <td>2 x ability modifier</td>
-      </tr>
-      <tr>
-        <td>
-        <p><strong>Level 7</strong></p>
-        </td>
-        <td>(6 + CON mod) x 12</td>
-        <td>4 adventurer; 3 champion</td>
-        <td>5</td>
-        <td>—</td>
-        <td>—</td>
-        <td>4</td>
-        <td>4</td>
-        <td>—</td>
-        <td>+1 to 3 abilities</td>
-        <td>2 x ability modifier</td>
-      </tr>
-      <tr>
-        <th>Level 8</th>
-        <td>(6 + CON mod) x 16</td>
-        <td>4 adventurer; 3 champion; 1 epic</td>
-        <td>6</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>9</td>
-        <td>—</td>
-        <td>&nbsp;</td>
-        <td>3 x ability modifier</td>
-      </tr>
-      <tr>
-        <td>
-        <p><strong>Level 9</strong></p>
-        </td>
-        <td>(6 + CON mod) x 20</td>
-        <td>4 adventurer; 3 champion; 2 epic</td>
-        <td>6</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>4</td>
-        <td>5</td>
-        <td>&nbsp;</td>
-        <td>3 x ability modifier</td>
-      </tr>
-      <tr>
-        <th>Level 10</th>
-        <td>(6 + CON mod) x 24</td>
-        <td>4 adventurer; 3 champion; 3 epic</td>
-        <td>6</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>10</td>
-        <td>+1 to 3 abilities</td>
-        <td>3 x ability modifier</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="l-center">
-    <p>(M): Indicates columns in which multiclass characters lag one level behind.</p>
-    <h2 class="archmage-class-heading">Stats</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Ability Bonus</th>
-          <td>+2 Intelligence or Wisdom (different from racial bonus)</td>
-        </tr>
-        <tr>
-          <th>Initiative</th>
-          <td>Dex mod + Level</td>
-        </tr>
-        <tr>
-          <th>Armor Class (no/light armor)</th>
-          <td>11 + middle mod of Con/Dex/Wis + Level</td>
-        </tr>
-        <tr>
-          <th>Physical Defense</th>
-          <td>10 + middle mod of Str/Con/Dex + Level</td>
-        </tr>
-        <tr>
-          <th>Mental Defense</th>
-          <td>11 + middle mod of Int/Wis/Cha + Level</td>
-        </tr>
-        <tr>
-          <th>Hit Points</th>
-          <td>(6 + Con mod) x Level modifier (see level progression chart)</td>
-        </tr>
-        <tr>
-          <th>Recoveries</th>
-          <td>8</td>
-        </tr>
-        <tr>
-          <th>Recovery Dice</th>
-          <td>(1d6 x Level) + Con mod</td>
-        </tr>
-        <tr>
-          <th>Backgrounds</th>
-          <td>8 points, max 5 in any one background</td>
-        </tr>
-        <tr>
-          <th>Icon Relationships</th>
-          <td>3 points (4 at 5th level; 5 at 8th level)</td>
-        </tr>
-        <tr>
-          <th>Talents</th>
-          <td>4 (see level progression chart)</td>
-        </tr>
-        <tr>
-          <th>Feats</th>
-          <td>1 per Level</td>
-        </tr>
-      </thead>
-    </table>
-  </div>
-img: systems/archmage/assets/icons/skills/violet_17.jpg
 _id: FYOslYkn9j2cjX0H
-pages: []
+pages:
+  - name: 'Figure: Occultist'
+    type: image
+    src: systems/archmage/assets/icons/skills/violet_17.jpg
+    title:
+      show: false
+      level: 1
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: 1yaFFEPwcv0WG1nD
+    system: {}
+    image: {}
+    text:
+      format: 1
+    video:
+      controls: true
+      volume: 0.5
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!FYOslYkn9j2cjX0H.1yaFFEPwcv0WG1nD'
+  - name: Occultist
+    type: text
+    title:
+      show: false
+      level: 1
+    text:
+      format: 1
+      content: "<div class=\"l-center\">\n  <h1 class=\"archmage-class-title\">Occultist</h1>\n  <div class=\"grid grid-2col\">\n    <div class=\"details\">\n      <p>There is only one occultist, and your one unique thing should account for your knowledge and mastery of powers hidden and occluded.</p>\n      <h2 class=\"archmage-class-heading\">Ability Scores</h2>\n      <p>The occultist gains a +2 class bonus to Intelligence or Wisdom, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>\n      <h2 class=\"archmage-class-heading\">Backgrounds</h2>\n      <p>Possible backgrounds for the occultist’s singular knowledge include: librarian of the forbidden, or wandering mystic. Perhaps the occultist is a holy one whose secret knowledge comes from the heavens, or perhaps she has been touched by the abyss, and her secret knowledge comes from someplace far more sinister.</p>\n      <h2 class=\"archmage-class-heading\">Gear</h2>\n      <p>At 1st level, the occultist starts with the embroidered robes, secret scrolls, and runic vestments that you would expect from someone with such arcane power. He might have a small item that looks like a harmless bauble but whose markings become more intricate and mesmerizing the longer it’s viewed. To defend himself, he has a staff or a dagger hidden under his robe. He also has some personal possessions left over from his earlier life.</p>\n      <h3 class=\"archmage-class-subheading\">Gold Pieces</h3>\n      <p>The occultist may start with either 25 gp or 1d6 x 10 gp.</p>\n    </div>\n    <div class=\"armor\">\n      <h2 class=\"archmage-class-heading\">Armor</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>Armor Type</th>\n            <th>Base AC</th>\n            <th>Atk Penalty</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th><em>None</em></th>\n            <td><em>10</em></td>\n            <td><em>—</em></td>\n          </tr>\n          <tr>\n            <th><em>Light</em></th>\n            <td><em>11</em></td>\n            <td><em>—</em></td>\n          </tr>\n          <tr>\n            <th>Heavy</th>\n            <td>13</td>\n            <td>-2</td>\n          </tr>\n          <tr>\n            <th>Shield</th>\n            <td>+1</td>\n            <td>-2</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"grid grid-2col\">\n    <div class=\"melee-weapons\">\n      <h2 class=\"archmage-class-heading\">Melee Weapons</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>\_</th>\n            <th>One-Handed</th>\n            <th>Two-Handed</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>Small</th>\n            <td>1d4 dagger</td>\n            <td>1d6 club, staff</td>\n          </tr>\n          <tr>\n            <th>Light or Simple</th>\n            <td>1d6 (-2 atk) mace, shortsword</td>\n            <td>1d8 (-2 atk) spear</td>\n          </tr>\n          <tr>\n            <th>Heavy or Martial</th>\n            <td>1d8 (-4 atk) longsword, warhammer</td>\n            <td>1d10 (-4 atk) greatsword</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <div class=\"ranged-weapons\">\n      <h2 class=\"archmage-class-heading\">Ranged Weapons</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>\_</th>\n            <th>Thrown</th>\n            <th>Crossbow</th>\n            <th>Bow</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>Small</th>\n            <td>1d4 dagger, dart</td>\n            <td>1d4 hand crossbow</td>\n            <td>—</td>\n          </tr>\n          <tr>\n            <th>Light or Simple</th>\n            <td>1d6 (-2 atk) javelin</td>\n            <td>1d6 (-1 atk) light crossbow</td>\n            <td>1d6 (-2 atk) shortbow</td>\n          </tr>\n          <tr>\n            <th>Heavy or Martial</th>\n            <td>—</td>\n            <td>1d8 (-4 atk) heavy crossbow</td>\n            <td>1d8 (-5 atk) longbow</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n<h2 class=\"archmage-class-heading\">Level Progression</h2>\n<table>\n  <tbody>\n    <tr>\n      <th>Occultist</th>\n      <th>Total hit points</th>\n      <th>Total Feats</th>\n      <th>Class Talents (M)</th>\n      <th>1st level spell (M)</th>\n      <th>3rd level spell (M)</th>\n      <th>5th level spell (M)</th>\n      <th>7th level spell (M)</th>\n      <th>9th level spell (M)</th>\n      <th>Level-up Ability</th>\n      <th>Damage Bonus From Ability Score</th>\n    </tr>\n    <tr>\n      <th>Level 1 Multiclass</th>\n      <td>(Avg. of both classes) x 3</td>\n      <td>As 1st level PC</td>\n      <td>1 or 2 (3 total)</td>\n      <td>3</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>Not affected</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>\n      <p><strong>Level 1</strong></p>\n      </td>\n      <td>(6 + CON mod) x 3</td>\n      <td>1 adventurer</td>\n      <td>4</td>\n      <td>4</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>\_</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 2</th>\n      <td>(6 + CON mod) x 4</td>\n      <td>2 adventurer</td>\n      <td>4</td>\n      <td>5</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>\_</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>\n      <p><strong>Level 3</strong></p>\n      </td>\n      <td>(6 + CON mod) x 5</td>\n      <td>3 adventurer</td>\n      <td>4</td>\n      <td>2</td>\n      <td>3</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>\_</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 4</th>\n      <td>(6 + CON mod) x 6</td>\n      <td>4 adventurer</td>\n      <td>4</td>\n      <td>—</td>\n      <td>6</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>+1 to 3 abilities</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>\n      <p><strong>Level 5</strong></p>\n      </td>\n      <td>(6 + CON mod) x 8</td>\n      <td>4 adventurer; 1 champion</td>\n      <td>5</td>\n      <td>—</td>\n      <td>3</td>\n      <td>3</td>\n      <td>—</td>\n      <td>—</td>\n      <td>\_</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 6</th>\n      <td>(6 + CON mod) x 10</td>\n      <td>4 adventurer; 2 champion</td>\n      <td>5</td>\n      <td>—</td>\n      <td>—</td>\n      <td>7</td>\n      <td>—</td>\n      <td>—</td>\n      <td>\_</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <td>\n      <p><strong>Level 7</strong></p>\n      </td>\n      <td>(6 + CON mod) x 12</td>\n      <td>4 adventurer; 3 champion</td>\n      <td>5</td>\n      <td>—</td>\n      <td>—</td>\n      <td>4</td>\n      <td>4</td>\n      <td>—</td>\n      <td>+1 to 3 abilities</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 8</th>\n      <td>(6 + CON mod) x 16</td>\n      <td>4 adventurer; 3 champion; 1 epic</td>\n      <td>6</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>9</td>\n      <td>—</td>\n      <td>\_</td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n      <td>\n      <p><strong>Level 9</strong></p>\n      </td>\n      <td>(6 + CON mod) x 20</td>\n      <td>4 adventurer; 3 champion; 2 epic</td>\n      <td>6</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>4</td>\n      <td>5</td>\n      <td>\_</td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 10</th>\n      <td>(6 + CON mod) x 24</td>\n      <td>4 adventurer; 3 champion; 3 epic</td>\n      <td>6</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>—</td>\n      <td>10</td>\n      <td>+1 to 3 abilities</td>\n      <td>3 x ability modifier</td>\n    </tr>\n  </tbody>\n</table>\n<div class=\"l-center\">\n  <p>(M): Indicates columns in which multiclass characters lag one level behind.</p>\n  <h2 class=\"archmage-class-heading\">Stats</h2>\n  <table>\n    <thead>\n      <tr>\n        <th>Ability Bonus</th>\n        <td>+2 Intelligence or Wisdom (different from racial bonus)</td>\n      </tr>\n      <tr>\n        <th>Initiative</th>\n        <td>Dex mod + Level</td>\n      </tr>\n      <tr>\n        <th>Armor Class (no/light armor)</th>\n        <td>11 + middle mod of Con/Dex/Wis + Level</td>\n      </tr>\n      <tr>\n        <th>Physical Defense</th>\n        <td>10 + middle mod of Str/Con/Dex + Level</td>\n      </tr>\n      <tr>\n        <th>Mental Defense</th>\n        <td>11 + middle mod of Int/Wis/Cha + Level</td>\n      </tr>\n      <tr>\n        <th>Hit Points</th>\n        <td>(6 + Con mod) x Level modifier (see level progression chart)</td>\n      </tr>\n      <tr>\n        <th>Recoveries</th>\n        <td>8</td>\n      </tr>\n      <tr>\n        <th>Recovery Dice</th>\n        <td>(1d6 x Level) + Con mod</td>\n      </tr>\n      <tr>\n        <th>Backgrounds</th>\n        <td>8 points, max 5 in any one background</td>\n      </tr>\n      <tr>\n        <th>Icon Relationships</th>\n        <td>3 points (4 at 5th level; 5 at 8th level)</td>\n      </tr>\n      <tr>\n        <th>Talents</th>\n        <td>4 (see level progression chart)</td>\n      </tr>\n      <tr>\n        <th>Feats</th>\n        <td>1 per Level</td>\n      </tr>\n    </thead>\n  </table>\n</div>"
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: tXQ4XsGYklxpC2s7
+    system: {}
+    image: {}
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!FYOslYkn9j2cjX0H.tXQ4XsGYklxpC2s7'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+sort: 0
 _key: '!journal!FYOslYkn9j2cjX0H'
 

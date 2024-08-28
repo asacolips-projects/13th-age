@@ -121,6 +121,66 @@ system:
       value: 11
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: pm8sjtnccrqW9w5p
     flags: {}
@@ -176,8 +236,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.pm8sjtnccrqW9w5p'
   - _id: LPc1g2Hpcl7GZ4YF
     flags: {}
@@ -231,8 +289,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.LPc1g2Hpcl7GZ4YF'
   - _id: 9bklTck8R4MxbQFE
     flags: {}
@@ -256,8 +312,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.9bklTck8R4MxbQFE'
   - _id: W5pZhLIiqxyDci12
     flags: {}
@@ -282,8 +336,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.W5pZhLIiqxyDci12'
   - _id: fNXY8pfgYF0KDjHi
     flags: {}
@@ -308,8 +360,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.fNXY8pfgYF0KDjHi'
   - _id: rHf6hgYllYXFScLs
     flags: {}
@@ -337,8 +387,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.rHf6hgYllYXFScLs'
   - _id: T4i83m2F3ib88zTS
     flags: {}
@@ -364,8 +412,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.T4i83m2F3ib88zTS'
   - _id: uZsN8GVlOfuWANg8
     flags: {}
@@ -390,8 +436,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2Epu1Q2NsGWX2CYL.uZsN8GVlOfuWANg8'
 effects: []
 folder: null
@@ -435,14 +479,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -452,8 +503,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!2Epu1Q2NsGWX2CYL'
 

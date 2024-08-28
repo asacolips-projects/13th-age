@@ -1,6 +1,4 @@
 name: Ancestral Guidance
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Ancestral Guidance
+    label: Power Usage
+    value: once-per-battle
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  group:
+    type: String
+    label: Group
+    value: Warrior Druid
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Ancestral Guidance
   powerType:
     type: String
     label: Power Type
     value: flexible
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: once-per-battle
   powerLevel:
     type: Number
     label: Level
@@ -117,21 +135,45 @@ system:
       Warrior Druid adept and you use ancestral guidance while in humanoid form,
       you also regain all the once-per-battle flexible attacks you have expended
       this battle.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
+    value: ''
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
     value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -141,18 +183,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -197,13 +235,17 @@ system:
       maxQuantity:
         type: Number
         value: null
-  group:
+  embeddedMacro:
     type: String
-    label: Group
-    value: Warrior Druid
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: icons/magic/unholy/hand-light-green.webp
 _id: 9Fhp793M5wTlgCiD
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!9Fhp793M5wTlgCiD'
 

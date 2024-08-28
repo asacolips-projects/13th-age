@@ -1,49 +1,51 @@
 name: Chaotic Benefit (E)
-permission:
-  default: 0
 flags: {}
 img: icons/svg/d20-grey.svg
 description: ''
 results:
   - _id: zRUVOBQt3zOd63zy
     flags: {}
-    type: 0
+    type: text
     text: You gain a +1 bonus to all defenses until the start of your next turn.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 2
     range:
       - 1
       - 2
     drawn: false
+    documentId: null
     _key: '!tables.results!hojV2urxFb1cjgWJ.zRUVOBQt3zOd63zy'
   - _id: G80jfQRER4qJ3LUQ
     flags: {}
-    type: 0
+    type: text
     text: Deal [[@lvl+2*@cha.mod]] damage to all nearby staggered enemies.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 2
     range:
       - 3
       - 4
     drawn: false
+    documentId: null
     _key: '!tables.results!hojV2urxFb1cjgWJ.G80jfQRER4qJ3LUQ'
   - _id: pUiLydoJceGpNFp9
     flags: {}
-    type: 0
+    type: text
     text: Deal [[@lvl+2*@cha.mod]] damage to one nearby enemy
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 2
     range:
       - 5
       - 6
     drawn: false
+    documentId: null
     _key: '!tables.results!hojV2urxFb1cjgWJ.pUiLydoJceGpNFp9'
 formula: 1d6
 replacement: true
 displayRoll: false
 _id: hojV2urxFb1cjgWJ
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!tables!hojV2urxFb1cjgWJ'
 

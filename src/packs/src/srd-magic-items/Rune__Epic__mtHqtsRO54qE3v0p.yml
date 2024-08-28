@@ -1,7 +1,139 @@
 name: Rune (Epic)
 type: loot
 img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Magic Rune (Epic, Armor)
+    img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
+    _id: jnS8iXTk9vLhlph2
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '3'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!mtHqtsRO54qE3v0p.jnS8iXTk9vLhlph2'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Epic, Melee Weapon)
+    img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
+    _id: lqlDR6BC1sdep7Nj
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.melee.bonus
+        value: '3'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!mtHqtsRO54qE3v0p.lqlDR6BC1sdep7Nj'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Epic, Ranged Weapon)
+    img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
+    _id: VJZXQ5BBR9RHwuyF
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.ranged.bonus
+        value: '3'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!mtHqtsRO54qE3v0p.VJZXQ5BBR9RHwuyF'
+  - origin: null
+    disabled: false
+    name: Magic Rune (Epic, Implement)
+    img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
+    _id: y4BSKRb2cFd6oQHJ
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.attack.divine.bonus
+        value: '3'
+        mode: 2
+        priority: null
+      - key: system.attributes.attack.arcane.bonus
+        value: '3'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        ongoingDamageCrit: false
+    _key: '!items.effects!mtHqtsRO54qE3v0p.y4BSKRb2cFd6oQHJ'
 flags:
   core: {}
 system:
@@ -12,8 +144,9 @@ system:
     type: String
     label: Description
     value: >-
-      <p>Works as a @UUID[Compendium.world.consumables.R4yYgODdZKVdfI2M]{Magic
-      Oil (Epic)} and provides an additional effect based on what it is applied
+      <p>Works as a
+      @UUID[Compendium.archmage.srd-magic-items.Item.e6y7NbwbpCkIHpjF]{Magic Oil
+      (Epic)} and provides an additional effect based on what it is applied
       to:</p>
 
       <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random
@@ -33,17 +166,9 @@ system:
     label: Price
     value: 600
 folder: 0mcnzVgWo4dqvS1l
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647900708
-  modifiedTime: 1714647900708
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: mtHqtsRO54qE3v0p
 sort: 0
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!mtHqtsRO54qE3v0p'
 

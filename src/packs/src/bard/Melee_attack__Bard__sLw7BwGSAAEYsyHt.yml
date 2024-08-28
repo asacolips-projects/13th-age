@@ -1,6 +1,4 @@
 name: Melee attack (Bard)
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Melee attack (Bard)
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Bard
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Melee attack (Bard)
   powerType:
     type: String
     label: Power Type
     value: feature
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -113,22 +131,46 @@ system:
     type: String
     label: Effect
     value: ''
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
     value: null
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: null
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: null
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
     value: null
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -137,22 +179,26 @@ system:
     type: String
     label: Breath Weapon
     value: null
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: icons/weapons/swords/sword-guard-engraved.webp
 _id: sLw7BwGSAAEYsyHt
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!sLw7BwGSAAEYsyHt'
 

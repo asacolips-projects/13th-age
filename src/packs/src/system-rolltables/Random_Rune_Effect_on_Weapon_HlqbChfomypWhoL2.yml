@@ -2,7 +2,7 @@ name: Random Rune Effect on Weapon
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 1
@@ -15,7 +15,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!HlqbChfomypWhoL2.bJuCbDtePhhsemCO'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 21
@@ -30,7 +30,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!HlqbChfomypWhoL2.7ICQCROIg0U569Rz'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 41
@@ -43,7 +43,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!HlqbChfomypWhoL2.ebU7OtOZYwshHd0b'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 61
@@ -58,7 +58,7 @@ results:
     documentId: null
     flags: {}
     _key: '!tables.results!HlqbChfomypWhoL2.c7wJevTMdk3tJ89m'
-  - type: 0
+  - type: text
     weight: 1
     range:
       - 81
@@ -79,7 +79,6 @@ sort: 0
 ownership:
   default: 0
 _id: HlqbChfomypWhoL2
-permission:
-  default: 0
+folder: null
 _key: '!tables!HlqbChfomypWhoL2'
 

@@ -1,6 +1,4 @@
 name: Hail Hail
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -10,10 +8,30 @@ system:
     type: String
     label: Description
     value: ''
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Hail Hail
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  group:
+    type: String
+    label: Group
+    value: Elemental Caster
   powerSource:
     type: String
     label: Power Source
@@ -22,14 +40,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Hail Hail
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -118,22 +136,46 @@ system:
     type: String
     label: Effect
     value: ''
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
     value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage, [[1d6]] mook damage on odd hit.'
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, [[1d10]] mook damage on odd hit.'
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage, [[2d8]] mook damage on odd hit.'
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
     value: '[[7d10+@wis.dmg+@atk.d.bonus]] damage, [[4d6]] mook damage on odd hit.'
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -142,26 +184,26 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  feats: null
-  group:
+    label: Sustain On
+    value: ''
+  rollTable:
     type: String
-    label: Group
-    value: Elemental Caster
+    label: Roll Table
+    value: ''
+  feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: icons/magic/water/projectile-ice-chunks-salvo.webp
 _id: 2BDKoZXviyOTtOBc
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!2BDKoZXviyOTtOBc'
 

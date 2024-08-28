@@ -1,6 +1,4 @@
 name: Speak with Dead
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -10,10 +8,30 @@ system:
     type: String
     label: Description
     value: ''
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Speak with Dead
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -22,14 +40,14 @@ system:
     type: String
     label: Power Source
     value: Necromancer
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Speak with Dead
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -135,9 +153,17 @@ system:
       secretly before the corpse provides any answers; a 3+ means the spirit
       will speak truly, but a 1 or a 2 means it will lie while appearing to be
       aiming for the truth.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
+    value: ''
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
     value: ''
   spellLevel5:
     type: String
@@ -145,18 +171,34 @@ system:
     value: >-
       You can now cast this spell [[1d4]] times per day, targeting corpses or
       even just heads that have been dead up to a week.
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: >-
       Questions can now be phrased to receive threeword answers, targeting
       corpses/heads that have been dead up to a month.
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
     value: >-
       Questions can now be phrased to receive one to two sentence answers,
       targeting corpses/ heads or skeletal remains of almost any age.
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -165,22 +207,26 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/horror-acid-1.jpg
 _id: 9WoAxfUDTmsaQnGQ
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!9WoAxfUDTmsaQnGQ'
 

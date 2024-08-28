@@ -226,8 +226,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!piVOzj9ljQ2Nc8XA.MBC9eUJCQGEhcmqq'
   - _id: z3wIr7VE3pQuYZWO
     flags: {}
@@ -277,8 +275,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!piVOzj9ljQ2Nc8XA.z3wIr7VE3pQuYZWO'
   - _id: VZHMKOWCBQ2cXfK9
     flags: {}
@@ -300,8 +296,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!piVOzj9ljQ2Nc8XA.VZHMKOWCBQ2cXfK9'
   - _id: o1OGwn2MjUuGlYYM
     flags: {}
@@ -323,8 +317,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!piVOzj9ljQ2Nc8XA.o1OGwn2MjUuGlYYM'
   - _id: HjdFxnyxbFvuLMfk
     flags: {}
@@ -348,8 +340,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!piVOzj9ljQ2Nc8XA.HjdFxnyxbFvuLMfk'
   - _id: 8pr1GqkB3O2Nt2vn
     flags: {}
@@ -374,8 +364,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!piVOzj9ljQ2Nc8XA.8pr1GqkB3O2Nt2vn'
   - _id: SU0maCpA4CiWzZzR
     flags: {}
@@ -399,8 +387,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!piVOzj9ljQ2Nc8XA.SU0maCpA4CiWzZzR'
 effects: []
 folder: null
@@ -445,6 +431,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
     scaleX: 1
@@ -452,6 +441,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -461,8 +455,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!piVOzj9ljQ2Nc8XA'
 

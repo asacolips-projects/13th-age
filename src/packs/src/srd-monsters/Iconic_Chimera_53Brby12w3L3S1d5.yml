@@ -119,6 +119,66 @@ system:
       value: 8
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: skx5i1mo7OKFH147
     flags: {}
@@ -177,8 +237,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.skx5i1mo7OKFH147'
   - _id: CfgabSuiffmnNNQS
     flags: {}
@@ -226,8 +284,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.CfgabSuiffmnNNQS'
   - _id: K5hrzuQddo0Hjl2D
     flags: {}
@@ -278,8 +334,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.K5hrzuQddo0Hjl2D'
   - _id: KZb3Uy7C5wHDzbNz
     flags: {}
@@ -310,8 +364,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.KZb3Uy7C5wHDzbNz'
   - _id: HndvWwv2TERazKuR
     flags: {}
@@ -335,8 +387,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.HndvWwv2TERazKuR'
   - _id: V1taQqSsAoImkAQs
     flags: {}
@@ -358,8 +408,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.V1taQqSsAoImkAQs'
   - _id: yMpL30G12MZ8HEHJ
     flags: {}
@@ -383,8 +431,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.yMpL30G12MZ8HEHJ'
   - _id: lfK5s94KCzUGwwSm
     flags: {}
@@ -406,8 +452,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.lfK5s94KCzUGwwSm'
   - _id: A3wVzIBroAeyqLE7
     flags: {}
@@ -431,8 +475,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.A3wVzIBroAeyqLE7'
   - _id: wCDPmpDnrWriCq2H
     flags: {}
@@ -456,8 +498,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.wCDPmpDnrWriCq2H'
   - _id: gwqdAI6qE2hqkYbM
     flags: {}
@@ -481,8 +521,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.gwqdAI6qE2hqkYbM'
   - _id: Cxb71zuHtQywtcAA
     flags: {}
@@ -504,8 +542,6 @@ items:
     sort: 1100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.Cxb71zuHtQywtcAA'
   - _id: QxZ2UNC7oX5LTY9y
     flags: {}
@@ -529,8 +565,6 @@ items:
     sort: 1200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.QxZ2UNC7oX5LTY9y'
   - _id: dgDj7OxFXWoCbDbA
     flags: {}
@@ -554,8 +588,6 @@ items:
     sort: 1300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.dgDj7OxFXWoCbDbA'
   - _id: RL9bIYRZ3KYCccOC
     flags: {}
@@ -579,8 +611,6 @@ items:
     sort: 1400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.RL9bIYRZ3KYCccOC'
   - _id: 37ynlZlE3GHW49lt
     flags: {}
@@ -607,8 +637,6 @@ items:
     sort: 1500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.37ynlZlE3GHW49lt'
   - _id: 1lD1atHjaA8wrh4p
     flags: {}
@@ -632,8 +660,6 @@ items:
     sort: 1600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.1lD1atHjaA8wrh4p'
   - _id: N9or0sPwDsa4DkNj
     flags: {}
@@ -657,8 +683,6 @@ items:
     sort: 1700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.N9or0sPwDsa4DkNj'
   - _id: axzfFZraVXalUDE1
     flags: {}
@@ -683,8 +707,6 @@ items:
     sort: 1800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.axzfFZraVXalUDE1'
   - _id: 2ZfZXzBkOKpYE5oZ
     flags: {}
@@ -706,8 +728,6 @@ items:
     sort: 1900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.2ZfZXzBkOKpYE5oZ'
   - _id: FLSWrybzZvvmi2HX
     flags: {}
@@ -732,8 +752,6 @@ items:
     sort: 2000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.FLSWrybzZvvmi2HX'
   - _id: R4EtK1OBUQvXpRL2
     flags: {}
@@ -755,8 +773,6 @@ items:
     sort: 2100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.R4EtK1OBUQvXpRL2'
   - _id: fUWMG276MZ77afyc
     flags: {}
@@ -780,8 +796,6 @@ items:
     sort: 2200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.fUWMG276MZ77afyc'
   - _id: sHQ7US1GMVZe9snR
     flags: {}
@@ -806,8 +820,6 @@ items:
     sort: 2300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.sHQ7US1GMVZe9snR'
   - _id: SmwIJJaY9Vpj2G8x
     flags: {}
@@ -829,8 +841,6 @@ items:
     sort: 2400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.SmwIJJaY9Vpj2G8x'
   - _id: D8BL4DU7w1Pfic8f
     flags: {}
@@ -854,8 +864,6 @@ items:
     sort: 2500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.D8BL4DU7w1Pfic8f'
   - _id: UijhoKIpvpWwqmfQ
     flags: {}
@@ -879,8 +887,6 @@ items:
     sort: 2600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.UijhoKIpvpWwqmfQ'
   - _id: IJ4gXDyoYikEqDM8
     flags: {}
@@ -904,8 +910,6 @@ items:
     sort: 2700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.IJ4gXDyoYikEqDM8'
   - _id: 67qknGx19cTunQZF
     flags: {}
@@ -929,8 +933,6 @@ items:
     sort: 2800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.67qknGx19cTunQZF'
   - _id: Ts7lIB1DpmiKH22G
     flags: {}
@@ -954,8 +956,6 @@ items:
     sort: 2900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.Ts7lIB1DpmiKH22G'
 effects: []
 folder: null
@@ -1000,6 +1000,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
     scaleX: 1
@@ -1007,6 +1010,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -1016,8 +1024,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!53Brby12w3L3S1d5'
 

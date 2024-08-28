@@ -132,6 +132,89 @@ system:
       value: ''
     detectedClasses:
       - paladin
+  resources:
+    perCombat:
+      momentum:
+        enabled: false
+        current: false
+      commandPoints:
+        enabled: false
+        current: 0
+      focus:
+        enabled: false
+        current: false
+      rhythm:
+        enabled: false
+        current: none
+        default: none
+        secondEdition: true
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      ki:
+        enabled: false
+        current: 0
+        max: 0
+      rerolls:
+        enabled: false
+        AC:
+          current: 0
+          max: 0
+        save:
+          current: 0
+          max: 0
   abilities:
     str:
       type: Number
@@ -321,81 +404,6 @@ system:
         type: Boolean
         value: false
       results: []
-  resources:
-    perCombat:
-      momentum:
-        enabled: false
-        current: false
-      commandPoints:
-        enabled: false
-        current: 0
-      focus:
-        enabled: false
-        current: false
-      rhythm:
-        enabled: false
-        current: none
-        default: none
-        secondEdition: true
-    spendable:
-      ki:
-        enabled: false
-        current: 0
-        max: 0
-      custom1:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom2:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom3:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom4:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom5:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom6:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom7:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom8:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom9:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
   incrementals:
     abilityScoreBonus: false
     extraMagicItem: false
@@ -433,6 +441,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -463,6 +476,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -472,9 +488,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Halo
     type: power
@@ -648,6 +677,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -705,13 +738,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708819684271
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.bR5V5eQy2pge4r0o'
   - name: (Smite Evil) Melee attack (Daily)
     type: power
@@ -882,6 +908,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -916,13 +946,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708968004895
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.QWDRnMwZjRtJJk3W'
   - name: (Smite Evil) Melee attack (Per-Battle)
     type: power
@@ -1093,6 +1116,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1127,13 +1154,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708967996943
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.I7MOn5fStDUsS84Q'
   - name: Melee attack (Paladin)
     type: power
@@ -1304,6 +1324,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1338,13 +1362,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708820077108
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.HOsiw60ALtCBKWQ5'
   - name: Ranged Attack (Paladin)
     type: power
@@ -1515,6 +1532,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1544,13 +1565,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708819684271
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.FLzrZWqSWOdmFwP2'
   - name: Smite Evil
     type: power
@@ -1726,6 +1740,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -1812,13 +1830,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708819684271
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.GhNXhD5Yn6DpfD6U'
   - name: Cleric Training
     type: power
@@ -1991,6 +2002,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2079,13 +2094,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708819684271
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.iXw3ufn7zozwBnKy'
   - name: Divine Domain
     type: power
@@ -2256,6 +2264,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2285,13 +2297,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708819684271
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.2EUJ6s7vMAZPaffa'
   - name: Lay on Hands
     type: power
@@ -2465,6 +2470,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2555,13 +2564,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708819684271
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.JU99fculhr3sGTte'
   - name: Toughness
     type: power
@@ -2733,6 +2735,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -2785,13 +2791,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819684271
-      modifiedTime: 1708819690250
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.DObx2kfyxmcKG5zl'
   - name: 'Domain: Sun/Anti-Undead'
     type: power
@@ -2964,6 +2963,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3056,13 +3059,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819830938
-      modifiedTime: 1708819830938
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.olfGHxmTCHf8IyYx'
   - name: Invocation of Sun/Anti-Undead
     type: power
@@ -3237,6 +3233,10 @@ items:
         type: String
         label: 10th Level Spell
         value: ''
+      spellLevel11:
+        type: String
+        label: 11th Level Spell
+        value: ''
       spellChain:
         type: String
         label: Chain Spell
@@ -3267,13 +3267,6 @@ items:
     flags:
       core:
         sourceId: Compendium.archmage.cleric.Item.DXKDjQ7EFNBvdi5A
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708819845895
-      modifiedTime: 1708819845895
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.U8g1bJJTtmtr2QtJ'
 effects: []
 folder: null
@@ -3304,12 +3297,5 @@ flags:
     hideOneUniqueThing: false
     hideSettingsTab: false
     diceFormulaMode: ''
-_stats:
-  systemId: archmage
-  systemVersion: 1.27.0
-  coreVersion: '11.315'
-  createdTime: 1708819553371
-  modifiedTime: 1708968004895
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!hyT5ZzJ3GfQHxrue'
 

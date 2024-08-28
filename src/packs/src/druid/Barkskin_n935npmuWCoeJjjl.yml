@@ -1,6 +1,4 @@
-name: 'Barkskin '
-permission:
-  default: 0
+name: Barkskin
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: 'Barkskin '
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  group:
+    type: String
+    label: Group
+    value: 'Terrain Caster: Forest, Woods'
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: 'Barkskin '
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -115,9 +133,17 @@ system:
     value: >-
       <p>Until the end of the battle, the target gains a +3 bonus to AC except
       against attacks that deal fire damage.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
+    value: ''
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
     value: ''
   spellLevel5:
     type: String
@@ -125,14 +151,30 @@ system:
     value: >-
       The +3 bonus also applies to PD except against attacks that deal fire
       damage.
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
+    value: ''
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
     value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
     value: You can now choose two targets.
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -141,23 +183,19 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  feats: null
-  group:
+    label: Sustain On
+    value: ''
+  rollTable:
     type: String
-    label: Group
-    value: 'Terrain Caster: Forest, Woods'
+    label: Roll Table
+    value: ''
+  feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: icons/magic/nature/hand-weapon-wood-bark-brown.webp
 _id: n935npmuWCoeJjjl
@@ -193,5 +231,9 @@ effects:
         ongoingDamageType: ''
         duration: EndOfCombat
     _key: '!items.effects!n935npmuWCoeJjjl.CESUEgJMv5CwuRW7'
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!n935npmuWCoeJjjl'
 

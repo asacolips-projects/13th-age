@@ -119,6 +119,66 @@ system:
       value: 5
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: z1G53h1QTdH28IO5
     flags: {}
@@ -171,8 +231,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.z1G53h1QTdH28IO5'
   - _id: LcxFi36nEg6s2uuX
     flags: {}
@@ -222,8 +280,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.LcxFi36nEg6s2uuX'
   - _id: wcq7EybDojkmnwsP
     flags: {}
@@ -273,8 +329,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.wcq7EybDojkmnwsP'
   - _id: dh7JVdXN77aTlM08
     flags: {}
@@ -322,8 +376,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.dh7JVdXN77aTlM08'
   - _id: vsgG6OIv7xkoB96k
     flags: {}
@@ -347,8 +399,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.vsgG6OIv7xkoB96k'
   - _id: djA8RmdyVnGMn3te
     flags: {}
@@ -372,8 +422,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.djA8RmdyVnGMn3te'
   - _id: ZtrPuEfutpBRr05y
     flags: {}
@@ -395,8 +443,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.ZtrPuEfutpBRr05y'
   - _id: jDzK8hSKrJJ6KOrS
     flags: {}
@@ -421,8 +467,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.jDzK8hSKrJJ6KOrS'
   - _id: bDC8TQpdql24Hpmc
     flags: {}
@@ -446,8 +490,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.bDC8TQpdql24Hpmc'
   - _id: fqVvKVcoHTnacIjg
     flags: {}
@@ -469,8 +511,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.fqVvKVcoHTnacIjg'
   - _id: Hf9qT1146Lhn3dDZ
     flags: {}
@@ -495,8 +535,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!0CzjRDh40QJASsYY.Hf9qT1146Lhn3dDZ'
 effects: []
 folder: null
@@ -541,6 +579,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
     scaleX: 1
@@ -548,6 +589,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -557,8 +603,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!0CzjRDh40QJASsYY'
 

@@ -21,9 +21,9 @@ command: |-
   if (table) table.draw();
 folder: null
 sort: 0
-permission:
-  default: 0
 flags: {}
 _id: k7nFrgoSgocyOMbd
+ownership:
+  default: 0
 _key: '!macros!k7nFrgoSgocyOMbd'
 

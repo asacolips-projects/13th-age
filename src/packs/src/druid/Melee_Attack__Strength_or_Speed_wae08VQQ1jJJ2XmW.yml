@@ -1,6 +1,4 @@
 name: 'Melee Attack: Strength or Speed'
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: 'Melee Attack: Strength or Speed'
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: 'Melee Attack: Strength or Speed'
   powerType:
     type: String
     label: Power Type
     value: feature
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
   powerLevel:
     type: Number
     label: Level
@@ -120,21 +138,45 @@ system:
       of the d6s used by other druids. Choosing Dexterity as your melee attack
       ability score works well because Dexterity already boosts your initiative
       and ranged weapon attacks and might help your AC.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
+    value: ''
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
     value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -144,22 +186,26 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: icons/skills/melee/strike-weapons-orange.webp
 _id: wae08VQQ1jJJ2XmW
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!wae08VQQ1jJJ2XmW'
 

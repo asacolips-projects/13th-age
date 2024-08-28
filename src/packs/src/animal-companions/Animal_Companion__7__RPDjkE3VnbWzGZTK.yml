@@ -6,6 +6,13 @@ system:
     attackMod:
       type: Number
       value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
     ac:
       type: Number
       label: Armor Class
@@ -34,14 +41,6 @@ system:
       tempmax: 0
       base: 7
       automatic: true
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
-      base: 8
-      automatic: true
     init:
       type: Number
       label: Initiative Modifier
@@ -55,10 +54,8 @@ system:
     disengage: 11
     disengageBonus: 0
     saves:
-      easy: 6
-      normal: 11
-      hard: 16
-      death: 16
+      bonus: 0
+      disengageBonus: 0
       deathFails:
         value: 0
         max: 4
@@ -67,7 +64,6 @@ system:
           - false
           - false
           - false
-      lastGasp: 16
       lastGaspFails:
         value: 0
         max: 4
@@ -76,6 +72,19 @@ system:
           - false
           - false
           - false
+      easy: 6
+      normal: 11
+      hard: 16
+      death: 16
+      lastGasp: 16
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+      base: 8
+      automatic: true
   details:
     alignment:
       type: String
@@ -83,6 +92,8 @@ system:
     biography:
       type: String
       label: Biography
+    flavor:
+      value: ''
     role:
       value: ''
       type: String
@@ -91,55 +102,80 @@ system:
       value: ''
       type: String
       label: Size
+    strength:
+      value: ''
     type:
       value: ''
       type: String
       label: Type
     resistance:
+      value: ''
       type: String
       label: Resistance
-      value: ''
     vulnerability:
+      value: ''
       type: String
       label: Vulnerability
-      value: ''
-token:
-  name: Animal Companion (7)
-  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
-  displayName: 0
-  actorLink: true
-  width: 1
-  height: 1
-  scale: 1
-  mirrorX: false
-  mirrorY: false
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  vision: false
-  dimSight: 0
-  brightSight: 0
-  dimLight: 0
-  brightLight: 0
-  sightAngle: 0
-  lightAngle: 0
-  lightAlpha: 0.25
-  lightAnimation:
-    speed: 5
-    intensity: 5
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: ''
-  flags: {}
-  randomImg: false
-  tint: null
-  lightColor: null
-  x: null
-  'y': null
-  elevation: null
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: TCIVILZbOuwOklGC
     name: Fangs or Claws or...
@@ -192,9 +228,6 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
     _key: '!actors.items!RPDjkE3VnbWzGZTK.TCIVILZbOuwOklGC'
   - _id: 7pmHgwNxyyzCci80
@@ -216,9 +249,6 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
     _key: '!actors.items!RPDjkE3VnbWzGZTK.7pmHgwNxyyzCci80'
   - _id: vrjrLULDu2i1XDCl
@@ -244,15 +274,7 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
-    mce_13: >-
-      <p>Acts: After ranger</p><p>Advantage: The bear gains temporary hit points
-      equal to its level ([[@lvl]]) each time it hits with an
-      attack.</p><p>Champion Feat: The temporary hit points increase to double
-      its level ([[2*@lvl]]).</p>
     _key: '!actors.items!RPDjkE3VnbWzGZTK.vrjrLULDu2i1XDCl'
   - _id: 4Km3ZAYWmAxf5IZF
     name: Boar (also Spiky Lizard)
@@ -275,9 +297,6 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
     _key: '!actors.items!RPDjkE3VnbWzGZTK.4Km3ZAYWmAxf5IZF'
   - _id: SXkq5fAuPCRlR5xW
@@ -301,9 +320,6 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
     _key: '!actors.items!RPDjkE3VnbWzGZTK.SXkq5fAuPCRlR5xW'
   - _id: CUhyT4wIKHoxFXDO
@@ -327,9 +343,6 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
     _key: '!actors.items!RPDjkE3VnbWzGZTK.CUhyT4wIKHoxFXDO'
   - _id: XdYGBJhh7URJLdIx
@@ -356,9 +369,6 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
     _key: '!actors.items!RPDjkE3VnbWzGZTK.XdYGBJhh7URJLdIx'
   - _id: Z0zlVZDWBgz8FdU6
@@ -383,17 +393,90 @@ items:
     effects: []
     folder: null
     sort: 0
-    permission:
-      default: 0
-      aoopYJqvrhUZTLgf: 3
     flags: {}
     _key: '!actors.items!RPDjkE3VnbWzGZTK.Z0zlVZDWBgz8FdU6'
 effects: []
 folder: null
 sort: 0
-permission:
-  default: 0
 flags: {}
 _id: RPDjkE3VnbWzGZTK
+ownership:
+  default: 0
+prototypeToken:
+  name: Animal Companion (7)
+  displayName: 0
+  actorLink: true
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  flags: {}
+  randomImg: false
+  light:
+    dim: 0
+    bright: 0
+    angle: 360
+    color: null
+    alpha: 0.25
+    animation:
+      speed: 5
+      intensity: 5
+      type: null
+      reverse: false
+    negative: false
+    priority: 0
+    coloration: 1
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    darkness:
+      min: 0
+      max: 1
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+    scaleX: 1
+    scaleY: 1
+    anchorX: 0.5
+    anchorY: 0.5
+    offsetX: 0
+    offsetY: 0
+    fit: contain
+    rotation: 0
+    alphaThreshold: 0.75
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    color: null
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  hexagonalShape: 0
+  detectionModes: []
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!RPDjkE3VnbWzGZTK'
 

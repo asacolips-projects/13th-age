@@ -228,8 +228,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!69Dfv726UoabQXq9.ljHZQsaOWTaI2vyI'
   - _id: Dp0j8dUnlW96hXrJ
     flags: {}
@@ -277,8 +275,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!69Dfv726UoabQXq9.Dp0j8dUnlW96hXrJ'
   - _id: RSgQBuYNXAtHymKP
     flags: {}
@@ -328,8 +324,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!69Dfv726UoabQXq9.RSgQBuYNXAtHymKP'
   - _id: UgqYozWLbgQNP2MM
     flags: {}
@@ -355,8 +349,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!69Dfv726UoabQXq9.UgqYozWLbgQNP2MM'
   - _id: wMTaB0bGlU3IxtlW
     flags: {}
@@ -382,8 +374,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!69Dfv726UoabQXq9.wMTaB0bGlU3IxtlW'
   - _id: U0w3x7CTXGwWe1b5
     flags: {}
@@ -407,8 +397,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!69Dfv726UoabQXq9.U0w3x7CTXGwWe1b5'
 effects: []
 folder: null
@@ -453,6 +441,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-gold.webp
     scaleX: 1
@@ -460,6 +451,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -469,8 +465,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!69Dfv726UoabQXq9'
 

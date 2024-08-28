@@ -134,21 +134,45 @@ system:
     value: >-
       <p>The Blood of Warriors feats provide access to the icon feats associated
       with the Crusader, Dwarf King , Great Gold Wyrm, and Orc Lord.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
+    value: ''
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
     value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -241,7 +265,5 @@ sort: 0
 ownership:
   default: 0
 _id: uoZzjSnPHXWXJRu2
-permission:
-  default: 0
 _key: '!items!uoZzjSnPHXWXJRu2'
 

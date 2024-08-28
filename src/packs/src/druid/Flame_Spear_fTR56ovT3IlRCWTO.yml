@@ -1,6 +1,4 @@
 name: Flame Spear
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,30 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Flame Spear
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  group:
+    type: String
+    label: Group
+    value: Elemental Caster
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +39,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Flame Spear
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -115,22 +133,46 @@ system:
     value: >-
       <p>Natural Odd Hit: As a hit, plus one of your allies engaged with the
       target, if any, takes [[1d6]] fire damage.</p>
+  spellLevel2:
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
     type: String
     label: 3rd Level Spell
     value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, [[2d6]] damage on odd hit.'
+  spellLevel4:
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
     type: String
     label: 5th Level Spell
     value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage, [[2d8]] damage on odd hit.'
+  spellLevel6:
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
     type: String
     label: 7th Level Spell
     value: '[[7d10+@wis.dmg+@atk.d.bonus]] damage, [[3d10]] damage on odd hit.'
+  spellLevel8:
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
     type: String
     label: 9th Level Spell
     value: '[[10d10+@wis.dmg+@atk.d.bonus]] damage, [[4d6]] damage on odd hit.'
+  spellLevel10:
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -139,26 +181,26 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  feats: null
-  group:
+    label: Sustain On
+    value: ''
+  rollTable:
     type: String
-    label: Group
-    value: Elemental Caster
+    label: Roll Table
+    value: ''
+  feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
 flags: {}
 img: icons/magic/fire/projectile-bolt-zigzag-orange.webp
 _id: fTR56ovT3IlRCWTO
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!fTR56ovT3IlRCWTO'
 

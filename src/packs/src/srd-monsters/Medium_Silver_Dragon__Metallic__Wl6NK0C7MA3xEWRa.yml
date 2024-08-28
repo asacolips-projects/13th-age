@@ -228,8 +228,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Wl6NK0C7MA3xEWRa.iEyEJvTkX6cpKMIv'
   - _id: PMmEkx4mG0pRmjid
     flags: {}
@@ -281,8 +279,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Wl6NK0C7MA3xEWRa.PMmEkx4mG0pRmjid'
   - _id: ScS29XS3A9lxbXDg
     flags: {}
@@ -334,8 +330,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Wl6NK0C7MA3xEWRa.ScS29XS3A9lxbXDg'
   - _id: Z2LHO5KjnmzmWtDl
     flags: {}
@@ -360,8 +354,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Wl6NK0C7MA3xEWRa.Z2LHO5KjnmzmWtDl'
   - _id: O5b6qUGJvluhwsdG
     flags: {}
@@ -385,8 +377,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Wl6NK0C7MA3xEWRa.O5b6qUGJvluhwsdG'
 effects: []
 folder: null
@@ -431,6 +421,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-silver.webp
     scaleX: 1
@@ -438,6 +431,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -447,8 +445,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!Wl6NK0C7MA3xEWRa'
 
