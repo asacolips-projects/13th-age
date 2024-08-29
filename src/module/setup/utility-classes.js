@@ -512,6 +512,35 @@ export class ArchmageUtility {
     }
     return speaker
   }
+
+  /**
+   * Parses a given string and conver to an inline roll if possible.
+   * 
+   * @param {string} pastedText String that can potentially include inline rolls,
+   *   such as "+7 vs AC".
+   * @param {object} options Additional options to modify the logic, such as
+   *   specifying options.attack to denote this is an attack roll.
+   * @returns {string} Parsed text with inline rolls, such as "[[d20+7]] vs AC"
+   */
+  static parseClipboardText(pastedText) {
+    // Exit early for rolls that already include inline rolls.
+    if (pastedText.includes('[[') || pastedText.includes(']]')) return pastedText;
+    // Handle monster attacks.
+    let parsedText = pastedText.replace(/[\r\n][^\.]/, ' ');
+    // @todo fix weapon parsing.
+    parsedText = parsedText.replace(/([\+\-]*)((?:d*\d+[\+\-]*)*)((?:\s*vs)*)/g, (match, startingOperator, diceFormula, isAttack) => {
+      console.log('matches', {
+        match: match,
+        startingOperator: startingOperator,
+        diceFormula: diceFormula,
+        isAttack: isAttack,
+      });
+      if (!diceFormula) return match;
+      let d20 = startingOperator ? 'd20' : 'd20+';
+      return `[[${isAttack ? d20 : ''}${startingOperator}${diceFormula}]]${isAttack}`;
+    });
+    return parsedText;
+  }
 }
 
 /**
