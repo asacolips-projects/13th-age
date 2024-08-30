@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: i9A0VwMknDNxrowM
     effects: []
     folder: null
@@ -301,11 +304,13 @@ items:
         value: >-
           <p>This creature gains different abilities based on which name it has
           taken.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: K3BWgRJHz9NgFipv
     effects: []
@@ -329,11 +334,13 @@ items:
           <p>When the rascal rolls a natural even hit with its small tool
           attack, one nearby ally can roll a save against an effect that can be
           ended by a save.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wmoT33ajWpTg5pzD
     effects: []
@@ -356,11 +363,13 @@ items:
         value: >-
           <p>The rascal deals additional damage equal to the escalation die
           ([[@ed]]) with its <em>small tool</em> attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dknp3vSzAauGVXjY
     effects: []
@@ -385,11 +394,13 @@ items:
           tool</em> attack, the target takes a &ndash;2 penalty to AC if
           it&rsquo;s wearing heavy armor (save ends; non-cumulative but it does
           apply to that attack).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Oe135T0w3Nn3KiK8
     effects: []

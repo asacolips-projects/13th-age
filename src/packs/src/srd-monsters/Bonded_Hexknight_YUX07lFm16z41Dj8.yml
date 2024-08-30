@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: snzJE7pGsasBS3qe
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 8BrmK4WebpIyjZwO
     effects: []
     folder: null
@@ -365,11 +371,13 @@ items:
           the attack, teleport away to avoid damage, take half damage due to an
           ability, etc. If it rolls well enough to hit you then you take the
           full damage, end of story.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ybCy5ZUBQMKbuNKN
     effects: []

@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -305,6 +313,10 @@ items:
         value: >-
           <p>Once per round when an attack misses the sword maiden, she can move
           or make a&nbsp;cruel cutlass&nbsp;attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -328,6 +340,10 @@ items:
         value: >-
           <p>The sword maiden has a true magic item (probably a weapon) and uses
           it to her benefit (adjust stats accordingly).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

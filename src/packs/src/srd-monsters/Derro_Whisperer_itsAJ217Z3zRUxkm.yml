@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: N5s0IXN4jKBj5VBs
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Snme7N0GIp81BEiM
     effects: []
     folder: null
@@ -358,11 +364,13 @@ items:
         value: >-
           <p>Enemies engaged with the derro whisperer take a &ndash;2 penalty to
           attack rolls and saving throws.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 38ighjdRjjkCSt78
     effects: []
@@ -386,11 +394,13 @@ items:
           <p>When an attacker targets the derro whisperer&rsquo;s MD and misses
           with a natural 1&ndash;5 attack roll, that enemy must reroll the
           attack against itself.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: gLZnqTMo7q0HD68U
     effects: []
@@ -413,11 +423,13 @@ items:
         value: >-
           <p>When the escalation die is odd, cutting whisper targets [[1d3]]
           nearby enemies in a group instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hrrw9EFfas1y1dsn
     effects: []

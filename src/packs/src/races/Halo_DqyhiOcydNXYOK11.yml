@@ -28,6 +28,17 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: >-
+      // For the code executed in this macro, see
+
+      //
+      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.aasimarHalo(speaker, actor, token, character,
+      archmage);
   group:
     type: String
     label: Group
@@ -135,42 +146,52 @@ system:
       <p>As a free action during your turn, gain a +2 bonus to all defenses
       until you are hit by an attack (or until the battle ends).</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: ''
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -212,17 +233,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: >-
-      // For the code executed in this macro, see
-
-      //
-      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
-
-      game.archmage.ArchmageMacros.aasimarHalo(speaker, actor, token, character,
-      archmage);
 flags: {}
 img: icons/svg/d20.svg
 _id: DqyhiOcydNXYOK11

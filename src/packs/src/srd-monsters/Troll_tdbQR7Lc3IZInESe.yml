@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
           start of the troll’s turn. It can regenerate five times per battle. If
           it heals to its maximum hit points, then that use of regeneration
           doesn’t count against the five-use limit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -271,6 +279,10 @@ items:
           When the troll is hit by an attack that deals fire or acid damage, it
           loses one use of its regeneration, and it can’t regenerate during its
           next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +308,10 @@ items:
         value: >-
           Dropping a troll to 0 hp doesn’t kill it if it has any uses of
           regeneration left.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +336,10 @@ items:
           Increase the troll’s regeneration dice; the baseline amount a troll
           regenerates should run about 1/9 of its total hp, but you can go
           higher to be nasty.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,6 +363,10 @@ items:
         value: >-
           Fire and acid don’t hurt the troll’s regeneration; lightning does
           instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -366,6 +390,10 @@ items:
         value: >-
           If both claw attacks hit the same target, the target also takes [[10]]
           ongoing damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

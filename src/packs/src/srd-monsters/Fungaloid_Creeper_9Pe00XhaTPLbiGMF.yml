@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +253,10 @@ items:
           target has dropped to 0 hp. The move is a free action, and engaged
           creepers can roll disengage attempts instead of taking opportunity
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -273,6 +281,10 @@ items:
           Whenever the escalation die is even, each creeper must succeed on a
           normal save at the start of its turn or lose its move action that
           turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: tMAWJDXZZafWNCPp
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: wmbZfVTiWIIe3JlN
     effects: []
     folder: null
@@ -358,11 +364,13 @@ items:
         value: >-
           <p>When the xorn moves out of the floor or wall or ceiling into
           engagement with an enemy, deal [[2d6]] damage to that enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: z9rtyRov0fmRJTxf
     effects: []
@@ -385,11 +393,13 @@ items:
         value: >-
           <p>As a move action the xorn can swim through the ground, or through a
           wall.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Wq81MTKMqVaP5NER
     effects: []
@@ -412,11 +422,13 @@ items:
         value: >-
           <p>The xorn can&rsquo;t be surprised, and rogues can&rsquo;t use their
           Sneak Attack class feature on them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XRINvuKB2sqQ9SMs
     effects: []
@@ -439,11 +451,13 @@ items:
         value: >-
           <p>The xorn can see through all types of rock and soil for some
           distance, let&rsquo;s say "nearby".</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DLDWAsVKTrwzz91o
     effects: []
@@ -468,11 +482,13 @@ items:
           rock&mdash;when a cold or fire attack targets a xorn, the attacker
           must roll a natural 16+ on the attack roll or it only deals half
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tSZNl15XW0QoTeZd
     effects: []

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: bLH3cAASEKe4fCX3
     effects: []
     folder: null
@@ -302,11 +305,13 @@ items:
         type: String
         label: Description
         value: <p>Taranar avalanches are too far gone.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JyRMsgPCX2ZfvteH
     effects: []
@@ -332,11 +337,13 @@ items:
           16+ when using a weapon against a taranar, the attacker deals only
           half damage. The resistance also applies to negative energy damage,
           which tends to fizzle ineffectively against the ancient stones.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: e518vSss6w0CkPx2
     effects: []
@@ -362,11 +369,13 @@ items:
           made vulnerable to anything beyond those energies they are already
           vulnerable to (fire and cold; see below). Taranar are also immune to
           ongoing damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: m3BISrzV1s7OpqPe
     effects: []

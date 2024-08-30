@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -301,6 +309,10 @@ items:
         value: >-
           For every two hungry stars in the battle (round up), one of them can
           use warp-pulse once during the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -324,6 +336,10 @@ items:
         value: >-
           Hungry stars flap and glide and hover, always within seven or eight
           feet of the ground.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ySBOJTliM0YiR1v4
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,8 +346,6 @@ items:
         type: String
         label: Miss
         value: '[[4]] damage to one other engaged enemy.'
-      embeddedMacro:
-        value: ''
     _id: fSQsSmNxjORO2uPh
     effects: []
     folder: null
@@ -358,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -397,8 +408,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Qj0KBkmxN0PZyZl6
     effects: []
     folder: null
@@ -420,11 +429,13 @@ items:
         value: >-
           <p>The phantomaton is armed with a farming implement, and once per
           battle can make an *iron hoe* attack as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: L2qneQ7KtHBgyUXC
     effects: []
@@ -447,11 +458,13 @@ items:
         value: >-
           <p>This phantomaton has been built with sturdier materials than other
           phantomatons: it has +2 AC and 20 extra hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MuQkx36oqNj9zi5N
     effects: []
@@ -474,11 +487,13 @@ items:
         value: >-
           <p>The phantomaton has a ranged weapon built directly into its body,
           and can make a *spike-thrower* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VJODYEdZ6vrDVOjP
     effects: []

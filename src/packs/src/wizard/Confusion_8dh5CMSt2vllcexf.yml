@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -134,42 +139,52 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: Target with 160 hp or fewer, and the target can be far away.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: Target with 250 hp or fewer, or two targets each with 125 hp or fewer.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: Target with 500 hp or fewer, or two targets each with 250 hp or fewer.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -252,10 +267,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/horror-eerie-2.jpg
 effects: []

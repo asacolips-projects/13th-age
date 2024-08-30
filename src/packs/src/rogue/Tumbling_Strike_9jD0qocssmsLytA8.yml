@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -136,42 +141,52 @@ system:
       and then use a quick action to attempt to disengage from it (the quick
       action disengage lets you move again if you succeed).</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -192,10 +207,6 @@ system:
     label: Roll Table
     value: Sneak Attack Damage
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/weapons/swords/swords-short.webp
 _id: 9jD0qocssmsLytA8

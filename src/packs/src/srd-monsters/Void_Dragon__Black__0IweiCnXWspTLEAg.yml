@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle, as a quick action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +304,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -351,6 +363,10 @@ items:
           Each beast appears next to the dragon, acts as it wishes, and enters
           the initiative order after the next two creatures have taken their
           turns. See void beast.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -378,6 +394,10 @@ items:
           action that turn. After the first success, the grace die bumps up to a
           d8. After the second success, it’s a d10, then a d12 after the third
           success, and finally a d20 after the fourth one.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

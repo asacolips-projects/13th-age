@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: '[[40]] damage'
-      embeddedMacro:
-        value: ''
     _id: iIemtd42r4L27lYG
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: bWG9wq5pwgpJOmLM
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
         value: >-
           <p>The koruku landkiller adds twice the escalation die ([[2*@ed]]) to
           its saves.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pVMebtfntKZyazIB
     effects: []
@@ -386,6 +394,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -423,8 +436,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: jrJXYh1V6aDVoWSp
     effects: []
     folder: null
@@ -443,6 +454,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -482,8 +498,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: YqPlZC2gxfEJ3qo0
     effects: []
     folder: null
@@ -502,6 +516,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -541,8 +560,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9RlRKuTc4WSVsUc2
     effects: []
     folder: null
@@ -561,6 +578,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -600,8 +622,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: rB9GLZQK9s343sap
     effects: []
     folder: null
@@ -620,6 +640,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -659,8 +684,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1xJbX1J1KSkBxtcP
     effects: []
     folder: null
@@ -679,6 +702,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -718,8 +746,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: z5DKzXRwHJYifioG
     effects: []
     folder: null
@@ -738,6 +764,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -775,8 +806,6 @@ items:
         type: String
         label: Miss
         value: '[[35]] lightning damage.'
-      embeddedMacro:
-        value: ''
     _id: 9aFMMgxUsq4SNYGZ
     effects: []
     folder: null
@@ -805,11 +834,13 @@ items:
           allows the landkiller to regain stolen magic, it doesn&rsquo;t have to
           choose which magical attack it will use until it actually uses the
           attack.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rebKxseQuhaK3GsX
     effects: []
@@ -832,11 +863,13 @@ items:
         value: >-
           <p>When the koruku landkiller is hit by an attack, add a koruku
           servitor to the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DgBb5BBCYFWzQhed
     effects: []

@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -136,48 +141,58 @@ system:
     label: Effect
     value: <p>You can cast this spell for power or for broad effect.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
       Each target also gains [[1d10]] temporary hit points per point of the
       attack bonus.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
       Each target also gains [[2d10]] temporary hit points instead of 1d10 per
       point of the attack bonus.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: All attack bonuses granted by the spell increase by +1.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
       Each target also gains [[3d10]] temporary hit points instead of 2d10 per
       point of the attack bonus.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -198,10 +213,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/light_04.jpg
 effects:

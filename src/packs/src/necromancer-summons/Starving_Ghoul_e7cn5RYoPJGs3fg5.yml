@@ -392,6 +392,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -450,6 +455,10 @@ items:
         value: >-
           <p>The starving ghoul’s ripping claws attack deals +5 damage against
           *vulnerable* targets.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

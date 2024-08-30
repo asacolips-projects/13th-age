@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: S7LzkGcsmjJscPwO
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: LlMqp9mopkYgK7KH
     effects: []
     folder: null
@@ -361,11 +367,13 @@ items:
           <p>For every star-mask puppet engaged with an enemy, other star-masks
           not engaged with that enemy gain a +1 attack bonus against that enemy
           (maximum +4).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 93MpkC543240YW7O
     effects: []
@@ -388,11 +396,13 @@ items:
         value: >-
           <p>The star-mask puppet can use oily tentacles to climb on ceilings
           and walls as easily as it moves on the ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oAbKhcsH16Bb69QW
     effects: []
@@ -421,11 +431,13 @@ items:
           succeed find it hard to keep the memory of the star-mask in mind
           afterward, potentially making for confusing battles against these
           puppets.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oVJmTsDFhD5kPV0K
     effects: []

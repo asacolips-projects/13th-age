@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         value: >-
           A critical hit against a giant zombie mook deals triple damage instead
           of the normal double damage for a crit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,6 +275,10 @@ items:
         value: >-
           The giant zombie mook counts as two 9th level mooks when you are
           building battles.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

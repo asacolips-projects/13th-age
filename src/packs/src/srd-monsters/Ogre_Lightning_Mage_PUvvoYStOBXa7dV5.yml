@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         value: >-
           Limited use: 1/battle, but the ogre lightning mage regains the use of
           this attack if it’s expended each time it uses its naginata attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +298,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -340,6 +352,10 @@ items:
         value: >-
           The ogre lightning mage can cancel one spell or magical effect created
           by the target.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -363,6 +379,10 @@ items:
         value: >-
           The ogre lightning mage flies well using the sheer power of its
           superior mind.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -388,6 +408,10 @@ items:
           at-will standard action. It becomes visible when it attacks. The ogre
           mage takes [[1d10]] damage each time it uses invisibility while it’s
           staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -412,6 +436,10 @@ items:
           When a limited attack (not an at-will attack) targets this creature,
           the attacker must roll a natural 16+ on the attack roll or it only
           deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -437,6 +465,10 @@ items:
           at the start of the ogre mage’s turn. It can regenerate five times per
           battle. If it heals to its maximum hit points, then that use of
           regeneration doesn’t count against the five-use limit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -464,6 +496,10 @@ items:
           When the ogre mage is hit by an attack that deals fire or acid damage,
           it loses one use of its regeneration, and it can’t regenerate during
           its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -489,6 +525,10 @@ items:
         value: >-
           Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of
           regeneration left.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

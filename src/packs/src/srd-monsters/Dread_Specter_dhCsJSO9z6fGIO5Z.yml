@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +298,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -341,6 +353,10 @@ items:
           As a move action when the escalation die is odd, the specter can
           teleport anywhere nearby, dematerializing from its location to
           materialize in another.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +380,10 @@ items:
         value: >-
           When an enemy attacks the specter and misses, it takes [[24]] negative
           energy damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -387,6 +407,10 @@ items:
         value: >-
           While a specter is in the battle, the PCs don’t add the escalation die
           to attack rolls, but it does.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -412,6 +436,10 @@ items:
           battle has 60 hp or fewer, the specter can make a death grasp attack
           against one of those enemies as a free action. Be sure to let players
           see this one coming.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

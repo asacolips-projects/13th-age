@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: tkJb2pPimd6umT6Y
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ZbGJbmAWzxpazlnD
     effects: []
     folder: null
@@ -360,11 +366,13 @@ items:
         value: >-
           <p>The bandleader gains the other destiny benefit, and adds 1 to its
           lower defense.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dZg99yG5J3xPFTNF
     effects: []
@@ -387,11 +395,13 @@ items:
         value: >-
           <p>Choose either <em>Path of the Sword</em> or <em>Path of
           Song</em>.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kYdStZQ0FANUcLpv
     effects: []
@@ -415,11 +425,13 @@ items:
         type: String
         label: Description
         value: <p><em>Allegro</em>&mdash;Allies gain a +4 bonus to initiative.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: EQJ4uLEx1MrfPcz3
     effects: []
@@ -445,11 +457,13 @@ items:
           <p><em>Fanfare</em>&mdash;If <em>horn of power</em> misses all
           targets, two nearby allies may roll one saving throw each as a free
           action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pgZVf7Z26zW7nlWK
     effects: []

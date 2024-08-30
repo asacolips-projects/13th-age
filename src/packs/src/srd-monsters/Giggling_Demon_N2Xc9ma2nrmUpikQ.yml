@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: RhJjMk632UP5uB1p
     effects: []
     folder: null
@@ -303,11 +306,13 @@ items:
           disengage from them suffer a cumulative &ndash;1 penalty on all checks
           and attacks until the end of the character&rsquo;s turn (no maximum
           penalty).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tjsTpgiVKNhBANme
     effects: []
@@ -330,11 +335,13 @@ items:
         value: >-
           <p>When building battles with this monster, it only counts a half a
           normal mook.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XmQvXSn78JP6mLhL
     effects: []
@@ -361,11 +368,13 @@ items:
           under doors, even slip through cracks in floorboards. Of course, you
           can still hear them giggling when you suffer a misfortune at their
           hands.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: mbAM3qR9JL8KXjxC
     effects: []

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -293,6 +301,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 2/battle.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,6 +353,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -399,6 +415,10 @@ items:
           the roll succeeds, roll a [[d4]]. If the roll is less than or equal to
           the escalation die, each nearby enemy is *hampered* (easy save ends,
           6+).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -425,6 +445,10 @@ items:
           start of each of the lammasu priest’s turns, roll a [[d8]]. If the
           roll is less than or equal to the escalation die, the lammasu can make
           an overworld’s rebuke attack as a free action that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -451,6 +475,10 @@ items:
           lammasu wizard gains resist damage 16+ to all attacks against AC and
           PD. If it’s flying when it becomes living stone, its magic allows it
           to remain in the air if it wishes.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

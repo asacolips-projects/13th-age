@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: oKSqfRAU9XiOaNSk
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 2txVWGwKbLyDmyUB
     effects: []
     folder: null
@@ -363,11 +369,13 @@ items:
         type: String
         label: Description
         value: <p>+4 bonus to attack staggered enemies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: x81c7XmltIBKShBH
     effects: []
@@ -388,11 +396,13 @@ items:
         type: String
         label: Description
         value: <p>This minotaur does [[10]] miss damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2PorqrDID2674rfK
     effects: []
@@ -415,11 +425,13 @@ items:
         value: >-
           <p>The minotaur&rsquo;s crit range against staggered enemies expands
           by 2 (to 18+).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oKOQSGrRzSnJnk0H
     effects: []
@@ -443,11 +455,13 @@ items:
           <p>The minotaur is a gladiator (perhaps an escaped one), and gains +1
           to its attacks against armed enemies (but not against
           magic-users).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: b5Tzd3t4Es6pniBl
     effects: []

@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -137,42 +141,52 @@ system:
       hit points.</p><p>You can use Deathknell to drop a mook, but only if it’s
       the last mook in its mob and the mob has 5 hp or fewer left.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: Drop an enemy with 10 hp or fewer. Heal [[1d10]] hit points
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: Drop an enemy with 15 hp or fewer. Heal [[2d8]] hit points.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: Drop an enemy with 20 hp or fewer. Heal [[4d6]] hit points.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: Drop an enemy with 25 hp or fewer. Heal [[4d8]] hit points.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -256,10 +270,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/water_03.jpg
 _id: JSmT56giX8QBa470

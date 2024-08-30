@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9Vwtxim94yQsW7yC
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: The target pops free from the brute.
-      embeddedMacro:
-        value: ''
     _id: XOfFUdrBYANfEOjg
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -395,8 +406,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Nu40Q7aWfloivezf
     effects: []

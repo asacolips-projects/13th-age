@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -257,6 +262,10 @@ items:
           this attack, it gains a different random demon ability until the end
           of the battle (reroll duplicate abilities). (See the demon abilities
           table.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +329,10 @@ items:
           attacker must roll a save; on a failure, the weapon is destroyed.
           Magic weapons require an easy save (6+) instead. This effect is
           permanent.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +357,10 @@ items:
           <p>Magic items wielded by creatures with 100 hp or more are not
           affected by the rust monster&rsquo;s ability to destroy items (but the
           target still takes damage).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -372,6 +389,10 @@ items:
           received the support it needs from its owner to survive the rust
           monster&rsquo;s destructive effects, and the item is destroyed at the
           end of the next battle even if its owner saved.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -397,6 +418,10 @@ items:
           the rust monster rolls a save. On a success, the spell has no effect
           on the rust monster. If the rust monster is staggered, it must roll a
           hard save (16+) instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

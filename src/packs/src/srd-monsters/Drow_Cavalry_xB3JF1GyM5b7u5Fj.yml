@@ -195,6 +195,10 @@ items:
         value: >-
           Limited use: 1/battle, during a surprise round or the first round of
           battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -293,6 +301,10 @@ items:
         value: >-
           While mounted, the drow cavalry deals +15 damage with its attacks, hit
           or miss, against unmounted enemies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -316,6 +328,10 @@ items:
         value: >-
           Reduce the drow cavalry’s attack damage by 50 when it’s not riding a
           spider.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -336,6 +352,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -358,6 +378,10 @@ items:
         type: ''
         label: Description
         value: Bite—The spider makes a bite attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -381,6 +405,10 @@ items:
         value: >-
           The spider and its rider pop free from all enemies and can move
           somewhere nearby.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -402,6 +430,10 @@ items:
         type: ''
         label: Description
         value: Web—The spider makes a web attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

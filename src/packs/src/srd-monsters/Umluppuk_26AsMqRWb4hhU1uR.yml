@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +300,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -348,6 +360,10 @@ items:
           This ability only requires a quick action (once per round) instead of
           a standard action when the umluppuk starts its turn unengaged (or
           without an enemy consumed if you are using the nastier special!).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -371,6 +387,10 @@ items:
         value: >-
           When a psychic attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -395,6 +415,10 @@ items:
           Once per round during its turn, the umluppuk can make a consume attack
           against a *stuck* enemy as a quick action. The umluppuk can only one
           target consumed at a time.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

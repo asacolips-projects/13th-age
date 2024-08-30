@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: mAoBXFQkWUB1Ntbk
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yX5McqvtdoOyvbEK
     effects: []
     folder: null
@@ -355,6 +361,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -395,8 +406,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: kMCTZ4C9Jph7jBKG
     effects: []
     folder: null
@@ -419,11 +428,13 @@ items:
           <p>As a move action, a dryad can enter any living tree within its
           domain it&rsquo;s touching and teleport to another tree within that
           region. This movement doesn&rsquo;t provoke opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8YoxaYBSiWXctVct
     effects: []
@@ -446,11 +457,13 @@ items:
         value: >-
           <p>Before the start of the battle, the dryad summons [[2d4]] awakened
           trees that fight with it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6oC058TnY4fTXZhf
     effects: []
@@ -479,11 +492,13 @@ items:
           person spell). It then considers the dryad a friend. Creatures missed
           by the attackonly notice the charm attempt if it misses by 4 or more.
           A dryad can attempt to charm a creature only once per day.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Y3b0nQeT6EVGWiJs
     effects: []
@@ -506,11 +521,13 @@ items:
         value: >-
           <p>The dryad can take an extra standard action during its turn when
           the escalation die is even.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BkOfeTX1lE6oHFII
     effects: []
@@ -534,11 +551,13 @@ items:
           <p>Nymphs are tied to an area of land or water. Land areas will be at
           most a couple miles wide; water areas might be much larger. As a rule,
           nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dZNuOXlFpnn1OzQ2
     effects: []
@@ -565,11 +584,13 @@ items:
           life. After eight hours, a nymph needs a normal save to return to
           life. If the nymph has still not returned, roll an easy save at the
           end of each 24 hours until the nymph succeeds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VQalLgUCLGaLnDvR
     effects: []
@@ -593,11 +614,13 @@ items:
           <p>Nymphs with the humanoid type probably remember themselves. Nymphs
           that have probably forgotten their original selves have the elemental
           type.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5DtwntvmiSLGrcNT
     effects: []

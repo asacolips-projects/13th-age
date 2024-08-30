@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -240,6 +244,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -286,6 +294,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -336,6 +348,10 @@ items:
         type: ''
         label: Description
         value: The dragon can make an acrid smoke attack as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -360,6 +376,10 @@ items:
           Once per battle as a free action when an enemy rolls a natural even
           attack against the dragon, the dragon negates the attack (no damage or
           effects).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -383,6 +403,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -406,6 +430,10 @@ items:
         value: >-
           Once per battle as a free action when an attack targets the dragon’s
           MD, it can force the attacker to reroll the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

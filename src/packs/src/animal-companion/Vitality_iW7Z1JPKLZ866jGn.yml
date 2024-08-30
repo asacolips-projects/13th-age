@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -132,10 +137,12 @@ system:
     label: Effect
     value: <p>The target heals using a free recovery.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
@@ -143,30 +150,36 @@ system:
       the start of each of its turns until the end of the battle or until it
       drops to 0 hit points.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
       The healing the target gains at the start of its turn is now double your
       Wisdom modifier.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
       The healing the target gains at the start of its turn is now triple your
       Wisdom modifier.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
@@ -174,10 +187,12 @@ system:
       roll a normal save. If you succeed, the target heals using one of your
       recoveries.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -198,10 +213,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/light/explosion-star-large-blue-yellow.webp
 _id: iW7Z1JPKLZ866jGn

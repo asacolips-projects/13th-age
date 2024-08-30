@@ -188,6 +188,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +247,10 @@ items:
         type: String
         label: Description
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,6 +276,10 @@ items:
           points equal to its level ([[@lvl]]) each time it hits with an
           attack.</p><p>Champion Feat: The temporary hit points increase to
           double its level ([[2*@lvl]]).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +303,10 @@ items:
         value: >-
           <p>Acts: Before ranger</p><p>Advantage: The boar gains a +1 attack
           bonus when it moves before its attack during the same turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -313,6 +330,10 @@ items:
         value: >-
           <p>Acts: Before ranger</p><p>Advantage: It flies! Its melee damage die
           is dropped by one size (d6 at level 0).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -336,6 +357,10 @@ items:
         value: >-
           <p>Acts: Before ranger</p><p>Advantage: The panther&rsquo;s crit range
           expands by 2 against enemies with lower initiative.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -362,6 +387,10 @@ items:
           attack roll of 18+.</p><p>Champion Feat: The ongoing damage is three
           times your level ([[3*@lvl]]) instead.</p><p>Epic Feat: The ongoing
           damage is four times your level ([[4*@lvl]]) instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -386,6 +415,10 @@ items:
           <p>Acts: After ranger</p><p>Advantage: The wolf gains a +1 attack
           bonus against enemies its master attacked the same turn, or against
           enemies engaged with its master.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: J4exRfQwmul3ZpNR
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: AL9qIBq1EMDI5met
     effects: []
     folder: null
@@ -361,11 +367,13 @@ items:
           <p>Once per battle, as an interrupt action when a critical hit is
           scored against the derro seer&rsquo;s ally, the seer can turn it into
           a normal hit instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xCQ5XRhsE6VyY0fE
     effects: []
@@ -388,11 +396,13 @@ items:
         value: >-
           <p>The first time each turn that the seer teleports an ally using not
           here but there, that ally heals [[4]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: omIebyhEfSIZVOAy
     effects: []
@@ -415,11 +425,13 @@ items:
         value: >-
           <p>As a quick action, the seer can teleport a nearby ally it can see
           to any location that the seer can see.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lZ5vOyOQzKpPfqlE
     effects: []
@@ -445,11 +457,13 @@ items:
           that enemy. When an ally of the seer attacks that enemy and staggers
           it or drops it to 0 hp or below, that ally heals [[8]] hp. The effect
           lasts until the start of the seer&rsquo;s next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: M5ysxxeNVSnesznp
     effects: []

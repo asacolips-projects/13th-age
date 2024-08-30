@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: tnxUjbuGozIv4cwa
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: GocUAqw4GdWNXHve
     effects: []
     folder: null
@@ -355,6 +361,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,8 +407,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] acid damage'
-      embeddedMacro:
-        value: ''
     _id: mWV8ERTgcrf6sY0c
     effects: []
     folder: null
@@ -416,6 +425,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -453,8 +467,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: g7a4O6Sh63wuf8Jl
     effects: []
     folder: null
@@ -480,11 +492,13 @@ items:
           become stuck (save ends). On turns when the ground softens the
           gibbering mouther can move once on its turn as a quick action, as well
           as once as a move action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BIAG5hC7XmKIKxwh
     effects: []
@@ -509,11 +523,13 @@ items:
           special slowly turns the softening terrain to flesh, then absorbs it.
           When the escalation die becomes 6, the die flips straight back to 1
           and the gibbering mouther heals up to half its full hit points.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tShfBwXw88Cs6ktQ
     effects: []
@@ -534,11 +550,13 @@ items:
         type: String
         label: Description
         value: <p>Gibbering mouthers can&rsquo;t be ambushed or sneaked up on.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 17QNq950a0S58yQi
     effects: []
@@ -562,11 +580,13 @@ items:
         type: String
         label: Description
         value: <p>The gibbering mouther is immune to opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1f1ZlRiWX02izKmc
     effects: []
@@ -593,11 +613,13 @@ items:
           <p>The gibbering mouther is immune to effects. When an attack applies
           a condition to a gibbering mouther (dazed, hampered, weakened, ongoing
           damage, etc.), that condition doesn&rsquo;t affect it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XtFvloODXtRePwwS
     effects: []

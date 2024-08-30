@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[3]] damage'
-      embeddedMacro:
-        value: ''
     _id: OuBN7mYD7903mF65
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: zr61WJcgm4jjv26J
     effects: []
     folder: null
@@ -362,6 +368,10 @@ items:
           <p><strong>1:</strong> <em>bizarrely beautiful chant</em></p>
           <p><strong>2:</strong> <em>magic missiles</em></p>
           <p><strong>3:</strong> <em>denunciation</em></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -399,8 +409,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 4FR4OV4U7L8zr0qk
     effects: []
     folder: null
@@ -419,6 +427,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -459,8 +472,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: EX0jpgZBkEP5XjbT
     effects: []
     folder: null
@@ -479,6 +490,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -516,8 +532,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: zYMhK6E5zIZY1yLI
     effects: []
     folder: null
@@ -536,6 +550,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -575,8 +594,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: BmoBqg21krbpO5XY
     effects: []
     folder: null
@@ -600,11 +617,13 @@ items:
           MD, reroll the attack with a -2 attack penalty. (Sometimes the halo
           sputters, so if you forget to use it the first time, use the reroll
           later in the battle.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 92q9JRaCgwah0Hg6
     effects: []
@@ -628,11 +647,13 @@ items:
           <p>Hallowed gargoyles can fly, but not gracefully. Mid-air, they take
           a -2 penalty to all their defenses, and it takes them two move actions
           to get airborne unless they can launch from above.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ytb8qsfxgGb9WDcH
     effects: []
@@ -658,11 +679,13 @@ items:
         value: >-
           <p>The hallowed gargoyle has resist damage 12+ against attacks
           targeting AC.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: D2wZmfdFXs52eTWf
     effects: []
@@ -690,11 +713,13 @@ items:
           larger capacity to react appropriately! PCs with a negative or
           conflicted relationship with the Religious Icon are vulnerable to all
           the hallowed gargoyles&rsquo; attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WqGkOZuiQpKXDySw
     effects: []
@@ -725,11 +750,13 @@ items:
           check (DC 20 at champion-tier, DC 25 at epic tier) to notice the
           gargoyles waking and avoid being surprised (13th Age core rulebook,
           page 164).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: b03AH5mHz0CeXyJE
     effects: []

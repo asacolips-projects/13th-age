@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: HSkZf8bSnfBqZ24Y
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: XnqZ5bR0G8VkZpWA
     effects: []
     folder: null
@@ -359,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,8 +407,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: zufZhxAPcg1msbQZ
     effects: []
     folder: null
@@ -422,11 +431,13 @@ items:
           out of nearby or faraway shadows. It often uses this ability to move
           next to a target. When it attacks an enemy after stepping out of the
           shadows, it gains a +2 bonus for that attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KgLjnlFrC3018vvc
     effects: []
@@ -449,11 +460,13 @@ items:
         value: >-
           <p>When an acid attack targets this creature, the attacker must roll a
           natural 14+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tbpzt695ei24m5VS
     effects: []
@@ -482,11 +495,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 15IFMv54XCrD2Pj3
     effects: []
@@ -514,11 +529,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 81C1dJdrw38lLyU1
     effects: []

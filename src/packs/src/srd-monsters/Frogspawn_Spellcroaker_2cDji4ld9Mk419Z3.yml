@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 5JlY1FNz9p6W79lH
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 4KMsOrmj4b7cktrn
     effects: []
     folder: null
@@ -358,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,8 +407,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2GvYTUoyk16GCzx2
     effects: []
@@ -441,11 +450,13 @@ items:
           d20]]&mdash;on a 11+, the remaining spellcroakers maintain the
           croaking chorus for the rest of the round. Otherwise, the chorus
           effect is cancelled for the rest of that round.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iNI7CHwkjN24sMDR
     effects: []
@@ -468,11 +479,13 @@ items:
         value: >-
           <p>This spellcroaker counts as two spellcroakers for the purposes of
           the croaking chorus.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MaYSWNwxj81CcrP1
     effects: []
@@ -499,11 +512,13 @@ items:
           somehow ran its full course, the target would no doubt shrink down
           into a frog, but PCs are made of strong stuff and should be able to
           evade a fate that might affect common folk.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tjm3u1fcKLHRCILi
     effects: []
@@ -527,11 +542,13 @@ items:
           <p>You should certainly use one ability per frogspawn, occasionally
           two. For frogspawn mooks, treat the abilities as usable once per
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UUuiwvOzFjrjNceD
     effects: []
@@ -558,11 +575,13 @@ items:
           <p>The frogspawn deals [[@lvl]] poison damage to any character that
           pops free of it or successfully disengages from it. (Teleporting away
           is probably tongue-free unless the GM is hopping mad.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: jeJTmW5ZUFADpQwl
     effects: []
@@ -591,11 +610,13 @@ items:
           of sight. Remove the frogspawn from the table until the start of its
           next turn. At the start of its next turn, place it anywhere nearby its
           previous location, but not engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: u5vvGHL3jgy4AslJ
     effects: []
@@ -623,11 +644,13 @@ items:
           random nearby enemy the frogspawn can see. The frogspawn leaps into
           engagement with that enemy and its crit range with melee attacks
           expands by 3 until the end of the turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pG8BRH4SkH9NHcDI
     effects: []
@@ -658,11 +681,13 @@ items:
           frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
           to die. (Gamemaster: Don&rsquo;t give this ability to all the
           frogspawn in a battle. Just one or two.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9laL3D7R3xhp3Ndr
     effects: []

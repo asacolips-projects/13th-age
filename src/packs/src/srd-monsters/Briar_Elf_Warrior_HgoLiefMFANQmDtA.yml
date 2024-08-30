@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: BvLJNL0NwFdcRjjL
     effects: []
     folder: null
@@ -304,11 +307,13 @@ items:
           <p><span class="fontstyle0">For each nearby enemy that is taking
           ongoing damage, the briar elf warrior&rsquo;s attacks deal an
           additional 10 poison damage, hit or miss.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: snAbHxOgGkEK0ePS
     effects: []
@@ -328,6 +333,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,8 +375,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1s38Tmee9NHmKFTE
     effects: []
     folder: null
@@ -385,11 +393,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8wjkjmaHmt0u98ZX
     effects: []
@@ -421,11 +432,13 @@ items:
           <p><span class="fontstyle2">R: Bramble bow +14 vs. AC (1 nearby or far
           away enemy)&mdash;</span><span class="fontstyle0">40 damage</span>
           <br><br></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YuYcXh8WdZdWJkg3
     effects: []
@@ -452,11 +465,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [plant]. This
           monster has resist weapons 16+ (weapon attacks that roll less than a
           natural 16 deal only half damage).</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QXmLJVJyxrjpLeij
     effects: []
@@ -483,11 +498,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
           Provided it is next to a tree, this monster can teleport to a
           different nearby tree as a move action.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KeTGUN8j8XQbQjuK
     effects: []
@@ -513,11 +530,13 @@ items:
         value: >-
           <p><span class="fontstyle0">When an attacker misses this monster with
           a melee attack, the attacker takes 24 damage.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QvIptaS4X0D4bztk
     effects: []
@@ -541,11 +560,13 @@ items:
           <p><span class="fontstyle0">Enemies engaged with this briar elf who
           have fewer than 60 hp are dazed (-4 attack) and can&rsquo;t use the
           escalation die.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: jqqz6yv7tR6HEjMP
     effects: []
@@ -572,11 +593,13 @@ items:
           <p><span class="fontstyle0">On turns when the escalation die is even
           the briar elf warrior uses the escalation die, and any enemy engaged
           with it does not.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XLf40125tBJVuUUc
     effects: []
@@ -603,11 +626,13 @@ items:
           <p><span class="fontstyle0">The briar elf warrior has +4 to all its
           defenses against attacks by creatures suffering ongoing poison
           damage.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: u67031XOywHq7qwF
     effects: []

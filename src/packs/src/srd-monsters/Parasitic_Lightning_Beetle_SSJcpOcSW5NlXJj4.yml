@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -293,6 +301,10 @@ items:
         value: >-
           The beetles fly badly, usually just enough to get back to the worm
           when they’ve been shaken off from their hiding spots in its segments.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -319,6 +331,10 @@ items:
           were destroyed by that attack, all beetles in the battle stop
           fighting, using all their actions during their next turn to disengage
           and fly away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

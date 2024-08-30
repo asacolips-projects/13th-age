@@ -196,6 +196,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -292,6 +300,10 @@ items:
         value: >-
           Stirges fly well. Also, the pitch of their wings is high and thin,
           allowing a stirge to get very close without tipping off its prey.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -317,6 +329,10 @@ items:
           move, fleeing to the hive to feed the stirgelings…and to alert the
           hive that there is an easy meal nearby. A new full-strength stirge
           enters the battle during the next round on the same initiative count.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

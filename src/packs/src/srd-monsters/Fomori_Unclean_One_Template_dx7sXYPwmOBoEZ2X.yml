@@ -254,11 +254,13 @@ items:
           dreams sent as rewards, or terrifying and painful hallucinations sent
           as punishment (or because the fomori felt like inflicting
           suffering).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9w6BotoYlEOBuJix
     effects: []
@@ -278,11 +280,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qJXcI4QplV8RDHza
     effects: []
@@ -306,11 +311,13 @@ items:
           <p>The cultist is repulsive almost beyond comprehension, but its
           twisted form grants it the ability to withstand blows. It gains +2 to
           AC and +1 to PD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TqPJJlV4n5cNNxLV
     effects: []
@@ -334,11 +341,13 @@ items:
           <p>The unclean-one gains a +1d10 bonus to its initiative. It has a +2
           attack bonus against enemies that started the battle with lower
           initiative scores.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lW8OfVr4wCbcbvDJ
     effects: []
@@ -361,11 +370,13 @@ items:
         value: >-
           <p>The cultist has a perfect and unaging physical body, a counterpoint
           to its increasingly corrupted soul. It gains +2 to PD and MD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: udMvzIx4g8E1OWbg
     effects: []
@@ -389,11 +400,13 @@ items:
           <p>When a melee attack hits the unclean-one, sores and pustules on its
           body burst, and the attacker takes [[5]] acid damage (champion: [[10]]
           damage; epic [[15]] damage).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: t1QzioXgLRnZXqqr
     effects: []
@@ -417,11 +430,13 @@ items:
           <p>The unclean-one cultist can move in strange ways, crawling up walls
           like a giant bug, skittering along the ground, and so forth. It gains
           a +2 bonus to disengage checks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DiYbu4uPJfEq5Zy2
     effects: []
@@ -445,11 +460,13 @@ items:
           <p>When the escalation die is odd, the unclean-one heals hit points
           equal to its level times the escalation die value ([[@lvl*@ed]]) at
           the start of its turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: psPEZB6VyJ7YdojC
     effects: []
@@ -476,11 +493,13 @@ items:
           result and what it needed to hit as a free action. When it does, it
           takes 1d6 damage for every 2 extra damage it deals this way. (It must
           deal the extra damage if it changes a miss into a hit.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TGpOwogFBlsumjGz
     effects: []
@@ -508,11 +527,13 @@ items:
           necromantic spells, construct races, ooze races, etc.) might be more
           susceptible (hard save, 16+), or less susceptible (easy save, 6+),
           GM&rsquo;s call.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GAbEAz3VnyYl4yMM
     effects: []

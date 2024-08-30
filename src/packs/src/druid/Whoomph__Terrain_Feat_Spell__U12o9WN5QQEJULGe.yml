@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -134,50 +139,60 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
       [[3d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d6+@wis.dmg+@atk.d.bonus]]
       against a mook.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
       [[5d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d10+@wis.dmg+@atk.d.bonus]]
       against a mook.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
       [[5d8+@wis.dmg+@atk.d.bonus]] damage, or [[10d8+@wis.dmg+@atk.d.bonus]]
       against a mook.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
       [[8d10+@wis.dmg+@atk.d.bonus]] damage, or [[3d6*10+@wis.dmg+@atk.d.bonus]]
       against a mook.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -198,10 +213,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/movement/trail-streak-impact-blue.webp
 _id: U12o9WN5QQEJULGe

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         value: >-
           The solar phoenix can use a *solar wind* attack as a quick action,
           either this turn, or on its next turn.
-      embeddedMacro:
-        value: ''
     _id: 9uKerEfs14JlJpCl
     effects: []
     folder: null
@@ -304,6 +307,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,8 +351,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: TG3ySV3q1csjXSZY
     effects: []
     folder: null
@@ -363,6 +369,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -400,8 +411,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Q3jdE85Gj9hQKYPQ
     effects: []
     folder: null
@@ -421,11 +430,13 @@ items:
         type: String
         label: Description
         value: <p>The solar phoenix flies like the sun unleashed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: CEBrOIs6TdSJJVQD
     effects: []
@@ -448,11 +459,13 @@ items:
         value: >-
           <p>The solar phoenix deals [[20]] fire damage to each enemy that ends
           it turn engaged with the phoenix.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DI0yxBaU7bBKMlyZ
     effects: []
@@ -475,11 +488,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: s6hoG7vwb8v8OIEB
     effects: []
@@ -503,11 +518,13 @@ items:
           <p>When the solar phoenix is dealt a critical hit, it must roll an
           easy save (6+). If the save fails, the phoenix drops to 0 hit points;
           see the <em>reborn in fire</em> ability below!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QP3hTMFqUe4ryHpT
     effects: []
@@ -556,11 +573,13 @@ items:
           relevant to the PCs unless they or the phoenix bear a special grudge.
           But who are we kidding? This is a solar phoenix. It has its own
           agenda, and the PCs just got onto the agenda, one way or another.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4kL4jEh1gffD4M10
     effects: []

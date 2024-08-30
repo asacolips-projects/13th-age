@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: '[[2]] damage'
-      embeddedMacro:
-        value: ''
     _id: onXGunr1mHTAmAHd
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 7AOO0JU1EpuBtUqO
     effects: []
     folder: null
@@ -361,11 +367,13 @@ items:
           <p>The badger can burrow (see page 200 of the core rulebook). It gains
           a +2 bonus to attack rolls the turn after it emerges from the ground.
           It can begin a battle underground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uX0cGGLbIm18rSVQ
     effects: []
@@ -389,11 +397,13 @@ items:
           <p>When an enemy disengages from a badger, the badger rolls a save. On
           a success, the badger can immediately move to engage that enemy as a
           free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rGZYUfegxK2tZtw9
     effects: []
@@ -416,11 +426,13 @@ items:
         value: >-
           <p>While the badger is staggered, it deals [[2]] extra damage, hit or
           miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: n2RNBSQP8vP6MOlK
     effects: []
@@ -441,11 +453,13 @@ items:
         type: String
         label: Description
         value: <p>The badger ignores the first 4 damage dealt to it each turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1UhWcEbqAGAPA08q
     effects: []

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: DpVYXIc1rBW35Dr4
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -347,8 +355,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: p95WN5g3zvF03nfI
     effects: []
     folder: null
@@ -370,11 +376,13 @@ items:
         value: >-
           <p>The shadow mongoose can move over any solid surface, slithering
           like a shadow.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rQ5HQfsOuPa5XOuX
     effects: []
@@ -404,11 +412,13 @@ items:
           fleeing the battle if it succeeds, the PCs can go ahead and blast away
           at what they think is the corpse, but they&rsquo;ll be fragging the
           mongoose&rsquo;s shadows, not the mongoose itself.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QuJvsC8FLax3lTlC
     effects: []
@@ -432,11 +442,13 @@ items:
           <p>The shadow mongoose can change shape, though not mid-battle. Shadow
           mongoose destroyers of fate use this ability to seem innocuous until
           they are ready to strike.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: EYE2IZRRfwDXLK8c
     effects: []
@@ -461,11 +473,13 @@ items:
           it stole return to their owners. The person who killed the shadow
           mongoose gains a magic item that the shadow mongoose had stolen
           (though maybe not one that it had stolen from the party).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zKolTdvgmsf3HZod
     effects: []
@@ -491,11 +505,13 @@ items:
           and vise-versa (conflicted relationships are unaffected). This
           relationship inversion is temporary, lasting only until the end of the
           next game session.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hg5mfxdq8FV7JV7X
     effects: []
@@ -520,11 +536,13 @@ items:
           into a flat shadow, and cannot be intercepted or attacked it is moving
           in this form. When it returns to its normal form, it deals double
           damage with its next attack, hit or miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ybmbPcaysULol6Rz
     effects: []

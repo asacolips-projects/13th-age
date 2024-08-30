@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: f2jxi8WmcLJLGaxd
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yJbz3JUgnE2N6Kov
     effects: []
     folder: null
@@ -359,11 +365,13 @@ items:
           <p>If in her true form, the melusine has limited flight capability,
           which she uses to effect an escape if sufficiently close to a
           convenient source of fresh water.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iolGuaxK8cZtTO3w
     effects: []
@@ -388,11 +396,13 @@ items:
           invisible and attempts to extricate herself from the fight. She
           remains invisible until she either attacks someone, or performs a
           flashy maneuver (such as regaining her true form and flying away).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: x6xoOScGVr8UmGaq
     effects: []
@@ -417,11 +427,13 @@ items:
           any humanoid or fish (the latter usually only if already in water), or
           turn back into her true form. A successful DC 25 skill check is
           required to see through the shapechange.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lbTFXFe69rjqgqzH
     effects: []

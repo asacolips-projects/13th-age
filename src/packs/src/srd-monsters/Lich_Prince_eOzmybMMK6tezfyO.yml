@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -299,6 +307,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 2/battle.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -348,6 +360,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -404,6 +420,10 @@ items:
           torn from it and it dies. Unconscious creatures take a -4 penalty to
           their last gasp saves. Note, grabbed creatures take a -5 penalty to
           disengage checks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -428,6 +448,10 @@ items:
           Once per battle when an attack would hit the lich prince, the attack
           misses instead and the lich teleports to a nearby location it can see
           as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -456,6 +480,10 @@ items:
           dropping to 0 hp (after the crit damage). In addition, the crit range
           of attacks by the lich against the target expands by an amount equal
           to the escalation die and the lich heals 60 hit points.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -481,6 +509,10 @@ items:
           die. It begins to reform near its phylactery, taking a number of days
           to regain its full strength equal to its level. If the phylactery has
           been destroyed, the lich dies when it drops to 0 hit points.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -505,6 +537,10 @@ items:
           While engaged with this creature, if the target has 120 hp or fewer,
           it’s *dazed* (-4 attack) and does not add the escalation die to its
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

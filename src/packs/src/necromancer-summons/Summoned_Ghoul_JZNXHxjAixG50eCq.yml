@@ -395,6 +395,10 @@ items:
         value: >-
           <p>The ghoul’s claws and bite attack deals +4 damage against
           *vulnerable* targets.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -418,6 +422,10 @@ items:
         value: >-
           <p>Any creature that is slain by a ghoul and not consumed will rise as
           a ghoul the next night.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -438,6 +446,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1mZmMIDaa4Yp14AV
     effects: []
     folder: null
@@ -304,11 +307,13 @@ items:
           <p><span class="fontstyle0">When the briar elf is targeted by an
           opportunity attack, it makes a thorn claws attack against the creature
           that is targeting it first.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QiESpgLQ7WUsrIs3
     effects: []
@@ -328,11 +333,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 94SusmDV6M5tpKXO
     effects: []
@@ -355,11 +363,13 @@ items:
         value: >-
           <p><span class="fontstyle0">When an attacker misses this monster with
           a melee attack, the attacker takes 12 damage.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xRpAzzjuruYzGHug
     effects: []
@@ -383,11 +393,13 @@ items:
           <p><span class="fontstyle0">Enemies engaged with this briar elf who
           have fewer than 30 hp are dazed (-4 attack) and can&rsquo;t use the
           escalation die.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8EMxGqQyHALSOSg8
     effects: []
@@ -411,11 +423,13 @@ items:
           <p><span class="fontstyle0">On turns when the escalation die is even
           the briar elf slayer uses the escalation die, and any enemy engaged
           with it does not.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4XWng8pvkzI4tHWH
     effects: []
@@ -435,6 +449,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -472,8 +491,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 0EzLqYE23l2nyP0a
     effects: []
     folder: null
@@ -495,11 +512,13 @@ items:
         value: >-
           <p><span class="fontstyle0">The briar elf can make the Bramble bow
           attack</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: G3hiBmiknFc0hUZL
     effects: []
@@ -524,11 +543,13 @@ items:
           monster has </span><span class="fontstyle2">resist weapons 16+
           </span><span class="fontstyle0">(weapon attacks that roll less than a
           natural 16 deal only half damage).</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iSCeSCPEgrBR5MsN
     effects: []
@@ -552,11 +573,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
           Provided it is next to a tree, this monster can teleport to a
           different nearby tree as a move action.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Eky9hI2mlBEeN9aU
     effects: []

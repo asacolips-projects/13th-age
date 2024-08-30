@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -136,46 +140,56 @@ system:
       [[@dex.mod]], whichever is higher.</p><p>Crit: As a hit, plus the target
       is *stuck* (save ends).</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
       [[5d6+@wis.dmg+@atk.d.bonus]] damage, ongoing damage equal to
       [[2*@str.mod]] or [[2*@dex.mod]] on a natural odd hit.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
       [[7d10+@wis.dmg+@atk.d.bonus]] damage, ongoing damage equal to
       [[3*@str.mod]] or [[3*@dex.mod]] on a natural odd hit.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -196,10 +210,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/nature/root-vine-spiral-thorns-teal.webp
 _id: CxiLnzmOwzh7x7Dl

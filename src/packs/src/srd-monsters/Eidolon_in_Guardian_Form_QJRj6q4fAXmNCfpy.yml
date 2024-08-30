@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: XVVOfaUJGpZdbsxJ
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,8 +349,6 @@ items:
         type: String
         label: Miss
         value: '[[25]] holy damage.'
-      embeddedMacro:
-        value: ''
     _id: TWunB0CiPxaKg20v
     effects: []
     folder: null
@@ -361,6 +367,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,8 +409,6 @@ items:
         type: String
         label: Miss
         value: The attack can be used again this battle.
-      embeddedMacro:
-        value: ''
     _id: 147mu5CWjvGJwa1P
     effects: []
     folder: null
@@ -421,11 +430,13 @@ items:
         value: >-
           <p>This eidolon chooses to manifest wings, though its ability to fly
           has very little to do with flapping them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ZVtbE8QHbl8GLvfD
     effects: []
@@ -451,11 +462,13 @@ items:
           subtract the total rolled amount from any holy damage the adventurer
           would otherwise take. This includes holy damage from creatures that
           are not the eidolon.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: T9ZLOjYV2vo6mo6M
     effects: []
@@ -478,11 +491,13 @@ items:
         value: >-
           <p>Until the eidolon makes its divine proclamation, natural odd attack
           rolls against it miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PAAiEU8qOesYMZRN
     effects: []
@@ -511,11 +526,13 @@ items:
           interact with and if a mortal proves too troublesome the eidolon will
           move on. In general eidolons need defeating on three separate
           occasions to convince them to stay away forever.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Qlddq7YCa2Ms8l3q
     effects: []
@@ -548,11 +565,13 @@ items:
           which reality their character is now in. At the start of each round,
           the eidolon can choose which version(s) of reality its allies are
           in.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YLFI485QcFnozcNS
     effects: []
@@ -580,11 +599,13 @@ items:
           initiative order as determined by the eidolon. Alternately, the
           eidolon warps the momentum of the battle and the escalation die value
           is determined at the start of the round with a [[/r d6]] roll.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 12mdy75MCpynbdPW
     effects: []
@@ -612,11 +633,13 @@ items:
           the start of the round. Alternately, if you are using minis and some
           sort of map tiles you can rearrange the tiles with the minis still on
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WZre6GKGwKwwMs9T
     effects: []

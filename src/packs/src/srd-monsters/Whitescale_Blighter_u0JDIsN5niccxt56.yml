@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -283,8 +288,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: AEdywrLtxvlUZOic
     effects: []
     folder: null
@@ -303,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,8 +348,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vcCOYN0ROJpm424d
     effects: []
     folder: null
@@ -364,11 +370,13 @@ items:
           <p>All whitescale dragonics in the battle can use the escalation die.
           This monster&rsquo;s escalating cold ability ends for this battle if
           it takes fire damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: OMyrLEdgDyzNTRsa
     effects: []
@@ -391,11 +399,13 @@ items:
         value: >-
           <p>When a cold attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JXwVPHCXudZWzwoy
     effects: []
@@ -421,11 +431,13 @@ items:
           that coats it or a nearby whitescale dragonic in rime. The next attack
           that hits the rime-covered whitescale this battle deals only half
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GT9TAexH617gSB5t
     effects: []
@@ -448,11 +460,13 @@ items:
         value: >-
           <p>The dragonic deals [[2d4]] extra damage to a target it misses with
           a melee attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VhFPbfCFoVBLoOGF
     effects: []
@@ -475,11 +489,13 @@ items:
         value: >-
           <p>The whitescale blighter hates undead and necromancers, and its crit
           range expands by 1 against them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: IzdRV2mWRjVKqv2h
     effects: []
@@ -508,11 +524,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ApAAy4iTJsER9Rof
     effects: []
@@ -540,11 +558,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8pMLWYQV41EEAThe
     effects: []

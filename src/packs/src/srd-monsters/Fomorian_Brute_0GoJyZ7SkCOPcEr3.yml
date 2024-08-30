@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: NaluER1PyuqdnVEV
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: hQpTXUMWtBoMyHK6
     effects: []
     folder: null
@@ -358,11 +364,13 @@ items:
         value: >-
           <p>If there are at least three other fomorians engaged with the
           target, the fomorian brute can make the *bite* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4BldjdImYNNbuc1B
     effects: []
@@ -385,11 +393,13 @@ items:
         value: >-
           <p>The fomorian brute mook counts as two 5th level mooks when you are
           building battles.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Fr2r9nphZTmKnFrS
     effects: []
@@ -461,11 +471,13 @@ items:
           </tbody>
 
           </table>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: RPSHPuDxI8xAbkrx
     effects: []
@@ -488,11 +500,13 @@ items:
         value: >-
           <p>When the escalation die is odd, the fomorian can make one extra
           melee attack per round as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7gNbOjGT0ObwY5io
     effects: []
@@ -517,11 +531,13 @@ items:
           huge eye on a shoulder, a slug-like eye stalk, etc. The fomorian
           can&rsquo;t be surprised or ambushed, and it has true sight (spells
           like blur, invisibility, etc. don&rsquo;t work on it).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: eaGDoO0uXwXEMCi4
     effects: []
@@ -544,11 +560,13 @@ items:
         value: >-
           <p>Once per turn as a free action, the fomorian can make the <em>evil
           eye</em> attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dVpx0j28FHVjSHyS
     effects: []
@@ -569,11 +587,13 @@ items:
         type: String
         label: Description
         value: <p>+1 AC and +2 PD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0yLDKkZjdbi5lirC
     effects: []
@@ -593,6 +613,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -638,8 +663,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uzvwbl0AuBWlujZE
     effects: []

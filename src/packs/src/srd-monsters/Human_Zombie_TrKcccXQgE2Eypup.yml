@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         type: ''
         label: Description
         value: A critical hit against a zombie drops it to 0 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,6 +275,10 @@ items:
           feasting on brains; they keep attacking any enemy they’ve knocked
           *unconscious*, rolling attacks against the *helpless* enemy until it’s
           dead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

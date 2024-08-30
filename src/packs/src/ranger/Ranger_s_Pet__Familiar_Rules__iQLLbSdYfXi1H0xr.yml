@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -132,42 +137,52 @@ system:
     label: Effect
     value: "<p>Your ranger's pet is a tiny or small animal or creature that aids you\_and provides companionship. It also provides opportunities for improvisation between you and the GM.</p><p>Your pet is as intelligent as a normal person. It can communicate with you and will stay close you unless you've chosen abilities that let it roam. Your pet is on your side but it's not perfectly in your control.</p><p>If your pet dies, it can come back to you the next time you get a full heal-up. (The method or story used is between you and the GM.) Alternatively, you can get a new pet.</p><p>Pets are useless in combat, except as indicated by their abilities. Ordinarily they aren't damaged by enemy attacks and spells unless the story calls for it.</p><h2>Pet Abilities</h2><p>Choose two of the following abilities for your pet.</p><h3>Agile</h3><p>You gain a +2 bonus to Dexterity skill checks.</p><h3>Alert, Maybe Even Insightful</h3><p>You gain a +2 bonus to Wisdom skill checks.</p><h3>Counter-bite</h3><p>Each battle, if your pet is close to you, it bites the first enemy that hits you with a melee attack after that attack, dealing [[(@lvl)d4]] damage (no attack roll) to that enemy.</p><h3>Flight</h3><p>Your pet flies as well as a hawk. It doesn't fly that often and usually sticks with you, but it can do so when its other abilities allow.</p><h3>Mimic</h3><p>One battle per day, you gain the use of the racial power (without feats) of one nearby ally.</p><h3>Poisonous</h3><p>Once per battle, when you hit an enemy engaged with you, you can add [[5]] ongoing poison damage per tier to the damage roll.</p><h3>Scout</h3><p>Once per day, your pet can separate itself from you and make a reconnaissance run of an area or location. Roll an easy skill check for the environment to get your pet\_to scout unseen.</p><h3>Tough</h3><p>You gain a +1 save bonus. Tough counts as two pet\_abilities.</p><h3>Talkative</h3><p>Your pet\_can talk like a person (but the GM speaks for the pet\_more than you do).</p>"
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -188,10 +203,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/nature/stealth-hide-eyes-green.webp
 _id: iQLLbSdYfXi1H0xr

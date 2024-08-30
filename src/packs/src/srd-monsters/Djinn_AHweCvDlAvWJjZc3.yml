@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -253,6 +257,10 @@ items:
         value: >-
           <p>Limited use: The djinn can only use this attack while it's not
           staggered.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -313,6 +321,10 @@ items:
         value: >-
           <p>Genies fly extremely well, but lumber, at best, when walking on the
           ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,6 +352,10 @@ items:
           conflicted relationship with. Treat this advantage as if it came from
           a positive relationship. The GM is encouraged to treat this result
           with the utmost benevolence and compassion.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,6 +381,10 @@ items:
           16+&nbsp;against all spells except those cast by a PC that has at
           least a one point icon relationship with the icon that is channeling
           the djinn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -388,6 +408,10 @@ items:
         value: >-
           <p>When an enemy makes a melee attack against the djinn and misses, it
           takes [[2d20]] damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -409,6 +433,10 @@ items:
         type: String
         label: Description
         value: <p>The djinn gains a random demonic feature (see Demon).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -434,6 +462,10 @@ items:
           there&rsquo;s a 50% chance that the power fails. If it does, the item
           refuses to let its owner use that power until the end of the
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -457,6 +489,10 @@ items:
         value: >-
           <p>The djinn&rsquo;s&nbsp;assault of the whirlwind&nbsp;attack can
           also target far away enemies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -481,6 +517,10 @@ items:
           <p>Twice per battle as a free action, the djinn can turn an
           ally&rsquo;s normal save into an easy save (6+), or an enemy&rsquo;s
           normal save into a hard save (16+).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -504,6 +544,10 @@ items:
         value: >-
           <p>While not staggered, the djinn has&nbsp;resist melee damage
           16+.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -527,6 +571,10 @@ items:
         value: >-
           <p>The djinn takes a &ndash;1 penalty to all defenses. While not
           staggered, its crit range expands by 3.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

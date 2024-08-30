@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 469AlVz0VkuCw6LL
     effects: []
     folder: null
@@ -305,11 +308,13 @@ items:
           opportunity attacks and if it makes a clumsy scythe attack immediately
           after it moves it gets a +2 bonus to its attack and deals half damage
           on a miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: fliEn64msz9vAkI4
     effects: []
@@ -332,11 +337,13 @@ items:
         value: >-
           <p>Once per battle the drudge gets to reroll a missed clumsy scythe
           attack, and deals [[5]] damage if it still miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Vn5hhXVazAEQX7De
     effects: []

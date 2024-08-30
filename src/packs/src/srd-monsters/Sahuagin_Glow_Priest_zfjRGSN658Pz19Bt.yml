@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,6 +305,10 @@ items:
         value: >-
           One random nearby conscious enemy takes [[4d6]] negative energy
           damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
         value: >-
           Each target that was hit takes a -2 penalty (non-cumulative) to all
           saves until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +360,10 @@ items:
           Until the start of the glowpriest’s next turn, each sahuagin and demon
           in the battle adds the escalation die to its attacks and the PCs
           don’t.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,6 +388,10 @@ items:
           Remove the glowpriest from play. At the start of its next turn, return
           it to play nearby its original location. It gains a +4 bonus to all
           defenses until the end of its next turn after it returns to play.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -389,6 +413,10 @@ items:
         type: ''
         label: Description
         value: Sahuagin breathe underwater and swim very well.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

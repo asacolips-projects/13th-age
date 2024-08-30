@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: rXWTcWcVrTSRuaem
     effects: []
     folder: null
@@ -301,11 +304,13 @@ items:
         value: >-
           <p>Twice per battle, if the fomorian is next to a dead body, as a move
           action it can eat part of the corpse, healing [[1d6*10]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 68PCsQfdx0xranhS
     effects: []
@@ -329,11 +334,13 @@ items:
           <p>When the fomorian top-cannibal heals from eating a corpse, it gains
           a bonus to damage with its next attack, hit or miss, equal to the hit
           points it healed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5wLGkbFVGTvAmd0X
     effects: []
@@ -353,6 +360,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,8 +410,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iSF24eG1WPkLMwk7
     effects: []
@@ -474,11 +484,13 @@ items:
           </tbody>
 
           </table>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hOt22ErlQxSOJZHC
     effects: []
@@ -504,11 +516,13 @@ items:
         value: >-
           <p>When the escalation die is odd, the fomorian can make one extra
           melee attack per round as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YjQGD5yWA9UUXBgF
     effects: []
@@ -536,11 +550,13 @@ items:
           huge eye on a shoulder, a slug-like eye stalk, etc. The fomorian
           can&rsquo;t be surprised or ambushed, and it has true sight (spells
           like blur, invisibility, etc. don&rsquo;t work on it).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JQsWwdsIES4fBJG4
     effects: []
@@ -566,11 +582,13 @@ items:
         value: >-
           <p>Once per turn as a free action, the fomorian can make the <em>evil
           eye</em> attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 10SdbVfzwe1uET0n
     effects: []
@@ -594,11 +612,13 @@ items:
         type: String
         label: Description
         value: <p>+1 AC and +2 PD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WRHNvsASSxldAHaz
     effects: []

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -289,6 +297,10 @@ items:
         value: >-
           While the escalation die is 3+, the crit range of this attack expands
           by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -312,6 +324,10 @@ items:
         value: >-
           When the wereboar takes [[8]] damage or less from any source, it takes
           no damage instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,6 +351,10 @@ items:
         value: >-
           The wereboar can roll normal saves against effects that aren’t save
           ends (until end of turn or battle, for example).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -356,6 +376,10 @@ items:
         type: ''
         label: Description
         value: quadruple the die).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -379,6 +403,10 @@ items:
         value: >-
           When the wereboar is not staggered at the start of its turn, it heals
           18 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -402,6 +430,10 @@ items:
         value: >-
           Once per battle, the wereboar can make a smash attack as a free
           action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

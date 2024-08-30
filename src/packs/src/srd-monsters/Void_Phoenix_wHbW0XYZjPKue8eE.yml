@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -284,8 +289,6 @@ items:
         value: >-
           The void phoenix can use a *void calling* attack as a quick action,
           either this turn, or on its next turn.
-      embeddedMacro:
-        value: ''
     _id: W6N3NKrFeVEcscVR
     effects: []
     folder: null
@@ -306,6 +309,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,8 +353,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: bwNqNcNuLd9Ibjlr
     effects: []
     folder: null
@@ -368,11 +374,13 @@ items:
         value: >-
           <p>The void phoenix can fly amazingly well for a creature that is
           turning itself spiritually inside out.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cELbZRCTz8GyO4rC
     effects: []
@@ -396,11 +404,13 @@ items:
           <p>Enemies that end their turns engaged with the void phoenix must
           attempt an easy save (6+). If the save fails, they&rsquo;re *dazed*
           until the end of their next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FZgMzP1VpGU9vlAW
     effects: []
@@ -424,11 +434,13 @@ items:
           <p>When a fire attack or negative energy attack targets this creature,
           the attacker must roll a natural 16+ on the attack roll or it only
           deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WW2TEttwI6qs8dw6
     effects: []
@@ -452,11 +464,13 @@ items:
           <p>When the phoenix is dealt a critical hit, it must roll an easy save
           (6+). If the save fails, the phoenix drops to 0 hit points; see the
           reborn in void ability below!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vM8z2h5VcsYYWXsQ
     effects: []
@@ -505,11 +519,13 @@ items:
           somewhere nearby in a few hours, days, months, or years. Probably not
           relevant to the PCs unless they or the phoenix bear a special
           grudge.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ZUQU1Hv5tETviUtu
     effects: []
@@ -529,6 +545,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -565,8 +586,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: gJXZeoNXdXGfVPSd
     effects: []

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
           When the earth elemental is targeted by a natural attack roll of 10 or
           less, the elemental heals [[1d6]] damage before taking any damage from
           the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -268,6 +276,10 @@ items:
         value: >-
           Not all earth elementals burrow, though if yours is particularly nasty
           or associated with a particular icon, it can.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,17 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: >-
+      // For the code executed in this macro, see
+
+      //
+      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.fighterCarveAnOpening(speaker, actor, token,
+      character, archmage);
   group:
     type: String
     label: Group
@@ -135,42 +147,52 @@ system:
       battle until you score a melee critical hit. When you score a melee
       critical hit, your crit range drops back to normal.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -210,17 +232,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: >-
-      // For the code executed in this macro, see
-
-      //
-      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
-
-      game.archmage.ArchmageMacros.fighterCarveAnOpening(speaker, actor, token,
-      character, archmage);
 flags: {}
 img: icons/skills/melee/strike-sword-stabbed-brown.webp
 _id: 9tNK1JiBfecxOZpH

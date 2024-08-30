@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: z3OIyowQfRXvasa9
     effects: []
     folder: null
@@ -301,11 +304,13 @@ items:
         value: >-
           <p>Enemies take a -5 penalty to disengage checks against the orc
           band.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TlQufDzaOCGK0LqX
     effects: []

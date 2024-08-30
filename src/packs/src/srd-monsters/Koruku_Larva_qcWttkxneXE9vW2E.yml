@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: y5DzFvGKycC4u5bi
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: hwsnJhHIDS19ELhR
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
         value: >-
           <p>Each creature engaged with a damaged koruku larva at the start of
           its turn takes [[2d6]] acid damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: HU1PqX7VY2Oe0IMN
     effects: []
@@ -390,11 +398,13 @@ items:
           <p>The koruku larva can physically and magically bond with a willing
           humanoid, or a humanoid it has reduced to 0 hp, and evolve over the
           course of a day into a koruku symbiont.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: szhpnVS3hjjn7cN9
     effects: []

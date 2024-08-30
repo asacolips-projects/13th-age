@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -297,6 +305,10 @@ items:
         value: >-
           While an enemy has 72 hp or fewer, it takes a -4 penalty to limited
           attacks against the dragon.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
         value: >-
           When a lightning attack targets this creature, the attacker must roll
           a natural 18+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,6 +361,10 @@ items:
           an attack, the dragon can make a lightning breath against that
           attacker (and yes, if the dragon hits, the interrupted attack takes
           the -4 penalty due to *dazed*).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,6 +389,10 @@ items:
           When a creature attacks the dragon, if it used another action this
           turn before the attack, the dragon gains a +4 bonus to all defenses
           against the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

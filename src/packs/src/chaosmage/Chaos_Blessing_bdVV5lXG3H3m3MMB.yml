@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -153,50 +158,60 @@ system:
       you&rsquo;re the one with the fewest hit points among you and your nearby
       allies, it&rsquo;s you.)</td></tr></tbody></table>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
       gift and resilience now grant [[12]] temporary hit points; aura/tentacles
       damage is 2d10.  [[2d10]]
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
       gift and resilience now grant [[20]] temporary hit points; aura/tentacles
       damage is 4d10.  [[4d10]]
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
       gift and resilience now grant [[35]] temporary hit points; aura/tentacles
       damage is 6d8.   [[6d8]]
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
       gift and resilience now grant [[60]] temporary hit points; aura/tentacles
       damage is 10d8.   [[10d8]]
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -282,10 +297,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/protect-eerie-3.jpg
 _id: bdVV5lXG3H3m3MMB

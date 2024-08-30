@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -290,6 +298,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -344,6 +356,10 @@ items:
         value: >-
           Limited use: 1/round, as an interrupt action when an enemy attacks the
           lammasu wizard with a spell and rolls a natural odd attack roll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,6 +414,10 @@ items:
           lammasu wizard gains resist damage 16+ to all attacks against AC and
           PD. If it’s flying when it becomes living stone, its magic allows it
           to remain in the air if it wishes.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: kqTOZQNMtbG30uIb
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,8 +352,6 @@ items:
         type: String
         label: Miss
         value: The brain heals [[50]] hp.
-      embeddedMacro:
-        value: ''
     _id: JcpDVp5PnHlI2Eje
     effects: []
     folder: null
@@ -367,11 +373,13 @@ items:
         value: >-
           <p>The brain can crawl about on tentacles but prefers to use its
           telekinetic grasp to move enemies toward it or its allies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: LQaa2YFuEz54rOhJ
     effects: []
@@ -394,11 +402,13 @@ items:
         value: >-
           <p>Creatures engaged with the star-mask omnipotent brain that have 120
           hp or fewer can&rsquo;t target the omnipotent brain with attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hw3A5rfnPmqas7tF
     effects: []
@@ -424,11 +434,13 @@ items:
           its will. If it succeeds, there&rsquo;s no effect. Enemies hurled
           against solid objects or other allies take [[2d20]] damage, or
           possibly more if hurled into dangerous terrain.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: l9MvosYHTP2e8o1W
     effects: []
@@ -457,11 +469,13 @@ items:
           with a DC 30 skill check as a standard action. If the check fails by 5
           or more, the assisting ally is also now absorbed with the same
           effects.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: HY78gvvMnBrpzw5s
     effects: []
@@ -485,11 +499,13 @@ items:
           <p>When an enemy targets the omnipotent brain with a ranged attack and
           rolls a natural 1&ndash;5, it must reroll the attack against an ally
           engaged with the brain, if any, as if it had fumbled.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kWJNmYRu0yzitSsT
     effects: []
@@ -513,11 +529,13 @@ items:
           <p>The omnipotent brain can use a standard action to allow a nearby
           ally to make an attack as a free action with a +4 attack bonus. If the
           ally misses it takes [[1d8]] damage and the brain heals [[50]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xP51fwdUUbDmcKoo
     effects: []

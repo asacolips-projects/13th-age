@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
           its turn, it must roll an easy save (6+). On a failure, the shark must
           move and attack a random nearby enemy that’s staggered, or a random
           nearby if there are no staggered enemies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -269,6 +277,10 @@ items:
         value: >-
           When an enemy misses with a melee attack against an iron sea shark and
           rolls a natural 1-5, the attacker takes [[2d6]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -293,6 +305,10 @@ items:
           Sharks breathe underwater and swim very well. They’re not so good out
           of sea water (even if they jump), so treat them as semi-hazardous
           terrain while they’re busy thrashing to death outside the water.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

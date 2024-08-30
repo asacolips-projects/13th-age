@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
           The attack instead deals [[40]] damage on a hit if the minotaur first
           moves before attacking an enemy it was not engaged with at the start
           of its turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -266,6 +274,10 @@ items:
         type: ''
         label: Description
         value: Minotaurs gain a +4 melee attack bonus against staggered enemies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,6 +301,10 @@ items:
         value: >-
           The first time each round the minotaur takes damage, prevent [[2d6]]
           of it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -313,6 +329,10 @@ items:
           While engaged with this creature, enemies that have 24 hp or fewer are
           *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

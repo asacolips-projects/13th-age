@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +253,10 @@ items:
         type: String
         label: Description
         value: '<p>Limited use: 2/battle.</p>'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -306,6 +314,10 @@ items:
           <p>Until the barbarous bugbear is staggered or the escalation die is
           2+, it acts twice per round. Roll initiative once at +12. It takes its
           second turn when the initiative count is seven less (minimum 1).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

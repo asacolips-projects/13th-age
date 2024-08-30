@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         value: >-
           A non-dwarf creature damaged by a clay golem can’t be healed to above
           half its maximum hit points until after the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -266,6 +274,10 @@ items:
           Non-organic golems are immune to effects. They can’t be *dazed*,
           *weakened*, *confused*, made *vulnerable*, or touched by ongoing
           damage. You can damage a golem, but that’s about it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,6 +301,10 @@ items:
         value: >-
           When an attack hits this creature, the attacker must roll a natural
           11+ on the attack roll or it misses instead. That’s all attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

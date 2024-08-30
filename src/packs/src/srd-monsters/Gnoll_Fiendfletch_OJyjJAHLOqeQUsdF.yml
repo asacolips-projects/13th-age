@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -297,6 +305,10 @@ items:
         value: >-
           While making a ranged attack, the fiendfletch gains a +4 bonus to AC
           against opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -321,6 +333,10 @@ items:
           While the fiendfletch has at least one blocker, troop, or wrecker ally
           (like a shredder) between it and an enemy, it gains a +4 bonus to all
           defenses against ranged and close-quarters attacks from that enemy.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +360,10 @@ items:
         value: >-
           When the fiendfletch rolls a natural 16+ with a hellbent bow attack
           and hits, the target is *weakened* (save ends) instead of *dazed*.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

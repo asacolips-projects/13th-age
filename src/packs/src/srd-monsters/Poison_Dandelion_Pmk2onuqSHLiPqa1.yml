@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         value: >-
           Limited use: The poison dandelion can only use this attack when the
           escalation die is odd.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,6 +306,10 @@ items:
           the start of its next turn. At the start of its next turn, it returns
           to life as a death blossom or lich flower that lacks the red-yellow
           resurrection ability but is otherwise undamaged and whole.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

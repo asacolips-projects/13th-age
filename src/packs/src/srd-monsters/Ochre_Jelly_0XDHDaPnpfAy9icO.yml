@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,6 +251,10 @@ items:
           half the original’s current hit points plus [[2d6]] hp. Treat the new
           jellies as undamaged jellies at their new hit point totals without the
           splitter ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

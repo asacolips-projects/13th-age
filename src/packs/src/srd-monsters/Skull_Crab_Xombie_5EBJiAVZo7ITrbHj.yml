@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: G8lzZMO10lB0wqF5
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,8 +349,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: gPHa9dUFaCKJgBGM
     effects: []
     folder: null
@@ -366,11 +372,13 @@ items:
           tentacles effect, attacks against the skull crab deal half damage to
           it and half to that creature as the crab burrows deep. The effect
           lasts until the creature saves.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3onVDPr8dMdo0oXZ
     effects: []
@@ -393,11 +401,13 @@ items:
         value: >-
           <p>Once per battle as a move action, the skull crab can engage a
           nearby or far away enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uwH8yI74eFWe4Egs
     effects: []
@@ -423,11 +433,13 @@ items:
           the crab dies. That enemy must start making last gasp saves in
           addition to any death saves, with it turning into a xombie on the
           fourth failure.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0swcXD3Zjp4RnLpv
     effects: []

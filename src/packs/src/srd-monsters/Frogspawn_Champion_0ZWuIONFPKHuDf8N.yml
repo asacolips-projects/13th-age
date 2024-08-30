@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ia5SnqoxLOXbli8E
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: S06Ejz9pZyYEAd50
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -394,8 +405,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: hA1VXRroTUUfMrPN
     effects: []
     folder: null
@@ -419,11 +428,13 @@ items:
           sky, taking it out of combat (or at least making it really hard to
           hit, your call). The following turn the great-one lands on top of or
           next to an enemy and makes a *death from above* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 58VNBq8Gp0Zt1cb3
     effects: []
@@ -447,11 +458,13 @@ items:
           <p>Nearby enemies who roll a natural 1 save or attack roll get an item
           of theirs stolen by the frogspawn champion&mdash;probably their
           weapon.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lpQPYVb6gpaf8Xvj
     effects: []
@@ -472,11 +485,13 @@ items:
         type: String
         label: Description
         value: <p>Enemies now get their items taken away on a natural 1, 2, or 3.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cHGPUrJmdA6rKMlg
     effects: []
@@ -500,11 +515,13 @@ items:
           <p>You should certainly use one ability per frogspawn, occasionally
           two. For frogspawn mooks, treat the abilities as usable once per
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ct1Mb1FXJHZxPaEd
     effects: []
@@ -531,11 +548,13 @@ items:
           <p>The frogspawn deals [[@lvl]] poison damage to any character that
           pops free of it or successfully disengages from it. (Teleporting away
           is probably tongue-free unless the GM is hopping mad.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PC8LW91XI7sxEWRi
     effects: []
@@ -564,11 +583,13 @@ items:
           of sight. Remove the frogspawn from the table until the start of its
           next turn. At the start of its next turn, place it anywhere nearby its
           previous location, but not engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SeGNM74s0RDK1O0Q
     effects: []
@@ -596,11 +617,13 @@ items:
           random nearby enemy the frogspawn can see. The frogspawn leaps into
           engagement with that enemy and its crit range with melee attacks
           expands by 3 until the end of the turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4WLCLgUMltR0YrYo
     effects: []
@@ -631,11 +654,13 @@ items:
           frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
           to die. (Gamemaster: Don&rsquo;t give this ability to all the
           frogspawn in a battle. Just one or two.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VnhKn0lKiUkDGeAk
     effects: []

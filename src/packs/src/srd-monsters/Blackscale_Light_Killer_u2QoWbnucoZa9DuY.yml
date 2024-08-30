@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 51CcescUvBv0WzU3
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: EozVws1i2H9ktodH
     effects: []
     folder: null
@@ -360,11 +366,13 @@ items:
           make a nearby enemy *weakened* until the end of its next turn. Enemies
           that don&rsquo;t need to see to fight or who can pierce magical
           darkness ignore this effect.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: bdcb0xtYn7LB2pWu
     effects: []
@@ -387,11 +395,13 @@ items:
         value: >-
           <p>When an acid attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: u9vT4NGFYH7aoRHv
     effects: []
@@ -414,11 +424,13 @@ items:
         value: >-
           <p>The blackscale light-killer gains a darkness token on odd misses
           too.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oUwIvn9IJQ4ns66J
     effects: []
@@ -441,11 +453,13 @@ items:
         value: >-
           <p>Instead of a quick action to use darkness spreads, it&rsquo;s a
           free action. Wait and use it just before a PC attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rXc1wOAYno47OU4y
     effects: []
@@ -468,11 +482,13 @@ items:
         value: >-
           <p>The dragonic deals [[2d8]] extra damage to a target it misses with
           a melee attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: N8xid4Yqcr2eYcEo
     effects: []
@@ -501,11 +517,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: g3VPWWZAUs0fjNqQ
     effects: []
@@ -533,11 +551,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SQboiw8nQxDaqP0N
     effects: []

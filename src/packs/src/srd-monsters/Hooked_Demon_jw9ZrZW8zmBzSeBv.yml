@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
           Whenever the hooked demon hits a creature with hooks and barbs, that
           creature takes [[10]] damage each time it makes a non-basic attack
           (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

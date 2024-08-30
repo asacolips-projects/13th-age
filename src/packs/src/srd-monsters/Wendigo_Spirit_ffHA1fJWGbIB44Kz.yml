@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -293,6 +301,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -314,6 +326,10 @@ items:
         type: ''
         label: Description
         value: The target takes [[10]] damage as it bites itself.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,6 +353,10 @@ items:
         value: >-
           The target makes a basic attack against its nearest or most
           *vulnerable* ally (moving to that target if necessary).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -358,6 +378,10 @@ items:
         type: ''
         label: Description
         value: The target attacks the wendigo if it can; otherwise, it does nothing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -382,6 +406,10 @@ items:
           The wendigo can walk on the wind. It is not a graceful flyer, but it
           moves as fast as the wind that carries it. Nearby creatures can see
           its feet blazing with fire as it runs.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -406,6 +434,10 @@ items:
           The wendigo has resist damage 16+ to all damage except thunder damage.
           A wendigo spirit can move through solid objects but it can’t end its
           movement inside them.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -430,6 +462,10 @@ items:
           The wendigo is invisible to far away creatures. When the wendigo
           attacks, if its target couldn’t see it at the start of its turn, the
           wendigo gains a +2 attack bonus that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -457,6 +493,10 @@ items:
           gasp save turns the creature into a raving cannibal; it loses all its
           normal abilities and becomes an NPC until the PCs find a way to
           restore their ally (at GM’s discretion).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

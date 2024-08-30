@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -138,50 +142,60 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
       Target with 70hp or fewer; [[4d6+@int.dmg+@atk.a.bonus]] psychic damage on
       a miss.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
       Target with 100hp or fewer; [[6d6+@int.dmg+@atk.a.bonus]] psychic damage
       on a miss.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
       Target with 180hp or fewer; [[6d10+@int.dmg+@atk.a.bonus]] psychic damage
       on a miss.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
       Target with 300hp or fewer; [[8d10+@int.dmg+@atk.a.bonus]] psychic damage
       on a miss.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -261,10 +275,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/horror-eerie-2.jpg
 _id: LqLEeMRDd6zmZqaJ

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: iruaTktWWm999O5x
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,8 +348,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Ate36zC3aInIjY9P
     effects: []
     folder: null
@@ -360,6 +366,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -397,8 +408,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: twcTNo5aCzOnrvWo
     effects: []
     folder: null
@@ -417,6 +426,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -458,8 +472,6 @@ items:
         type: String
         label: Miss
         value: '[[9]] fire damage'
-      embeddedMacro:
-        value: ''
     _id: gH7Gv3gguT7RZBKQ
     effects: []
     folder: null
@@ -478,6 +490,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -515,8 +532,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: iMHoq7mljUiNtBI1
     effects: []
     folder: null
@@ -545,11 +560,13 @@ items:
           Demonic Icon, the character must shift one relationship point with
           another icon into a conflicted or positive relationship with the
           Demonic Icon.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GxOYbxyC00UsukWR
     effects: []
@@ -643,11 +660,13 @@ items:
           </table>
 
           <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ikkK6kYHWN6mQ84w
     effects: []
@@ -682,11 +701,13 @@ items:
           wizard. If used on a character who already has a positive relationship
           with the Demonic Icon, the PC gets another such point, replacing one
           of their other icon relationships.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Ehx8HcJnPzgdl9yb
     effects: []

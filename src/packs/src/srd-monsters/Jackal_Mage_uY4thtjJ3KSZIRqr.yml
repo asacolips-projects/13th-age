@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: s70cerJyEV8N1sNa
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: mVRWDPOR0YRuWrQc
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -397,8 +408,6 @@ items:
         type: String
         label: Miss
         value: '[[14]] negative energy damage'
-      embeddedMacro:
-        value: ''
     _id: qcpmXyezQ86X91Eo
     effects: []
     folder: null
@@ -420,11 +429,13 @@ items:
         value: >-
           <p>The jackal mage can use the&nbsp;<em>those you left behind</em>
           attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Yni6M701sAJ0qk1q
     effects: []

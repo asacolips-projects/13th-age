@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +300,10 @@ items:
         value: >-
           When the treant takes [[15]] or more fire damage from a single attack,
           it releases all grabbed creatures.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -315,6 +327,10 @@ items:
         value: >-
           This creature has resist damage 12+ to all damage except fire damage
           and melee weapon damage, which damages it normally.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,6 +355,10 @@ items:
           The treant exudes a toxic cloud of pollen. When an enemy engages the
           treant or starts its turn engaged with the treant, it takes [[4]]
           poison damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[40]] damage'
-      embeddedMacro:
-        value: ''
     _id: CEm9FcdIKG6TAgfL
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: '[[35]] holy damage'
-      embeddedMacro:
-        value: ''
     _id: DOZ2M3pT88Yhyi5L
     effects: []
     folder: null
@@ -359,11 +365,13 @@ items:
           <p>Whenever the fire giant priest-general makes an attack that
           staggers a target or reduces a target to 0 hp or fewer, each non-mook
           fire giant in the battle heals [[25]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8ItN7IInZIDh2MEv
     effects: []
@@ -386,11 +394,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xyVAhavtvzy8OmNi
     effects: []
@@ -416,11 +426,13 @@ items:
           if they have not taken fire damage since the end of their last turn.
           Enemies who resist fire damage take half damage from this fire
           giant&rsquo;s fire aura.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8jdVFHfuiYadyORA
     effects: []
@@ -443,11 +455,13 @@ items:
         value: >-
           <p>Once per battle, the fire giant priest- general can use
           <em>Unyr&rsquo;s divine fist</em> as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wOfj59246f9huPCX
     effects: []
@@ -471,11 +485,13 @@ items:
           <p>Whenever the fire giant priest-general makes an attack that
           staggers a target or reduces a target to 0 hp or fewer, enemies lose
           their fire resistances until the escalation die next advances.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: f3Wx2aQTS9ljspYx
     effects: []
@@ -499,11 +515,13 @@ items:
           <p>Fire attacks that miss the fire giant do not damage it and have no
           effect, and the fire giant instead heals hp equal to five times the
           attacker&rsquo;s level.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iFQuGK2wnYSo3ytj
     effects: []

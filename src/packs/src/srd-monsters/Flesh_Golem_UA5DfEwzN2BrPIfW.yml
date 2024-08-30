@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         value: >-
           Limited use: The flesh golem can only use this attack while it’s
           staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +304,10 @@ items:
           flesh golem has a 50% chance of becoming the main target instead.
           Therefore, spells that affect groups would spread out from the flesh
           golem.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -317,6 +329,10 @@ items:
         type: ''
         label: Description
         value: Flesh golems are not immune to effects.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

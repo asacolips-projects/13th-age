@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: jPhWVNeoQQF4gUSM
     effects: []
     folder: null
@@ -308,12 +311,14 @@ items:
           subsequently attempt to retreat with the prize, screeching to its cubs
           to flee with it. The torn-up enemy is *stunned* until the end of its
           next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
         value: Feed the cubs
-      embeddedMacro:
-        value: ''
     _id: tvDTuK7Xm1Xk3q8N
     effects: []
     folder: null
@@ -335,11 +340,13 @@ items:
         value: >-
           <p>The snowy owlbear&rsquo;s crit range expands by 1 for each owlbear
           cub that has dropped this battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: isbylY66bI3gcoaa
     effects: []
@@ -362,11 +369,13 @@ items:
         value: >-
           <p>Attacks that deal cold damage deal half damage to the snowy owlbear
           unless they roll a natural 14+.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SNNs9b040Y8KUaBz
     effects: []
@@ -387,11 +396,13 @@ items:
         type: String
         label: Description
         value: <p>Checks to hear a snowy owlbear take a -5 penalty.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uVvAmiiwxjiPldG0
     effects: []

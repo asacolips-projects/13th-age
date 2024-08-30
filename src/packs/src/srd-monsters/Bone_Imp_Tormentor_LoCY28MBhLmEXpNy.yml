@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Lj2nmSuJjLi7DwL6
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: c0RFHV2FtMwqe8cD
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
           <p><span class="fontstyle0">Once per battle when the tormentor imp
           hits with a natural even attack roll it does an extra 2d6 ongoing acid
           damage (easy save 6+ ends).</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8oNnSOTvHGY5BnXW
     effects: []
@@ -390,11 +398,13 @@ items:
           <p><span class="fontstyle0">On rounds when the escalation die is odd
           the imp may fly as a quick action once on its turn, landing at the end
           of its movement.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6bH3XJfF5F2SqvnE
     effects: []
@@ -419,11 +429,13 @@ items:
           damage from magic sources (even magic weapons). When a magic attack
           targets this creature, the attacker must roll a natural 13+ on the
           attack roll or it only deals half damage.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YSLUhhOOq2aYuHPJ
     effects: []

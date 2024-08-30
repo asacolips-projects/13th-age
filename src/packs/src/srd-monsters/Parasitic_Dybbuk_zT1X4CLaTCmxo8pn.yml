@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -291,6 +299,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,6 +350,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -384,6 +400,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -436,6 +456,10 @@ items:
           another humanoid, or back to its own shape. Seeing through the
           shapechange requires a DC 25 skill check. When the dybbuk is driven
           out of the host body, the body reverts to its original form.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -463,6 +487,10 @@ items:
           and the parasitic dybbuk becomes an undamaged ethereal dybbuk (see
           that entry). If the escalation die is 3+, reset the escalation die to
           2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -486,6 +514,10 @@ items:
         value: >-
           A dybbuk can climb on ceilings and walls as easily as it moves on the
           ground.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -509,6 +541,10 @@ items:
         value: >-
           When the target is engaged with the dybbuk at the start of its turn,
           it takes [[20]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -530,6 +566,10 @@ items:
         type: ''
         label: Description
         value: The dybbuk heals 30 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -553,6 +593,10 @@ items:
         value: >-
           When the dybbuk rolls a natural odd hit or miss with unearthly glare,
           one special dybbuk ability triggers.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -576,6 +620,10 @@ items:
         value: >-
           The dybbuk can hover 6 feet off the ground and make boneless flea-like
           leaps.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

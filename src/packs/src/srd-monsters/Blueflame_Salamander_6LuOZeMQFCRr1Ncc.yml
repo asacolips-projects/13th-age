@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: g6CxCTEvCixS7lrK
     effects: []
     folder: null
@@ -303,11 +306,13 @@ items:
           fire damage. All enemies who do not resist fire and who end their turn
           nearby the salamander take [[7]] fire damage. Salamanders ignore
           damage from heat haze aura.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UN9NjhwOJRvqutYy
     effects: []
@@ -330,11 +335,13 @@ items:
         value: >-
           <p>Staggered enemies who are hit by blueflame tongue also take [[3]]
           ongoing fire damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kNf9oCS5foUNsIzl
     effects: []
@@ -362,11 +369,13 @@ items:
           to use the escalation die until the end of its next turn, or longer if
           it&rsquo;s a powerful or lingering spell. Avoid casting fireball in
           battle with a salamander!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4NviszfyXGmhIUFI
     effects: []
@@ -390,11 +399,13 @@ items:
           <p>Fire attacks against the salamander must roll a natural 16+ attack
           roll or the attack does half damage. Whether or not such an attack
           hits, see *escalating inferno!*</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7dLP5azluYv2oUGv
     effects: []
@@ -419,11 +430,13 @@ items:
           salamander and who roll a natural 1 or 3 take ongoing fire damage
           equal to twice the salamander&rsquo;s level unless they drop their
           weapon as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: d0PBmnet1p1tKZKw
     effects: []

@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -252,6 +257,10 @@ items:
         value: >-
           <p>Enemies with a lower initiative than the hound take a &ndash;5
           penalty to disengage checks against it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -276,6 +285,10 @@ items:
           <p>Once per round, an engaged skeletal hound can attempt to pop free
           and intercept an enemy moving past it. Roll a normal save; on 11+, it
           succeeds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

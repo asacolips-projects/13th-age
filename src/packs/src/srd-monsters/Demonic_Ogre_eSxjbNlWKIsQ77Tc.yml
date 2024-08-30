@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -250,6 +255,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -313,6 +323,10 @@ items:
           gains a +5 bonus to saves this battle.</li><li>The ogre begins
           making&nbsp;demonic eruption&nbsp;rolls when the escalation die is 4+
           instead of 6+.</li></ol>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,6 +354,10 @@ items:
           demon.</p><ul><li>1&ndash;2: Imp;</li><li>3&ndash;4:
           Despoiler;</li><li>5: Frenzy demon;</li><li>6: Cambion
           sickle.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +382,10 @@ items:
           <p>Begin making&nbsp;demonic eruption&nbsp;rolls when the escalation
           die is 5+ instead of 6+. Also use stronger demons for the options that
           the ogre could turn into.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

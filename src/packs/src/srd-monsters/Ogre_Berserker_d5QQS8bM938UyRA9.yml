@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
         value: >-
           When an enemy engaged with the berserker scores a critical hit against
           it, that enemy takes [[7d6]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -271,6 +279,10 @@ items:
         value: >-
           When an enemy makes an opportunity attack against the berserker, hit
           or miss, that enemy takes [[2d6]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -294,6 +306,10 @@ items:
         value: >-
           Once per battle as a free action, when the ogre berserker fails a
           save, it can take [[3d6]] damage to succeed at the save instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

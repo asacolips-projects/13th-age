@@ -196,6 +196,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
         type: ''
         label: Description
         value: The target takes [[3]] damage, and [[3]] ongoing damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -268,6 +276,10 @@ items:
         type: ''
         label: Description
         value: The target takes [[6]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +302,10 @@ items:
         value: >-
           The target takes [[3]] damage and is *stuck* until end of its next
           turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -310,6 +326,10 @@ items:
         type: ''
         label: Description
         value: They aren’t strong fliers but they are quick and agile.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

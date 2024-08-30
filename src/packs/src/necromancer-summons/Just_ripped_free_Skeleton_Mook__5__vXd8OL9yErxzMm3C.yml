@@ -392,6 +392,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -448,6 +453,10 @@ items:
         value: >-
           <p>When a weapon attack targets this creature, the attacker must roll
           a natural 16+ on the attack roll or it onlydeals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

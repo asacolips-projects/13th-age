@@ -256,11 +256,13 @@ items:
 
           <p>The reaver can also use phasing outside of battle, but only for a
           short time.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WsyLaOi8CfaB2pLL
     effects: []
@@ -285,11 +287,13 @@ items:
           or construct) enemies or non-mook allies rolls a death save or dies, a
           death shade enters the battle. Death shades act immediately after the
           reaver in initiative order.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: A1Zpe3yWI4SRXbsh
     effects: []
@@ -312,11 +316,13 @@ items:
         value: >-
           <p>While engaged with this creature, enemies with 36 hp or fewer are
           *dazed* and do not add the escalation die to their attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qs9uRQx4bx5zvQ8H
     effects: []
@@ -339,11 +345,13 @@ items:
         value: >-
           <p>Reavers ignore the bonds of gravity while they&rsquo;re
           phasing.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: HQiI7K086Ps5XPUH
     effects: []
@@ -363,6 +371,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,8 +414,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lEI3oMuaTkNB8B4G
     effects: []

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -289,6 +297,10 @@ items:
         value: >-
           the target is *weakened* instead of *dazed*; OR the imp can make a
           blight jet attack against a different target as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -312,6 +324,10 @@ items:
         value: >-
           Whenever a creature attacks the imp and rolls a natural 1-5, that
           creature takes [[1d10]] psychic damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -333,6 +349,10 @@ items:
         type: ''
         label: Description
         value: Flight
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

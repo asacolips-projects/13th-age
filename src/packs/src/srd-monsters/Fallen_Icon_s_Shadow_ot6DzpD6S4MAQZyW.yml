@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: aurfSVoDLfEZVylj
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: W3zOvnvP6uYgCS32
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
           drops to 0 hit points or dies in some other fashion nearby, the Fallen
           Icon&rsquo;s Shadow heals hit point equal to 10 &times; the creature
           (or mob&rsquo;s) level.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: aEgqSp9S9DHrwgF2
     effects: []
@@ -393,11 +401,13 @@ items:
           Icon&rsquo;s Maw returns to life at some other distant location.
           Perhaps there is no other terrible consequence. Perhaps that&rsquo;s
           enough.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: n8g6jyjuwnqwxUGk
     effects: []
@@ -421,11 +431,13 @@ items:
           <p>While engaged with this creature, if the target has 144 hp or
           fewer, it&rsquo;s *dazed* (&ndash;4 attack) and does not add the
           escalation die to its attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: W7k2g5s0kpp1AWoT
     effects: []

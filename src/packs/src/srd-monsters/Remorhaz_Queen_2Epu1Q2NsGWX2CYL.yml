@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +254,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,6 +315,10 @@ items:
         value: >-
           <p>As the standard monster ability, except the remorhaz only needs to
           roll 6+ in snow and ice.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -329,6 +343,10 @@ items:
           <p>When a creature is engaged with the remorhaz (or grabbed by it) at
           the start of its turn, it takes fire damage equal to 10 x the
           escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -353,6 +371,10 @@ items:
           <p>The queen may be sluggish after eating unsuccessful suitors, laying
           eggs, or moving across the ice like a rushing avalanche. Roll [[2d10]]
           to determine her current initiative.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -380,6 +402,10 @@ items:
           one piece of its non-magical equipment (something useful, GM&rsquo;s
           choice) melts or burns up. Adjust skill checks or stats
           accordingly</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -405,6 +431,10 @@ items:
           steam rises into the air. Ranged attacks against the remorhaz take a
           &ndash;2 penalty, or a &ndash;4 penalty if the attacker is far
           away.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -429,6 +459,10 @@ items:
           <p>The remorhaz is covered in red-hot spines. When a nearby enemy
           rolls a natural 1&ndash;5 with an attack roll, it takes [[30]] fire
           damage unless it has somehow protected itself from the heat.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

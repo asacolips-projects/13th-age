@@ -9,11 +9,13 @@ system:
     type: String
     label: Description
     value: <p>Add +2 to the dire animal&rsquo;s AC, and add +1 to its PD.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: '[[15]] damage'
-      embeddedMacro:
-        value: ''
     _id: AbLW27Ha9nwiUT26
     effects: []
     folder: null
@@ -305,11 +308,13 @@ items:
           damage equal to twice the laughing demon&rsquo;s level ([[2*@lvl]]) to
           each enemy who fails a save. Yes, that means death saves also.
           Nasty.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: C4cZX9ykFgVdyCwA
     effects: []

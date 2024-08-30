@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 7ZsoJvSTzXpM08NX
     effects: []
     folder: null
@@ -316,6 +319,10 @@ items:
           var(--font-size-14);">ends).</span></p>
 
           <p><em>Quick use</em>: 1/round, as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -353,8 +360,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Fxe6bAnd0Zou1zm2
     effects: []
     folder: null
@@ -373,6 +378,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -410,8 +420,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: 3asUY4unZLR7n77J
     effects: []
     folder: null
@@ -433,11 +441,13 @@ items:
         value: >-
           <p>Nearby targets who attack the death knight and roll a 1 take [[20]]
           negative energy damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Liqse8Kz9aiEmwMy
     effects: []
@@ -463,11 +473,13 @@ items:
           as a nastier special while ignoring the phantomaton&rsquo;s other
           stats. As a standard action the phantomaton horse can make the
           *trample* on its turn while it is still mid-move.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: fqdt1szBouJbrvTF
     effects: []

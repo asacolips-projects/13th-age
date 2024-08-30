@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         value: >-
           The crit range of melee attacks by orc ragers expands by 3 until half
           the orc rager mob has been dropped.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -265,6 +273,10 @@ items:
         value: >-
           When an orc rager drops to 0 hp, it can make a final attack as a free
           action. (These extra attacks can come from ragers engaged with a PC.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

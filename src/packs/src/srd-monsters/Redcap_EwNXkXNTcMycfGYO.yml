@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +298,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -345,6 +357,10 @@ items:
           and once during its turn the redcap can use a move action to make the
           target move anywhere nearby that won’t directly cause it harm (but
           opportunity attacks are fair game).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,6 +385,10 @@ items:
           When the redcap scores a critical hit OR when a PC or a player at the
           table says the bad word, the redcap can teleport to a nearby hidden
           location it can see as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -392,6 +412,10 @@ items:
         value: >-
           When the redcap starts its turn and no enemy can see it, it can make a
           pop-out and ride ‘em attack that turn as a standard action
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

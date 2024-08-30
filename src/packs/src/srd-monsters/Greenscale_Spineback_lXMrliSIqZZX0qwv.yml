@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: G2g7d8Kug7lQPeuL
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: csi4Q4UlkyzffT5J
     effects: []
     folder: null
@@ -359,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,8 +407,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] poison damage'
-      embeddedMacro:
-        value: ''
     _id: 78jGPPovixi1hD1q
     effects: []
     folder: null
@@ -421,11 +430,13 @@ items:
           nearby enemy must roll a save. If it fails, it&rsquo;s *confused* and
           takes [[10]] ongoing poison damage (save ends both). Enemies who
           resist poison are immune to this effect.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tI5bmiI111ndxXZp
     effects: []
@@ -448,11 +459,13 @@ items:
         value: >-
           <p>When a poison attack targets this creature, the attacker must roll
           a natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FQwFiJkgrt0jb4qf
     effects: []
@@ -475,11 +488,13 @@ items:
         value: >-
           <p>The spineback hates elves, and its crit range expands by 1 against
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: c5WL5PSaD4fgR4vG
     effects: []
@@ -502,11 +517,13 @@ items:
         value: >-
           <p>The dragonic deals [[2d6]] extra damage to a target it misses with
           a melee attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QinMfq8cHin1AbPa
     effects: []
@@ -531,11 +548,13 @@ items:
           frog. When an enemy makes an unarmed attack against it or otherwise
           grapples with the dragonic, that enemy takes [[2d6]] poison
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dpXxQ2CnWJFWm6uj
     effects: []
@@ -564,11 +583,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: NUi6oeaBx3kXxdaq
     effects: []
@@ -596,11 +617,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zAg9HbdrZqCIyT8M
     effects: []

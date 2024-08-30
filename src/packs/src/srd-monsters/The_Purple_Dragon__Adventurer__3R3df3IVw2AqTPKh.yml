@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 2eIXwBVEt0ysJXS5
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,8 +351,6 @@ items:
         type: String
         label: Miss
         value: '[[7]] psychic damage.'
-      embeddedMacro:
-        value: ''
     _id: O0MPd0LbvQywSwkx
     effects: []
     folder: null
@@ -367,12 +373,14 @@ items:
           <p>The Purple Dragon uses their powers of illusion and mind-control to
           make one of their attackers look and sound like them; the next attack
           has a 50% chance of being targeted against the wrong target.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
         value: Human Form
-      embeddedMacro:
-        value: ''
     _id: heMK08L3sB4VBPGz
     effects: []
     folder: null
@@ -391,6 +399,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -428,8 +441,6 @@ items:
         type: String
         label: Miss
         value: '[[14]] damage'
-      embeddedMacro:
-        value: ''
     _id: U6LUXpyXjw2On3Z7
     effects: []
     folder: null
@@ -448,6 +459,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -487,8 +503,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: gww5UgcSNrHlsDVH
     effects: []
     folder: null
@@ -513,12 +527,14 @@ items:
           their targets *confused* (save ends) on a hit or miss with their
           psychoactive breath, but that uses up their breath for the rest of the
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
         value: Dragon Form
-      embeddedMacro:
-        value: ''
     _id: lCDAGde5F0aUrSCB
     effects: []
     folder: null
@@ -542,12 +558,14 @@ items:
           wings hidden by an illusion. The Purple Dragon can use the bladed fan
           attack in this form, but now it is clear that they are using their
           wings so it is only +9 to attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
         value: Dragon Form
-      embeddedMacro:
-        value: ''
     _id: jf3Cib7Gapl86XB6
     effects: []
     folder: null
@@ -570,11 +588,13 @@ items:
           <p>As a quick action the Purple Dragon fills the battlefield with
           illusions that give enemies attacking them a -2 penalty to their
           attacks. This lasts until they next attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qWZEWRyqZkVvdjna
     effects: []
@@ -602,11 +622,13 @@ items:
           conceivably take any form, but regardless of tier their vanity limits
           her to forms that feature purple and magenta (purple clothes and
           magenta hair, purple scales and magenta wing membranes, etc.).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6FIQ6Cpm36gjiAk2
     effects: []
@@ -634,11 +656,13 @@ items:
           Dragon cannot return until the next tier (if defeated at adventurer
           tier they cannot return until champion tier, if defeated at champion
           tier they return at epic tier).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cHYObdpv2qnaMxNS
     effects: []
@@ -662,11 +686,13 @@ items:
           <p>In their dragon form the Purple Dragon can fly. The Purple Dragon
           can also fly using magic, but prefers to not do so unless they need to
           fight a flying enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cA1Kbd7l1SBlMhVN
     effects: []
@@ -702,11 +728,13 @@ items:
           <p><strong>4+</strong>: Illusionary terrain&mdash;Any of the Purple
           Dragon&rsquo;s enemies that move this round must roll a save, on a
           failure they end up in a place they did not intend.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 64kKfZlY5Qj4wyvh
     effects: []

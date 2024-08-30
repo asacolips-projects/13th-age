@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         value: >-
           Damage equal to three times the penalty the trog’s stench currently
           imposes on the target.
-      embeddedMacro:
-        value: ''
     _id: nI32ny4zKFNhFIph
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,8 +349,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: nRK52v98EOOpGvj2
     effects: []
     folder: null
@@ -365,11 +371,13 @@ items:
           <p>Until the trog shaman drops to 0 hp, the melee attacks of each trog
           nearby the shaman deals [[6]] extra damage to elves and dwarves, and
           [[3]] extra damage to half-elves.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: k2YKAW5ZLrEGxL69
     effects: []
@@ -393,11 +401,13 @@ items:
           <p>Underground, or in swamps and rivers, attacks against troglodytes
           by enemies who aren&rsquo;t engaged with them take a &ndash;4
           penalty.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8MSvPpEwNBTAT9Iy
     effects: []
@@ -486,11 +496,13 @@ items:
           </table>
 
           <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dh39v33CxOvm58CS
     effects: []
@@ -513,11 +525,13 @@ items:
         value: >-
           <p>*Grimy spear* now re-applies trog stench on any natural odd roll
           (other than a natural 1, of course)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MC9OSuNv3NPFUx0p
     effects: []

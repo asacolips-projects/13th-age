@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -307,6 +315,10 @@ items:
         value: >-
           <p>Efreet don&rsquo;t fly as well or as quickly as djinn, but they are
           able to get around okay.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -334,6 +346,10 @@ items:
           positive or conflicted relationship with. Treat this advantage as if
           it came from a positive relationship. The GM is encouraged to treat
           this result with the utmost benevolence and compassion.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -359,6 +375,10 @@ items:
           depending on which icon or icons the efreet is presently working for.
           The abilities represent the innate magic of the genie being channeled
           through the influence of the icon.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

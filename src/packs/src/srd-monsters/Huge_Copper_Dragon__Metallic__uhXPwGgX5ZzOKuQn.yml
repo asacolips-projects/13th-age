@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -240,6 +244,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -286,6 +294,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -336,6 +348,10 @@ items:
         type: ''
         label: Description
         value: The dragon can make an acrid smoke attack as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -359,6 +375,10 @@ items:
         value: >-
           While an enemy has 120 hp or fewer, it takes a -4 penalty to limited
           attacks against the dragon.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -382,6 +402,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -408,6 +432,10 @@ items:
           effects). In addition, this effect against natural even attacks lasts
           against the dragon’s enemies until the start of the dragon’s next
           turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -431,6 +459,10 @@ items:
         value: >-
           Once per battle as a free action when an attack targets the dragon’s
           MD, it can force the attacker to reroll the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

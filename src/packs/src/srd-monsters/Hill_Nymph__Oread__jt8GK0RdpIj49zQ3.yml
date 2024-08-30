@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: F34XVUHiAD2oZIJu
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,8 +348,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] psychic damage.'
-      embeddedMacro:
-        value: ''
     _id: eLn6zcjfhk4PzwwB
     effects: []
     folder: null
@@ -369,11 +375,13 @@ items:
           telepathically reveal its secrets to the oread until it saves. While
           underground, it can&rsquo;t be seen or targeted by allies. Saving from
           being overcome releases the target from underground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: n5u4B7qK5LLUJHsJ
     effects: []
@@ -396,11 +404,13 @@ items:
         value: >-
           <p>When a weapon attack targets this creature, the attacker must roll
           a natural 12+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: eobXoSAXn8Mvcdxw
     effects: []
@@ -424,11 +434,13 @@ items:
           <p>Nymphs are tied to an area of land or water. Land areas will be at
           most a couple miles wide; water areas might be much larger. As a rule,
           nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3YXzu9wI6BDeIp3y
     effects: []
@@ -458,11 +470,13 @@ items:
           life. After eight hours, a nymph needs a normal save to return to
           life. If the nymph has still not returned, roll an easy save at the
           end of each 24 hours until the nymph succeeds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Y5V3iyxGlO2jxW5i
     effects: []
@@ -489,11 +503,13 @@ items:
           <p>Nymphs with the humanoid type probably remember themselves. Nymphs
           that have probably forgotten their original selves have the elemental
           type.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: OBEwK13HCpGip0JY
     effects: []

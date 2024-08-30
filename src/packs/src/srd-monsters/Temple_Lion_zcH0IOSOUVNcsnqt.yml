@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Q6yACiBRmdTwsfeX
     effects: []
     folder: null
@@ -305,6 +308,10 @@ items:
           <p><strong>1:</strong> <em>great roar</em></p>
           <p><strong>2:</strong> <em>magic missiles</em></p>
           <p><strong>3:</strong> <em>rumbling omens</em></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +349,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: LMP0Aua0od1Ze1xR
     effects: []
     folder: null
@@ -362,6 +367,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -399,8 +409,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: QVNnNI2S8zGwaN7H
     effects: []
     folder: null
@@ -419,6 +427,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -456,8 +469,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: GPcpyGMzwUoDl3K5
     effects: []
     folder: null
@@ -481,11 +492,13 @@ items:
           MD, reroll the attack with a -2 attack penalty. (Sometimes the halo
           sputters, so if you forget to use it the first time, use the reroll
           later in the battle.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uH7OcYFQclOl2ya5
     effects: []
@@ -508,11 +521,13 @@ items:
         value: >-
           <p>The temple lion has resist damage 12+ against attacks targeting
           AC.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XSEmzXi6phyPqRSf
     effects: []
@@ -532,6 +547,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -572,8 +592,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ufSPhzS0dxCFw7jv
     effects: []
     folder: null
@@ -597,11 +615,13 @@ items:
           larger capacity to react appropriately! PCs with a negative or
           conflicted relationship with the Religious Icon are vulnerable to all
           the hallowed gargoyles&rsquo; attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: E0IMBe58ma0jEHbv
     effects: []
@@ -632,11 +652,13 @@ items:
           check (DC 20 at champion-tier, DC 25 at epic tier) to notice the
           gargoyles waking and avoid being surprised (13th Age core rulebook,
           page 164).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DP5vUUVPNhBHadTB
     effects: []

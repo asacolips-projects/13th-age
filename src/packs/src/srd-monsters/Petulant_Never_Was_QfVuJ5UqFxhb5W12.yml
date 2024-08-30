@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: GgU7XOI6jnENKBsW
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 17YI1m67y0Sc5qHF
     effects: []
     folder: null
@@ -362,6 +368,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,8 +412,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: A8LSEYyE7K2Uuuj8
     effects: []
     folder: null
@@ -425,11 +434,13 @@ items:
           <p>This creature has resist damage 16+ to all damage except holy
           damage AND force damage. A ghost can move through solid objects, but
           can&rsquo;t end its turn inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 69xlG8YGgCm7X8Mz
     effects: []
@@ -453,11 +464,13 @@ items:
           <p>Each enemy that has one or more icon relationship points with the
           Magic Icon that misses an attack with a natural odd roll takes a -2
           penalty to all its defenses until the end of the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: F89aTM014o4N4QPv
     effects: []
@@ -477,11 +490,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TyzNm1FpKRt0NgRA
     effects: []
@@ -518,11 +534,13 @@ items:
           ghosts that aren&rsquo;t bound to anything, but at that stage there
           are several other questions that surface and odd magical, iconic, or
           unique intervention seems likely.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lzclsXfXBmEjM4HT
     effects: []
@@ -553,11 +571,13 @@ items:
           <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
           constrained to act much like they acted when they were alive, and
           flying wasn&rsquo;t part of their life package.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8rLshzZhcVcrJ0s5
     effects: []
@@ -591,11 +611,13 @@ items:
           ghost stories than part of a creature&rsquo;s combat abilities, and
           you can safely ignore it unless you find telling moments when it adds
           to the game.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: B5tBDmyiUOeydZPj
     effects: []

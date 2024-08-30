@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         value: >-
           When a creature makes a melee attack against the blood rose, that
           creature takes damage equal to its natural attack roll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -271,6 +279,10 @@ items:
           start of its next turn. At the start of its next turn, it returns to
           life as a death blossom or lich flower that lacks the red-yellow
           resurrection ability but is otherwise undamaged and whole.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

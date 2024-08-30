@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -301,6 +309,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -353,6 +365,10 @@ items:
           Whenever a nearby enemy attacks the medusa noble and rolls a natural
           1-5, the medusa can make a petrifying gaze attack against that
           attacker as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,6 +393,10 @@ items:
           Thrice per battle, as a free action, the medusa noble can force an
           enemy to reroll a spell attack that targeted it. The attacker can’t
           use the escalation die for the reroll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,6 +421,10 @@ items:
           If lightning isn’t working against her target, the medusa noble can
           take a -2 attack penalty to change the energy type of her ranged
           attack to fire or thunder.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

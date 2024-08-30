@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: jmzmo7GOZNJknAU9
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yV2EyG1dIJYEenTB
     effects: []
     folder: null
@@ -356,11 +362,13 @@ items:
         type: String
         label: Description
         value: <p>The pixie knight flies, but never too far from the ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ItX0WH2Hcy9nNeUO
     effects: []
@@ -383,11 +391,13 @@ items:
         value: >-
           <p>The pixie knight can&rsquo;t be intercepted and doesn&rsquo;t
           provoke opportunity attacks by moving.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7pA37Fio1e23nR3e
     effects: []

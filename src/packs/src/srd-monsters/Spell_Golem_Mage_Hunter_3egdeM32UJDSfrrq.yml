@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 7Urr5diYkXF5k2SB
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,8 +348,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9QNNXQXVuYyM5fqP
     effects: []
     folder: null
@@ -364,11 +370,13 @@ items:
           <p>A golem warder can&rsquo;t be dazed, weakened, confused, or made
           vulnerable. Ongoing damage doesn&rsquo;t harm it either, unless
           it&rsquo;s acid, fire, or lightning.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3OhkuXM2nXIIw12C
     effects: []
@@ -398,11 +406,13 @@ items:
           <p>On a 16+, the attack or effect is reflected back at the caster as
           if that enemy had been targeted instead of the golem (so it must
           overcome defenses and resistances, as normal).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zfXyvjTAEOKYLFxw
     effects: []
@@ -426,11 +436,13 @@ items:
           <p>Instead of wood, stronger materials were used to create the golem,
           such as crystal or brass. This golem is non-organic and has golem
           immunity (so ongoing acid, fire, and lightning don't harm it).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JUkFL4uxqXbH99mW
     effects: []

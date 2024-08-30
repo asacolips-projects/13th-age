@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -306,6 +314,10 @@ items:
           <p>Non-organic golems are immune to effects. They can&rsquo;t be
           *dazed*, *weakened*, *confused*, made *vulnerable*, or touched by
           ongoing damage. You can damage a golem, but that&rsquo;s about it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -350,6 +362,10 @@ items:
           natural 16+ with an attack, decrease the escalation die by
           1.</li><li>Strength:&nbsp;The marble golem&rsquo;s melee attacks now
           deal half damage on a miss.</li></ol>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -373,6 +389,10 @@ items:
         value: >-
           <p>Statues that capture even more themes make stronger marble golems.
           Add one or two more virtues to the golem.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

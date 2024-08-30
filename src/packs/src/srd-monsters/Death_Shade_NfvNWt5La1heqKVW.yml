@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: PkpddpNKVlTrZVFa
     effects: []
     folder: null
@@ -299,11 +302,13 @@ items:
         type: String
         label: Description
         value: <p>Death shades can hover and fly about easily.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rThUZYmJhEaqe6El
     effects: []
@@ -328,11 +333,13 @@ items:
           solid object or pop free from all enemies engaged with it. When a
           creature intercepts a death shade, that creature takes [[11]] negative
           energy damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: mLb167GsIyAx3XBq
     effects: []
@@ -357,11 +364,13 @@ items:
           the battle to roll a death save. Death shades specifically target
           dying or helpless creatures unless somebody is actively attacking them
           while standing over the body of the dying or helpless creature.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8hs0zNGb3KNi6CQz
     effects: []

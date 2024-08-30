@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: '[[4]] damage'
-      embeddedMacro:
-        value: ''
     _id: XuIZeGIjpExrQshw
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: NXfkEuuKHee8W70J
     effects: []
     folder: null
@@ -367,11 +373,13 @@ items:
           disengage check. (In other words, it can get away from any one normal
           enemy, it takes two enemies and/or the need to roll at least a 12 to
           force the kobold assassin to actually roll the check.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: faT8cnwZ6MwhVsYA
     effects: []

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
           Limited use: When an enemy engages the weretiger, if weretiger isn’t
           already engaged, it can make a springing strike attack against that
           enemy as an interrupt action before the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +300,10 @@ items:
         value: >-
           The weretiger can make a second claws and bite attack as a free
           action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -315,6 +327,10 @@ items:
         value: >-
           The weretiger can make a third claws and bite attack as a free action
           if the escalation die is 3+.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -336,6 +352,10 @@ items:
         type: ''
         label: Description
         value: quadruple the die).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -359,6 +379,10 @@ items:
         value: >-
           When the weretiger is not staggered at the start of its turn, it heals
           24 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -383,6 +407,10 @@ items:
           When the weretiger hits with a springing strike attack, the target
           pops free from it and can’t take any more actions that turn unless it
           succeeds on a save.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

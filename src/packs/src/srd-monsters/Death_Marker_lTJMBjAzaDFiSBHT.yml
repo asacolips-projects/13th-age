@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -283,8 +288,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: PyoFZgTDb7JVpKby
     effects: []
     folder: null
@@ -308,11 +311,13 @@ items:
           objects and creatures as though they were not there. The death marker
           must still end its move on solid ground and not inside an object or
           creature.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DKyGo8avaUU22q49
     effects: []

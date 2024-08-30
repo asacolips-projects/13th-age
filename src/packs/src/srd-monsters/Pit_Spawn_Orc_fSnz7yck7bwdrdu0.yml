@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
           The crit range for pit-spawn orcs is 17+. Whenever a pit-spawn orc
           scores a critical hit, each pit-spawn orc mook in the battle gains a
           +1 cumulative bonus to damage until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -266,6 +274,10 @@ items:
         value: >-
           When an enemy engaged with the orc hits it with an attack, the enemy
           takes [[4]] damage as the orc bites and claws it back.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

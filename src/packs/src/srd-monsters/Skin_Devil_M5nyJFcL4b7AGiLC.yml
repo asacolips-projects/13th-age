@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
           At the start of its turn, a skin devil heals 8 hp. If it doesn’t heal
           up to its maximum hit points, it loses its ability to heal from this
           ability until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,6 +275,10 @@ items:
           While the skin devil is staggered, when an enemy damages it, it loses
           an additional 4 hp as the hapless thing fails to hold its boneless,
           bulky mass together.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +302,10 @@ items:
         value: >-
           When building battles using this monster, it only counts as half a
           normal monster.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -321,6 +337,10 @@ items:
           even then it’s a hard check (DC 25). Normally when PCs think they have
           the devil cornered, it escapes through a tight exit that it had
           previously identified.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

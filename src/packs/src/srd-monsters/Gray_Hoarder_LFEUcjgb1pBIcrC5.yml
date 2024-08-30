@@ -245,11 +245,13 @@ items:
           <p>The gray hoarder has resist negative energy 16+, as well as a +2
           bonus to defenses and saves against attacks and effects that
           specifically target undead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2u7lVjL9mCynFUhf
     effects: []
@@ -273,11 +275,13 @@ items:
           <p>The gray hoarder&rsquo;s crit range expands by the number of
           heroic-tier true magic items that the target is attuned to. (Targets
           with more of these items are preferred prey.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: O3HxXrLuNgn8oqZl
     effects: []
@@ -304,11 +308,13 @@ items:
           disengage (if necessary) and move as quickly as possible from the
           battle without taking opportunity attacks. (<em>Mine Forever</em> is
           also triggered when acquiring an item by scoring a critical hit.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8xBnWh6E0IgKwntG
     effects: []
@@ -328,6 +334,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -367,8 +378,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tchzd6bM52ZRXTXT
     effects: []

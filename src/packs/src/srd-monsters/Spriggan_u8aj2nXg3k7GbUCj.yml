@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: kRcIUgvMEVQtHaHI
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: fIc7N2DBYJXesRds
     effects: []
     folder: null
@@ -359,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -400,8 +411,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: nWbOzedvtlwrLF6B
     effects: []
     folder: null
@@ -429,11 +438,13 @@ items:
           pierced and the spriggan can use a single move action during its turn,
           but nothing else&mdash;it burned its standard action trying to stay
           hidden.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: l2tbwyv9nUfTYuGc
     effects: []
@@ -459,11 +470,13 @@ items:
           free action, this transformation can take place any time, usually at
           the start of a round. If the spriggan was using its hidden guardian
           ability, it&rsquo;s not hidden anymore!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: AGMYvwVy0pH7JYq0
     effects: []

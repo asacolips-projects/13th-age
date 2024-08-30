@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] fire damage'
-      embeddedMacro:
-        value: ''
     _id: dnCRd5ZSz6b2X9Oj
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9T2DgnsnBBIqS1kV
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
           fire damage. All enemies who do not resist fire and who end their turn
           nearby the salamander take [[15]] fire damage. Salamanders ignore
           damage from heat haze aura.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 26Mhjfa3q9I5HJG8
     effects: []
@@ -391,11 +399,13 @@ items:
           salamander take [[2d12]] fire damage. All enemies wearing metal armor
           who do not resist fire and who end their turn nearby the salamander
           take [[2d12]] fire damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xn8VaAFiqFllBT2A
     effects: []
@@ -420,11 +430,13 @@ items:
           salamander and who roll a natural 1 or 3 take ongoing fire damage
           equal to twice the salamander&rsquo;s level unless they drop their
           weapon as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: OOuOUt8PFvZ9A8us
     effects: []
@@ -455,11 +467,13 @@ items:
           to use the escalation die until the end of its next turn, or longer if
           it&rsquo;s a powerful or lingering spell. Avoid casting fireball in
           battle with a salamander!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QijNlTriFpqb8fEX
     effects: []
@@ -486,11 +500,13 @@ items:
           <p>Fire attacks against the salamander must roll a natural 16+ attack
           roll or the attack does half damage. Whether or not such an attack
           hits, see *escalating inferno!*</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0KZ8XhpXtXca7C7u
     effects: []

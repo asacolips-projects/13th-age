@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: Negative energy damage equal to the natural attack roll.
-      embeddedMacro:
-        value: ''
     _id: mv2IybUhBsQYqTGM
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: SaononNrld3PGK5C
     effects: []
     folder: null
@@ -365,11 +371,13 @@ items:
         value: >-
           <p>Sunder wraiths fly like the world is defined however they want it
           to be defined.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BFxtkalQFhEMjACI
     effects: []
@@ -395,11 +403,13 @@ items:
 
           <p>A sunder wraith can move through solid objects, but it can&rsquo;t
           end its movement inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: RR23kZYZ6lXwIDFU
     effects: []
@@ -424,11 +434,13 @@ items:
           object like a wall, throne, door, or chest, the object must roll a
           normal save. If the save fails, the object is broken. Strongly magical
           objects get bonuses on the save, but err on the side of uh-oh.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: jsJrxPHDgk6GIr3Z
     effects: []

@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -132,42 +137,52 @@ system:
     label: Effect
     value: "<p>Roll your relationship dice that you have with a sorcerous heroic icon.</p><p>For each 6 you roll, you gain one 7th\_level or lower spell from any spellcasting class that you can cast this battle. For each 5 you roll, you gain one 5th\_level or lower spell from any spellcasting class that you can cast this battle.</p><p>If the escalation die is 5+, you can swap the escalation die for one or your rolls. If you get no successes, you regain the spell after this battle.</p><p>You can acquire one of the new spells the same round you cast this spell. Then select and acquire any other gained spells at the start of your next turn.</p><p>You can use your Charisma as the ability score that provides the acquired spells' attack bonuses and damage bonuses (if any). Other ability score references remain unchanged.</p><p>As you might expect, each 5 you roll also invokes an icon-related complication or obligation in the tradition of rolling 5s on relationship checks.</p>"
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -188,10 +203,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/fire/projectile-fireball-smoke-strong-blue.webp
 _id: 7GBA0NB2FLaPv1SC

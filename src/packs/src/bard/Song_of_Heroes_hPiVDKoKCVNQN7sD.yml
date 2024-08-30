@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,17 @@ system:
     type: Number
     label: Max Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: >-
+      // For the code executed in this macro, see
+
+      //
+      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.bardSongOfHeroes(speaker, actor, token,
+      character, archmage);
   group:
     type: String
     label: Group
@@ -134,42 +146,52 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: The effect also provides a +1 bonus to saves.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: Sustain the song on a 9+
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: Recharge check is now 6+
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: The effect also provides a +1 bonus to MD
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -190,17 +212,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: >-
-      // For the code executed in this macro, see
-
-      //
-      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
-
-      game.archmage.ArchmageMacros.bardSongOfHeroes(speaker, actor, token,
-      character, archmage);
 flags: {}
 img: icons/environment/people/infantry-army.webp
 _id: hPiVDKoKCVNQN7sD

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,6 +305,10 @@ items:
         value: >-
           While in hybrid form, when the wererat makes an opportunity attack
           with infected bite, it deals damage equal to its level on a miss.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
         value: >-
           When the wererat is not staggered at the start of its turn, it heals 5
           hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,6 +357,10 @@ items:
         type: ''
         label: Description
         value: quadruple the die).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +384,10 @@ items:
         value: >-
           The wererat takes no damage and suffers no effects from attacks that
           miss.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -389,6 +413,10 @@ items:
           more wererats in the battle, a wererat can make a piercing shriek
           attack as a free action. Usually all the wererats in the battle will
           do this at the same time.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

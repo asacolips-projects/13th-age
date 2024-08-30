@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -291,6 +299,10 @@ items:
         value: >-
           If more than one gnoll is engaged with the target, each gnoll melee
           attack that misses that target deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -315,6 +327,10 @@ items:
           When the gnoll ranger is unengaged and an enemy moves to engage it,
           roll a [[d20]]. On a 11+, the gnoll ranger can make a longbow attack
           against that enemy as a free action just before being engaged.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,6 +354,10 @@ items:
         value: >-
           The crit range of attacks by gnoll rangers expands by 2 against
           humanoids.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

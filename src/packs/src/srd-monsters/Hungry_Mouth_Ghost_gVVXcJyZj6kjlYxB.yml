@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: hkxMqY0Zzq8ks6Fb
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: qOhKjsnPHyvxtkcc
     effects: []
     folder: null
@@ -355,6 +361,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -392,8 +403,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: oHHQcy092q30TIxX
     effects: []
     folder: null
@@ -416,11 +425,13 @@ items:
           <p>This creature has resist damage 14+ to all damage except holy
           damage. A ghost can move through solid objects, but can&rsquo;t end
           its turn inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4E9z2aNG64V25FOG
     effects: []
@@ -444,11 +455,13 @@ items:
           <p>After using its distending jaw attack, the hungry mouth ghost has a
           fear ability against engaged enemies with fewer than 30 hit
           points.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4X7HcVtjcdOilyb4
     effects: []
@@ -468,11 +481,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: yDs42ZoNBaFaBEY2
     effects: []
@@ -509,11 +525,13 @@ items:
           ghosts that aren&rsquo;t bound to anything, but at that stage there
           are several other questions that surface and odd magical, iconic, or
           unique intervention seems likely.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TdettkREiXsfMwEY
     effects: []
@@ -544,11 +562,13 @@ items:
           <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
           constrained to act much like they acted when they were alive, and
           flying wasn&rsquo;t part of their life package.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8ZoLes8EgT0hj6Qo
     effects: []
@@ -582,11 +602,13 @@ items:
           ghost stories than part of a creature&rsquo;s combat abilities, and
           you can safely ignore it unless you find telling moments when it adds
           to the game.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MpeQVdYptnMjlqDC
     effects: []

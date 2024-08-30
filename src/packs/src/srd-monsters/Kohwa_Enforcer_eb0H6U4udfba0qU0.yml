@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[12]] damage'
-      embeddedMacro:
-        value: ''
     _id: qscskN2Be9q3HGAr
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: zRVP7Ht74NTYbCjn
     effects: []
     folder: null
@@ -358,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -395,8 +406,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vD9N52EIld6CrLsu
     effects: []
     folder: null
@@ -415,6 +424,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -452,8 +466,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ed9zIdWRlX8kmuTy
     effects: []
     folder: null
@@ -475,11 +487,13 @@ items:
         value: >-
           <p>When staggered, the kohwa enforcer gains a bonus to damage equal to
           triple the escalation die ([[3*@ed]]).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cyDaLLpAeWhrnl1b
     effects: []
@@ -503,11 +517,13 @@ items:
           <p>The first time the enforcer is struck by a critical hit, provided
           it survives the blow, it sprays horrible acidic urine on its enemies
           using its <em>pitter patter</em> attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Bc7CunV4Nhf7Cjy6
     effects: []
@@ -530,11 +546,13 @@ items:
         value: >-
           <p>If the enforcer is unengaged and moves to engage an enemy, it can
           make a <em>leaping strike</em> attack as a standard action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cCD3Snnp4mGicBsw
     effects: []
@@ -559,11 +577,13 @@ items:
           strong fliers and able to travel great distances in this way, they are
           acutely aware of how ungainly they look while doing so, and therefore
           prefer to walk or run unless they are certain no one is watching.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xRrdZ6JZHbEWXxja
     effects: []
@@ -589,11 +609,13 @@ items:
         value: >-
           <p>Unlike many cat species, kohwa are perfectly at home in the water,
           so diving into a lake or river is a poor defense against them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Fvg3CNRkN7tPHUE2
     effects: []
@@ -622,11 +644,13 @@ items:
           communicating with others of their species at greater distances, as
           when one is in trouble, others are sure to
           appear&mdash;eventually.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ISJOpfdigR12Q0fx
     effects: []

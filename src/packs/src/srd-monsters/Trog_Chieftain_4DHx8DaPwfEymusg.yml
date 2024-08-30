@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         value: >-
           Damage equal to five times the penalty the trog’s stench currently
           imposes on the target.
-      embeddedMacro:
-        value: ''
     _id: EGLishlC1q0oMjJE
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,8 +349,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: lcxxVpc9KpSP41Wl
     effects: []
     folder: null
@@ -365,11 +371,13 @@ items:
           <p>When the chieftain drops an enemy to 0 hp or below, each nearby
           troglodyte can roll a saving throw against one effect on it. If that
           enemy is a dwarf or elf, the save gains a +5 bonus.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: stBYKROky6DY1Vmt
     effects: []
@@ -393,11 +401,13 @@ items:
           <p>Underground, or in swamps and rivers, attacks against troglodytes
           by enemies who aren&rsquo;t engaged with them take a &ndash;4
           penalty.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: gNKhl8oZ3vgudnzo
     effects: []
@@ -486,11 +496,13 @@ items:
           </table>
 
           <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: aqmrQxll8BAMQv99
     effects: []
@@ -514,11 +526,13 @@ items:
           <p>While an enemy is affected by the fear aura of the trog
           chieftain&rsquo;s bellow of dominance, that enemy can&rsquo;t attack a
           troglodyte.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FM21rDuAvnwUqIcV
     effects: []

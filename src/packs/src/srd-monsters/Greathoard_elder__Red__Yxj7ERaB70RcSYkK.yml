@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: <p>If the dragon is in his lair, it has +1 to AC.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -215,6 +219,10 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -270,6 +278,10 @@ items:
         type: String
         label: Description
         value: <p>Limited use:&nbsp;2/battle, as a quick action (once per round).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -325,6 +337,10 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -389,6 +405,10 @@ items:
           while it&rsquo;s in its lair, the elder can reroll one of its missed
           attacks each round (cumulative) as its hoard sings a song of carnage
           to it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -412,6 +432,10 @@ items:
         value: >-
           <p>A greathoard elder can use&nbsp;precise breath [[1d4 + 1]] times
           per battle, but never two turns in a row.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -437,6 +461,10 @@ items:
           hoards. For each PC who has at least one positive or conflicted
           relationship point with one or more of those icons, the greathoard
           elder gains an extra use of&nbsp;treasury master&nbsp;this battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

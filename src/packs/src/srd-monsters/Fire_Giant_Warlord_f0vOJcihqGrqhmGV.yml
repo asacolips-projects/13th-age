@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -291,6 +299,10 @@ items:
         value: >-
           The fire giant warlord adds the escalation die to its attacks against
           targets taking ongoing fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -314,6 +326,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,6 +353,10 @@ items:
         value: >-
           As a standard action, the warlord can command one nearby ally that has
           resistance to fire to make a melee attack as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -360,6 +380,10 @@ items:
         value: >-
           Enemies engaged with the fire giant warlord take a -5 penalty to saves
           against ongoing fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

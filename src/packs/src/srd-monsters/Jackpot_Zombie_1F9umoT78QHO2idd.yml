@@ -247,11 +247,13 @@ items:
           +2 bonus to the save against the ongoing psychic damage from the
           </span><span class="fontstyle2">lethal jackpot </span><span
           class="fontstyle0">attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pUpspyq6ghGJQycG
     effects: []
@@ -280,11 +282,13 @@ items:
           jackpot </span><span class="fontstyle0">ability that turn, though if
           the crit eliminates more than one coin zombie, others will still
           trigger their own lethal jackpots.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TKT2bq6N3mqtzu9Q
     effects: []
@@ -307,6 +311,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,8 +353,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 0ulkWJ8cqrTK4HT0
     effects: []
     folder: null
@@ -371,6 +378,10 @@ items:
           <p><span class="fontstyle0">Limited use: </span><span
           class="fontstyle2">1/battle per jackpot zombie mook, when that zombie
           drops to 0 hit points.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -410,8 +421,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KHdm9bjbVB8lUKmb
     effects: []

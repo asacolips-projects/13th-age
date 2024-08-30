@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: k7XyBF5fU68vMciA
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: g0nFfOaLwCQjUR9X
     effects: []
     folder: null
@@ -359,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,8 +409,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 34VVWGFWSJQl8l1n
     effects: []
     folder: null
@@ -427,11 +436,13 @@ items:
           interact with and if a mortal proves too troublesome the eidolon will
           move on. In general eidolons need defeating on three separate
           occasions to convince them to stay away forever.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Ut4qIRCoFHt4qtan
     effects: []
@@ -464,11 +475,13 @@ items:
           which reality their character is now in. At the start of each round,
           the eidolon can choose which version(s) of reality its allies are
           in.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xsWS01vQ324Ic462
     effects: []
@@ -496,11 +509,13 @@ items:
           initiative order as determined by the eidolon. Alternately, the
           eidolon warps the momentum of the battle and the escalation die value
           is determined at the start of the round with a [[/r d6]] roll.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ZN7rkb5teelgs4BX
     effects: []
@@ -528,11 +543,13 @@ items:
           the start of the round. Alternately, if you are using minis and some
           sort of map tiles you can rearrange the tiles with the minis still on
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: LIM03vB1N4YK13v2
     effects: []

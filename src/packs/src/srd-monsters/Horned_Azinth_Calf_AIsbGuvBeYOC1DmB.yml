@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 0TGbklaRPs5NJ3Rj
     effects: []
     folder: null
@@ -306,11 +309,13 @@ items:
           attacker must roll the miss chance before the attack roll. In
           addition, the azinth is nearly invisible while standing still or
           slowly grazing, as it blends in with its surroundings.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QKRIs1jwfbjFS1Jy
     effects: []
@@ -334,11 +339,13 @@ items:
           <p>Each horned azinth adult gains a +1 attack bonus during a battle
           that includes one or more calves, +2 if any calves are attacked, and
           +4 if any calves are killed!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FYVYp5Y57xXtTblg
     effects: []

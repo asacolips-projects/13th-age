@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -302,6 +310,10 @@ items:
           The claw flower has roots and normally can’t move, but when it takes
           [[10]] or more damage from a single attack it can move normally during
           its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -325,6 +337,10 @@ items:
         value: >-
           The claw flower adds the escalation die to its bumble spores attack
           rolls.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -348,6 +364,10 @@ items:
         value: >-
           Once per battle, the claw flower can make a bumble spores attack as a
           quick action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

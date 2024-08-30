@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[2]] damage'
-      embeddedMacro:
-        value: ''
     _id: YvWNVGSaZ0qpI2OO
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: YxMmnDWscsYEf3VU
     effects: []
     folder: null
@@ -361,11 +367,13 @@ items:
           <p>Beautific gargoyles can fly, but not gracefully. Mid-air, they take
           a -2 penalty to all their defenses, and it takes them two move actions
           to get airborne unless they can launch from above.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lXtwFERHlKht6V5t
     effects: []
@@ -388,11 +396,13 @@ items:
         value: >-
           <p>The beautific gargoyle has resist damage 12+ against attacks
           targeting AC.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dKgeCSYaDvZj9Nqf
     effects: []
@@ -417,11 +427,13 @@ items:
           larger capacity to react appropriately! PCs with a negative or
           conflicted relationship with the Religious Icon are vulnerable to all
           the hallowed gargoyles&rsquo; attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tLHf2HblAFUJNrWI
     effects: []
@@ -449,11 +461,13 @@ items:
           check (DC 20 at champion-tier, DC 25 at epic tier) to notice the
           gargoyles waking and avoid being surprised (13th Age core rulebook,
           page 164).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kKLndh5ZO3uD0yxF
     effects: []

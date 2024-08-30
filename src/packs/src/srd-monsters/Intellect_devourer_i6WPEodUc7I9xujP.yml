@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -306,6 +314,10 @@ items:
         type: String
         label: Description
         value: '<p>Limited use: 1/battle</p>'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -367,6 +379,10 @@ items:
         value: >-
           <p>The intellect devourer&rsquo;s crit range with attacks against MD
           expands by 2.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -388,6 +404,10 @@ items:
         type: String
         label: Description
         value: <p>This creature can&rsquo;t make opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -413,6 +433,10 @@ items:
           the first time its host body drops to 0 hit points in a battle and
           gains a bonus equal to that value to all attacks and defenses until
           the end of the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -438,6 +462,10 @@ items:
           the intellect devourer&rsquo;s&nbsp;recall
           trauma&nbsp;attack.</p><p>Natural 5, 10, 15, 20:&nbsp;The target
           can&rsquo;t cast spells until the end of its next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

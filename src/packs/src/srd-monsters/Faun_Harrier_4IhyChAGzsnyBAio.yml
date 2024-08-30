@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: VNJcuD9AZ9LYZAq4
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: trSBr22jN10DWgc2
     effects: []
     folder: null
@@ -358,11 +364,13 @@ items:
         value: >-
           <p>The harrier gains the other destiny benefit, and adds 1 to its
           lower defense.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: sZKZknJsBcU2LE7G
     effects: []
@@ -385,11 +393,13 @@ items:
         value: >-
           <p>Choose either <em>Path of the Sword</em> or <em>Path of
           Song</em>.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8hKbjN7Yifqef4Bd
     effects: []
@@ -415,11 +425,13 @@ items:
         value: >-
           <p><em>Barbed arrowhead</em>&mdash;<em>Pinning shot</em> deals [[/r
           1d6]] extra damage on a natural even hit.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: J37nRMqGwp7m4ezG
     effects: []
@@ -446,11 +458,13 @@ items:
           <em>pinning shot</em>, the target is *hampered* until the end of its
           next turn. The target or an adjacent creature may spend a standard
           action to remove this effect.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: f3vMaIULYHoJslsr
     effects: []

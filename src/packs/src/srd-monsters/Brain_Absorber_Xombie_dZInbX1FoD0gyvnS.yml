@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: tu6zEbWQY8nPmA5r
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: mvX9oGAiwGp19ce9
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -397,8 +408,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: JTBihvjuua5bHCw6
     effects: []
     folder: null
@@ -417,6 +426,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -454,8 +468,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 5HtaE7sXKfGUD0p9
     effects: []
     folder: null
@@ -478,11 +490,13 @@ items:
           <p>For every two brain-absorber xombies in the battle (round up), one
           of them can use <em>brain-ripping tentacles</em>, <em>mass
           confusion</em>, or <em>psychic crush</em> once during the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: blrgjNuKTeodhB5S
     effects: []
@@ -508,11 +522,13 @@ items:
           turn of actions (quick, move, and standard) to remove the
           creature&rsquo;s brain and add it to its collection. When it does,
           that enemy dies and the xombie heals to full hit points.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: huyfYJjhstpq3z3H
     effects: []
@@ -536,11 +552,13 @@ items:
           <p>Once per battle, the brain-absorber xombie can take no actions
           during its turn to allow [[1d4]] nearby lower-level allies to take an
           extra standard action during their next turns.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: RRdnwsFvTb1BN7mO
     effects: []

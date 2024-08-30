@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/round, as a quick action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,6 +303,10 @@ items:
           At the end of the ankheg’s turn, roll a [[d6]]. If it’s equal to or
           less than the escalation die, the ankheg can move again as a free
           action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -11,11 +11,13 @@ system:
     value: >-
       <p>When the escalation die is even, this animal heals damage equal to
       triple its level at the start of its turn.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

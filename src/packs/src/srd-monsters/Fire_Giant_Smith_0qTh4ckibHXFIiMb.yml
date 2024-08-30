@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: r6fxgrUd2hsn9qCa
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] fire damage'
-      embeddedMacro:
-        value: ''
     _id: 1R9cRk64rALStKxI
     effects: []
     folder: null
@@ -362,6 +368,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,8 +412,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: TEgBBmqzBrmlu6Lp
     effects: []
     folder: null
@@ -429,11 +438,13 @@ items:
           take [[1d6]] fire damage, and those with coins or clasps of metal take
           [[1d4]] fire damage&mdash;a maximum of 4d6+1d4 fire damage. Enemies
           with absolutely no metal items or belongings ignore this ability.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: aMy5iCCCLD4jd5D2
     effects: []
@@ -456,11 +467,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YocRk44NjzBdz1tf
     effects: []
@@ -486,11 +499,13 @@ items:
           ([[@ed*5]]) if they have not taken fire damage since the end of their
           last turn. Enemies who resist fire damage ignore this fire
           giant&rsquo;s fire aura.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tnW9sQ8j73R7CyTI
     effects: []
@@ -517,11 +532,13 @@ items:
           <p>Fire attacks that miss the fire giant smith do not damage it and
           have no effect, and the fire giant instead heals hp equal to twice the
           attacker&rsquo;s level.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pcJr5O8NylDyMPgU
     effects: []

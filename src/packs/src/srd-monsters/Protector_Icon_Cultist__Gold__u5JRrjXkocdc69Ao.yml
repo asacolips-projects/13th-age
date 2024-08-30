@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Mud3GghlLGNSn029
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: c2PMgwylBXEvWuBp
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
           every point of relationship with the Protector Icon, expand the
           critical hit range of attacks against the Protector Icon cultist by
           1.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: L2TNRooGJZNVauZz
     effects: []
@@ -389,11 +397,13 @@ items:
         value: >-
           <p>If a nearby Protector Icon priest or Protector Icon demon drake
           takes miss damage, the Protector Icon cultist can take it instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: F3o39ODoRl6ek86P
     effects: []

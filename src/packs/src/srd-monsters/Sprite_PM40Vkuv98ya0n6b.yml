@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9CslzPFfbpG263W4
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: GQJQ7GJHllsUlgWL
     effects: []
     folder: null
@@ -356,11 +362,13 @@ items:
         type: String
         label: Description
         value: <p>The sprite flies, but never too far from the ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GQUfDaTKd0J3HNAM
     effects: []
@@ -383,11 +391,13 @@ items:
         value: >-
           <p>This creature gains different abilities based on which name it has
           taken.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9B3MZtuSqNBzR5pd
     effects: []
@@ -414,11 +424,13 @@ items:
           <p>When the sprite scores a critical hit with its <em>whispered
           song</em> attack, instead of taking damage, the target falls
           *unconscious* (save ends).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hFSzD1Xz6gAc1gjH
     effects: []
@@ -442,11 +454,13 @@ items:
           <p>When the sprite rolls a natural odd hit with its <em>whispered
           song</em> attack, the target loses its next move action as it begins
           dancing uncontrollably.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XNrIUUVHnuVlKi1m
     effects: []

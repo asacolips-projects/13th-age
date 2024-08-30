@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -296,6 +304,10 @@ items:
           At the start of each of the warped beast’s turns, roll a [[d6]]. The
           warped beast gains the corresponding ability until the start of its
           next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -317,6 +329,10 @@ items:
         type: ''
         label: Description
         value: The beast has resist damage 11+ to all damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,6 +357,10 @@ items:
           Once during its turn, the warped beast can teleport anywhere nearby it
           can see as a move action. Each enemy engaged with it when it teleports
           is *confused* until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,6 +385,10 @@ items:
           While engaged with the warped beast, enemies that have 24 hp or fewer
           are *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -388,6 +412,10 @@ items:
         value: >-
           When an enemy ends its turn engaged with the warped beast, it’s
           *confused* until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -414,6 +442,10 @@ items:
           erupt from the creature and make an additional basic attack that turn
           (special abilities/effects don’t trigger on those extra attacks). Each
           of those attacks only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -438,6 +470,10 @@ items:
           When the warped beast hits a creature with a tentacle maw attack, the
           target also takes [[5]] ongoing psychic damage and a -2 penalty to
           saves (save ends both).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -461,6 +497,10 @@ items:
         value: >-
           Roll two madness features instead of one each round (reroll similar
           results).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

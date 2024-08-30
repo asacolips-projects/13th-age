@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         value: >-
           For every two hobgoblins in the battle (round up, ignore mooks), one
           of them can use well-armored as a free action once during the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -265,6 +273,10 @@ items:
         type: ''
         label: Description
         value: Ignore all damage from a hit (but not a crit) against AC.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

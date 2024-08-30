@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: RSAFufjA1i4SIsf9
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,8 +353,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: eNiVZzQfSwbA1Thj
     effects: []
     folder: null
@@ -365,6 +371,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -402,8 +413,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 5rMRibaAMuLg4duw
     effects: []
     folder: null
@@ -425,11 +434,13 @@ items:
         value: >-
           <p>The first time the dungeon heart is staggered, it makes a
           *mind-erasing blast* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: o3a3zDZRqPl1jbVC
     effects: []
@@ -450,11 +461,13 @@ items:
         type: String
         label: Description
         value: <p>The dungeon heart can&rsquo;t make opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: e8ifQzgNtCsrVzec
     effects: []
@@ -479,11 +492,13 @@ items:
           nearby matter, turning wherever it is into more of itself: if you are
           close enough to fight the brain, you are de-facto engaged with it, and
           will be affected by its *mutagenic emanations* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xsjFFOO1EBZsVbKI
     effects: []
@@ -506,11 +521,13 @@ items:
         value: >-
           <p>When an enemy fails to save against the ongoing damage from
           mutagenic emanations, the dungeon heart heals [[20]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 73PNxcqTctzJZj4Y
     effects: []
@@ -535,11 +552,13 @@ items:
           with no resurrection or healing possible&mdash;their soul is gone. (Of
           course, there may be some miraculous quest for healing magic that
           could restore them.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qJ84KiNGfHX2yI3X
     effects: []

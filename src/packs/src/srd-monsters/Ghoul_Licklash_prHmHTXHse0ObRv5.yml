@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -309,6 +317,10 @@ items:
         value: >-
           <p>Any creature that is slain by a ghoul and not consumed will rise as
           a ghoul the next night.&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -333,6 +345,10 @@ items:
           <p>Once per round when a nearby enemy makes a ranged attack, the ghoul
           licklash can make a&nbsp;flesh-seeking tongue&nbsp;attack against that
           enemy before the attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

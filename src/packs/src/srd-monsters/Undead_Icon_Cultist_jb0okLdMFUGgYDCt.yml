@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: U2c4mwyKdJ1DXQQ8
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: A9fFAhApa7cotQzn
     effects: []
     folder: null
@@ -359,11 +365,13 @@ items:
           <p>Each cultist counts as two monsters for the purpose of disengage
           checks (disengaging from one requires a disengage check of 12+, from
           two is 14+, three is 16+, etc.).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Z4zBFK9ulhJqkQmN
     effects: []
@@ -384,11 +392,13 @@ items:
         type: String
         label: Description
         value: <p>This mook has twice as many hit points as other mooks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DZzDiV5syGk8G8jh
     effects: []
@@ -409,11 +419,13 @@ items:
         type: String
         label: Description
         value: <p>This mook has +1 to attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: yQGmjCrrxkACK6Vz
     effects: []
@@ -436,11 +448,13 @@ items:
         value: >-
           <p>When this mook dies, it rises immediately on full hit points but is
           now UNDEAD not HUMANOID.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dE8qJ4sSXp10bfSg
     effects: []

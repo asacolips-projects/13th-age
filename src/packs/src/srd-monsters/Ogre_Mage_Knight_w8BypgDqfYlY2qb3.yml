@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -287,8 +292,6 @@ items:
         value: >-
           Natural odd miss: The ogre mage knight can use cone of cold as a free
           action.
-      embeddedMacro:
-        value: ''
     _id: ofMDR0oMKXiaibcR
     effects: []
     folder: null
@@ -308,6 +311,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -348,8 +356,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 3lJ8CDph1me81jNg
     effects: []
     folder: null
@@ -369,6 +375,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -408,8 +419,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] cold damage'
-      embeddedMacro:
-        value: ''
     _id: LYtCCTqF6NsOnwt9
     effects: []
     folder: null
@@ -429,6 +438,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -466,8 +480,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yM3pJrwcwE3AiLvP
     effects: []
     folder: null
@@ -487,6 +499,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -524,8 +541,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: YfHdk7CPDThTH247
     effects: []
     folder: null
@@ -549,6 +564,10 @@ items:
           <p>When a limited attack (not an at-will attack) targets this
           creature, the attacker must roll a natural 16+ on the attack roll or
           it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -582,6 +601,10 @@ items:
           can&rsquo;t regenerate during its next turn.<br>&emsp;Dropping an ogre
           mage to 0 hp doesn&rsquo;t kill it if it has any uses of regeneration
           left.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -610,6 +633,10 @@ items:
           ki as a free action, once per round, to change the ogre mage
           knight&rsquo;s natural attack result by one; a natural 1 could become
           a 2, a natural 19 could become a natural 20, and so on.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

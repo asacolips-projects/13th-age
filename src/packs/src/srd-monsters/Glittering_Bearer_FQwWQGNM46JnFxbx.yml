@@ -244,11 +244,13 @@ items:
         value: >-
           <p>The glittering bearer normally hovers a foot or two off the ground,
           and can glide over obstacles.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lBB5CzfWxe737tRd
     effects: []
@@ -273,11 +275,13 @@ items:
           damage, which damages it normally. A glittering bearer can move
           through solid objects but it can&rsquo;t end its movement inside
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BguYafX3IhMnwHdY
     effects: []
@@ -298,11 +302,13 @@ items:
         type: String
         label: Description
         value: <p>This creature can&rsquo;t make opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SS2aYD3fL6ZKyLiB
     effects: []
@@ -322,6 +328,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -361,8 +372,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Zfa0Tci92ImvY0Y8
     effects: []
     folder: null
@@ -381,6 +390,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -418,8 +432,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: mqvrLWLSVHdPBEac
     effects: []
     folder: null
@@ -438,6 +450,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -480,8 +497,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: bTmGon0mM03jSZyY
     effects: []

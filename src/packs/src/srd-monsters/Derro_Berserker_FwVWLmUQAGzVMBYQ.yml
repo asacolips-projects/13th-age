@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yKdoqYGACARKmuzS
     effects: []
     folder: null
@@ -304,11 +307,13 @@ items:
         value: >-
           <p><span class="fontstyle0">While the derro berserker is staggered, it
           deals 4 extra damage when it hits with an attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: R9YTOtSl2BSKDMq7
     effects: []
@@ -331,11 +336,13 @@ items:
         value: >-
           <p><span class="fontstyle0">The derro berserker ignores the first 6
           points of damage it takes each turn.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: IAtR7nwDPTL3T1JW
     effects: []
@@ -359,11 +366,13 @@ items:
           <p><span class="fontstyle0">When a derro berserker drops to 0 hp, it
           doesn&rsquo;t die. Instead, it can take one final turn, and then it
           dies. Once the berserker drops, it can&rsquo;t be healed.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WMWISVaITulHM9K2
     effects: []
@@ -388,11 +397,13 @@ items:
           with an attack against MD and gets a natural odd roll, that enemy is
           dazed until the end of its next turn. This effect occurs whether the
           attack hits or misses.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Ji26EI2qnkVXW2NY
     effects: []

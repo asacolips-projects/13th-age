@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -251,6 +255,10 @@ items:
         value: >-
           <p>Self-diminishing: The ghoul pusbuster takes [[2d6]] damage for each
           creature it targets with this attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

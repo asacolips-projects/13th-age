@@ -263,11 +263,13 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: mwerhcLmaKCzPx6r
     effects: []
@@ -287,11 +289,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oOtiidLYq6FTEI6W
     effects: []
@@ -311,11 +316,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: L7yKyY7hgut2ffmP
     effects: []
@@ -335,6 +343,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -372,8 +385,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Ekv9Hll2kNtbWTXl
     effects: []
     folder: null
@@ -395,11 +406,13 @@ items:
         value: >-
           <p>When a ranged attack targets this creature, the attacker must roll
           2d20 and take the lowest result.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BJgSAItIlxRVq1kE
     effects: []
@@ -422,11 +435,13 @@ items:
         value: >-
           <p>When this creature rolls a natural even hit with an attack, it can
           pop free from the target of that attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: NTW89gXBDcqgijDW
     effects: []
@@ -450,11 +465,13 @@ items:
           <p>Each enemy engaged with this creature at the start of its turn
           takes lightning damage equal to this creature&rsquo;s level &times;
           3.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 98qBzazCC9SYOItI
     effects: []
@@ -477,11 +494,13 @@ items:
         value: >-
           <p>Any attack against this creature&rsquo;s nearby ally that deals
           lightning damage instead targets this creature.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6rx0QHVsfCDItU5t
     effects: []
@@ -501,11 +520,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: on0tD6JEDRgJR78z
     effects: []
@@ -525,11 +547,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qzyEoFZ8qlbsgFGN
     effects: []

@@ -13,11 +13,13 @@ system:
       player character&rsquo;s one unique thing except that the dragon&rsquo;s
       version may be relevant to combat. GM, if you don&rsquo;t feel like making
       something up, choose an ability from the list above.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

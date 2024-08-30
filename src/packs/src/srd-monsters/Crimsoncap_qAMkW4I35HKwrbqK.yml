@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -288,6 +296,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -342,6 +354,10 @@ items:
           the table says the bad word, the crimsoncap can teleport to a nearby
           hidden location it can see or can’t see (like inside a closet) as a
           free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,6 +381,10 @@ items:
         value: >-
           When the crimsoncap starts its turn and no enemy can see it, it can
           make a pop-out and slash ’em attack that turn as a standard action
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -389,6 +409,10 @@ items:
           The crimsoncap has two bad words instead of one. And the PCs find that
           out the hard way. Write the words down ahead of time to prove you’re
           not just being a mean GM.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -245,11 +245,13 @@ items:
           <p>Engaged enemies wearing magical heavy armor who roll an odd attack
           roll are *vulnerable* until the start of their next turn, as they
           exaggeratedly act out their armor&rsquo;s quirk.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BMTAOJ10BTKYElWY
     effects: []
@@ -273,11 +275,13 @@ items:
           <p>Bronze kingsguards are immune to effects. They can&rsquo;t be
           dazed, weakened, confused, made vulnerable, or touched by ongoing
           damage. You can damage one, but that&rsquo;s about it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YVon3G2jNw1DumG9
     effects: []
@@ -297,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -334,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: rN5SLJ3OamQpHN07
     effects: []
     folder: null
@@ -354,6 +361,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -391,8 +403,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: FCtl1Tr0SzcieN9Z
     effects: []
     folder: null
@@ -411,6 +421,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -452,8 +467,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xUHvOx4bVQcMLHDu
     effects: []

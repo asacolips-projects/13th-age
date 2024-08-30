@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[35]] damage'
-      embeddedMacro:
-        value: ''
     _id: ys0TnIqfkV6Dt9XO
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: uwUec62SJflH3mje
     effects: []
     folder: null
@@ -355,6 +361,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -394,8 +405,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: kT9uwqkhrWH4ziEa
     effects: []
     folder: null
@@ -427,11 +436,13 @@ items:
           take their turn after the jackal high priest&rsquo;s turn. Stop
           rolling the d6 after the ability has triggered to summon the second
           mob of ghoul mooks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2sEz0XTJPdPASKoR
     effects: []
@@ -455,11 +466,13 @@ items:
           <p>While engaged with this creature, if the target has 72 hp or fewer,
           it&rsquo;s *dazed* (&ndash;4 attack) and does not add the escalation
           die to its attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6dRcYVdBSMjILRlX
     effects: []
@@ -484,11 +497,13 @@ items:
           isn&rsquo;t allied with it must roll a hard save (16+). On a failure,
           it takes [[12]] psychic damage. In addition, the high priest can use
           <em>summon ghouls</em> as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DTzms6NA4XtBtnkT
     effects: []

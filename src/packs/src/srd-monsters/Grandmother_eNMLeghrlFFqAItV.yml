@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: FTIl4bRrfo7zdI7D
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: cKmWVN1WXipoYyp9
     effects: []
     folder: null
@@ -360,11 +366,13 @@ items:
         value: >-
           <p>This creature gains different abilities based on which name it has
           taken.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zq2ogf2SWCnsYcHP
     effects: []
@@ -392,11 +400,13 @@ items:
           scores a critical hit with the attack, the target is *weakened* (save
           ends) and [[1d4]] of the grandmother&rsquo;s nearby allies heal [[30]]
           hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oT7P1ffcyw0dsWhu
     effects: []
@@ -420,11 +430,13 @@ items:
           <p><em>Ancient spell</em> now targets MD and deals psychic damage. In
           addition, a target hit by ancient spell can&rsquo;t use the escalation
           die until the end of its next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3dZHSkhUXzmaGHjC
     effects: []
@@ -449,11 +461,13 @@ items:
           grandmother rolls a natural even hit with ancient spell against an
           enemy engaged with her, she can make a <em>pestle</em> melee attack as
           a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WOohctpbGmrzTRHt
     effects: []
@@ -476,11 +490,13 @@ items:
         value: >-
           <p>The grandmother flies somehow, either through a magic item or by
           using spells that have become second nature.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rGMgVaFuyoVZqmzW
     effects: []
@@ -504,11 +520,13 @@ items:
           <p>When a creature attacks grandmother, it takes [[1d6*10]] damage of
           the grandmother&rsquo;s special type on a hit, or [[1d3*5]] damage of
           that type on a miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: p9gw1xF7aQDoo4qB
     effects: []

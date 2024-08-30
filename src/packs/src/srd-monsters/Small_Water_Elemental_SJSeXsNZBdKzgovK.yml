@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,6 +251,10 @@ items:
           body of water. A bucket or a bathtub of liquid doesn’t count; it must
           be at least a pond, creek, or maybe a large fountain. If the water
           elemental moves far away from the body of water the empowerment ends.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,6 +278,10 @@ items:
         value: >-
           When a weapon attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

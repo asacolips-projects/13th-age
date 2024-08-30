@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -283,8 +288,6 @@ items:
           Ongoing damage equal to twice the penalty the trog’s stench currently
           imposes on the target. This damage continues until the target saves
           against the stench effect.
-      embeddedMacro:
-        value: ''
     _id: Yi61cDK7N5RfusCY
     effects: []
     folder: null
@@ -307,11 +310,13 @@ items:
           <p>Underground, or in swamps and rivers, attacks against troglodytes
           by enemies who aren&rsquo;t engaged with them take a &ndash;4
           penalty.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: udB2H24Fmkzm5T4a
     effects: []
@@ -335,11 +340,13 @@ items:
           <p>Until the trog fouler drops to 0 hp, while a creature is nearby the
           fouler, it is subject to trog stench and doesn&rsquo;t roll saves
           against the stench at the end of its turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0lZS2NltR0uF5XY3
     effects: []
@@ -365,11 +372,13 @@ items:
           icon relationship advantage&mdash;to end the stench after the fouler
           has fallen, or move the fight so that it&rsquo;s no longer nearby the
           fouler&rsquo;s corpse.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pirLsVftwbwHmiPy
     effects: []
@@ -457,11 +466,13 @@ items:
           </table>
 
           <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VVcYa052I4aUGwkE
     effects: []

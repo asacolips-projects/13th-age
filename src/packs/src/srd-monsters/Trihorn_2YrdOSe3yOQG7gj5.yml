@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: RxHXrnY24r11N3Nk
     effects: []
     folder: null
@@ -302,11 +305,13 @@ items:
           <p>The *three-pronged attack* instead deals +[[10]] damage on a hit if
           the trihorn first moves before attacking an enemy it was not engaged
           with at the start of its turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GEHveMeQl39x03Jm
     effects: []
@@ -332,11 +337,13 @@ items:
           of its next turn. On a natural odd hit, the target is thrown backward
           and *dazed* (save ends). The trihorn ends the round unengaged and
           ready to make a new furious charge attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: OdGrr9kttLRSrBtl
     effects: []

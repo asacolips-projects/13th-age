@@ -392,6 +392,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -448,6 +453,10 @@ items:
         value: >-
           <p>A critical hit against a putrid zombie deals triple damage instead
           of the normal double damage for a crit.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

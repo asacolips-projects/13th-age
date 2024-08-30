@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: '[[15]] damage'
-      embeddedMacro:
-        value: ''
     _id: PSUQjEWGIF4I5DQR
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,8 +352,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: a7KVeGIRqy17UW1N
     effects: []
     folder: null
@@ -365,11 +371,13 @@ items:
         type: String
         label: Description
         value: <p>Until the bonded is hit, it has a +4 bonus to all defenses.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XrOk3n0SGw79EXsx
     effects: []

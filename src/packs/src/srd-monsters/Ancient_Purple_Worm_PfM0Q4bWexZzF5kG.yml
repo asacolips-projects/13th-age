@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +254,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -306,6 +316,10 @@ items:
           <p>Limited use: The worm can make this attack as a free action if it
           has no enemies swallowed after using its standar action during its
           turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,6 +391,10 @@ items:
           hard save (16+); on a success, the worm vomits you out and spits you
           somewhere nearby. The worm also vomits out all creatures it has
           swallowed when it drops to 0 hp.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,6 +416,10 @@ items:
         type: String
         label: Description
         value: <p>As the standard monster ability</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -423,6 +445,10 @@ items:
           larvae or parasitic lightning beetles). Feel free to add this nastier
           special if a PC acts dismissive about the possibility of being
           swallowed by the worm.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -452,6 +478,10 @@ items:
           figure out what energy types work against the
           worm.</p><p>1:&nbsp;acid;&nbsp;2:&nbsp;cold;&nbsp;3:&nbsp;fire;&nbsp;4:&nbsp;lightning;&nbsp;5:&nbsp;thunder;&nbsp;6:&nbsp;holy;&nbsp;7:&nbsp;negative
           energy;&nbsp;8:&nbsp;poison.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

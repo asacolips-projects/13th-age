@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -283,8 +288,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: D14BZzYxtkO31wE7
     effects: []
     folder: null
@@ -303,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Ld8JLmCNOx7fYzoE
     effects: []
     folder: null
@@ -362,6 +368,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -404,8 +415,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Otfx22wGO41ZithE
     effects: []
     folder: null
@@ -429,11 +438,13 @@ items:
           bonded, it has no effect. Later in the battle as a quick action the
           bonded can cast the spell that hit it, using the original
           caster&rsquo;s attack and damage bonuses.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WyyYwAkCAEckKic1
     effects: []
@@ -456,11 +467,13 @@ items:
         value: >-
           <p>When one of the bonded&rsquo;s attacks misses all targets, the
           bonded teleports as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MH87aufLOt8vrnom
     effects: []
@@ -486,11 +499,13 @@ items:
           having a higher crit range. In particular, this higher-strength
           version of the attack shuts down that really irritating effect
           that&rsquo;s always being used by that one character.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: b2kVkFfdJ9NDFKGm
     effects: []

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -292,6 +300,10 @@ items:
           Non-organic golems are immune to effects. They can’t be *dazed*,
           *weakened*, *confused*, made *vulnerable*, or touched by ongoing
           damage. You can damage a golem, but that’s about it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
           different random nearby creature, enemy or ally. It can move after
           each such attack as a free action, if necessary, taking only half
           damage from opportunity attacks during the rampage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,6 +359,10 @@ items:
         value: >-
           The first time the iron golem is staggered, poison gas leaks from it
           into the area. It can make a poison gas cloud attack as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
