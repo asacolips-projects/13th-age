@@ -1,10 +1,7 @@
 .window-content {
   padding: 0;
-
-  .archmage-v2-vue {
-    background: url('#{$assets}/paper-v2.webp');
-    background-size: cover;
-  }
+  background: url('#{$assets}/paper-v2.webp');
+  background-size: cover;
 
   > form,
   .archmage-v2-vue,
@@ -59,7 +56,12 @@
   }
 }
 
-.section--sidebar {
+.container--bottom {
+  flex-wrap: nowrap;
+}
+
+// .section--sidebar {
+.tab.abilities {
   flex: 0 0 300px;
 
   .section + .section {
@@ -73,8 +75,16 @@
   }
 }
 
+// .section--main {
+.tab.combat {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.section--sidebar,
 .section--main {
   flex: 1;
+  margin: 0;
 }
 
 img[data-edit="img"] {

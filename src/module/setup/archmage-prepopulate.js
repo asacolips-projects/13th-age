@@ -355,6 +355,7 @@ export class ArchmagePrepopulate {
     let options = {
       width: 1080,
       height: 1080,
+      resizable: true,
       classes: ['archmage-prepopulate']
     };
     let powers = Object.values(classCompendiums).reduce((accumulator, current) => {

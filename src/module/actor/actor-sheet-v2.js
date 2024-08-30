@@ -22,6 +22,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     const compactMode = game.settings.get('archmage', 'compactMode');
+    const nightMode = game.settings.get("archmage", "nightmode");
     foundry.utils.mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
       width: compactMode ? 826 : 960,
@@ -33,6 +34,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     if (compactMode) {
       options.classes.push('compact-mode');
+    }
+
+    if (nightMode) {
+      options.classes.push('nightmode');
     }
 
     return options;
@@ -214,6 +219,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
     ActorHelpersV2._activatePortraitArtContextMenu(this, html)
+
+    // Close the mobile menu if open.
+    html.on('click', (event) => {
+      const button = event?.target?.closest('.sheet-tabs-toggle') ?? event.target;
+      // Exit early if is the mobile menu button itself, that's handled in the component.
+      if (button?.classList?.contains('sheet-tabs-toggle')) return;
+      // Otherwise close the menu.
+      const parent = event?.target?.classList?.contains('archmage-v2-vue')
+        ? event.target
+        : event?.target?.closest('.archmage-v2-vue');
+      const mobileMenu = parent.querySelector('.tabs--mobile.active');
+      if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+      }
+    })
 
     if (!this.options.editable) return;
 

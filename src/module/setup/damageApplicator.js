@@ -16,7 +16,7 @@ export class DamageApplicator {
   getTargets(targetType) {
     const targets = targetType === 'targeted'
       ? [...game.user.targets]
-      : canvas.tokens.controlled;
+      : (canvas?.tokens?.controlled ?? []);
 
     if (!targets || targets?.length < 1) {
       ui.notifications.warn(game.i18n.localize(`ARCHMAGE.UI.${targetType === 'targeted' ? 'noTarget' : 'noToken'}`));

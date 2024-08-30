@@ -116,7 +116,7 @@ export default class preCreateChatMessageHandler {
             game.i18n.localize("ARCHMAGE.CHAT.breathWeapon") + ':'
         ];
 
-        let tokens = canvas.tokens.controlled;
+        let tokens = canvas?.tokens?.controlled;
         let actor = tokens ? tokens[0] : null;
         let token = tokens ? tokens[0] : null;
 
