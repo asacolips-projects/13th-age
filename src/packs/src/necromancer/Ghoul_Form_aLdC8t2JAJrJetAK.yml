@@ -156,7 +156,7 @@ system:
     label: 4th Level Spell
     value: ''
   spellLevel5:
-    hide: true
+    hide: false
     type: String
     label: 5th Level Spell
     value: >-
@@ -168,7 +168,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: Enemies engaged with the target are now *vulnerable* to all attacks.
@@ -178,7 +178,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
@@ -205,7 +205,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table

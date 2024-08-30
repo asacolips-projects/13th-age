@@ -164,7 +164,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: >-
@@ -176,12 +176,12 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
       If the chosen creature is not the next creature in the battle to drop to 0
-      hp, you still gain 30 temporary hit points
+      hp, you still gain [[30]] temporary hit points
   spellLevel10:
     hide: true
     type: String
@@ -203,7 +203,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table

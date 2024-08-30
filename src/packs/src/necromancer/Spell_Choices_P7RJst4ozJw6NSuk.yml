@@ -35,7 +35,7 @@ system:
   group:
     type: String
     label: Group
-    value: null
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -59,7 +59,7 @@ system:
   actionType:
     type: String
     label: Action
-    value: other
+    value: ''
   range:
     type: String
     label: Range
@@ -199,14 +199,14 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
     value: ''
   feats: null
 flags: {}
-img: icons/svg/mystery-man.svg
+img: icons/sundries/books/book-face-black.webp
 effects: []
 _id: P7RJst4ozJw6NSuk
 ownership:

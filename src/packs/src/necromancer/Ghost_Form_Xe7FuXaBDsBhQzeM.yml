@@ -176,7 +176,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
@@ -203,7 +203,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
