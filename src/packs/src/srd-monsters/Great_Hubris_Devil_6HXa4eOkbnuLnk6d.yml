@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC (3 attacks)'
+        value: '[[d20 + 13]] vs. AC (3 attacks)'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vy0FXYaqDW4A6b3g
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. PD'
+        value: '[[d20 + 14]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: The target is *hampered* until the end of its next turn.
-      embeddedMacro:
-        value: ''
     _id: GQZyp7S2cGYsxm7A
     effects: []
     folder: null
@@ -355,6 +361,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -362,7 +373,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. MD ([[1d4]] nearby enemies)'
+        value: '[[d20 + 14]] vs. MD ([[1d4]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -394,8 +405,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1rMox8CIXyWLWMTd
     effects: []
     folder: null
@@ -419,11 +428,13 @@ items:
           great hubris devil, the devil can choose one of your magic items whose
           powers won&rsquo;t work for the rest of the battle (default bonuses
           still apply).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: W1MhMIpfRaCifoUl
     effects: []
@@ -446,11 +457,13 @@ items:
         value: >-
           <p>When a holy attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WDutnoCRyf7wQoi6
     effects: []
@@ -476,11 +489,13 @@ items:
           forcing the characters to be more careful with their attacks. Any
           natural 1&ndash;5 attack roll against the devil is an automatic miss
           with no miss damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tbcXKmgwjE5ysqc8
     effects: []
@@ -507,11 +522,13 @@ items:
           <p>When the hubris devil attacks, it gains a surprise round unless the
           PCs were extremely perceptive (by making a ridiculously hard skill
           check for tier).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1ZOqabLQPGhKbWjO
     effects: []
@@ -599,11 +616,13 @@ items:
           leading to an entirely new set of quests and complications.</li>
 
           </ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ucP5mB1x3Dfyk3Kd
     effects: []

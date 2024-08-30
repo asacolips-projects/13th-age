@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -293,6 +301,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -343,6 +355,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -392,6 +408,10 @@ items:
         value: >-
           The manticore can use musical voice only [[1d4]] times during the
           battle, and never two turns in a row.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -415,6 +435,10 @@ items:
         value: >-
           Each time the manticore uses its volley of tail spikes attack, it
           takes [[1d6]] damage, or [[2d6]] damage if it’s staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -435,6 +459,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -460,6 +488,10 @@ items:
           Fortissimo—Each of the manticore’s allies gains a +[[2d6]] damage
           bonus with attacks that hit until the end of the battle
           (non-cumulative).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -483,6 +515,10 @@ items:
         value: >-
           Profundo—The manticore’s musical voice attack now deals [[40]] psychic
           damage instead of 20 until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -504,6 +540,10 @@ items:
         type: ''
         label: Description
         value: Furioso—The target is *confused* instead of *dazed*.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -528,6 +568,10 @@ items:
           Largo—The manticore can make a musical voice attack during its next
           turn as a free action, but with a +3 attack bonus. This free attack
           won’t trigger another battle music effect.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

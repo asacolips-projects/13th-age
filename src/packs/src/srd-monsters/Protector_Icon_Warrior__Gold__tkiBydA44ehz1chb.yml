@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: WlPiT5jzSSltgbEz
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC (1 nearby enemy)'
+        value: '[[d20 + 7]] vs. AC (1 nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 0OHWhcmRqpL5QEBj
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,7 +375,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+6]] vs. AC (1 faraway enemy)'
+        value: '[[d20 + 6]] vs. AC (1 faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -394,8 +405,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 3Oa8zScRa10qAkoW
     effects: []
     folder: null
@@ -421,11 +430,13 @@ items:
           every point of relationship with the Protector Icon, expand the
           critical hit range of attacks against the Protector Icon warrior by
           1.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: RYkctZ80nXajdXHz
     effects: []

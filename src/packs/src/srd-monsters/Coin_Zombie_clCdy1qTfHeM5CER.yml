@@ -247,11 +247,13 @@ items:
           jackpot </span><span class="fontstyle0">ability that turn, though if
           the crit eliminates more than one coin zombie, others will still
           trigger their own lethal jackpots.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: t7tAeLswpYFZpKwy
     effects: []
@@ -277,11 +279,13 @@ items:
           +2 bonus to the save against the ongoing psychic damage from the
           </span><span class="fontstyle2">lethal jackpot </span><span
           class="fontstyle0">attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: naff54OH7LXKr4jI
     effects: []
@@ -301,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -308,7 +317,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC '
+        value: '[[d20 + 7]] vs. AC '
       hit:
         type: String
         label: Hit
@@ -338,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: nSfO66W72sMoLwQr
     effects: []
     folder: null
@@ -365,6 +372,10 @@ items:
           <p><span class="fontstyle0">Limited use: </span><span
           class="fontstyle2">1/battle per coin zombie mook, when that zombie
           drops to 0 hit points.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -372,7 +383,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. MD ([[1d3]] nearby enemies/bystanders)'
+        value: '[[d20 + 7]] vs. MD ([[1d3]] nearby enemies/bystanders)'
       hit:
         type: String
         label: Hit
@@ -404,8 +415,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iixKsOSUEjD6WVUd
     effects: []

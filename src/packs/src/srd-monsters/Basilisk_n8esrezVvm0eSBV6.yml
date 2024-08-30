@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -296,6 +304,10 @@ items:
           When a basilisk hits an enemy that is already taking ongoing poison
           damage, the basilisk can make a basilisk’s stare attack against the
           target as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -317,6 +329,10 @@ items:
         type: ''
         label: Description
         value: The target takes [[25]] poison damage as its blood turns to poison.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,6 +354,10 @@ items:
         type: ''
         label: Description
         value: The target’s body liquefies and they die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -362,6 +382,10 @@ items:
           The target takes [[15]] fire damage, and each of the target’s nearby
           allies takes [[5]] fire damage as the target’s blood boils under their
           skin and sprays outward in gouts of liquid fire.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -385,6 +409,10 @@ items:
         value: >-
           The target’s body ignites as their flaming skull shoots upward on a
           jet of burning blood, killing them.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -408,6 +436,10 @@ items:
         value: >-
           The target’s blood begins to coagulate and harden, and dust puffs out
           of their lungs through their mouth.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -429,6 +461,10 @@ items:
         type: ''
         label: Description
         value: The target’s body turns to stone and they die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -454,6 +490,10 @@ items:
           normal save (11+) or it loses a chunk of flesh or a limb, whatever is
           dramatic but will allow the creature to survive (perhaps with minuses
           until healed).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -475,6 +515,10 @@ items:
         type: ''
         label: Description
         value: The target’s body explodes into a fine red mist and they die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -503,6 +547,10 @@ items:
           can make a basilisk’s stare attack against them as a free action
           before the attack. Constructs and undead are not affected by this
           resistance.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -527,6 +575,10 @@ items:
           When an enemy makes a ranged attack against the basilisk, the basilisk
           can make a basilisk’s stare attack against them as a free action
           before the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -550,6 +602,10 @@ items:
         value: >-
           Each creature engaged with the basilisk at the end of the basilisk’s
           turn takes [[10]] poison damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +300,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -348,6 +360,10 @@ items:
           simultaneously. Any engulfed creature that is also staggered must
           begin making last gasp saves or become paralyzed as the cube’s toxins
           overwhelm it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -374,6 +390,10 @@ items:
           roll a [[d6]] to see what the cubahedron does. If an option is not
           viable (you roll a 5 but there is no engulfed enemy), reroll until you
           get a valid option.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,6 +418,10 @@ items:
           1. The cubahedron jiggles in place. Each nearby enemy takes [[5]] acid
           damage. Each creature engulfed by the cube takes a -4 penalty to its
           saves until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -422,6 +446,10 @@ items:
           2. The cubahedron moves as a quick action. If the cube ends its move
           engaged with enemies, each of those enemies must roll a save; on a
           failure, the cubahedron grabs them (but they’re not engulfed).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -446,6 +474,10 @@ items:
           3. The cubahedron spits an engulfed creature into the air above it and
           makes a shlup’n’schlorp attack against that creature with a +5 attack
           bonus. Then the creature is engulfed again.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -471,6 +503,10 @@ items:
           possibly across the ceiling. The cube falls at the end of its turn.
           Each creature engulfed by the cube takes [[30]] damage, and it makes a
           gel drop attack against enemies below it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -497,6 +533,10 @@ items:
           time the cube is targeted by an attack, the engulfed creature must
           roll a save; on a failure, it becomes the target of the attack
           instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -520,6 +560,10 @@ items:
         value: >-
           6. The cubahedron spits out each enemy engulfed by it with great force
           in different directions; each of those creatures takes [[50]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

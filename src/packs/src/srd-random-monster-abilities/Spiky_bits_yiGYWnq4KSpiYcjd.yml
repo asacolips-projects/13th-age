@@ -11,11 +11,13 @@ system:
     value: >-
       <p>Whenever an enemy hits the dire animal with a melee attack, deal damage
       equal to twice the animal&rsquo;s level to that attacker.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

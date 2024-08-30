@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: YSBmQaB6HYPIghY5
     effects: []
     folder: null
@@ -302,11 +305,13 @@ items:
           <p>When an attack against MD targets this creature, the attacker must
           roll a natural 16+ on the attack roll or it only deals half
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zHVyLDpGRPlA0qdM
     effects: []
@@ -330,11 +335,13 @@ items:
           <p>When the fomorian is moving, it only takes half damage from
           attacks&mdash;it isn&rsquo;t really tougher, it just doesn&rsquo;t
           notice some wounds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: C7tudPJEObWASJoX
     effects: []
@@ -354,6 +361,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -362,7 +374,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+11]] vs. PD (one nearby or faraway enemy, but not one that has
+          [[d20 + 11]] vs. PD (one nearby or faraway enemy, but not one that has
           been targeted by this attack since the start of the last round)
       hit:
         type: String
@@ -399,8 +411,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2luiEpf3OyidXARy
     effects: []
@@ -475,11 +485,13 @@ items:
           </tbody>
 
           </table>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xakbUxRP99B9TbRi
     effects: []
@@ -505,11 +517,13 @@ items:
         value: >-
           <p>When the escalation die is odd, the fomorian can make one extra
           melee attack per round as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BBTCNbhyaMdRfqld
     effects: []
@@ -537,11 +551,13 @@ items:
           huge eye on a shoulder, a slug-like eye stalk, etc. The fomorian
           can&rsquo;t be surprised or ambushed, and it has true sight (spells
           like blur, invisibility, etc. don&rsquo;t work on it).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 83dusH80i0QxbQzk
     effects: []
@@ -567,11 +583,13 @@ items:
         value: >-
           <p>Once per turn as a free action, the fomorian can make the <em>evil
           eye</em> attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0RC3wbWwp7QUZBfr
     effects: []
@@ -595,11 +613,13 @@ items:
         type: String
         label: Description
         value: <p>+1 AC and +2 PD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kseCYL60EkzYIfqD
     effects: []

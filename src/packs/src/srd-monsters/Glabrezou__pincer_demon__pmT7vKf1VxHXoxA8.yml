@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +300,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -344,6 +356,10 @@ items:
         value: >-
           The glabrezou gains a +4 attack bonus against any enemy it is
           grabbing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,6 +384,10 @@ items:
           success indicates a hit; failure is a miss that hits one of the mirror
           images instead, dealing no miss damage to the glabrezou but dispelling
           all the images.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -394,6 +414,10 @@ items:
           Once the glabrezou is staggered, it takes [[2d10]] damage whenever it
           uses mirror image, so movement or escape start registering as
           alternatives.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -421,6 +445,10 @@ items:
           healing an ally, or whatever. The GM can see the results of the
           action, such as a die roll, before deciding whether to use the power
           word.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

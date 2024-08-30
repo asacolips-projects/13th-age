@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
           damage, it gains a random condition until it saves against that
           damage. Have the player roll a d4 to determine the condition: 1.
           *confused*; 2. *weakened*; 3. *dazed*; 4. *vulnerable*.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -269,6 +277,10 @@ items:
         type: ''
         label: Description
         value: Hellwasps are adroit fliers that can hover and even fly backward.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +304,10 @@ items:
         value: >-
           The save versus the stinger’s ongoing acid damage is a normal save
           (11+) instead of an easy save.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

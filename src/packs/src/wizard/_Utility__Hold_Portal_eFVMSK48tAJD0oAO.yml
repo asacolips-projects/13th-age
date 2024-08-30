@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -137,10 +142,12 @@ system:
       an applicable background) by the caster to resist the battering and keep
       the spell going. Epic-tier creatures can walk right through.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
@@ -149,10 +156,12 @@ system:
       failed DC 20 skill checks by the spellcaster. Epic creatures notice that
       the now-busted door had magic on it
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
@@ -160,10 +169,12 @@ system:
       creatures can force it open after one failed DC 25 skill check by the
       spellcaster.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
@@ -171,20 +182,24 @@ system:
       tier creatures get through after three failed DC 25 skill checks by the
       spellcaster.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
       Champion-tier creatures can&#039;t enter. Epic-tier creatures can&#039;t
       get through for an hour.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -205,10 +220,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/green_31.jpg
 effects: []

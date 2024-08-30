@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,6 +251,10 @@ items:
         type: ''
         label: Description
         value: '*confused*, *dazed*, *hampered*, *stunned*, or *weakened*.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -272,6 +280,10 @@ items:
           turn, it can expend one of those attacks to move to engage a nearby
           enemy as a free action (but it will take opportunity attacks for doing
           so).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,6 +310,10 @@ items:
           undamaged at its new hit point total. Using the hydra’s current hit
           points as a new baseline, the hydra will be staggered again when it
           drops below 50% of that total.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -323,6 +339,10 @@ items:
           hit points and a seventh gnashing teeth attack, etc. Use a new hit
           point baseline as before, but there is no eighth head waiting to
           sprout.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +364,10 @@ items:
         type: ''
         label: Description
         value: You know the drill.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: FHH7UFC81ZNbFjHO
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ONEm1HKMzU590qNA
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,7 +375,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs AC'
+        value: '[[d20 + 11]] vs AC'
       hit:
         type: String
         label: Hit
@@ -398,8 +409,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: KEjdMw1kOd5BqPyC
     effects: []
     folder: null
@@ -418,6 +427,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -425,7 +439,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -455,8 +469,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ZOfpkNlEpkFcinsC
     effects: []
     folder: null
@@ -475,6 +487,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -482,7 +499,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD'
+        value: '[[d20 + 11]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -514,8 +531,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: KgqSzRYkG1HdaC3g
     effects: []
     folder: null
@@ -534,6 +549,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -541,7 +561,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -573,8 +593,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1Y8HzRGTa5JbWHwH
     effects: []
     folder: null
@@ -593,6 +611,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -600,7 +623,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (one nearby enemy not engaged with it)'
+        value: '[[d20 + 11]] vs. AC (one nearby enemy not engaged with it)'
       hit:
         type: String
         label: Hit
@@ -631,8 +654,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: h74OxExuT0qBDSOG
     effects: []
@@ -722,11 +743,13 @@ items:
           </tbody>
 
           </table>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oV0f8XbVmyt4vVO5
     effects: []
@@ -752,11 +775,13 @@ items:
           it&rsquo;s your call. In exchange, feel free to allow the hellwarped
           to deal fire, cold, acid, lightning, or thunder damage with its
           aberrant attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UzT4u2wuM2x8jIJg
     effects: []
@@ -853,11 +878,13 @@ items:
           </li>
 
           </ol>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: jrfzmttzSRRizG9e
     effects: []
@@ -882,11 +909,13 @@ items:
           action, the ability to teleport as a move action, or some other
           movement related ability of your choice. Decrease all its defenses by
           1 due to the weak points this anatomy creates.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0KSb9Qw38BldTs7K
     effects: []
@@ -907,11 +936,13 @@ items:
         type: String
         label: Description
         value: <p>For its mutated form ability, choose one instead of rolling.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tDCpNUQq5MKOFaN6
     effects: []
@@ -931,6 +962,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -938,7 +974,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD'
+        value: '[[d20 + 11]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -970,8 +1006,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7kwCVfBktj8PvFkE
     effects: []

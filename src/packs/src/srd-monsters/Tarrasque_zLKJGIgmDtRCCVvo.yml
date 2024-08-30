@@ -199,6 +199,10 @@ items:
           round as a standard action. Note that flying is usually no defense
           against the tarrasque, which is huge and powerful enough to pluck or
           whack enemies out of the sky with surprising leaps.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -219,6 +223,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -226,7 +235,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+19]] vs. AC'
+        value: '[[d20 + 19]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -274,6 +283,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,7 +295,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. AC'
+        value: '[[d20 + 18]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -329,6 +343,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -336,7 +355,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+20]] vs. AC (each nearby enemy in a group)'
+        value: '[[d20 + 20]] vs. AC (each nearby enemy in a group)'
       hit:
         type: String
         label: Hit
@@ -382,6 +401,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -389,7 +413,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. PD (each nearby enemy in a group)'
+        value: '[[d20 + 18]] vs. PD (each nearby enemy in a group)'
       hit:
         type: String
         label: Hit
@@ -438,6 +462,10 @@ items:
         value: >-
           <p>The tarrasque can swim and breathe underwater (or it holds so much
           air in its vast lungs that it makes no difference).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -463,6 +491,10 @@ items:
           addition, normal-sized enemies are like fleas to it, and disengaging
           from the tarrasque requires only an easy save (6+), unless the target
           is grabbed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -490,6 +522,10 @@ items:
           the amount of damage required to make it disgorge swallowed enemies
           and flee to go hibernate while it regenerates the damage it suffered
           and decide if it wants to rampage again.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -517,6 +553,10 @@ items:
           the amount of damage required to make it disgorge swallowed enemies
           and flee to go hibernate while it regenerates the damage it suffered
           and decide if it wants to rampage again.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -537,6 +577,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -544,7 +589,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+21]] vs. PD (each creature on its back)'
+        value: '[[d20 + 21]] vs. PD (each creature on its back)'
       hit:
         type: String
         label: Hit
@@ -601,6 +646,10 @@ items:
           that would apply a condition or effect upon the tarrasque. Of course,
           they must also provide a story to go along with the reason the
           tarrasque is affected.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -627,6 +676,10 @@ items:
           wall, temple, or ship. The beast automatically reduces the structure
           to rubble, rendering it useless. Each creature on top of or within the
           structure is subject to a&nbsp;collapse&nbsp;attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -647,6 +700,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -654,7 +712,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. PD (each creature in/on the structure)'
+        value: '[[d20 + 18]] vs. PD (each creature in/on the structure)'
       hit:
         type: String
         label: Hit
@@ -711,6 +769,10 @@ items:
           gullet, freeing the creature. During the tarrasque&rsquo;s turn, it
           can make a&nbsp;gullet digestion&nbsp;attack against the target as a
           free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -731,6 +793,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -738,7 +805,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+19]] vs. PD'
+        value: '[[d20 + 19]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -789,6 +856,10 @@ items:
           &ndash;5 penalty to all defenses against attacks from inside its
           gullet, though only melee and close attacks can be made in there. The
           tarrasque&rsquo;s insides are immune to acid damage, however.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -813,6 +884,10 @@ items:
           <p>While engaged with the tarrasque, enemies that have 216 hp or fewer
           are *dazed* (&ndash;4 attack) and do not add the escalation die to
           their attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -841,6 +916,10 @@ items:
           against the five-use limit. With this power, the monstrosity is likely
           unstoppable without a powerful magical artifact designed specifically
           to bind, wound, or otherwise hamper the tarrasque.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

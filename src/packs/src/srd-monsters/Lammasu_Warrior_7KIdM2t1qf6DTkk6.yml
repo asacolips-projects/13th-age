@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
           Limited use: The lammasu warrior can make this attack only when it
           starts its turn flying and unengaged. It engages the target as it
           lands and ends its turn on the ground.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -301,6 +309,10 @@ items:
           lammasu warrior gains resist damage 16+ to all attacks against AC and
           PD. If it’s flying when it becomes living stone, its magic allows it
           to remain in the air if it wishes.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -324,6 +336,10 @@ items:
         value: >-
           When an enemy misses the lammasu warrior with a melee attack, that
           enemy takes [[2d10]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -244,11 +244,13 @@ items:
         value: >-
           <p>Choose either <em>Path of the Sword</em> or <em>Path of
           Song</em>.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2ZDmQojC3HYdJYm3
     effects: []
@@ -271,6 +273,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,7 +285,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC'
+        value: '[[d20 + 12]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -310,8 +317,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 676gDfK6OfWBEulZ
     effects: []
     folder: null
@@ -330,6 +335,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,7 +347,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD'
+        value: '[[d20 + 11]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -369,8 +379,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 2FwYZCAzNg4z0jQV
     effects: []
     folder: null
@@ -392,11 +400,13 @@ items:
         value: >-
           <p><em>Sucker punch</em>&mdash;<em>Feint &amp; dodge</em> now deals
           [[7]] damage on a miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Sr6CtP3gdvMsDZD1
     effects: []
@@ -422,11 +432,13 @@ items:
           <p><em>Blink</em>&mdash;<em>Thief&rsquo;s dagger</em> can be used
           against a nearby enemy if the outlaw is not engaged. It does not
           provoke opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ldShDIisqvZYRpTF
     effects: []
@@ -449,11 +461,13 @@ items:
         value: >-
           <p>The outlaw gains the other destiny benefit, and adds 1 to its lower
           defense.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: B9z56Kw8ETQZgnar
     effects: []
@@ -477,11 +491,13 @@ items:
           <p>Faun outlaws that flee from battle are quick and boosted with magic
           that&rsquo;s all about escape. Pursuers must have some powerful magic
           or iconic advantage to have a chance of catching them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SU9UyOcrruQg3fyY
     effects: []

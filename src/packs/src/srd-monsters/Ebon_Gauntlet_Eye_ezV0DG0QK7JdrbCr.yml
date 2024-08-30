@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD'
+        value: '[[d20 + 11]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yAZyucKpQb6SKgSY
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD (one nearby or faraway enemy)'
+        value: '[[d20 + 11]] vs. MD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: j5P9Zjoe5zvl0Z9r
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,7 +375,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD ([[1d3]] nearby or faraway enemies)'
+        value: '[[d20 + 11]] vs. MD ([[1d3]] nearby or faraway enemies)'
       hit:
         type: String
         label: Hit
@@ -401,8 +412,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: iASA9NLdzbiCKy8X
     effects: []
     folder: null
@@ -424,11 +433,13 @@ items:
         value: >-
           <p>Once per hit it has scored this battle, as a move action, the eye
           can teleport to any nearby location it can see.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: nLRATuHnyIyQtHhg
     effects: []
@@ -452,11 +463,13 @@ items:
           <p>Once per battle, as an interrupt action, the eye can gain resist
           damage 18+ against attacks that target AC or PD. The resistance ends
           when the eye makes an attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xSJorOi1xnyxlEvN
     effects: []

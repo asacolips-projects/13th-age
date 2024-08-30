@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -297,6 +305,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 2/battle, as a quick action (once per round).'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -348,6 +360,10 @@ items:
         value: >-
           A flamewreathed dragon can use primal fire breath [[1d4]] + 2 times
           per battle, but never two turns in a row.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -371,6 +387,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -395,6 +415,10 @@ items:
           While engaged with this creature, enemies with 120 hp or fewer are
           *dazed* (-4 attacks), do not add the escalation die to their attacks,
           and take [[4d20]] fire damage at the start of their turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -418,6 +442,10 @@ items:
         value: >-
           The dragon’s will and magic are so powerful that it ignores the fire
           resistance of creatures battling it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -445,6 +473,10 @@ items:
           minions that take humanoid or bestial form and defend the dragon’s
           lair. Roll initiative for the minions once and use that count for all
           additional minions.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -299,6 +307,10 @@ items:
         value: >-
           All nearby derro gain a +1 bonus to attacks and defenses until end of
           the derro sage’s next turn (cumulative).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
         type: ''
         label: Description
         value: Two random nearby non-derro creatures take [[2d8]] thunder damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -347,6 +363,10 @@ items:
           gibber must roll a [[d6]] at the start of its turn and takes psychic
           damage equal to the die roll or to the number of gibbering derro,
           whichever is lower.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

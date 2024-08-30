@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -283,8 +288,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: egccrXevmBCCfrhQ
     effects: []
     folder: null
@@ -303,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -310,7 +318,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD'
+        value: '[[d20 + 10]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1vyoQyEydavpkstP
     effects: []
     folder: null
@@ -367,11 +373,13 @@ items:
           attacker must roll the miss chance before an attack roll. In addition,
           the azinth is nearly invisible while standing still or slowly grazing,
           as it blends in with its surroundings.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XwvMk8Rs3ir9MIcM
     effects: []
@@ -393,12 +401,14 @@ items:
         label: Description
         value: >-
           <p>Increase the miss chance from the azinth&rsquo;s natural blurring
-          by [[5*@ed]].</p>
+          by [[5 * @ed]].</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Tjdq0iPYyO64bASF
     effects: []
@@ -422,11 +432,13 @@ items:
           <p>The first time this battle the azinth is staggered, it becomes
           harder to detect until the end of the battle, gaining a +4 bonus to
           all defenses.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ii9AKrHnC1L7lIeh
     effects: []

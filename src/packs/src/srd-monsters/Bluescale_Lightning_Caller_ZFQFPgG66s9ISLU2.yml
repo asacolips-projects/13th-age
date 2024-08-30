@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC (2 attacks)'
+        value: '[[d20 + 8]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: wAfjlQU2iydTwirM
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD (up to 2 nearby enemies)'
+        value: '[[d20 + 10]] vs. PD (up to 2 nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vLHL0AT7yD1AMVEV
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,8 +407,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ntoZa24UcdqAWfeW
     effects: []
     folder: null
@@ -416,6 +425,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -423,7 +437,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD (one enemy attacking the lightning caller)'
+        value: '[[d20 + 10]] vs. PD (one enemy attacking the lightning caller)'
       hit:
         type: String
         label: Hit
@@ -455,8 +469,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: xayObUKuQZUUJ28j
     effects: []
     folder: null
@@ -479,11 +491,13 @@ items:
           <p>When a lightning attack targets this creature, the attacker must
           roll a natural 14+ on the attack roll or it only deals half
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ebsqAMVmvvyIkMqk
     effects: []
@@ -510,11 +524,13 @@ items:
           can&rsquo;t be attacked directly. When an enemy attacks the lightning
           caller, one minion makes a <em>lightning zap</em> attack against it as
           an interrupt action. All minions dissipate at the end of battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pBFp4WPvGbl63Tjf
     effects: []
@@ -543,11 +559,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tH9GV3lrpHebJ1wa
     effects: []
@@ -575,11 +593,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WvebAvDBXLpybXbz
     effects: []

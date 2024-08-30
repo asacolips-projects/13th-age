@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
           it, the enduring shield can roll a disengage check to intercept it as
           an interrupt action (once per round). If the attempt fails, the
           enduring shield takes [[1d6]] psychic damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,6 +275,10 @@ items:
         type: ''
         label: Description
         value: The enduring shield takes a -5 penalty to saving throws.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +304,10 @@ items:
           defense that the attack targeted until the end of the battle or until
           another attack hits it, in which case the bonus switches to the
           defense most recently hit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

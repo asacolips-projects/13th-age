@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
           Creatures that can’t hear or that have attempted to reduce their
           hearing are only affected by a jest bones’ puns attack if the natural
           roll is odd.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -268,6 +276,10 @@ items:
         value: >-
           The haunted skull can glide and hover, always within seven or eight
           feet of the ground. It also performs barrel rolls.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,6 +301,10 @@ items:
         type: ''
         label: Description
         value: This creature can’t make opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

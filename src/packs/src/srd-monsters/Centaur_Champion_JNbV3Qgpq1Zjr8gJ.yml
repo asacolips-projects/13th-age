@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -294,6 +302,10 @@ items:
           champion and the target each take a -4 attack penalty against any
           target except the other. If the centaur champion dies or challenges a
           new foe, the old challenge is canceled.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -318,6 +330,10 @@ items:
           As a standard action, the centaur champion can make a crushing hooves
           attack and a single two-handed sword attack (one attack roll) against
           the same enemy.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,6 +357,10 @@ items:
         value: >-
           When the centaur champion engages an enemy, each other centaur ally
           engaged with that creature can pop free from it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -366,6 +386,10 @@ items:
           and only takes half damage from opportunity attacks that hit it. When
           an enemy makes an opportunity attack against it and misses, that enemy
           takes [[20]] damage from a counter-attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -391,6 +415,10 @@ items:
           attack penalty against other enemies than its chosen foe, but that
           enemy still takes the -4 attack penalty. In addition, the champion can
           use champion’s challenge as a free action when it becomes staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -414,6 +442,10 @@ items:
         value: >-
           Each of the champion’s centaur allies in the battle gains a +5 damage
           bonus with ranged attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

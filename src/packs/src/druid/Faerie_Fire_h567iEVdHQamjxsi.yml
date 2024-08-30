@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -75,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
-    value: ' [[3d6+@wis.dmg+@atk.d.bonus]] fire damage, and the target is *vulnerable* (hard save ends, 16+).'
+    value: ' [[3d6 + @wis.dmg + @atk.d.bonus]] fire damage, and the target is *vulnerable* (hard save ends, 16+).'
   hitEven:
     type: String
     label: Natural Even Hit
@@ -135,47 +139,57 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: false
     type: String
     label: 3rd Level Spell
     value: >-
-      [[6d6+@wis.dmg+@atk.d.bonus]] damage, and in addition to being
+      [[6d6 + @wis.dmg + @atk.d.bonus]] damage, and in addition to being
       *vulnerable*, the target can’t turn invisible or hide from you or your
       allies (save ends both).
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: false
     type: String
     label: 5th Level Spell
     value: >-
-      [[6d10+@wis.dmg+@atk.d.bonus]] damage, and the target also can’t teleport
+      [[6d10 + @wis.dmg + @atk.d.bonus]] damage, and the target also can’t teleport
       (save ends all).
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: false
     type: String
     label: 7th Level Spell
-    value: '[[10d10+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[10d10 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: false
     type: String
     label: 9th Level Spell
-    value: '[[2d8*10+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[2d8 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -190,16 +204,12 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/light/projectiles-trio-pink.webp
 _id: h567iEVdHQamjxsi

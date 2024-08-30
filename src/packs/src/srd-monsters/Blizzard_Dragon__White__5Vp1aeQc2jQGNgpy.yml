@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -299,6 +307,10 @@ items:
           during the round after it uses the breath as a free action. Blizzard
           breath doesn’t deal miss damage to the dragon when used as a standard
           action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -322,6 +334,10 @@ items:
         value: >-
           When a cold attack targets this creature, the attacker must roll a
           natural 14+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,6 +361,10 @@ items:
         value: >-
           When an enemy is engaged with the blizzard dragon at the start of its
           turn, it takes [[5]] cold damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

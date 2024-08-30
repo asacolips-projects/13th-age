@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -75,7 +79,7 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
@@ -133,47 +137,57 @@ system:
     label: Effect
     value: >-
       <p>Until the end of the battle, or until you drop to –40 hit points, you
-      heal [[6d10+@cha.dmg]] at the start of each of your turns. In addition, as
+      heal [[6d10 + @cha.dmg]] at the start of each of your turns. In addition, as
       long as this spell is in effect, you can make the listed attack as a free
       action against each nearby enemy that misses you with an attack with a
       natural roll of 1–5.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: ''
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -194,10 +208,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/beast_02.jpg
 _id: m0XRRvEd3ImswgZ1

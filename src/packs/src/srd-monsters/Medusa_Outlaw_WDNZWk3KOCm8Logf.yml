@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -294,6 +302,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -347,6 +359,10 @@ items:
           Whenever a nearby enemy attacks the medusa outlaw and rolls a natural
           1 or 2, the medusa can make a petrifying gaze attack against that
           attacker as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -371,6 +387,10 @@ items:
           At the start of each of the medusa’s turns, roll a [[d4]]. If you roll
           less than or equal to the escalation die, the medusa can also use
           petrifying gaze as a quick action once during that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

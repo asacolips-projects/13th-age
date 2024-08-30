@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -297,6 +305,10 @@ items:
           action that turn. After the first success, the grace die bumps up to a
           d8. After the second success, it’s a d10, then a d12 after the third
           success, and finally a d20 after the fourth one.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
         value: >-
           A medium black dragon can use acid breath [[1d3]] times per battle,
           but never two turns in a row.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,6 +357,10 @@ items:
         type: ''
         label: Description
         value: Black dragons swim well and can breathe underwater.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +384,10 @@ items:
         value: >-
           When an acid attack targets this creature, the attacker must roll a
           natural 12+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

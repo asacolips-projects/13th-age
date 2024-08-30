@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -74,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[4d8+@wis.dmg+@atk.a.bonus]] psychic damage, and [[5]] ongoing psychic
+      [[4d8 + @wis.dmg + @atk.a.bonus]] psychic damage, and [[5]] ongoing psychic
       damage.
   hitEven:
     type: String
@@ -134,50 +139,60 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
-      [[8d6+@wis.dmg+@atk.a.bonus]] damage, and [[10]] ongoing damage. [[10]]
+      [[8d6 + @wis.dmg + @atk.a.bonus]] damage, and [[10]] ongoing damage. [[10]]
       ongoing damage on a miss.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
-      [[8d10+@wis.dmg+@atk.a.bonus]] damage, and [[15]] ongoing damage. [[15]]
+      [[8d10 + @wis.dmg + @atk.a.bonus]] damage, and [[15]] ongoing damage. [[15]]
       ongoing damage on a miss
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
-      [[2d6*10+@wis.dmg+@atk.a.bonus]] damage, and [[25]] ongoing damage. [[25]]
+      [[2d6 * 10 + @wis.dmg + @atk.a.bonus]] damage, and [[25]] ongoing damage. [[25]]
       ongoing damage on a miss.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d10*10+@wis.dmg+@atk.a.bonus]] damage, and [[35]] ongoing damage.
+      [[2d10 * 10 + @wis.dmg + @atk.a.bonus]] damage, and [[35]] ongoing damage.
       [[35]] ongoing damage on a miss.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -217,10 +232,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/sonic/explosion-shock-sound-wave.webp
 _id: 2AI2H2TaZ2gLjstT

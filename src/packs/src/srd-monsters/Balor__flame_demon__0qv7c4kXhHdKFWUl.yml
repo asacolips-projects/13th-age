@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/round, as a quick action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -301,6 +309,10 @@ items:
         value: >-
           While staggered, the balor adds the escalation die to its attack
           rolls.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -325,6 +337,10 @@ items:
           At the start of the balor’s turn, each enemy engaged with it takes
           [[4d10]] fire damage; any die result of 10 is kept and the die
           rerolled.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -346,6 +362,10 @@ items:
         type: ''
         label: Description
         value: Flight
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,6 +389,10 @@ items:
         value: >-
           The balor gains a +5 bonus to all defenses against attacks by far away
           enemies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -392,6 +416,10 @@ items:
         value: >-
           Critical hits with the abyssal blade deal triple damage instead of
           double damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

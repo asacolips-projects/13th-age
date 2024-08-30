@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         value: >-
           Bat demons are indifferent flyers, better suited to gliding between
           stalactites and clinging to walls than to skillful flying.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -276,6 +284,10 @@ items:
           disengaging and relying on their shifty ability to protect them. They
           keep attacking their target that turn even if it drops to 0 hp or
           below.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -300,6 +312,10 @@ items:
           Bat demons gain a +5 AC bonus against opportunity attacks. In
           addition, they have resist damage 18+ against opportunity attacks
           (half damage if the natural attack roll isn’t 18+).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD'
+        value: '[[d20 + 9]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: MAtj0gFnRiDfm5Mz
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD (1 or 2 nearby or faraway enemies)'
+        value: '[[d20 + 11]] vs. PD (1 or 2 nearby or faraway enemies)'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ypUoxN8SnVgdWi2y
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,7 +375,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD (one nearby or faraway enemy)'
+        value: '[[d20 + 11]] vs. PD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -396,8 +407,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ctgpAk06l86Zxks4
     effects: []
     folder: null
@@ -422,11 +431,13 @@ items:
           air like teleporting, etc.</p>
 
           <p>Limited use: [[1d3]] times per battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: nLFBCMoI1dWdj8Ft
     effects: []
@@ -447,11 +458,13 @@ items:
         type: String
         label: Description
         value: <p>The adept gains a bonus to saves equal to the escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JClT79f2vhOIw3NA
     effects: []

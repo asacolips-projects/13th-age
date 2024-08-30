@@ -172,7 +172,7 @@ export default {
       let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
       if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
       else if (use == 'cyclic') {
-        if (this.actor?.system.attributes.escalation.value > 0
+        if (this.actor && this.actor?.system.attributes.escalation.value > 0
           && this.actor?.system.attributes.escalation.value % 2 == 0) {
           use = 'at-will cyclic';
         } else use = 'once-per-battle cyclic';

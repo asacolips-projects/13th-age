@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: P2MRvLT1JqCf7ZHu
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD ([[1d6]] nearby enemies)'
+        value: '[[d20 + 9]] vs. PD ([[1d6]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Dpv488RukNI5cIpS
     effects: []
     folder: null
@@ -359,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -366,7 +377,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. PD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -404,8 +415,6 @@ items:
         type: String
         label: Miss
         value: '[[9]] damage'
-      embeddedMacro:
-        value: ''
     _id: VnS7zNObILnAYNBv
     effects: []
     folder: null
@@ -430,11 +439,13 @@ items:
           using a weapon against a taranar, the attacker deals only half damage.
           The resistance also applies to negative energy damage, which tends to
           fizzle ineffectively against the ancient stones.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ON9JAIwWdxAcdQim
     effects: []
@@ -465,11 +476,13 @@ items:
           conditions for it to wake are met again (providing they can be). Such
           severely damaged creatures reawaken as broken taranar, regardless of
           what they were before.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: G4k15TLMS2AhE7e0
     effects: []
@@ -495,11 +508,13 @@ items:
           made vulnerable to anything beyond those energies they are already
           vulnerable to (fire and cold; see below). Taranar are also immune to
           ongoing damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MqvZgzJXSnmmXBTm
     effects: []

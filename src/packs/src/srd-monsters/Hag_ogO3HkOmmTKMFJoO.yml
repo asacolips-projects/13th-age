@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -304,6 +312,10 @@ items:
           Each hag can lay a curse upon the one who ends its horrible life.
           After dropping to 0 hit points, a hag always lingers long enough to
           pronounce the words of the curse. (See Death Curses.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -332,6 +344,10 @@ items:
           delusion and see the truth of it (if a player gives a reason for not
           trusting what their character sees; perhaps add subtle clues toward
           that end). The magic fades as soon as the hag enters combat.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -356,6 +372,10 @@ items:
           While engaged with this creature, enemies with 30 hp or fewer are
           *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +253,10 @@ items:
           takes damage equal to the natural roll. If a creature is affected
           twice by this attack, the damage it takes on a natural 1-5 doubles; if
           affected three times, it triples, etc.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -273,6 +281,10 @@ items:
           A creature choking from puffball exploder can use a standard action to
           wash the spores off itself and/or cough them up, preventing further
           choking effects until it’s affected by puffball exploder again.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -299,6 +311,10 @@ items:
           in place or propel it. A free-floating spore too far away from the
           ground to use its tendrils can easily be blown about from strong winds
           or similar magical effects.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

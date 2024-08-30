@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -201,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -294,6 +299,10 @@ items:
           roll)</p><ul><li>1&ndash;14: d6 + 3</li><li>15&ndash;20: d6 +
           2</li><li>20&ndash;24: d6 + 1</li><li>25&ndash;29: d6 + 0</li><li>30+:
           Cured</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

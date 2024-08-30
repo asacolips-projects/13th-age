@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: KiWMYa0hK8eiUzFj
     effects: []
     folder: null
@@ -301,11 +304,13 @@ items:
         value: >-
           <p>Gains a +3 bonus on disengage checks, or adds the escalation die,
           whichever is higher.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YWq1GW434YsdMzx1
     effects: []
@@ -328,11 +333,13 @@ items:
         value: >-
           <p>Attacks that deal cold damage deal half damage to the snowy owlbear
           cub unless they roll a natural 14+.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: G8TCCf4PwzLkTjVp
     effects: []
@@ -355,11 +362,13 @@ items:
         value: >-
           <p>This monster only counts as half a normal monster when building
           battles.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1X5DEx41khhe6pve
     effects: []

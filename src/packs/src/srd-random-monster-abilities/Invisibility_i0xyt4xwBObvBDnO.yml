@@ -11,11 +11,13 @@ system:
     value: >-
       <p>The first time the demon is staggered each battle it becomes invisible
       until the end of its next turn.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

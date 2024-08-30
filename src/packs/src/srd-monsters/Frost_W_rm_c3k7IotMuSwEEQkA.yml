@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
         value: >-
           Limited use: The remorhaz can use trilling vibrations only when the
           escalation die is odd.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,6 +305,10 @@ items:
         value: >-
           As the standard monster ability, except the remorhaz only needs to
           roll 6+ in snow.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
         value: >-
           When a creature is engaged with the remorhaz at the start of its turn,
           it takes cold damage equal to twice the escalation die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +360,10 @@ items:
           Death can cause fluid-filled sacks inside the frost-würm to explode.
           When the attack roll that kills the frost-würm is a natural even roll,
           each nearby creature takes [[20]] cold damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

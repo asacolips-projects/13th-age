@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -134,44 +138,54 @@ system:
     value: >-
       <p>Until the end of the battle, when an enemy engaged with you attacks you
       with a natural odd attack roll, it takes
-      [[6d6+@int.dmg+@atk.a.bonus]]&nbsp;negative energy damage.</p>
+      [[6d6 + @int.dmg + @atk.a.bonus]]&nbsp;negative energy damage.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
-    value: '[[6d10+@int.dmg+@atk.a.bonus]] '
+    value: '[[6d10 + @int.dmg + @atk.a.bonus]] '
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: '[[10d10+@int.dmg+@atk.a.bonus]] '
+    value: '[[10d10 + @int.dmg + @atk.a.bonus]] '
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[(2d8)10+@int.dmg+@atk.a.bonus]] '
+    value: '[[(2d8)10 + @int.dmg + @atk.a.bonus]] '
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -192,10 +206,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/protect-eerie-2.jpg
 _id: vqWZ2EmALIsnXawE

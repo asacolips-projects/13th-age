@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
           Whenever the frenzy demon misses with a melee attack, it gains a +1
           attack bonus and deals +[[1d4]] damage until the end of the battle
           (maximum bonus +4, +[[4d4]]).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

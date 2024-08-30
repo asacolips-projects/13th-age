@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         value: >-
           Limited use: 1/day, and the attack affects the ogre’s allies engaged
           with or between enemy targets.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +300,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -343,6 +355,10 @@ items:
           Once per round when a nearby enemy misses the ogre mage with an
           attack, the ogre mage can make an aura of treachery attack against it
           as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +380,10 @@ items:
         type: ''
         label: Description
         value: The ogre mage flies using the sheer power of its superior mind.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -389,6 +409,10 @@ items:
           standard action. It becomes visible when it attacks. The ogre mage
           takes [[1d10]] damage each time it uses invisibility while it’s
           staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -413,6 +437,10 @@ items:
           When a limited attack (not an at-will attack) targets this creature,
           the attacker must roll a natural 16+ on the attack roll or it only
           deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -438,6 +466,10 @@ items:
           at the start of the ogre mage’s turn. It can regenerate five times per
           battle. If it heals to its maximum hit points, then that use of
           regeneration doesn’t count against the five-use limit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -465,6 +497,10 @@ items:
           When the ogre mage is hit by an attack that deals fire or acid damage,
           it loses one use of its regeneration, and it can’t regenerate during
           its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -490,6 +526,10 @@ items:
         value: >-
           Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of
           regeneration left.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

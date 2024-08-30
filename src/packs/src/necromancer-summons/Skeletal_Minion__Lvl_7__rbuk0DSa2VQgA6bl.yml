@@ -392,6 +392,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -399,7 +404,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC'
+        value: '[[d20 + 14]] vs. AC'
       hit:
         type: String
         label: Hit

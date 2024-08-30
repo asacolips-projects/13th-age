@@ -9,11 +9,13 @@ system:
     type: String
     label: Description
     value: <p>The monster is immune to invisibility and ignores any illusions.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

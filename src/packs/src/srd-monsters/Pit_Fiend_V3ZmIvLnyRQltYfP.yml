@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +304,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -346,6 +358,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle, as a quick action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -393,6 +409,10 @@ items:
         type: ''
         label: Description
         value: The pit fiend can use fiendish vigor as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -417,6 +437,10 @@ items:
           When you choose to add the escalation die to an attack against a pit
           fiend, the escalation die does not increase at the start of the next
           round. Special circumstances and PC powers can still increase it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -441,6 +465,10 @@ items:
           As a standard action, the pit fiend can heal 300 hp and roll a save
           against each ongoing effect on it. It can use fiendish vigor up to
           five times per battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -462,6 +490,10 @@ items:
         type: ''
         label: Description
         value: Amidst wind and flames, a pit fiend can fly with surprising agility.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -485,6 +517,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -508,6 +544,10 @@ items:
         value: >-
           When a creature is engaged with the pit fiend at the start of its
           turn, that creature takes [[20]] fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

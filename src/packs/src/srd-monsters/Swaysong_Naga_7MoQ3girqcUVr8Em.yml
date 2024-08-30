@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -294,6 +302,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -351,6 +363,10 @@ items:
           the spell is cast. If the spell is a per-battle or daily spell, roll a
           hard save (16+) immediately after the spell is cast; on a success, the
           spellcaster doesn’t expend the spell.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -375,6 +391,10 @@ items:
           The naga and each of its nearby allies can use the escalation die
           unless the naga has been targeted by an enemy’s spell since its last
           turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

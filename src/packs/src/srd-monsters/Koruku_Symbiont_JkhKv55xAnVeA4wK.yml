@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC'
+        value: '[[d20 + 12]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 0D9jcjShpTQOvddZ
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC (2 attacks)'
+        value: '[[d20 + 12]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: zoPN0UdYeOdd0WVI
     effects: []
     folder: null
@@ -357,6 +363,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,7 +375,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. PD ([[1d3]] nearby enemies in a group)'
+        value: '[[d20 + 12]] vs. PD ([[1d3]] nearby enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -394,8 +405,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vDi37yPTyBcBVlmw
     effects: []
     folder: null
@@ -414,6 +423,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -421,7 +435,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. PD'
+        value: '[[d20 + 12]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -451,8 +465,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: sqyBq9K881D5lS3y
     effects: []
     folder: null
@@ -478,11 +490,13 @@ items:
           its former host. The staggered larva maintains the initiative of its
           host, but any conditions placed upon the host end. (If the save fails,
           the larva gets squashed along with its host!)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: bHFwJPzTAXsdnJvt
     effects: []
@@ -508,11 +522,13 @@ items:
           likely spot for hibernation is secrets a slime which hardens into a
           cocoon. The host reverts back to its original stats, losing all of the
           benefits it gained as a symbiont, but takes no damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XXNuOxCMETjQfH7A
     effects: []

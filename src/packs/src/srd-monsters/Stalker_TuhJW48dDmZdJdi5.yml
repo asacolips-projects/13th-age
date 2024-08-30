@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC'
+        value: '[[d20 + 9]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: '[[15]] damage'
-      embeddedMacro:
-        value: ''
     _id: ghROi2xLYxNv266w
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -308,7 +316,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC (2 attacks)'
+        value: '[[d20 + 10]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -338,8 +346,6 @@ items:
         type: String
         label: Miss
         value: '[[5]] damage'
-      embeddedMacro:
-        value: ''
     _id: 7gQDLMPcQzUbTPSc
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
           <p>Despite its size, as an ambush hunter, the stalker is very good at
           shadowing its prey. Checks to notice it and avoid surprise are
           ridiculously hard.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MZEHoKCW2nKZFRV8
     effects: []

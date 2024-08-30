@@ -245,11 +245,13 @@ items:
           <p>The loyal gatherer&rsquo;s crit range expands by number of true
           magic items of epic tier the target is carrying. Targets with more of
           these items are preferred prey.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: bymLmyOwy97aOGIr
     effects: []
@@ -269,6 +271,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -276,7 +283,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. AC'
+        value: '[[d20 + 15]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -307,8 +314,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FgXaLjz2s57Iic8A
     effects: []

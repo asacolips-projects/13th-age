@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +253,10 @@ items:
           Limited use: The vampire can use vampiric compulsion as a free action
           only when a nearby enemy attacks the vampire and misses with a natural
           attack roll of 1-5.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,6 +306,10 @@ items:
         value: >-
           The vampire regenerates 1 hp per level at the start of each round
           indefinitely, but it turns to mist if it drops to 0 hp (see below).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -322,6 +334,10 @@ items:
           Unless it is slain in a manner appropriate for truly killing vampires
           in the campaign, a vampire that drops to 0 hp drifts away to return
           and fight some other day.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

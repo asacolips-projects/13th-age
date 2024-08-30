@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC (2 attacks)'
+        value: '[[d20 + 8]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: HLQoj5IrKgonRyPr
     effects: []
     folder: null
@@ -304,11 +307,13 @@ items:
         value: >-
           <p>The gray raider&rsquo;s crit range expands by the number of true
           magic items of champion-tier that the target is carrying.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: x8trZAFFIq7pn92a
     effects: []

@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -135,7 +140,7 @@ system:
       dangerous to move in. When an enemy moves through the area on the ground
       (enemies using teleport or similar powers aren&rsquo;t affected), it must
       roll a normal save that turn. On a failure, that creature takes
-      [[7d6+@atk.d.bonus]] damage. If they move again that turn, they
+      [[7d6 + @atk.d.bonus]] damage. If they move again that turn, they
       don&rsquo;t have to roll a save.</p><p>You can move normally in the area.
       Your allies must roll an easy save (6+); if they fail they take half
       damage when they move.</p><p>Since the spell normally only works
@@ -145,42 +150,52 @@ system:
       probably zip around away from surfaces without too much trouble
       (GM&rsquo;s call).</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: ' [[7d10+@atk.d.bonus]] damage.'
+    value: ' [[7d10 + @atk.d.bonus]] damage.'
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[9d10+@atk.d.bonus]] damage.'
+    value: '[[9d10 + @atk.d.bonus]] damage.'
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -201,10 +216,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/earth/barrier-stone-explosion-red.webp
 _id: dgo0utmH8vnVZkTB

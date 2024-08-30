@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -294,6 +302,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -350,6 +362,10 @@ items:
         value: >-
           When the treant takes [[35]] or more fire damage from a single attack,
           it releases all grabbed creatures.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -373,6 +389,10 @@ items:
         value: >-
           This creature has resist damage 18+ to all damage except fire damage
           and melee weapon damage, which damages it normally.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,6 +418,10 @@ items:
           pulled into a hollow chamber within the treant. While grabbed by the
           treant this way, the target can’t be the target of its allies’ powers
           or spells.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -422,6 +446,10 @@ items:
           Countless smaller branches whip through the air around the treant
           titan. When a creature engaged with the treant misses it with an
           attack, that creature takes [[12]] damage from the whipping branches.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

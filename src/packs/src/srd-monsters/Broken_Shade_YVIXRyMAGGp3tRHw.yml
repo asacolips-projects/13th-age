@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: KwClUvNibBUM6cSN
     effects: []
     folder: null
@@ -301,11 +304,13 @@ items:
         type: String
         label: Description
         value: <p>Broken shades do not take miss damage from weapons.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: EeETYsDZlpj3cLVV
     effects: []
@@ -328,11 +333,13 @@ items:
         value: >-
           <p>When a member of the mob dies, other broken shades gain +1 to
           damage until the end of the battle (max +4).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7OrOKrMJrQITsMos
     effects: []

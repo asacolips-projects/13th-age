@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: t2iLqHudaRevRhvR
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -340,8 +348,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ztSAAHK16229whiN
     effects: []
     folder: null
@@ -368,11 +374,13 @@ items:
           involving scorpions, that either protects the kobolds from the attack
           or interferes with the attacker, assuming the glinters are on familiar
           ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FAIqVADHmZ70aUs2
     effects: []
@@ -396,11 +404,13 @@ items:
           <p>Whenever three or more glinters drop from a single attack (possibly
           involving multiple attack rolls), one-third of those glinters are
           undamaged instead (round down).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: K1OnN9d46DH7nl7W
     effects: []
@@ -426,11 +436,13 @@ items:
           get into places faster than you would believe. This trait helps them
           overwhelm enemies with numbers that the unfortunate targets
           don&rsquo;t believes is possible.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: NRhHrauTV3oj3x7y
     effects: []
@@ -454,11 +466,13 @@ items:
           <p>When a glinter mob is reduced to half its number or less, the
           surviving glinters gain a +4 bonus to all defenses until the end of
           the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DOjaww5CZffRyGrS
     effects: []
@@ -482,11 +496,13 @@ items:
           <p>Once per battle as a free action, the glinter mob can utter a war
           cry in unison and each member of the mob gains a +4 attack bonus that
           turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SHoELDBCWn8R3d6p
     effects: []

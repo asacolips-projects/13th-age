@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. PD'
+        value: '[[d20 + 7]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: s8hfhXVJVdUXmGqa
     effects: []
     folder: null
@@ -302,11 +305,13 @@ items:
           <p>For every separate mob of lesser haunting mooks in the battle (mobs
           start with at least four mooks), add a +1 bonus to the lesser
           haunting&rsquo;s attacks and damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: IuSOKUQ7bp6iGtEx
     effects: []
@@ -330,11 +335,13 @@ items:
           <p>This creature has resist damage 14+ to all damage except holy
           damage. A ghost can move through solid objects, but can&rsquo;t end
           its turn inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Bn5guqgS9eLw7kKW
     effects: []
@@ -361,11 +368,13 @@ items:
           normally has a fear threshold of 15 hit points. When there are three
           or more lesser haunting mooks in the battle, the hungrymouth
           ghost&rsquo;s fear threshold bumps up to 22 hit points.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: t6J6NmJxkI3nMdHf
     effects: []
@@ -385,11 +394,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: e7656Jyd4aURbgbc
     effects: []
@@ -426,11 +438,13 @@ items:
           ghosts that aren&rsquo;t bound to anything, but at that stage there
           are several other questions that surface and odd magical, iconic, or
           unique intervention seems likely.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: OGYUz7WiaUmHqKNw
     effects: []
@@ -461,11 +475,13 @@ items:
           <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
           constrained to act much like they acted when they were alive, and
           flying wasn&rsquo;t part of their life package.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kZHwhLF3phNX4af2
     effects: []
@@ -499,11 +515,13 @@ items:
           ghost stories than part of a creature&rsquo;s combat abilities, and
           you can safely ignore it unless you find telling moments when it adds
           to the game.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8fb6lFrDWO3vR18k
     effects: []

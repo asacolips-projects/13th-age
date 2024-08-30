@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -298,6 +306,10 @@ items:
         value: >-
           For every four shadow thieves in the battle (round up), one of them
           can use shadow possession during the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -329,6 +341,10 @@ items:
           duplicates that work until the end of the battle then fade to
           nothingness. The items can be recovered if the dragon is slain in the
           same battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -363,6 +379,10 @@ items:
           wrestle with the shadow. If the natural thievery roll was even, the
           target has the same choice, but it’s a hard save (16+) to end the
           hampered effect.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

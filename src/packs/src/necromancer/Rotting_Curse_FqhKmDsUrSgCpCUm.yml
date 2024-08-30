@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -74,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[30+@atk.a.bonus]] ongoing negative energy damage (hard save ends, 16+),
+      [[30 + @atk.a.bonus]] ongoing negative energy damage (hard save ends, 16+),
       and each time the target fails the save, the ongoing negative energy
       damage increases by [[15]]
   hitEven:
@@ -135,46 +140,56 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
-      [[50+@atk.a.bonus]] ongoing damage on a hit, with fail increments/miss
+      [[50 + @atk.a.bonus]] ongoing damage on a hit, with fail increments/miss
       damage of [[25]].
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
-      [[80+@atk.a.bonus]] ongoing damage on a hit, with fail increments/miss
+      [[80 + @atk.a.bonus]] ongoing damage on a hit, with fail increments/miss
       damage of [[40]].
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -195,10 +210,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/green_15.jpg
 _id: FqhKmDsUrSgCpCUm

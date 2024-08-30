@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -291,6 +299,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,6 +352,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -391,6 +407,10 @@ items:
         value: >-
           While one or more lower-level non-mook ettercap allies are nearby it,
           the ettercap keeper gains resist damage 16+.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -414,6 +434,10 @@ items:
         value: >-
           When an enemy of level 6 or lower rolls a natural 1-5 with a melee
           attack against an ettercap keeper, that enemy is *dazed* (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

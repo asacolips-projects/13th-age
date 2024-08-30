@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. MD'
+        value: '[[d20 + 12]] vs. MD'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: '[[20]] psychic damage'
-      embeddedMacro:
-        value: ''
     _id: TOnmyMoaBiReN5xl
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. MD ([[2d3]] nearby or faraway enemies)'
+        value: '[[d20 + 12]] vs. MD ([[2d3]] nearby or faraway enemies)'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] psychic damage'
-      embeddedMacro:
-        value: ''
     _id: iJEqt2GLShdAIRwj
     effects: []
     folder: null
@@ -361,11 +367,13 @@ items:
           <p>While engaged with the river-spirit, enemies with 36 hp or fewer
           are *dazed* (&ndash;4 to attack) and do not add the escalation die to
           their attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1zcI7q7SG10NVpFu
     effects: []
@@ -388,11 +396,13 @@ items:
         value: >-
           <p>When the river-spirit scores a critical hit with <em>otherworldly
           aria</em>, it also *stunned* the target (save ends).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BCzxKPgrBgyRSNYU
     effects: []
@@ -417,11 +427,13 @@ items:
           attack must start rolling last gasp saves instead of being confused.
           On the fourth failure, they fall into a long sleep that mortals call a
           coma.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GCzkTV8K3mnJNkKA
     effects: []
@@ -445,11 +457,13 @@ items:
           <p>The river-spirit&rsquo;s <em>otherworldly aria</em> attack becomes
           <em>haunting wail</em>, deals negative energy damage, and on a natural
           18+, the target is *weakened* (save ends).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dFWskiVUJ6yPuUnB
     effects: []
@@ -472,11 +486,13 @@ items:
         value: >-
           <p>This creature gains different abilities based on which name it has
           taken.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: P4BETyPzhVBZcCBO
     effects: []

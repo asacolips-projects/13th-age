@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD'
+        value: '[[d20 + 9]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: qm0KVP8PKiSop0Gi
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 10]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -344,8 +352,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ULXlItrTLAJgGhoC
     effects: []
     folder: null
@@ -367,11 +373,13 @@ items:
         value: >-
           <p>For every four star-masks in the battle (round up), one of them can
           use suffocating thoughts once during the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JUCBeXSYT9MqzH7c
     effects: []
@@ -394,11 +402,13 @@ items:
         value: >-
           <p>When the escalation die is odd, the star-mask can move and engage a
           nearby enemy as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9b0JAQVqiFHPAWzv
     effects: []

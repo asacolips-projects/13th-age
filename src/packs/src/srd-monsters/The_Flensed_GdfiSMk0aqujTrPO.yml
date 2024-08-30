@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
           When a creature slays one of the flensed, it can roll a hard save
           (16+). If it succeeds, the creature regains one power it had flensed
           away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -268,6 +276,10 @@ items:
         value: >-
           The Flensed gains an attack bonus equal to the escalation die against
           creatures that have had one or more powers flensed away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs AC (up to 2 enemies)'
+        value: '[[d20 + 12]] vs AC (up to 2 enemies)'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: e6B7ZDmem64p1Xb0
     effects: []
     folder: null
@@ -299,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -306,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs AC (up to 3 enemies in a group with a single spear)'
+        value: '[[d20 + 12]] vs AC (up to 3 enemies in a group with a single spear)'
       hit:
         type: String
         label: Hit
@@ -336,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vcdIB8HmFVmNYjmc
     effects: []
     folder: null
@@ -361,6 +367,10 @@ items:
           <p>A cloud giant gains a +4 attack bonus against any enemy taking
           ongoing damage or that has an ongoing condition (*dazed*, for
           instance).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

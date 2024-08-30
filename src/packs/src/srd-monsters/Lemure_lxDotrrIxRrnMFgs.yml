@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
           in the battle, though it’s hard to say how exactly. They don’t seem to
           teleport, but there are so many of the things squirming around it just
           happens.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,6 +278,10 @@ items:
           move it along with them as they please without taking opportunity
           attacks. The enemy getting moved around pops free of any other enemies
           engaged with it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +308,10 @@ items:
           lemures fight in a straightforward way, without tactics. They never
           disengage willingly, and they’re not coordinated enough to concentrate
           attacks on a *vulnerable* target.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -319,6 +335,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,6 +363,10 @@ items:
           Heedless of each other’s safety or their own, lemures use sheer
           numbers to press through locked doors, climb walls, or dog pile on
           defenders.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -374,6 +398,10 @@ items:
           limited-use power, such as a daily spell, might also keep a number of
           downed lemures totally dead. Once the last member of the mob drops,
           stop rolling to see if lemures rise up.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

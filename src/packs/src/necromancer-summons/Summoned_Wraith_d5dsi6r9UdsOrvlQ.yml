@@ -392,6 +392,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -399,7 +404,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD'
+        value: '[[d20 + 10]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -448,6 +453,10 @@ items:
         value: >-
           <p><em>Limited use.</em> The wraith can use spiraling assault only
           when the escalation die ([[@ed]]) is even.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -455,7 +464,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs PD ([[d3]] nearby enemies)'
+        value: '[[d20 + 10]] vs PD ([[d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -504,6 +513,10 @@ items:
         type: String
         label: Description
         value: <p>The wraith hovers and zooms about.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -529,6 +542,10 @@ items:
           damage) except force damage, which damages it normally.</p><p>A wraith
           can move through solid objects, but it can’t end its movement inside
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

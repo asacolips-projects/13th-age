@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -297,6 +305,10 @@ items:
           A dirt-fisher can burrow incredibly quickly for short distances, but
           it prefers to attack from within its pre-dug trap-door pit. It usually
           has a few pits dug nearby if forced to leave its current pit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -323,6 +335,10 @@ items:
           +3 bonus to all defenses until the start of its next turn, and any
           creature in the pit takes a -5 penalty to checks to climb out of the
           pit. Force attacks and opportunity attacks don’t trigger this ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -346,6 +362,10 @@ items:
         value: >-
           The dirt-fisher deals double damage against creatures engaged with it
           in its pit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

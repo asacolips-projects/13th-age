@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -303,6 +311,10 @@ items:
           attacker must roll a save; on a failure, the weapon is destroyed.
           Magic weapons require an easy save (6+) instead. This effect is
           permanent.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -327,6 +339,10 @@ items:
           Magic items wielded by creatures with 60 hp or more are not affected
           by the rust monster’s ability to destroy items (but the target still
           takes damage).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -355,6 +371,10 @@ items:
           support it needs from its owner to survive the rust monster’s
           destructive effects, and the item is destroyed at the end of the next
           battle even if its owner successfully saved.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -380,6 +400,10 @@ items:
           another random magic item in the target’s possession (or a random
           normal item if the target has no other magic items). The creature must
           roll a save for the item, as usual.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

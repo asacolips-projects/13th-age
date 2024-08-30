@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +253,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -311,6 +319,10 @@ items:
           When a creature slays a soul flenser, it can roll a hard save (16+).
           If it succeeds, the creature regains one power it has had flensed
           away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -334,6 +346,10 @@ items:
         value: >-
           When an enemy misses the soul flenser with an attack against MD, that
           attacker takes half the miss damage, if any.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -362,6 +378,10 @@ items:
           teleport back to its home underkraken, no matter how distant, leaving
           the battle behind. Soul flensers fighting beside or within their
           underkraken can’t use this ability; they’re already home.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -385,6 +405,10 @@ items:
         value: >-
           The soul flenser gains an attack bonus equal to the escalation die
           against creatures that have had one or more powers flensed away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -409,6 +433,10 @@ items:
           While *confused* by a soul flenser’s effect, a creature that has had a
           power flensed away can use and re-use that limited power against their
           erstwhile allies, if the GM sees how to use the power in a useful way.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

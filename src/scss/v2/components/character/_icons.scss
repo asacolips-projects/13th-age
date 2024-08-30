@@ -32,9 +32,14 @@
     background: $c-white;
     border: 1px solid $c-black;
     text-align: center;
-    line-height: $font-sm;
+    line-height: 21px;
     font-size: $font-sm;
     cursor: pointer;
+    font-weight: 900;
+
+    &.secondEdition {
+      line-height: $font-sm;
+    }
 
     &[data-roll="0"] {
       color: transparent;

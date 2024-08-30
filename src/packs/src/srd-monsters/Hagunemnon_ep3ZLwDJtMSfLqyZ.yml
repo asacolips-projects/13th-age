@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -250,6 +254,10 @@ items:
           With each subsequent hit after the first, spontaneous metamorphosing
           limbs deals [[20]] less damage. The hagunemnon also doesn’t gain any
           extra attacks when it makes a basic attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -273,6 +281,10 @@ items:
         value: >-
           As a move action when the escalation die is odd, the hagunemnon can
           teleport nearby or far away to a location it can see.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +308,10 @@ items:
         value: >-
           When a psychic attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +336,10 @@ items:
           As a standard action, the hagunemnon can change its form to that of
           any large or medium creature, or back to its own shape. Seeing through
           the shapechange requires a DC 25 skill check.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,6 +365,10 @@ items:
           turn, it takes [[4d10]] psychic damage. If it takes [[31]] or more
           damage this way during a single turn, it’s also *confused* until the
           start of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

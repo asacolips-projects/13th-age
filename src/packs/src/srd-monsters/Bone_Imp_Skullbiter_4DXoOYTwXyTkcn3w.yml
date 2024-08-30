@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC'
+        value: '[[d20 + 9]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: rR3FyydYqp3BR6YI
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC ([[d3]] nearby or far away enemies in a group'
+        value: '[[d20 + 8]] vs. AC ([[d3]] nearby or far away enemies in a group'
       hit:
         type: String
         label: Hit
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 3sYoHF0sOBR25cDS
     effects: []
     folder: null
@@ -359,11 +365,13 @@ items:
           <p><span class="fontstyle0">On rounds when the escalation die is odd
           the imp may move as a quick action once on its turn, flapping its
           wings madly as it dashes about.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: x6tUssAMPiK3dIil
     effects: []
@@ -388,11 +396,13 @@ items:
           damage from magic sources (even magic weapons). When a magic attack
           targets this creature, the attacker must roll a natural 13+ on the
           attack roll or it only deals half damage.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: euiX29g7hhsyYld9
     effects: []

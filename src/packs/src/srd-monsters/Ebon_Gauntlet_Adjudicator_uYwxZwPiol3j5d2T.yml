@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: hgeCwvcxGv2RsIcc
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 10]] vs. PD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: XL7n9Fb8XI6SMpWB
     effects: []
     folder: null
@@ -366,11 +372,13 @@ items:
           force damage, it loses one use of its regeneration, and it can&rsquo;t
           regenerate during its next turn. Dropping an adjudicator to 0 hp
           doesn&rsquo;t kill it if it has any uses of regeneration left.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WIVLORmu10a6ZhJT
     effects: []
@@ -393,11 +401,13 @@ items:
         value: >-
           <p>Nearby enemies of the adjudicator are vulnerable to all
           attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YpmRqTYInZgulNg0
     effects: []

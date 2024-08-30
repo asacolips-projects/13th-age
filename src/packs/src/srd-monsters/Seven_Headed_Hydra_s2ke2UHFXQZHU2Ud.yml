@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,6 +251,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -299,6 +307,10 @@ items:
           The seven-headed hydra has all the same abilities as the five-headed
           hydra, except that the heads that get sprouted are the 8th and 9th and
           those heads/attacks come with 50 new hit points apiece.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -322,6 +334,10 @@ items:
         value: >-
           When an opportunity attack targets this creature, the attacker must
           roll a natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -348,6 +364,10 @@ items:
           attack instead. Note that flame breath attacks don’t lead to other
           flaming breaths; the hydra has to return to making a gnashing teeth
           attack first.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

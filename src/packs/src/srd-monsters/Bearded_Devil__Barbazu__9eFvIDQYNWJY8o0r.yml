@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -296,6 +304,10 @@ items:
           When an enemy engaged with the bearded devil misses it with an attack,
           the devil can make a filthy beard attack against that enemy as a free
           action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
           When you choose to add the escalation die to an attack against a
           bearded devil, the devil or one of its nearby allies can roll a save
           against a save ends effect.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,6 +359,10 @@ items:
         value: >-
           When the bearded devil makes an opportunity attack, it can also make a
           filthy beard attack against the same target as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,6 +388,10 @@ items:
           enemies. As a free action, it can either make a disengage check to try
           to move to intercept the enemy, or move to intercept the enemy and
           only take half damage from opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -391,6 +415,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -414,6 +442,10 @@ items:
         value: >-
           The target of the bearded devil’s filthy beard attack now takes [[10]]
           ongoing poison damage and is *weakened* (save ends both) instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

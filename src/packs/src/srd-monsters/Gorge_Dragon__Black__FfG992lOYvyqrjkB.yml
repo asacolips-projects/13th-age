@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/round, as a free action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,6 +303,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle, as a quick action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -350,6 +362,10 @@ items:
           creature to be regurgitated from the dragon’s gut, while a 20 means
           that the creature cuts/rips a hole through the dragon’s flesh to
           escape (dealing basic attack damage automatically).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -371,6 +387,10 @@ items:
         type: ''
         label: Description
         value: The gorge dragon can have up to two enemies grabbed at the same time.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -394,6 +414,10 @@ items:
         value: >-
           When a cold attack targets this creature, the attacker must roll a
           natural 14+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -415,6 +439,10 @@ items:
         type: ''
         label: Description
         value: Gorge dragons swim well and can breathe underwater.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

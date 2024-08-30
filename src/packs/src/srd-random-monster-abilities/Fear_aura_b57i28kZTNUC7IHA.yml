@@ -12,11 +12,13 @@ system:
       <p>Enemies engaged with the demon who are below its fear hit point
       threshold are dazed and can&rsquo;t use the escalation die; see Fear level
       thresholds on page 200.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

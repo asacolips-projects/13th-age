@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -201,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. AC'
+        value: '[[d20 + 15]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -250,6 +255,10 @@ items:
         type: String
         label: Description
         value: '<p>Limited use: 1/battle.</p>'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -303,6 +312,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -311,7 +325,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+15]] vs. MD ([[1]] nearby enemy, or [[1]] nearby enemy per point
+          [[d20 + 15]] vs. MD ([[1]] nearby enemy, or [[1]] nearby enemy per point
           of es. die if mystic escalator benefit is active)
       hit:
         type: String
@@ -368,6 +382,10 @@ items:
           per-battle or daily spell, roll a hard save (16+) immediately after
           the spell is cast; on a success, the spellcaster doesn&rsquo;t expend
           the spell.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -393,6 +411,10 @@ items:
           background-color: #ffffff;">T</span>he naga and each of its nearby
           allies can use the escalation die unless the naga has been hit by two
           enemy spells since its last turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

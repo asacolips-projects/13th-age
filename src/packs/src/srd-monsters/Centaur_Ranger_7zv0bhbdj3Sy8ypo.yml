@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -293,6 +301,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 2/battle.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -348,6 +360,10 @@ items:
           only takes half damage from opportunity attacks that hit it. When an
           enemy makes an opportunity attack against it and misses, that enemy
           takes [[10]] damage from a counter-attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,6 +393,10 @@ items:
           over an enemy, stirring up a hornet’s nest near an attacker, etc.).
           The target of its attack or a creature attacking it when it attempts
           this stunt rolls a normal save; on a success, the bonus is negated.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

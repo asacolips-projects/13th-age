@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
           The grabbed foe can’t move except to teleport, pop free, or attempt to
           disengage, and disengage attempts take a -5 penalty unless the
           creature hit the hezrou with an attack that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -265,6 +273,10 @@ items:
         type: ''
         label: Description
         value: The hezrou gains a +4 attack bonus against any enemy it is grabbing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,6 +301,10 @@ items:
           While engaged with this creature, enemies with 84 hp or fewer are
           *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -312,6 +328,10 @@ items:
         value: >-
           Lower-level non-mook demons nearby the hezrou deal damage equal to
           their level when they miss with an attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,6 +355,10 @@ items:
         value: >-
           The hezrou’s allies gain a +4 attack bonus against any creature it is
           grabbing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

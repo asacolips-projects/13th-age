@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -251,6 +255,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -300,6 +308,10 @@ items:
         value: >-
           Whenever a creature misses the chimera with a melee attack, the
           chimera’s multiple sharp bits deal [[3d10]] damage to that attacker.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -324,6 +336,10 @@ items:
           When an attacker scores a critical hit against the chimera and it
           survives, its attack rolls on its next turn deal the effects of the
           lower rolls as well as their own results.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

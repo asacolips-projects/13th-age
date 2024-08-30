@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9lFXBuKaCPgm7SMu
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 7]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -339,8 +347,6 @@ items:
         value: >-
           The target is immune to puppeteer abilities for the rest of this
           battle and until the end of the next battle.
-      embeddedMacro:
-        value: ''
     _id: OQMORVcpIgWALR20
     effects: []
     folder: null
@@ -363,11 +369,13 @@ items:
           <p>Once per battle as a move action, the egg swarm can pop free from
           each enemy engaged with it and take two move actions, but it must
           finish its move engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: EPV6zNeEOhWy2wzl
     effects: []
@@ -390,11 +398,13 @@ items:
         value: >-
           <p>For every four xombie egg swarms in the battle (round up), one of
           them can use puppeteer tentacles once during the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: yK077JGOAlIJw6Iy
     effects: []
@@ -421,11 +431,13 @@ items:
           crab xombie at the start of the next round (roll initiative and give
           the new xombie a +10 initiative bonus for the shock of its
           arrival).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vFnrCRLi3w5LpWC4
     effects: []

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: z7zbF4ofsl0YdxTu
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC'
+        value: '[[d20 + 12]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: a91km5kyqhoEs1Ah
     effects: []
     folder: null
@@ -361,11 +367,13 @@ items:
           <p>A golem warder can&rsquo;t be dazed, weakened, confused, or made
           vulnerable. Ongoing damage doesn&rsquo;t harm it either, unless
           it&rsquo;s acid, fire, or lightning.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kkDE3XKX9XaQfaqT
     effects: []
@@ -390,11 +398,13 @@ items:
           melee attack targets that ally, it can try to intercept the attack as
           a free action. Roll an easy save (6+); if it succeeds, the warder
           becomes the target of the attack instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tdi2NWAlskgX6GRI
     effects: []
@@ -425,11 +435,13 @@ items:
           <p>Golem warders are usually linked to a master through a ritual.
           Unless instructed otherwise, they use *spellward* only to protect that
           master.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: skNgzf4mseWHAnnC
     effects: []
@@ -450,11 +462,13 @@ items:
         type: String
         label: Description
         value: <p>Only natural even spell attack rolls deal damage to the golem.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VaJtS3Q8Ze3LjPFu
     effects: []

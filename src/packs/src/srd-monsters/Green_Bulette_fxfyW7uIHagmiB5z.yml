@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         value: >-
           The green bulette gains a +3 bonus to attack and damage with its first
           attack each battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -273,6 +281,10 @@ items:
           attacks don’t trigger this ability. If the green bulette hunkers down
           while it’s moving (for example, from a readied action), its movement
           ends that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -299,6 +311,10 @@ items:
           equal to the escalation die but can’t use into the earth. Creatures
           that have no blood (constructs, oozes, plant creatures, etc.) don’t
           trigger this ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -323,6 +339,10 @@ items:
           Like all bulettes, the green bulette can burrow. While above ground,
           it prefers to move slowly on the surface and rely on its plant- and
           soil-covered shell to stay hidden until it attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

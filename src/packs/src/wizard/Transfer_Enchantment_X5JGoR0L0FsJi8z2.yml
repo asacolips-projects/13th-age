@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,10 +28,14 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: null
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -74,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[2d6*10+@atk.a.bonus]] psychic damage, and you can transfer one condition
+      [[2d6 * 10 + @atk.a.bonus]] psychic damage, and you can transfer one condition
       caused by your enemies from you or the ally you are next to over to the
       target. If timing is required, interpret the transferred condition as if
       you had caused it with this spell.
@@ -138,44 +143,54 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d10*10+@atk.a.bonus]] damage; if the spell misses, you regain it during
+      [[2d10 * 10 + @atk.a.bonus]] damage; if the spell misses, you regain it during
       your next quick rest.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -190,16 +205,12 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/blue_10.jpg
 effects: []

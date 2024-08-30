@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -251,6 +255,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -301,6 +309,10 @@ items:
           Limited use: Once the chimera has damaged an enemy with this attack,
           it can’t use tusk charge again until it drops an enemy to 0 hp or
           lower.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -357,6 +369,10 @@ items:
           icon’s chimerical benefit (B) without the flaw. Actual benefits and
           flaws are up to the GM, and should reflect the icons with which the
           players have relationships.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -380,6 +396,10 @@ items:
         value: >-
           When a spell attack misses the chimera, it has no miss effect and the
           chimera heals 40 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,6 +421,10 @@ items:
         type: ''
         label: Description
         value: The crit range of melee attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -424,6 +448,10 @@ items:
         value: >-
           When the chimera saves against a condition, it becomes immune to that
           condition until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -445,6 +473,10 @@ items:
         type: ''
         label: Description
         value: The crit range of spell attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -468,6 +500,10 @@ items:
         value: >-
           When a creature is engaged with the chimera at the start of its turn,
           it takes [[20]] fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -491,6 +527,10 @@ items:
         value: >-
           Each time the chimera scores a critical hit, it takes a cumulative -2
           penalty to all defenses.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -514,6 +554,10 @@ items:
         value: >-
           Any damage dice that roll maximum damage against the chimera count as
           1s.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -535,6 +579,10 @@ items:
         type: ''
         label: Description
         value: The chimera won’t willingly disengage from a creature engaged with it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -558,6 +606,10 @@ items:
         value: >-
           When the escalation die is odd, the chimera gains an additional
           standard action that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -581,6 +633,10 @@ items:
         value: >-
           The chimera’s form is unusually frail, and any damage dice that roll
           1s against the chimera count as 2s.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -604,6 +660,10 @@ items:
         value: >-
           Enemies engaged with the chimera who are below 48 hit points are
           *dazed* and can’t use the escalation die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -630,6 +690,10 @@ items:
           adventurer in gems and precious metals. At the GM’s say-so, knowledge
           of this bounty may grant particularly mercenary characters a +1 attack
           bonus against the chimera once it’s staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -653,6 +717,10 @@ items:
         value: >-
           When the chimera makes a fiery breath attack, it can make another
           fiery breath attack that turn as a quick action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -676,6 +744,10 @@ items:
         value: >-
           When the chimera rolls a natural odd miss with fiery breath, it takes
           [[20]] fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -700,6 +772,10 @@ items:
           The chimera is constantly evolving and changing. When an enemy rolls a
           natural 1-5 on an attack roll against it, the chimera adds the
           escalation die to its attack rolls until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -721,6 +797,10 @@ items:
         type: ''
         label: Description
         value: The crit range of poison attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -745,6 +825,10 @@ items:
           When an enemy rolls a natural even miss with a melee attack against
           the chimera, the weapon temporarily loses all its bonuses and powers
           and the wielder is *weakened* (save ends both).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -766,6 +850,10 @@ items:
         type: ''
         label: Description
         value: The crit range of holy attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -789,6 +877,10 @@ items:
         value: >-
           As a standard action, the chimera can make a tusk charge attack. It
           can’t make any other attacks the same turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -813,6 +905,10 @@ items:
           The horns and tusks of the chimera lock together at inopportune
           moments. When it rolls a natural 1-5 with an attack against multiple
           targets, it loses any further attacks that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -834,6 +930,10 @@ items:
         type: ''
         label: Description
         value: The chimera can fly like an eagle, swooping in and out of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -857,6 +957,10 @@ items:
         value: >-
           The crit range of negative energy attacks against the chimera expands
           by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -880,6 +984,10 @@ items:
         value: >-
           When the chimera rolls a natural 1-5 with an attack and misses, the
           target takes [[20]] ongoing poison damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -903,6 +1011,10 @@ items:
         value: >-
           The first time each turn the chimera hits with an attack, it rerolls
           the attack and takes the lower roll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -926,6 +1038,10 @@ items:
         value: >-
           While not staggered, the chimera rolls [[2d20]] with its melee attacks
           and uses the higher roll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -949,6 +1065,10 @@ items:
         value: >-
           Whenever the chimera moves, it rolls an easy save (6+). On a failure,
           it provokes opportunity attacks from each nearby enemy.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

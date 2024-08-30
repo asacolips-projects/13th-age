@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. MD ([[1d3]] nearby enemies in a group)'
+        value: '[[d20 + 7]] vs. MD ([[1d3]] nearby enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: cQYp19einChcJpax
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: The troubadour pops free.
-      embeddedMacro:
-        value: ''
     _id: HwEO8lV3uRk8IvbO
     effects: []
     folder: null
@@ -358,11 +364,13 @@ items:
         value: >-
           <p>Choose either <em>Path of the Sword</em> or <em>Path of
           Song</em>.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TtwiXDnkKbmfOZND
     effects: []
@@ -386,11 +394,13 @@ items:
           <p><em>Gang leader</em>&mdash;Creatures hit by <em>heckle</em> are
           *vulnerable* to attack by the troubadour&rsquo;s allies until the
           start of the troubadour&rsquo;s next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ouwuYO9ablC2iDL5
     effects: []
@@ -415,11 +425,13 @@ items:
 
           <p><em>Throw your voice</em>&mdash;Targets of <em>heckle</em> may not
           attack the troubadour until the end of their next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 87ZAMhYZBKpigZwq
     effects: []
@@ -442,11 +454,13 @@ items:
         value: >-
           <p>The troubadour gains the other destiny benefit, and adds 1 to its
           lower defense.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KOSMcUcZVO1LwyOH
     effects: []
@@ -470,11 +484,13 @@ items:
           <p>If an enemy rolls a natural 1 on an attack against the faun
           troubadour, use <em>heckle</em> as a free action, but only against the
           triggering enemy. This does not count as a use of heckle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JeE45zrUklLQyo30
     effects: []
