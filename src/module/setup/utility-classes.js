@@ -522,9 +522,16 @@ export class ArchmageUtility {
    *   specifying options.attack to denote this is an attack roll.
    * @returns {string} Parsed text with inline rolls, such as "[[d20+7]] vs AC"
    */
-  static parseClipboardText(pastedText) {
+  static parseClipboardText(pastedText, options={}) {
     // Exit early for rolls that already include inline rolls.
     if (pastedText.includes('[[') || pastedText.includes(']]')) return pastedText;
+    // Handle options.
+    if (options.field?.includes('attack')) {
+      options.attack = true;
+    }
+    if (options.field?.includes('hit')) {
+      options.damage = true;
+    }
     // Remove unnecessary newlines common to PDFs.
     let parsedText = pastedText.replace(/[\r\n][^\.]/g, ' ');
     // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
@@ -535,7 +542,36 @@ export class ArchmageUtility {
       // reconstruct it later since we know it's a "+" sign.
       return `${prefix}ZXZ${number}ZXZ`;
     });
-    // @todo handle weapons.
+    // @todo handle multiplication.
+    // Handle weapons and attributes.
+    const attrs = [
+      'strength',
+      'dexterity',
+      'constitution',
+      'intelligence',
+      'wisdom',
+      'charisma',
+      'level',
+      'weapon',
+      'escalation die',
+    ];
+    const attrsRegex = new RegExp(`${attrs.join('|')}`, 'gi');
+    parsedText = parsedText.replace(attrsRegex, (match) => {
+      console.log('match', match);
+      const cleanMatch = match.trim().toLocaleLowerCase();
+      if (cleanMatch === 'weapon') {
+        return '@wpn.m.dmg';
+      }
+      if (cleanMatch === 'level') {
+        return options.attack ? '@std' : '@lvl';
+      }
+      if (cleanMatch === 'escalation die') {
+        return '@ed';
+      }
+      return options.damage
+        ? `@${cleanMatch.slice(0,3)}.dmg`
+        : `@${cleanMatch.slice(0,3)}.mod`;
+    });
     /**
      * Do a pass to turn likely dice rolls into inline rolls.
      * 
@@ -551,7 +587,7 @@ export class ArchmageUtility {
      * This will still have some funky aspects to it, like outputing "[[d20+9]] vs AC ( [[3]] attacks)".
      * To get around that, we'll have another pass later that tries to clean up unexpected spaces.
      */
-    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*d*\d+[\s\+\-]*)*)((?:\s*vs)*)/gi, (
+    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*(?:(?:d*\d+)|@[a-z\.]+)[\s\+\-]*)*)((?:\s*vs)*)/gi, (
       match,
       saveRoll,
       naturalTrigger,
@@ -572,7 +608,11 @@ export class ArchmageUtility {
     const conditionRegex = new RegExp(`${CONFIG.ARCHMAGE.statusEffects.map(c => c.id).join('|')}`, 'gi');
     parsedText = parsedText.replace(conditionRegex, (match) => `*${match}*`);
     // Return the trimmed and cleaned string.
-    return parsedText.replace('( ', '(').replace('  ', '').replace(/\s*\++\s*/g, '+').trim();
+    return parsedText.replace('( ', '(')
+      .replace(' )', ')')
+      .replace('  ', '')
+      .replace(/\s*\++\s*/g, '+')
+      .trim();
   }
 }
 

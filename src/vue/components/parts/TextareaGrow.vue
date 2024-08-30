@@ -33,8 +33,11 @@ export default {
     },
     parsePastedContent(event) {
       event.preventDefault();
+      const options = {
+        field: event.target.name,
+      };
       const paste = (event.clipboardData || window.clipboardData).getData('text');
-      const result = game.archmage.ArchmageUtility.parseClipboardText(paste);
+      const result = game.archmage.ArchmageUtility.parseClipboardText(paste, options);
       event.target.value = result;
       this.valueAttr = result;
       this.$emit('update:value', result);
