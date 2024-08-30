@@ -515,7 +515,7 @@ export class ArchmageUtility {
 
   /**
    * Parses a given string and conver to an inline roll if possible.
-   * 
+   *
    * @param {string} pastedText String that can potentially include inline rolls,
    *   such as "+7 vs AC".
    * @param {object} options Additional options to modify the logic, such as
@@ -525,21 +525,28 @@ export class ArchmageUtility {
   static parseClipboardText(pastedText) {
     // Exit early for rolls that already include inline rolls.
     if (pastedText.includes('[[') || pastedText.includes(']]')) return pastedText;
-    // Handle monster attacks.
+    // Remove unnecessary newlines common to PDFs.
     let parsedText = pastedText.replace(/[\r\n][^\.]/, ' ');
     // @todo fix weapon parsing.
-    parsedText = parsedText.replace(/([\+\-]*)((?:d*\d+[\+\-]*)*)((?:\s*vs)*)/g, (match, startingOperator, diceFormula, isAttack) => {
+    parsedText = parsedText.replace(/((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*d*\d+[\s\+\-]*)*)((?:\s*vs)*)/g, (
+      match,
+      naturalTrigger,
+      startingOperator,
+      diceFormula,
+      vs
+    ) => {
       console.log('matches', {
         match: match,
         startingOperator: startingOperator,
+        naturalTrigger: naturalTrigger,
         diceFormula: diceFormula,
-        isAttack: isAttack,
+        vs: vs,
       });
       if (!diceFormula) return match;
       let d20 = startingOperator ? 'd20' : 'd20+';
-      return `[[${isAttack ? d20 : ''}${startingOperator}${diceFormula}]]${isAttack}`;
+      return `${naturalTrigger} [[${vs ? d20 : ''}${startingOperator}${diceFormula.trim()}]] ${vs}`;
     });
-    return parsedText;
+    return parsedText.trim();
   }
 }
 
