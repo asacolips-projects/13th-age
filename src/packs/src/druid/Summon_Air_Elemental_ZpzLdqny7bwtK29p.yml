@@ -155,9 +155,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: >-
-      You now summon a 5th level air elemental (33 hp).You now summon a 7th
-      level big air elemental (47 hp).
+    value: You now summon a 5th level air elemental (33 hp).
   spellLevel6:
     hide: true
     type: String
@@ -199,7 +197,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table

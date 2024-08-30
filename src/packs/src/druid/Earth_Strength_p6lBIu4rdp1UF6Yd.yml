@@ -149,7 +149,7 @@ system:
     label: 2nd Level Spell
     value: ''
   spellLevel3:
-    hide: true
+    hide: false
     type: String
     label: 3rd Level Spell
     value: '3rd level spell: You can now be the chosen target.'
@@ -159,7 +159,7 @@ system:
     label: 4th Level Spell
     value: ''
   spellLevel5:
-    hide: true
+    hide: false
     type: String
     label: 5th Level Spell
     value: '5th level spell: An unstaggered target also gains the bonus to saves.'
@@ -169,7 +169,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: >-
@@ -181,7 +181,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
@@ -208,7 +208,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table

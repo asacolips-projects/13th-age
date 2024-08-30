@@ -145,7 +145,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: You can now summon a 5th level fire elemental (33 hp).
+    value: ''
   spellLevel4:
     hide: true
     type: String
@@ -155,7 +155,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: You can now summon a 7th level big fire elemental (48 hp).
+    value: You can now summon a 5th level fire elemental (33 hp).
   spellLevel6:
     hide: true
     type: String
@@ -165,7 +165,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: You can now summon a 9th level epic fire elemental (83 hp).
+    value: You can now summon a 7th level big fire elemental (48 hp).
   spellLevel8:
     hide: true
     type: String
@@ -175,7 +175,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: ''
+    value: You can now summon a 9th level epic fire elemental (83 hp).
   spellLevel10:
     hide: true
     type: String
@@ -197,7 +197,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table

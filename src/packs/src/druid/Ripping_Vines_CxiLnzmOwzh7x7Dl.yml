@@ -145,7 +145,7 @@ system:
     label: 2nd Level Spell
     value: ''
   spellLevel3:
-    hide: true
+    hide: false
     type: String
     label: 3rd Level Spell
     value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage.'
@@ -155,7 +155,7 @@ system:
     label: 4th Level Spell
     value: ''
   spellLevel5:
-    hide: true
+    hide: false
     type: String
     label: 5th Level Spell
     value: >-
@@ -167,7 +167,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage.'
@@ -177,7 +177,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
@@ -204,7 +204,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
