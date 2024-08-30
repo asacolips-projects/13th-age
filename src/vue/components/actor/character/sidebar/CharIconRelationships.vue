@@ -9,7 +9,7 @@
             <span class="icon-name">{{item.bonus.value}} {{item.name.value}}</span>
           </div>
           <ul v-if="item.results" class="icon-rolls flexrow" :key="changeKey">
-            <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll" :data-key="index" :data-roll-key="rollIndex" :data-roll="getRollResult(roll)">{{getRollResult(roll)}}</li>
+            <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll" :data-key="index" :data-roll-key="rollIndex" :data-roll="roll ?? 0">{{getRollResult(roll)}}</li>
           </ul>
         </div>
         <div :class="concat('icon-edit flexrow', isEdit(index, !editArray[index]))">
@@ -89,7 +89,15 @@ export default {
       }
     },
     getRollResult(roll) {
-      return roll == 5 || roll == 6 ? roll : 0;
+      const results = {
+        5: 5,
+        6: 6
+      }
+      if (game.settings.get('archmage', 'secondEdition')) {
+        results[5] = '?';
+        results [6] = '✓';
+      }
+      return results[roll] ?? 0;
     }
   },
   watch: {
