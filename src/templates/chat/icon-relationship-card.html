@@ -11,7 +11,7 @@
                 <span class="part-formula">{{data.roll.formula}}</span>
                 <span class="part-total">{{data.roll.total}}</span>
             </header>
-            <ol class="dice-rolls">
+            <ol class="dice-rolls {{#if secondEdition}}second-edition{{/if}}">
               {{#each data.roll.terms as |term i|}}
                 {{#each term.results as |result r|}}
                 <li class="roll die d{{term.faces}} result-{{result.result}}">{{result.result}}</li>
