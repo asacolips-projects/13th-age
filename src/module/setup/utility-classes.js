@@ -542,7 +542,6 @@ export class ArchmageUtility {
       // reconstruct it later since we know it's a "+" sign.
       return `${prefix}ZXZ${number}ZXZ`;
     });
-    // @todo handle multiplication.
     // Handle weapons and attributes.
     const attrs = [
       'strength',
