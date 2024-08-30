@@ -35,7 +35,7 @@ system:
   group:
     type: String
     label: Group
-    value: null
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -142,7 +142,7 @@ system:
     label: 2nd Level Spell
     value: ''
   spellLevel3:
-    hide: true
+    hide: false
     type: String
     label: 3rd Level Spell
     value: The target can also roll a save against each save ends effect.
@@ -152,7 +152,7 @@ system:
     label: 4th Level Spell
     value: ''
   spellLevel5:
-    hide: true
+    hide: false
     type: String
     label: 5th Level Spell
     value: This spell is now recharge 16+ after battle instead of daily.
@@ -162,7 +162,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: The target can heal using two free recoveries instead of one.
@@ -172,7 +172,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: This spell is now recharge 11+ instead.
@@ -197,7 +197,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table

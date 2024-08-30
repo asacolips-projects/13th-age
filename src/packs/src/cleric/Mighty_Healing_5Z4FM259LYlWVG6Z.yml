@@ -35,7 +35,7 @@ system:
   group:
     type: String
     label: Group
-    value: null
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -156,7 +156,7 @@ system:
     label: 4th Level Spell
     value: ''
   spellLevel5:
-    hide: true
+    hide: false
     type: String
     label: 5th Level Spell
     value: The spell can now target far away allies.
@@ -166,7 +166,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: >-
@@ -178,7 +178,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: Recoveries provided by the spell are now free.
@@ -203,7 +203,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
