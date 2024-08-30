@@ -1,5 +1,5 @@
 <template>
-  <div :class="`field-textarea grow-wrap ${classes ?? ''}`" :data-replicated-value="valueAttr" :data-tooltip="dataTooltip" :data-tooltip-direction="dataTooltipDirection">
+  <div :class="`field-textarea grow-wrap ${classes ?? ''}`" :data-replicated-value="replicatedValue" :data-tooltip="dataTooltip" :data-tooltip-direction="dataTooltipDirection">
     <textarea :name="name"
       :value="valueAttr"
       @input="updateValue"
@@ -20,6 +20,12 @@ export default {
       valueAttr: ''
     }
   },
+  computed: {
+    // This is hacky, but it helps with cases where you have a single word wrap to a new line.
+    replicatedValue() {
+      return `${this.valueAttr} &nbsp; &nbsp;`;
+    }
+  },
   methods: {
     updateValue(event) {
       this.valueAttr = event.target.value;
@@ -32,12 +38,8 @@ export default {
       event.target.value = result;
       this.valueAttr = result;
       this.$emit('update:value', result);
-      // const selection = window.getSelection();
-      // if (!selection.rangeCount) return;
-      // selection.deleteFromDocument();
-      // selection.getRangeAt(0).insertNode(document.createTextNode(paste));
-      // selection.collapseToEnd();
-      console.log('result', result);
+      const changeEvent = new Event('change', {bubbles: true});
+      event.target.dispatchEvent(changeEvent);
       return result;
     }
   },

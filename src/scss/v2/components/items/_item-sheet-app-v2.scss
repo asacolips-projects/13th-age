@@ -54,8 +54,8 @@
     margin-top: -16px;
   }
 
-  textarea,
-  .grow-wrap > textarea {
+  .form-group textarea,
+  .form-group .grow-wrap > textarea {
     background: var(--input-background-color);
     border: 1px solid var(--input-border-color);
     color: var(--input-text-color);
@@ -77,7 +77,7 @@
     }
   }
 
-  .grow-wrap::after {
+  .form-group .grow-wrap::after {
     padding: 0.5rem;
   }
 

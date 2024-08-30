@@ -536,8 +536,22 @@ export class ArchmageUtility {
       return `${prefix}ZXZ${number}ZXZ`;
     });
     // @todo handle weapons.
-    // Do a pass to turn likely dice rolls into inline rolls.
-    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*d*\d+[\s\+\-]*)*)((?:\s*vs)*)/g, (
+    /**
+     * Do a pass to turn likely dice rolls into inline rolls.
+     * 
+     * This pattern basically tries to do (save rolls)* (Natural n+)* (+)* (dice formula) ( vs)*
+     * 
+     * The reason that works is that if we detect either a save roll or no dice roll, we
+     * just exit early and return the match. If we detect a natural trigger, we place it in its
+     * own group so that the dice formula doesn't pick it up. If we detected a preceding + sign,
+     * we note it so that we can avoid "++" when preprending a d20 later. If we detect a dice
+     * formula, we wrap the whole thing in [[diceFormula]]. If we detect " vs", this is an attack
+     * roll and we need to prepend a "d20" to the front.
+     * 
+     * This will still have some funky aspects to it, like outputing "[[d20+9]] vs AC ( [[3]] attacks)".
+     * To get around that, we'll have another pass later that tries to clean up unexpected spaces.
+     */
+    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*d*\d+[\s\+\-]*)*)((?:\s*vs)*)/gi, (
       match,
       saveRoll,
       naturalTrigger,
@@ -554,8 +568,11 @@ export class ArchmageUtility {
     parsedText = parsedText.replace(/(ZXZ)(\d+)(ZXZ)/g, (match, prefix, number, suffix) => {
       return `${number}+`;
     });
+    // Handle conditions.
+    const conditionRegex = new RegExp(`${CONFIG.ARCHMAGE.statusEffects.map(c => c.id).join('|')}`, 'gi');
+    parsedText = parsedText.replace(conditionRegex, (match) => `*${match}*`);
     // Return the trimmed and cleaned string.
-    return parsedText.replace('( ', '(').replace('  ', '').trim();
+    return parsedText.replace('( ', '(').replace('  ', '').replace(/\s*\++\s*/g, '+').trim();
   }
 }
 
