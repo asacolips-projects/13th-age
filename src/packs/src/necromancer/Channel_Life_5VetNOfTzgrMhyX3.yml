@@ -81,12 +81,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
     value: >-
-      Vs. Enemy: [[2d6+@int.dmg+@atk.a.bonus]] negative energy damage and the
+      Vs. Enemy: [[2d6 + @int.dmg + @atk.a.bonus]] negative energy damage and the
       healing target can use a recovery. Vs. Ally: [[5]] negative energy damage
       and the healing target can use a recovery.
   hitEven:
@@ -150,7 +150,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[5d6+@int.dmg+@atk.a.bonus]] vs. enemy; [[10]] damage vs. ally'
+    value: '[[5d6 + @int.dmg + @atk.a.bonus]] vs. enemy; [[10]] damage vs. ally'
   spellLevel4:
     hide: true
     type: String
@@ -160,7 +160,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[5d10+@int.dmg+@atk.a.bonus]] vs.enemy; [[15]] damage vs. ally'
+    value: '[[5d10 + @int.dmg + @atk.a.bonus]] vs.enemy; [[15]] damage vs. ally'
   spellLevel6:
     hide: true
     type: String
@@ -170,7 +170,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[7d10+@int.dmg+@atk.a.bonus]] vs. enemy; [[20]] damage vs. ally'
+    value: '[[7d10 + @int.dmg + @atk.a.bonus]] vs. enemy; [[20]] damage vs. ally'
   spellLevel8:
     hide: true
     type: String
@@ -180,7 +180,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[10d12+@int.dmg+@atk.a.bonus]] vs. enemy; [[30]] damage vs. ally'
+    value: '[[10d12 + @int.dmg + @atk.a.bonus]] vs. enemy; [[30]] damage vs. ally'
   spellLevel10:
     hide: true
     type: String

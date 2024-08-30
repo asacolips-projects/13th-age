@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -314,7 +314,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+13]] vs. MD (one target that has been hit twice by the shadow
+          [[d20 + 13]] vs. MD (one target that has been hit twice by the shadow
           mongoose this battle)
       hit:
         type: String

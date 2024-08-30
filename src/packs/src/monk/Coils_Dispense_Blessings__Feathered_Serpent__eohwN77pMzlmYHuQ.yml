@@ -80,12 +80,12 @@ system:
     type: String
     label: Attack
     value: >-
-      [[d20+@wis.mod+@std+@atk.m.bonus]], [[/r d20+@wis.mod+@std+@atk.m.bonus]]
+      [[d20 + @wis.mod + @std + @atk.m.bonus]], [[/r d20 + @wis.mod + @std + @atk.m.bonus]]
       vs. AC
   hit:
     type: String
     label: Hit
-    value: '[[@wpn.j.dice+@wis.dmg+@atk.m.bonus]] damage.'
+    value: '[[@wpn.j.dice + @wis.dmg + @atk.m.bonus]] damage.'
   hitEven:
     type: String
     label: Natural Even Hit

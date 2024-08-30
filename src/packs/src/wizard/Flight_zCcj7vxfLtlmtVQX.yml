@@ -180,7 +180,7 @@ system:
     label: 9th Level Spell
     value: >-
       When you cast the spell, you can choose one: the effect lasts for an hour
-      OR you can target [[1d4+1]] creatures for the normal duration.
+      OR you can target [[1d4 + 1]] creatures for the normal duration.
   spellLevel10:
     hide: true
     type: String

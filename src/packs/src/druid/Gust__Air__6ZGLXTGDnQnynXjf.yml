@@ -79,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
-    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage, and [[5]] ongoing cold damage.'
+    value: '[[3d6 + @wis.dmg + @atk.d.bonus]] damage, and [[5]] ongoing cold damage.'
   hitEven:
     type: String
     label: Natural Even Hit
@@ -145,7 +145,7 @@ system:
     hide: false
     type: String
     label: 3rd Level Spell
-    value: '[[6d6+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[6d6 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel4:
     hide: true
     type: String
@@ -156,7 +156,7 @@ system:
     type: String
     label: 5th Level Spell
     value: >-
-      [[6d10+@wis.dmg+@atk.d.bonus]] damage and [[10]] ongoing cold damage, and
+      [[6d10 + @wis.dmg + @atk.d.bonus]] damage and [[10]] ongoing cold damage, and
       you gain flight until the end of your next turn.
   spellLevel6:
     hide: true
@@ -168,7 +168,7 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[10d10+@wis.dmg+@atk.d.bonus]] damage and [[10]] ongoing cold damage, and
+      [[10d10 + @wis.dmg + @atk.d.bonus]] damage and [[10]] ongoing cold damage, and
       you gain flight until the end of the battle.
   spellLevel8:
     hide: true
@@ -179,7 +179,7 @@ system:
     hide: false
     type: String
     label: 9th Level Spell
-    value: ' [[2d8*10+@wis.dmg+@atk.d.bonus]] damage, and [[15]] ongoing cold damage.'
+    value: ' [[2d8*10 + @wis.dmg + @atk.d.bonus]] damage, and [[15]] ongoing cold damage.'
   spellLevel10:
     hide: true
     type: String

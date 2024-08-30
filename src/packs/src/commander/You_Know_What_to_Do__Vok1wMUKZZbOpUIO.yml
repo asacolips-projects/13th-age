@@ -225,7 +225,7 @@ system:
     '1':
       description:
         type: String
-        value: <p>The target also gains [[3d10+@cha.dmg]] temporary hit points.</p>
+        value: <p>The target also gains [[3d10 + @cha.dmg]] temporary hit points.</p>
       isActive:
         type: Boolean
         value: false

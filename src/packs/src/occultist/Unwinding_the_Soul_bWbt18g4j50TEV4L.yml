@@ -258,7 +258,7 @@ system:
         value: >-
           <p>When you attack an enemy that you have begun to unwind and roll a
           natural 11+ against it, it takes extra psychic damage equal to your
-          [[@wis.mod+@lvl]] from all subsequent hits by you or your allies.</p>
+          [[@wis.mod + @lvl]] from all subsequent hits by you or your allies.</p>
       isActive:
         type: Boolean
         value: false

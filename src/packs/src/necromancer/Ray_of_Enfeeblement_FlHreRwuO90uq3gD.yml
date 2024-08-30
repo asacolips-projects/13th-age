@@ -79,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[4d12+@int.dmg+@atk.a.bonus]] negative energy damage and the target is
+      [[4d12 + @int.dmg + @atk.a.bonus]] negative energy damage and the target is
       *weakened* (save ends).
   hitEven:
     type: String
@@ -157,7 +157,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[7d12+@int.dmg+@atk.a.bonus]] '
+    value: '[[7d12 + @int.dmg + @atk.a.bonus]] '
   spellLevel6:
     hide: true
     type: String
@@ -167,7 +167,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[(2d6)10+@int.dmg+@atk.a.bonus]] '
+    value: '[[(2d6)10 + @int.dmg + @atk.a.bonus]] '
   spellLevel8:
     hide: true
     type: String
@@ -177,7 +177,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[(2d10)10+@int.dmg+@atk.a.bonus]] '
+    value: '[[(2d10)10 + @int.dmg + @atk.a.bonus]] '
   spellLevel10:
     hide: true
     type: String

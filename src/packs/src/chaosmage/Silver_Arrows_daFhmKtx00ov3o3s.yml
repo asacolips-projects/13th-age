@@ -135,7 +135,7 @@ system:
   effect:
     type: String
     label: Effect
-    value: <p>The target takes [[4+@atk.a.bonus]] force damage.&nbsp;</p>
+    value: <p>The target takes [[4 + @atk.a.bonus]] force damage.&nbsp;</p>
   spellLevel2:
     hide: true
     type: String
@@ -145,7 +145,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[7+@atk.a.bonus]] damage'
+    value: '[[7 + @atk.a.bonus]] damage'
   spellLevel4:
     hide: true
     type: String
@@ -155,7 +155,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[10+@atk.a.bonus]] damage'
+    value: '[[10 + @atk.a.bonus]] damage'
   spellLevel6:
     hide: true
     type: String
@@ -165,7 +165,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[14+@atk.a.bonus]] damage'
+    value: '[[14 + @atk.a.bonus]] damage'
   spellLevel8:
     hide: true
     type: String
@@ -175,7 +175,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[27+@atk.a.bonus]] damage'
+    value: '[[27 + @atk.a.bonus]] damage'
   spellLevel10:
     hide: true
     type: String

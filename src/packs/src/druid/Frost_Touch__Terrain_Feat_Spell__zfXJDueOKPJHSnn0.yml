@@ -79,13 +79,13 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[2d6+@wis.dmg+@atk.d.bonus]] cold damage, or
-      [[3d6+@wis.dmg+@atk.d.bonus]] cold damage to an enemy you are engaged
+      [[2d6 + @wis.dmg + @atk.d.bonus]] cold damage, or
+      [[3d6 + @wis.dmg + @atk.d.bonus]] cold damage to an enemy you are engaged
       with.
   hitEven:
     type: String
@@ -149,7 +149,7 @@ system:
     type: String
     label: 3rd Level Spell
     value: >-
-      [[4d6+@wis.dmg+@atk.a.bonus]] damage, or [[6d6+@wis.dmg+@atk.a.bonus]] to
+      [[4d6 + @wis.dmg + @atk.a.bonus]] damage, or [[6d6 + @wis.dmg + @atk.a.bonus]] to
       an enemy you are engaged with
   spellLevel4:
     hide: true
@@ -161,7 +161,7 @@ system:
     type: String
     label: 5th Level Spell
     value: >-
-      [[5d10+@wis.dmg+@atk.a.bonus]] damage, or [[6d10+@wis.dmg+@atk.a.bonus]]
+      [[5d10 + @wis.dmg + @atk.a.bonus]] damage, or [[6d10 + @wis.dmg + @atk.a.bonus]]
       to an enemy you are engaged with.
   spellLevel6:
     hide: true
@@ -173,7 +173,7 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[8d10+@wis.dmg+@atk.a.bonus]] damage, or [[10d10+@wis.dmg+@atk.a.bonus]]
+      [[8d10 + @wis.dmg + @atk.a.bonus]] damage, or [[10d10 + @wis.dmg + @atk.a.bonus]]
       to an enemy you are engaged with.
   spellLevel8:
     hide: true
@@ -185,8 +185,8 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d6*10+@wis.dmg+@atk.a.bonus]] damage, or
-      [[2d8*10+@wis.dmg+@atk.a.bonus]] to an enemy you are engaged with.
+      [[2d6*10 + @wis.dmg + @atk.a.bonus]] damage, or
+      [[2d8*10 + @wis.dmg + @atk.a.bonus]] to an enemy you are engaged with.
   spellLevel10:
     hide: true
     type: String

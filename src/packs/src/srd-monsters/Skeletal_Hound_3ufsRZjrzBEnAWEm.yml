@@ -206,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+6]]'
+        value: '[[d20 + 6]]'
       hit:
         type: String
         label: Hit

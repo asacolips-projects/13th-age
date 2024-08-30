@@ -215,7 +215,7 @@ system:
         value: >-
           <p>Twice per day when an enemy engaged with you misses you with an
           attack, you can deal ongoing damage to it equal to your
-          [[@wis.dmg+@lvl]] as you give it a quick slice you’re your weapon.</p>
+          [[@wis.dmg + @lvl]] as you give it a quick slice you’re your weapon.</p>
       isActive:
         type: Boolean
         value: false

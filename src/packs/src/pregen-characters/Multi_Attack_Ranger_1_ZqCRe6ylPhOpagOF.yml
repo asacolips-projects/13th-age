@@ -1070,11 +1070,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus+1]] vs. AC'
+        value: '[[d20 + max(@str.mod,@dex.mod) + @std + @atk.m.bonus + 1]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus+2]] damage'
+        value: '[[@wpn.m.dice + @str.dmg + @atk.m.bonus + 2]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1090,7 +1090,7 @@ items:
       miss:
         type: String
         label: Miss
-        value: '[[@lvl+@lvl]] damage'
+        value: '[[@lvl + @lvl]] damage'
       missEven:
         type: String
         label: Even Miss
@@ -1289,11 +1289,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1508,11 +1508,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus+1]] vs. AC'
+        value: '[[d20 + max(@str.mod,@dex.mod) + @std + @atk.m.bonus + 1]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[(@lvldice)d(@wpn.m.dieNum - 2)+@str.dmg+@atk.m.bonus+2]] damage'
+        value: '[[(@lvldice)d(@wpn.m.dieNum - 2) + @str.dmg + @atk.m.bonus + 2]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2018,11 +2018,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[(@lvldice)d(@wpn.r.dieNum - 2)+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[(@lvldice)d(@wpn.r.dieNum - 2) + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit

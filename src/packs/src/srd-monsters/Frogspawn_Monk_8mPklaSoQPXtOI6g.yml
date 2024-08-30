@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -315,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD (all enemies engaged with the monk)'
+        value: '[[d20 + 8]] vs. PD (all enemies engaged with the monk)'
       hit:
         type: String
         label: Hit

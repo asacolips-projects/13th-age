@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs AC (up to 2 enemies)'
+        value: '[[d20 + 12]] vs AC (up to 2 enemies)'
       hit:
         type: String
         label: Hit
@@ -314,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs AC (up to 3 enemies in a group with a single spear)'
+        value: '[[d20 + 12]] vs AC (up to 3 enemies in a group with a single spear)'
       hit:
         type: String
         label: Hit

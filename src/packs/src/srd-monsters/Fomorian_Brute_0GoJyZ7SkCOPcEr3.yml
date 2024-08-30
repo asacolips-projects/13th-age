@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -313,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -626,7 +626,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+11]] vs. PD (one nearby or faraway enemy, but not one that has
+          [[d20 + 11]] vs. PD (one nearby or faraway enemy, but not one that has
           been targeted by this attack since the start of the last round)
       hit:
         type: String

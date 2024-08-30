@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC (one nearby enemy)'
+        value: '[[d20 + 13]] vs. AC (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -317,7 +317,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD (2 attacks)'
+        value: '[[d20 + 13]] vs. PD (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -466,7 +466,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -528,7 +528,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD ([[1d3]] nearby enemies in a group)'
+        value: '[[d20 + 13]] vs. PD ([[1d3]] nearby enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -590,7 +590,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. MD ([[1d4]] nearby enemies)'
+        value: '[[d20 + 13]] vs. MD ([[1d4]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -652,7 +652,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. MD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 13]] vs. MD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -714,7 +714,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC ([[1d3]] nearby enemies)'
+        value: '[[d20 + 13]] vs. AC ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -776,7 +776,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD (all nearby enemies)'
+        value: '[[d20 + 13]] vs. PD (all nearby enemies)'
       hit:
         type: String
         label: Hit

@@ -208,7 +208,7 @@ system:
     '0':
       description:
         type: String
-        value: <p>The tactic now affects [[1d3+1]] nearby allies.</p>
+        value: <p>The tactic now affects [[1d3 + 1]] nearby allies.</p>
       isActive:
         type: Boolean
         value: false

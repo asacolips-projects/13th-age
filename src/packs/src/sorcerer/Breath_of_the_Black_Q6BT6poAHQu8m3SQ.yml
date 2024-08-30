@@ -79,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[10d6+@cha.dmg+@atk.a.bonus]] acid damage, and [[20]] ongoing acid
+      [[10d6 + @cha.dmg + @atk.a.bonus]] acid damage, and [[20]] ongoing acid
       damage.
   hitEven:
     type: String
@@ -168,7 +168,7 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[10d10+@cha.dmg+@atk.a.bonus]] damage, and [[40]] ongoing damage; [[20]]
+      [[10d10 + @cha.dmg + @atk.a.bonus]] damage, and [[40]] ongoing damage; [[20]]
       ongoing on a miss.
   spellLevel8:
     hide: true
@@ -180,7 +180,7 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d6*10+@cha.dmg+@atk.a.bonus]] damage, and [[60]] ongoing damage; [[30]]
+      [[2d6*10 + @cha.dmg + @atk.a.bonus]] damage, and [[60]] ongoing damage; [[30]]
       ongoing on a miss.
   spellLevel10:
     hide: true

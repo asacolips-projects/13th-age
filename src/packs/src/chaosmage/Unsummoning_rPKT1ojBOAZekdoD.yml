@@ -81,7 +81,7 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
@@ -104,7 +104,7 @@ system:
   miss:
     type: String
     label: Miss
-    value: '[[7d10+@cha.dmg+@atk.a.bonus]] psychic damage.'
+    value: '[[7d10 + @cha.dmg + @atk.a.bonus]] psychic damage.'
   missEven:
     type: String
     label: Even Miss
@@ -190,7 +190,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: 'On miss: [[8d10+@cha.dmg+@atk.a.bonus]] psychic damage.'
+    value: 'On miss: [[8d10 + @cha.dmg + @atk.a.bonus]] psychic damage.'
   spellLevel10:
     hide: true
     type: String

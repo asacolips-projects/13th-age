@@ -137,7 +137,7 @@ system:
     label: Effect
     value: >-
       <p>The targets teleport and swap places. Each teleported enemy takes
-      [[1d6+@atk.a.bonus]] damage. You and your allies don&rsquo;t take damage
+      [[1d6 + @atk.a.bonus]] damage. You and your allies don&rsquo;t take damage
       from teleporting.</p>
   spellLevel2:
     hide: true
@@ -148,7 +148,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[2d6+@atk.a.bonus]] damage'
+    value: '[[2d6 + @atk.a.bonus]] damage'
   spellLevel4:
     hide: true
     type: String
@@ -158,7 +158,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[2d10+@atk.a.bonus]] damage'
+    value: '[[2d10 + @atk.a.bonus]] damage'
   spellLevel6:
     hide: true
     type: String
@@ -168,7 +168,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[3d12+@atk.a.bonus]] damage'
+    value: '[[3d12 + @atk.a.bonus]] damage'
   spellLevel8:
     hide: true
     type: String
@@ -178,7 +178,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[4d12+@atk.a.bonus]] damage'
+    value: '[[4d12 + @atk.a.bonus]] damage'
   spellLevel10:
     hide: true
     type: String

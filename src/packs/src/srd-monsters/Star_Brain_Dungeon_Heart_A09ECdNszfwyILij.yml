@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+22]] vs. AC (each enemy)'
+        value: '[[d20 + 22]] vs. AC (each enemy)'
       hit:
         type: String
         label: Hit
@@ -316,7 +316,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+22]] vs. MD (one nearby or faraway enemy)'
+        value: '[[d20 + 22]] vs. MD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -383,7 +383,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+22]] vs. MD (the enemy that staggered the dungeon heart)'
+        value: '[[d20 + 22]] vs. MD (the enemy that staggered the dungeon heart)'
       hit:
         type: String
         label: Hit

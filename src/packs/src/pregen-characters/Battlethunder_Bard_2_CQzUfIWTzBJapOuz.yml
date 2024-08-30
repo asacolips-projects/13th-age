@@ -1543,11 +1543,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + max(@str.mod,@dex.mod) + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage'
+        value: '[[@wpn.m.dice + max(@str.dmg,@dex.dmg) + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1757,11 +1757,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2953,12 +2953,12 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
         value: >-
-          [[5d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the target is
+          [[5d6 + @cha.dmg + @atk.a.bonus]] thunder damage, and the target is
           *dazed* until end of your next turn.
       hitEven:
         type: String
@@ -3023,7 +3023,7 @@ items:
         hide: true
         type: String
         label: 3rd Level Spell
-        value: '[[6d8+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[6d8 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel4:
         hide: true
         type: String
@@ -3033,7 +3033,7 @@ items:
         hide: true
         type: String
         label: 5th Level Spell
-        value: '[[8d10+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[8d10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel6:
         hide: true
         type: String
@@ -3043,7 +3043,7 @@ items:
         hide: true
         type: String
         label: 7th Level Spell
-        value: '[[2d6*10+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[2d6*10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel8:
         hide: true
         type: String
@@ -3053,7 +3053,7 @@ items:
         hide: true
         type: String
         label: 9th Level Spell
-        value: '[[3d6*10+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[3d6*10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel10:
         hide: true
         type: String
@@ -3881,7 +3881,7 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. MD'
       hit:
         type: String
         label: Hit

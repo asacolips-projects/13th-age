@@ -80,12 +80,12 @@ system:
     type: String
     label: Attack
     value: >-
-      [[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC (+4 if you target an enemy
+      [[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC (+4 if you target an enemy
       taking ongoing damage)
   hit:
     type: String
     label: Hit
-    value: '[[@wpn.k.dice+@str.dmg+@atk.m.bonus]] damage.'
+    value: '[[@wpn.k.dice + @str.dmg + @atk.m.bonus]] damage.'
   hitEven:
     type: String
     label: Natural Even Hit

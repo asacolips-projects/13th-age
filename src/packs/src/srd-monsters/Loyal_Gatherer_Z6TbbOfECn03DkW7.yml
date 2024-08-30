@@ -283,7 +283,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. AC'
+        value: '[[d20 + 15]] vs. AC'
       hit:
         type: String
         label: Hit

@@ -830,11 +830,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[1d12+@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+        value: '[[1d12 + @wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1049,11 +1049,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[1d12+@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+        value: '[[1d12 + @wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1268,11 +1268,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+        value: '[[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1487,11 +1487,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit

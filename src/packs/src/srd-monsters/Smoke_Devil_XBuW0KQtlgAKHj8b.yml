@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs PD'
+        value: '[[d20 + 10]] vs PD'
       hit:
         type: String
         label: Hit
@@ -349,7 +349,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs PD (each enemy engaged with the devil)'
+        value: '[[d20 + 10]] vs PD (each enemy engaged with the devil)'
       hit:
         type: String
         label: Hit

@@ -137,7 +137,7 @@ system:
     label: Effect
     value: >-
       <p>when an enemy engaged with you misses you with an attack, it takes
-      [[3d6+@cha.dmg+@atk.a.bonus]] damage</p>
+      [[3d6 + @cha.dmg + @atk.a.bonus]] damage</p>
   spellLevel2:
     hide: true
     type: String
@@ -157,7 +157,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[5d6 + @cha.dmg + @atk.a.bonus]] damage'
   spellLevel6:
     hide: true
     type: String
@@ -167,7 +167,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage'
   spellLevel8:
     hide: true
     type: String
@@ -177,7 +177,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[7d10+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[7d10 + @cha.dmg + @atk.a.bonus]] damage'
   spellLevel10:
     hide: true
     type: String

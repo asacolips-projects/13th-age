@@ -79,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[6d6+@cha.dmg+@atk.a.bonus]] psychic damage, and until the end of your
+      [[6d6 + @cha.dmg + @atk.a.bonus]] psychic damage, and until the end of your
       next turn, when the target misses with one of its attacks, it takes half
       the damage its attack would have dealt.
   hitEven:
@@ -158,7 +158,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[9d6+@cha.dmg+@atk.a.bonus]] damage.'
+    value: '[[9d6 + @cha.dmg + @atk.a.bonus]] damage.'
   spellLevel6:
     hide: true
     type: String
@@ -168,7 +168,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[10d8+@cha.dmg+@atk.a.bonus]] damage.'
+    value: '[[10d8 + @cha.dmg + @atk.a.bonus]] damage.'
   spellLevel8:
     hide: true
     type: String
@@ -178,7 +178,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[2d8*10+@cha.dmg+@atk.a.bonus]] damage.'
+    value: '[[2d8*10 + @cha.dmg + @atk.a.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

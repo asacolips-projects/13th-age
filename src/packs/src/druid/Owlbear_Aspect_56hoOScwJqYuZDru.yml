@@ -210,8 +210,8 @@ system:
       description:
         type: String
         value: >-
-          <p>When you score a critical hit, you heal [[@lvl+@wis.mod]] hit
-          points ([[@lvl+2*@wis.mod]] at 5th level; [[@lvl+3*@wis.mod]] at 8th
+          <p>When you score a critical hit, you heal [[@lvl + @wis.mod]] hit
+          points ([[@lvl + 2*@wis.mod]] at 5th level; [[@lvl + 3*@wis.mod]] at 8th
           level).</p>
       isActive:
         type: Boolean

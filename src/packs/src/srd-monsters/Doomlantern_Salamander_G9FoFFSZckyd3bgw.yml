@@ -267,7 +267,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD'
+        value: '[[d20 + 8]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -330,7 +330,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD (two nearby or faraway enemies)'
+        value: '[[d20 + 8]] vs. MD (two nearby or faraway enemies)'
       hit:
         type: String
         label: Hit

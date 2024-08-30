@@ -79,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
-    value: '[[7d6+@cha.dmg+@atk.a.bonus]] fire damage'
+    value: '[[7d6 + @cha.dmg + @atk.a.bonus]] fire damage'
   hitEven:
     type: String
     label: Natural Even Hit
@@ -167,7 +167,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[9d10+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[9d10 + @cha.dmg + @atk.a.bonus]] damage'
   spellLevel8:
     hide: true
     type: String
@@ -177,7 +177,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[2d6*10+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[2d6*10 + @cha.dmg + @atk.a.bonus]] damage'
   spellLevel10:
     hide: true
     type: String

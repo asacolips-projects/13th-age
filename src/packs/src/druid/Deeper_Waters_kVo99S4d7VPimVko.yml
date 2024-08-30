@@ -79,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
-    value: '[[1d10+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[1d10 + @wis.dmg + @atk.d.bonus]] damage.'
   hitEven:
     type: String
     label: Natural Even Hit
@@ -148,7 +148,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[4d6+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[4d6 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel4:
     hide: true
     type: String
@@ -158,7 +158,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[6d6+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[6d6 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel6:
     hide: true
     type: String
@@ -168,7 +168,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[6d10+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[6d10 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel8:
     hide: true
     type: String
@@ -178,7 +178,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[8d10+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[8d10 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

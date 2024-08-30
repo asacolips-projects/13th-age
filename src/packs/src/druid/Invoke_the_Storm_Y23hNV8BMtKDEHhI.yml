@@ -246,7 +246,7 @@ system:
     '2':
       description:
         type: String
-        value: <p>[[(@ed+1d6)*5]]damage instead.</p>
+        value: <p>[[(@ed + 1d6)*5]]damage instead.</p>
       isActive:
         type: Boolean
         value: false

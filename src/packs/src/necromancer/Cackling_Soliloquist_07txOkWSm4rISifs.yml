@@ -216,7 +216,7 @@ system:
         type: String
         value: >-
           <p>The sound of your own voice invigorates you—you gain
-          [[d6+@lvl+@cha.dmg]] temporary hit points when you use Cackling
+          [[d6 + @lvl + @cha.dmg]] temporary hit points when you use Cackling
           Soliloquist.</p>
       isActive:
         type: Boolean

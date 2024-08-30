@@ -139,7 +139,7 @@ system:
       <p>On the target's next turn (not this one, if you cast it on yourself),
       the target gains an additional standard action.</p><p>In addition, at the
       start of each of the target's turns this battle, if the escalation die is
-      even, roll a d20 and add the escalation die ([[d20+@ed]]); on a 16+, the
+      even, roll a d20 and add the escalation die ([[d20 + @ed]]); on a 16+, the
       target gains an additional standard action that turn.</p>
   spellLevel2:
     hide: true

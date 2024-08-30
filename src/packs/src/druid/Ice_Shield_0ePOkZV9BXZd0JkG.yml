@@ -137,7 +137,7 @@ system:
     label: Effect
     value: >-
       <p>Until the end of the battle, when an enemy engaged with you attacks you
-      and rolls a natural 1&ndash;15, it takes [[1d10+@atk.d.bonus]] cold damage
+      and rolls a natural 1&ndash;15, it takes [[1d10 + @atk.d.bonus]] cold damage
       after the attack.</p>
   spellLevel2:
     hide: true
@@ -148,7 +148,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[4d6+@atk.d.bonus]] damage.'
+    value: '[[4d6 + @atk.d.bonus]] damage.'
   spellLevel4:
     hide: true
     type: String
@@ -158,7 +158,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: ' [[6d6+@atk.d.bonus]] damage.'
+    value: ' [[6d6 + @atk.d.bonus]] damage.'
   spellLevel6:
     hide: true
     type: String
@@ -168,7 +168,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: ' [[6d10+@atk.d.bonus]] damage.'
+    value: ' [[6d10 + @atk.d.bonus]] damage.'
   spellLevel8:
     hide: true
     type: String
@@ -178,7 +178,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[10d10+@atk.d.bonus]] damage.'
+    value: '[[10d10 + @atk.d.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

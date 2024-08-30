@@ -326,7 +326,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. MD (up to 3 nearby or faraway enemies in a group)'
+        value: '[[d20 + 15]] vs. MD (up to 3 nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -390,7 +390,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD (1 nearby enemy)'
+        value: '[[d20 + 15]] vs. PD (1 nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -450,7 +450,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD (each enemy engaged with it)'
+        value: '[[d20 + 15]] vs. PD (each enemy engaged with it)'
       hit:
         type: String
         label: Hit

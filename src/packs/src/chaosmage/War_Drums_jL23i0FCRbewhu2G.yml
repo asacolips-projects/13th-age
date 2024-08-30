@@ -137,7 +137,7 @@ system:
     label: Effect
     value: >-
       <p>The next natural odd attack roll you or one of your allies makes this
-      battle that hits an enemy deals [[13+@atk.a.bonus]] extra damage.</p>
+      battle that hits an enemy deals [[13 + @atk.a.bonus]] extra damage.</p>
   spellLevel2:
     hide: true
     type: String
@@ -147,7 +147,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[23+@atk.a.bonus]] extra damage.'
+    value: '[[23 + @atk.a.bonus]] extra damage.'
   spellLevel4:
     hide: true
     type: String
@@ -157,7 +157,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[33+@atk.a.bonus]] extra damage.'
+    value: '[[33 + @atk.a.bonus]] extra damage.'
   spellLevel6:
     hide: true
     type: String
@@ -167,7 +167,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[53+@atk.a.bonus]] extra damage.'
+    value: '[[53 + @atk.a.bonus]] extra damage.'
   spellLevel8:
     hide: true
     type: String
@@ -177,7 +177,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[83+@atk.a.bonus]] extra damage.'
+    value: '[[83 + @atk.a.bonus]] extra damage.'
   spellLevel10:
     hide: true
     type: String

@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC (1 or 2 attacks)'
+        value: '[[d20 + 17]] vs. AC (1 or 2 attacks)'
       hit:
         type: String
         label: Hit
@@ -316,7 +316,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 17]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -376,7 +376,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC ([[2d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 17]] vs. AC ([[2d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -620,7 +620,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC ([[1d3]] closest nearby enemies)'
+        value: '[[d20 + 17]] vs. AC ([[1d3]] closest nearby enemies)'
       hit:
         type: String
         label: Hit

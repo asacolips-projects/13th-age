@@ -136,7 +136,7 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>You summon a mob of [[1d3+1]] crumbling skeleton mooks, as per the
+      <p>You summon a mob of [[1d3 + 1]] crumbling skeleton mooks, as per the
       summoning rules on page 11. These skeletons fight for you until the end of
       the battle or until they drop to 0 hp, whichever comes first.</p><p>As you
       cast the spell at higher levels, the mooks you summon vary, as shown
@@ -151,7 +151,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[d3+1]] Putrid Zombie mooks'
+    value: '[[d3 + 1]] Putrid Zombie mooks'
   spellLevel4:
     hide: true
     type: String
@@ -161,7 +161,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[d3+1]] Starving Ghoul mooks'
+    value: '[[d3 + 1]] Starving Ghoul mooks'
   spellLevel6:
     hide: true
     type: String
@@ -171,7 +171,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[d3+1]] Masterless Vampire Spawn mooks'
+    value: '[[d3 + 1]] Masterless Vampire Spawn mooks'
   spellLevel8:
     hide: true
     type: String
@@ -181,7 +181,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[d3+1]] Blackamber Skeletal Warrior mooks'
+    value: '[[d3 + 1]] Blackamber Skeletal Warrior mooks'
   spellLevel10:
     hide: true
     type: String
@@ -213,7 +213,7 @@ system:
       description:
         type: String
         value: >-
-          <p>You now summon [[1d4+1]] mooks when you use this spell instead of
+          <p>You now summon [[1d4 + 1]] mooks when you use this spell instead of
           1d3+1.</p>
       isActive:
         type: Boolean

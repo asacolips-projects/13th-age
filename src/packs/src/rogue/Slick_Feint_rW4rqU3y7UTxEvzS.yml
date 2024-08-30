@@ -79,7 +79,7 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.m.bonus]] vs. MD'
+    value: '[[d20 + @cha.mod + @std + @atk.m.bonus]] vs. MD'
   hit:
     type: String
     label: Hit

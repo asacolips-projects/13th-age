@@ -296,7 +296,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -358,7 +358,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD (all enemies engaged with the koruku servitor)'
+        value: '[[d20 + 13]] vs. PD (all enemies engaged with the koruku servitor)'
       hit:
         type: String
         label: Hit
@@ -418,7 +418,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 13]] vs. PD (one nearby enemy)'
       hit:
         type: String
         label: Hit

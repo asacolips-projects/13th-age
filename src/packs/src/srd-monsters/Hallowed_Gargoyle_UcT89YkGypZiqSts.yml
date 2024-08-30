@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -313,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -439,7 +439,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 11]] vs. MD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -563,7 +563,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+11]] vs. MD (1 enemy that has attacked the hallowed gargoyle
+          [[d20 + 11]] vs. MD (1 enemy that has attacked the hallowed gargoyle
           this battle)
       hit:
         type: String

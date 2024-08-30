@@ -823,11 +823,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus+2]] damage'
+        value: '[[@wpn.m.dice + @dex.dmg + @atk.m.bonus + 2]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1267,11 +1267,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2045,7 +2045,7 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.m.bonus]] vs. MD'
+        value: '[[d20 + @cha.mod + @std + @atk.m.bonus]] vs. MD'
       hit:
         type: String
         label: Hit
@@ -2891,11 +2891,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @str.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.'
+        value: '[[@wpn.m.dice + @dex.dmg + @atk.m.bonus]] damage.'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -3170,12 +3170,12 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
         value: >-
-          [[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage, and you can pop free
+          [[@wpn.m.dice + @dex.dmg + @atk.m.bonus]] damage, and you can pop free
           from the target.
       hitEven:
         type: String
@@ -3456,12 +3456,12 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
         value: >-
-          [[(@lvldice)d4+@dex.dmg+@atk.m.bonus]] damage, and if your natural
+          [[(@lvldice)d4 + @dex.dmg + @atk.m.bonus]] damage, and if your natural
           attack roll is even and one of your allies is engaged with the target,
           you can use your Sneak Attack damage for the round.
       hitEven:
@@ -3736,11 +3736,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage'
+        value: '[[@wpn.m.dice + @dex.dmg + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -3978,11 +3978,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.'
+        value: '[[@wpn.m.dice + @dex.dmg + @atk.m.bonus]] damage.'
       hitEven:
         type: String
         label: Natural Even Hit

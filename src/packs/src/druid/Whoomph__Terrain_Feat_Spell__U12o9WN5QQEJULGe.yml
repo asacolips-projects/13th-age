@@ -79,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[1d8+@wis.dmg+@atk.d.bonus]] damage; or [[2d8+@wis.dmg+@atk.d.bonus]]
+      [[1d8 + @wis.dmg + @atk.d.bonus]] damage; or [[2d8 + @wis.dmg + @atk.d.bonus]]
       damage against a mook.
   hitEven:
     type: String
@@ -148,7 +148,7 @@ system:
     type: String
     label: 3rd Level Spell
     value: >-
-      [[3d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d6+@wis.dmg+@atk.d.bonus]]
+      [[3d6 + @wis.dmg + @atk.d.bonus]] damage, or [[6d6 + @wis.dmg + @atk.d.bonus]]
       against a mook.
   spellLevel4:
     hide: true
@@ -160,7 +160,7 @@ system:
     type: String
     label: 5th Level Spell
     value: >-
-      [[5d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d10+@wis.dmg+@atk.d.bonus]]
+      [[5d6 + @wis.dmg + @atk.d.bonus]] damage, or [[6d10 + @wis.dmg + @atk.d.bonus]]
       against a mook.
   spellLevel6:
     hide: true
@@ -172,7 +172,7 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[5d8+@wis.dmg+@atk.d.bonus]] damage, or [[10d8+@wis.dmg+@atk.d.bonus]]
+      [[5d8 + @wis.dmg + @atk.d.bonus]] damage, or [[10d8 + @wis.dmg + @atk.d.bonus]]
       against a mook.
   spellLevel8:
     hide: true
@@ -184,7 +184,7 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[8d10+@wis.dmg+@atk.d.bonus]] damage, or [[3d6*10+@wis.dmg+@atk.d.bonus]]
+      [[8d10 + @wis.dmg + @atk.d.bonus]] damage, or [[3d6*10 + @wis.dmg + @atk.d.bonus]]
       against a mook.
   spellLevel10:
     hide: true

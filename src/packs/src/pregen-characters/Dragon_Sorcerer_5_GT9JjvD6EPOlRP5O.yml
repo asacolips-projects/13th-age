@@ -583,7 +583,7 @@ items:
         type: String
         label: Attack
         value: >-
-          [[d20+max(@str.mod,@dex.mod,@con.mod,@int.mod,@wis.mod,@cha.mod)+@std]]
+          [[d20 + max(@str.mod,@dex.mod,@con.mod,@int.mod,@wis.mod,@cha.mod) + @std]]
           vs. PD
       hit:
         type: String
@@ -2046,11 +2046,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+        value: '[[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2479,11 +2479,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2693,11 +2693,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
-        value: '[[3d6+@cha.dmg+@atk.a.bonus]] cold damage.'
+        value: '[[3d6 + @cha.dmg + @atk.a.bonus]] cold damage.'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2759,7 +2759,7 @@ items:
         hide: true
         type: String
         label: 3rd Level Spell
-        value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[5d6 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel4:
         hide: true
         type: String
@@ -2769,7 +2769,7 @@ items:
         hide: true
         type: String
         label: 5th Level Spell
-        value: '[[4d10+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[4d10 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel6:
         hide: true
         type: String
@@ -2779,7 +2779,7 @@ items:
         hide: true
         type: String
         label: 7th Level Spell
-        value: '[[6d12+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[6d12 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel8:
         hide: true
         type: String
@@ -2789,7 +2789,7 @@ items:
         hide: true
         type: String
         label: 9th Level Spell
-        value: '[[10d12+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[10d12 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel10:
         hide: true
         type: String
@@ -2915,11 +2915,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
-        value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage.'
+        value: '[[1d6 + @cha.dmg + @atk.a.bonus]] fire damage.'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2981,7 +2981,7 @@ items:
         hide: true
         type: String
         label: 3rd Level Spell
-        value: '[[1d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[1d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel4:
         hide: true
         type: String
@@ -2991,7 +2991,7 @@ items:
         hide: true
         type: String
         label: 5th Level Spell
-        value: '[[2d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[2d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel6:
         hide: true
         type: String
@@ -3001,7 +3001,7 @@ items:
         hide: true
         type: String
         label: 7th Level Spell
-        value: '[[3d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[3d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel8:
         hide: true
         type: String
@@ -3011,7 +3011,7 @@ items:
         hide: true
         type: String
         label: 9th Level Spell
-        value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel10:
         hide: true
         type: String
@@ -3201,11 +3201,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
-        value: '[[1d8+@cha.dmg+@atk.a.bonus]] random energy damage.'
+        value: '[[1d8 + @cha.dmg + @atk.a.bonus]] random energy damage.'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -3273,7 +3273,7 @@ items:
         hide: true
         type: String
         label: 3rd Level Spell
-        value: '[[3d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[3d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel4:
         hide: true
         type: String
@@ -3283,7 +3283,7 @@ items:
         hide: true
         type: String
         label: 5th Level Spell
-        value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel6:
         hide: true
         type: String
@@ -3293,7 +3293,7 @@ items:
         hide: true
         type: String
         label: 7th Level Spell
-        value: '[[7d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[7d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel8:
         hide: true
         type: String
@@ -3303,7 +3303,7 @@ items:
         hide: true
         type: String
         label: 9th Level Spell
-        value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[9d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel10:
         hide: true
         type: String
@@ -4782,11 +4782,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
-        value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage.'
+        value: '[[1d6 + @cha.dmg + @atk.a.bonus]] fire damage.'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -4848,7 +4848,7 @@ items:
         hide: true
         type: String
         label: 3rd Level Spell
-        value: '[[3d6+@cha.dmg+@atk.a.bonus]] damage; [[2d4]] ongoing.'
+        value: '[[3d6 + @cha.dmg + @atk.a.bonus]] damage; [[2d4]] ongoing.'
       spellLevel4:
         hide: true
         type: String
@@ -4858,7 +4858,7 @@ items:
         hide: true
         type: String
         label: 5th Level Spell
-        value: '[[4d6+@cha.dmg+@atk.a.bonus]] damage; [[2d6]] ongoing.'
+        value: '[[4d6 + @cha.dmg + @atk.a.bonus]] damage; [[2d6]] ongoing.'
       spellLevel6:
         hide: true
         type: String
@@ -4868,7 +4868,7 @@ items:
         hide: true
         type: String
         label: 7th Level Spell
-        value: '[[6d6+@cha.dmg+@atk.a.bonus]] damage; [[3d6]] ongoing.'
+        value: '[[6d6 + @cha.dmg + @atk.a.bonus]] damage; [[3d6]] ongoing.'
       spellLevel8:
         hide: true
         type: String
@@ -4878,7 +4878,7 @@ items:
         hide: true
         type: String
         label: 9th Level Spell
-        value: '[[10d6+@cha.dmg+@atk.a.bonus]] damage; [[5d6]] ongoing.'
+        value: '[[10d6 + @cha.dmg + @atk.a.bonus]] damage; [[5d6]] ongoing.'
       spellLevel10:
         hide: true
         type: String
@@ -5301,11 +5301,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
-        value: '[[15+@cha.dmg]] ongoing poison damage.'
+        value: '[[15 + @cha.dmg]] ongoing poison damage.'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -5377,7 +5377,7 @@ items:
         hide: true
         type: String
         label: 5th Level Spell
-        value: '[[25+@cha.dmg]] ongoing poison damage; [[10]] ongoing on a miss.'
+        value: '[[25 + @cha.dmg]] ongoing poison damage; [[10]] ongoing on a miss.'
       spellLevel6:
         hide: true
         type: String
@@ -5387,7 +5387,7 @@ items:
         hide: true
         type: String
         label: 7th Level Spell
-        value: '[[35+@cha.dmg]] ongoing poison damage; [[15]] ongoing on a miss.'
+        value: '[[35 + @cha.dmg]] ongoing poison damage; [[15]] ongoing on a miss.'
       spellLevel8:
         hide: true
         type: String
@@ -5397,7 +5397,7 @@ items:
         hide: true
         type: String
         label: 9th Level Spell
-        value: '[[50+@cha.dmg]] ongoing poison damage; [[25]] ongoing on a miss.'
+        value: '[[50 + @cha.dmg]] ongoing poison damage; [[25]] ongoing on a miss.'
       spellLevel10:
         hide: true
         type: String
@@ -5523,12 +5523,12 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
         value: >-
-          [[10d6+@cha.dmg+@atk.a.bonus]] acid damage, and [[20]] ongoing acid
+          [[10d6 + @cha.dmg + @atk.a.bonus]] acid damage, and [[20]] ongoing acid
           damage.
       hitEven:
         type: String
@@ -5612,7 +5612,7 @@ items:
         type: String
         label: 7th Level Spell
         value: >-
-          [[10d10+@cha.dmg+@atk.a.bonus]] damage, and [[40]] ongoing damage;
+          [[10d10 + @cha.dmg + @atk.a.bonus]] damage, and [[40]] ongoing damage;
           [[20]] ongoing on a miss.
       spellLevel8:
         hide: true
@@ -5624,7 +5624,7 @@ items:
         type: String
         label: 9th Level Spell
         value: >-
-          [[2d6*10+@cha.dmg+@atk.a.bonus]] damage, and [[60]] ongoing damage;
+          [[2d6*10 + @cha.dmg + @atk.a.bonus]] damage, and [[60]] ongoing damage;
           [[30]] ongoing on a miss.
       spellLevel10:
         hide: true

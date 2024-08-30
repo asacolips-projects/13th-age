@@ -79,15 +79,15 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+    value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
   hit:
     type: String
     label: Hit
     value: >-
-      [[@wpn.k.dice+@str.dmg+@atk.m.bonus]] damage, and as a free action you can
+      [[@wpn.k.dice + @str.dmg + @atk.m.bonus]] damage, and as a free action you can
       teleport next to a different nearby enemy you can see (engaging it) and
-      make a PUNCH attack ([[d20+@wpn.m.atk+@ed]] vs. AC) against it for
-      [[@wpn.p.dice+@str.dmg+@atk.m.bonus]] damage.
+      make a PUNCH attack ([[d20 + @wpn.m.atk + @ed]] vs. AC) against it for
+      [[@wpn.p.dice + @str.dmg + @atk.m.bonus]] damage.
   hitEven:
     type: String
     label: Natural Even Hit

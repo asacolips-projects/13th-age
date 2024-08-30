@@ -268,7 +268,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. AC'
+        value: '[[d20 + 16]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -328,7 +328,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD ([[1d4]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 16]] vs. PD ([[1d4]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit

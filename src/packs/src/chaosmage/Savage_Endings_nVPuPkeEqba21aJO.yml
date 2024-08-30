@@ -85,7 +85,7 @@ system:
   hit:
     type: String
     label: Hit
-    value: Each target takes [[5d6+@cha.dmg+@atk.a.bonus]] damage
+    value: Each target takes [[5d6 + @cha.dmg + @atk.a.bonus]] damage
   hitEven:
     type: String
     label: Natural Even Hit
@@ -157,7 +157,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage.'
+    value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage.'
   spellLevel6:
     hide: true
     type: String
@@ -167,7 +167,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[7d10+@cha.dmg+@atk.a.bonus]] damage.'
+    value: '[[7d10 + @cha.dmg + @atk.a.bonus]] damage.'
   spellLevel8:
     hide: true
     type: String
@@ -177,7 +177,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[10d10+@cha.dmg+@atk.a.bonus]] damage.'
+    value: '[[10d10 + @cha.dmg + @atk.a.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

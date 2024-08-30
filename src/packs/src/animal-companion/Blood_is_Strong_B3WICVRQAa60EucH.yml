@@ -137,7 +137,7 @@ system:
     label: Effect
     value: >-
       <p>Until the end of the battle, when the target hits with a melee attack,
-      you heal [[1d10+@wis.dmg]] hit points.</p>
+      you heal [[1d10 + @wis.dmg]] hit points.</p>
   spellLevel2:
     hide: true
     type: String
@@ -177,7 +177,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: You now heal [[2d10+(2*@wis.mod)]] hit points.
+    value: You now heal [[2d10 + (2*@wis.mod)]] hit points.
   spellLevel10:
     hide: true
     type: String

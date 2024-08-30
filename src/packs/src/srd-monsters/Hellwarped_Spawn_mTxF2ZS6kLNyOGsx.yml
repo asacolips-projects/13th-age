@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -375,7 +375,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs AC'
+        value: '[[d20 + 11]] vs AC'
       hit:
         type: String
         label: Hit
@@ -439,7 +439,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -499,7 +499,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD'
+        value: '[[d20 + 11]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -561,7 +561,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -623,7 +623,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (one nearby enemy not engaged with it)'
+        value: '[[d20 + 11]] vs. AC (one nearby enemy not engaged with it)'
       hit:
         type: String
         label: Hit
@@ -974,7 +974,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD'
+        value: '[[d20 + 11]] vs. PD'
       hit:
         type: String
         label: Hit

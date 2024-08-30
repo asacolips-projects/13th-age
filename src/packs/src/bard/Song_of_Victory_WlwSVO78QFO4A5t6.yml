@@ -130,7 +130,7 @@ system:
     type: String
     label: Final Verse
     value: >-
-      <p>Each nearby enemy takes [[5d6+@cha.dmg+@atk.a.bonus]] psychic
+      <p>Each nearby enemy takes [[5d6 + @cha.dmg + @atk.a.bonus]] psychic
       damage.</p>
   special:
     type: String
@@ -179,7 +179,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[7d6+@cha.dmg+@atk.a.bonus]] damage.'
+    value: '[[7d6 + @cha.dmg + @atk.a.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

@@ -253,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD'
+        value: '[[d20 + 16]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -313,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+20]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 20]] vs. PD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -376,7 +376,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD (up to 3 nearby or faraway enemies in a group)'
+        value: '[[d20 + 16]] vs. PD (up to 3 nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -436,7 +436,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+20]] vs. PD (one nearby or faraway enemy)'
+        value: '[[d20 + 20]] vs. PD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -589,7 +589,7 @@ items:
           disappears, and reappears in the same place at the end of their next
           turn.&nbsp;</p>
 
-          <p><strong>3:</strong> Esoteric detonation&mdash;The [[/r 1d3+1]]
+          <p><strong>3:</strong> Esoteric detonation&mdash;The [[/r 1d3 + 1]]
           closest creatures take [[10]] force damage and [[10]] ongoing
           lightning damage.&nbsp;</p>
 

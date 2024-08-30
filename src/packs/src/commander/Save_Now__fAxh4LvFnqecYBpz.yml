@@ -249,7 +249,7 @@ system:
         type: String
         value: >-
           <p>Whether or not the save succeeds, the target of your command heals
-          hit points equal to [[3d10+(3*@cha.mod)]].</p>
+          hit points equal to [[3d10 + (3*@cha.mod)]].</p>
       isActive:
         type: Boolean
         value: false
