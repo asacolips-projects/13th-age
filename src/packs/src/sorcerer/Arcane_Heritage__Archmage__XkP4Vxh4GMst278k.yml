@@ -55,7 +55,7 @@ system:
   powerLevel:
     type: Number
     label: Level
-    value: '1'
+    value: 1
   actionType:
     type: String
     label: Action
@@ -63,15 +63,15 @@ system:
   range:
     type: String
     label: Range
-    value: null
+    value: ''
   trigger:
     type: String
     label: Trigger
-    value: null
+    value: ''
   target:
     type: String
     label: Target
-    value: null
+    value: ''
   always:
     type: String
     label: Always
@@ -79,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: null
+    value: ''
   hit:
     type: String
     label: Hit
-    value: null
+    value: ''
   hitEven:
     type: String
     label: Natural Even Hit
@@ -99,15 +99,15 @@ system:
   miss:
     type: String
     label: Miss
-    value: null
+    value: ''
   missEven:
     type: String
     label: Even Miss
-    value: null
+    value: ''
   missOdd:
     type: String
     label: Odd Miss
-    value: null
+    value: ''
   resources:
     type: String
     label: Resources
@@ -115,19 +115,19 @@ system:
   castBroadEffect:
     type: String
     label: Cast for Broad Effect
-    value: null
+    value: ''
   castPower:
     type: String
     label: Cast for Power
-    value: null
+    value: ''
   sustainedEffect:
     type: String
     label: Opening and Sustained Effect
-    value: null
+    value: ''
   finalVerse:
     type: String
     label: Final Verse
-    value: null
+    value: ''
   special:
     type: String
     label: Special
@@ -154,7 +154,7 @@ system:
     hide: true
     type: String
     label: 3rd Level Spell
-    value: null
+    value: ''
   spellLevel4:
     hide: true
     type: String
@@ -164,7 +164,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: null
+    value: ''
   spellLevel6:
     hide: true
     type: String
@@ -174,7 +174,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: null
+    value: ''
   spellLevel8:
     hide: true
     type: String
@@ -184,7 +184,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: null
+    value: ''
   spellLevel10:
     hide: true
     type: String
@@ -198,15 +198,15 @@ system:
   spellChain:
     type: String
     label: Chain Spell
-    value: null
+    value: ''
   breathWeapon:
     type: String
     label: Breath Weapon
-    value: null
+    value: ''
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
