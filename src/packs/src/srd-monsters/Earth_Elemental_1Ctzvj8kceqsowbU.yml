@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,6 +251,10 @@ items:
           boulder guardian form until the end of the battle. While in this form,
           it gains a +2 bonus to AC and the relentless pursuit ability (and you
           stop rolling boulder up checks).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -271,6 +279,10 @@ items:
           The elemental must be in boulder guardian form to use this ability.
           Staggered enemies can’t disengage from the earth elemental. (They can
           pop free, but they can’t roll disengage checks.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,6 +307,10 @@ items:
           When the earth elemental is targeted by a natural attack roll of 10 or
           less, the elemental heals [[1d12]] damage before taking any damage
           from the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

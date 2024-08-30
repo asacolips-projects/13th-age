@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -135,46 +139,56 @@ system:
       <p>Choose a creature you can see in the battle. If that creature is the
       next creature to drop to 0 hp, you heal using a recovery.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: false
     type: String
     label: 7th Level Spell
     value: >-
       When the creature drops, one of your nearby allies can heal using a
       recovery instead of you.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
       If the chosen creature is not the next creature in the battle to drop to 0
-      hp, you still gain 30 temporary hit points
+      hp, you still gain [[30]] temporary hit points
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -189,7 +203,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
@@ -235,10 +249,6 @@ system:
       maxQuantity:
         type: Number
         value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/link-eerie-2.jpg
 _id: C28HNfO0twSusPPx

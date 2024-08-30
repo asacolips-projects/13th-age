@@ -246,11 +246,13 @@ items:
           armor who roll a natural odd attack are *vulnerable* until the start
           of their next turn, as they exaggeratedly act out their armor&rsquo;s
           quirk.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2QcKkyDyOP34Lm51
     effects: []
@@ -274,11 +276,13 @@ items:
           <p>Bronze errants are immune to effects. They can&rsquo;t be dazed,
           weakened, confused, made vulnerable, or touched by ongoing damage. You
           can damage one, but that&rsquo;s about it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qMZN8X7eTvq2o1qY
     effects: []
@@ -298,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC (2 attacks)'
+        value: '[[d20 + 10]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -334,8 +343,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: L9O8Jn34fsLXxZNm
     effects: []
@@ -355,6 +362,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -362,7 +374,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC (one nearby or faraway enemy)'
+        value: '[[d20 + 10]] vs. AC (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -392,8 +404,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: fjxWRT79P7Nn30xS
     effects: []
     folder: null
@@ -412,6 +422,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -419,7 +434,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. MD (one nearby or faraway enemy)'
+        value: '[[d20 + 10]] vs. MD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -453,8 +468,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KZ0qrMV2k3ZvM6Td
     effects: []

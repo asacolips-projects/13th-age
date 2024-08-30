@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -287,6 +295,10 @@ items:
         type: ''
         label: Description
         value: The honey devil can make a disengage check this turn as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -310,6 +322,10 @@ items:
         value: >-
           When the honey devil is staggered by an attack, it makes a confusing
           plea attack against the attacker as a free action after the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,6 +351,10 @@ items:
           worst, it’s ugly, but is that a crime? When an enemy rolls a natural
           odd attack roll against a honey devil, the attack misses and has no
           effect.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -358,6 +378,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -381,6 +405,10 @@ items:
         value: >-
           When building battles using this monster, it only counts as half a
           normal monster.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -413,6 +441,10 @@ items:
           gaining information, which in turn sends them down a dead end or into
           a trap. In a direct confrontation, the devil is likewise hard to pin
           down, see through, or otherwise get the better of.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

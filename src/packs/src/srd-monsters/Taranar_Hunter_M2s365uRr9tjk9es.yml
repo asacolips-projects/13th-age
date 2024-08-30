@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC (2 attacks)'
+        value: '[[d20 + 9]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: dztCslDvHZGwP948
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD (one nearby or faraway enemy)'
+        value: '[[d20 + 8]] vs. PD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -339,8 +347,6 @@ items:
         type: String
         label: Miss
         value: The target is *dazed* until the end of their next turn.
-      embeddedMacro:
-        value: ''
     _id: UxJ3CAh4gThb2bTY
     effects: []
     folder: null
@@ -363,11 +369,13 @@ items:
           <p>When reduced to 0 hp the taranar hunter explodes in a shower of
           rock splinters, causing [[10]] damage to anyone it is engaged with and
           [[1d3]] other nearby enemies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2SNzzeznUc0lq0Zm
     effects: []
@@ -393,11 +401,13 @@ items:
           using a weapon against a taranar, the attacker deals only half damage.
           The resistance also applies to negative energy damage, which tends to
           fizzle ineffectively against the ancient stones.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VajIQZvZZu4NdMwu
     effects: []
@@ -428,11 +438,13 @@ items:
           conditions for it to wake are met again (providing they can be). Such
           severely damaged creatures reawaken as broken taranar, regardless of
           what they were before.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 50P2pc8J63KMzi8I
     effects: []
@@ -458,11 +470,13 @@ items:
           made vulnerable to anything beyond those energies they are already
           vulnerable to (fire and cold; see below). Taranar are also immune to
           ongoing damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: gjUO6yNCvYs34Xhu
     effects: []

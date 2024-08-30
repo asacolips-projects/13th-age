@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -257,6 +261,10 @@ items:
           dybbuk leaves its host body. The body drops in place and the corpse
           dybbuk becomes an undamaged ethereal dybbuk (see that entry). If the
           escalation die is 3+, reset the escalation die to 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -283,6 +291,10 @@ items:
           warped ally takes damage equal to its level each time it uses a
           standard action to attack. If this ability is expended, the dybbuk
           regains it when the escalation die reaches 4+.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

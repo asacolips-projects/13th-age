@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,6 +252,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,6 +303,10 @@ items:
         type: ''
         label: Description
         value: The swarm flies fast and is agile, but has a wide turning circle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -318,6 +330,10 @@ items:
         value: >-
           When any attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,6 +358,10 @@ items:
           This monster is a swarm of chuul body-parts cooperating to attack
           humanoids. Even though there are thousands of them, treat them as a
           single creature.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,6 +385,10 @@ items:
         value: >-
           Chuuls swim well and can breathe underwater, though they prefer not
           to.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -388,6 +412,10 @@ items:
         value: >-
           When an attacker misses the swarm with a melee attack, that enemy
           takes [[10]] ongoing damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

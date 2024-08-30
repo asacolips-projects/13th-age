@@ -187,6 +187,10 @@ items:
         value: >-
           Limited use: 1/battle, during the remorhaz’s first turn or if
           appearing on the surface after burrowing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -237,6 +241,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -291,6 +299,10 @@ items:
         value: >-
           As the standard monster ability, except the remorhaz only needs to
           roll 6+ in snow and ice.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -315,6 +327,10 @@ items:
           When a creature is engaged with the remorhaz (or grabbed by it) at the
           start of its turn, it takes fire damage equal to 6 x the escalation
           die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,6 +355,10 @@ items:
           It takes [[10]] fire damage; OR one piece of its non-magical equipment
           (something useful, but player’s choice) melts or burns up. Adjust
           skill checks or stats accordingly.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -363,6 +383,10 @@ items:
           The remorhaz is melting the ice/snow all the time and obscuring steam
           rises into the air. Ranged attacks against the remorhaz take a -2
           penalty, or a -4 penalty if the attacker is far away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -387,6 +411,10 @@ items:
           The remorhaz is covered in red-hot spines. When a nearby enemy rolls a
           natural 1-5 with an attack roll, it takes [[20]] fire damage unless it
           has somehow protected itself from the heat.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

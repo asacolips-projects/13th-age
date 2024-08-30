@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,6 +305,10 @@ items:
         value: >-
           Limited use: 1/round as an interrupt action, when a nearby enemy rolls
           a natural 1-5 with an attack against it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -347,6 +359,10 @@ items:
           During the bugbear schemer’s turn, if it doesn’t engage an enemy or
           move, it regains a use of ridiculously heavy crossbow if it’s expended
           as it reloads the crossbow.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -370,6 +386,10 @@ items:
         value: >-
           When the bugbear schemer successfully disengages, one of the enemies
           engaged with it takes [[1d6]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,6 +416,10 @@ items:
           roll a hard save. On a success, the bugbear schemer had a bolt-hole or
           escape plan ready and it gets away (though it’s probably just getting
           more troops).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

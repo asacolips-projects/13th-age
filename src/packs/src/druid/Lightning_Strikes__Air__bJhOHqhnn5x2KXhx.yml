@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -71,7 +75,7 @@ system:
   always:
     type: String
     label: Always
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   attack:
     type: String
     label: Attack
@@ -79,7 +83,7 @@ system:
   hit:
     type: String
     label: Hit
-    value: '[[10d8+@wis.dmg+@atk.d.bonus]] lightning damage.'
+    value: '[[10d8 + @wis.dmg + @atk.d.bonus]] lightning damage.'
   hitEven:
     type: String
     label: Natural Even Hit
@@ -137,42 +141,52 @@ system:
       nearby enemy as a free action, even if you don’t have line of sight to
       that creature.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[10d12+@wis.dmg+@atk.d.bonus]] damage; [[25]] miss damage.'
+    value: '[[10d12 + @wis.dmg + @atk.d.bonus]] damage; [[25]] miss damage.'
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -193,10 +207,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/lightning/bolt-strike-forked-blue.webp
 _id: bJhOHqhnn5x2KXhx

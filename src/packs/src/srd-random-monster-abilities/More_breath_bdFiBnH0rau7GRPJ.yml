@@ -13,11 +13,13 @@ system:
       If its breath weapon isn&rsquo;t intermittent (white and green dragons),
       the dragon gains the extra uses anyway, making it more dangerous than
       lesser specimens of its color.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         value: >-
           When a creature is engaged with the remorhaz at the start of its turn,
           it takes cold damage equal to the escalation die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -266,6 +274,10 @@ items:
           Death can cause fluid-filled sacks inside the barbellite to explode.
           When the attack roll that kills the barbellite is a natural even roll,
           each nearby creature takes [[10]] cold damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -298,6 +306,10 @@ items:
           and teleport abilities it can access that turn. The spider doesn’t
           have to use the available ability and can attack normally, if it
           wishes.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -321,6 +333,10 @@ items:
         value: >-
           Short teleport—As a move action, the spider can teleport anywhere it
           can see nearby.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +360,10 @@ items:
         value: >-
           Long teleport—As a move action, the spider can teleport anywhere it
           can see nearby or far away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,6 +389,10 @@ items:
           battlefield, returning on its next initiative turn anywhere it chooses
           nearby. It doesn’t get to make a phase roll at the start of its next
           turn though.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -394,6 +418,10 @@ items:
           move action it can teleport back to its lair, or to its master if it
           has one. It leaves the battle. If it hasn’t stolen an item yet, it
           won’t leave and can use its choice of the other abilities this turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -418,6 +446,10 @@ items:
           If the spider is slain before it leaves battle, all items stolen from
           the party are recovered. If a [[d20]] roll results in a 20, other
           magic items are found.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

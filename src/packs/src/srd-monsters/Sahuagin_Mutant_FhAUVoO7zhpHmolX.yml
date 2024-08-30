@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -293,6 +301,10 @@ items:
         value: >-
           The sahuagin mutant adds the escalation die to its attacks until the
           die is 5+.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -314,6 +326,10 @@ items:
         type: ''
         label: Description
         value: Sahuagin breathe underwater and swim very well.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,6 +353,10 @@ items:
         value: >-
           When an enemy intercepts the sahuagin mutant, it takes [[4d8]] damage
           from the mutant’s claws and teeth.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -360,6 +380,10 @@ items:
         value: >-
           When an enemy makes a melee attack against the sahuagin mutant and
           rolls a natural odd miss, that enemy takes [[2d8]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -244,11 +244,13 @@ items:
         value: >-
           <p>Choose either <em>Path of the Sword</em> or <em>Path of
           Song</em>.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kZ99ODMd3UEAxmNB
     effects: []
@@ -271,6 +273,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,7 +285,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -308,8 +315,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 04l0nDgn3S1b4a0y
     effects: []
     folder: null
@@ -328,6 +333,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,7 +345,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. MD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 10]] vs. MD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -365,8 +375,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: pMu3nuJckvGcLOrh
     effects: []
     folder: null
@@ -389,11 +397,13 @@ items:
           <p><em>Shin kick</em>&mdash;On a natural even hit with <em>swift
           hoof</em>, the target is *hampered* until the end of enchanter&rsquo;s
           next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5v3TIZxvDjgtpRPF
     effects: []
@@ -419,11 +429,13 @@ items:
           <p><em>Lullaby</em>&mdash;On a critical hit with <em>whispered
           sonata</em>, the target must begin making last gasp saves instead of
           being dazed. On the fourth failure, it falls unconscious.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: G8DYSiau6XxCWTQT
     effects: []
@@ -446,11 +458,13 @@ items:
         value: >-
           <p>The enchanter gains the other destiny benefit, and adds 1 to its
           lower defense.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lGZyFlkl3ZWFf8dl
     effects: []

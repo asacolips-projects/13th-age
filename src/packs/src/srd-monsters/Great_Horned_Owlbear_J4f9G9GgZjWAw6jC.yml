@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -233,8 +237,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     sort: 0
     effects: []
     folder: null
@@ -256,11 +258,13 @@ items:
         value: >-
           <p>If the escalation die is even, make another rip and peck
           attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     sort: 100000
     effects: []
@@ -285,6 +289,10 @@ items:
           a piece of the creature off (GM chooses a limb) and will subsequently
           attempt to retreat with the prize to feed its cubs. The torn-up enemy
           is *stunned* until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -310,6 +318,10 @@ items:
         value: >-
           Owlbears are nearly silent until they strike. Checks to hear them
           approaching take a -5 penalty.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

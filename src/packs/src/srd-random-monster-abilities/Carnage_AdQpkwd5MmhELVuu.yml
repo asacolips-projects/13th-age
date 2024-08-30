@@ -12,11 +12,13 @@ system:
       <p>The dire animal&rsquo;s attacks that miss deal damage equal to its
       level. When staggered, its missed attacks deal damage equal to double its
       level.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

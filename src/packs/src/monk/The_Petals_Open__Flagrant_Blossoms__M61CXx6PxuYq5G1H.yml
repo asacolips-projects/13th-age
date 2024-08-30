@@ -31,6 +31,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -78,12 +82,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+    value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
   hit:
     type: String
     label: Hit
     value: >-
-      [[@wpn.j.dice+@str.dmg+@atk.m.bonus]] damage, and if this attack drops a
+      [[@wpn.j.dice + @str.dmg + @atk.m.bonus]] damage, and if this attack drops a
       non-mook to 0 hp, you can use a finishing attack with your next standard
       action
   hitEven:
@@ -139,42 +143,52 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: ''
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -195,10 +209,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/nature_03.jpg
 effects: []

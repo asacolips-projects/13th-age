@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle, as a quick action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +304,10 @@ items:
         type: ''
         label: Description
         value: While in the haze, the target is *dazed* from choking or blinding.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -319,6 +331,10 @@ items:
         value: >-
           While in the haze, the target takes a -5 penalty to all saves against
           acid damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,6 +359,10 @@ items:
           the mist can be burned, condensed/frozen, blown away, absorbed,
           transmuted, etc. At the GM’s discretion, there may be physical ways to
           remove the haze, but it should require a hard DC.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,6 +388,10 @@ items:
           straight line though it’s not as maneuverable as more agile flyers. It
           can also burrow quickly and effectively due to the acidic coating on
           its skin.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -391,6 +415,10 @@ items:
         value: >-
           When an enemy is engaged with the catacomb dragon at the start of its
           turn, it takes [[3]] acid damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -414,6 +442,10 @@ items:
         value: >-
           When an acid attack targets this creature, the attacker must roll a
           natural 14+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

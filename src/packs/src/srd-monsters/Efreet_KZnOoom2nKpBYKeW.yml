@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -202,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. AC ([[3]] attacks)'
+        value: '[[d20 + 15]] vs. AC ([[3]] attacks)'
       hit:
         type: String
         label: Hit
@@ -249,6 +253,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -256,7 +264,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD ([[1]] random nearby conscious enemy('
+        value: '[[d20 + 15]] vs. PD ([[1]] random nearby conscious enemy('
       hit:
         type: String
         label: Hit
@@ -307,6 +315,10 @@ items:
         value: >-
           <p>Efreet don&rsquo;t fly as well or as quickly as djinn, but they are
           able to get around okay.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -334,6 +346,10 @@ items:
           positive or conflicted relationship with. Treat this advantage as if
           it came from a positive relationship. The GM is encouraged to treat
           this result with the utmost benevolence and compassion.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -359,6 +375,10 @@ items:
           depending on which icon or icons the efreet is presently working for.
           The abilities represent the innate magic of the genie being channeled
           through the influence of the icon.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

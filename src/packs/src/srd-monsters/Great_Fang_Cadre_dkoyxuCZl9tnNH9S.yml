@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -295,6 +303,10 @@ items:
         value: >-
           The crit range of melee attacks by great fang cadre orcs expands by 3
           until half the great fang cadre mob has been dropped.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -318,6 +330,10 @@ items:
         value: >-
           [[1d20]] damage vs. any enemy that starts its turn engaged with the
           orc, or +4 bonus to AC.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

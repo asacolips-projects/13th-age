@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
           staggered. If it hasn’t already made a nightmare breath attack when it
           becomes staggered, the dragon makes the attack as a free action and
           then the breath recharges.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,6 +306,10 @@ items:
           While a living shadow, the target can’t physically interact with or
           gain aid from companions or aid them (including healing, bonuses, and
           effects) but is otherwise “normal.”
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -324,6 +336,10 @@ items:
           shadow dragon end up in the dragon’s belly (save ends). While there,
           they are *helpless* and take [[2d12]] damage at the start of each of
           their turns until they save and fall back out of shadow.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -348,6 +364,10 @@ items:
           When in poorly lit areas of shadow, the dragon adds the escalation die
           to its attack rolls. Complete darkness or bright daylight negates the
           ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -378,6 +398,10 @@ items:
           to avoid holy ground, and shadow thieves can only enter it while
           possessing victims and will flee once the possession ends. It’s up to
           the GM what counts as “holy ground” in their game.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -404,6 +428,10 @@ items:
           detect). Daylight will show the illusion for what it is—an
           insubstantial dragon. Dragons with a Book of Many Faces will have
           perfect humanoid disguises. Dropping the illusion is a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -429,6 +457,10 @@ items:
           dragon automatically miss. When the escalation die is odd, natural
           even attack rolls against the dragon automatically miss. Attacks that
           deal holy damage ignore this ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

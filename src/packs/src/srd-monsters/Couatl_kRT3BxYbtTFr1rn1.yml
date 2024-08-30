@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -288,6 +296,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -342,6 +354,10 @@ items:
         type: ''
         label: Description
         value: This attack only requires a quick action (once per round) to use.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,6 +381,10 @@ items:
         value: >-
           When a holy or poison attack targets this creature, the attacker must
           roll a natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -388,6 +408,10 @@ items:
         value: >-
           Couatls fly and hover so smoothly on their multi-colored wings that
           other flyers get jealous.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -411,6 +435,10 @@ items:
         value: >-
           When the escalation die is even, the couatl adds the escalation die to
           its attack rolls.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -434,6 +462,10 @@ items:
         value: >-
           The couatl can use more than one rippling scales attack during its
           turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -458,6 +490,10 @@ items:
           Once per campaign, the couatl can take a “campaign loss” similar to
           the PC-oriented flee special action to escape from certain death,
           along with its allies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -481,6 +517,10 @@ items:
         value: >-
           Choose each appropriate ability from the couatl’s Icon-centered
           Abilities list.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -250,6 +254,10 @@ items:
           battle. If a chaos beast and a chaos brute combine to create a chaos
           behemoth, the behemoth starts with 70 hp instead of 90 hp and takes a
           -1 penalty to all attacks and defenses.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

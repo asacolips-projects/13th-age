@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -74,7 +79,7 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
@@ -83,7 +88,7 @@ system:
     type: String
     label: Natural Even Hit
     value: >-
-      [[1d6+@cha.dmg+@atk.a.bonus]] force damage and you can roll a hard save
+      [[1d6 + @cha.dmg + @atk.a.bonus]] force damage and you can roll a hard save
       (16+). If you succeed, you get an extra standard action this turn.
   hitOdd:
     type: String
@@ -134,50 +139,60 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: >-
-      Even hit: [[3d6+@cha.dmg+@atk.a.bonus]] damage; Odd hit: [[10]] ongoing
+      Even hit: [[3d6 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[10]] ongoing
       damage.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: >-
-      Even hit: [[5d6+@cha.dmg+@atk.a.bonus]] damage; Odd hit: [[18]] ongoing
+      Even hit: [[5d6 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[18]] ongoing
       damage.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: >-
-      Even hit: [[5d8+@cha.dmg+@atk.a.bonus]] damage; Odd hit: [[28]] ongoing
+      Even hit: [[5d8 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[28]] ongoing
       damage.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
-      Even hit: [[7d10+@cha.dmg+@atk.a.bonus]] damage; Odd hit: [[40]] ongoing
+      Even hit: [[7d10 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[40]] ongoing
       damage.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -259,10 +274,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/needles-sky-1.jpg
 _id: DfLxiKipm3EPLXok

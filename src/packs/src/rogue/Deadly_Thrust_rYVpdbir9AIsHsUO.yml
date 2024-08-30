@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -74,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@dex.mod+@str.mod+@std+@atk.m.bonus]] vs. AC'
+    value: '[[d20 + @dex.mod + @str.mod + @std + @atk.m.bonus]] vs. AC'
   hit:
     type: String
     label: Hit
-    value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.'
+    value: '[[@wpn.m.dice + @dex.dmg + @atk.m.bonus]] damage.'
   hitEven:
     type: String
     label: Natural Even Hit
@@ -132,42 +137,52 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -231,7 +246,7 @@ system:
         type: String
         value: >-
           <p>If you don't add your Sneak Attack damage to the attack, you also
-          deal [[5*@str.mod]] damage to your deadly thrust target when you
+          deal [[5 * @str.mod]] damage to your deadly thrust target when you
           hit.</p>
       isActive:
         type: Boolean
@@ -248,10 +263,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/skills/melee/strike-sword-stabbed-brown.webp
 _id: rYVpdbir9AIsHsUO

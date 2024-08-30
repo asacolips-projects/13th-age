@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +298,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -340,6 +352,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -388,6 +404,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -444,6 +464,10 @@ items:
           tetrahedron simultaneously. Any engulfed creature that is also
           staggered must begin making last gasp saves or become paralyzed as the
           tetrahedron’s toxins overwhelm it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -470,6 +494,10 @@ items:
           roll a [[d4]] to see what the tetrahedron does. If an option is not
           viable (you roll a 1 but there is no engaged enemy), reroll until you
           get a valid option.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -494,6 +522,10 @@ items:
           4. As a standard action the ooze quickly moves around the battlefield,
           oozing over [[1d3]] nearby enemies. Those enemies become engaged with
           the ooze and *stuck* (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -515,6 +547,10 @@ items:
         type: ''
         label: Description
         value: The target is engulfed instead of *stuck*.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

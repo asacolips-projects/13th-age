@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -135,48 +139,58 @@ system:
       <p>Undead you summon release holy energy bursts as they drop to 0 hp,
       dealing a small amount of damage to each enemy engaged with
       them.</p><ul><li>Mooks you summon deal [[@cha.dmg]] holy
-      damage.</li><li>Non-mooks you summon deal [[@cha.mod*(1d4)]] holy damage
-      ([[@cha.mod*(1d8)]]) at 5th level; [[@cha.mod*(2d6)]] at 8th
+      damage.</li><li>Non-mooks you summon deal [[@cha.mod * (1d4)]] holy damage
+      ([[@cha.mod * (1d8)]]) at 5th level; [[@cha.mod * (2d6)]] at 8th
       level).</li></ul><p>In story terms, you’re not likely to have a positive
       relationship with any necromantic icons if you take the Redeemer
       talent.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: ''
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -259,10 +273,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/skills/water_03.jpg
 _id: t1lC0fRrSL3KShEk

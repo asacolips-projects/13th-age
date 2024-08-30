@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,7 +254,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+8]] vs. AC (or [[d20+12]] vs AC if the frogfolk has a higher
+          [[d20 + 8]] vs. AC (or [[d20 + 12]] vs AC if the frogfolk has a higher
           initiative)
       hit:
         type: String
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 3IOt5Dm5ajSkHdFy
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -307,7 +315,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -337,8 +345,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 8AHCnioOEhdPm6Ph
     effects: []
     folder: null
@@ -363,11 +369,13 @@ items:
           Outside battle they can coat objects with a skin-contact
           poison&mdash;[[10]] poison damage and [[10]] ongoing poison damage
           (save ends, or hard save if the target ingests the poison).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XMnWAAX3JYLv3KOm
     effects: []
@@ -392,11 +400,13 @@ items:
           less froggy races, it requires a DC 25 skill check to see the truth
           beneath their veils or deep cloaks and lifelike masks. Once they
           attack what they are becomes obvious.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: bPGnjFioacrn4D6X
     effects: []
@@ -421,11 +431,13 @@ items:
           die is even frogspawn deceivers can jump as a quick action, leaping
           over enemies and past obstacles in a way that can&rsquo;t be
           intercepted and that doesn&rsquo;t provoke attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vuN9Nnso2RNMkRQx
     effects: []
@@ -446,11 +458,13 @@ items:
         type: String
         label: Description
         value: <p>Frogspawn deceivers do not take miss damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UAjAL3WSwSfc9v0k
     effects: []
@@ -474,11 +488,13 @@ items:
           <p>You should certainly use one ability per frogspawn, occasionally
           two. For frogspawn mooks, treat the abilities as usable once per
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oqtOkN8uRBUZQXPI
     effects: []
@@ -505,11 +521,13 @@ items:
           <p>The frogspawn deals [[@lvl]] poison damage to any character that
           pops free of it or successfully disengages from it. (Teleporting away
           is probably tongue-free unless the GM is hopping mad.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: srZl2elB5q3H3IR0
     effects: []
@@ -538,11 +556,13 @@ items:
           of sight. Remove the frogspawn from the table until the start of its
           next turn. At the start of its next turn, place it anywhere nearby its
           previous location, but not engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FljCQlt7HcdRU2Pj
     effects: []
@@ -570,11 +590,13 @@ items:
           random nearby enemy the frogspawn can see. The frogspawn leaps into
           engagement with that enemy and its crit range with melee attacks
           expands by 3 until the end of the turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Gb1BqtWtCRwYPNNv
     effects: []
@@ -605,11 +627,13 @@ items:
           frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
           to die. (Gamemaster: Don&rsquo;t give this ability to all the
           frogspawn in a battle. Just one or two.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: eSh1Zm8ycAU3zDah
     effects: []

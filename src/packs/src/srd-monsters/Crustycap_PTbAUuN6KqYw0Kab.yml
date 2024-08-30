@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,6 +306,10 @@ items:
           When a PC or a player at the table says the bad word, the crustycap
           can take an extra standard action during its next turn. Feel free to
           let the extra actions stack a few times if someone gets cocky.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -326,6 +338,10 @@ items:
           and attacks the PCs, no matter what enemies they are fighting. It will
           continue to use this power if it can until the PCs take a full
           heal-up, at which point, if it’s still alive, it loses interest.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

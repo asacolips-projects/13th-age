@@ -13,11 +13,13 @@ system:
       attack roll, the dragon can make an opportunity attack against that
       creature as a free action. The attack is set up by the dragon&rsquo;s
       whipping tail but delivered by the dragon&rsquo;s usual melee attack.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

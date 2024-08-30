@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -132,45 +136,55 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>Deal [[5*@lvl]] ongoing damage to the target. A normal save (11+) ends
+      <p>Deal [[5 * @lvl]] ongoing damage to the target. A normal save (11+) ends
       the damage. A critical hit doesn’t double this ongoing damage.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: ''
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -195,7 +209,7 @@ system:
       description:
         type: String
         value: >-
-          <p>Once per day, you can instead use cruel to deal [[5*@lvl]] ongoing
+          <p>Once per day, you can instead use cruel to deal [[5 * @lvl]] ongoing
           damage against an enemy you miss or that you roll a natural odd attack
           against, even on a natural 1.</p>
       isActive:
@@ -213,10 +227,6 @@ system:
       maxQuantity:
         type: Number
         value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags:
   core:
     sheetClass: ''

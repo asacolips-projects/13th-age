@@ -194,6 +194,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -201,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -258,6 +263,10 @@ items:
           mooks in its band, choose a lower
           result.)</li><li>16&ndash;20:&nbsp;The warbanner can make a&nbsp;false
           rally&nbsp;attack as a free action.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -313,6 +322,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,7 +334,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. MD ([[1]] nearby enemy with 18HP or fewer)'
+        value: '[[d20 + 9]] vs. MD ([[1]] nearby enemy with 18HP or fewer)'
       hit:
         type: String
         label: Hit
@@ -374,6 +388,10 @@ items:
           above a lower-level ally in its band and designate that ally as its
           bearer. Alternately, it can release itself from a bearer and fly
           free.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -398,6 +416,10 @@ items:
           <p>While the warbanner has a bearer it moves with the bearer and is
           engaged by enemies that engage the bearer. The bearer is *vulnerable*
           to all attacks but it can use the escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -419,6 +441,10 @@ items:
         type: String
         label: Description
         value: <p>As feral warbanner</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -440,6 +466,10 @@ items:
         type: String
         label: Description
         value: <p>As feral warbanner</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -463,6 +493,10 @@ items:
         value: >-
           <p>Mooks fighting in the warbanner&rsquo;s band gain a bonus to their
           hit points equal to the warbanner&rsquo;s level (3).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

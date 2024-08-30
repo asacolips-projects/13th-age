@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,6 +253,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,6 +306,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +356,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -395,6 +411,10 @@ items:
           The mantikumhar can move rapidly through sand, loose soil, or dry
           eroded earth. It prefers to dig out a wide pit and lie in wait for
           prey. (See Burrowing.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -419,6 +439,10 @@ items:
           Between nictitating membranes that keep its eyes from being scratched
           out by the sand and its weird burrowing echolocation sense, the
           mantikumhar can’t be blinded.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -442,6 +466,10 @@ items:
         value: >-
           Each time the mantikumhar uses its serpent sting attack, it takes
           [[1d6]] damage, or [[2d6]] damage if it’s staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -466,6 +494,10 @@ items:
           A mantikumhar can burrow into the soil as a move action, concealing
           itself from attacks. A hunkered mantikumhar gains a +3 bonus to AC and
           PD, but it can’t use crushing leonine jaws.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -489,6 +521,10 @@ items:
         value: >-
           The mantikumhar’s extensible tail can strike by surprise like a cobra
           from anywhere in its pit.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

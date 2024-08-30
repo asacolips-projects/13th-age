@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: nopyfTDqYD7faIft
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD ([[1d6]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 11]] vs. PD ([[1d6]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Zed2C06R0ITk0RG5
     effects: []
     folder: null
@@ -362,11 +368,13 @@ items:
           immaterial, but all its defenses gain a +2 bonus against non-magical
           weapons and unarmed attacks. It is a quick action for it to become
           material again.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uFHhiaDQGeKCuuaI
     effects: []
@@ -395,11 +403,13 @@ items:
           able to dodge it, depending on the story they tell . . . .)</p>
 
           <p>*Quick use*: 1/battle, as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: fkMZUYeUtTUWwppm
     effects: []
@@ -420,11 +430,13 @@ items:
         type: String
         label: Description
         value: <p>While immaterial the phantom can fly.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: NcceDN3Ryi7u4Nrv
     effects: []
@@ -447,11 +459,13 @@ items:
         value: >-
           <p>Those affected by the face of death must save to end their fear
           instead of it ending at the end of their next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0PKW8zVbeh2zHe0M
     effects: []

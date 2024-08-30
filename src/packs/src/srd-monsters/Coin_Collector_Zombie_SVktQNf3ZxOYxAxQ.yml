@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC '
+        value: '[[d20 + 11]] vs. AC '
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: OtDoqlaHXFZEFpFf
     effects: []
     folder: null
@@ -305,6 +308,10 @@ items:
           <p><span class="fontstyle0">Limited use: Free action when hit by a
           natural even attack against AC, <span class="fontstyle2">and
           </span>when this zombie drops to 0 hit points. <br></span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -312,7 +319,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD ([[1d3+1]] nearby enemies/bystanders)'
+        value: '[[d20 + 11]] vs. MD ([[1d3 + 1]] nearby enemies/bystanders)'
       hit:
         type: String
         label: Hit
@@ -345,8 +352,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yRWIdVlK4dI9Uk0m
     effects: []
     folder: null
@@ -374,11 +379,13 @@ items:
           gut if there&rsquo;s a convenient hole) heals 3d6 hit points. It
           normally doesn&rsquo;t spend its time this way in combat, but who can
           predict collectors?</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kZNVUCWVIqy2DJj8
     effects: []
@@ -402,11 +409,13 @@ items:
           <p><span class="fontstyle0">A critical hit against the coin collector
           zombie cancels its </span><span class="fontstyle2">lethal payout
           </span><span class="fontstyle0">attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QvPSfR3e4EMZRLnC
     effects: []

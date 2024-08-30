@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -245,6 +249,10 @@ items:
           the battle so that there are two spores per enemy. A spore can
           “sprout” already engaged with a nearby or far away enemy or on its
           own, it’s up to you.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,6 +278,10 @@ items:
           attempts to move, it must make a DC 18 Dexterity or Strength check to
           do so or it loses its move action. If the creature uses a standard
           action to clear away fungus, it can move normally that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

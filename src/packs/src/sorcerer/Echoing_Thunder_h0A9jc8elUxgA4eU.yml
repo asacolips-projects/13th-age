@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -74,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[3d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the first enemy that
+      [[3d6 + @cha.dmg + @atk.a.bonus]] thunder damage, and the first enemy that
       hits you with a melee attack before the start of your next turn takes
       [[2d6]] thunder damage. (An empowered spell does not double this
       aftershock damage.)
@@ -136,42 +141,52 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
-    value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage; [[2d6]] aftershock damage.'
+    value: '[[5d6 + @cha.dmg + @atk.a.bonus]] damage; [[2d6]] aftershock damage.'
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: '[[7d6+@cha.dmg+@atk.a.bonus]] damage; [[3d6]] aftershock damage.'
+    value: '[[7d6 + @cha.dmg + @atk.a.bonus]] damage; [[3d6]] aftershock damage.'
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[9d6+@cha.dmg+@atk.a.bonus]] damage; [[4d6]] aftershock damage.'
+    value: '[[9d6 + @cha.dmg + @atk.a.bonus]] damage; [[4d6]] aftershock damage.'
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -213,10 +228,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/lightning/orb-ball-blue.webp
 _id: h0A9jc8elUxgA4eU

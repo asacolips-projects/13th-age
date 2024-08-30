@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -294,6 +302,10 @@ items:
           When a creature is engaged with the slime-skull or *stuck* from its
           grasping slime tendrils attack at the start of its turn, it takes
           [[3]] acid damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -318,6 +330,10 @@ items:
           When an enemy engaged with the slime-skull hits it with a melee
           attack, the slime-skull fires a blast of acidic slime back at that
           creature, which takes [[1d4]] acid damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,6 +357,10 @@ items:
         value: >-
           This creature is slow. It only moves when the escalation die is odd or
           6+.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +384,10 @@ items:
         value: >-
           A slime-skull can climb on ceilings and walls as easily as it moves on
           the ground.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -393,6 +417,10 @@ items:
           full heal-up (or within a day), the stolen skull will transform into
           another slime-skull. Attempts to resurrect the creature become much
           more difficult, perhaps even impossible, at that point.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

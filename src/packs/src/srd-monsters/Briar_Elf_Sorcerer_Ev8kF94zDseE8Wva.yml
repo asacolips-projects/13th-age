@@ -245,11 +245,13 @@ items:
           <p><span class="fontstyle0">Enemies engaged with this briar elf who
           have fewer than 72 hp are dazed (-4 attack) and can&rsquo;t use the
           escalation die.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Uyo4O6WT7pe8H2Z4
     effects: []
@@ -276,11 +278,13 @@ items:
           <p><span class="fontstyle0">On turns when the escalation die is even,
           the briar elf sorcerer uses the escalation die, and each staggered
           adventurer does not.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: o5RouID4HVURbRrk
     effects: []
@@ -303,6 +307,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -310,7 +319,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD'
+        value: '[[d20 + 15]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -342,8 +351,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: A86AUBN9akAOKWVP
     effects: []
     folder: null
@@ -362,6 +369,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,7 +381,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD'
+        value: '[[d20 + 16]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -401,8 +413,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: lXzMtOnMlbgE6IVJ
     effects: []
     folder: null
@@ -421,6 +431,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -428,7 +443,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD ([[d3]] enemies in a group)'
+        value: '[[d20 + 16]] vs. PD ([[d3]] enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -458,8 +473,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: fijlHlPGItWysk9A
     effects: []
     folder: null
@@ -484,11 +497,13 @@ items:
           battle the briar elf sorcerer can use this ability as a free action:
           to stop another character mid-movement, to pop a creature free, or to
           block and cancel a ranged attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qs2aW7Y19PJt6iaN
     effects: []
@@ -508,11 +523,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PfrhuG3q1rSH4ikI
     effects: []
@@ -538,11 +556,13 @@ items:
         value: >-
           <p><span class="fontstyle0">Once per battle, for one turn; storm of
           thorns becomes a quick action to use.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: CqJjtdXZ4iQWv892
     effects: []
@@ -569,11 +589,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [plant].
           Every time the briar elf sorcerer misses with its flesh to bark
           attack, its crit range with that attack expands by 1.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QoCSYZYeMzOeUYtR
     effects: []
@@ -602,11 +624,13 @@ items:
           end its turn inside another object or creature. The monster
           automatically disengages when it moves, and cannot be intercepted
           (unless the creature intercepting it is also phasing)</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iJc8ofaQYkdnxfbL
     effects: []

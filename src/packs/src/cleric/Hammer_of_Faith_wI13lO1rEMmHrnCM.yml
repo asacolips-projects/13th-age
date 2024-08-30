@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,10 +28,21 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: >-
+      // For the code executed in this macro, see
+
+      //
+      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.clericHammerOfFaith(speaker, actor, token,
+      character, archmage);
   group:
     type: String
     label: Group
-    value: null
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -134,34 +146,42 @@ system:
       <p><span>Until the end of the battle, your basic melee attacks use d12s as
       their base weapon damage dice.</span></p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: false
     type: String
     label: 3rd Level Spell
     value: The spell now requires only a quick action to cast.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: false
     type: String
     label: 5th Level Spell
     value: You deal half damage on misses with basic melee attacks this battle.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: false
     type: String
     label: 7th Level Spell
     value: Once during the battle, you can reroll a basic melee attack.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
@@ -169,10 +189,12 @@ system:
       dice rolls that are less than the escalation die to the escalation die
       value.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -187,23 +209,12 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: >-
-      // For the code executed in this macro, see
-
-      //
-      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
-
-      game.archmage.ArchmageMacros.clericHammerOfFaith(speaker, actor, token,
-      character, archmage);
 flags: {}
 img: systems/archmage/assets/icons/skills/weapon_42.jpg
 effects: []

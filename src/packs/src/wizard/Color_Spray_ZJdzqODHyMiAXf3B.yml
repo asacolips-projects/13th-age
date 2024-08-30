@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -74,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[2d8+@atk.a.bonus]] psychic damage, and if the target has 10 hp or fewer
+      [[2d8 + @atk.a.bonus]] psychic damage, and if the target has 10 hp or fewer
       after the damage, it is *weakened* until the end of your next turn.
   hitEven:
     type: String
@@ -136,42 +141,52 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[4d6+@atk.a.bonus]] damage, 20 hp or fewer.'
+    value: '[[4d6 + @atk.a.bonus]] damage, 20 hp or fewer.'
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
-    value: '[[6d8+@atk.a.bonus]] damage, 30 hp or fewer.'
+    value: '[[6d8 + @atk.a.bonus]] damage, 30 hp or fewer.'
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: '[[10d6+@atk.a.bonus]] damage, 40 hp or fewer.'
+    value: '[[10d6 + @atk.a.bonus]] damage, 40 hp or fewer.'
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[10d12+@atk.a.bonus]] damage, 60 hp or fewer.'
+    value: '[[10d12 + @atk.a.bonus]] damage, 60 hp or fewer.'
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -235,7 +250,7 @@ system:
     '2':
       description:
         type: String
-        value: <p>The spell now targets [[1d4+1]] nearby enemies in a group.</p>
+        value: <p>The spell now targets [[1d4 + 1]] nearby enemies in a group.</p>
       isActive:
         type: Boolean
         value: false
@@ -251,10 +266,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/explosion-sky-3.jpg
 effects: []

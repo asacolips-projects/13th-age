@@ -20,7 +20,7 @@ results:
   - _id: 7qoqpWoWy1B7kLqz
     flags: {}
     type: text
-    text: Deal [[@lvl+@cha.mod]] damage to all nearby staggered enemies.
+    text: Deal [[@lvl + @cha.mod]] damage to all nearby staggered enemies.
     img: icons/svg/d20-black.svg
     weight: 2
     range:
@@ -32,7 +32,7 @@ results:
   - _id: XGKC3oNJeqevN2zo
     flags: {}
     type: text
-    text: Deal [[@lvl+@cha.mod]] damage to one nearby enemy
+    text: Deal [[@lvl + @cha.mod]] damage to one nearby enemy
     img: icons/svg/d20-black.svg
     weight: 2
     range:

@@ -11,11 +11,13 @@ system:
     value: >-
       <p>The demon&rsquo;s resistance to all energy types puts a damper on enemy
       spellcasters, but at least the resistance is only 12+.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

@@ -11,11 +11,13 @@ system:
     value: >-
       <p>As a move action, the demon can teleport anywhere it can see
       nearby.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

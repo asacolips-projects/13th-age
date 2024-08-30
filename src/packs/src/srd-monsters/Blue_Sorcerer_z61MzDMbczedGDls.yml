@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -202,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -249,6 +253,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -256,7 +264,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD'
+        value: '[[d20 + 8]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -303,6 +311,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -310,7 +322,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD ([[1]] nearby enemy)'
+        value: '[[d20 + 8]] vs. PD ([[1]] nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -359,6 +371,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -366,7 +382,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD ([[1d3]] nearby enemies'
+        value: '[[d20 + 8]] vs. MD ([[1d3]] nearby enemies'
       hit:
         type: String
         label: Hit
@@ -422,6 +438,10 @@ items:
           cast a spell, roll a [[1d20]] to see if it uses a minor spell or a
           major spell:&nbsp;1&ndash;10:&nbsp;minor
           spell;&nbsp;11&ndash;20:&nbsp;major spell.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -455,6 +475,10 @@ items:
           sorcerer&rsquo;s level (3); OR grant one nearby dragon
           with&nbsp;intermittent breath&nbsp;an additional use of its breath
           weapon this battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -478,6 +502,10 @@ items:
         value: >-
           <p>Add the escalation die to the
           sorcerer&rsquo;s&nbsp;power-monger&nbsp;rolls and attack rolls.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -502,6 +530,10 @@ items:
           <p>Once per battle when an attack misses the sorcerer, the attacker
           takes the miss damage from that attack, if any, and the sorcerer takes
           no damage</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -7,6 +7,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -27,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -50,7 +55,7 @@ system:
   powerLevel:
     type: Number
     label: Level
-    value: '1'
+    value: 1
   actionType:
     type: String
     label: Action
@@ -62,7 +67,7 @@ system:
   trigger:
     type: String
     label: Trigger
-    value: null
+    value: ''
   target:
     type: String
     label: Target
@@ -74,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: null
+    value: ''
   hit:
     type: String
     label: Hit
-    value: null
+    value: ''
   hitEven:
     type: String
     label: Natural Even Hit
@@ -94,15 +99,15 @@ system:
   miss:
     type: String
     label: Miss
-    value: null
+    value: ''
   missEven:
     type: String
     label: Even Miss
-    value: null
+    value: ''
   missOdd:
     type: String
     label: Odd Miss
-    value: null
+    value: ''
   resources:
     type: String
     label: Resources
@@ -110,19 +115,19 @@ system:
   castBroadEffect:
     type: String
     label: Cast for Broad Effect
-    value: null
+    value: ''
   castPower:
     type: String
     label: Cast for Power
-    value: null
+    value: ''
   sustainedEffect:
     type: String
     label: Opening and Sustained Effect
-    value: null
+    value: ''
   finalVerse:
     type: String
     label: Final Verse
-    value: null
+    value: ''
   special:
     type: String
     label: Special
@@ -134,57 +139,67 @@ system:
       <p>Until the end of the battle, the target gains resist damage 12+ to the
       following energy type of your choice: cold, fire, lightning, thunder.</p>
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: false
     type: String
     label: 3rd Level Spell
     value: Choose two types of energy that the target gains resistance to.
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: false
     type: String
     label: 5th Level Spell
     value: Resistance is now 16+.
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: false
     type: String
     label: 7th Level Spell
     value: The spell now affects two targets.
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: false
     type: String
     label: 9th Level Spell
     value: Recharge roll is now 11+.
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
   spellChain:
     type: String
     label: Chain Spell
-    value: null
+    value: ''
   breathWeapon:
     type: String
     label: Breath Weapon
-    value: null
+    value: ''
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
@@ -209,10 +224,6 @@ system:
       maxQuantity:
         type: Number
         value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: icons/magic/defensive/barrier-shield-dome-blue-purple.webp
 _id: 18DU5tlpxEPtKynh

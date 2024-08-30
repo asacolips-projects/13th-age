@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: xUter262UGcB2mEr
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 8]] vs. MD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -340,8 +348,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: mBG4B6dPEq4zHgfn
     effects: []
     folder: null
@@ -360,6 +366,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -367,7 +378,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 8]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -398,8 +409,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VP1ArjCOojqaLnvP
     effects: []
@@ -432,11 +441,13 @@ items:
           the PC does not have an icon relationship with the Demonic Icon, the
           character must shift one relationship point with another icon into a
           conflicted relationship with the Demonic Icon.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dFrDdhpdCHuE5y8x
     effects: []
@@ -470,11 +481,13 @@ items:
           Demonic Icon priest. And if used on a character who already has a
           positive relationship with the Demonic Icon, the PC gets another such
           point, replacing one of their other icon relationships.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3uSoXIJnFQnSfils
     effects: []

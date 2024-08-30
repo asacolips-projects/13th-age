@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC'
+        value: '[[d20 + 12]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 2GUN5D79bd7k7IGm
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. MD (one or two nearby or faraway enemies)'
+        value: '[[d20 + 12]] vs. MD (one or two nearby or faraway enemies)'
       hit:
         type: String
         label: Hit
@@ -338,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: BZyOiU2zFAR79dHj
     effects: []
     folder: null
@@ -361,11 +367,13 @@ items:
         value: >-
           <p>Once a round, as a quick action, the inquisitor can spur a nearby
           ally into making an at-will attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9xCl6IxCSkMowdBx
     effects: []
@@ -389,11 +397,13 @@ items:
           <p>The inquisitor sits upon a flying throne. As a rule, it can&rsquo;t
           fly extremely high, but it can usually fly just a little faster than a
           victim can run.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: c0ToaZdOx4GQIrTX
     effects: []
@@ -416,11 +426,13 @@ items:
         value: >-
           <p>The inquisitor can use the&nbsp;<em>vision of the echo</em>
           attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SHpRdxEyuEjqmJqg
     effects: []
@@ -440,6 +452,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -447,7 +464,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. MD (1 nearby or faraway target)'
+        value: '[[d20 + 12]] vs. MD (1 nearby or faraway target)'
       hit:
         type: String
         label: Hit
@@ -479,8 +496,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5EsPA7oKOzYbr2TH
     effects: []

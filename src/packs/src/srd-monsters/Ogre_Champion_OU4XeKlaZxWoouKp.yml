@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,6 +306,10 @@ items:
           Whenever a nearby dwarf or elf enemy attempts to use their racial
           power, they must roll a hard save (16+). On a failure, the power fails
           and has no effect that turn (but they can try again next turn).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -321,6 +333,10 @@ items:
         value: >-
           Creatures engaged with the ogre champion take opportunity attacks from
           it when casting close spells as if they were casting ranged spells.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,6 +360,10 @@ items:
         value: >-
           The ogre champion adds the escalation die to the damage it deals with
           its attacks, hit or miss.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

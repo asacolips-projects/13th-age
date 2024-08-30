@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,6 +305,10 @@ items:
         value: >-
           The otyugh gains a +2 bonus to all defenses while fighting in its nest
           or in similar piles of excrement and trash.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -321,6 +333,10 @@ items:
           Once per round, an otyugh can make a grasping tentacles attack as a
           free action against a moving nearby creature it is not engaged with;
           on a natural even hit, the target is grabbed and its movement stops.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -288,6 +296,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -340,6 +352,10 @@ items:
         value: >-
           If all three attacks hit, each nearby enemy takes [[4d10]] fire
           damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +380,10 @@ items:
           The target slips into madness and becomes a cannibal cultist or
           wendigo or some other terrible demon-thing of the GM’s or player’s
           choice in [[2d10]] hours.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -387,6 +407,10 @@ items:
         value: >-
           The elder wendigo can walk on the wind. It is not a graceful flyer,
           but it moves as fast as the wind that carries it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -410,6 +434,10 @@ items:
         value: >-
           The elder wendigo gains a +5 bonus to all defenses against attacks by
           far away enemies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -437,6 +465,10 @@ items:
           icon—one of a few that the GM chooses. Alternatively, a point the
           character already has with one of those icons changes to involve
           another icon (of the PC’s choice).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -461,6 +493,10 @@ items:
           Once per round when a nearby or far away enemy attacks the elder
           wendigo and rolls a natural odd miss, the wendigo can make a horrific
           gaze attack against that attacker as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

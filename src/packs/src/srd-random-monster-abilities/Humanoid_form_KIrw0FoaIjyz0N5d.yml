@@ -17,11 +17,13 @@ system:
       monster to represent the shapechanged form. The dragon has the PC-style
       racial power of their humanoid form, but only while in shapechanged
       form.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

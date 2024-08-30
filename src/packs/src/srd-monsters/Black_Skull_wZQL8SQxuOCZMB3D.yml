@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
           is *stuck* from its telekinetic grasp takes [[18]] force damage at the
           start of the skull’s turn. When the escalation die is odd, one such
           stuck enemy of its choice is *hampered* (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -271,6 +279,10 @@ items:
           of the ground. If the skull is incognito, its empty clothing moves
           around beneath it, held in the shape of a person by telekinesis and it
           stays closer to the ground to appear normal.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +304,10 @@ items:
         type: ''
         label: Description
         value: This creature can’t make opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -197,6 +197,10 @@ items:
         value: >-
           <p>Quick use: The assassin can take [[15]] damage to make this attack
           as a quick action (one per round).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -204,7 +208,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD ([[1]] enemy)'
+        value: '[[d20 + 9]] vs. PD ([[1]] enemy)'
       hit:
         type: String
         label: Hit
@@ -254,6 +258,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -261,7 +269,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD ([[1]] enemy)'
+        value: '[[d20 + 11]] vs. MD ([[1]] enemy)'
       hit:
         type: String
         label: Hit
@@ -310,6 +318,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -317,7 +329,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. MD ([[1]] *confused* enemy)'
+        value: '[[d20 + 10]] vs. MD ([[1]] *confused* enemy)'
       hit:
         type: String
         label: Hit
@@ -366,6 +378,10 @@ items:
         value: >-
           <p>An intellect assassin&rsquo;s crit range with attacks against MD
           expands by 2.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -387,6 +403,10 @@ items:
         type: String
         label: Description
         value: <p>This creature can&rsquo;t make opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -412,6 +432,10 @@ items:
           the first time it becomes unhosted in a battle and gains a bonus equal
           to that value to all attacks and defenses until the end of the
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -454,6 +478,10 @@ items:
           duel&nbsp;check instead of +2. In addition, the assassin takes a
           &ndash;2 penalty to attack rolls that target other
           creatures.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

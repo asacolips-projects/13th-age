@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -293,6 +301,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -339,6 +351,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -389,6 +405,10 @@ items:
         value: >-
           While flying, the manticore can make a scorpion sting attack, pop free
           from the target, and keep flying to somewhere nearby.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -412,6 +432,10 @@ items:
         value: >-
           Giant batlike dragon wings put the final horrid touch on the coursing
           manticore’s “everything awful” design aesthetic.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -435,6 +459,10 @@ items:
         value: >-
           Each time the manticore uses its scorpion sting attack, it takes
           [[1d6]] damage, or [[2d6]] damage if it’s staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -460,6 +488,10 @@ items:
           battle at tremendous speed. During its first turn only, add +6 to its
           initiative count. After that, the beast returns to its normal
           initiative order.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -484,6 +516,10 @@ items:
           Instead of a scorpion tail, the manticore has a spiked tail full of
           quills and can make volley of tail spikes attacks instead of scorpion
           sting attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

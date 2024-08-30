@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ZvvBxrbaovWJgj22
     effects: []
     folder: null
@@ -307,11 +310,13 @@ items:
           number of kobold berserker mooks that were slain with the attack to
           the save (i.e., one big attacks slays three kobold berserker mooks,
           roll a d20 save and add 3.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: L3of0NTESdqJ0SPr
     effects: []
@@ -336,11 +341,13 @@ items:
           berserker mooks into a really angry kobold. If the save result is 16+,
           instead transform one of the remaining kobold berserker mooks into a
           red haze berserker.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wppfj0bVsv0Ursix
     effects: []
@@ -363,11 +370,13 @@ items:
         value: >-
           <p>Roll 2d20 for each of the kobold&rsquo;s attacks and use the higher
           result.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pC84ohbz1wmIDMlk
     effects: []

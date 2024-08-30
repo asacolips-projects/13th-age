@@ -11,11 +11,13 @@ system:
     value: >-
       <p>While staggered, the dire animal gains a +2 attack bonus and deals +4
       damage, but at the end of each of its turns it takes 2d6 damage.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}

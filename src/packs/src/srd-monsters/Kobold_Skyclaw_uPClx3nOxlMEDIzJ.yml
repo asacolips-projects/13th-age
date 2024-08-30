@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -202,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+5]] vs. AC'
+        value: '[[d20 + 5]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -255,6 +259,10 @@ items:
           is *stuck* (save ends).</li><li>Kobold blasting powder: There’s a loud
           bang and the battlefield is obscured with thick smoke. Each non-kobold
           creature takes a -2 attack penalty during its next turn.</li></ol>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -262,7 +270,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+6]] vs. PD ([[1]] nearby enemy or a far away enemy at -2 atk)'
+        value: '[[d20 + 6]] vs. PD ([[1]] nearby enemy or a far away enemy at -2 atk)'
       hit:
         type: String
         label: Hit
@@ -316,6 +324,10 @@ items:
           (see&nbsp;mook).</li><li>2&ndash;15:&nbsp;It lands
           safely.</li><li>16+:&nbsp;It stays aloft and can keep
           flying.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,6 +349,10 @@ items:
         type: String
         label: Description
         value: <p>Kobolds take no damage from missed attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -254,6 +254,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -291,8 +296,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ch4AF8F78bKD7scW
     effects: []
     folder: null
@@ -311,6 +314,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -318,7 +326,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. MD (up to 3 nearby or faraway enemies in a group)'
+        value: '[[d20 + 15]] vs. MD (up to 3 nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -352,8 +360,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: lFjtcSdvN5H7wPwu
     effects: []
     folder: null
@@ -372,6 +378,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -379,7 +390,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD (1 nearby enemy)'
+        value: '[[d20 + 15]] vs. PD (1 nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -409,8 +420,6 @@ items:
         type: String
         label: Miss
         value: '[[90]] damage'
-      embeddedMacro:
-        value: ''
     _id: gdcaBhF7A9AxA4GD
     effects: []
     folder: null
@@ -429,6 +438,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -436,7 +450,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD (each enemy engaged with it)'
+        value: '[[d20 + 15]] vs. PD (each enemy engaged with it)'
       hit:
         type: String
         label: Hit
@@ -466,8 +480,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Nlsqh4bHqInxirur
     effects: []
     folder: null
@@ -491,11 +503,13 @@ items:
           drops to 0 hit points or dies in some other fashion nearby, the Fallen
           Icon&rsquo;s Maw heals hit point equal to 10 &times; the creature (or
           mob&rsquo;s) level.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rYHVkqNrwxuv5mKF
     effects: []
@@ -524,11 +538,13 @@ items:
           campaign somehow ends while the Fallen Icon&rsquo;s Maw and Fallen
           Icon&rsquo;s Shadow are dead, well, it&rsquo;s not really dead, is
           it?</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: G7Vwf147DLwdeFtU
     effects: []
@@ -552,11 +568,13 @@ items:
           <p>While engaged with this creature, if the target has 120 hp or
           fewer, it&rsquo;s *dazed* (&ndash;4 attack) and does not add the
           escalation die to its attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TEJNHXMsSnSeMO1p
     effects: []

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -255,6 +259,10 @@ items:
         value: >-
           The monarch’s attacks deal +1 damage for each other allied creature
           with the plant type in the battle (max +10).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -280,6 +288,10 @@ items:
           attacks granted by the mycotic scepter, skip the extra fungal attacks
           but add a full-strength fungaloid drudge to the battle next to the
           fungaloid monarch.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -288,6 +296,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -336,6 +348,10 @@ items:
         type: ''
         label: Description
         value: The chuul grabs the target.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -357,6 +373,10 @@ items:
         type: ''
         label: Description
         value: The target is *hampered* and *weakened* (hard save ends both, 16+).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -378,6 +398,10 @@ items:
         type: ''
         label: Description
         value: The target is instead *helpless* (hard save ends, 16+).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,6 +425,10 @@ items:
         value: >-
           This attack only requires a quick action when used against an enemy
           the chuul is grabbing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -429,6 +457,10 @@ items:
           becomes the target of the attack instead of the chuul. If the chuul
           tries to interpose an enemy it’s grabbing, the save is hard (16+)
           instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -452,6 +484,10 @@ items:
         value: >-
           When a psychic attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -475,6 +511,10 @@ items:
         value: >-
           Chuuls swim well and can breathe underwater, though they prefer not
           to.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -499,6 +539,10 @@ items:
           When an enemy is engaged with the chuul at the start of its turn, that
           creature must roll a normal save; on a failure, it’s *hampered* (easy
           save ends, 6+).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -522,6 +566,10 @@ items:
         value: >-
           The mutant chuul can make three crushing claws attacks instead of two.
           If two of the attacks hit the same target, the chuul grabs it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -545,6 +593,10 @@ items:
         value: >-
           When the chuul rolls a natural even hit with crushing claws, it deals
           [[120]] damage instead of 70.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -566,6 +618,10 @@ items:
         type: ''
         label: Description
         value: The chuul gains a venom spit attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -589,6 +645,10 @@ items:
         value: >-
           The chuul can make a second venom spit attack against the same group
           as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -612,6 +672,10 @@ items:
         value: >-
           The crippling tentacles attack is now a close attack against [[1d3]]
           enemies in a group.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

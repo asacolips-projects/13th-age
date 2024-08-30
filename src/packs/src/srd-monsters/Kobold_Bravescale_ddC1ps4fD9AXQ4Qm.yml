@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -295,6 +303,10 @@ items:
           bravescale allies in the battle, whenever an enemy moves to engage the
           bravescale, it can make a spear porcupine attack against that enemy as
           a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,6 +332,10 @@ items:
           with a creature that this bravescale is engaged with, the bravescale
           gains a +2 bonus to AC (maximum of +4), and each enemy engaged with
           the bravescale takes a -2 penalty (maximum of -4) to disengage checks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

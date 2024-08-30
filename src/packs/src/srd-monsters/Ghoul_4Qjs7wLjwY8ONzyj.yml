@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -246,6 +250,10 @@ items:
         value: >-
           The ghoul’s claws and bite attack deals +4 damage against *vulnerable*
           targets.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -269,6 +277,10 @@ items:
         value: >-
           Any creature that is slain by a ghoul and not consumed will rise as a
           ghoul the next night.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,6 +304,10 @@ items:
         value: >-
           When the ghoul hits a *vulnerable* target with a natural even attack
           roll, the target is also *stunned* (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

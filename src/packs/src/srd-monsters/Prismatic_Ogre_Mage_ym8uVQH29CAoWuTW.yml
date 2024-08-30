@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +298,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -344,6 +356,10 @@ items:
         value: >-
           This power only requires a quick action (once per round) instead of a
           standard action when the escalation die is odd.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,6 +381,10 @@ items:
         type: ''
         label: Description
         value: '[[50]] damage, and the target is *confused* (save ends).'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -386,6 +406,10 @@ items:
         type: ''
         label: Description
         value: '[[40]] ongoing poison damage.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -407,6 +431,10 @@ items:
         type: ''
         label: Description
         value: The target loses a recovery, and the prismatic ogre mage heals 70 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -427,6 +455,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -449,6 +481,10 @@ items:
         type: ''
         label: Description
         value: The target is *stunned* (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -472,6 +508,10 @@ items:
         value: >-
           The target is *dazed* and *confused* (save ends both). When the target
           saves, it takes [[40]] psychic damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -497,6 +537,10 @@ items:
           play, returning it to the battle in (or near) its previous location at
           the end of its next turn. No time seems to pass for the target while
           it’s gone.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -521,6 +565,10 @@ items:
           When a limited attack (not an at-will attack) targets this creature,
           the attacker must roll a natural 16+ on the attack roll or it only
           deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -552,6 +600,10 @@ items:
           relationships, attributes, bonuses, etc.). They are personal details
           that have been warped and scrambled by the prismatic ogre mage’s
           magic.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

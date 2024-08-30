@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 3SM2Tu9OWJNhSmG4
     effects: []
     folder: null
@@ -305,11 +308,13 @@ items:
           The eidolon can bring them back at will, another eidolon might also be
           able to retrieve them, and a quest by the adventurers to another realm
           might retrieve them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ULOy7IxJIpWB6tU4
     effects: []
@@ -338,11 +343,13 @@ items:
           interact with and if a mortal proves too troublesome the eidolon will
           move on. In general eidolons need defeating on three separate
           occasions to convince them to stay away forever.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: B1JnbkCF0dg6WN9T
     effects: []
@@ -375,11 +382,13 @@ items:
           which reality their character is now in. At the start of each round,
           the eidolon can choose which version(s) of reality its allies are
           in.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GEooGtBkQ8jNAPDg
     effects: []
@@ -407,11 +416,13 @@ items:
           initiative order as determined by the eidolon. Alternately, the
           eidolon warps the momentum of the battle and the escalation die value
           is determined at the start of the round with a [[/r d6]] roll.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7dLeRtdYIMAcweci
     effects: []
@@ -439,11 +450,13 @@ items:
           the start of the round. Alternately, if you are using minis and some
           sort of map tiles you can rearrange the tiles with the minis still on
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: P6qxXkbAfJxUrrqd
     effects: []

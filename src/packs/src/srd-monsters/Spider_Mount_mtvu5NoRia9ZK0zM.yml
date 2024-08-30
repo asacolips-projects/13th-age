@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -239,6 +243,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -289,6 +297,10 @@ items:
         value: >-
           A spider mount can climb on ceilings and walls as easily as it moves
           on the ground, and so can its rider.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -313,6 +325,10 @@ items:
           A riderless spider mount will eventually run away. At the start of the
           spider’s turn roll a [[d4]]; if you roll less than the escalation die,
           the mount flees.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

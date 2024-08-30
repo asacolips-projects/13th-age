@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC'
+        value: '[[d20 + 17]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[20]] damage'
-      embeddedMacro:
-        value: ''
     _id: KQKTmeAlvzSmKCJc
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -308,7 +316,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC '
+        value: '[[d20 + 17]] vs. AC '
       hit:
         type: String
         label: Hit
@@ -340,8 +348,6 @@ items:
         type: String
         label: Miss
         value: '[[20]] damage'
-      embeddedMacro:
-        value: ''
     _id: YNeumqqIKcndRaoP
     effects: []
     folder: null
@@ -363,11 +369,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xvhM3Iuca8y6AqEZ
     effects: []
@@ -395,11 +404,13 @@ items:
           attack as a quick action</span> </p>
 
           <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lr2DPJ2THRwPLF4l
     effects: []
@@ -427,11 +438,13 @@ items:
           per battle when this monster reappears after its </span><span
           class="fontstyle2">green walk </span><span class="fontstyle0">it does
           triple damage instead of double damage.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3VimIVhvVXsx26Qt
     effects: []
@@ -459,11 +472,13 @@ items:
           Once per battle when the escalation die is 4+ and this monster
           </span><span class="fontstyle2">green walks </span><span
           class="fontstyle0">it immediately gets another turn.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ytoXiVgEZLIxtU06
     effects: []
@@ -490,11 +505,13 @@ items:
           <p><span class="fontstyle0">When this monster </span><span
           class="fontstyle2">green walks </span><span class="fontstyle0">it
           heals 1d4 x 20 hit points</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UKJo9MJwDE61JdZV
     effects: []
@@ -518,11 +535,13 @@ items:
           <p><span class="fontstyle0">Enemies engaged with this briar elf who
           have fewer than 96 hp are dazed (-4 attack) and can&rsquo;t use the
           escalation die.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zLfOpspYHImMp1qJ
     effects: []
@@ -551,6 +570,10 @@ items:
           disappear. At the start of their next turn they reappear next to
           another nearby tree, and hit or miss their attack does double
           damage.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -587,8 +610,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zAQho2qb2R8Ur83x
     effects: []

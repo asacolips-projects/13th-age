@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,6 +245,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -293,6 +301,10 @@ items:
         value: >-
           When a headless zombie drops to 0 hp, it flails with its fists and
           makes a mouthless cry attack as a free action before it dies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -317,6 +329,10 @@ items:
           When a creature tries to affect the zombie’s attack, such as forcing a
           reroll or applying a penalty, it must roll a normal save; on a
           failure, the effect is negated.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,6 +356,10 @@ items:
         value: >-
           While nearby a headless zombie, when a creature would heal, it only
           heals half the normal hit points.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -363,6 +383,10 @@ items:
         value: >-
           When the escalation die increases to 6, each headless zombie in the
           battle is restored to maximum hit points, including the dead ones.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. AC'
+        value: '[[d20 + 18]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -282,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 4oPX8DjfjKecqxem
     effects: []
     folder: null
@@ -302,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -309,7 +317,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. MD ([[1d4]] nearby or faraway enemies)'
+        value: '[[d20 + 17]] vs. MD ([[1d4]] nearby or faraway enemies)'
       hit:
         type: String
         label: Hit
@@ -344,8 +352,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 86TedwAuM6adokja
     effects: []
     folder: null
@@ -364,6 +370,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -371,7 +382,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC (4 attacks)'
+        value: '[[d20 + 17]] vs. AC (4 attacks)'
       hit:
         type: String
         label: Hit
@@ -401,8 +412,6 @@ items:
         type: String
         label: Miss
         value: '[[30]] damage'
-      embeddedMacro:
-        value: ''
     _id: xZDzjC2RaKhZD74C
     effects: []
     folder: null
@@ -421,6 +430,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -429,7 +443,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+17]] vs. MD ([[1d4]] nearby enemies, or [[1d3]] faraway enemies
+          [[d20 + 17]] vs. MD ([[1d4]] nearby enemies, or [[1d3]] faraway enemies
           in a group)
       hit:
         type: String
@@ -464,8 +478,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1UDPGOKCMHUKPcWF
     effects: []
     folder: null
@@ -490,11 +502,13 @@ items:
           their targets confused (save ends) on a hit or miss with their
           psychoactive breath, but that uses up their breath for the rest of the
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ouluauXMziVEe8KI
     effects: []
@@ -517,11 +531,13 @@ items:
         value: >-
           <p>Just like the previous tiers, the bladed fan attack translates in
           dragon form to wing buffet but with only +17 to attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ESSQKg1NjGxQFC17
     effects: []
@@ -546,11 +562,13 @@ items:
           next attack. Characters attacking the Purple Dragon
           &lsquo;blind&rsquo; have a 50% miss chance before rolling their
           attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rv9vUqzLvxtcX7Pi
     effects: []
@@ -578,11 +596,13 @@ items:
           conceivably take any form, but regardless of tier their vanity limits
           her to forms that feature purple and magenta (purple clothes and
           magenta hair, purple scales and magenta wing membranes, etc.).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: LDHAGaZHUTc9fdFN
     effects: []
@@ -609,12 +629,14 @@ items:
           <p>The Purple Dragon uses their powers of illusion and mind-control to
           make one of their attackers look and sound like them; the next attack
           has a 50% chance of being targeted against the wrong target.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
         value: Human Form
-      embeddedMacro:
-        value: ''
     _id: PpsO7MRsDJCn2CcE
     effects: []
     folder: null
@@ -640,11 +662,13 @@ items:
           <p>In their dragon form the Purple Dragon can fly. The Purple Dragon
           can also fly using magic, but prefers to not do so unless they need to
           fight a flying enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: IHXSb20SUcQDpdp7
     effects: []
@@ -683,11 +707,13 @@ items:
           <p><strong>4+</strong>: Illusionary terrain&mdash;Any of the Purple
           Dragon&rsquo;s enemies that move this round must roll a save, on a
           failure they end up in a place they did not intend.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SPXIc0s2c8t3qmgv
     effects: []
@@ -714,11 +740,13 @@ items:
           <p>The Purple Dragon gets one last cunning escape at epic tier, and
           though their plans are ruined by their defeat they&rsquo;ll return one
           last time to exact their vengeance upon the party.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KUWbNjtDV29f91XR
     effects: []

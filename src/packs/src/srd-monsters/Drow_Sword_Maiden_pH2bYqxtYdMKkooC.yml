@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -202,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -249,6 +253,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -256,7 +264,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC ([[1]] nearby enemy, or a far away enemy at -2 atk)'
+        value: '[[d20 + 10]] vs. AC ([[1]] nearby enemy, or a far away enemy at -2 atk)'
       hit:
         type: String
         label: Hit
@@ -305,6 +313,10 @@ items:
         value: >-
           <p>Once per round when an attack misses the sword maiden, she can move
           or make a&nbsp;cruel cutlass&nbsp;attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -328,6 +340,10 @@ items:
         value: >-
           <p>The sword maiden has a true magic item (probably a weapon) and uses
           it to her benefit (adjust stats accordingly).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

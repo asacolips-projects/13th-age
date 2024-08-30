@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,6 +251,10 @@ items:
           Limited use: When a nearby enemy attacks and rolls a natural even hit
           against the dragon, the dragon can make a tail smash attack against it
           as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,6 +303,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -347,6 +359,10 @@ items:
         value: >-
           When an enemy is engaged with the volcanic dragon at the start of its
           turn, it takes [[5]] fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -371,6 +387,10 @@ items:
           A volcanic dragon can use volcanic breath [[1d3]] times per battle,
           but if it does not use its breath weapon on consecutive rounds, it
           loses its remaining volcanic breath attacks for the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -394,6 +414,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 14+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

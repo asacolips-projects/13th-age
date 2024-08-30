@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,6 +297,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle, as a free action when first staggered.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -338,6 +350,10 @@ items:
         type: ''
         label: Description
         value: The target can’t use recoveries until end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -361,6 +377,10 @@ items:
         value: >-
           One enemy that hit the dragon since the dragon’s last turn takes
           [[12]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -385,6 +405,10 @@ items:
           The target moves to a nearby non-harmful location of the dragon’s
           choice as a free action. This movement can provoke opportunity
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -408,6 +432,10 @@ items:
         value: >-
           Take [[25]] damage; OR roll twice for each attack roll it makes that
           turn, taking the lower result.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -435,6 +463,10 @@ items:
           addition, when a target saves against the ongoing damage from this
           attack, the crit range of its attacks against the dragon expands by 1
           until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -462,6 +494,10 @@ items:
           attacks to end any condition affecting it except for ongoing damage
           (this includes the *stunned* condition, even though it technically
           doesn’t get an action when stunned).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -497,6 +533,10 @@ items:
           remaining heads can make only one gleaming bite attack as a standard
           action and can’t sacrifice that attack to remove conditions. The
           dragon dies if all three heads are removed.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -520,6 +560,10 @@ items:
         value: >-
           An empyrean dragon can use venom breath [[1d2]] + 1 times per battle,
           but never two turns in a row.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

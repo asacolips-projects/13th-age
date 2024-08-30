@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD'
+        value: '[[d20 + 16]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 8fu9ywxzZSPSd2Nf
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+20]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 20]] vs. PD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -338,8 +346,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] lightning damage'
-      embeddedMacro:
-        value: ''
     _id: uhUd2Es01nrvKsUe
     effects: []
     folder: null
@@ -358,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,7 +376,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD (up to 3 nearby or faraway enemies in a group)'
+        value: '[[d20 + 16]] vs. PD (up to 3 nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -395,8 +406,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: w8smuO7XFwzZlCYD
     effects: []
     folder: null
@@ -415,6 +424,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -422,7 +436,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+20]] vs. PD (one nearby or faraway enemy)'
+        value: '[[d20 + 20]] vs. PD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -454,8 +468,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: NHZHGEuAVK2GXeHw
     effects: []
     folder: null
@@ -480,11 +492,13 @@ items:
           hits but does no damage, imposes no conditions, etc. Each time
           it&rsquo;s hit this way thereafter, the bluescale takes no damage and
           can make an *arcane discharge* attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DC90baAS0d7uL7WV
     effects: []
@@ -508,11 +522,13 @@ items:
           <p>When a lightning attack targets this creature, the attacker must
           roll a natural 16+ on the attack roll or it only deals half
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Vpf0MxPvDEn2kPyx
     effects: []
@@ -535,11 +551,13 @@ items:
         value: >-
           <p>The dragonic deals [[2d10]] extra damage to a target it misses with
           a melee attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WWXa9yBA7kDHTcgS
     effects: []
@@ -571,7 +589,7 @@ items:
           disappears, and reappears in the same place at the end of their next
           turn.&nbsp;</p>
 
-          <p><strong>3:</strong> Esoteric detonation&mdash;The [[/r 1d3+1]]
+          <p><strong>3:</strong> Esoteric detonation&mdash;The [[/r 1d3 + 1]]
           closest creatures take [[10]] force damage and [[10]] ongoing
           lightning damage.&nbsp;</p>
 
@@ -590,11 +608,13 @@ items:
           orb-bearer and perhaps having a lingering effect after the battle:
           target ages or becomes younger rapidly, target enveloped in ice,
           target&rsquo;s skin catches fire, etc.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uVMaol2S1kvpVTPg
     effects: []
@@ -623,11 +643,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ICkO9AAlK4MeTiX9
     effects: []
@@ -655,11 +677,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ljKT1bqBKI0q4MwT
     effects: []

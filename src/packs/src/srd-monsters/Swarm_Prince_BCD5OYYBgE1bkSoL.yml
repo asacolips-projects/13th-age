@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         value: >-
           Limited use: The swarm prince can use this ability only when the
           escalation die is even.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,6 +304,10 @@ items:
         value: >-
           Limited use: 1/battle, and the ability recharges when the swarm prince
           hits with palm strike.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -349,6 +361,10 @@ items:
         value: >-
           The swarm prince gains a +1 bonus to all defenses for each nearby
           Woven.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,6 +393,10 @@ items:
           dies and becomes undead under his control. If the prince is *stunned*
           or moved away from the creature and can’t return to it on his turn,
           the creature doesn’t have to make a last gasp save that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

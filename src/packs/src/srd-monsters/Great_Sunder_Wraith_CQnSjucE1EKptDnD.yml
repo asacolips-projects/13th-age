@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD'
+        value: '[[d20 + 16]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -281,8 +286,6 @@ items:
         type: String
         label: Miss
         value: Negative energy damage equal to the natural attack roll.
-      embeddedMacro:
-        value: ''
     _id: GHCEgEK78CZV6ZCo
     effects: []
     folder: null
@@ -301,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -308,7 +316,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 16]] vs. PD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -342,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Ep9013kF6yTRukWb
     effects: []
     folder: null
@@ -365,11 +371,13 @@ items:
         value: >-
           <p>Sunder wraiths fly like the world is defined however they want it
           to be defined.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wdkwHUskwuOXXVj9
     effects: []
@@ -396,11 +404,13 @@ items:
 
           <p>A great sunder wraith can move through solid objects, but it
           can&rsquo;t end its movement inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rGsgjwdulXtu9WsP
     effects: []
@@ -425,11 +435,13 @@ items:
           object like a wall, throne, door, or chest, the object must roll a
           hard save. If the save fails, the object is broken. Strongly magical
           objects get bonuses on the save, but err on the side of uh-oh.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1QxUDkUWLeQzVTYM
     effects: []

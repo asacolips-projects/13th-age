@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -255,6 +259,10 @@ items:
           beast next to it as a quick action to become a full-strength chaos
           brute acting on this beast’s initiative. Replace the other beast with
           a chaos glorp mook.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

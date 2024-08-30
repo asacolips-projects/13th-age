@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: '[[30]] negative energy damage'
-      embeddedMacro:
-        value: ''
     _id: epUyiJMb3S7ufIfL
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -340,8 +348,6 @@ items:
           One nearby mook dies, and the necromancer or one of their nearby
           undead allies heals [[20]] hp. If there are no nearby mooks for the
           necromancer to slay there is no miss effect.
-      embeddedMacro:
-        value: ''
     _id: hgbM3xNygS4wCMGX
     effects: []
     folder: null
@@ -367,11 +373,13 @@ items:
           under the effects of zombie form, ghoul form, ghost form, vampiric
           form, or similar then they must save or become confused until the end
           of their next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WjOGOmreyqjUDBdR
     effects: []
@@ -394,11 +402,13 @@ items:
         value: >-
           <p>When an ally of the necromancer dies it instead heals to full hp
           and its creature type becomes UNDEAD if it was not already.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pSK223q8juIH2yp7
     effects: []
@@ -422,11 +432,13 @@ items:
           <p>If the necromancer starts the combat as a living HUMANOID, then
           when it dies instead its type becomes UNDEAD and it instantly heals to
           [[226]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: C7ESN2kw5RppiHlX
     effects: []

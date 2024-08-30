@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
           opportunity attack against the polar bear before the start of the
           bear’s next turn, the bear can make a fang, claw, or tusk attack
           against the target as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,6 +275,10 @@ items:
         value: >-
           The target takes [[14]] extra damage and is *stuck* (save ends; also
           ends if the walrus moves)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,6 +302,10 @@ items:
         value: >-
           The target takes [[14]] extra damage, or [[28]] extra damage if
           another winter wolf is engaged with it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -313,6 +329,10 @@ items:
         value: >-
           When a cold attack targets this creature, the attacker must roll a
           natural 12+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

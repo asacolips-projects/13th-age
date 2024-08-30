@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,6 +246,10 @@ items:
         value: >-
           Limited use: Once the sorceress hits with darkfire, she can’t use it
           again until the target saves.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -288,6 +296,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -340,6 +352,10 @@ items:
         value: >-
           Each time the spider-sorceress misses with an attack, the crit range
           of attacks by drow and spiders in the battle expands by 1.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,6 +380,10 @@ items:
           The first time each battle an enemy hits the spider-sorceress with a
           melee attack, that attacker takes [[16]] ongoing poison damage from
           her familiar.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -387,6 +407,10 @@ items:
         value: >-
           The spider-sorceress has a true magic item (probably an implement) and
           uses it to her benefit (adjust stats accordingly).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

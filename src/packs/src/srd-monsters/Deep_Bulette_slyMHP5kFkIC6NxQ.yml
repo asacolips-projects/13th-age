@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,6 +248,10 @@ items:
         value: >-
           The deep bulette’s crit range expands by 4 while the escalation die is
           4+.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -264,6 +272,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -288,6 +300,10 @@ items:
         value: >-
           When the bulette hits an enemy engaged with it with an attack, that
           target pops free from it and is *hampered* (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -312,6 +328,10 @@ items:
           The deep bulette engages each nearby enemy in front of it as it pushes
           its bulk inexorably forward down the tunnel. Enemies pushed ahead of
           it this way don’t get to make opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

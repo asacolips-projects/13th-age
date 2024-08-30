@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -250,6 +254,10 @@ items:
           an attack, as a free action each dropped razor shark attacks one
           random nearby non-razor shark creature before it dies. That creature
           takes [[1d8]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -274,6 +282,10 @@ items:
           Sharks breathe underwater and swim very well. They’re not so good out
           of sea water (even if they jump), so treat them as semi-hazardous
           terrain while they’re busy thrashing to death outside the water.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

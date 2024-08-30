@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC (each engaged enemy)'
+        value: '[[d20 + 14]] vs. AC (each engaged enemy)'
       hit:
         type: String
         label: Hit
@@ -278,8 +283,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: MRpJKs97R8Cn5L4u
     effects: []
     folder: null
@@ -298,6 +301,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -305,7 +313,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. MD ([[d3]] nearby enemies) '
+        value: '[[d20 + 14]] vs. MD ([[d3]] nearby enemies) '
       hit:
         type: String
         label: Hit
@@ -335,8 +343,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Q2fgn7wnBwzGv9ou
     effects: []
     folder: null
@@ -359,11 +365,13 @@ items:
           <p><span class="fontstyle0">Barbed vines can&rsquo;t move and
           can&rsquo;t be moved, at least not until they&rsquo;re dead and
           chopped down.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ICKWsPCxbDiXN7ck
     effects: []
@@ -387,11 +395,13 @@ items:
           <p><span class="fontstyle0">When a briar elf next to a briar tree
           takes damage, half that damage is dealt to the tree instead.</span>
           </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xoCRQ0tRnAwIoSW4
     effects: []
@@ -414,11 +424,13 @@ items:
         value: >-
           <p><span class="fontstyle0">They can move, but they still can&rsquo;t
           be moved.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: LAv5iVHRxl74jib2
     effects: []

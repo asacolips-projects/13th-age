@@ -193,6 +193,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -303,6 +311,10 @@ items:
           hooded devil, it adds the escalation die to its attacks until the end
           of the battle and no other attacks against it can use the escalation
           die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -326,6 +338,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -351,6 +367,10 @@ items:
           save ends effect affecting it if it doesn’t attack that turn (so it
           could successfully save against *confused* or *stunned* conditions and
           still move that turn, for example.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,6 +397,10 @@ items:
           Good luck if you need to win an argument, get to an exit first, use
           terrain to your advantage, or pressure one of the devil’s thugs to rat
           it out. The name of this ability is a verb.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

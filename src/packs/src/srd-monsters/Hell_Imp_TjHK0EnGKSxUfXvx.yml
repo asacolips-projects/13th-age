@@ -195,6 +195,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -202,7 +206,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. MD'
+        value: '[[d20 + 9]] vs. MD'
       hit:
         type: String
         label: Hit
@@ -253,6 +257,10 @@ items:
         value: >-
           <p>Limited use: As a free action, when an enemy enganged with the hell
           imp misses it with an attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -260,7 +268,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD'
+        value: '[[d20 + 9]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -312,6 +320,10 @@ items:
           <p>When you choos to add the escalation die to an attack against a
           hell imp, the imp automatically hits with it next needign taunt attack
           this battle, and the target taes [[2d6]] extra psychic damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,6 +347,10 @@ items:
         value: >-
           <p>Hell imps are capable of impressive feats of aerial agility, but
           only when teir lives depends on it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -359,6 +375,10 @@ items:
           <p>Once per battle as a move action, a hell imp can become invisible,
           pop free from all enemies engaged with it, move away somwhere nearby,
           and then reappear.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -385,6 +405,10 @@ items:
           talent is provocation. They can talk their associates into all sorts
           of extreme emotions and imprudent behavior. Likewise, they can
           probably goad PCs into losing their cool.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -409,6 +433,10 @@ items:
           <p>The&nbsp;stinging tail&nbsp;attack deals [[3]] extra ongoing poison
           damage ([[11]] total), but the target must succeed on two saves (one
           for ongoing and one for *weakened*).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

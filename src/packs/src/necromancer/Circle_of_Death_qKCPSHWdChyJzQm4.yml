@@ -28,6 +28,10 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
@@ -75,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      Vs. Enemy: [[5d10+@int.dmg+@atk.a.bonus]] negative energy damage. Vs.
+      Vs. Enemy: [[5d10 + @int.dmg + @atk.a.bonus]] negative energy damage. Vs.
       Ally: [[d6]] negative energy damage.
   hitEven:
     type: String
@@ -139,42 +143,52 @@ system:
     label: Effect
     value: ''
   spellLevel2:
+    hide: true
     type: String
     label: 2nd Level Spell
     value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
   spellLevel4:
+    hide: true
     type: String
     label: 4th Level Spell
     value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
-    value: 'Enemy: [[8d12+@int.dmg+@atk.a.bonus]], Ally: [[2d6]]'
+    value: 'Enemy: [[8d12 + @int.dmg + @atk.a.bonus]], Ally: [[2d6]]'
   spellLevel6:
+    hide: true
     type: String
     label: 6th Level Spell
     value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: 'Enemy: [[(2d8)*10+@int.dmg+@atk.a.bonus]], Ally: [[3d8]]'
+    value: 'Enemy: [[(2d8) * 10 + @int.dmg + @atk.a.bonus]], Ally: [[3d8]]'
   spellLevel8:
+    hide: true
     type: String
     label: 8th Level Spell
     value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: 'Enemy: [[(4d6)*10+@int.dmg+@atk.a.bonus]], Ally: [[3d10]]'
+    value: 'Enemy: [[(4d6) * 10 + @int.dmg + @atk.a.bonus]], Ally: [[3d10]]'
   spellLevel10:
+    hide: true
     type: String
     label: 10th Level Spell
     value: ''
   spellLevel11:
+    hide: true
     type: String
     label: 11th Level Spell
     value: ''
@@ -195,10 +209,6 @@ system:
     label: Roll Table
     value: ''
   feats: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
 flags: {}
 img: systems/archmage/assets/icons/spells/air-burst-jade-3.jpg
 _id: qKCPSHWdChyJzQm4

@@ -241,6 +241,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -248,7 +253,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC'
+        value: '[[d20 + 9]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -280,8 +285,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: tPkaTIMCn6E5EG8O
     effects: []
     folder: null
@@ -300,6 +303,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -308,7 +316,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+9]] vs. PD (1 nearby enemy, and 1 other nearby enemy engaged
+          [[d20 + 9]] vs. PD (1 nearby enemy, and 1 other nearby enemy engaged
           with a demon)
       hit:
         type: String
@@ -341,8 +349,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: XHiHmxuyFcNimIpq
     effects: []
     folder: null
@@ -361,6 +367,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,7 +379,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD (1 nearby or faraway enemy)'
+        value: '[[d20 + 9]] vs. PD (1 nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -398,8 +409,6 @@ items:
         type: String
         label: Miss
         value: Deal [[6]] fire damage to the Protector Icon priest
-      embeddedMacro:
-        value: ''
     _id: BBdUHI6lcU1aTuoJ
     effects: []
     folder: null
@@ -425,11 +434,13 @@ items:
           every point of relationship with the Protector Icon, expand the
           critical hit range of attacks against the Protector Icon priest by
           1.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wFNQ57K97JsPk5yJ
     effects: []
@@ -450,11 +461,13 @@ items:
         type: String
         label: Description
         value: <p>This creature takes no damage from enemies&rsquo; misses.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ctWGOTR1YtPnaYbL
     effects: []

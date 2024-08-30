@@ -195,6 +195,10 @@ items:
         value: >-
           Limited use: 2/round, each requiring a quick action. (Hitting the same
           target twice with pincer gives the stinger attack a +4 bonus.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,6 +247,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String

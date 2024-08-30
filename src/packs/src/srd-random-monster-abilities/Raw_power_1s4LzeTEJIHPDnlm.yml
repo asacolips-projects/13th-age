@@ -11,11 +11,13 @@ system:
     value: >-
       <p>Until it is staggered, the dragon rolls 2d20 with its melee attacks and
       uses the higher roll.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
-    value: ''
-  embeddedMacro:
     value: ''
 effects: []
 flags: {}
