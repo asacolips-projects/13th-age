@@ -560,7 +560,7 @@ export class ArchmageUtility {
       console.log('match', match);
       const cleanMatch = match.trim().toLocaleLowerCase();
       if (cleanMatch === 'weapon') {
-        return '@wpn.m.dmg';
+        return '@wpn.m.dice';
       }
       if (cleanMatch === 'level') {
         return options.attack ? '@std' : '@lvl';
@@ -587,7 +587,7 @@ export class ArchmageUtility {
      * This will still have some funky aspects to it, like outputing "[[d20+9]] vs AC ( [[3]] attacks)".
      * To get around that, we'll have another pass later that tries to clean up unexpected spaces.
      */
-    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*(?:(?:d*\d+)|@[a-z\.]+)[\s\+\-]*)*)((?:\s*vs)*)/gi, (
+    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*(?:(?:d*\d+)|@[a-z\.]+)[x\s\+\-]*)+(?!\d*th|\d*nd|\d*rd|\d*st))((?:\s*vs)*)/gi, (
       match,
       saveRoll,
       naturalTrigger,
@@ -599,6 +599,10 @@ export class ArchmageUtility {
       if (saveRoll) return match;
       let d20 = startingOperator ? 'd20' : 'd20+';
       return `${naturalTrigger} [[${vs ? d20 : ''}${startingOperator}${diceFormula.trim()}]] ${vs}`;
+    });
+    // Fix multiplication.
+    parsedText = parsedText.replace(/(\[\[)([^\[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
+      return `${prefix}${formula.replace('x', '*')}${suffix}`;
     });
     // Do a pass to restore save numbers from the "ZXZ{n}ZXZ" format.
     parsedText = parsedText.replace(/(ZXZ)(\d+)(ZXZ)/g, (match, prefix, number, suffix) => {
