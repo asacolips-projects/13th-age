@@ -35,7 +35,7 @@ system:
   group:
     type: String
     label: Group
-    value: null
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -166,7 +166,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: You can now target [[1d3]] nearby allies (including you) with the spell.
@@ -176,7 +176,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
@@ -204,7 +204,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table

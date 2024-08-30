@@ -35,7 +35,7 @@ system:
   group:
     type: String
     label: Group
-    value: null
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -154,7 +154,7 @@ system:
     label: 4th Level Spell
     value: ''
   spellLevel5:
-    hide: true
+    hide: false
     type: String
     label: 5th Level Spell
     value: Target with 160 hp or fewer, and the target can be far away.
@@ -164,7 +164,7 @@ system:
     label: 6th Level Spell
     value: ''
   spellLevel7:
-    hide: true
+    hide: false
     type: String
     label: 7th Level Spell
     value: Target with 250 hp or fewer, or two targets each with 125 hp or fewer.
@@ -174,7 +174,7 @@ system:
     label: 8th Level Spell
     value: ''
   spellLevel9:
-    hide: true
+    hide: false
     type: String
     label: 9th Level Spell
     value: Target with 500 hp or fewer, or two targets each with 250 hp or fewer.
@@ -199,7 +199,7 @@ system:
   sustainOn:
     type: Number
     label: Sustain On
-    value: ''
+    value: null
   rollTable:
     type: String
     label: Roll Table
