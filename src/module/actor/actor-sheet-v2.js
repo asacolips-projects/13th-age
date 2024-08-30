@@ -631,7 +631,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       rollResults = result.terms[0].results;
       rollResults.forEach(rollResult => {
-        if (game.settings.get("archmage", "secondEdition")) {
+        if (CONFIG.ARCHMAGE.is2e) {
           if ([5, 6].includes(rollResult.result)) {
             sixes++;
             actorIconResults.push(6);
