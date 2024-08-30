@@ -98,17 +98,6 @@ export default {
         return this.editArray[index] === type ? ' hide ' : '';
       }
     },
-    getRollResult(roll) {
-      const results = {
-        5: 5,
-        6: 6
-      }
-      if (game.settings.get('archmage', 'secondEdition')) {
-        results[5] = '?';
-        results [6] = '✓';
-      }
-      return results[roll] ?? 0;
-    },
     rollResultText(roll) {
       const results = {
         5: '5',
