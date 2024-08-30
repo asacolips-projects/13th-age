@@ -631,7 +631,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       rollResults = result.terms[0].results;
       rollResults.forEach(rollResult => {
-        if (rollResult.result == 5) {
+        if (game.settings.get("archmage", "secondEdition")) {
+          if ([5, 6].includes(rollResult.result)) {
+            sixes++;
+            actorIconResults.push(6);
+          }
+        }
+        else if (rollResult.result == 5) {
           fives++;
           actorIconResults.push(5);
         }
@@ -659,6 +665,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       const templateData = {
         actor: this.actor,
         tokenId: token ? `${token.id}` : null,
+        secondEdition: game.settings.get("archmage", "secondEdition"),
         icon: icon,
         fives: fives,
         sixes: sixes,

@@ -8,7 +8,7 @@
       <section class="tooltip-part">
         <div class="dice">
             <header class="part-header flexrow">
-                <span class="part-formula">{{data.roll.formula}}</span>             
+                <span class="part-formula">{{data.roll.formula}}</span>
                 <span class="part-total">{{data.roll.total}}</span>
             </header>
             <ol class="dice-rolls">
@@ -23,8 +23,12 @@
     </div>
     <div class="card-row">
       <div class="card-prop">
+        {{#if secondEdition}}
+        <span {{#if hasSixes}}style="color: green;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.advantages' }}: </b> {{sixes}}</span><br />
+        {{else}}
         <span {{#if hasSixes}}style="color: green;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.unambiguousAdvantages' }}: </b> {{sixes}}</span><br />
         <span {{#if hasFives}}style="color: orange;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.complicatedAdvantages'}}: </b> {{fives}}</span>
+        {{/if}}
       </div>
     </div>
   </div>
