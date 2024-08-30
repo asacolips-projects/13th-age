@@ -665,7 +665,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       const templateData = {
         actor: this.actor,
         tokenId: token ? `${token.id}` : null,
-        secondEdition: game.settings.get("archmage", "secondEdition"),
+        secondEdition: CONFIG.ARCHMAGE.is2e,
         icon: icon,
         fives: fives,
         sixes: sixes,
