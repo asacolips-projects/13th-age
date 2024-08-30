@@ -3236,7 +3236,7 @@ items:
             type: String
             value: >-
               <p>If the target of your heal spell is an ally with 0 hp or below,
-              that ally also adds hit points equal to [[d10*@cha.mod]] to the
+              that ally also adds hit points equal to [[d10 * @cha.mod]] to the
               recovery.</p>
           isActive:
             type: Boolean

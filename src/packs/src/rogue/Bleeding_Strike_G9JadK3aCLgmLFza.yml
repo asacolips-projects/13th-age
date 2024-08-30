@@ -87,7 +87,7 @@ system:
   hitEven:
     type: String
     label: Natural Even Hit
-    value: The target takes [[d4*@lvl]] ongoing damage.
+    value: The target takes [[d4 * @lvl]] ongoing damage.
   hitOdd:
     type: String
     label: Natural Odd Hit
@@ -208,7 +208,7 @@ system:
         type: String
         value: >-
           <p>The ongoing damage against large or huge targets increases to
-          [[@lvl*1d6]].</p>
+          [[@lvl * 1d6]].</p>
       isActive:
         type: Boolean
         value: false

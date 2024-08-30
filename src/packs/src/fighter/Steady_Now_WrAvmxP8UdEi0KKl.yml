@@ -206,7 +206,7 @@ system:
     '0':
       description:
         type: String
-        value: <p>The temporary hit points increase to [[2*@con.mod]].</p>
+        value: <p>The temporary hit points increase to [[2 * @con.mod]].</p>
       isActive:
         type: Boolean
         value: false

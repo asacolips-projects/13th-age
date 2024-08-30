@@ -246,7 +246,7 @@ system:
         type: String
         value: >-
           <p>If you don't add your Sneak Attack damage to the attack, you also
-          deal [[5*@str.mod]] damage to your deadly thrust target when you
+          deal [[5 * @str.mod]] damage to your deadly thrust target when you
           hit.</p>
       isActive:
         type: Boolean

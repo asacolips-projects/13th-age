@@ -207,7 +207,7 @@ system:
       description:
         type: String
         value: >-
-          <p>Deal [[2*@lvl]] damage to one enemy engaged with you before or
+          <p>Deal [[2 * @lvl]] damage to one enemy engaged with you before or
           after you teleport.</p>
       isActive:
         type: Boolean

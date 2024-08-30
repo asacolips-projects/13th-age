@@ -84,7 +84,7 @@ system:
     type: String
     label: Hit
     value: >-
-      [[2d6*10 + @atk.a.bonus]] psychic damage, and you can transfer one condition
+      [[2d6 * 10 + @atk.a.bonus]] psychic damage, and you can transfer one condition
       caused by your enemies from you or the ally you are next to over to the
       target. If timing is required, interpret the transferred condition as if
       you had caused it with this spell.
@@ -182,7 +182,7 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d10*10 + @atk.a.bonus]] damage; if the spell misses, you regain it during
+      [[2d10 * 10 + @atk.a.bonus]] damage; if the spell misses, you regain it during
       your next quick rest.
   spellLevel10:
     hide: true

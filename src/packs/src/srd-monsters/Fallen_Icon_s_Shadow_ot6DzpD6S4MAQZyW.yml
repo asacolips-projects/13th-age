@@ -259,7 +259,7 @@ items:
         label: Hit
         value: >-
           [[110]] negative energy damage, and Fallen Icon’s Shadow heals
-          [[2d6*10]] hit points
+          [[2d6 * 10]] hit points
       hit1:
         type: String
         label: Hit

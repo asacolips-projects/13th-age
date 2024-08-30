@@ -252,7 +252,7 @@ system:
         type: String
         value: >-
           <p>Twice per day when you hit with a melee attack, you can gain
-          additional [[2*@str.mod]] command points.</p>
+          additional [[2 * @str.mod]] command points.</p>
       isActive:
         type: Boolean
         value: false

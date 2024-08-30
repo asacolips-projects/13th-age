@@ -639,7 +639,7 @@ items:
         type: String
         label: Effect
         value: >-
-          <p>Deal [[5*@lvl]] ongoing damage to the target. A normal save (11+)
+          <p>Deal [[5 * @lvl]] ongoing damage to the target. A normal save (11+)
           ends the damage. A critical hit doesn’t double this ongoing
           damage.</p>
       spellLevel2:
@@ -713,7 +713,7 @@ items:
           description:
             type: String
             value: >-
-              <p>Once per day, you can instead use cruel to deal [[5*@lvl]]
+              <p>Once per day, you can instead use cruel to deal [[5 * @lvl]]
               ongoing damage against an enemy you miss or that you roll a
               natural odd attack against, even on a natural 1.</p>
           isActive:
@@ -3058,7 +3058,7 @@ items:
             type: String
             value: >-
               <p>If you don't add your Sneak Attack damage to the attack, you
-              also deal [[5*@str.mod]] damage to your deadly thrust target when
+              also deal [[5 * @str.mod]] damage to your deadly thrust target when
               you hit.</p>
           isActive:
             type: Boolean
@@ -3986,7 +3986,7 @@ items:
       hitEven:
         type: String
         label: Natural Even Hit
-        value: The target takes [[d4*@lvl]] ongoing damage.
+        value: The target takes [[d4 * @lvl]] ongoing damage.
       hitOdd:
         type: String
         label: Natural Odd Hit
@@ -4107,7 +4107,7 @@ items:
             type: String
             value: >-
               <p>The ongoing damage against large or huge targets increases to
-              [[@lvl*1d6]].</p>
+              [[@lvl * 1d6]].</p>
           isActive:
             type: Boolean
             value: true

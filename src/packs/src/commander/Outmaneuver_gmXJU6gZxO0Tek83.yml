@@ -258,7 +258,7 @@ system:
         type: String
         value: >-
           <p>Once per battle as a free action when you hit with this tactic, the
-          target also takes [[1d10*@ed]] psychic damage.</p>
+          target also takes [[1d10 * @ed]] psychic damage.</p>
       isActive:
         type: Boolean
         value: false

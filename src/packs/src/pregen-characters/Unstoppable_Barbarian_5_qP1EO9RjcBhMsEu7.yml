@@ -2657,7 +2657,7 @@ items:
         '1':
           description:
             type: String
-            value: <p>Add [[2*@con.mod]] to the healing the recovery provides.</p>
+            value: <p>Add [[2 * @con.mod]] to the healing the recovery provides.</p>
           isActive:
             type: Boolean
             value: false

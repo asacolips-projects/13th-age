@@ -5624,7 +5624,7 @@ items:
         type: String
         label: 9th Level Spell
         value: >-
-          [[2d6*10 + @cha.dmg + @atk.a.bonus]] damage, and [[60]] ongoing damage;
+          [[2d6 * 10 + @cha.dmg + @atk.a.bonus]] damage, and [[60]] ongoing damage;
           [[30]] ongoing on a miss.
       spellLevel10:
         hide: true

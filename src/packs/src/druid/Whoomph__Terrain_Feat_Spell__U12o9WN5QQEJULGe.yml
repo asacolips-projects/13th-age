@@ -184,7 +184,7 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[8d10 + @wis.dmg + @atk.d.bonus]] damage, or [[3d6*10 + @wis.dmg + @atk.d.bonus]]
+      [[8d10 + @wis.dmg + @atk.d.bonus]] damage, or [[3d6 * 10 + @wis.dmg + @atk.d.bonus]]
       against a mook.
   spellLevel10:
     hide: true

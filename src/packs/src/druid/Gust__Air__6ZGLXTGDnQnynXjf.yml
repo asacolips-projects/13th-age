@@ -179,7 +179,7 @@ system:
     hide: false
     type: String
     label: 9th Level Spell
-    value: ' [[2d8*10 + @wis.dmg + @atk.d.bonus]] damage, and [[15]] ongoing cold damage.'
+    value: ' [[2d8 * 10 + @wis.dmg + @atk.d.bonus]] damage, and [[15]] ongoing cold damage.'
   spellLevel10:
     hide: true
     type: String

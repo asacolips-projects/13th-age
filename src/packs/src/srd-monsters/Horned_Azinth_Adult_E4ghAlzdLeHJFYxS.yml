@@ -401,7 +401,7 @@ items:
         label: Description
         value: >-
           <p>Increase the miss chance from the azinth&rsquo;s natural blurring
-          by [[5*@ed]].</p>
+          by [[5 * @ed]].</p>
       embeddedMacro:
         type: String
         label: Embedded Macro

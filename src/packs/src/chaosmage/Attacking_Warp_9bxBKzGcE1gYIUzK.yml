@@ -216,7 +216,7 @@ system:
         type: String
         value: >-
           <p>When you roll a successful disengage check, you gain [[@dex.mod]]
-          temporary hit points([[2*@dex.mod]] at 5th level; [[3*@dex.mod]] at
+          temporary hit points([[2 * @dex.mod]] at 5th level; [[3 * @dex.mod]] at
           8th level).</p>
       isActive:
         type: Boolean

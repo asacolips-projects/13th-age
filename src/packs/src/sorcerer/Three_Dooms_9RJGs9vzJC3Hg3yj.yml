@@ -84,7 +84,7 @@ system:
     type: String
     label: Hit
     value: >-
-      [[2d4*10 + @atk.a.bonus]] random energy damage, and you take damage of the
+      [[2d4 * 10 + @atk.a.bonus]] random energy damage, and you take damage of the
       same type equal to the unmodified dice roll (2d4, 2d8, or 2d12). (Note
       that there’s no Charisma bonus to damage.)
   hitEven:
@@ -170,7 +170,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[2d8*10 + @atk.a.bonus]] damage.'
+    value: '[[2d8 * 10 + @atk.a.bonus]] damage.'
   spellLevel8:
     hide: true
     type: String
@@ -180,7 +180,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[2d12*10 + @atk.a.bonus]] damage.'
+    value: '[[2d12 * 10 + @atk.a.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

@@ -212,7 +212,7 @@ system:
         type: String
         value: >-
           <p>When you roll a natural even hit with the spell, you also deal
-          [[2*@lvl]] psychic damage to the target.</p>
+          [[2 * @lvl]] psychic damage to the target.</p>
       isActive:
         type: Boolean
         value: false

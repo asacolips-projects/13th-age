@@ -254,7 +254,7 @@ system:
         type: String
         value: >-
           <p>Allies now also get a damage bonus against such enemies equal to
-          [[2*@cha.mod]].</p>
+          [[2 * @cha.mod]].</p>
       isActive:
         type: Boolean
         value: false

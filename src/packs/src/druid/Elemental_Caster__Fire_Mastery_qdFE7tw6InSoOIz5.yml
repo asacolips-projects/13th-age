@@ -227,7 +227,7 @@ system:
         type: String
         value: >-
           <p>When an elemental you have summoned drops to 0 hp, one enemy
-          engaged with it takes [[@lvl + (2*@wis.mod)]] damage.</p>
+          engaged with it takes [[@lvl + (2 * @wis.mod)]] damage.</p>
       isActive:
         type: Boolean
         value: false

@@ -184,7 +184,7 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d8*10 + @cha.dmg + @atk.a.bonus]] damage and you or ally loses [[8d6]] hit
+      [[2d8 * 10 + @cha.dmg + @atk.a.bonus]] damage and you or ally loses [[8d6]] hit
       points.
   spellLevel10:
     hide: true

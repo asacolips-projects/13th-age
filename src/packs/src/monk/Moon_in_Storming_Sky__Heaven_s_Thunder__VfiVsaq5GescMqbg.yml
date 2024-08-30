@@ -85,7 +85,7 @@ system:
     label: Hit
     value: >-
       [[@wpn.j.dice + @str.dmg + @atk.m.bonus]] damage, and each time an enemy
-      attacks you before the start of your next turn, it takes [[2*@lvl]]
+      attacks you before the start of your next turn, it takes [[2 * @lvl]]
       thunder damage after the attack.
   hitEven:
     type: String

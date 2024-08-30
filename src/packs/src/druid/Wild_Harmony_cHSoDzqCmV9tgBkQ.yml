@@ -253,7 +253,7 @@ system:
         type: String
         value: >-
           <p>When this flexible attack triggers, you or one nearby conscious
-          ally heal [[2*@wis.mod]] hit points.</p>
+          ally heal [[2 * @wis.mod]] hit points.</p>
       isActive:
         type: Boolean
         value: false

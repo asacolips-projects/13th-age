@@ -137,9 +137,9 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>This battle, add [[2*@lvl]] to the miss damage of your attacks and the
+      <p>This battle, add [[2 * @lvl]] to the miss damage of your attacks and the
       attacks of your nearby allies. (For example, your basic melee attack as a
-      cleric will deal [[3*@lvl]] as miss damage while this invocation is
+      cleric will deal [[3 * @lvl]] as miss damage while this invocation is
       active.)</p>
   spellLevel2:
     hide: true

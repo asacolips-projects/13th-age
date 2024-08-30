@@ -172,7 +172,7 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[2d6*10 + @wis.dmg + @atk.a.bonus]] damage, and [[25]] ongoing damage. [[25]]
+      [[2d6 * 10 + @wis.dmg + @atk.a.bonus]] damage, and [[25]] ongoing damage. [[25]]
       ongoing damage on a miss.
   spellLevel8:
     hide: true
@@ -184,7 +184,7 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d10*10 + @wis.dmg + @atk.a.bonus]] damage, and [[35]] ongoing damage.
+      [[2d10 * 10 + @wis.dmg + @atk.a.bonus]] damage, and [[35]] ongoing damage.
       [[35]] ongoing damage on a miss.
   spellLevel10:
     hide: true

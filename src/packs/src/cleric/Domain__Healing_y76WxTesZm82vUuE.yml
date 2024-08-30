@@ -137,7 +137,7 @@ system:
     label: Effect
     value: >-
       <p>When you cast a spell that lets you or an ally heal using a recovery,
-      the target also adds [[2*@lvl]] hit points to the recovery.</p>
+      the target also adds [[2 * @lvl]] hit points to the recovery.</p>
   spellLevel2:
     hide: true
     type: String
@@ -252,7 +252,7 @@ system:
         type: String
         value: >-
           <p>Increase the additional hit points the target heals to
-          [[3*@lvl]].</p>
+          [[3 * @lvl]].</p>
       isActive:
         type: Boolean
         value: false

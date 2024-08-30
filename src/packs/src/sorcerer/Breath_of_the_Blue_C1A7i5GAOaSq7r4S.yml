@@ -179,7 +179,7 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d10*10 + @cha.dmg + @atk.a.bonus]] damage; [[25]] lightning damage to
+      [[2d10 * 10 + @cha.dmg + @atk.a.bonus]] damage; [[25]] lightning damage to
       nearby allies.
   spellLevel10:
     hide: true

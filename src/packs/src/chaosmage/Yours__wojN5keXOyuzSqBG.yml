@@ -253,7 +253,7 @@ system:
         type: String
         value: >-
           <p>When the target heals using a recovery, it adds hit points equal to
-          [[d10*@ed]] to that healing.</p>
+          [[d10 * @ed]] to that healing.</p>
       isActive:
         type: Boolean
         value: false

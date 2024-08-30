@@ -136,7 +136,7 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>Deal [[d3*5]] lightning damage to one nearby enemy other than the
+      <p>Deal [[d3 * 5]] lightning damage to one nearby enemy other than the
       target of the triggering attack.</p>
   spellLevel2:
     hide: true
@@ -208,7 +208,7 @@ system:
     '0':
       description:
         type: String
-        value: <p>[[d4*5]] damage instead.</p>
+        value: <p>[[d4 * 5]] damage instead.</p>
       isActive:
         type: Boolean
         value: false
@@ -227,7 +227,7 @@ system:
     '1':
       description:
         type: String
-        value: <p>Roll a [[max((d6),@ed)*5]] instead of a d4.</p>
+        value: <p>Roll a [[max((d6),@ed) * 5]] instead of a d4.</p>
       isActive:
         type: Boolean
         value: false
@@ -246,7 +246,7 @@ system:
     '2':
       description:
         type: String
-        value: <p>[[(@ed + 1d6)*5]]damage instead.</p>
+        value: <p>[[(@ed + 1d6) * 5]]damage instead.</p>
       isActive:
         type: Boolean
         value: false

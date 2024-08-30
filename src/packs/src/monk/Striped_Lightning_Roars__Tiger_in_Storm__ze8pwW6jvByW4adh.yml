@@ -89,7 +89,7 @@ system:
     label: Natural Even Hit
     value: >-
       As a hit, plus [[1d3]] nearby enemies other than the target each take
-      [[2*@lvl]] lightning damage.
+      [[2 * @lvl]] lightning damage.
   hitOdd:
     type: String
     label: Natural Odd Hit

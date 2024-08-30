@@ -486,7 +486,7 @@ items:
         label: Description
         value: >-
           <p>When staggered, the kohwa enforcer gains a bonus to damage equal to
-          triple the escalation die ([[3*@ed]]).</p>
+          triple the escalation die ([[3 * @ed]]).</p>
       embeddedMacro:
         type: String
         label: Embedded Macro

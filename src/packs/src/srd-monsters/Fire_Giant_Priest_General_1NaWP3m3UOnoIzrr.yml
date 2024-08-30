@@ -422,7 +422,7 @@ items:
         label: Description
         value: >-
           <p>Enemies engaged with a fire giant at the end of their turn take
-          fire damage equal to the escalation die value times ten ([[@ed*10]])
+          fire damage equal to the escalation die value times ten ([[@ed * 10]])
           if they have not taken fire damage since the end of their last turn.
           Enemies who resist fire damage take half damage from this fire
           giant&rsquo;s fire aura.</p>

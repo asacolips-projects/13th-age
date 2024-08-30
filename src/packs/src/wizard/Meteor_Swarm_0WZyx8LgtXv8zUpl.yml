@@ -87,7 +87,7 @@ system:
     type: String
     label: Hit
     value: >-
-      [[4d4*10 + @atk.a.bonus]] damage of the energy type of your choice (cold,
+      [[4d4 * 10 + @atk.a.bonus]] damage of the energy type of your choice (cold,
       fire, lightning).  Any allies engaged with the enemies you are targeting
       take one fourth damage from each meteor that impacts the area.
   hitEven:
@@ -218,7 +218,7 @@ system:
     '0':
       description:
         type: String
-        value: <p>Each meteor now deals [[5d4*10 + @atk.a.bonus]] damage.</p>
+        value: <p>Each meteor now deals [[5d4 * 10 + @atk.a.bonus]] damage.</p>
       isActive:
         type: Boolean
         value: false

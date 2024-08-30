@@ -275,7 +275,7 @@ items:
           <p>Acts: After ranger</p><p>Advantage: The bear gains temporary hit
           points equal to its level ([[@lvl]]) each time it hits with an
           attack.</p><p>Champion Feat: The temporary hit points increase to
-          double its level ([[2*@lvl]]).</p>
+          double its level ([[2 * @lvl]]).</p>
       embeddedMacro:
         type: String
         label: Embedded Macro
@@ -383,10 +383,10 @@ items:
         label: Description
         value: >-
           <p>Acts: After ranger</p><p>Advantage: The snake also deals ongoing
-          poison damage equal to twice your level ([[2*@lvl]]) on a natural
+          poison damage equal to twice your level ([[2 * @lvl]]) on a natural
           attack roll of 18+.</p><p>Champion Feat: The ongoing damage is three
-          times your level ([[3*@lvl]]) instead.</p><p>Epic Feat: The ongoing
-          damage is four times your level ([[4*@lvl]]) instead.</p>
+          times your level ([[3 * @lvl]]) instead.</p><p>Epic Feat: The ongoing
+          damage is four times your level ([[4 * @lvl]]) instead.</p>
       embeddedMacro:
         type: String
         label: Embedded Macro

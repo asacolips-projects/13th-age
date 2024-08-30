@@ -384,7 +384,7 @@ items:
         label: Description
         value: >-
           <p>Each enemy engaged with this creature at the start of its turn
-          takes ongoing fire damage equal to this [[@lvl*2]].</p>
+          takes ongoing fire damage equal to this [[@lvl * 2]].</p>
       embeddedMacro:
         type: String
         label: Embedded Macro
@@ -413,7 +413,7 @@ items:
         label: Description
         value: >-
           <p>When an enemy hits this creature with a melee attack, it takes
-          damage equal to [[@lvl*3]].</p>
+          damage equal to [[@lvl * 3]].</p>
       embeddedMacro:
         type: String
         label: Embedded Macro
@@ -472,7 +472,7 @@ items:
         label: Description
         value: >-
           <p>When this creature is hit with cold damage, it gains temporary hit
-          points equal to [[@lvl*4]].</p>
+          points equal to [[@lvl * 4]].</p>
       embeddedMacro:
         type: String
         label: Embedded Macro

@@ -139,7 +139,7 @@ system:
       <p>The targets are embroiled in silver fire! Each targeted ally can roll
       an immediate easy save (6+); if that ally succeeds, they regain one daily
       or recharge power of their choice. Then each targeted enemy takes
-      [[d10*@ed]] damage.</p><p>After the damage, roll the escalation die and
+      [[d10 * @ed]] damage.</p><p>After the damage, roll the escalation die and
       use the new result.</p>
   spellLevel2:
     hide: true
@@ -170,7 +170,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: Damage equal to [[2d6*@ed]].
+    value: Damage equal to [[2d6 * @ed]].
   spellLevel8:
     hide: true
     type: String
@@ -180,7 +180,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: Damage equal to [[2d12*@ed]].
+    value: Damage equal to [[2d12 * @ed]].
   spellLevel10:
     hide: true
     type: String

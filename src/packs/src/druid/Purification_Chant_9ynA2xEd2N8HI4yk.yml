@@ -84,7 +84,7 @@ system:
     type: String
     label: Hit
     value: >-
-      [[2d6*10 + @wis.dmg + @atk.d.bonus]] psychic damage, and you and each of your
+      [[2d6 * 10 + @wis.dmg + @atk.d.bonus]] psychic damage, and you and each of your
       nearby allies can roll a save with a +5 bonus against any save ends effect
       created by the target.
   hitEven:
@@ -180,7 +180,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[2d10*10 + @wis.dmg + @atk.d.bonus]] damage.'
+    value: '[[2d10 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

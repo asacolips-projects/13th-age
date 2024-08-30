@@ -710,7 +710,7 @@ items:
           description:
             type: String
             value: >-
-              <p>Deal [[2*@lvl]] damage to one enemy engaged with you before or
+              <p>Deal [[2 * @lvl]] damage to one enemy engaged with you before or
               after you teleport.</p>
           isActive:
             type: Boolean
@@ -3053,7 +3053,7 @@ items:
         hide: true
         type: String
         label: 7th Level Spell
-        value: '[[2d6*10 + @cha.dmg + @atk.a.bonus]] damage'
+        value: '[[2d6 * 10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel8:
         hide: true
         type: String
@@ -3063,7 +3063,7 @@ items:
         hide: true
         type: String
         label: 9th Level Spell
-        value: '[[3d6*10 + @cha.dmg + @atk.a.bonus]] damage'
+        value: '[[3d6 * 10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel10:
         hide: true
         type: String

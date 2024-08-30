@@ -458,7 +458,7 @@ items:
         label: Description
         value: >-
           <p>When the escalation die is odd, the unclean-one heals hit points
-          equal to its level times the escalation die value ([[@lvl*@ed]]) at
+          equal to its level times the escalation die value ([[@lvl * @ed]]) at
           the start of its turn.</p>
       embeddedMacro:
         type: String

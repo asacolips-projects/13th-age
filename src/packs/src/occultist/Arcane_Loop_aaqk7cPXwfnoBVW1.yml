@@ -208,7 +208,7 @@ system:
         type: String
         value: >-
           <p>The triggering ally also gains temporary hit points equal to
-          [[2*@wis.mod]] + the level of the triggering spell. In addition, that
+          [[2 * @wis.mod]] + the level of the triggering spell. In addition, that
           ally gains the temporary hit points again when they cast that spell
           this battle.</p>
       isActive:

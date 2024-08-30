@@ -84,7 +84,7 @@ system:
     type: String
     label: Hit
     value: >-
-      [[10*2d12 + @cha.dmg + @atk.a.bonus]] negative energy damage, and the target
+      [[10 * 2d12 + @cha.dmg + @atk.a.bonus]] negative energy damage, and the target
       moves down [[2d6]] points in initiative order, to a minimum of 1.
   hitEven:
     type: String

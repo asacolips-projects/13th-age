@@ -160,7 +160,7 @@ system:
     label: 5th Level Spell
     value: >-
       [[5d6 + @wis.dmg + @atk.d.bonus]] damage, ongoing damage equal to
-      [[2*@str.mod]] or [[2*@dex.mod]] on a natural odd hit.
+      [[2 * @str.mod]] or [[2 * @dex.mod]] on a natural odd hit.
   spellLevel6:
     hide: true
     type: String
@@ -182,7 +182,7 @@ system:
     label: 9th Level Spell
     value: >-
       [[7d10 + @wis.dmg + @atk.d.bonus]] damage, ongoing damage equal to
-      [[3*@str.mod]] or [[3*@dex.mod]] on a natural odd hit.
+      [[3 * @str.mod]] or [[3 * @dex.mod]] on a natural odd hit.
   spellLevel10:
     hide: true
     type: String

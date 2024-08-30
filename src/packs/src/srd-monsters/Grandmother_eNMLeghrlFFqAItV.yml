@@ -517,8 +517,8 @@ items:
         type: String
         label: Description
         value: >-
-          <p>When a creature attacks grandmother, it takes [[1d6*10]] damage of
-          the grandmother&rsquo;s special type on a hit, or [[1d3*5]] damage of
+          <p>When a creature attacks grandmother, it takes [[1d6 * 10]] damage of
+          the grandmother&rsquo;s special type on a hit, or [[1d3 * 5]] damage of
           that type on a miss.</p>
       embeddedMacro:
         type: String

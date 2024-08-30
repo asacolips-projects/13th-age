@@ -2596,7 +2596,7 @@ items:
         '0':
           description:
             type: String
-            value: <p>Add [[2*@cha.mod]] to the healing provided by Lay on Hands.</p>
+            value: <p>Add [[2 * @cha.mod]] to the healing provided by Lay on Hands.</p>
           isActive:
             type: Boolean
             value: false

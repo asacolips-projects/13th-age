@@ -354,7 +354,7 @@ items:
         label: Description
         value: >-
           <p>When an enemy intercepts this creature, it takes cold damage equal
-          to [[@lvl*3]].</p>
+          to [[@lvl * 3]].</p>
       embeddedMacro:
         type: String
         label: Embedded Macro

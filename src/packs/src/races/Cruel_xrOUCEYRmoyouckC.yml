@@ -136,7 +136,7 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>Deal [[5*@lvl]] ongoing damage to the target. A normal save (11+) ends
+      <p>Deal [[5 * @lvl]] ongoing damage to the target. A normal save (11+) ends
       the damage. A critical hit doesn’t double this ongoing damage.</p>
   spellLevel2:
     hide: true
@@ -209,7 +209,7 @@ system:
       description:
         type: String
         value: >-
-          <p>Once per day, you can instead use cruel to deal [[5*@lvl]] ongoing
+          <p>Once per day, you can instead use cruel to deal [[5 * @lvl]] ongoing
           damage against an enemy you miss or that you roll a natural odd attack
           against, even on a natural 1.</p>
       isActive:

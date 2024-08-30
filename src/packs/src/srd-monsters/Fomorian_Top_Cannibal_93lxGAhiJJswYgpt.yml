@@ -303,7 +303,7 @@ items:
         label: Description
         value: >-
           <p>Twice per battle, if the fomorian is next to a dead body, as a move
-          action it can eat part of the corpse, healing [[1d6*10]] hp.</p>
+          action it can eat part of the corpse, healing [[1d6 * 10]] hp.</p>
       embeddedMacro:
         type: String
         label: Embedded Macro

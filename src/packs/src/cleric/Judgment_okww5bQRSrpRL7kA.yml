@@ -165,7 +165,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[2d6*10 + @wis.dmg + @atk.d.bonus]] damage.'
+    value: '[[2d6 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel8:
     hide: true
     type: String
@@ -175,7 +175,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[2d10*10 + @wis.dmg + @atk.d.bonus]] damage.'
+    value: '[[2d10 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel10:
     hide: true
     type: String

@@ -207,7 +207,7 @@ system:
       description:
         type: String
         value: >-
-          <p>The spell also deals +[[(round(@tier*1.2))d6]] damage against an
+          <p>The spell also deals +[[(round(@tier * 1.2))d6]] damage against an
           undamaged target.</p>
       isActive:
         type: Boolean

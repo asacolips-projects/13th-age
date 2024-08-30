@@ -84,7 +84,7 @@ system:
     type: String
     label: Hit
     value: >-
-      [[4d8*10 + @atk.a.bonus]] damage, and the target is *vulnerable* (hard save
+      [[4d8 * 10 + @atk.a.bonus]] damage, and the target is *vulnerable* (hard save
       ends, 16+).  In addition, if the target drops to 0 hp from this attack, or
       drops to 0 hp before it saves against the vulnerable effect of this
       attack, it is gone, dusted, nothing remaining.

@@ -177,7 +177,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: You now heal [[2d10 + (2*@wis.mod)]] hit points.
+    value: You now heal [[2d10 + (2 * @wis.mod)]] hit points.
   spellLevel10:
     hide: true
     type: String

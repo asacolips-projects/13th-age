@@ -227,7 +227,7 @@ system:
         type: String
         value: >-
           <p>Each battle, the first time an ally near you becomes staggered,
-          that ally immediately heals [[2*@lvl]] hit points.</p>
+          that ally immediately heals [[2 * @lvl]] hit points.</p>
       isActive:
         type: Boolean
         value: false

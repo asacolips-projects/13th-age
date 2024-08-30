@@ -366,7 +366,7 @@ items:
         type: String
         label: Description
         value: >-
-          <p>The koruku landkiller adds twice the escalation die ([[2*@ed]]) to
+          <p>The koruku landkiller adds twice the escalation die ([[2 * @ed]]) to
           its saves.</p>
       embeddedMacro:
         type: String

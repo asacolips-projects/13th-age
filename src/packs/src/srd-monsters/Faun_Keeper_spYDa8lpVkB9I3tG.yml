@@ -429,7 +429,7 @@ items:
           <p><span style="font-family: var(--font-primary); font-size:
           var(--font-size-14);"><em>Thorny whip</em>&mdash;If the natural roll
           with <em>snare</em> is above the target&rsquo;s Constitution, it deals
-          additional ongoing poison damage equal to [[2*@ed]] (save
+          additional ongoing poison damage equal to [[2 * @ed]] (save
           ends).</span></p>
       embeddedMacro:
         type: String

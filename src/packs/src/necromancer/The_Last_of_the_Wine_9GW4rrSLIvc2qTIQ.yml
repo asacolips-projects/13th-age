@@ -83,7 +83,7 @@ system:
   hit:
     type: String
     label: Hit
-    value: '[[(3d6)*10 + @int.dmg + @atk.a.bonus]] negative energy damage.'
+    value: '[[(3d6) * 10 + @int.dmg + @atk.a.bonus]] negative energy damage.'
   hitEven:
     type: String
     label: Natural Even Hit

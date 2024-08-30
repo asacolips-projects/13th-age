@@ -253,7 +253,7 @@ system:
         type: String
         value: >-
           <p>Your attacks that benefit from the +2 attack bonus against that
-          enemy also add [[3*@cha.mod]] to your damage on a hit.</p>
+          enemy also add [[3 * @cha.mod]] to your damage on a hit.</p>
       isActive:
         type: Boolean
         value: false

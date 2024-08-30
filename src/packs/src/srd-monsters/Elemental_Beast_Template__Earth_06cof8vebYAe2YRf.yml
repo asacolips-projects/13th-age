@@ -433,7 +433,7 @@ items:
         label: Description
         value: >-
           <p>When this creature moves before making an attack, it deals
-          additional damage equal to [[2*@lvl]] on a hit.</p>
+          additional damage equal to [[2 * @lvl]] on a hit.</p>
       embeddedMacro:
         type: String
         label: Embedded Macro

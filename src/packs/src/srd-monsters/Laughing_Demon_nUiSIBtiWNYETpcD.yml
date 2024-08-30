@@ -305,7 +305,7 @@ items:
         label: Description
         value: >-
           <p>While one or more laughing demons are in a battle, deal psychic
-          damage equal to twice the laughing demon&rsquo;s level ([[2*@lvl]]) to
+          damage equal to twice the laughing demon&rsquo;s level ([[2 * @lvl]]) to
           each enemy who fails a save. Yes, that means death saves also.
           Nasty.</p>
       embeddedMacro:

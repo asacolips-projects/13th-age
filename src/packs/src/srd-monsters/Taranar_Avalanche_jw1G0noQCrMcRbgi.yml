@@ -264,7 +264,7 @@ items:
         name: Natural odd hit or miss
         value: >-
           The taranar avalanche deals damage to itself equal to 1d6 per point on
-          the escalation die [[1d6*@ed]]; damage is not reduced by the all-rock
+          the escalation die [[1d6 * @ed]]; damage is not reduced by the all-rock
           ability.
       hit2:
         type: String

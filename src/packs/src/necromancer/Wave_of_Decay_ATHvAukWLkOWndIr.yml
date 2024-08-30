@@ -136,7 +136,7 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>Choose a nearby enemy. It takes [[(@ed*2)*d6]] negative energy damage.
+      <p>Choose a nearby enemy. It takes [[(@ed * 2) * d6]] negative energy damage.
       (For example, if the escalation die is 2 when you cast the spell, you’ll
       deal 4d6 negative energy damage to the target.)</p><p>Until the end of the
       battle, as a free action at the start of each of your turns, repeat the
@@ -163,7 +163,7 @@ system:
     hide: true
     type: String
     label: 5th Level Spell
-    value: '[[(@ed*2)*d12]]'
+    value: '[[(@ed * 2) * d12]]'
   spellLevel6:
     hide: true
     type: String
@@ -173,7 +173,7 @@ system:
     hide: true
     type: String
     label: 7th Level Spell
-    value: '[[(@ed*3)*d12]]'
+    value: '[[(@ed * 3) * d12]]'
   spellLevel8:
     hide: true
     type: String
@@ -183,7 +183,7 @@ system:
     hide: true
     type: String
     label: 9th Level Spell
-    value: '[[(@ed*5)*d12]]'
+    value: '[[(@ed * 5) * d12]]'
   spellLevel10:
     hide: true
     type: String
