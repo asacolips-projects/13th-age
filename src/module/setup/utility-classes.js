@@ -526,27 +526,36 @@ export class ArchmageUtility {
     // Exit early for rolls that already include inline rolls.
     if (pastedText.includes('[[') || pastedText.includes(']]')) return pastedText;
     // Remove unnecessary newlines common to PDFs.
-    let parsedText = pastedText.replace(/[\r\n][^\.]/, ' ');
-    // @todo fix weapon parsing.
-    parsedText = parsedText.replace(/((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*d*\d+[\s\+\-]*)*)((?:\s*vs)*)/g, (
+    let parsedText = pastedText.replace(/[\r\n][^\.]/g, ' ');
+    // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
+    // "Natural ZXZ16PLUSZXZ" and "Easy Save, ZXZ6PLUSZXZ". It's messy, but it
+    // prevents false positives in later steps.
+    parsedText = parsedText.replace(/([^\dd\+\-])(\d+)(\+)/g, (match, prefix, number, suffix) => {
+      // We can ignore the suffix, as we just want to make sure it exists and can
+      // reconstruct it later since we know it's a "+" sign.
+      return `${prefix}ZXZ${number}ZXZ`;
+    });
+    // @todo handle weapons.
+    // Do a pass to turn likely dice rolls into inline rolls.
+    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*d*\d+[\s\+\-]*)*)((?:\s*vs)*)/g, (
       match,
+      saveRoll,
       naturalTrigger,
       startingOperator,
       diceFormula,
       vs
     ) => {
-      console.log('matches', {
-        match: match,
-        startingOperator: startingOperator,
-        naturalTrigger: naturalTrigger,
-        diceFormula: diceFormula,
-        vs: vs,
-      });
       if (!diceFormula) return match;
+      if (saveRoll) return match;
       let d20 = startingOperator ? 'd20' : 'd20+';
       return `${naturalTrigger} [[${vs ? d20 : ''}${startingOperator}${diceFormula.trim()}]] ${vs}`;
     });
-    return parsedText.trim();
+    // Do a pass to restore save numbers from the "ZXZ{n}ZXZ" format.
+    parsedText = parsedText.replace(/(ZXZ)(\d+)(ZXZ)/g, (match, prefix, number, suffix) => {
+      return `${number}+`;
+    });
+    // Return the trimmed and cleaned string.
+    return parsedText.replace('( ', '(').replace('  ', '').trim();
   }
 }
 
