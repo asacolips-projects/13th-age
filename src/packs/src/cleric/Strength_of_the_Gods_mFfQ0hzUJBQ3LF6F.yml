@@ -207,7 +207,73 @@ system:
   feats: null
 flags: {}
 img: systems/archmage/assets/icons/spells/enchant-royal-3.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Strength of the Gods (Power)
+    img: systems/archmage/assets/icons/spells/enchant-royal-3.jpg
+    _id: 5o7GWincA5c8JKT4
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.weapon.melee.dice
+        mode: 2
+        value: +2d10
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      core:
+        sheetClass: core.ActiveEffectConfig
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!mFfQ0hzUJBQ3LF6F.5o7GWincA5c8JKT4'
+  - origin: null
+    disabled: false
+    name: Strength of the Gods (Broad Effect)
+    img: systems/archmage/assets/icons/spells/enchant-royal-3.jpg
+    _id: uqn4F8Ml3Vs8RVc0
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.weapon.melee.dice
+        mode: 2
+        value: +1d10
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      core:
+        sheetClass: core.ActiveEffectConfig
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!mFfQ0hzUJBQ3LF6F.uqn4F8Ml3Vs8RVc0'
 _id: mFfQ0hzUJBQ3LF6F
 ownership:
   default: 0
