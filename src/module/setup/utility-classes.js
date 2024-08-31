@@ -544,12 +544,12 @@ export class ArchmageUtility {
     });
     // Handle weapons and attributes.
     const attrs = [
-      'strength',
-      'dexterity',
-      'constitution',
-      'intelligence',
-      'wisdom',
-      'charisma',
+      'strength','str',
+      'dexterity','dex',
+      'constitution','con',
+      'intelligence','int',
+      'wisdom','wis',
+      'charisma','cha',
       'level(?!s)',
       'weapon',
       'escalation die',
