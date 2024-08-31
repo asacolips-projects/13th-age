@@ -550,26 +550,29 @@ export class ArchmageUtility {
       'intelligence',
       'wisdom',
       'charisma',
-      'level',
+      'level(?!s)',
       'weapon',
       'escalation die',
     ];
-    const attrsRegex = new RegExp(`${attrs.join('|')}`, 'gi');
-    parsedText = parsedText.replace(attrsRegex, (match) => {
-      console.log('match', match);
-      const cleanMatch = match.trim().toLocaleLowerCase();
-      if (cleanMatch === 'weapon') {
+    // Matches the above list, but also checks for "nth" and so on as a prefix to
+    // avoid turning "4th level" and so on into "4th @lvl".
+    const attrsRegex = new RegExp(`((?:\\d+th)*\\s*)(${attrs.join('|')})`, 'gi');
+    parsedText = parsedText.replace(attrsRegex, (match, prefix, attr) => {
+      const cleaned = attr.trim().toLocaleLowerCase();
+      if (cleaned === 'weapon') {
         return '@wpn.m.dice';
       }
-      if (cleanMatch === 'level') {
-        return options.attack ? '@std' : '@lvl';
+      if (cleaned === 'level') {
+        return !prefix.match(/\d+th|\d+nd|\d+rd|\d+st/gi)
+          ? (options.attack ? '@std' : '@lvl')
+          : attr;
       }
-      if (cleanMatch === 'escalation die') {
+      if (cleaned === 'escalation die') {
         return '@ed';
       }
       return options.damage
-        ? `@${cleanMatch.slice(0,3)}.dmg`
-        : `@${cleanMatch.slice(0,3)}.mod`;
+        ? `@${cleaned.slice(0,3)}.dmg`
+        : `@${cleaned.slice(0,3)}.mod`;
     });
     /**
      * Do a pass to turn likely dice rolls into inline rolls.
@@ -608,8 +611,10 @@ export class ArchmageUtility {
       return `${number}+`;
     });
     // Handle conditions.
-    const conditionRegex = new RegExp(`${CONFIG.ARCHMAGE.statusEffects.map(c => c.id).join('|')}`, 'gi');
-    parsedText = parsedText.replace(conditionRegex, (match) => `*${match}*`);
+    const conditionRegex = new RegExp(`(\\s)(${CONFIG.ARCHMAGE.statusEffects.map(c => c.id).join('|')})([^a-z\\d])`, 'gi');
+    parsedText = parsedText.replace(conditionRegex, (match, prefix, condition, suffix) => {
+      return `${prefix}*${condition}*${suffix}`;
+    });
     // Return the trimmed and cleaned string.
     return parsedText.replace('( ', '(')
       .replace(' )', ')')
