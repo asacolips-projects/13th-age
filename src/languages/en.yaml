@@ -628,6 +628,7 @@ ARCHMAGE:
     missOddPlaceholder: Effects that happen on odd misses
     MomentReset: lost
     natural: natural
+    NaturalRoll: 'Natural {naturalRolls}'
     NoResources: Not enough resources
     NoUses: No uses left
     NoUsesMsg: No uses left, do you want to use this anyway?
