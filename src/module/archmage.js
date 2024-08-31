@@ -525,6 +525,16 @@ Hooks.once('init', async function() {
     requiresReload: true
   });
 
+  game.settings.register('archmage', 'allowPasteParsing', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.allowPasteParsingName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.allowPasteParsingHint"),
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean,
+    requiresReload: false,
+  });
+
   game.settings.register('archmage', 'colorBlindMode', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
@@ -868,13 +878,16 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.general',
       settings: [
+        'allowPasteParsing',
         'extendedStatusEffects',
         'initiativeDexTiebreaker',
         'initiativeStaticNpc',
         'unboundEscDie',
         'tourVisibility',
       ],
-      highlights: [],
+      highlights: [
+        'allowPasteParsing'
+      ],
     }
   ];
 
