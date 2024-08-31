@@ -535,13 +535,14 @@ export class ArchmageUtility {
     // Remove unnecessary newlines common to PDFs.
     let parsedText = pastedText.replace(/[\r\n][^\.]/g, ' ');
     // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
-    // "Natural ZXZ16PLUSZXZ" and "Easy Save, ZXZ6PLUSZXZ". It's messy, but it
+    // "Natural __16PLUS__" and "Easy Save, __6PLUS__". It's messy, but it
     // prevents false positives in later steps.
     parsedText = parsedText.replace(/([^\dd\+\-])(\d+)(\+)/g, (match, prefix, number, suffix) => {
       // We can ignore the suffix, as we just want to make sure it exists and can
       // reconstruct it later since we know it's a "+" sign.
-      return `${prefix}ZXZ${number}ZXZ`;
+      return `${prefix}__${number}__`;
     });
+    console.log('pre', parsedText);
     // Handle weapons and attributes.
     const attrs = [
       'strength',
@@ -589,16 +590,14 @@ export class ArchmageUtility {
      * This will still have some funky aspects to it, like outputing "[[d20+9]] vs AC ( [[3]] attacks)".
      * To get around that, we'll have another pass later that tries to clean up unexpected spaces.
      */
-    parsedText = parsedText.replace(/((?:ZXZ\d+ZXZ)*)((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*(?:(?:d*\d+)|@[a-z\.]+)[x\s\+\-]*)+(?!\d*th|\d*nd|\d*rd|\d*st))((?:\s*vs)*)/gi, (
+    parsedText = parsedText.replace(/((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*(?:(?:d*\d+(?!\d*_))|@[a-z\.]+)[x\s\+\-]*)+(?!\d*th|\d*nd|\d*rd|\d*st))((?:\s*vs)*)/gi, (
       match,
-      saveRoll,
       naturalTrigger,
       startingOperator,
       diceFormula,
       vs
     ) => {
       if (!diceFormula) return match;
-      if (saveRoll) return match;
       let d20 = startingOperator ? 'd20' : 'd20+';
       return `${naturalTrigger} [[${vs ? d20 : ''}${startingOperator}${diceFormula.trim()}]] ${vs}`;
     });
@@ -606,8 +605,8 @@ export class ArchmageUtility {
     parsedText = parsedText.replace(/(\[\[)([^\[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
       return `${prefix}${formula.replace('x', '*')}${suffix}`;
     });
-    // Do a pass to restore save numbers from the "ZXZ{n}ZXZ" format.
-    parsedText = parsedText.replace(/(ZXZ)(\d+)(ZXZ)/g, (match, prefix, number, suffix) => {
+    // Do a pass to restore save numbers from the "__{n}__" format.
+    parsedText = parsedText.replace(/(__)(\d+)(__)/g, (match, prefix, number, suffix) => {
       return `${number}+`;
     });
     // Handle conditions.

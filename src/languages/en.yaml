@@ -832,6 +832,7 @@ ARCHMAGE:
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
     classChange: "Class change detected, base stats adjusted: {classes}."
+    parseInlineRolls: Parse Dice Rolls
   MIGRATIONS:
     start: 'Applying 13th Age System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "13th Age System Migration to version {version} completed!"

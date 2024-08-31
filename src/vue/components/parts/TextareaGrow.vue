@@ -46,6 +46,14 @@ export default {
       return result;
     }
   },
+  // Add a watch process to catch upstream updates from the actor/item document.
+  watch: {
+    'value': {
+      handler() {
+        this.valueAttr = this.value;
+      }
+    }
+  },
   async created() {
     this.valueAttr = this.value ?? '';
   }
