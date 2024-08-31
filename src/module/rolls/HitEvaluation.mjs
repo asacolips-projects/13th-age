@@ -32,6 +32,13 @@ export default class HitEvaluation {
             roll_data.terms.forEach(p => {if (p.faces === 20) isD20 = true;});
             if (!isD20) return;
 
+            // Add natural-roll tooltips
+            const origTooltip = $roll_self.attr('data-tooltip');
+            const naturalRolls = roll_data.terms.filter(p => p.faces === 20)
+              .flatMap(term => term.results.map(die => die.result))
+              .join(', ');
+            $roll_self.attr('data-tooltip', origTooltip + '\n' + game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls}))
+
             // Crit/fumble check
             let rollResult = 0;
             let hasCrit = false;
@@ -112,7 +119,7 @@ export default class HitEvaluation {
             defenses: defenses,
             $rolls: $rolls
         };
-        
+
     }
 
     // Get either the Token overridden value or the base sheet value
