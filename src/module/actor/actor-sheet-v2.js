@@ -286,6 +286,31 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   }
 
   /**
+   * Handle changing a Document's image.
+   * @param {MouseEvent} event  The click event.
+   * @returns {Promise}
+   * @override
+   */
+  _onEditImage(event) {
+    if (!this.isEditable) return false;
+    const attr = event.currentTarget.dataset.edit;
+    const current = foundry.utils.getProperty(this.object, attr);
+    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+    const fp = new FilePicker({
+      current,
+      type: "image",
+      redirectToRoot: img ? [img] : [],
+      callback: path => {
+        event.currentTarget.src = path;
+        if ( this.options.submitOnChange ) return this.document.update({[attr]: path});
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10
+    });
+    return fp.browse();
+  }
+
+  /**
    * Activate additional listeners on the rendered Vue app.
    * @param {jQuery} html
    */

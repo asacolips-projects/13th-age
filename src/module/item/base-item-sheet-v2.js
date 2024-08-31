@@ -66,7 +66,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       redirectToRoot: img ? [img] : [],
       callback: path => {
         target.src = path;
-        this.document.update({'img': path});
+        this.document.update({[attr]: path});
       },
       top: this.position.top + 40,
       left: this.position.left + 10

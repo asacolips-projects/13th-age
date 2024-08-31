@@ -535,14 +535,13 @@ export class ArchmageUtility {
     // Remove unnecessary newlines common to PDFs.
     let parsedText = pastedText.replace(/[\r\n][^\.]/g, ' ');
     // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
-    // "Natural __16PLUS__" and "Easy Save, __6PLUS__". It's messy, but it
+    // "Natural __16__" and "Easy Save, __6__". It's messy, but it
     // prevents false positives in later steps.
     parsedText = parsedText.replace(/([^\dd\+\-])(\d+)(\+)/g, (match, prefix, number, suffix) => {
       // We can ignore the suffix, as we just want to make sure it exists and can
       // reconstruct it later since we know it's a "+" sign.
       return `${prefix}__${number}__`;
     });
-    console.log('pre', parsedText);
     // Handle weapons and attributes.
     const attrs = [
       'strength',

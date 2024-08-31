@@ -253,6 +253,18 @@
     }
   }
 
+  .fieldset-attack {
+    gap: 4px;
+
+    p {
+      margin: 4px 0;
+    }
+
+    > fieldset {
+      gap: 4px;
+    }
+  }
+
   .info-bubble {
     color: var(--color-warm-1);
     margin-left: 4px;

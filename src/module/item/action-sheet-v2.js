@@ -29,8 +29,8 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       toggle: this._toggleEffect
     },
     position: {
-      width: 600,
-      height: 600,
+      width: 640,
+      height: 800,
     },
     window: {
       resizable: true,

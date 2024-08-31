@@ -3,6 +3,7 @@
   <fieldset class="fieldset-attack">
     <legend>{{ game.i18n.localize('ARCHMAGE.CHAT.attacks') }}</legend>
     <InlineRollsReferenceHint/>
+    <p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.actionAttackHint')"></p>
 
     <div class="form-group">
       <label>
@@ -42,12 +43,6 @@
         />
       </div>
     </div>
-  </fieldset>
-
-  <fieldset class="fieldset-special">
-    <legend>{{ game.i18n.localize('ARCHMAGE.CHAT.special') }}</legend>
-    <InlineRollsReferenceHint compact="true"/>
-    <p class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.actionSpecialHint')"></p>
 
     <fieldset v-for="index in 5" :key="index">
       <legend>{{game.i18n.localize(`ARCHMAGE.CHAT.hit${index}`)}}</legend>
