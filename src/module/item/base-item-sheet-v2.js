@@ -14,6 +14,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       delete: this._deleteEffect,
       toggle: this._toggleEffect,
       showItemArtwork: this.#onShowItemArtwork,
+      importFromCompendium: this.#onImportFromCompendium,
     },
     form: {
       submitOnChange: true
@@ -386,11 +387,21 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 
   /**
    * Handle header control button clicks to display actor portrait artwork.
-   * @this {ActorSheetV2}
+   * @this {ArchmageBaseItemSheetV2}
    * @param {PointerEvent} event
    */
   static #onShowItemArtwork(event) {
     const {img, name, uuid} = this.document;
     new ImagePopout(img, {title: name, uuid: uuid}).render(true);
+  }
+
+  /**
+   * Handle header control button clicks to import compendium documents.
+   * @this {ArchmageBaseItemSheetV2}
+   * @param {PointerEvent} event
+   */
+  static async #onImportFromCompendium(event) {
+    await this.close();
+    this.document.collection.importFromCompendium(this.document.compendium, this.document.id);
   }
 }
