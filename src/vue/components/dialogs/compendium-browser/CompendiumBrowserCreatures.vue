@@ -277,12 +277,18 @@ export default {
   async created() {
     console.log("Creating compendium browser creatures tab...");
 
-    // Load the pack index with the fields we need.
-    getPackIndex([
+    const packIds = game.modules.get('13th-age-core-2e')?.active ? [
+      '13th-age-core-2e.monsters-2e',
+      '13th-age-core-2e.companions-2e',
+      'archmage.necromancer-summons',
+    ] : [
       'archmage.srd-Monsters',
       'archmage.animal-companions',
       'archmage.necromancer-summons',
-    ], [
+    ];
+
+    // Load the pack index with the fields we need.
+    getPackIndex(packIds, [
       'system.attributes.level',
       'system.attributes.hp.max',
       'system.attributes.ac.value',

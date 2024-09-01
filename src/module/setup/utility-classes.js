@@ -544,12 +544,12 @@ export class ArchmageUtility {
     });
     // Handle weapons and attributes.
     const attrs = [
-      'strength','str',
-      'dexterity','dex',
-      'constitution','con',
-      'intelligence','int',
-      'wisdom','wis',
-      'charisma','cha',
+      'strength','str(?![a-z\\d])',
+      'dexterity','dex(?![a-z\\d])',
+      'constitution','con(?![a-z\\d])',
+      'intelligence','int(?![a-z\\d])',
+      'wisdom','wis(?![a-z\\d])',
+      'charisma','cha(?![a-z\\d])',
       'level(?!s)',
       'weapon',
       'escalation die',
@@ -602,7 +602,7 @@ export class ArchmageUtility {
     });
     // Fix multiplication.
     parsedText = parsedText.replace(/(\[\[)([^\[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
-      return `${prefix}${formula.replace('x', '*')}${suffix}`;
+      return `${prefix}${formula.replace(/x(?![a-z\.])/gi, '*')}${suffix}`;
     });
     // Do a pass to restore save numbers from the "__{n}__" format.
     parsedText = parsedText.replace(/(__)(\d+)(__)/g, (match, prefix, number, suffix) => {
