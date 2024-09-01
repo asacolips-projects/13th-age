@@ -21,9 +21,10 @@ export default {
     }
   },
   computed: {
-    // This is hacky, but it helps with cases where you have a single word wrap to a new line.
+    // Not currently used, but we can modify this if we need to add things
+    // like &nbsp; to the replicated value.
     replicatedValue() {
-      return `${this.valueAttr} &nbsp; `;
+      return this.valueAttr;
     }
   },
   methods: {

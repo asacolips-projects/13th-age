@@ -492,3 +492,28 @@
     }
   }
 }
+
+
+// AppV2 sheets.
+.archmage-appv2 {
+  .window-content {
+    container-type: size;
+    container-name: archmage-appv2-window-content;
+  }
+}
+
+@container archmage-appv2-window-content (min-width: 940px) {
+  .archmage-appv2 {
+    .section--main {
+      .section--fields {
+        &.has-preview {
+          flex: 1;
+        }
+      }
+
+      .section--preview {
+        flex: 0 0 500px;
+      }
+    }
+  }
+}
