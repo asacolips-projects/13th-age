@@ -602,7 +602,7 @@ export class ArchmageUtility {
     });
     // Fix multiplication.
     parsedText = parsedText.replace(/(\[\[)([^\[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
-      return `${prefix}${formula.replace(/x(?![a-z\.])/gi, '*')}${suffix}`;
+      return `${prefix}${formula.replace(/x(?:(?![a-z\.]))/gi, ' * ')}${suffix}`;
     });
     // Do a pass to restore save numbers from the "__{n}__" format.
     parsedText = parsedText.replace(/(__)(\d+)(__)/g, (match, prefix, number, suffix) => {
@@ -616,7 +616,7 @@ export class ArchmageUtility {
     // Return the trimmed and cleaned string.
     return parsedText.replace('( ', '(')
       .replace(' )', ')')
-      .replace('  ', '')
+      .replace(/ +/g, ' ')
       .replace(/\s*\++\s*/g, '+')
       .trim();
   }
