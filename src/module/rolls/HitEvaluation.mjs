@@ -35,7 +35,7 @@ export default class HitEvaluation {
             // Add natural-roll tooltips
             const origTooltip = $roll_self.attr('data-tooltip');
             const naturalRolls = roll_data.terms.filter(p => p.faces === 20)
-              .flatMap(term => term.results.map(die => die.result))
+              .flatMap(term => term.results.map(die => die.active ? die.result : `<s>${die.result}</s>`))
               .join(', ');
             const tooltipValue = game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls});
             $roll_self.attr('data-tooltip', origTooltip + '<br>' + tooltipValue)
