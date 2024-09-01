@@ -525,6 +525,17 @@ Hooks.once('init', async function() {
     requiresReload: true
   });
 
+  game.settings.register('archmage', 'showNaturalRolls', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.showNaturalRollsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showNaturalRollsHint"),
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean,
+    requiresReload: false,
+    onChange: newValue => $('#chat-log').toggleClass('show-natural-rolls', newValue)
+  });
+
   game.settings.register('archmage', 'colorBlindMode', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
@@ -697,8 +708,7 @@ function addEscalationDie() {
     return doc.sheet.render(true);
   });
 
-  // TODO: if setting is turned on
-  $('#chat-log').addClass('show-natural-rolls');
+  $('#chat-log').toggleClass('show-natural-rolls', game.settings.get('archmage', 'showNaturalRolls'));
 }
 
 /* -------------------------------------------- */
@@ -855,6 +865,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       settings: [
         'nightmode',
         'compactMode',
+        'showNaturalRolls',
         'sheetTooltips',
       ],
       highlights: [
