@@ -185,12 +185,12 @@ Hooks.once('init', async function() {
   Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
     types: ["power"],
-    makeDefault: false,
+    makeDefault: true,
   });
   Items.registerSheet("archmage", ArchmageActionSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
     types: ["action", "trait", "nastierSpecial"],
-    makeDefault: false,
+    makeDefault: true,
   })
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
