@@ -38,7 +38,7 @@ export default class HitEvaluation {
               .flatMap(term => term.results.map(die => die.result))
               .join(', ');
             const tooltipValue = game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls});
-            $roll_self.attr('data-tooltip', origTooltip + ' / ' + tooltipValue)
+            $roll_self.attr('data-tooltip', origTooltip + '<br>' + tooltipValue)
             $roll_self.after(`<span class="natural-rolls" data-tooltip="${tooltipValue}">
               <i class="fas fa-n"></i>
               ${naturalRolls}
