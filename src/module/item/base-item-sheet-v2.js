@@ -116,7 +116,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
     // Prepare the document creation data by initializing it a default name.
     // As of v12, you can define custom Active Effect subtypes just like Item subtypes if you want
     const effectData = {
-      icon: this.document.img || 'icons/svg/aura.svg',
+      img: this.document.img || 'icons/svg/aura.svg',
       origin: this.document.uuid,
       name: aeCls.defaultName({
         // defaultName handles an undefined type gracefully

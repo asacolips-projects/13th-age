@@ -2,8 +2,7 @@
 
     <!-- Effect Header -->
     <header class="sheet-header">
-        {{!-- todo: update this to use img instead of icon for v12/v13 --}}
-        <img class="effect-icon" src="{{ effect.icon }}" data-edit="icon">
+        <img class="effect-icon" src="{{ effect.img }}" data-edit="img">
         <h1 class="effect-title"><input type="text" name="name" value="{{effect.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
@@ -95,6 +94,18 @@
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.arcaneBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
                                data-dtype="Number" placeholder="0" />
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeWeaponDamageBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.weapon.melee.dice" type="text" value="{{system.attributes.weapon.melee.dice}}"
+                               data-dtype="text" placeholder="+2d10" />
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rangedWeaponDamageBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.weapon.ranged.dice" type="text" value="{{system.attributes.weapon.ranged.dice}}"
+                               data-dtype="text" placeholder="+2d10" />
                     </div>
                     {{/unless}}
 

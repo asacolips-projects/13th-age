@@ -480,6 +480,7 @@ ARCHMAGE:
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
+    meleeWeaponDamageBonus: Melee Weapon Damage Bonus
     ongoingDamage: Ongoing Damage
     ongoingDamageCrit: Ongoing Damage is from a critical hit
     otherBonuses: Other Bonuses
@@ -488,6 +489,7 @@ ARCHMAGE:
     pricePlaceholder: 1,000gp
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
+    rangedWeaponDamageBonus: Ranged Weapon Damage Bonus
     recoveriesBonus: Recoveries Bonus
     rerollAcBonus: Force reroll attack vs. AC
     rerollSaveBonus: Reroll Save

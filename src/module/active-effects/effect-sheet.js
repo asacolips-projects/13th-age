@@ -43,6 +43,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     context.supportsDescription = game.release.generation >= 11;
     context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
+    context.isCharacter = this.object.parent.type === "character";
     context.isNpc = this.object.parent.type === "npc";
 
     // Get data from flag
@@ -117,6 +118,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     addChange("system.attributes.attack.ranged.bonus");
     addChange("system.attributes.attack.divine.bonus");
     addChange("system.attributes.attack.arcane.bonus");
+    addChange("system.attributes.weapon.melee.dice");
+    addChange("system.attributes.weapon.ranged.dice");
     addChange("system.attributes.critMod.atk.value");
 
     // Defenses

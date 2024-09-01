@@ -1152,6 +1152,8 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
 
 async function _applyAE(actor, data) {
 
+  console.log('drop', data);
+
   if ( data.type === "condition" ) {
     // Handle hampered in 2e.
     if (CONFIG.ARCHMAGE.is2e && data.id === 'hampered') {
@@ -1173,7 +1175,7 @@ async function _applyAE(actor, data) {
       // Just a generic condition, transfer the name
       let effectData = {
         name: data.name,
-        icon: 'icons/svg/aura.svg',
+        img: 'icons/svg/aura.svg',
         origin: data.source
       };
       return await _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
@@ -1193,6 +1195,13 @@ async function _applyAE(actor, data) {
         effect = sourceActor.effects.get(data.id);
         sourceDocument = sourceActor;
       }
+      else {
+        effect = {
+          name: data.name,
+          img: 'icons/svg/aura.svg',
+          origin: data?.source ?? null,
+        }
+      }
     }
     let effectData = foundry.utils.duplicate(effect);
     const ends = effectData.flags?.archmage?.duration ?? "Unknown";
@@ -1206,7 +1215,7 @@ async function _applyAE(actor, data) {
 
     let effectData = {
       name: data.name,
-      icon: img,
+      img: img,
       origin: data.source,
       flags: {
         archmage: {

@@ -107,8 +107,7 @@ export class ActorArchmage extends Actor {
     const flags = actorData.flags;
 
     // Initialize the model for data calculations.
-    // @todo update when v11 is dropped.
-    let model = (game?.system?.model || game?.data?.model).Actor[actorData.type];
+    let model = game.data.model.Actor[actorData.type];
 
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
@@ -1751,18 +1750,13 @@ export class ActorArchmage extends Actor {
 
     // Foundry v12 no longer has diffed data during _preUpdate, so we need
     // to compute it ourselves.
-    if (game.release.version >= 12) {
-      // Retrieve a copy of the existing actor data.
-      let newData = foundry.utils.flattenObject(data);
-      let oldData = foundry.utils.flattenObject(this);
+    // Retrieve a copy of the existing actor data.
+    let newData = foundry.utils.flattenObject(data);
+    let oldData = foundry.utils.flattenObject(this);
 
-      // Limit data to just the new data.
-      const diffData = foundry.utils.diffObject(oldData, newData);
-      changes = foundry.utils.expandObject(diffData);
-    }
-    else {
-      changes = foundry.utils.duplicate(data);
-    }
+    // Limit data to just the new data.
+    const diffData = foundry.utils.diffObject(oldData, newData);
+    changes = foundry.utils.expandObject(diffData);
 
     // Update default images on npc type change
     if (changes.system?.details?.type?.value

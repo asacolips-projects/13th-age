@@ -377,8 +377,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Handle the power group.
     if (dataset?.groupType && dataset?.powerType) {
       let groupType = dataset.groupType;
-      // @todo update when v11 is dropped.
-      let model = (game?.system?.model || game?.data?.model).Item[itemType];
+      let model = game.data.model.Item[itemType];
       if (model[groupType] && groupType !== 'powerType') {
         dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
         delete dataset.powerType;
@@ -480,8 +479,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     switch (dataset.action) {
       case 'create':
         return this.actor.createEmbeddedDocuments('ActiveEffect', [{
-          label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
-          icon: 'icons/svg/aura.svg',
+          name: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
+          img: 'icons/svg/aura.svg',
           origin: this.actor.uuid,
           disabled: false
         }]);
