@@ -696,6 +696,9 @@ function addEscalationDie() {
 
     return doc.sheet.render(true);
   });
+
+  // TODO: if setting is turned on
+  $('#chat-log').addClass('show-natural-rolls');
 }
 
 /* -------------------------------------------- */

@@ -159,6 +159,23 @@ option[selected] {
       color: $c-black;
     }
   }
+
+  .natural-rolls {
+    display: none;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    line-height: 0;
+    padding: 2px;
+    margin: 0 3px;
+    font-size: 12px;
+
+    i {
+      font-size: 10px;
+    }
+  }
+  &.show-natural-rolls .natural-rolls {
+    display: inline-block;
+  }
 }
 
 .ability-usage {
