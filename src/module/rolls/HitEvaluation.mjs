@@ -39,6 +39,9 @@ export default class HitEvaluation {
               .join(', ');
             const tooltipValue = game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls});
             $roll_self.attr('data-tooltip', origTooltip + '<br>' + tooltipValue)
+
+            // Add and/or replace the natural-roll span
+            if ($roll_self.next().attr("class") === "natural-rolls") $roll_self.next().remove();
             $roll_self.after(`<span class="natural-rolls" data-tooltip="${tooltipValue}">
               <i class="fas fa-n"></i>
               ${naturalRolls}
