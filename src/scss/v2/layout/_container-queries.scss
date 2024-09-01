@@ -502,6 +502,27 @@
   }
 }
 
+@container archmage-appv2-window-content (max-width: #{$cq-mobile}) {
+  .archmage-appv2 {
+    .section--main {
+      flex-direction: column;
+      overflow-y: auto;
+
+      .section--fields,
+      .section--preview,
+      .section--fields .tab,
+      .section--fields.has-preview {
+        overflow-y: visible;
+        flex: 1 0 auto;
+      }
+
+      .section--preview {
+        margin: 20px 0;
+      }
+    }
+  }
+}
+
 @container archmage-appv2-window-content (min-width: 940px) {
   .archmage-appv2 {
     .section--main {
