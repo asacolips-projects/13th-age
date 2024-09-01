@@ -37,7 +37,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         effect.isOngoing = isOngoing;
         const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
         effect.isCrit = isCrit;
-        effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage.ongoingDamage) : 0;
+        effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
         effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
             damage: effect.ongoingDamage,
             type: effect.flags.archmage?.ongoingDamageType ?? '',
@@ -75,7 +75,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
                 effect.isOngoing = isOngoing;
                 const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
                 effect.isCrit = isCrit;
-                effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage.ongoingDamage) : 0;
+                effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
                 effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
                     damage: effect.ongoingDamage,
                     type: effect.flags.archmage?.ongoingDamageType ?? '',

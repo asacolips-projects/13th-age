@@ -286,6 +286,31 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   }
 
   /**
+   * Handle changing a Document's image.
+   * @param {MouseEvent} event  The click event.
+   * @returns {Promise}
+   * @override
+   */
+  _onEditImage(event) {
+    if (!this.isEditable) return false;
+    const attr = event.currentTarget.dataset.edit;
+    const current = foundry.utils.getProperty(this.object, attr);
+    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+    const fp = new FilePicker({
+      current,
+      type: "image",
+      redirectToRoot: img ? [img] : [],
+      callback: path => {
+        event.currentTarget.src = path;
+        if ( this.options.submitOnChange ) return this.document.update({[attr]: path});
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10
+    });
+    return fp.browse();
+  }
+
+  /**
    * Activate additional listeners on the rendered Vue app.
    * @param {jQuery} html
    */
@@ -298,8 +323,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     if (html.find('.archmage-v2-vue').length > 0) {
       this.vueListenersActive = true;
     }
-
-    console.log('foobar', html);
 
     this._dragHandler(html);
     this._lockEffectsFields(html);
@@ -352,8 +375,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Handle the power group.
     if (dataset?.groupType && dataset?.powerType) {
       let groupType = dataset.groupType;
-      // @todo update when v11 is dropped.
-      let model = (game?.system?.model || game?.data?.model).Item[itemType];
+      let model = game.data.model.Item[itemType];
       if (model[groupType] && groupType !== 'powerType') {
         dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
         delete dataset.powerType;
@@ -455,8 +477,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     switch (dataset.action) {
       case 'create':
         return this.actor.createEmbeddedDocuments('ActiveEffect', [{
-          label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
-          icon: 'icons/svg/aura.svg',
+          name: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
+          img: 'icons/svg/aura.svg',
           origin: this.actor.uuid,
           disabled: false
         }]);

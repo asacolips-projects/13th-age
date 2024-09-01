@@ -14,6 +14,8 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       delete: this._deleteEffect,
       toggle: this._toggleEffect,
       showItemArtwork: this.#onShowItemArtwork,
+      importFromCompendium: this.#onImportFromCompendium,
+      parseInlineRolls: this.#onParseInlineRolls,
     },
     form: {
       submitOnChange: true
@@ -64,7 +66,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       redirectToRoot: img ? [img] : [],
       callback: path => {
         target.src = path;
-        this.document.update({'img': path});
+        this.document.update({[attr]: path});
       },
       top: this.position.top + 40,
       left: this.position.left + 10
@@ -114,7 +116,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
     // Prepare the document creation data by initializing it a default name.
     // As of v12, you can define custom Active Effect subtypes just like Item subtypes if you want
     const effectData = {
-      icon: this.document.img || 'icons/svg/aura.svg',
+      img: this.document.img || 'icons/svg/aura.svg',
       origin: this.document.uuid,
       name: aeCls.defaultName({
         // defaultName handles an undefined type gracefully
@@ -386,11 +388,58 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 
   /**
    * Handle header control button clicks to display actor portrait artwork.
-   * @this {ActorSheetV2}
+   * @this {ArchmageBaseItemSheetV2}
    * @param {PointerEvent} event
    */
   static #onShowItemArtwork(event) {
     const {img, name, uuid} = this.document;
     new ImagePopout(img, {title: name, uuid: uuid}).render(true);
+  }
+
+  /**
+   * Handle header control button clicks to import compendium documents.
+   * @this {ArchmageBaseItemSheetV2}
+   * @param {PointerEvent} event
+   */
+  static async #onImportFromCompendium(event) {
+    await this.close();
+    this.document.collection.importFromCompendium(this.document.compendium, this.document.id);
+  }
+
+  /**
+   * Attempt to parse inline rolls on the sheet.
+   * 
+   * @this {ArchmageBaseItemSheetV2}
+   * @param {PointerEvent} event 
+   */
+  static async #onParseInlineRolls(event) {
+    const frame = event.target.closest('.archmage-appv2');
+    if (!frame || !this.isEditable) return;
+
+    // Find all text inputs and textarea inputs.
+    const fieldElements = frame.querySelectorAll('input[type="text"],textarea');
+    if (!fieldElements) return;
+
+    // Exclude certain fields, like macros.
+    const excludeList = ['system.embeddedMacro.value'];
+    let hasChanges = false;
+
+    // Iterate through the elements and run the parser on them, if necessary.
+    for (let element of fieldElements) {
+      const { name, value } = element;
+      // Skip in certain conditions.
+      if (excludeList.includes(name)) continue;
+      if (value.includes('[[') || value.includes(']]')) continue;
+      // Run the parser and update the values.
+      const options = { field: name };
+      const result = game.archmage.ArchmageUtility.parseClipboardText(value, options);
+      if (result !== value) {
+        element.value = result;
+        hasChanges = true;
+      }
+    }
+
+    // Trigger a form submit.
+    await this.submit();
   }
 }

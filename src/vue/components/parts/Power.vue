@@ -197,9 +197,15 @@ export default {
         ? Math.max(actorLevel, powerLevel)
         : (powerLevel ?? 1);
 
-      if (this.power.system[field]?.hide && overriddenLevel !== fieldLevel) return false;
+      if (this.power.system[field]?.hide && overriddenLevel !== fieldLevel) {
+        // @todo This is an OK-ish solution to handling hidden spells in 1e, but
+        // it needs to be improved.
+        if (fieldLevel > overriddenLevel) return false;
+        if (fieldLevel < overriddenLevel - 1) return false;
+        return !this.power.system[`spellLevel${fieldLevel + 1}`].value ? true : false;
+      }
 
-      return overriddenLevel >= Number(field.match(/\d+/g)?.[0] ?? 0);
+      return overriddenLevel >= fieldLevel;
     }
   },
   async mounted() {}

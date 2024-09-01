@@ -96,8 +96,7 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
     // Handle the power group.
     if (dataset?.groupType && dataset?.powerType) {
       let groupType = dataset.groupType;
-      // @todo update when v11 is dropped.
-      let model = (game?.system?.model || game?.data?.model).Item[itemType];
+      let model = game.data.model.Item[itemType];
       if (model[groupType] && groupType !== 'powerType') {
         dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
         delete dataset.powerType;

@@ -41,6 +41,12 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
           label: "ITEM.ViewArt",
           ownership: "OWNER"
         },
+        {
+          action: "parseInlineRolls",
+          icon: "fa-solid fa-dice",
+          label: "ARCHMAGE.UI.parseInlineRolls",
+          ownership: "OWNER"
+        }
       ]
     },
     actions: {
@@ -113,8 +119,6 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
     };
-
-    console.log('context', context);
 
     // Handle enriched fields.
     const enrichmentOptions = {

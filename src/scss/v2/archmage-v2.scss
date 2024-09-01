@@ -24,12 +24,6 @@
   @import 'components/tabs';
   @import 'components/progress-bar';
   @import 'components/resource';
-  // Journals.
-  @import 'components/journals/page';
-  @import 'components/journals/callout';
-  @import 'components/journals/author-callout';
-  @import 'components/journals/icon-background';
-  @import 'components/journals/quote';
 
   &.compact-mode {
     .window-content {
@@ -62,6 +56,13 @@
 
     min-width: 960px;
   }
+
+  // Journals.
+  @import 'components/journals/page';
+  @import 'components/journals/callout';
+  @import 'components/journals/author-callout';
+  @import 'components/journals/icon-background';
+  @import 'components/journals/quote';
 }
 
 .system-archmage {

@@ -77,6 +77,18 @@ export default function VueRenderingMixin(BaseApplication) {
        * @override
        */
       async _renderFrame(options) {
+        // @todo find a better spot for this.
+        if (this.document.compendium) {
+          const hasOption = this.options.window.controls.find(o => o.action === 'importFromCompendium');
+          if (!hasOption) {
+            this.options.window.controls.push({
+              action: "importFromCompendium",
+              icon: "fa-solid fa-download",
+              label: "Import",
+            });
+          }
+        }
+
         // Retrieve the context and element.
         const context = await this._prepareContext(options);
         const element = await super._renderFrame(options);
@@ -151,8 +163,6 @@ export default function VueRenderingMixin(BaseApplication) {
         if (!this.isEditable) {
           const inputs = this.element.querySelectorAll('input, textarea');
           const selects = this.element.querySelectorAll('select');
-
-          console.log('inputs', inputs);
 
           if (inputs) {
             for (let input of inputs) {

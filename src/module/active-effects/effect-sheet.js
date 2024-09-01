@@ -43,6 +43,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     context.supportsDescription = game.release.generation >= 11;
     context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
+    context.isCharacter = this.object.parent.type === "character";
     context.isNpc = this.object.parent.type === "npc";
 
     // Get data from flag
@@ -102,7 +103,24 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     let newChanges = [];
 
     function addChange(key) {
-      const value = foundry.utils.getProperty(formData, key);
+      let value = foundry.utils.getProperty(formData, key);
+      // Ensure that weapon bonuses are valid formulas.
+      if (key.includes('system.attributes.weapon')) {
+        let stringValue = String(value).trim();
+        // Ensure there's a prefix since this is appended to the dice roll.
+        if (stringValue.length > 0 && !(stringValue.startsWith('+') || stringValue.startsWith('-'))) {
+          stringValue = `+ ${stringValue}`;
+        }
+        // Validate the roll.
+        if (Roll.validate(stringValue)) {
+          value = stringValue;
+        }
+        // Prevent bad data.
+        else {
+          value = '';
+        }
+      }
+
       if ( !value ) return;
       newChanges.push({
         key: key,
@@ -117,6 +135,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     addChange("system.attributes.attack.ranged.bonus");
     addChange("system.attributes.attack.divine.bonus");
     addChange("system.attributes.attack.arcane.bonus");
+    addChange("system.attributes.weapon.melee.dice");
+    addChange("system.attributes.weapon.ranged.dice");
     addChange("system.attributes.critMod.atk.value");
 
     // Defenses

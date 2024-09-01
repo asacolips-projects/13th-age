@@ -29,8 +29,8 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       toggle: this._toggleEffect
     },
     position: {
-      width: 600,
-      height: 600,
+      width: 640,
+      height: 800,
     },
     window: {
       resizable: true,
@@ -41,6 +41,12 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
           label: "ITEM.ViewArt",
           ownership: "OWNER"
         },
+        {
+          action: "parseInlineRolls",
+          icon: "fa-solid fa-dice",
+          label: "ARCHMAGE.UI.parseInlineRolls",
+          ownership: "OWNER"
+        }
       ]
     },
     actions: {},

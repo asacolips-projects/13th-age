@@ -244,7 +244,9 @@ export class ArchmagePrepopulate {
         // selected: p.system.powerType.value === 'feature'
           // && ['class', 'race'].includes(p.system.powerSource.value)
           // && !actorPowers.includes(p.system.powerOriginName.value)
-        selected: p.system.powerType.value === 'feature' && actorPowers.length == 0
+        selected: p.system.powerType.value === 'feature'
+          && !p.name.toLocaleLowerCase().startsWith(game.i18n.localize('ARCHMAGE.classFeat').toLocaleLowerCase())
+          && actorPowers.length == 0
           && p.system.powerSource.value === 'class'
       };
     });

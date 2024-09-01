@@ -498,6 +498,20 @@ option[selected] {
         }
       }
     }
+
+    .effect-sheet {
+      .settings-group {
+        .attribute-input {
+          flex: 0 0 100px;
+          text-align: right;
+          padding-right: 5px;
+
+          &[type='checkbox'] {
+            flex: 0 0 32px;
+          }
+        }
+      }
+    }
   }
 
   &.npc-sheet {

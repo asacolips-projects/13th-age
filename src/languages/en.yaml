@@ -36,6 +36,7 @@ ARCHMAGE:
   checkSkill: Skill Check
   checkSkillFormat: "{name} Skill Check"
   class: Class
+  classFeat: Class Feat
   combat: Combat
   Conflicted: Conflicted
   contextReroll: Reroll
@@ -204,6 +205,8 @@ ARCHMAGE:
     ColorblindOptionDefault: Default Colors
     extendedStatusEffectsHint: If enabled extends the official status list with a handful of useful token markers.
     extendedStatusEffectsName: Extended Status Effects List
+    allowPasteParsingHint: If enabled, the system will attempt to parse clipboard contents for dice rolls before pasting them into fields on power sheets and monster action sheets.
+    allowPasteParsingName: Paste Roll Parsing
     hideExtraRollsHint: If enabled, powers with multiple attack rolls will display at most one attack per targeted token if any is targeted.
     hideExtraRollsName: Limit extra rolls to targeted tokens
     hideInsteadOfOpaqueHint: Enable this if you prefer not seeing inactive details at all.
@@ -480,6 +483,7 @@ ARCHMAGE:
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
+    meleeWeaponDamageBonus: Melee Weapon Damage Bonus
     ongoingDamage: Ongoing Damage
     ongoingDamageCrit: Ongoing Damage is from a critical hit
     otherBonuses: Other Bonuses
@@ -488,6 +492,7 @@ ARCHMAGE:
     pricePlaceholder: 1,000gp
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
+    rangedWeaponDamageBonus: Ranged Weapon Damage Bonus
     recoveriesBonus: Recoveries Bonus
     rerollAcBonus: Force reroll attack vs. AC
     rerollSaveBonus: Reroll Save
@@ -835,6 +840,7 @@ ARCHMAGE:
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
     classChange: "Class change detected, base stats adjusted: {classes}."
+    parseInlineRolls: Parse Dice Rolls
   MIGRATIONS:
     start: 'Applying 13th Age System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "13th Age System Migration to version {version} completed!"
@@ -981,6 +987,8 @@ ARCHMAGE:
       See the <strong>Hit</strong> and <strong>Effect</strong> fields in the <strong>Attack</strong> tab.
     activeEffectsItemHint: |
       Active Effects will not be applied directly to this item's parent actor, but they will show up as draggable effects on power cards in chat messages.
+    actionAttackHint: |
+      For ranged attacks, include either "R:" or "C:" in the action's name, above. For targeting, include possible targets in parentheses at the end of the attack line, such as "[[d20+9]] vs AC ([[d3]] nearby enemies)".
     actionSpecialHint: |
       Enter special attacks here. Use the top row of each field to specify the conditions (such as "Natural 16+") and the bottom row of each field to specify the effect (such as "[[20]] damage and 7 ongoing damage").
 # Tours

@@ -185,12 +185,12 @@ Hooks.once('init', async function() {
   Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
     types: ["power"],
-    makeDefault: false,
+    makeDefault: true,
   });
   Items.registerSheet("archmage", ArchmageActionSheetV2, {
     label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
     types: ["action", "trait", "nastierSpecial"],
-    makeDefault: false,
+    makeDefault: true,
   })
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
@@ -523,6 +523,16 @@ Hooks.once('init', async function() {
     default: false,
     type: Boolean,
     requiresReload: true
+  });
+
+  game.settings.register('archmage', 'allowPasteParsing', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.allowPasteParsingName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.allowPasteParsingHint"),
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean,
+    requiresReload: false,
   });
 
   game.settings.register('archmage', 'showNaturalRolls', {
@@ -870,6 +880,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       ],
       highlights: [
         'compactMode',
+        'showNaturalRolls',
       ],
     },
     {
@@ -882,13 +893,16 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.general',
       settings: [
+        'allowPasteParsing',
         'extendedStatusEffects',
         'initiativeDexTiebreaker',
         'initiativeStaticNpc',
         'unboundEscDie',
         'tourVisibility',
       ],
-      highlights: [],
+      highlights: [
+        'allowPasteParsing'
+      ],
     }
   ];
 
@@ -1152,7 +1166,6 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
 });
 
 async function _applyAE(actor, data) {
-
   if ( data.type === "condition" ) {
     // Handle hampered in 2e.
     if (CONFIG.ARCHMAGE.is2e && data.id === 'hampered') {
@@ -1174,7 +1187,7 @@ async function _applyAE(actor, data) {
       // Just a generic condition, transfer the name
       let effectData = {
         name: data.name,
-        icon: 'icons/svg/aura.svg',
+        img: 'icons/svg/aura.svg',
         origin: data.source
       };
       return await _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
@@ -1194,6 +1207,13 @@ async function _applyAE(actor, data) {
         effect = sourceActor.effects.get(data.id);
         sourceDocument = sourceActor;
       }
+      else {
+        effect = {
+          name: data.name,
+          img: 'icons/svg/aura.svg',
+          origin: data?.source ?? null,
+        }
+      }
     }
     let effectData = foundry.utils.duplicate(effect);
     const ends = effectData.flags?.archmage?.duration ?? "Unknown";
@@ -1207,7 +1227,7 @@ async function _applyAE(actor, data) {
 
     let effectData = {
       name: data.name,
-      icon: img,
+      img: img,
       origin: data.source,
       flags: {
         archmage: {
@@ -1279,8 +1299,6 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
               effectData.flags.archmage.ongoingDamageCrit = true;
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
-            console.log('effectData', effectData);
-            console.log('actor', actor);
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },

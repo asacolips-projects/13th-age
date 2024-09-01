@@ -512,6 +512,114 @@ export class ArchmageUtility {
     }
     return speaker
   }
+
+  /**
+   * Parses a given string and conver to an inline roll if possible.
+   *
+   * @param {string} pastedText String that can potentially include inline rolls,
+   *   such as "+7 vs AC".
+   * @param {object} options Additional options to modify the logic, such as
+   *   specifying options.attack to denote this is an attack roll.
+   * @returns {string} Parsed text with inline rolls, such as "[[d20+7]] vs AC"
+   */
+  static parseClipboardText(pastedText, options={}) {
+    // Exit early for rolls that already include inline rolls.
+    if (pastedText.includes('[[') || pastedText.includes(']]')) return pastedText;
+    // Handle options.
+    if (options.field?.includes('attack')) {
+      options.attack = true;
+    }
+    if (options.field?.includes('hit')) {
+      options.damage = true;
+    }
+    // Remove unnecessary newlines common to PDFs.
+    let parsedText = pastedText.replace(/[\r\n][^\.]/g, ' ');
+    // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
+    // "Natural __16__" and "Easy Save, __6__". It's messy, but it
+    // prevents false positives in later steps.
+    parsedText = parsedText.replace(/([^\dd\+\-])(\d+)(\+)/g, (match, prefix, number, suffix) => {
+      // We can ignore the suffix, as we just want to make sure it exists and can
+      // reconstruct it later since we know it's a "+" sign.
+      return `${prefix}__${number}__`;
+    });
+    // Handle weapons and attributes.
+    const attrs = [
+      'strength','str(?![a-z\\d])',
+      'dexterity','dex(?![a-z\\d])',
+      'constitution','con(?![a-z\\d])',
+      'intelligence','int(?![a-z\\d])',
+      'wisdom','wis(?![a-z\\d])',
+      'charisma','cha(?![a-z\\d])',
+      'level(?!s)',
+      'weapon',
+      'escalation die',
+    ];
+    // Matches the above list, but also checks for "nth" and so on as a prefix to
+    // avoid turning "4th level" and so on into "4th @lvl".
+    const attrsRegex = new RegExp(`((?:\\d+th)*\\s*)(${attrs.join('|')})`, 'gi');
+    parsedText = parsedText.replace(attrsRegex, (match, prefix, attr) => {
+      const cleaned = attr.trim().toLocaleLowerCase();
+      if (cleaned === 'weapon') {
+        return '@wpn.m.dice';
+      }
+      if (cleaned === 'level') {
+        return !prefix.match(/\d+th|\d+nd|\d+rd|\d+st/gi)
+          ? (options.attack ? '@std' : '@lvl')
+          : attr;
+      }
+      if (cleaned === 'escalation die') {
+        return '@ed';
+      }
+      return options.damage
+        ? `@${cleaned.slice(0,3)}.dmg`
+        : `@${cleaned.slice(0,3)}.mod`;
+    });
+    /**
+     * Do a pass to turn likely dice rolls into inline rolls.
+     * 
+     * This pattern basically tries to do (save rolls)* (Natural n+)* (+)* (dice formula) ( vs)*
+     * 
+     * The reason that works is that if we detect either a save roll or no dice roll, we
+     * just exit early and return the match. If we detect a natural trigger, we place it in its
+     * own group so that the dice formula doesn't pick it up. If we detected a preceding + sign,
+     * we note it so that we can avoid "++" when preprending a d20 later. If we detect a dice
+     * formula, we wrap the whole thing in [[diceFormula]]. If we detect " vs", this is an attack
+     * roll and we need to prepend a "d20" to the front.
+     * 
+     * This will still have some funky aspects to it, like outputing "[[d20+9]] vs AC ( [[3]] attacks)".
+     * To get around that, we'll have another pass later that tries to clean up unexpected spaces.
+     */
+    parsedText = parsedText.replace(/((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*(?:(?:d*\d+(?!\d*_))|@[a-z\.]+)[x\s\+\-]*)+(?!\d*th|\d*nd|\d*rd|\d*st))((?:\s*vs)*)/gi, (
+      match,
+      naturalTrigger,
+      startingOperator,
+      diceFormula,
+      vs
+    ) => {
+      if (!diceFormula) return match;
+      let d20 = startingOperator ? 'd20' : 'd20+';
+      return `${naturalTrigger} [[${vs ? d20 : ''}${startingOperator}${diceFormula.trim()}]] ${vs}`;
+    });
+    // Fix multiplication.
+    parsedText = parsedText.replace(/(\[\[)([^\[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
+      return `${prefix}${formula.replace(/x(?:(?![a-z\.]))/gi, ' * ')}${suffix}`;
+    });
+    // Do a pass to restore save numbers from the "__{n}__" format.
+    parsedText = parsedText.replace(/(__)(\d+)(__)/g, (match, prefix, number, suffix) => {
+      return `${number}+`;
+    });
+    // Handle conditions.
+    const conditionRegex = new RegExp(`(\\s)(${CONFIG.ARCHMAGE.statusEffects.map(c => c.id).join('|')})([^a-z\\d])`, 'gi');
+    parsedText = parsedText.replace(conditionRegex, (match, prefix, condition, suffix) => {
+      return `${prefix}*${condition}*${suffix}`;
+    });
+    // Return the trimmed and cleaned string.
+    return parsedText.replace('( ', '(')
+      .replace(' )', ')')
+      .replace(/ +/g, ' ')
+      .replace(/\s*\++\s*/g, '+')
+      .trim();
+  }
 }
 
 /**

@@ -25,8 +25,7 @@ export class ItemArchmage extends Item {
     }
 
     if (this.type == 'loot' || this.type == 'tool') {
-      // @todo update when v11 is dropped.
-      let model = (game?.system?.model || game?.data?.model).Item[this.type];
+      let model = game.data.model.Item[this.type];
       if (!this.system.quantity) this.system.quantity = model.quantity;
     }
   }

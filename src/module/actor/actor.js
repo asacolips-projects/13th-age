@@ -107,8 +107,7 @@ export class ActorArchmage extends Actor {
     const flags = actorData.flags;
 
     // Initialize the model for data calculations.
-    // @todo update when v11 is dropped.
-    let model = (game?.system?.model || game?.data?.model).Actor[actorData.type];
+    let model = game.data.model.Actor[actorData.type];
 
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
@@ -190,28 +189,33 @@ export class ActorArchmage extends Actor {
         continue;
       }
       let chngVal = Number(change.value);
-      if (chngVal <= 0) { // Penalty, doesn't stack
-        if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
-        else { // Check if the new penalty is worse than the earlier one
-          if (chngVal < Number(uniquePenalties[change.key].value)) {
-            uniquePenalties[change.key].value = change.value;
+      if (Number.isNaN(chngVal)) {
+        uniqueChanges.push(change);
+      }
+      else {
+        if (chngVal <= 0) { // Penalty, doesn't stack
+          if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
+          else { // Check if the new penalty is worse than the earlier one
+            if (chngVal < Number(uniquePenalties[change.key].value)) {
+              uniquePenalties[change.key].value = change.value;
+            }
           }
-        }
-      } else { // Bonus, stacks if name is different
-        if (!uniqueBonuses[change.key]) {
-          uniqueBonuses[change.key] = change;
-          uniqueBonusLabels[change.key] = {};
-          uniqueBonusLabels[change.key][change.name] = chngVal;
-        } else { // Check if we have other bonuses with the same name
-          if (uniqueBonusLabels[change.key][change.name]) {
-            // An effect with the same name already exists, use better one
-            chngVal = Math.max(chngVal, uniqueBonusLabels[change.key][change.name]);
-            uniqueBonuses[change.key].value = chngVal.toString();
+        } else { // Bonus, stacks if name is different
+          if (!uniqueBonuses[change.key]) {
+            uniqueBonuses[change.key] = change;
+            uniqueBonusLabels[change.key] = {};
             uniqueBonusLabels[change.key][change.name] = chngVal;
-          } else {
-            // No other effect with this name exists, stack
-            uniqueBonusLabels[change.key][change.name] = chngVal;
-            uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a + b)).toString();
+          } else { // Check if we have other bonuses with the same name
+            if (uniqueBonusLabels[change.key][change.name]) {
+              // An effect with the same name already exists, use better one
+              chngVal = Math.max(chngVal, uniqueBonusLabels[change.key][change.name]);
+              uniqueBonuses[change.key].value = chngVal.toString();
+              uniqueBonusLabels[change.key][change.name] = chngVal;
+            } else {
+              // No other effect with this name exists, stack
+              uniqueBonusLabels[change.key][change.name] = chngVal;
+              uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a + b)).toString();
+            }
           }
         }
       }
@@ -1751,18 +1755,13 @@ export class ActorArchmage extends Actor {
 
     // Foundry v12 no longer has diffed data during _preUpdate, so we need
     // to compute it ourselves.
-    if (game.release.version >= 12) {
-      // Retrieve a copy of the existing actor data.
-      let newData = foundry.utils.flattenObject(data);
-      let oldData = foundry.utils.flattenObject(this);
+    // Retrieve a copy of the existing actor data.
+    let newData = foundry.utils.flattenObject(data);
+    let oldData = foundry.utils.flattenObject(this);
 
-      // Limit data to just the new data.
-      const diffData = foundry.utils.diffObject(oldData, newData);
-      changes = foundry.utils.expandObject(diffData);
-    }
-    else {
-      changes = foundry.utils.duplicate(data);
-    }
+    // Limit data to just the new data.
+    const diffData = foundry.utils.diffObject(oldData, newData);
+    changes = foundry.utils.expandObject(diffData);
 
     // Update default images on npc type change
     if (changes.system?.details?.type?.value
