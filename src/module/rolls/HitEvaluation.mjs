@@ -37,7 +37,12 @@ export default class HitEvaluation {
             const naturalRolls = roll_data.terms.filter(p => p.faces === 20)
               .flatMap(term => term.results.map(die => die.result))
               .join(', ');
-            $roll_self.attr('data-tooltip', origTooltip + '\n' + game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls}))
+            const tooltipValue = game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls});
+            $roll_self.attr('data-tooltip', origTooltip + '<br>' + tooltipValue)
+            $roll_self.after(`<span class="natural-rolls" data-tooltip="${tooltipValue}">
+              <i class="fas fa-n"></i>
+              ${naturalRolls}
+            </span>`);
 
             // Crit/fumble check
             let rollResult = 0;

@@ -234,6 +234,8 @@ ARCHMAGE:
     ShowDebugLogsName: Show debug logs?
     showDefensesInChatHint: Enable this to display a list of targeted defenses in the attack line of chat power cards.
     showDefensesInChatName: Show target(s) defense(s) in chat
+    showNaturalRollsHint: Enable this to display natural dice results for d20 rolls in chat power cards.
+    showNaturalRollsName: Show natural d20 rolls in chat
     staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
     staggeredOverlayName: Staggered as overlay
     sheetTooltipsHint: Adds tooltips to sheets containing relevant SRD rules and tips. May be most useful when first learning the system or for the GM who only references player sheets occasionally. Client setting.
