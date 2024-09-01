@@ -120,8 +120,6 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
       // systemFields: this.document.system.schema.fields
     };
 
-    console.log('context', context);
-
     // Handle enriched fields.
     const enrichmentOptions = {
       // Whether to show secret blocks in the finished html

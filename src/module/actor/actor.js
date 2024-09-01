@@ -190,7 +190,6 @@ export class ActorArchmage extends Actor {
       }
       let chngVal = Number(change.value);
       if (Number.isNaN(chngVal)) {
-        console.log('change', change);
         uniqueChanges.push(change);
       }
       else {

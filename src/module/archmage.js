@@ -1151,9 +1151,6 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
 });
 
 async function _applyAE(actor, data) {
-
-  console.log('drop', data);
-
   if ( data.type === "condition" ) {
     // Handle hampered in 2e.
     if (CONFIG.ARCHMAGE.is2e && data.id === 'hampered') {
@@ -1287,8 +1284,6 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
               effectData.flags.archmage.ongoingDamageCrit = true;
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
-            console.log('effectData', effectData);
-            console.log('actor', actor);
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },

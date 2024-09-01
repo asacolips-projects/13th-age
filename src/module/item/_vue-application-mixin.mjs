@@ -164,8 +164,6 @@ export default function VueRenderingMixin(BaseApplication) {
           const inputs = this.element.querySelectorAll('input, textarea');
           const selects = this.element.querySelectorAll('select');
 
-          console.log('inputs', inputs);
-
           if (inputs) {
             for (let input of inputs) {
               input.setAttribute('readonly', true);

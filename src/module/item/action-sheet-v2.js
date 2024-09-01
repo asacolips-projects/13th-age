@@ -129,9 +129,6 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       }
     }
 
-    // Log context.
-    console.log('context', context);
-
     return context;
   }
 

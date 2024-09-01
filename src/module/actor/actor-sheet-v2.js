@@ -324,8 +324,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       this.vueListenersActive = true;
     }
 
-    console.log('foobar', html);
-
     this._dragHandler(html);
     this._lockEffectsFields(html);
 
