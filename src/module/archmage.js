@@ -231,6 +231,10 @@ Hooks.once('init', async function() {
     delete CONFIG.statusEffects[id].changes;
     CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
 
+    // Update grabbed.
+    id = CONFIG.statusEffects.findIndex(e => e.id == "grabbed");
+    CONFIG.statusEffects[id].journal = "e74tdY4XILWFW9VB";
+
     // Update stunned
     id = CONFIG.statusEffects.findIndex(e => e.id == "stunned");
     CONFIG.statusEffects[id].journal = "2rxwthymp5rl1dqf";
