@@ -3,6 +3,10 @@ import Targeting from "../rolls/Targeting.mjs";
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
+
+const REGEX_ONGOING_DAMAGE = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?;/g;
+
+
 export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(uuid, $rows) {
@@ -53,11 +57,10 @@ export default class preCreateChatMessageHandler {
         // If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
         for (const row of $rows) {
-            const regex = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
-            const ongoingEffects = Array.from(row.innerHTML.matchAll(regex));
+            const ongoingEffects = Array.from(row.innerHTML.matchAll(REGEX_ONGOING_DAMAGE));
             if (ongoingEffects.length > 0) {
                 ongoingEffects.forEach((ongoingEffect) => {
-                    let damageValue = ongoingEffect[2];
+                    let damageValue = Number(ongoingEffect[2]);
                     let damageType = ongoingEffect[4];
                     if ( damageType ) damageType += " ";
                     let savesEndsText = ongoingEffect[5];
@@ -72,9 +75,10 @@ export default class preCreateChatMessageHandler {
                     name = name.replace(/^R: /, "");
                     let tooltip = message;
                     if ( savesEndsText ) tooltip += " " + savesEndsText;
+                    const img = damageValue >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
                     let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
                         data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
-                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><i class="fas fa-flask-round-poison"></i> ${message}</a>`;
+                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><img class="effects-icon" src="${img}"/> ${message}</a>`;
                     row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
                 });
             }

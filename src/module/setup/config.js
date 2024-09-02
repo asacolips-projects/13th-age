@@ -342,6 +342,17 @@ ARCHMAGE.extendedStatusEffects = [
       }
     }
   },
+  // Flying.
+  {
+    id: "flying",
+    name: "ARCHMAGE.EFFECT.StatusFlying",
+    icon: "icons/svg/wing.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
   // Bonus defenses.
   {
     id: "bonusDefenses",
@@ -391,17 +402,6 @@ ARCHMAGE.extendedStatusEffects = [
     id: "invisible", //hidden - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusHidden",
     icon: "icons/svg/mystery-man.svg",
-    flags: {
-      archmage: {
-        duration: "Unknown",
-      }
-    }
-  },
-  // Flying.
-  {
-    id: "flying",
-    name: "ARCHMAGE.EFFECT.StatusFlying",
-    icon: "icons/svg/wing.svg",
     flags: {
       archmage: {
         duration: "Unknown",
