@@ -214,6 +214,7 @@ Hooks.once('init', async function() {
     config: true,
     default: false,
     type: Boolean,
+    requiresReload: true,
     onChange: enable => _setArchmageStatusEffects(enable)
   });
   _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
