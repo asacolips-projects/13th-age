@@ -752,7 +752,7 @@ export class ActorArchmage extends Actor {
     data.abil = data.abilities;
 
     // Process resource shorthands and custom resource names
-    if (this.type == "character"){
+    if (this.type === "character"){
       data.rsc = {
         cps: data.resources.perCombat.commandPoints.current,
         focus: data.resources.perCombat.focus.current,
@@ -768,6 +768,15 @@ export class ActorArchmage extends Actor {
           data.rsc[label+"max"] = v.max;
         }
       }
+    }
+
+    // Handle stoke.
+    if (this.type === "npc") {
+      data.rsc = {
+        stoke: data.resources?.spendable?.stoke?.enabled
+          ? (data.resources?.spendable?.stoke?.current || 0)
+          : 0,
+      };
     }
 
     if (item?.system.powerLevel?.value) {
