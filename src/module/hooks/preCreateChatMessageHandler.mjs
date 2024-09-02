@@ -72,9 +72,10 @@ export default class preCreateChatMessageHandler {
                     name = name.replace(/^R: /, "");
                     let tooltip = message;
                     if ( savesEndsText ) tooltip += " " + savesEndsText;
+                    const img = damageValue >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
                     let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
                         data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
-                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><i class="fas fa-flask-round-poison"></i> ${message}</a>`;
+                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><img class="effects-icon" src="${img}"/> ${message}</a>`;
                     row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
                 });
             }

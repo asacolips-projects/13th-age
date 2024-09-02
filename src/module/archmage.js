@@ -1229,7 +1229,7 @@ async function _applyAE(actor, data) {
     // Load the source actor and grab its image if possible
     let sourceActor = await fromUuid(data.source);
     // let img = sourceActor?.img ?? "icons/skills/toxins/symbol-poison-drop-skull-green.webp";
-    const img = data.value >= 0 ? "icons/svg/degen.svg" : "ARCHMAGE.EFFECT.StatusRegen";
+    const img = data.value >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
 
     let effectData = {
       name: data.name,
