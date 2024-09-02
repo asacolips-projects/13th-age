@@ -728,6 +728,11 @@ export class ActorArchmage extends Actor {
           data.std = v.value;
           break;
 
+        case 'saves':
+          if (this.type === "character") data.skulls = v.deathFails.value || 0;
+          if (!(k in data)) data[k] = v;
+          break;
+
         default:
           if (!(k in data)) data[k] = v;
           break;
