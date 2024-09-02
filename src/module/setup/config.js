@@ -136,6 +136,18 @@ ARCHMAGE.statusEffects = [
       }
     }
   },
+  // Grabbed.
+  {
+    id: "grabbed",
+    name: "ARCHMAGE.EFFECT.StatusGrabbed",
+    icon: "icons/svg/item-bag.svg",
+    journal: "aDEmM5lU3pfG3t7S",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
   // Hampered / Hindered.
   {
     id: "hampered",
@@ -390,17 +402,6 @@ ARCHMAGE.extendedStatusEffects = [
     id: "flying",
     name: "ARCHMAGE.EFFECT.StatusFlying",
     icon: "icons/svg/wing.svg",
-    flags: {
-      archmage: {
-        duration: "Unknown",
-      }
-    }
-  },
-  // Grabbed.
-  {
-    id: "grabbed",
-    name: "ARCHMAGE.EFFECT.StatusGrabbed",
-    icon: "icons/svg/item-bag.svg",
     flags: {
       archmage: {
         duration: "Unknown",
