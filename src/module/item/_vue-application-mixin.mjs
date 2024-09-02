@@ -165,6 +165,11 @@ export default function VueRenderingMixin(BaseApplication) {
             }
           }
         }
+        else {
+          this.element.querySelectorAll('.editor-content').forEach((editor) => {
+            editor.addEventListener('paste', (event) => this._parsePastedContent(event))
+          });
+        }
       }
 
       /** @override */
@@ -187,6 +192,33 @@ export default function VueRenderingMixin(BaseApplication) {
         // Unmount the vue instance.
         if (this.vueApp) this.vueApp.unmount();
         await super.close(options);
+      }
+
+      /* -------------------------------------------- */
+
+      _parsePastedContent(event) {
+        if (game.settings.get('archmage', 'allowPasteParsing')) {
+          const target = event.target;
+          const prosemirror = target.closest('prose-mirror');
+
+          if (!prosemirror) return;
+          event.preventDefault();
+
+          const options = {
+            field: prosemirror.name,
+          };
+          // Retrieve the value from the field and the clipboard.
+          const paste = (event.clipboardData || window.clipboardData).getData('text');
+          const result = game.archmage.ArchmageUtility.parseClipboardText(paste, options);
+          let newValue = result;
+    
+          // Handle selections.
+          const selection = window.getSelection();
+          if (!selection.rangeCount) return;
+          selection.deleteFromDocument();
+          selection.getRangeAt(0).insertNode(document.createTextNode(newValue));
+          selection.collapseToEnd();
+        }
       }
     }
 
