@@ -1,6 +1,9 @@
 import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from '../rolls/Targeting.mjs';
 import Triggers from '../Triggers/Triggers.mjs';
+
+const REGEX_EXPANDED_INLINE_ROLL = /.*=\s(\d+)/gm;
+
 export class DamageApplicator {
 
   getRollValue(roll) {
@@ -10,7 +13,9 @@ export class DamageApplicator {
     if (roll instanceof Roll) {
       return roll.total;
     }
-    return Number.parseInt(roll[0].innerText.trim());
+    const match = REGEX_EXPANDED_INLINE_ROLL.exec(roll[0].innerText);
+    if (match) return Number.parseInt(match[1]);
+    return 0;  // Fallback if we failed to parse
   }
 
   getTargets(targetType) {
