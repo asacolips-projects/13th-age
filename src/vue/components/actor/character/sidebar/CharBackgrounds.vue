@@ -7,7 +7,7 @@
         <span class="rollable rollable--background flexshrink" data-roll-type="background" :data-roll-opt="item.name.value"></span>
         <span class="background-sign">+</span>
         <input type="number" v-bind:name="concat('system.backgrounds.', index, '.bonus.value')" class="background-bonus" v-model="item.bonus.value"/>
-        <TextareaGrow :name="`system.backgrounds.${index}.name.value`" :value="item.name.value" classes="background-name"/>
+        <TextareaGrow :name="`system.backgrounds.${index}.name.value`" :value="item.name.value" classes="background-name" :disable-paste-parsing="true"/>
       </li>
     </ul>
   </section>

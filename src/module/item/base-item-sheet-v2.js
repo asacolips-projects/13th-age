@@ -26,6 +26,22 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 
   /* -------------------------------------------- */
 
+  /** @inheritDoc */
+  _initializeApplicationOptions(options) {
+    options = super._initializeApplicationOptions(options);
+    if (options.document.compendium) {
+      const hasOption = options.window.controls.find(o => o.action === 'importFromCompendium');
+      if (!hasOption) {
+        options.window.controls.push({
+          action: "importFromCompendium",
+          icon: "fa-solid fa-download",
+          label: "Import",
+        });
+      }
+    }
+    return options;
+  }
+
   /**
    * Actions performed after any render of the Application.
    * Post-render steps are not awaited by the render process.

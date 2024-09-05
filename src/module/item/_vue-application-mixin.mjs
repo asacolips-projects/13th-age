@@ -3,6 +3,9 @@ import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 export default function VueRenderingMixin(BaseApplication) {
 
     class VueApplication extends BaseApplication {
+      /** Helper property for checking the shift key during paste events. */
+      isShift = false;
+
       /** Vue application instance created with createApp(). */
       vueApp = null;
 
@@ -77,18 +80,6 @@ export default function VueRenderingMixin(BaseApplication) {
        * @override
        */
       async _renderFrame(options) {
-        // @todo find a better spot for this.
-        if (this.document.compendium) {
-          const hasOption = this.options.window.controls.find(o => o.action === 'importFromCompendium');
-          if (!hasOption) {
-            this.options.window.controls.push({
-              action: "importFromCompendium",
-              icon: "fa-solid fa-download",
-              label: "Import",
-            });
-          }
-        }
-
         // Retrieve the context and element.
         const context = await this._prepareContext(options);
         const element = await super._renderFrame(options);
@@ -177,6 +168,23 @@ export default function VueRenderingMixin(BaseApplication) {
             }
           }
         }
+        else {
+          // Set a variable when the shift key is pressed to avoid paste events.
+          this.element.addEventListener('keydown', (event) => {
+            if (event.key === 'Shift' && !this.isShift) {
+              this.isShift = true;
+            }
+          });
+          this.element.addEventListener('keyup', (event) => {
+            if (event.key === 'Shift' && this.isShift) {
+              this.isShift = false;
+            }
+          });
+          // Handle paste events.
+          this.element.querySelectorAll('.editor-content').forEach((editor) => {
+            editor.addEventListener('paste', (event) => this._parsePastedContent(event));
+          });
+        }
       }
 
       /** @override */
@@ -199,6 +207,33 @@ export default function VueRenderingMixin(BaseApplication) {
         // Unmount the vue instance.
         if (this.vueApp) this.vueApp.unmount();
         await super.close(options);
+      }
+
+      /* -------------------------------------------- */
+
+      _parsePastedContent(event) {
+        if (!this.isShift && game.settings.get('archmage', 'allowPasteParsing')) {
+          const target = event.target;
+          const prosemirror = target.closest('prose-mirror');
+
+          if (!prosemirror) return;
+          event.preventDefault();
+
+          const options = {
+            field: prosemirror.name,
+          };
+          // Retrieve the value from the field and the clipboard.
+          const paste = (event.clipboardData || window.clipboardData).getData('text');
+          const result = game.archmage.ArchmageUtility.parseClipboardText(paste, options);
+          let newValue = result;
+    
+          // Handle selections.
+          const selection = window.getSelection();
+          if (!selection.rangeCount) return;
+          selection.deleteFromDocument();
+          selection.getRangeAt(0).insertNode(document.createTextNode(newValue));
+          selection.collapseToEnd();
+        }
       }
     }
 
