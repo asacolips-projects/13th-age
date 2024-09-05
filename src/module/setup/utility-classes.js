@@ -556,19 +556,22 @@ export class ArchmageUtility {
     ];
     // Matches the above list, but also checks for "nth" and so on as a prefix to
     // avoid turning "4th level" and so on into "4th @lvl".
-    const attrsRegex = new RegExp(`((?:\\d+th)*\\s*)(${attrs.join('|')})`, 'gi');
+    const attrsRegex = new RegExp(`((?:(?:\\d+th)|(?:breath)|(?:triple-|double-))*\\s*)(${attrs.join('|')})`, 'gi');
     parsedText = parsedText.replace(attrsRegex, (match, prefix, attr) => {
       const cleaned = attr.trim().toLocaleLowerCase();
       if (cleaned === 'weapon') {
-        return '@wpn.m.dice';
+        return !prefix.match(/breath/gi) ? '@wpn.m.dice' : match;
       }
       if (cleaned === 'level') {
         return !prefix.match(/\d+th|\d+nd|\d+rd|\d+st/gi)
           ? (options.attack ? '@std' : '@lvl')
-          : attr;
+          : match;
       }
       if (cleaned === 'escalation die') {
         return '@ed';
+      }
+      if (cleaned === 'strength') {
+        if (prefix.match(/triple-|double-/gi)) return match;
       }
       return options.damage
         ? `@${cleaned.slice(0,3)}.dmg`
@@ -616,6 +619,7 @@ export class ArchmageUtility {
     // Return the trimmed and cleaned string.
     return parsedText.replace('( ', '(')
       .replace(' )', ')')
+      .replace('.]]', ']].')
       .replace(/ +/g, ' ')
       .replace(/\s*\++\s*/g, '+')
       .trim();

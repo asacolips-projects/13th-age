@@ -37,12 +37,12 @@ export default {
     },
     handleShiftKey(event, eventName) {
       if (eventName === 'keydown') {
-        if (!this.isShift && event.shiftKey) {
+        if (!this.isShift && event.key === 'Shift') {
           this.isShift = true;
         }
       }
       else if (eventName === 'keyup') {
-        if (this.isShift && event.shiftKey) {
+        if (this.isShift && event.key === 'Shift') {
           this.isShift = false;
         }
       }

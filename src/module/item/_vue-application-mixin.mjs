@@ -171,12 +171,12 @@ export default function VueRenderingMixin(BaseApplication) {
         else {
           // Set a variable when the shift key is pressed to avoid paste events.
           this.element.addEventListener('keydown', (event) => {
-            if (event.shiftKey && !this.isShift) {
+            if (event.key === 'Shift' && !this.isShift) {
               this.isShift = true;
             }
           });
           this.element.addEventListener('keyup', (event) => {
-            if (event.shiftKey && this.isShift) {
+            if (event.key === 'Shift' && this.isShift) {
               this.isShift = false;
             }
           });

@@ -54,48 +54,6 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
     // You may want to add other special handling here
     // Foundry comes with a large number of utility classes, e.g. SearchFilter
     // That you may want to implement yourself.
-    console.log('onRender', this.element);
-    this.element.addEventListener('paste', '.prose-mirror-wrapper .editor-content', (event) => this.parsePastedContent(event));
-  }
-
-  parsePastedContent(event) {
-    console.log('event', event);
-    if (game.settings.get('archmage', 'allowPasteParsing')) {
-      event.preventDefault();
-      const target = event.target;
-      const prosemirror = target.closest('prose-mirror');
-      const options = {
-        field: prosemirror.name,
-      };
-      // Retrieve the value from the field and the clipboard.
-      const oldValue = target.innerHTML ?? '';
-      const paste = (event.clipboardData || window.clipboardData).getData('text');
-      const result = game.archmage.ArchmageUtility.parseClipboardText(paste, options);
-      let newValue = result;
-
-      // Handle selections.
-      const selection = window.getSelection();
-      let startRange = target.selectionStart ?? oldValue.length;
-      let endRange = target.selectionEnd ?? startRange;
-      // If there's a selection, replace it.
-      if (selection.rangeCount) {
-        newValue = `${oldValue.slice(0, startRange)}${result}${oldValue.slice(endRange)}`;
-        startRange += result.length;
-      }
-      // Otherwise, append it.
-      else {
-        newValue = `${oldValue}${result}`;
-      }
-
-      // Update field contents.
-      target.innerHTML = newValue;
-
-      // Update cursor position.
-      if (startRange) {
-        target.focus();
-        target.setSelectionRange(startRange, startRange);
-      }
-    }
   }
 
   /** ************
