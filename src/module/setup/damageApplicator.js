@@ -45,8 +45,29 @@ export class DamageApplicator {
     }
 
     const targets = this.getTargets(targetType);
+    const mooks = targets.filter(t => t.actor.type === 'npc' && t.actor.system.details.role.value === 'mook');
     // Apply damage if user is a GM.
     if (game.user.isGM || targetType === 'selected') {
+      if (mooks && mooks.length > 0) {
+        foundry.applications.api.DialogV2.prompt({
+          window: {title: 'Mooks detected!'},
+          classes: ['mook-damage-application'],
+          rejectClose: false,
+          position: { width: 620 },
+          content: `
+            <ul class="mooks-list">
+              ${mooks.map(token => `<li class="flexrow"><img src="${token.actor.img}" width="50" height="50"><span class="mook-name">${token.name}</span><label>Damage <input type="number" value="30"/></label></li>`).join('')}
+            </ul>
+            <div class="flexrow mooks-total"><span class="total-label">Total Damage</span><strong class="total-damage">90</strong></div>
+          `,
+          ok: {
+            label: "Apply Damage",
+            callback: (event, button, dialog) => {
+              console.log('stuff', button);
+            }
+          }
+        });
+      }
       targets.forEach(token => {
         let actorData = foundry.utils.duplicate(token.actor);
         token.actor.update({
