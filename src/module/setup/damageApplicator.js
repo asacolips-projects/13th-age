@@ -13,9 +13,12 @@ export class DamageApplicator {
     if (roll instanceof Roll) {
       return roll.total;
     }
-    const match = REGEX_EXPANDED_INLINE_ROLL.exec(roll[0].innerText);
+    // Try the regex for expanded rolls.
+    let match = REGEX_EXPANDED_INLINE_ROLL.exec(roll[0].innerText);
     if (match) return Number.parseInt(match[1]);
-    return 0;  // Fallback if we failed to parse
+    // Regex failed to match, try grabbing the inner text.
+    match = Number.parseInt(roll[0].innerText.trim());
+    return match || 0;  // Fallback if we failed to parse
   }
 
   getTargets(targetType) {
