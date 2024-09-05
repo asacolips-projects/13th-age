@@ -7,6 +7,8 @@
       :placeholder="placeholder"
       spellcheck="false"
       @paste="parsePastedContent"
+      @keydown="(event) => handleShiftKey(event, 'keydown')"
+      @keyup="(event) => handleShiftKey(event, 'keyup')"
     ></textarea>
   </div>
 </template>
@@ -17,7 +19,8 @@ export default {
   props: ['classes', 'value', 'name', 'placeholder', 'data-tooltip', 'data-tooltip-direction', 'disable-paste-parsing'],
   data() {
     return {
-      valueAttr: ''
+      valueAttr: '',
+      isShift: false,
     }
   },
   computed: {
@@ -32,8 +35,20 @@ export default {
       this.valueAttr = event.target.value;
       this.$emit('update:value', event.target.value);
     },
+    handleShiftKey(event, eventName) {
+      if (eventName === 'keydown') {
+        if (!this.isShift && event.shiftKey) {
+          this.isShift = true;
+        }
+      }
+      else if (eventName === 'keyup') {
+        if (this.isShift && event.shiftKey) {
+          this.isShift = false;
+        }
+      }
+    },
     parsePastedContent(event) {
-      if (!this.disablePasteParsing && game.settings.get('archmage', 'allowPasteParsing')) {
+      if (!this.isShift && !this.disablePasteParsing && game.settings.get('archmage', 'allowPasteParsing')) {
         event.preventDefault();
         const options = {
           field: event.target.name,

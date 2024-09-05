@@ -3,6 +3,9 @@ import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 export default function VueRenderingMixin(BaseApplication) {
 
     class VueApplication extends BaseApplication {
+      /** Helper property for checking the shift key during paste events. */
+      isShift = false;
+
       /** Vue application instance created with createApp(). */
       vueApp = null;
 
@@ -166,8 +169,20 @@ export default function VueRenderingMixin(BaseApplication) {
           }
         }
         else {
+          // Set a variable when the shift key is pressed to avoid paste events.
+          this.element.addEventListener('keydown', (event) => {
+            if (event.shiftKey && !this.isShift) {
+              this.isShift = true;
+            }
+          });
+          this.element.addEventListener('keyup', (event) => {
+            if (event.shiftKey && this.isShift) {
+              this.isShift = false;
+            }
+          });
+          // Handle paste events.
           this.element.querySelectorAll('.editor-content').forEach((editor) => {
-            editor.addEventListener('paste', (event) => this._parsePastedContent(event))
+            editor.addEventListener('paste', (event) => this._parsePastedContent(event));
           });
         }
       }
@@ -197,7 +212,7 @@ export default function VueRenderingMixin(BaseApplication) {
       /* -------------------------------------------- */
 
       _parsePastedContent(event) {
-        if (game.settings.get('archmage', 'allowPasteParsing')) {
+        if (!this.isShift && game.settings.get('archmage', 'allowPasteParsing')) {
           const target = event.target;
           const prosemirror = target.closest('prose-mirror');
 
