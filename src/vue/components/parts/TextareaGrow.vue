@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'TextareaGrow',
-  props: ['classes', 'value', 'name', 'placeholder', 'data-tooltip', 'data-tooltip-direction'],
+  props: ['classes', 'value', 'name', 'placeholder', 'data-tooltip', 'data-tooltip-direction', 'disable-paste-parsing'],
   data() {
     return {
       valueAttr: ''
@@ -33,7 +33,7 @@ export default {
       this.$emit('update:value', event.target.value);
     },
     parsePastedContent(event) {
-      if (game.settings.get('archmage', 'allowPasteParsing')) {
+      if (!this.disablePasteParsing && game.settings.get('archmage', 'allowPasteParsing')) {
         event.preventDefault();
         const options = {
           field: event.target.name,
