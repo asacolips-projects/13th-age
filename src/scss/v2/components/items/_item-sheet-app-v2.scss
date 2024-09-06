@@ -7,24 +7,42 @@
     li {
       padding: 0;
       margin: 0;
-      gap: 8px;
-
-      img {
-        flex: 0 0 50px;
-      }
-
-      span {
-        flex: 1;
-      }
-
-      label {
-        flex: 0 0 auto;
-
-        input {
-          width: 100px;
-        }
-      }
     }
+  }
+
+  .mook-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mook-header {
+    font-weight: bold;
+    border-bottom: 2px solid;
+  }
+
+  .mook-footer {
+    font-weight: bold;
+    border-top: 2px solid;
+  }
+
+  .mook-img {
+    flex: 0 0 50px;
+  }
+
+  .mook-name {
+    flex: 1;
+  }
+
+  .mook-hp,
+  .mook-damage,
+  .mook-spill {
+    text-align: center;
+    flex: 0 0 70px;
+  }
+
+  .mooks-total {
+    font-size: 24px;
+    margin: 8px 0;
   }
 
   .total-damage {
