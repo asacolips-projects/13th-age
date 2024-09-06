@@ -46,29 +46,19 @@ export class DamageApplicator {
 
     const targets = this.getTargets(targetType);
     const mooks = targets.filter(t => t.actor.type === 'npc' && t.actor.system.details.role.value === 'mook');
+    const needsMookDialog = mooks.find(t => toApply > (t.actor.system.attributes.hp.value + t.actor.system.attributes.hp.temp));
+
+    const appliedTargets = needsMookDialog
+      ? targets.filter(t => t.actor.type !== 'npc' || t.actor.system.details.role.value !== 'mook')
+      : targets;
+
     // Apply damage if user is a GM.
     if (game.user.isGM || targetType === 'selected') {
-      if (mooks && mooks.length > 0) {
-        foundry.applications.api.DialogV2.prompt({
-          window: {title: 'Mooks detected!'},
-          classes: ['mook-damage-application'],
-          rejectClose: false,
-          position: { width: 620 },
-          content: `
-            <ul class="mooks-list">
-              ${mooks.map(token => `<li class="flexrow"><img src="${token.actor.img}" width="50" height="50"><span class="mook-name">${token.name}</span><label>Damage <input type="number" value="30"/></label></li>`).join('')}
-            </ul>
-            <div class="flexrow mooks-total"><span class="total-label">Total Damage</span><strong class="total-damage">90</strong></div>
-          `,
-          ok: {
-            label: "Apply Damage",
-            callback: (event, button, dialog) => {
-              console.log('stuff', button);
-            }
-          }
-        });
+      if (needsMookDialog) {
+        const mookDialog = new game.archmage.MookDamageApplicationV2(mooks, toApply);
+        mookDialog.render(true);
       }
-      targets.forEach(token => {
+      appliedTargets.forEach(token => {
         let actorData = foundry.utils.duplicate(token.actor);
         token.actor.update({
           "system.attributes.hp.value": actorData.system.attributes.hp.value - toApply,
@@ -77,6 +67,7 @@ export class DamageApplicator {
     }
     // Otherwise, emit a socket so that a GM user can apply it.
     else {
+      // @todo handle mooks here
       game.socket.emit('system.archmage', {
         type: 'applyDamageHealing',
         uuids: targets.map(t => t.document.uuid),

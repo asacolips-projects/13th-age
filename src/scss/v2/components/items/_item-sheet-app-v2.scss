@@ -1,4 +1,19 @@
 .mook-damage-application {
+  .window-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dialog-content {
+    margin-bottom: 1rem;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .form-footer {
+    flex: 0 0 auto;
+  }
+
   ul.mooks-list {
     list-style-type: none;
     padding: 0;
@@ -38,6 +53,24 @@
   .mook-spill {
     text-align: center;
     flex: 0 0 70px;
+
+    &.high {
+      color: $c-fail;
+    }
+
+    &.low {
+      color: $c-blue;
+    }
+  }
+
+  .mooks-list,
+  .mook-footer {
+    .mook-hp,
+    .mook-damage input,
+    .mook-damage span,
+    .mook-spill {
+      font-size: 18px;
+    }
   }
 
   .mooks-total {

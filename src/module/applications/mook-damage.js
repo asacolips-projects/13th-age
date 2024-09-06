@@ -4,7 +4,9 @@ import VueRenderingMixin from "../item/_vue-application-mixin.mjs";
 import { ArchmageMookDamageAppV2 } from "../../vue/components.vue.es.js";
 
 export class MookDamageApplicationV2 extends VueRenderingMixin(ApplicationV2) {
-  documents = [];
+  targetDocuments = [];
+  sceneDocuments = [];
+  damage = 0;
 
   vueParts = {
     'archmage-mook-damage-app-v2': {
@@ -13,21 +15,27 @@ export class MookDamageApplicationV2 extends VueRenderingMixin(ApplicationV2) {
     }
   }
 
-  constructor(documents, options = {}) {
+  constructor(documents, damage, options = {}) {
     super(options);
-    this.documents = documents;
+    this.targetDocuments = documents;
+    this.damage = damage;
     this.isEditable = true;
+
+    const targetIds = documents.map(t => t.id);
+    const sceneTokens = [...game.scenes.viewed.tokens.values() ?? []].filter(t => {
+      return t.actor.type === 'npc'
+        && !targetIds.includes(t.id)
+        && t.actor.system.details.role.value === 'mook';
+    });
+
+    this.sceneDocuments = sceneTokens;
   }
 
   /** @override */
   static DEFAULT_OPTIONS = {
     classes: ["mook-damage-application", "dialog-form", "standard-form"],
     actions: {
-      // onEditImage: this._onEditImage,
-      // edit: this._viewEffect,
-      // create: this._createEffect,
-      // delete: this._deleteEffect,
-      // toggle: this._toggleEffect
+      ok: this._onSubmit,
     },
     position: {
       width: 640,
@@ -36,57 +44,69 @@ export class MookDamageApplicationV2 extends VueRenderingMixin(ApplicationV2) {
     window: {
       title: 'Apply Damage to Mooks',
       resizable: true,
-      controls: [
-        // {
-        //   action: "showItemArtwork",
-        //   icon: "fa-solid fa-image",
-        //   label: "ITEM.ViewArt",
-        //   ownership: "OWNER"
-        // },
-      ]
-    },
-    actions: {
-      // createFeat: this._updateFeat,
-      // deleteFeat: this._updateFeat,
-      // moveFeatUp: this._updateFeat,
-      // moveFeatDown: this._updateFeat,
+      controls: []
     },
     tag: 'form',
     form: {
+      handler: this._onSubmitMookForm,
       submitOnChange: false,
       submitOnClose: false,
+      closeOnSubmit: true,
     },
-    // Custom property that's merged into `this.options`
-    // dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
   };
 
   async _prepareContext(options) {
     const context = {
       damage: {},
       mooks: {
-        targets: this.documents ?? [],
+        targets: this.targetDocuments ?? [],
+        other: this.sceneDocuments ?? [],
       }
     };
 
-    const targetIds = this.documents.map(t => t.id);
-    const sceneTokens = [...game.scenes.viewed.tokens.values() ?? []].filter(t => {
-      return t.actor.type === 'npc'
-        && !targetIds.includes(t.id)
-        && t.actor.system.details.role.value === 'mook';
-    });
-
-    context.mooks.other = sceneTokens;
-
-    context.damage.single = 20;
+    context.damage.single = this.damage;
     context.damage.total = context.damage.single * context.mooks.targets.length;
-    context.damage.spillover = 0;
+    context.damage.overTargets = 0;
+    context.damage.overOther = 0;
 
     for (let token of context.mooks.targets) {
       if (context.damage.single > token.actor.system.attributes.hp.value) {
-        context.damage.spillover += context.damage.single - token.actor.system.attributes.hp.value;
+        context.damage.overTargets += context.damage.single - token.actor.system.attributes.hp.value;
       }
     }
 
     return context;
+  }
+
+  /**
+   * Handle submitting the dialog.
+   * @param {HTMLButtonElement} target        The button that was clicked or the default button.
+   * @param {PointerEvent|SubmitEvent} event  The triggering event.
+   * @returns {Promise<DialogV2>}
+   * @protected
+   */
+  static async _onSubmit(target, event) {
+    // event.preventDefault();
+    const form = this.element;
+    const formElements = form.querySelectorAll('.mook-row [data-token-id]');
+
+    if (formElements) {
+      // const updateData = {};
+      for (let element of formElements) {
+        const damage = Number(element.dataset.value);
+        if (damage > 0) {
+          // updateData[element.name] = element.dataset.value;
+          let token = element.dataset.group === 'targets'
+            ? this.targetDocuments.find(t => t.id === element.dataset.tokenId)
+            : this.sceneDocuments.find(t => t.id === element.dataset.tokenId);
+          if (token) {
+            token.actor.update({
+              'system.attributes.hp.value': token.actor.system.attributes.hp.value - damage,
+            });
+          }
+        }
+      }
+    }
+    return this.options.form.closeOnSubmit ? this.close() : this;
   }
 }
