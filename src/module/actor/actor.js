@@ -1338,7 +1338,7 @@ export class ActorArchmage extends Actor {
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
         }
-        else if ((item.system.powerUsage?.value == 'recharge') && rechAttempts > 0) {
+        else if (['recharge', 'recharge-desperate'].includes(item.system.powerUsage?.value) && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
@@ -1467,7 +1467,7 @@ export class ActorArchmage extends Actor {
       if (item.type != 'power' && item.type != 'equipment') continue;
 
       let itemUpdateData = {};
-      let usageArray = ['once-per-battle','daily','recharge', 'cyclic', 'daily-desperate'];
+      let usageArray = ['once-per-battle','daily','recharge', 'cyclic', 'recharge-desperate', 'daily-desperate'];
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
@@ -1551,14 +1551,14 @@ export class ActorArchmage extends Actor {
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
-      if (item.type != 'power' && item.type != 'equipment') continue;
+      if (!['power', 'equipment'].includes(item.type)) continue;
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       // Re-use rechargeAttempts to store whether we already desperately recharged before
       let rechAttempts = maxQuantity - item.system.quantity.value;
       rechAttempts = Math.max(rechAttempts - item.system.rechargeAttempts.value, 0)
       if (maxQuantity && item.system.quantity.value < maxQuantity
-        && item.system.powerUsage?.value == 'daily-desperate') {
+        && ['recharge-desperate', 'daily-desperate'].includes(item.system.powerUsage?.value)) {
         if (rechAttempts > 0) {
           await item.update({
             'system.quantity.value': item.system.quantity.value + rechAttempts,

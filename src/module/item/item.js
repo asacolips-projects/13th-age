@@ -530,6 +530,7 @@ export class ItemArchmage extends Item {
   _getUsageClass(item) {
     let use = item.system.powerUsage?.value ? item.system.powerUsage.value : 'other';
     if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
+    if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
     else if (use == 'cyclic') {
       if (item.actor.system.attributes.escalation.value > 0
         && item.actor.system.attributes.escalation.value % 2 == 0) {
