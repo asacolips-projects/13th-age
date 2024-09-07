@@ -558,6 +558,7 @@ ARCHMAGE.effectDurationTypes = {
   'NormalSaveEnds': 'ARCHMAGE.DURATION.NormalSaveEnds',
   'HardSaveEnds': 'ARCHMAGE.DURATION.HardSaveEnds',
   'EndOfCombat': 'ARCHMAGE.DURATION.EndOfCombat',
+  'EndOfArc': 'ARCHMAGE.DURATION.EndOfArc',
   'StartOfEachTurn': 'ARCHMAGE.DURATION.StartOfEachTurn'
 };
 

@@ -143,8 +143,8 @@ export async function preDeleteCombat(combat, context, options) {
                     effect.ongoingDamage = effect.ongoingDamage * 2;
                 }
                 const duration = effect.flags.archmage?.duration || "Unknown";
-                // If duration is "Infinite" skip
-                if (duration === "Infinite") continue;
+                // If duration is longer than battle skip
+                if (["Infinite", "EndOfArc"].includes(duration)) continue;
                 // If it's a save-ends effect store it as such
                 else if (saveEndsEffects.includes(duration)) {
                     currentCombatantEffectData.savesEnds.push(effect);

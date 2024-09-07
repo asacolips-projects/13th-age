@@ -1499,14 +1499,14 @@ export class ActorArchmage extends Actor {
       if (item.type == 'equipment') {
         if (item.system.attributes.rerollAc.current != item.system.attributes.rerollAc.bonus) {
           itemUpdateData['system.attributes.rerollAc.current'] = item.system.attributes.rerollAc.bonus;
-          templateData.resources.push({
+          templateData.items.push({
             key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rerollAc"),
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.system.attributes.rerollAc.bonus}`
           });
         }
         if (item.system.attributes.rerollSave.current != item.system.attributes.rerollSave.bonus) {
           itemUpdateData['system.attributes.rerollSave.current'] = item.system.attributes.rerollSave.bonus;
-          templateData.resources.push({
+          templateData.items.push({
             key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rerollSave"),
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.system.attributes.rerollSave.bonus}`
           });
@@ -1515,6 +1515,21 @@ export class ActorArchmage extends Actor {
       // Update item
       if ( !foundry.utils.isEmpty(itemUpdateData) ) await item.update(itemUpdateData);
     }
+
+    // Effects
+    let effectsToDelete = [];
+    for (const effect of this.effects) {
+      if (!effect.active) continue;
+      const duration = effect.flags.archmage?.duration || "Unknown";
+      if (duration === "EndOfArc") {
+        effectsToDelete.push(effect.id);
+        templateData.items.push({
+          key: effect.name,
+          message: game.i18n.localize("ARCHMAGE.CHAT.effectRemoved")
+        });
+      }
+    }
+    if (effectsToDelete.length > 0) await this.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
 
     // Print outcomes to chat
     const template = `systems/archmage/templates/chat/rest-full-card.html`
