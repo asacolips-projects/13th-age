@@ -14,7 +14,7 @@ export default class HitEvaluation {
         let hasMissed = undefined;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
-        let critRangeMin = 20 - attacker?.system.attributes.critMod.atk.value;
+        let critRangeMin = 20 - attacker?.system?.attributes.critMod.atk.value;
 
         let $rolls = $row_self.find('.inline-result');
         if ($rolls.length == 0) {
@@ -72,7 +72,7 @@ export default class HitEvaluation {
                       hasFumbled = true;
                     }
                     // Barbarian crit.
-                    else if (attacker?.system.details.detectedClasses?.includes("barbarian")
+                    else if (attacker?.system?.details.detectedClasses?.includes("barbarian")
                       && !game.settings.get("archmage", "secondEdition")
                       && roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
                       && part.results[1].result > 10) {
