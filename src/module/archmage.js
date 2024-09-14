@@ -545,7 +545,7 @@ Hooks.once('init', async function() {
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.showNaturalRollsHint"),
     scope: 'client',
     config: true,
-    default: false,
+    default: true,
     type: Boolean,
     requiresReload: false,
     onChange: newValue => $('#chat-log').toggleClass('show-natural-rolls', newValue)
