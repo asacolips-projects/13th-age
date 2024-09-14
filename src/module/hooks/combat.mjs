@@ -33,7 +33,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     for (const effect of combatant.actor.effects) {
         if (!effect.active) continue;
         // Handle ongoing.
-        const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+        const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
         effect.isOngoing = isOngoing;
         const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
         effect.isCrit = isCrit;
@@ -71,7 +71,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         effectsToDelete = [];
         if (otherCombatant?.actor?.effects) {
             for (const effect of otherCombatant.actor.effects) {
-                const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+                const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;;
                 effect.isOngoing = isOngoing;
                 const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
                 effect.isCrit = isCrit;
@@ -130,7 +130,7 @@ export async function preDeleteCombat(combat, context, options) {
 
             for (const effect of combatant.actor.effects) {
                 if (!effect.active) continue;
-                const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+                const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
                 effect.isOngoing = isOngoing;
                 const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
                 effect.isCrit = isCrit;
