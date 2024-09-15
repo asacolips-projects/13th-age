@@ -33,7 +33,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     for (const effect of combatant.actor.effects) {
         if (!effect.active) continue;
         // Handle ongoing.
-        const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+        const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
         effect.isOngoing = isOngoing;
         const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
         effect.isCrit = isCrit;
@@ -71,7 +71,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         effectsToDelete = [];
         if (otherCombatant?.actor?.effects) {
             for (const effect of otherCombatant.actor.effects) {
-                const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+                const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;;
                 effect.isOngoing = isOngoing;
                 const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
                 effect.isCrit = isCrit;
@@ -130,7 +130,7 @@ export async function preDeleteCombat(combat, context, options) {
 
             for (const effect of combatant.actor.effects) {
                 if (!effect.active) continue;
-                const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+                const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
                 effect.isOngoing = isOngoing;
                 const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
                 effect.isCrit = isCrit;
@@ -143,8 +143,8 @@ export async function preDeleteCombat(combat, context, options) {
                     effect.ongoingDamage = effect.ongoingDamage * 2;
                 }
                 const duration = effect.flags.archmage?.duration || "Unknown";
-                // If duration is "Infinite" skip
-                if (duration === "Infinite") continue;
+                // If duration is longer than battle skip
+                if (["Infinite", "EndOfArc"].includes(duration)) continue;
                 // If it's a save-ends effect store it as such
                 else if (saveEndsEffects.includes(duration)) {
                     currentCombatantEffectData.savesEnds.push(effect);

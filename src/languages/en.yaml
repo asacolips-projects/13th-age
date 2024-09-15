@@ -339,6 +339,7 @@ ARCHMAGE:
     NormalSaveEnds: Normal Save Ends
     HardSaveEnds: Hard Save Ends
     EndOfCombat: End of Battle
+    EndOfArc: End of Arc
     StartOfEachTurn: Start of Each Turn
   INCREMENTALS:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
@@ -585,6 +586,7 @@ ARCHMAGE:
     disengage: Disengage Check
     duration: Duration
     effect: Effect
+    effectRemoved: temporary effect removed
     effectTitle: General effect of a spell or power when it's used.
     epic: Epic Feat
     even: even
