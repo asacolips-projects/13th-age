@@ -328,38 +328,17 @@ export class ArchmageMacros {
    */
   static async wizardLight(speaker, actor, token, character, archmage) {
     if (!token) return;
-    const radiusBright = 3;
-    const radiusDim = 4;
-    let conf = {
-      alpha: 0.35,
-      angle: 0,
-      coloration: 1,
-      gradual: true,
-      luminosity: 0.5,
-      saturation: 0,
-      contrast: 0,
-      shadows: 0,
-      animation: {
-        speed: 2,
-        intensity: 2,
-        reverse: false,
-        type: "torch",
-      },
-      darkness: {
-        min: 0,
-        max: 1,
-      },
-    };
-    if (token.data.light.bright != 0) {
-      conf.bright = 0;
-      conf.dim = 0;
-      await token.document.update({light: conf});
-      archmage.suppressMessage = true;
+    if (!token.light) {
+      let data = foundry.data.LightData.cleanData();
+      data.bright = 3;
+      data.dim = 4;
+      data.animation.type = 'torch';
+      data.animation.speed = 3;
+      data.animation.intensity = 3;
+      await token.document.update({light: data});
     } else {
-      conf.bright = radiusBright;
-      conf.dim = radiusDim;
-      await token.document.update({light: conf});
+      await token.document.update({light: undefined});
+      archmage.suppressMessage = true;
     }
-
   }
 }
