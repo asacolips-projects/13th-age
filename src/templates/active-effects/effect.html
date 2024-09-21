@@ -116,6 +116,11 @@
                     </div>
                     <p class="notes">{{localize 'ARCHMAGE.ITEM.critModBonusHint'}}</p>
 
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.escalationBlockedHint'}}</strong>
+                        <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked blockedFromEscalationDie}} />
+                    </div>
+
                     <div class="settings-group form-group" style="padding-top: 10px;">
                         <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
                     </div>
@@ -170,13 +175,6 @@
                                data-dtype="Number" placeholder="0" />
                     </div>
                     <p class="notes">{{localize 'ARCHMAGE.ITEM.critDefBonusHint'}}</p>
-
-                    {{#unless isNpc}}
-                    <div class="settings-group">
-                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.escalationBlockedHint'}}</strong>
-                        <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked system.blockedFromEscalationDie}} />
-                    </div>
-                    {{/unless}}
 
                     <div class="settings-group form-group" style="padding-top: 10px;">
                         <label>{{localize 'ARCHMAGE.ITEM.ongoingDamage'}}</label>

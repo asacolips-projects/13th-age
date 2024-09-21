@@ -39,7 +39,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     }
 
     const edChange = context.effect.changes.find(x => x.key === "system.attributes.escalation.value");
-    //effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
+    context.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
     context.supportsDescription = game.release.generation >= 11;
     context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
@@ -162,7 +162,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     // Apply the combined effect changes.
     ae.changes = changes.concat(newChanges);
 
-    if ( formData.system.blockedFromEscalationDie ) {
+    if ( formData.blockedFromEscalationDie ) {
       ae.changes.push({
         key: 'system.attributes.escalation.value',
         mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
