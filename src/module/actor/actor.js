@@ -153,11 +153,11 @@ export class ActorArchmage extends Actor {
         break;
       // Handle escalation die.
       case 'ed':
-        relevant = (c => {return c.key == 'attributes.escalation.value';});
+        relevant = (c => {return c.key == 'system.attributes.escalation.value';});
         break;
       // Handle standard bonuses.
       case 'std':
-        relevant = (c => {return c.key == 'attributes.standardBonuses.value';});
+        relevant = (c => {return c.key == 'system.attributes.standardBonuses.value';});
         break;
       // Handle remaining active effects.
       case 'post':
@@ -169,7 +169,7 @@ export class ActorArchmage extends Actor {
       return changes.concat(e.changes.map(c => {
         c = foundry.utils.duplicate(c);
         c.effect = e;
-        c.name = e?.name ?? e.label; // @todo remove when v10 support is dropped
+        c.name = e?.name;
         c.priority = c.priority ?? (c.mode * 10);
         return c;
       })).filter(relevant);
