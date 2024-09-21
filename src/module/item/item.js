@@ -815,9 +815,9 @@ export class ItemArchmage extends Item {
 
       // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
       const AsyncFunction = (async function(){}).constructor;
-      const fn = new AsyncFunction("speaker", "actor", "token", "character", "archmage", itemToRender.system.embeddedMacro.value);
-      // Attempt script execution
       try {
+        const fn = new AsyncFunction("speaker", "actor", "token", "character", "archmage", itemToRender.system.embeddedMacro.value);
+        // Attempt script execution
         await fn.call(this, speaker, actor, token, character, macro_data);
       } catch(ex) {
         ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errMacroSyntax"));
