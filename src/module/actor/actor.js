@@ -909,8 +909,6 @@ export class ActorArchmage extends Actor {
       // Prepare chat data for the template.
       const chatData = {
         user: game.user.id,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-        roll: roll,
         rolls: [roll],
         speaker: game.archmage.ArchmageUtility.getSpeaker(this)
       };
@@ -1991,7 +1989,7 @@ export class ActorArchmage extends Actor {
       let effectsToDelete = [];
       const negRecoveryLabel = game.i18n.localize("ARCHMAGE.EFFECT.AE.negativeRecovery");
       this.effects.forEach(x => {
-        if (x.label == negRecoveryLabel) effectsToDelete.push(x.id);
+        if (x.name == negRecoveryLabel) effectsToDelete.push(x.id);
       });
       await this.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
 
