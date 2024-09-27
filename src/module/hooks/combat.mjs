@@ -12,6 +12,7 @@ export async function combatTurn(combat, context, options) {
     if (CONFIG.ARCHMAGE.is2e) {
         await handleStoke(combat, context, options);
     }
+    await handleRoundEffects(combat, context, options);
 }
 
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
@@ -102,6 +103,35 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     if (!isDead) {
         await renderOngoingEffectsCard(`${prefix} of Turn Effects`, combatant, currentCombatantEffectData);
     }
+}
+
+export async function handleRoundEffects(combat, context, options) {
+    // If we have not just started a new round, skip
+    if (context.turn != 0) return;
+    // For each other combatant, check if any of their effects has an EndOfRound lower than the current round
+    const currentCombatantEffectData = {
+        selfEnded: [],
+        savesEnds: [],
+        selfTriggered: [],
+        otherEnded: [],
+        unknown: [],
+    };
+    let effectsToDelete = [];
+    for (const combatant of combat.combatants) {
+        if (!combatant?.actor?.effects) continue;
+        effectsToDelete = [];
+        for (const effect of combatant.actor.effects) {
+            const duration = effect.flags.archmage?.duration || "Unknown";
+            if (duration === 'EndOfRound' && effect.flags.archmage?.endRound < context.round) {
+                effect.otherName = combatant.actor.name;
+                currentCombatantEffectData.otherEnded.push(effect);
+                effectsToDelete.push(effect.id);
+            }
+        }
+        // Auto-delete AEs
+        await combatant.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+    }
+    await renderOngoingEffectsCard(`End of Round ${context.round - 1} Effects`, null, currentCombatantEffectData);
 }
 
 export async function combatRound(combat, context, options) {
@@ -218,7 +248,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
     const template = "systems/archmage/templates/chat/ongoing-effects-card.html";
     const renderData = {
         title: title,
-        combatant: combatant,
+        combatant: combatant,  // Not used?
         selfEnded: effectData.selfEnded,
         hasSelfEnded: effectData.selfEnded.length > 0,
         saveEnds: effectData.savesEnds,
@@ -235,7 +265,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
     // Create a chat card
     const chatData = {
         user: game.user.id,
-        speaker: ChatMessage.getSpeaker({actor: combatant.actor}),
+        speaker: ChatMessage.getSpeaker({actor: combatant?.actor}),
         content: html
     };
     ChatMessage.create(chatData, {});

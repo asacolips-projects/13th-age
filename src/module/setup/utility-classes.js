@@ -635,52 +635,73 @@ export class MacroUtils {
    * Generate durations for active effects
    */
   static setDuration(data, duration, options={}) {
+    // Assign by level to avoid weird issues with str path accessor
+    if (!data.flags?.archmage?.duration) data.flags = {archmage: {duration: "Unknown"}};
     switch(duration) {
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn:
-        data['flags.archmage.duration'] = "StartOfNextTurn";
+      case "StartOfNextTurn":
+        data.flags.archmage.duration = "StartOfNextTurn";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EndOfNextTurn:
-        data['flags.archmage.duration'] = "EndOfNextTurn";
+      case "EndOfNextTurn":
+        data.flags.archmage.duration = "EndOfNextTurn";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextSourceTurn:
-        data['flags.archmage.duration'] = "StartOfNextSourceTurn";
+      case "StartOfNextSourceTurn":
+        data.flags.archmage.duration = "StartOfNextSourceTurn";
         data.origin = options.sourceTurnUuid;
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EndOfNextSourceTurn:
-        data['flags.archmage.duration'] = "EndOfNextSourceTurn";
+      case "EndOfNextSourceTurn":
+        data.flags.archmage.duration = "EndOfNextSourceTurn";
         data.origin = options.sourceTurnUuid;
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EasySaveEnds:
-        data['flags.archmage.duration'] = "EasySaveEnds";
+      case "EasySaveEnds":
+        data.flags.archmage.duration = "EasySaveEnds";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.NormalSaveEnds:
-        data['flags.archmage.duration'] = "NormalSaveEnds";
+      case "NormalSaveEnds":
+        data.flags.archmage.duration = "NormalSaveEnds";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.HardSaveEnds:
-        data['flags.archmage.duration'] = "HardSaveEnds";
+      case "HardSaveEnds":
+        data.flags.archmage.duration = "HardSaveEnds";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat:
-        data['flags.archmage.duration'] = "EndOfCombat";
+      case "EndOfCombat":
+        data.flags.archmage.duration = "EndOfCombat";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.Infinite:
-        data['flags.archmage.duration'] = "Infinite";
+      case "Infinite":
+        data.flags.archmage.duration = "Infinite";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.Unknown:
-        data['flags.archmage.duration'] = "Unknown";
+      case "Unknown":
+        data.flags.archmage.duration = "Unknown";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn:
-        data['flags.archmage.duration'] = "StartOfEachTurn";
+      case "StartOfEachTurn":
+        data.flags.archmage.duration = "StartOfEachTurn";
+        break;
+      case CONFIG.ARCHMAGE.effectDurationTypes.EndOfArc:
+      case "EndOfArc":
+        data.flags.archmage.duration = "EndOfArc";
+        break;
+      case CONFIG.ARCHMAGE.effectDurationTypes.EndOfRound:
+      case "EndOfRound":
+        data.flags.archmage.duration = "EndOfRound";
+        data.flags.archmage.endRound = options.round;
         break;
       default:
-        // console.warn("Unknown duration ", duration);
-        // Condition drag and drop passes the correct data already
-        if (data.flags?.archmage?.duration) data.flags.archmage.duration = duration;
-        else data['flags.archmage.duration'] = duration;
+        console.warn("Unknown duration ", duration);
     }
     // Set Foundry core duration to make the thing appear on tokens
-    data['duration'] = {
-      rounds: 999,
-      turns: 999
+    if (data.flags.archmage.duration != "Infinite") {
+        data['duration'] = {
+          rounds: 999,
+          turns: 999
+        }
     }
 
     return data;
