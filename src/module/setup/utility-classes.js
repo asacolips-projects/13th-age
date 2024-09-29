@@ -50,9 +50,9 @@ export class ArchmageUtility {
     // Return early if there is nothing to wait on.
     // Our own inline rolls are handled separately,
     // so we only wait for roll messages or if default DSN inline rolls are used.
-    if (chatData.type !== CONST.CHAT_MESSAGE_TYPES.ROLL &&
+    if ((!chatData.rolls || chatData.rolls.length == 0) &&
         !game.settings.get("dice-so-nice", "animateInlineRoll")) {
-      return ChatMessage.create(chatData, context);
+      return await ChatMessage.create(chatData, context);
     }
 
     // Try to wait for the 3d dice animation to finish.

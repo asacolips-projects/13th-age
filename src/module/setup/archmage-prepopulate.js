@@ -35,14 +35,23 @@ export class ArchmagePrepopulate {
    */
   async getCompendiums(classes = [], race = '') {
     let validRaces = Object.values(CONFIG.ARCHMAGE.raceList);
-    let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && !p.metadata.name.includes("2e"));
     let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
     if (game.settings.get('archmage', 'secondEdition')) {
-      let classPacks2e = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && p.metadata.name.includes("2e"));
-      if (classPacks2e.length > 0) classPacks = classPacks2e;
       let racePacks2e = await game.packs.filter(p => p.metadata.name == 'kin-powers-2e');
       if (racePacks2e.length > 0) racePacks = racePacks2e;
     }
+    // Search class packs by class
+    let classPacks = {};
+    for (const cls of classes) {
+      classPacks[cls] = await game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && !p.metadata.name.includes("2e"));
+      if (game.settings.get('archmage', 'secondEdition')) {
+        // Check if we have a 2e version
+        let classPack2e = await game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && p.metadata.name.includes("2e"));
+        if (classPack2e.length > 0) classPacks[cls] = classPack2e;
+      }
+    }
+    // Reduce back to flat array of packs
+    classPacks = Object.values(classPacks).reduce((a,b) => a.concat(b))
     let content = {};
 
     // Load racial powers

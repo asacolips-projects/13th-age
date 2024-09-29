@@ -96,8 +96,7 @@ export class DiceArchmage {
       // Prepare chat data for the template.
       const chatData = {
         user: game.user.id,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-        roll: roll,
+        roll: roll,  // TODO: fix template to use rolls prop
         rolls: [roll],
         speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
       };
