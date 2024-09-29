@@ -1297,6 +1297,9 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
             let options = {};
             if (['StartOfNextSourceTurn', 'EndOfNextSourceTurn'].includes(duration)) {
               options = {sourceTurnUuid: source};
+            } else if (duration == 'EndOfRound') {
+              if (!game.combat) ui.notifications.warn(game.i18n.localize("ARCHMAGE.DURATION.EndOfRoundWarning"));
+              options = {round: game.combat?.round || 1};
             }
             if (ongoing.half) {
               effectData.flags.archmage.ongoingDamage = Math.floor(Number(effectData.flags.archmage.ongoingDamage) / 2);
@@ -1308,7 +1311,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
         },
-        pen1: {
+        cancel: {
           label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
           callback: () => {}
         },
