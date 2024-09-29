@@ -535,7 +535,7 @@ Hooks.once('init', async function() {
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.allowPasteParsingHint"),
     scope: 'client',
     config: true,
-    default: true,
+    default: false,
     type: Boolean,
     requiresReload: false,
   });
