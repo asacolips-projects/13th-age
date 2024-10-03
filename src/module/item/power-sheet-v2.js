@@ -140,7 +140,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
     // Enrich the description.
     context.editors = {
       'system.description.value': {
-        enriched: await TextEditor.enrichHTML(this.item.system.description?.value ?? '', enrichmentOptions),
+        enriched: await wrapRolls(this.item.system.description.value ?? '', [], 'short', {}, 'description', enrichmentOptions),
         element: foundry.applications.elements.HTMLProseMirrorElement.create({
           ...editorOptions,
           name: 'system.description.value',
