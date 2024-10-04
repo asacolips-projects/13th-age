@@ -92,6 +92,9 @@
             </div>
             <!-- Second row is supplemental info. -->
             <div class="grid equipment-grid">
+              <div class="equipment-tier" :data-tooltip="localize('ARCHMAGE.CHAT.tier')">
+                {{ CONFIG.ARCHMAGE.featTiers[equipment.system.tier] }}
+              </div>
               <div class="equipment-bonus flexrow" :data-tooltip="localize('ARCHMAGE.bonuses')" data-tooltip-direction="RIGHT" v-if="equipment.system.attributes">
                 <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
                   <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
@@ -166,6 +169,7 @@ export default {
         { value: 'name', label: game.i18n.localize('ARCHMAGE.name') },
         { value: 'chakra', label: game.i18n.localize('ARCHMAGE.chakra') },
         { value: 'recharge', label: game.i18n.localize('ARCHMAGE.recharge') },
+        { value: 'tier', label: game.i18n.localize('ARCHMAGE.CHAT.tier') },
         { value: 'usage', label: game.i18n.localize('ARCHMAGE.GROUPS.powerUsage') },
       ],
       // Our list of pseudo documents returned from the compendium.
@@ -399,6 +403,8 @@ export default {
             return (a.system?.chackra ?? '').localeCompare((b.system?.chackra ?? ''));
           case 'usage':
             return (a.system?.powerUsage?.value ?? '').localeCompare((b.system?.powerUsage?.value ?? ''));
+          case 'tier':
+            return (a.system?.tier ?? '').localeCompare(b.system?.tier ?? '');
           case 'recharge':
             return (a.system?.recharge?.value ?? 0) - (b.system?.recharge?.value ?? 0);
         }
@@ -421,6 +427,7 @@ export default {
       'archmage.srd-magic-items',
     ], [
       'system.chackra',
+      'system.tier',
       'system.recharge.value',
       'system.powerUsage.value',
       'system.attributes.attack',
