@@ -470,7 +470,7 @@ export class ItemArchmage extends Item {
   async _rollMultiTargets(itemToRender) {
     // Replicate attack rolls as needed for attacks
     let numTargets = {targets: 1, rolls: []};
-    if (itemToRender.type == "power" || itemToRender.type == "action") {
+  if (["power", "action"].includes(itemToRender.type)) {
       let attackLine = ArchmageRolls.addAttackMod(itemToRender);
       itemToRender.system.attack.value = attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){

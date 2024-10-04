@@ -1,3 +1,5 @@
+const INLINE_ROLLS_FILTER = /(\[\[.+?\]\])/g
+
 export default class ArchmageRolls {
 
   static async rollItemTargets(item) {
@@ -90,11 +92,13 @@ export default class ArchmageRolls {
     const actor = item.actor ?? game.user.character;
     let atkMod = actor?.getRollData().atk.mod ?? 0;
     if (atkMod) {
-      let match = /(\[\[.+?\]\])/.exec(attackLine);
-      if (match) {
-        let formula = match[1];
-        let newFormula = formula.replace("]]", "+@atk.mod]]");
-        attackLine = attackLine.replace(formula, newFormula);
+      let matches = [...attackLine.matchAll(INLINE_ROLLS_FILTER)];
+      if (matches) {
+        for (let match of matches) {
+          let formula = match[1];
+          let newFormula = formula.replace("]]", " + @atk.mod]]");
+          attackLine = attackLine.replace(formula, newFormula);
+        }
       }
     }
     return attackLine;
