@@ -466,7 +466,6 @@ export class ItemArchmage extends Item {
     return stop;
   }
 
-  // @HERE
   async _rollMultiTargets(itemToRender) {
     // Replicate attack rolls as needed for attacks
     let numTargets = {targets: 1, rolls: []};
@@ -542,7 +541,6 @@ export class ItemArchmage extends Item {
   }
 
   async _rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token) {
-
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     const templateData = {

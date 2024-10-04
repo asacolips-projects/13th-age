@@ -182,7 +182,13 @@ export default class preCreateChatMessageHandler {
                 if ((type == "power" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.target") + ':')) ||
                     (type == "action" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':'))) {
 
-                    targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
+                    // targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
+                    // In case of manual rolls we may have more rolls than targets - replicate targets until we have enough.
+                    var min_targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
+                    if (targets.length > 0) {
+                      while (min_targets.length < numTargets) min_targets = min_targets.concat(min_targets);
+                    }
+                    targets = min_targets.slice(0, numTargets);
 
                     if (targets.length > 0) {
                         var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
