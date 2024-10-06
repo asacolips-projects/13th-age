@@ -358,7 +358,7 @@ export class ArchmageMacros {
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
-        value: `+${rollData.lvl}-${rollData.atk.m.bonus}`,
+        value: `+${rollData.lvl}-${rollData.atk.m.bonus}`, // replace item bonus with level
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       }]
     };
