@@ -341,4 +341,28 @@ export class ArchmageMacros {
       archmage.suppressMessage = true;
     }
   }
+
+  ////////////////////////////////////////////////
+  /**
+   * Item Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * "Flaming" weapon (2e).
+   */
+  static async flamingWeapon(speaker, actor, token, character, archmage) {
+    const rollData = actor.getRollData();
+    const effectData = {
+      label: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [{
+        key: "system.attributes.weapon.melee.dice",
+        value: `+${rollData.lvl}-${rollData.atk.m.bonus}`, // replace item bonus with level
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
+    };
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
+    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
 }
