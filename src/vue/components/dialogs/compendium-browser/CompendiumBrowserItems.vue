@@ -455,10 +455,14 @@ export default {
   async created() {
     console.log("Creating compendium browser magic items tab...");
 
+    const packIds = [
+      game.modules.get('13th-age-core-2e')?.active
+        ? '13th-age-core-2e.magic-items-2e'
+        : 'archmage.srd-magic-items'
+    ];
+
     // Load the pack index with the fields we need.
-    getPackIndex([
-      'archmage.srd-magic-items',
-    ], [
+    getPackIndex(packIds, [
       'system.chackra',
       'system.tier',
       'system.recharge.value',
