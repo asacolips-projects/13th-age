@@ -142,7 +142,7 @@ export class ItemArchmage extends Item {
       targets: [...game.user.targets.map(t => t.document.uuid)],
       numTargets: targets,
     };
-    
+
     return await game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
@@ -547,7 +547,7 @@ export class ItemArchmage extends Item {
       actor: this.itemActor,
       tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: itemToRender,
-      data: itemToRender.getChatData({ rollData: rollData }, true),
+      data: await itemToRender.getChatData({ rollData: rollData }, true),
       usageClass: this._getUsageClass(itemToRender)
     };
 
@@ -909,11 +909,13 @@ export class ItemArchmage extends Item {
   /*  Chat Card Data
   /* -------------------------------------------- */
 
-  getChatData(htmlOptions, skipInlineRolls) {
+  async getChatData(htmlOptions, skipInlineRolls) {
     const data = this[`_${this.type}ChatData`]();
     if (!skipInlineRolls) {
       htmlOptions = foundry.utils.mergeObject(htmlOptions ?? {}, { async: false});
-      data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
+      data.description.value = data.description.value !== undefined
+        ? (await TextEditor.enrichHTML(data.description.value, htmlOptions))
+        : '';
     }
     return data;
   }
