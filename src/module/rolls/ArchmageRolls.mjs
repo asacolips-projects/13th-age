@@ -1,3 +1,5 @@
+const INLINE_ROLLS_FILTER = /(\[\[.+?\]\])/g
+
 export default class ArchmageRolls {
 
   static async rollItemTargets(item) {
@@ -86,21 +88,28 @@ export default class ArchmageRolls {
 
   static addAttackMod(item) {
     // Add @atk.mod modifier to the first inline roll, if it isn't 0
+    let numAttacks = 0;
     let attackLine = item.system.attack.value;
     const actor = item.actor ?? game.user.character;
     let atkMod = actor?.getRollData().atk.mod ?? 0;
     if (atkMod) {
-      let match = /(\[\[.+?\]\])/.exec(attackLine);
-      if (match) {
-        let formula = match[1];
-        let newFormula = formula.replace("]]", "+@atk.mod]]");
-        attackLine = attackLine.replace(formula, newFormula);
+      let matches = [...attackLine.matchAll(INLINE_ROLLS_FILTER)];
+      if (matches) {
+        numAttacks = matches.length;
+        for (let match of matches) {
+          let formula = match[1];
+          let newFormula = formula.replace("]]", " + @atk.mod]]");
+          attackLine = attackLine.replace(formula, newFormula);
+        }
       }
     }
-    return attackLine;
+    return {attackLine: attackLine, numManualAttacks: numAttacks};
   }
 
-  static rollItemAdjustAttacks(item, newAttackLine, numTargets) {
+  static rollItemAdjustAttacks(item, newAttackLine, numTargets, numManualAttacks) {
+    // If the user manually defined multiple attacks, don't touch anything
+    if (numManualAttacks > 1) return newAttackLine;
+
     // If the user has targeted tokens, limit number of rolls by the lower of
     // selected targets or number listed on the power. If no targets are
     // selected, just use the number listed on the power.

@@ -466,16 +466,15 @@ export class ItemArchmage extends Item {
     return stop;
   }
 
-  // @HERE
   async _rollMultiTargets(itemToRender) {
     // Replicate attack rolls as needed for attacks
     let numTargets = {targets: 1, rolls: []};
-    if (itemToRender.type == "power" || itemToRender.type == "action") {
-      let attackLine = ArchmageRolls.addAttackMod(itemToRender);
-      itemToRender.system.attack.value = attackLine;
+  if (["power", "action"].includes(itemToRender.type)) {
+      let atk = ArchmageRolls.addAttackMod(itemToRender);
+      itemToRender.system.attack.value = atk.attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(itemToRender);
-        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(itemToRender, attackLine, numTargets);
+        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(itemToRender, atk.attackLine, numTargets, atk.numManualAttacks);
         if (numTargets.targetLine) itemToRender.system.target.value = numTargets.targetLine;
       }
     }
@@ -542,7 +541,6 @@ export class ItemArchmage extends Item {
   }
 
   async _rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token) {
-
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     const templateData = {
