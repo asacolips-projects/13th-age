@@ -215,6 +215,11 @@ export default {
         return [];
       }
 
+      // If 2e modules is present, filter out 1e core-book monsters
+      if (game.modules.get('13th-age-core-2e')?.active) {
+        result = result.filter(entry => entry.flags.archmage?.source !== '13th-age-1e-core');
+      }
+
       // Filter by name.
       if (this.name && this.name.length > 0) {
         const name = this.name.toLocaleLowerCase();
@@ -290,6 +295,7 @@ export default {
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
+      'flags',
       'system.attributes.level',
       'system.attributes.hp.max',
       'system.attributes.ac.value',
