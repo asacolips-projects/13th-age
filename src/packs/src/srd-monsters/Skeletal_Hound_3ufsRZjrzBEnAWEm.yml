@@ -300,7 +300,9 @@ items:
 effects: []
 folder: null
 sort: 100001
-flags: {}
+flags:
+  archmage:
+    source: 13th-age-1e-core
 ownership:
   default: 0
 prototypeToken:

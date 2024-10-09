@@ -346,8 +346,7 @@ folder: null
 sort: 100001
 flags:
   archmage:
-    portraitRound: false
-    portraitFrame: false
+    source: 13th-age-1e-core
 ownership:
   default: 0
 prototypeToken:

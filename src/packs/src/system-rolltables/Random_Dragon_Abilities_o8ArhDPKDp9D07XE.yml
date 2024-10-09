@@ -187,7 +187,9 @@ results:
 formula: 1d12
 replacement: true
 displayRoll: false
-flags: {}
+flags:
+  archmage:
+    source: 13th-age-1e-core
 folder: null
 sort: 0
 ownership:
