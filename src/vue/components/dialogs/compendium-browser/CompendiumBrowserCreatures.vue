@@ -279,7 +279,7 @@ export default {
 
     const packIds = game.modules.get('13th-age-core-2e')?.active ? [
       'archmage.srd-Monsters',
-      // '13th-age-core-2e.monsters-2e',
+      '13th-age-core-2e.monsters-2e',
       '13th-age-core-2e.companions-2e',
       'archmage.necromancer-summons',
     ] : [
