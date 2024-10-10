@@ -189,7 +189,8 @@ replacement: true
 displayRoll: false
 flags:
   archmage:
-    source: 13th-age-1e-core
+    originalSource: 1e-core
+    supersededByModule: 13th-age-core-2e
 folder: null
 sort: 0
 ownership:

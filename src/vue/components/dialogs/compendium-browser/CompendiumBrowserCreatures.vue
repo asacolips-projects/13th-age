@@ -117,6 +117,8 @@ import {
   localize
 } from '@/methods/Helpers.js';
 
+let ACTIVE_MODULE_IDS = []
+
 export default {
   name: 'CompendiumBrowserPowers',
   props: ['tab'],
@@ -126,6 +128,8 @@ export default {
     Multiselect,
   },
   setup() {
+    ACTIVE_MODULE_IDS = game.modules.contents.filter(x => x.active).map(x => x.id);
+
     return {
       // Imported methods that need to be available in the <template>
       getActorModuleArt,
@@ -215,10 +219,11 @@ export default {
         return [];
       }
 
-      // If 2e modules is present, filter out 1e core-book monsters
-      if (game.modules.get('13th-age-core-2e')?.active) {
-        result = result.filter(entry => entry.flags.archmage?.source !== '13th-age-1e-core');
-      }
+      // Filter out monsters that are marked as superseded by an active module
+      result = result.filter(entry => {
+        const moduleId = entry.flags?.archmage?.supersededByModule;
+        return moduleId === undefined || !ACTIVE_MODULE_IDS.includes(moduleId);
+      });
 
       // Filter by name.
       if (this.name && this.name.length > 0) {

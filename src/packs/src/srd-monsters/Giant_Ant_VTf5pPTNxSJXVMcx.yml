@@ -179,7 +179,9 @@ system:
         enabled: false
         current: 0
 sort: 100001
-flags: {}
+flags:
+  archmage:
+    originalSource: 1e-core
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
   - _id: xM2TovJDe3pT6XWp
