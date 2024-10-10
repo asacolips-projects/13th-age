@@ -14,7 +14,7 @@
       <div class="level-range flexrow">
         <div class="level-label"><span>{{ levelRange[0] }}</span><span v-if="levelRange[0] !== levelRange[1]"> - {{ levelRange[1] }}</span></div>
         <div class="level-input slider-wrapper flexrow">
-          <Slider v-model="levelRange" :min="1" :max="15" :tooltips="false"/>
+          <Slider v-model="levelRange" :min="0" :max="15" :tooltips="false"/>
         </div>
       </div>
     </div>
@@ -117,6 +117,8 @@ import {
   localize
 } from '@/methods/Helpers.js';
 
+let ACTIVE_MODULE_IDS = []
+
 export default {
   name: 'CompendiumBrowserPowers',
   props: ['tab'],
@@ -126,6 +128,8 @@ export default {
     Multiselect,
   },
   setup() {
+    ACTIVE_MODULE_IDS = game.modules.contents.filter(x => x.active).map(x => x.id);
+
     return {
       // Imported methods that need to be available in the <template>
       getActorModuleArt,
@@ -161,7 +165,7 @@ export default {
       packIndex: [],
       // Filters.
       name: '',
-      levelRange: [1, 15],
+      levelRange: [0, 15],
       type: [],
       role: [],
       size: [],
@@ -197,7 +201,7 @@ export default {
      resetFilters() {
       this.sortBy = 'level';
       this.name = '';
-      this.levelRange = [1, 15];
+      this.levelRange = [0, 15];
       this.type = [];
       this.role = [];
       this.size = [];
@@ -214,6 +218,12 @@ export default {
         this.pager.totalRows = 0;
         return [];
       }
+
+      // Filter out monsters that are marked as superseded by an active module
+      result = result.filter(entry => {
+        const moduleId = entry.flags?.archmage?.supersededByModule;
+        return moduleId === undefined || !ACTIVE_MODULE_IDS.includes(moduleId);
+      });
 
       // Filter by name.
       if (this.name && this.name.length > 0) {
@@ -279,7 +289,7 @@ export default {
 
     const packIds = game.modules.get('13th-age-core-2e')?.active ? [
       'archmage.srd-Monsters',
-      // '13th-age-core-2e.monsters-2e',
+      '13th-age-core-2e.monsters-2e',
       '13th-age-core-2e.companions-2e',
       'archmage.necromancer-summons',
     ] : [
@@ -290,6 +300,7 @@ export default {
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
+      'flags',
       'system.attributes.level',
       'system.attributes.hp.max',
       'system.attributes.ac.value',
