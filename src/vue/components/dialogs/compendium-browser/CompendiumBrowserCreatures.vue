@@ -14,7 +14,7 @@
       <div class="level-range flexrow">
         <div class="level-label"><span>{{ levelRange[0] }}</span><span v-if="levelRange[0] !== levelRange[1]"> - {{ levelRange[1] }}</span></div>
         <div class="level-input slider-wrapper flexrow">
-          <Slider v-model="levelRange" :min="1" :max="15" :tooltips="false"/>
+          <Slider v-model="levelRange" :min="0" :max="15" :tooltips="false"/>
         </div>
       </div>
     </div>
@@ -161,7 +161,7 @@ export default {
       packIndex: [],
       // Filters.
       name: '',
-      levelRange: [1, 15],
+      levelRange: [0, 15],
       type: [],
       role: [],
       size: [],
@@ -197,7 +197,7 @@ export default {
      resetFilters() {
       this.sortBy = 'level';
       this.name = '';
-      this.levelRange = [1, 15];
+      this.levelRange = [0, 15];
       this.type = [];
       this.role = [];
       this.size = [];
