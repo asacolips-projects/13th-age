@@ -236,10 +236,10 @@ export default {
       }
 
       // Filter out monsters that are marked as superseded by an active module
-      result = result.filter(entry => {
-        const moduleId = entry.flags?.archmage?.supersededByModule;
-        return moduleId === undefined || !ACTIVE_MODULE_IDS.includes(moduleId);
-      });
+      // result = result.filter(entry => {
+      //   const moduleId = entry.flags?.archmage?.supersededByModule;
+      //   return moduleId === undefined || !ACTIVE_MODULE_IDS.includes(moduleId);
+      // });
 
       // Filter by name.
       if (this.name && this.name.length > 0) {
