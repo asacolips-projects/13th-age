@@ -405,13 +405,9 @@ ARCHMAGE:
       browsePowers: 'Browse Powers'
       browseItems: 'Browse Items'
     sources:
-      text:
-        '1e-core': '1e'
-        '2e-gamma': '2eɣ'
-      tooltip:
-        template: 'Source: {source}'
-        '1e-core': '13th Age Core Rulebook (1e)'
-        '2e-gamma': '13th Age GMG (2e gamma playtest draft)'
+      tooltipTemplate: 'Source: {source}'
+      '1e': '13th Age Core Rulebook (1e)'
+      '2eɣ': '13th Age 2e GMG (gamma playtest draft)'
 # Ability Scores
   str:
     key: STR

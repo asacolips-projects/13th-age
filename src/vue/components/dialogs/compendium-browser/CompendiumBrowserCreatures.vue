@@ -93,7 +93,7 @@
               <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
               <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
               <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
-              <div v-if="entry?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(entry?.system?.publicationSource)">{{ sourceText(entry?.system?.publicationSource) }}</div>
+              <div v-if="entry?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(entry?.system?.publicationSource)">{{ entry?.system?.publicationSource }}</div>
             </div>
           </div>
         </li>
@@ -208,19 +208,12 @@ export default {
       this.size = [];
     },
     /**
-     * Text for a publication source, which may be translated
-     */
-    sourceText(source) {
-      const localized = game.i18n.localize(`ARCHMAGE.COMPENDIUMBROWSER.sources.text.${source}`);
-      return localized.startsWith('ARCHMAGE') ? source : localized;
-    },
-    /**
      * Tooltip for a publication source, which may be translated
      */
     sourceTooltip(source) {
-      let localized = game.i18n.localize(`ARCHMAGE.COMPENDIUMBROWSER.sources.tooltip.${source}`);
+      let localized = game.i18n.localize(`ARCHMAGE.COMPENDIUMBROWSER.sources.${source}`);
       if (localized.startsWith('ARCHMAGE')) { localized = source }
-      return game.i18n.format('ARCHMAGE.COMPENDIUMBROWSER.sources.tooltip.template', {source: localized});
+      return game.i18n.format('ARCHMAGE.COMPENDIUMBROWSER.sources.tooltipTemplate', {source: localized});
     }
   },
   computed: {
