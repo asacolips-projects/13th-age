@@ -2,6 +2,7 @@ _id: aI4MSha27QxJonsf
 name: Kobold Grand Wizard
 type: npc
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

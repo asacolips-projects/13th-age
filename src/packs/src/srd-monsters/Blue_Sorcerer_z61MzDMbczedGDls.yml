@@ -3,6 +3,7 @@ name: Blue Sorcerer
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -327,7 +328,7 @@ items:
         type: String
         label: Hit
         value: >-
-          [[10]] lightning damage, and at the start of the target's next turn, 
+          [[10]] lightning damage, and at the start of the target's next turn,
           [[1d6]] nearby allies of the target take [[4]] lightning damage.
       hit1:
         type: String
