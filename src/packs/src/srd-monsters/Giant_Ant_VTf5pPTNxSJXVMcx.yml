@@ -2,7 +2,7 @@ _id: VTf5pPTNxSJXVMcx
 name: Giant Ant
 type: npc
 system:
-  publicationSource: 1e-core
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -181,8 +181,7 @@ system:
         current: 0
 sort: 100001
 flags:
-  archmage:
-    originalSource: 1e-core
+  archmage: {}
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
   - _id: xM2TovJDe3pT6XWp

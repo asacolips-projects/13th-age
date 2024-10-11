@@ -3,6 +3,7 @@ name: Medusa Noble
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -437,8 +438,7 @@ effects: []
 folder: null
 sort: 100001
 flags:
-  archmage:
-    originalSource: 1e-core
+  archmage: {}
 ownership:
   default: 0
 prototypeToken:
