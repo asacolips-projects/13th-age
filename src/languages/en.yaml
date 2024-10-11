@@ -170,6 +170,7 @@ ARCHMAGE:
   sheetNPC: NPC Sheet
   size: Size
   sort: Sort
+  source: Source
   spell: Spell
   spells: Spells
   standard: Standard Action
@@ -403,6 +404,14 @@ ARCHMAGE:
       browseCreatures: 'Browse Creatures'
       browsePowers: 'Browse Powers'
       browseItems: 'Browse Items'
+    sources:
+      text:
+        '1e-core': '1e'
+        '2e-gamma': '2eɣ'
+      tooltip:
+        template: 'Source: {source}'
+        '1e-core': '13th Age Core Rulebook (1e)'
+        '2e-gamma': '13th Age GMG (2e gamma playtest draft)'
 # Ability Scores
   str:
     key: STR
