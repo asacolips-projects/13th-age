@@ -235,12 +235,6 @@ export default {
         return [];
       }
 
-      // Filter out monsters that are marked as superseded by an active module
-      // result = result.filter(entry => {
-      //   const moduleId = entry.flags?.archmage?.supersededByModule;
-      //   return moduleId === undefined || !ACTIVE_MODULE_IDS.includes(moduleId);
-      // });
-
       // Filter by name.
       if (this.name && this.name.length > 0) {
         const name = this.name.toLocaleLowerCase();
@@ -316,7 +310,6 @@ export default {
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
-      'flags',
       'system.publicationSource',
       'system.attributes.level',
       'system.attributes.hp.max',
