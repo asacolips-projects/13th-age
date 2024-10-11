@@ -2,6 +2,7 @@ _id: VTf5pPTNxSJXVMcx
 name: Giant Ant
 type: npc
 system:
+  publicationSource: 1e-core
   attributes:
     attackMod:
       type: Number
