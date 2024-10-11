@@ -3,6 +3,7 @@ type: npc
 _id: ot6DzpD6S4MAQZyW
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
