@@ -3,6 +3,7 @@ name: Dire Rat
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: 1e-core
   attributes:
     attackMod:
       type: Number

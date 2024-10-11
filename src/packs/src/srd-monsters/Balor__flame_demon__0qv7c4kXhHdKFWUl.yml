@@ -3,6 +3,7 @@ name: Balor (flame demon)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 system:
+  publicationSource: 1e-core
   attributes:
     attackMod:
       type: Number
