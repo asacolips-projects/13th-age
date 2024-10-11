@@ -118,8 +118,6 @@ import {
   localize
 } from '@/methods/Helpers.js';
 
-let ACTIVE_MODULE_IDS = []
-
 export default {
   name: 'CompendiumBrowserPowers',
   props: ['tab'],
@@ -129,8 +127,6 @@ export default {
     Multiselect,
   },
   setup() {
-    ACTIVE_MODULE_IDS = game.modules.contents.filter(x => x.active).map(x => x.id);
-
     return {
       // Imported methods that need to be available in the <template>
       getActorModuleArt,
