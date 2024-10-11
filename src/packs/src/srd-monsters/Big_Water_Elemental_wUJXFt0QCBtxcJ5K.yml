@@ -3,6 +3,7 @@ name: Big Water Elemental
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/elemental-water.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

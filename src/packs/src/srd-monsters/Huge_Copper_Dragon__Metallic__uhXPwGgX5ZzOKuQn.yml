@@ -3,6 +3,7 @@ name: Huge Copper Dragon (Metallic)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

@@ -3,6 +3,7 @@ name: Common Treant
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/plant.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

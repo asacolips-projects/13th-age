@@ -3,6 +3,7 @@ name: Azer Soldier
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

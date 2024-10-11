@@ -3,6 +3,7 @@ name: Huge Brass Dragon (Metallic)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-brass.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

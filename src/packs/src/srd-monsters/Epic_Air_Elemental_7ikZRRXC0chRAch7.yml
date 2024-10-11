@@ -3,6 +3,7 @@ name: Epic Air Elemental
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/elemental-air.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

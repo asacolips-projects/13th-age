@@ -3,6 +3,7 @@ name: Big Earth Elemental
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
