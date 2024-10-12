@@ -571,6 +571,10 @@ Item:
       type: String
       label: Attack
       value: ''
+    critMod:
+      type: String
+      label: Attack
+      value: ''
     hit:
       type: String
       label: Hit
@@ -713,6 +717,9 @@ Item:
     attack:
       type: String
       label: Attack Roll
+    critMod:
+      type: String
+      value: ''
     hit:
       type: String
       label: Hit
