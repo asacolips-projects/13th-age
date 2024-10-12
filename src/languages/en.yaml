@@ -580,6 +580,9 @@ ARCHMAGE:
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
     crit: Crit
+    critMod: Critical Range
+    critModPlaceholder: "[[@ed]]"
+    critModTitle: Critical hit range modifier, such as "3" or "[[@ed]]"
     critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
@@ -637,6 +640,7 @@ ARCHMAGE:
     missEvenPlaceholder: Effects that happen on even misses
     missOdd: Odd Miss
     missOddPlaceholder: Effects that happen on odd misses
+    modifiers: Modifiers
     MomentReset: lost
     natural: natural
     NaturalRoll: 'Natural {naturalRolls}'
