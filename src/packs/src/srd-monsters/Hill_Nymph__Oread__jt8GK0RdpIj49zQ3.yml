@@ -3,6 +3,7 @@ type: npc
 _id: jt8GK0RdpIj49zQ3
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

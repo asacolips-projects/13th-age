@@ -3,6 +3,7 @@ name: Fungaloid Creeper
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/plant.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

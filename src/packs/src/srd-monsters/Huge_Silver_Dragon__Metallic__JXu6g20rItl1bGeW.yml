@@ -3,6 +3,7 @@ name: Huge Silver Dragon (Metallic)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-silver.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

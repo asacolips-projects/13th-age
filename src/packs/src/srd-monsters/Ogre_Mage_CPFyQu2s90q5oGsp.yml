@@ -3,6 +3,7 @@ name: Ogre Mage
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number

@@ -3,6 +3,7 @@ name: Bronze Golem
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

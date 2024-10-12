@@ -3,6 +3,7 @@ name: Five-Headed Hydra
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number

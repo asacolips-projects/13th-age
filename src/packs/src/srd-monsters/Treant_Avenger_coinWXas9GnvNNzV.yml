@@ -3,6 +3,7 @@ type: npc
 _id: coinWXas9GnvNNzV
 img: systems/archmage/assets/icons/tokens/monsters/plant.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

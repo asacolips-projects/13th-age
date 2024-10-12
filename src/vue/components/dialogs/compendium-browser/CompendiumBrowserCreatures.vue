@@ -14,7 +14,7 @@
       <div class="level-range flexrow">
         <div class="level-label"><span>{{ levelRange[0] }}</span><span v-if="levelRange[0] !== levelRange[1]"> - {{ levelRange[1] }}</span></div>
         <div class="level-input slider-wrapper flexrow">
-          <Slider v-model="levelRange" :min="1" :max="15" :tooltips="false"/>
+          <Slider v-model="levelRange" :min="0" :max="15" :tooltips="false"/>
         </div>
       </div>
     </div>
@@ -93,6 +93,7 @@
               <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
               <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
               <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
+              <div v-if="entry?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(entry?.system?.publicationSource)">{{ entry?.system?.publicationSource }}</div>
             </div>
           </div>
         </li>
@@ -161,7 +162,7 @@ export default {
       packIndex: [],
       // Filters.
       name: '',
-      levelRange: [1, 15],
+      levelRange: [0, 15],
       type: [],
       role: [],
       size: [],
@@ -197,11 +198,19 @@ export default {
      resetFilters() {
       this.sortBy = 'level';
       this.name = '';
-      this.levelRange = [1, 15];
+      this.levelRange = [0, 15];
       this.type = [];
       this.role = [];
       this.size = [];
     },
+    /**
+     * Tooltip for a publication source, which may be translated
+     */
+    sourceTooltip(source) {
+      let localized = game.i18n.localize(`ARCHMAGE.COMPENDIUMBROWSER.sources.${source}`);
+      if (localized.startsWith('ARCHMAGE')) { localized = source }
+      return game.i18n.format('ARCHMAGE.COMPENDIUMBROWSER.sources.tooltipTemplate', {source: localized});
+    }
   },
   computed: {
     nightmode() {
@@ -279,7 +288,7 @@ export default {
 
     const packIds = game.modules.get('13th-age-core-2e')?.active ? [
       'archmage.srd-Monsters',
-      // '13th-age-core-2e.monsters-2e',
+      '13th-age-core-2e.monsters-2e',
       '13th-age-core-2e.companions-2e',
       'archmage.necromancer-summons',
     ] : [
@@ -290,6 +299,7 @@ export default {
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
+      'system.publicationSource',
       'system.attributes.level',
       'system.attributes.hp.max',
       'system.attributes.ac.value',

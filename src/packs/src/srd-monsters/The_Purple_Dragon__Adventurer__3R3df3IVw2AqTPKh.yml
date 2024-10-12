@@ -3,6 +3,7 @@ type: npc
 _id: 3R3df3IVw2AqTPKh
 img: systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

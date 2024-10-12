@@ -3,6 +3,7 @@ type: npc
 _id: 1NaWP3m3UOnoIzrr
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

@@ -3,6 +3,7 @@ name: Hungry Star
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number

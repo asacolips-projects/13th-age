@@ -2,6 +2,7 @@ _id: BUGhPpkGiTWVhrI5
 name: Squib Swarm
 type: npc
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

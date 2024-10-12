@@ -187,7 +187,8 @@ results:
 formula: 1d12
 replacement: true
 displayRoll: false
-flags: {}
+flags:
+  archmage: {}
 folder: null
 sort: 0
 ownership:

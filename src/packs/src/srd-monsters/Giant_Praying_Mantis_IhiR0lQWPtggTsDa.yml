@@ -3,6 +3,7 @@ name: Giant Praying Mantis
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

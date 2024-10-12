@@ -3,6 +3,7 @@ name: Huge Green Dragon
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-green.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number

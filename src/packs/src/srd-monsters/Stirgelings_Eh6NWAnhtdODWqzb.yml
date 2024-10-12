@@ -2,6 +2,7 @@ _id: Eh6NWAnhtdODWqzb
 name: Stirgelings
 type: npc
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

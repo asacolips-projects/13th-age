@@ -2,6 +2,7 @@ _id: DNHwMQd1AASGQF2V
 name: Stirge
 type: npc
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

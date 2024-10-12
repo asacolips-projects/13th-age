@@ -3,6 +3,7 @@ name: Ethereal Dybbuk
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
