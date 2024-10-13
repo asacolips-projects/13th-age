@@ -3,6 +3,7 @@ name: Fire Elemental
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/elemental-fire.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

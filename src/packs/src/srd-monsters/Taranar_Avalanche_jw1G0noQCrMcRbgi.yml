@@ -3,6 +3,7 @@ type: npc
 _id: jw1G0noQCrMcRbgi
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

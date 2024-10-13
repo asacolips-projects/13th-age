@@ -3,6 +3,7 @@ name: Ogre Mage Knight
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

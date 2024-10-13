@@ -3,6 +3,7 @@ name: Large Blue Dragon
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number

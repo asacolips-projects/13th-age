@@ -91,11 +91,11 @@ export default class ArchmageRolls {
     let numAttacks = 0;
     let attackLine = item.system.attack.value;
     const actor = item.actor ?? game.user.character;
-    let atkMod = actor?.getRollData().atk.mod ?? 0;
-    if (atkMod) {
-      let matches = [...attackLine.matchAll(INLINE_ROLLS_FILTER)];
-      if (matches) {
-        numAttacks = matches.length;
+    let matches = [...attackLine.matchAll(INLINE_ROLLS_FILTER)];
+    if (matches) {
+      numAttacks = matches.length;
+      let atkMod = actor?.getRollData().atk.mod ?? 0;
+      if (atkMod) {
         for (let match of matches) {
           let formula = match[1];
           let newFormula = formula.replace("]]", " + @atk.mod]]");

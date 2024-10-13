@@ -3,6 +3,7 @@ name: Minotaur
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -345,9 +346,7 @@ effects: []
 folder: null
 sort: 100001
 flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
+  archmage: {}
 ownership:
   default: 0
 prototypeToken:

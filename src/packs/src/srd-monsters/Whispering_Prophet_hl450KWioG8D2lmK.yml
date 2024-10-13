@@ -3,6 +3,7 @@ name: Whispering Prophet
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

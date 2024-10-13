@@ -3,6 +3,7 @@ name: Magma Brute
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

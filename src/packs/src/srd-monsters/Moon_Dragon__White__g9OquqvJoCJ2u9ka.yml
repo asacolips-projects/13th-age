@@ -3,6 +3,7 @@ name: Moon Dragon (White)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-white.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

@@ -444,6 +444,7 @@ Actor:
     templates:
       - standard
       - resources
+    publicationSource: ''
     details:
       flavor:
         value: ''

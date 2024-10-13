@@ -3,6 +3,7 @@ name: Medium Bronze Dragon (Metallic)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-bronze.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number

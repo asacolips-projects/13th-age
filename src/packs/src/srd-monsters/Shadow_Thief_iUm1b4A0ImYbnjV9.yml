@@ -3,6 +3,7 @@ name: Shadow Thief
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

@@ -3,6 +3,7 @@ type: npc
 _id: bRqy1o6Qnj2E9aWM
 img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

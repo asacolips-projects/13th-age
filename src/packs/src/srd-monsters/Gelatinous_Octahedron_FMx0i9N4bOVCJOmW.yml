@@ -3,6 +3,7 @@ name: Gelatinous Octahedron
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/ooze.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number

@@ -3,6 +3,7 @@ name: Huge Blue Dragon
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-white.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number

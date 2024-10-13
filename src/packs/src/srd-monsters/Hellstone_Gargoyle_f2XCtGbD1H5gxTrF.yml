@@ -3,6 +3,7 @@ type: npc
 _id: f2XCtGbD1H5gxTrF
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

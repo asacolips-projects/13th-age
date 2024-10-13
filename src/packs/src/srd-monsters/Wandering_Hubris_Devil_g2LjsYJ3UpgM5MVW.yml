@@ -3,6 +3,7 @@ type: npc
 _id: g2LjsYJ3UpgM5MVW
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number

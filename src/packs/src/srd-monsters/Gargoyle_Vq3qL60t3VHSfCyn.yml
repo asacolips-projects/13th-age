@@ -3,6 +3,7 @@ name: Gargoyle
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
