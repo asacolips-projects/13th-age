@@ -61,6 +61,18 @@
       />
     </div>
 
+    <!-- Source filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.source">{{ localize('ARCHMAGE.source') }}</label>
+      <Multiselect
+        v-model="source"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="sources"
+      />
+    </div>
+
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
       <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
@@ -166,6 +178,7 @@ export default {
       type: [],
       role: [],
       size: [],
+      source: [],
     }
   },
   methods: {
@@ -248,6 +261,9 @@ export default {
       if (Array.isArray(this.size) && this.size.length > 0) {
         result = result.filter(entry => this.size.includes(entry.system.details.size.value));
       }
+      if (Array.isArray(this.source) && this.source.length > 0) {
+        result = result.filter(entry => this.source.includes(entry.system.publicationSource));
+      }
 
       // Reflow pager.
       if (result.length > this.pager.perPage) {
@@ -279,6 +295,16 @@ export default {
       return this.pager.totalRows > 0
         ? result.slice(this.pager.firstIndex, this.pager.lastIndex)
         : result;
+    },
+    sources() {
+      // List of publication sources from the selected entries
+      const sources = new Set();
+      for (const entry of this.packIndex) {
+        if (entry.system.publicationSource) {
+          sources.add(entry.system.publicationSource);
+        }
+      }
+      return Array.from(sources).sort();
     },
   },
   watch: {},

@@ -8,6 +8,13 @@
           <label :for="concat('flags.archmage.', f)" class="unit-subtitle flexrow"><input type="checkbox" :name="concat('flags.archmage.', f, )" v-model="flag.value"> {{flag.name}}</label>
           <p class="notes">{{flag.hint}}</p>
         </div>
+
+        <hr>
+        <!-- Publication source -->
+        <label for="publication-source" class="flexrow">
+          <span>{{localize('ARCHMAGE.CHARACTERSETTINGS.publicationSource')}}</span>
+          <input type="text" name="system.publicationSource" v-model="actor.system.publicationSource">
+        </label>
       </div>
       <!-- Resource Settings -->
       <div class="unit unit--resources">
