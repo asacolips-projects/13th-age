@@ -79,6 +79,19 @@
         />
       </div>
     </div>
+
+    <div class="form-group">
+      <label>
+        {{game.i18n.localize(`ARCHMAGE.CHAT.critMod`)}}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.critModTitle')"/>
+      </label>
+      <div class="field">
+        <TextareaGrow :name="`system.critMod.value`"
+          :value="item.system.critMod.value"
+          :placeholder="game.i18n.localize(`ARCHMAGE.CHAT.critModPlaceholder`)"
+        />
+      </div>
+    </div>
   </fieldset>
 
   <fieldset class="fieldset-hit">
