@@ -474,7 +474,9 @@ export class ItemArchmage extends Item {
       itemToRender.system.attack.value = atk.attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(itemToRender);
-        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(itemToRender, atk.attackLine, numTargets, atk.numManualAttacks);
+        let adj = ArchmageRolls.rollItemAdjustAttacks(itemToRender, atk.attackLine, numTargets, atk.numManualAttacks);
+        itemToRender.system.attack.value = adj.line;
+        numTargets.targets = adj.atks;
         if (numTargets.targetLine) itemToRender.system.target.value = numTargets.targetLine;
       }
     }
