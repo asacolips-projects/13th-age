@@ -108,7 +108,7 @@ export default class ArchmageRolls {
 
   static rollItemAdjustAttacks(item, newAttackLine, numTargets, numManualAttacks) {
     // If the user manually defined multiple attacks, don't touch anything
-    if (numManualAttacks > 1) return newAttackLine;
+    if (numManualAttacks > 1) return {line: newAttackLine, atks: numManualAttacks};
 
     // If the user has targeted tokens, limit number of rolls by the lower of
     // selected targets or number listed on the power. If no targets are
@@ -142,7 +142,7 @@ export default class ArchmageRolls {
       }
       newAttackLine += " " + vs;
     }
-    return newAttackLine;
+    return {line: newAttackLine, atks: targetsCount};
   }
 
   static _handleCrescendo(newAttackLine) {
