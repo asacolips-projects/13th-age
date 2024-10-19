@@ -1,4 +1,4 @@
-const INLINE_ROLLS_FILTER = /(\[\[.+?\]\])/g
+const INLINE_ATTACK_ROLLS_FILTER = /(\[\[.*?d20.+?\]\])/g
 
 export default class ArchmageRolls {
 
@@ -91,7 +91,7 @@ export default class ArchmageRolls {
     let numAttacks = 0;
     let attackLine = item.system.attack.value;
     const actor = item.actor ?? game.user.character;
-    let matches = [...attackLine.matchAll(INLINE_ROLLS_FILTER)];
+    let matches = [...attackLine.matchAll(INLINE_ATTACK_ROLLS_FILTER)];
     if (matches) {
       numAttacks = matches.length;
       let atkMod = actor?.getRollData().atk.mod ?? 0;
