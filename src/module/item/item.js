@@ -3,6 +3,7 @@ import { MacroUtils } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
 const RETAIN_FOCUS_REGEX = /retain focus.+(\d+)[^\d]+(\d+)/i;
+const INLINE_ROLL_REGEX = /(\[\[.+?\]\])/;
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -59,6 +60,9 @@ export class ItemArchmage extends Item {
     // Then check resources.
     early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
     if (early_exit) return;
+
+    // Handle crit modifier
+    const crit_mod = await this._rollCritMod(itemToRender);
 
     // Handle special class triggers
     await this._handleFighterCombatRhythm(itemToRender, actorUpdateData);
@@ -292,7 +296,7 @@ export class ItemArchmage extends Item {
     for (let resource of resources) {
 
       // Handle inline rolls
-      let ir = /(\[\[.+?\]\])/.exec(resource);
+      let ir = INLINE_ROLL_REGEX.exec(resource);
       let rolls;
       let origResource = resource;
       if (ir) {
@@ -400,6 +404,24 @@ export class ItemArchmage extends Item {
     itemToRender.system.resources.value = newResStr.join(", ");
 
     return false;
+  }
+
+  async _rollCritMod(itemToRender) {
+    let res = 0;
+    let mod = itemToRender.system.critMod.value;
+    if (!mod) res;
+
+    // Handle inline rolls
+    let ir = INLINE_ROLL_REGEX.exec(mod);
+    if (ir) {
+      const rolls = ArchmageRolls.getInlineRolls(mod, this.actor?.getRollData(itemToRender))
+      await ArchmageRolls.rollAll(rolls, this.actor);
+      res = rolls[0].total;
+      itemToRender.system.critMod.value = rolls[0].inlineRoll.outerHTML;
+    } else {
+      res = parseInt(mod, 10);
+    }
+    return res;
   }
 
   async _rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg, opt=null) {

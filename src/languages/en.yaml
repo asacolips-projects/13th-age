@@ -589,7 +589,7 @@ ARCHMAGE:
     complicatedAdvantages: Complicated Advantages
     crit: Crit
     critMod: Critical Range
-    critModPlaceholder: "[[@ed]]"
+    critModPlaceholder: "+[[@ed]]"
     critModTitle: Critical hit range modifier, such as "3" or "[[@ed]]"
     critPlaceholder: Additional effects on a crit
     Delete: Delete
