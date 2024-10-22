@@ -694,6 +694,7 @@ ARCHMAGE:
     removeEffect: Remove Effect
     Rest: Rest
     Rests: Rests
+    sequencer: Sequencer
     sequencerDesc: Configure a sequencer animation.
     sequencerTarget: Sequencer File (Target)
     sequencerRay: Sequencer File (Ray)
