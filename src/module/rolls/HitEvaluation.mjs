@@ -2,7 +2,7 @@ import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 
 export default class HitEvaluation {
 
-    static processRowText(row_text, targets, $row_self, attacker, addEdToCritRange = false, addStokeToCritRange = false) {
+    static processRowText(row_text, targets, $row_self, attacker, critMod) {
         // If the user currently has Targets selected, try and figure out if we hit or missed said target
 
         let targetsHit = [];
@@ -14,7 +14,7 @@ export default class HitEvaluation {
         let hasMissed = undefined;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
-        let critRangeMin = 20 - attacker?.system?.attributes.critMod.atk.value;
+        let critRangeMin = 20 - attacker?.system?.attributes.critMod.atk.value - critMod;
 
         let $rolls = $row_self.find('.inline-result');
         if ($rolls.length == 0) {
@@ -53,8 +53,6 @@ export default class HitEvaluation {
             let hasFumbled = false;
             let target = (roll_index < targetsToProcess) ? targets[roll_index]: undefined;
             let critRangeMinTarget = critRangeMin - HitEvaluation._getTargetCritDefenseValue(target);
-            if (addEdToCritRange) critRangeMinTarget -= attacker?.system.attributes.escalation.value ?? 0;
-            if (addStokeToCritRange) critRangeMinTarget -= Math.max(attacker?.system?.resources?.spendable?.stoke?.current ?? 0, 0);
             for (let i = 0; i < roll_data.terms.length; i++) {
               var part = roll_data.terms[i];
               if (part.results) {
