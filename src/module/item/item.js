@@ -91,7 +91,8 @@ export class ItemArchmage extends Item {
       token: token,
       powerLevel: itemToRender.system.powerLevel?.value,
       sequencer: itemToRender.system.sequencer,
-      usageMode: usageMode
+      usageMode: usageMode,
+      critMod: crit_mod
     }, null);
 
     // Handle special class triggers

@@ -92,6 +92,7 @@ export default class preCreateChatMessageHandler {
         let hitEvaluationResults = undefined;
         let targets = [...game.user.targets.values()]; // needed to checkRowText of npcs
         let numTargets = options.targets ? options.targets : 1;
+        let critMod = options.critMod ? options.critMod : 0;
         let type = options.type ? options.type : 'power';
         let actorDocument = data.speaker?.actor ? game.actors.get(data.speaker.actor) : null;
         let tokenDocument = data.speaker?.token ? canvas.tokens.get(data.speaker.token) : null;
@@ -126,20 +127,6 @@ export default class preCreateChatMessageHandler {
 
         if (options.actor) actor = options.actor;
         if (options.token) token = options.token;
-
-        // In 2e sorcerer breath spells add the E.D. to their crit range
-        let addEdToCritRange = false;
-        let addStokeToCritRange = false;
-        if (game.settings.get("archmage", "secondEdition")) {
-            addEdToCritRange = options.item.system.breathWeapon?.value?.length > 0;
-            // Dragons also can increase their crit range.
-            if (options.actor?.system.details?.type?.value === 'dragon') {
-                const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
-                if (options.item.name.toLocaleLowerCase().includes(breathString)) {
-                    addStokeToCritRange = true;
-                }
-            }
-        }
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');  // Updated later
@@ -197,7 +184,7 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
-                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, addEdToCritRange, addStokeToCritRange);
+                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, critMod);
                 }
 
                 if (hitEvaluationResults) {
