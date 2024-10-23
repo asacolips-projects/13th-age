@@ -181,6 +181,50 @@
       </div>
     </div>
   </fieldset>
+
+  <fieldset class="fieldset-sequencer" v-if="context.sequencerEnabled">
+    <legend>{{ game.i18n.localize('ARCHMAGE.CHAT.sequencer') }}</legend>
+    <p class="hint">{{ game.i18n.localize('ARCHMAGE.CHAT.sequencerDesc') }}</p>
+
+    <div class="form-group stacked">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.sequencerSelf')}}</label>
+      <div class="field">
+        <input type="text" name="system.sequencer.self"
+          v-model="item.system.sequencer.self"
+          placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/UI/IconSnowflake_01_Regular_Blue_200x200.webm"
+        />
+      </div>
+    </div>
+
+    <div class="form-group stacked">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.sequencerRay')}}</label>
+      <div class="field">
+        <input type="text" name="system.sequencer.ray"
+          v-model="item.system.sequencer.ray"
+          placeholder="Ex: modules/JB2A_DnD5e/Library/Cantrip/Ray_Of_Frost/RayOfFrost_01_Regular_Blue_30ft_1600x400.webm"
+        />
+      </div>
+    </div>
+
+    <div class="form-group stacked">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.sequencerTarget')}}</label>
+      <div class="field">
+        <input type="text" name="system.sequencer.target"
+          v-model="item.system.sequencer.target"
+          placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/Explosion/Explosion_04_Regular_Blue_400x400.webm"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{game.i18n.localize('ARCHMAGE.CHAT.sequencerReverse')}}</label>
+      <div class="field">
+        <input type="checkbox" name="system.sequencer.reversed"
+          v-model="item.system.sequencer.reversed"
+        />
+      </div>
+    </div>
+  </fieldset>
 </template>
 
 <script setup>
