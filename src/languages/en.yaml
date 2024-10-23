@@ -310,6 +310,7 @@ ARCHMAGE:
     i3: Icon 3
     i4: Icon 4
     i5: Icon 5
+    publicationSource: 'Publication Source:'
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
@@ -491,6 +492,7 @@ ARCHMAGE:
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     icons: Associated Icon(s)
+    initBonus: Initiative Bonus
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
@@ -696,6 +698,7 @@ ARCHMAGE:
     removeEffect: Remove Effect
     Rest: Rest
     Rests: Rests
+    sequencer: Sequencer
     sequencerDesc: Configure a sequencer animation.
     sequencerTarget: Sequencer File (Target)
     sequencerRay: Sequencer File (Ray)

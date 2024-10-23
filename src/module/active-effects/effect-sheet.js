@@ -147,6 +147,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     addChange("system.attributes.recoveries.value");
     addChange("system.attributes.saves.bonus");
     addChange("system.attributes.disengageBonus");
+    addChange("system.attributes.init.value");
     addChange("system.attributes.critMod.def.value");
 
     // Update the existing changes to replace duplicates.

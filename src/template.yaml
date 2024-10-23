@@ -519,11 +519,18 @@ Item:
         type: String
         label: Embedded Macro
         value: ''
+    supportsSequencer:
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
   power:
     templates:
       - standard
       - usable
       - supportsMacro
+      - supportsSequencer
     group:
       type: String
       label: Group
@@ -711,6 +718,7 @@ Item:
     templates:
       - standard
       - supportsMacro
+      - supportsSequencer
     group:
       type: String
       label: Group

@@ -68,6 +68,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
 
   /** @override */
   async _prepareContext(options) {
+
     const context = {
       // Validates both permissions and compendium status
       editable: this.isEditable,
@@ -83,6 +84,8 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
       rollData: this.actor?.getRollData() ?? {},
       // Adding a pointer to CONFIG.ARCHMAGE
       config: CONFIG.ARCHMAGE,
+      // Sequencer (module) support.
+      sequencerEnabled: game.modules.get("sequencer")?.active,
       // Add tabs:
       tabs: {
         primary: {
