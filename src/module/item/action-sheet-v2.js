@@ -79,7 +79,7 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       // Adding a pointer to CONFIG.ARCHMAGE
       config: CONFIG.ARCHMAGE,
       // Sequencer (module) support.
-      sequencerEnabled: game.modules.get("sequencer")?.active,
+      sequencerEnabled: game.modules.get("sequencer")?.active && this.item.type === 'action',
       // Force re-renders. Defined in the vue mixin.
       _renderKey: this._renderKey ?? 0,
       // @todo add this after switching to DataModel
