@@ -533,7 +533,8 @@ export class ArchmageUtility {
       options.damage = true;
     }
     // Remove unnecessary newlines common to PDFs.
-    let parsedText = pastedText.replace(/[\r\n][^\.]/g, ' ');
+    let parsedText = pastedText.replace(/-[\r\n]+([^.])/g, '-$1'); // Hyphens get collapsed
+    parsedText = pastedText.replace(/[\r\n]+([^.])/g, ' $1'); // Other newlines get replaced with spaces
     // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
     // "Natural __16__" and "Easy Save, __6__". It's messy, but it
     // prevents false positives in later steps.
