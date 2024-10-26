@@ -590,7 +590,7 @@ ARCHMAGE:
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
     crit: Crit
-    critMod: Critical Range
+    critMod: Critical Range Modifier
     critModPlaceholder: "+[[@ed]]"
     critModTitle: Critical hit range modifier, such as "3" or "[[@ed]]"
     critPlaceholder: Additional effects on a crit
