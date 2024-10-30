@@ -456,8 +456,8 @@ export default {
     console.log("Creating compendium browser magic items tab...");
 
     const packIds = [
-      game.modules.get('13th-age-core-2e')?.active
-        ? '13th-age-core-2e.magic-items-2e'
+      game.modules.get('13th-age-core-2e-gamma')?.active
+        ? '13th-age-core-2e-gamma.magic-items-2e'
         : 'archmage.srd-magic-items'
     ];
 

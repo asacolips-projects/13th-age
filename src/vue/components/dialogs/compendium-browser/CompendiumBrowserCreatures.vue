@@ -312,10 +312,10 @@ export default {
   async created() {
     console.log("Creating compendium browser creatures tab...");
 
-    const packIds = game.modules.get('13th-age-core-2e')?.active ? [
+    const packIds = game.modules.get('13th-age-core-2e-gamma')?.active ? [
       'archmage.srd-Monsters',
-      '13th-age-core-2e.monsters-2e',
-      '13th-age-core-2e.companions-2e',
+      '13th-age-core-2e-gamma.monsters-2e',
+      '13th-age-core-2e-gamma.companions-2e',
       'archmage.necromancer-summons',
     ] : [
       'archmage.srd-Monsters',
