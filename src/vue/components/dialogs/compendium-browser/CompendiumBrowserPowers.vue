@@ -353,18 +353,18 @@ export default {
   async created() {
     console.log("Creating compendium browser powers tab...");
     // Handle packs.
-    const packIds = game.modules.get('13th-age-core-2e')?.active ? [
-      '13th-age-core-2e.barbarian-2e',
-      '13th-age-core-2e.bard-2e',
-      '13th-age-core-2e.cleric-2e',
-      '13th-age-core-2e.fighter-2e',
-      '13th-age-core-2e.paladin-2e',
-      '13th-age-core-2e.ranger-2e',
-      '13th-age-core-2e.rogue-2e',
-      '13th-age-core-2e.sorcerer-2e',
-      '13th-age-core-2e.wizard-2e',
-      '13th-age-core-2e.kin-powers-2e',
-      '13th-age-core-2e.universal-feats-2e',
+    const packIds = game.modules.get('13th-age-core-2e-gamma')?.active ? [
+      '13th-age-core-2e-gamma.barbarian-2e',
+      '13th-age-core-2e-gamma.bard-2e',
+      '13th-age-core-2e-gamma.cleric-2e',
+      '13th-age-core-2e-gamma.fighter-2e',
+      '13th-age-core-2e-gamma.paladin-2e',
+      '13th-age-core-2e-gamma.ranger-2e',
+      '13th-age-core-2e-gamma.rogue-2e',
+      '13th-age-core-2e-gamma.sorcerer-2e',
+      '13th-age-core-2e-gamma.wizard-2e',
+      '13th-age-core-2e-gamma.kin-powers-2e',
+      '13th-age-core-2e-gamma.universal-feats-2e',
       'archmage.chaosmage',
       'archmage.commander',
       'archmage.druid',
