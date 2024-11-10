@@ -267,17 +267,22 @@ export class ActorArchmage extends Actor {
     const data = actorData.system;
 
     // Initiative
-    let incrInit = 0;
-    let statInit = data.abilities?.dex?.nonKey?.mod || 0;
-    if (game.settings.get("archmage", "secondEdition")) {
-      // In 2e the skills incremental also increases initiative
-      if (this.system.incrementals?.skillInitiative) incrInit = 1;
-      // In 2e wizards have a talent to use Int instead of Dex
-      if (this.getFlag("archmage", "dexToInt")) statInit = data.abilities?.int?.nonKey?.mod || 0;
-      // In 2e beta the bonus to disengage also applies to initiative
-      incrInit += data.attributes.saves.disengageBonus;
+    if (actorData.type === 'character') {
+      let incrInit = 0;
+      let statInit = data.abilities?.dex?.nonKey?.mod || 0;
+      if (game.settings.get("archmage", "secondEdition")) {
+        // In 2e the skills incremental also increases initiative
+        if (this.system.incrementals?.skillInitiative) incrInit = 1;
+        // In 2e wizards have a talent to use Int instead of Dex
+        if (this.getFlag("archmage", "dexToInt")) statInit = data.abilities?.int?.nonKey?.mod || 0;
+        // In 2e beta the bonus to disengage also applies to initiative
+        incrInit += data.attributes.saves.disengageBonus;
+      }
+      data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
     }
-    data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
+    else if (actorData.type === 'npc') {
+      data.attributes.init.mod = data.attributes.init.value;
+    }
 
     // Get the escalation die value.
     if (game.combats !== undefined && game.combat !== null) {
