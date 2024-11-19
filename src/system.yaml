@@ -1,7 +1,7 @@
 name: archmage
 id: archmage
 title: 13th Age
-version: "1.32.1"
+version: "1.32.2"
 authors:
   - name: Matt Smith
     discord: asacolips
@@ -279,7 +279,7 @@ languages:
 socket: true
 url: https://github.com/asacolips-projects/13th-age
 manifest: https://asacolips-artifacts.s3.amazonaws.com/archmage/latest/system.json
-download: https://asacolips-artifacts.s3.amazonaws.com/archmage/1.32.1/archmage.zip
+download: https://asacolips-artifacts.s3.amazonaws.com/archmage/1.32.2/archmage.zip
 changelog: https://github.com/asacolips-projects/13th-age/releases
 initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
 grid:
