@@ -20,7 +20,7 @@ async function registerModuleArt() {
   // Iterate over each module and check to see if there's a map.
   for (const [moduleKey, foundryModule] of activeModules) {
     // If the pf2e token pack isn't enabled, skip the system map.
-    if (moduleKey == 'archmage' && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
+    if (['archmage', '13th-age-core-2e-gamma'].includes(moduleKey) && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
       continue;
     }
     // We can skip the pf2e-tokens-bestiaries map since we've provided our own in the
