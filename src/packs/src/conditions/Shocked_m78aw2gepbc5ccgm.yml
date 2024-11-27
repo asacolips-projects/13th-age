@@ -2,7 +2,30 @@ name: Shocked
 folder: null
 flags: {}
 _id: m78aw2gepbc5ccgm
-pages: []
+pages:
+  - sort: 100000
+    name: Shocked
+    type: text
+    _id: ICyd5YwP8myp2Bfa
+    system: {}
+    title:
+      show: false
+      level: 1
+    image: {}
+    text:
+      format: 1
+      content: >-
+        <p>Whenever you roll a d20, roll twice and keep the lower result. This
+        includes attack rolls, saves, background checks, and all other d20
+        rolls.</p>
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!m78aw2gepbc5ccgm.ICyd5YwP8myp2Bfa'
 _stats:
   coreVersion: '12.331'
   systemId: null
