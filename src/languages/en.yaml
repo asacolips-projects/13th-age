@@ -745,6 +745,7 @@ ARCHMAGE:
     targetTitle: Targets for this power, such as "[[1d3]] nearby enemies", determines how many attacks are rolled
     tier: Tier
     trigger: Trigger
+    triggers: Triggers
     triggerPlaceholder: Natural even miss
     triggerTitle: Trigger for this power, such as 'Natural even miss'
     triggerVsRegex: "(\\[\\[.+?\\]\\]).*(vs.*)"

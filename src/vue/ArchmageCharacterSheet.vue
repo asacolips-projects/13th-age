@@ -32,12 +32,12 @@
       <!-- Main content -->
       <Tab group="mobile" :tab="tabs.mobile.combat">
         <section class="section section--main flexcol">
-  
+
           <!-- Class resources -->
           <CharResources :actor="actor"/>
           <!-- Tabs -->
           <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
-  
+
           <!-- Tabs content -->
           <section class="section section--tabs-content flexcol">
             <!-- Details tab -->
@@ -47,6 +47,10 @@
             <!-- Powers tab -->
             <Tab group="primary" :tab="tabs.primary.powers">
               <CharPowers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
+            </Tab>
+            <!-- Triggers tab -->
+            <Tab group="primary" :tab="tabs.primary.triggers">
+              <CharTriggers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
             </Tab>
             <!-- Inventory tab -->
             <Tab group="primary" :tab="tabs.primary.inventory">
@@ -62,7 +66,7 @@
             </Tab>
           </section>
           <!-- /Tabs content -->
-  
+
         </section>
       </Tab>
       <!-- /Main content -->
@@ -92,6 +96,7 @@ import {
   CharResources,
   // CharDetails,
   CharPowers,
+  CharTriggers,
   CharInventory,
   CharEffects,
   CharSettings
@@ -114,6 +119,7 @@ export default {
     CharResources,
     CharDetails,
     CharPowers,
+    CharTriggers,
     CharInventory,
     CharEffects,
     CharSettings,
@@ -137,6 +143,12 @@ export default {
             key: 'powers',
             label: localize('ARCHMAGE.powers'),
             active: true
+          },
+          triggers: {
+            key: 'triggers',
+            label: localize('ARCHMAGE.CHAT.triggers'),
+            active: false,
+            hidden: false // TODO: via setting
           },
           inventory: {
             key: 'inventory',
