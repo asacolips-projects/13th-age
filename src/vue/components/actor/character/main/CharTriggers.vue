@@ -1,9 +1,9 @@
 <template>
 	<section class="section section--powers flexcol">
-		<header :class="$style.grid" class="power-header-labels">
-			<div></div>
-			<div>Power</div>
-			<div>Trigger</div>
+		<header :class="$style.grid" class="power-header-title">
+			<h2></h2>
+			<h2>Power</h2>
+			<h2>Trigger</h2>
 		</header>
 
 		<div class="power-group-content flexcol">
