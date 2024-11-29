@@ -146,8 +146,10 @@ export default {
           },
           triggers: {
             key: 'triggers',
-            label: localize('ARCHMAGE.triggersShort'),
+            label: localize('ARCHMAGE.triggers'),
             active: false,
+            icon: 'fa-caret-right',
+            hideLabel: true,
             hidden: !this.actor.flags?.archmage?.showTriggersTab
           },
           inventory: {
@@ -162,7 +164,7 @@ export default {
           },
           settings: {
             key: 'settings',
-            label: localize('ARCHMAGE.settings'),
+            label: localize('ARCHMAGE.CHARACTERSETTINGS.settings'),
             active: false,
             icon: 'fa-cogs',
             hideLabel: true,
