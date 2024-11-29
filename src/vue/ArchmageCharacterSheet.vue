@@ -148,7 +148,7 @@ export default {
             key: 'triggers',
             label: localize('ARCHMAGE.triggersShort'),
             active: false,
-            hidden: false // TODO: via setting
+            hidden: !this.actor.flags?.archmage?.showTriggersTab
           },
           inventory: {
             key: 'inventory',
