@@ -131,7 +131,8 @@ export default {
           details: {
             key: 'details',
             label: localize('ARCHMAGE.details'),
-            active: false
+            active: false,
+            componentClass: CharDetails
           },
           powers: {
             key: 'powers',

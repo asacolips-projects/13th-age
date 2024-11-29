@@ -735,6 +735,8 @@ Hooks.once('ready', () => {
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
 
+  CONFIG.ARCHMAGE.ActorTabFocusSheet = ActorTabFocusSheet
+
   // Add a constant for whether or not we're on 2e.
   CONFIG.ARCHMAGE.is2e = game.settings.get('archmage', 'secondEdition');
 
