@@ -75,7 +75,7 @@
 
 
 <script>
-
+import { markRaw } from 'vue';
 import { concat, localize } from '@/methods/Helpers';
 import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import {
@@ -132,25 +132,25 @@ export default {
             key: 'details',
             label: localize('ARCHMAGE.details'),
             active: false,
-            componentClass: CharDetails
+            componentClass: markRaw(CharDetails)
           },
           powers: {
             key: 'powers',
             label: localize('ARCHMAGE.powers'),
             active: true,
-            componentClass: CharPowers
+            componentClass: markRaw(CharPowers)
           },
           inventory: {
             key: 'inventory',
             label: localize('ARCHMAGE.inventory'),
             active: false,
-            componentClass: CharInventory
+            componentClass: markRaw(CharInventory)
           },
           effects: {
             key: 'effects',
             label: localize('ARCHMAGE.effects'),
             active: false,
-            componentClass: CharEffects
+            componentClass: markRaw(CharEffects)
           },
           settings: {
             key: 'settings',
