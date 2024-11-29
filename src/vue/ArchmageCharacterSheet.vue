@@ -146,7 +146,7 @@ export default {
           },
           triggers: {
             key: 'triggers',
-            label: localize('ARCHMAGE.CHAT.triggers'),
+            label: localize('ARCHMAGE.triggersShort'),
             active: false,
             hidden: false // TODO: via setting
           },
