@@ -16,7 +16,7 @@
 					<a class="power-name" @click="row.expanded = !row.expanded">
 						<h3 class="power-title unit-subtitle" :class="$style.nowrap"> {{ row.power.name }} </h3>
 					</a>
-					<p style="margin: 0" :class="$style.nowrap">{{ row.power.system.trigger.value }}</p>
+					<a :class="$style.nowrap" @click="row.expanded = !row.expanded">{{ row.power.system.trigger.value }}</a>
 				</div>
 				<div class="power-content" :class="[$style.fullwidth, row.expanded ? 'active' : '']">
 					<Transition name="slide-fade">
