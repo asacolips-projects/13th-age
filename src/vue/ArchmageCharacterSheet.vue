@@ -32,12 +32,12 @@
       <!-- Main content -->
       <Tab group="mobile" :tab="tabs.mobile.combat">
         <section class="section section--main flexcol">
-  
+
           <!-- Class resources -->
           <CharResources :actor="actor"/>
           <!-- Tabs -->
           <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
-  
+
           <!-- Tabs content -->
           <section class="section section--tabs-content flexcol">
             <!-- Details tab -->
@@ -62,7 +62,7 @@
             </Tab>
           </section>
           <!-- /Tabs content -->
-  
+
         </section>
       </Tab>
       <!-- /Main content -->
@@ -136,17 +136,20 @@ export default {
           powers: {
             key: 'powers',
             label: localize('ARCHMAGE.powers'),
-            active: true
+            active: true,
+            componentClass: CharPowers
           },
           inventory: {
             key: 'inventory',
             label: localize('ARCHMAGE.inventory'),
-            active: false
+            active: false,
+            componentClass: CharInventory
           },
           effects: {
             key: 'effects',
             label: localize('ARCHMAGE.effects'),
-            active: false
+            active: false,
+            componentClass: CharEffects
           },
           settings: {
             key: 'settings',

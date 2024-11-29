@@ -13,7 +13,7 @@
       </template>
       <template v-else>
         <span v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`">
-          <a @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
+          <a @click="changeTab" @click.right="popOut" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
             <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
             <span v-if="!tab.hideLabel">{{tab.label}}</span>
           </a>
@@ -66,6 +66,12 @@ export default {
       if (menu) {
         menu.classList.remove('active');
       }
+    },
+    async popOut(event) {
+      const tab = this.tabs[event.currentTarget.dataset.tab];
+      const actor = await getActor(this.actor);
+      console.log(tab);
+      new CONFIG.ARCHMAGE.ActorTabFocusSheet(tab.componentClass, actor).render(true);
     },
     toggleMenu(event) {
       const target = event.target;

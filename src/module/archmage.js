@@ -1,6 +1,7 @@
 import { ARCHMAGE, FLAGS } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
+import { ActorTabFocusSheet } from './actor/actor-tab-focus-sheet.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
