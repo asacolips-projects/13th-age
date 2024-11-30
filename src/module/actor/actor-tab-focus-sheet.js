@@ -12,7 +12,7 @@ export class ActorTabFocusSheet extends ActorArchmageSheetV2 {
   /** @override */
   // This allows multiples to be open, one for each actor + tab
   get id () {
-    return `actor-tab-focus-sheet-${this.actor.id}-${this.vueComponents['root-component']?.name}`
+    return `actor-tab-focus-sheet-${this.actor.id}-${this.vueComponents['root-component'].name}`
   }
 
   /** @override */
@@ -32,6 +32,13 @@ export class ActorTabFocusSheet extends ActorArchmageSheetV2 {
   /** @override */
   get template () {
     return 'systems/archmage/templates/actors/actor-tab-focus-sheet-vue.html'
+  }
+
+  /** @override */
+  get title () {
+    return `${super.title} - ${this.vueComponents[
+      'root-component'
+    ].name.replace('Char', '')}`
   }
 
   /** @override */
