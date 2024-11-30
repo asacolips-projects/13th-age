@@ -10,6 +10,12 @@ export class ActorTabFocusSheet extends ActorArchmageSheetV2 {
   }
 
   /** @override */
+  // This allows multiples to be open, one for each actor + tab
+  get id () {
+    return `actor-tab-focus-sheet-${this.actor.id}-${this.vueComponents['root-component']?.name}`
+  }
+
+  /** @override */
   static get defaultOptions () {
     const options = super.defaultOptions
     const compactMode = game.settings.get('archmage', 'compactMode')
