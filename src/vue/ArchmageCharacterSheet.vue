@@ -158,7 +158,8 @@ export default {
             active: false,
             icon: 'fa-cogs',
             hideLabel: true,
-            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM)
+            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM),
+            componentClass: markRaw(CharSettings)
           }
         },
         mobile: {
