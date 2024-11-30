@@ -11,6 +11,7 @@ export { default as CharIncrementals } from '@/components/actor/character/sideba
 export { default as CharResources } from '@/components/actor/character/main/CharResources.vue';
 export { default as CharDetails } from '@/components/actor/character/main/CharDetails.vue';
 export { default as CharPowers } from '@/components/actor/character/main/CharPowers.vue';
+export { default as CharTriggers } from '@/components/actor/character/main/CharTriggers.vue';
 export { default as CharInventory } from '@/components/actor/character/main/CharInventory.vue';
 export { default as CharEffects } from '@/components/actor/character/main/CharEffects.vue';
 export { default as CharSettings } from '@/components/actor/character/main/CharSettings.vue';

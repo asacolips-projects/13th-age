@@ -487,7 +487,7 @@ ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4];
 // Animal companion data
 ARCHMAGE.animalCompanion = {
   attack: [5, 6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19, 20],
-  damage: ["2d8", "3d8", "4d6", " 4d8", "4d10", "6d10", "40", "50", "66", "80", "100", "130", "160"]  
+  damage: ["2d8", "3d8", "4d6", " 4d8", "4d10", "6d10", "40", "50", "66", "80", "100", "130", "160"]
 };
 
 // Power Settings
@@ -1220,6 +1220,12 @@ FLAGS.characterFlags = {
   "hideEmptyPowerGroups": {
     name: "Hide empty Power groups",
     hint: "Hide empty Power groups on the sheet (besides the default one).",
+    section: "Sheet",
+    type: Boolean
+  },
+  "showTriggersTab": {
+    name: "Show Triggers tab",
+    hint: "Show the trigger-centric powers tab.",
     section: "Sheet",
     type: Boolean
   },
