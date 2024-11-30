@@ -69,9 +69,10 @@ export default {
     },
     async popOut(event) {
       const tab = this.tabs[event.currentTarget.dataset.tab];
-      const actor = await getActor(this.actor);
-      console.log(tab);
-      new CONFIG.ARCHMAGE.ActorTabFocusSheet(tab.componentClass, actor).render(true);
+      if (tab.componentClass){
+        const actor = await getActor(this.actor);
+        new CONFIG.ARCHMAGE.ActorTabFocusSheet(tab.componentClass, actor).render(true);
+      }
     },
     toggleMenu(event) {
       const target = event.target;
