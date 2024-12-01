@@ -36,9 +36,9 @@ export class ActorTabFocusSheet extends ActorArchmageSheetV2 {
 
   /** @override */
   get title () {
-    return `${super.title} - ${this.vueComponents[
-      'root-component'
-    ].name.replace('Char', '')}`
+    const component = this.vueComponents['root-component']
+    const name = component.name ?? component.__name ?? ''
+    return `${super.title} - ${name.replace('Char', '')}`
   }
 
   /** @override */
