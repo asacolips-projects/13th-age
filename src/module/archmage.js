@@ -1686,6 +1686,26 @@ function _handleApplyDamageHealing(data) {
   });
 }
 
+function _handleActorLifecycleHook({actorId, hookName}) {
+  const actor = game.actors.get(actorId);
+  if (!actor || game.user.character.id !== actor.id) return;
+
+  // Can't run if you can't run
+  if (!game.user.hasPermission("MACRO_SCRIPT")) return;
+
+  const hookBody = actor.system.lifecycleHooks?.[hookName]?.trim();
+  if (!hookBody) return;
+
+  const AsyncFunction = async function () {}.constructor;
+  try {
+      const fn = new AsyncFunction(hookBody);
+      return fn.call(actor);
+  } catch (ex) {
+      ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errMacroSyntax'));
+      console.error(`Lifecycle hook '${actor.name}' / ${hookName} failed with: ${ex}`, ex);
+  }
+}
+
 Hooks.once('ready', async function () {
   game.socket.on("system.archmage", (data) => {
     switch (data.type) {
@@ -1701,6 +1721,9 @@ Hooks.once('ready', async function () {
       case 'applyDamageHealing':
         _handleApplyDamageHealing(data);
         break;
+      case 'actorLifecycleHook':
+        _handleActorLifecycleHook(data);
+        break
       default:
         console.log(data);
     }

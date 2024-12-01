@@ -285,11 +285,17 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
 }
 
 async function executeLifecycleMacro(combatant, hookName) {
+    // If this isn't the actor's player, emit a socket request for that player to execute the hook
+    if (game.user?.character?.id !== combatant.actor.id) {
+        return game.socket.emit('system.archmage', {
+            type: 'actorLifecycleHook',
+            actorId: combatant.actor.id,
+            hookName
+        });
+    }
+
     const hookBody = combatant?.actor?.system?.lifecycleHooks?.[hookName]?.trim();
     if (!hookBody) return;
-
-    // Only execute if this is running in the actor's owner's client
-    if (game.user?.character?.id !== combatant.actor.id) return;
 
     // Can't run if you can't run
     if (!game.user.hasPermission("MACRO_SCRIPT")) return;
