@@ -255,7 +255,7 @@ ARCHMAGE:
     enableOngoingEffectsMessagesHint: Enable chat messages for ongoing effects on actors at the start and end of their turns.
     lifecycleHooks:
       title: Lifecycle Hooks
-      hint: These macros will run on this character's owner's client. If that player is not logged in, they will not be executed.
+      hint: <p>These macros will run on this character's owner's client. If that player is not logged in, they will not be executed.</p><p>In the body, <code>this</code> is set to the actor, and no other arguments are passed.</p>
       startOfTurn: Start of Turn
       endOfTurn: End of Turn
   AUTOLEVEL:

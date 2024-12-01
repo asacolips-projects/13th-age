@@ -19,7 +19,7 @@ import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
-import {combatRound, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
+import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 
 Hooks.once('init', async function() {
@@ -1816,6 +1816,10 @@ Hooks.on('updateCombat', (async (combat, update) => {
     }
   }
 }));
+
+/* -------------------------------------------- */
+
+Hooks.on('combatStart', combatStart);
 
 /* -------------------------------------------- */
 
