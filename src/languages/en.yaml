@@ -253,6 +253,11 @@ ARCHMAGE:
     UnboundEscDieName: Unlimited Escalation Die
     enableOngoingEffectsMessagesName: Enable ongoing effects messages
     enableOngoingEffectsMessagesHint: Enable chat messages for ongoing effects on actors at the start and end of their turns.
+    lifecycleHooks:
+      title: Lifecycle Hooks
+      hint: These macros will run on this character's owner's client. If that player is not logged in, they will not be executed.
+      startOfTurn: Start of Turn
+      endOfTurn: End of Turn
   AUTOLEVEL:
     confirm: Confirm (create duplicate)
     help: Use this form to create a copy of this actor with its stats (including attacks) adjusted to the new level.
