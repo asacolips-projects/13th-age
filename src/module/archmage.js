@@ -19,7 +19,7 @@ import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
-import {combatRound, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
+import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 
 Hooks.once('init', async function() {
@@ -1686,6 +1686,26 @@ function _handleApplyDamageHealing(data) {
   });
 }
 
+function _handleActorLifecycleHook({actorId, hookName}) {
+  const actor = game.actors.get(actorId);
+  if (!actor || game.user.character.id !== actor.id) return;
+
+  // Can't run if you can't run
+  if (!game.user.hasPermission("MACRO_SCRIPT")) return;
+
+  const hookBody = actor.system.lifecycleHooks?.[hookName]?.trim();
+  if (!hookBody) return;
+
+  const AsyncFunction = async function () {}.constructor;
+  try {
+      const fn = new AsyncFunction(hookBody);
+      return fn.call(actor);
+  } catch (ex) {
+      ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errMacroSyntax'));
+      console.error(`Lifecycle hook '${actor.name}' / ${hookName} failed with: ${ex}`, ex);
+  }
+}
+
 Hooks.once('ready', async function () {
   game.socket.on("system.archmage", (data) => {
     switch (data.type) {
@@ -1701,6 +1721,9 @@ Hooks.once('ready', async function () {
       case 'applyDamageHealing':
         _handleApplyDamageHealing(data);
         break;
+      case 'actorLifecycleHook':
+        _handleActorLifecycleHook(data);
+        break
       default:
         console.log(data);
     }
@@ -1816,6 +1839,10 @@ Hooks.on('updateCombat', (async (combat, update) => {
     }
   }
 }));
+
+/* -------------------------------------------- */
+
+Hooks.on('combatStart', combatStart);
 
 /* -------------------------------------------- */
 
