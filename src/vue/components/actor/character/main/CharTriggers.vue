@@ -1,10 +1,10 @@
 <template>
 	<section class="section section--powers flexcol">
-		<header class="power-filters flexrow">
+		<header class="power-filters flexrow" style="margin-bottom: 1em;">
 			<input type="hidden" v-model="useCustomGroups" name="flags.archmage.sheetDisplay.triggers.customGroups.value">
-			<input type="checkbox" name="use-custom-groups" v-model="useCustomGroups">
-			<label for="use-custom-groups">
-				<span>Custom Groups</span>
+			<label :class="$style.label">
+				<input type="checkbox" v-model="useCustomGroups">
+				Custom Groups
 			</label>
 		</header>
 
@@ -114,6 +114,11 @@ function powerAvailabilityClass(power) {
 </script>
 
 <style module lang="scss">
+.label {
+	display: flex !important;
+	align-items: center;
+}
+
 .grid {
 	display: grid;
 	padding: 0;
