@@ -6,13 +6,13 @@
     </button>
     <nav :class="`sheet-tabs tabs tabs--${group}`" :data-group="group">
       <template v-if="noSpan">
-        <a v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`" @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey">
+        <a v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`" @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" :data-tooltip="tab.hideLabel ? tab.label : undefined" data-tooltip-direction="UP">
           <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
           <span v-if="!tab.hideLabel">{{tab.label}}</span>
         </a>
       </template>
       <template v-else>
-        <span v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`">
+        <span v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`" :data-tooltip="tab.hideLabel ? tab.label : undefined" data-tooltip-direction="UP">
           <a @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
             <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
             <span v-if="!tab.hideLabel">{{tab.label}}</span>
