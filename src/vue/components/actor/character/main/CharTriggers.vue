@@ -1,28 +1,40 @@
 <template>
 	<section class="section section--powers flexcol">
+		<header class="power-filters flexrow">
+			<input type="hidden" v-model="useCustomGroups" name="flags.archmage.sheetDisplay.triggers.customGroups.value">
+			<input type="checkbox" name="use-custom-groups" v-model="useCustomGroups">
+			<label for="use-custom-groups">
+				<span>Custom Groups</span>
+			</label>
+		</header>
+
 		<header :class="$style.grid" class="power-header-title">
 			<h2></h2>
 			<h2>Power</h2>
 			<h2>Trigger</h2>
 		</header>
 
-		<div class="power-group-content flexcol">
-			<div v-for="row in powerRows" :key="row.power._id" class="item power-item" :class="`power-item--${row.power._id}`"
-				:data-item-id="row.power._id" data-document-class="Item" data-draggable="true" draggable="true">
-				<div :class="[$style.grid, ...row.classes]" class="power-summary">
-					<Rollable name="item" :hide-icon="true" type="item" :opt="row.power._id" class="flexrow">
-						<img :src="row.power.img" class="power-icon" />
-					</Rollable>
-					<a class="power-name" @click="row.expanded = !row.expanded">
-						<h3 class="power-title unit-subtitle" :class="$style.nowrap"> {{ row.power.name }} </h3>
-					</a>
-					<a :class="$style.nowrap" @click="row.expanded = !row.expanded">{{ row.power.system.trigger.value }}</a>
-				</div>
-				<div class="power-content" :class="[$style.fullwidth, row.expanded ? 'active' : '']">
-					<Transition name="slide-fade">
-						<Power v-if="row.expanded" :actor="actor" :power="row.power" :context="context" :flags="flags"
-							:ref="`power--${row.power._id}`" />
-					</Transition>
+		<div v-for="group in groups" :key="group.title" class="power-group">
+			<h3 v-if="group.title" class="power-group-title">{{ group.title }}</h3>
+			<div class="power-group-content flexcol">
+				<div v-for="row in group.powerRows" :key="row.power._id" class="item power-item"
+					:class="`power-item--${row.power._id}`" :data-item-id="row.power._id" data-document-class="Item"
+					data-draggable="true" draggable="true">
+					<div :class="[$style.grid, ...row.classes]" class="power-summary">
+						<Rollable name="item" :hide-icon="true" type="item" :opt="row.power._id" class="flexrow">
+							<img :src="row.power.img" class="power-icon" />
+						</Rollable>
+						<a class="power-name" @click="row.expanded = !row.expanded">
+							<h3 class="power-title unit-subtitle" :class="$style.nowrap"> {{ row.power.name }} </h3>
+						</a>
+						<a :class="$style.nowrap" @click="row.expanded = !row.expanded">{{ row.power.system.trigger.value }}</a>
+					</div>
+					<div class="power-content" :class="[$style.fullwidth, row.expanded ? 'active' : '']">
+						<Transition name="slide-fade">
+							<Power v-if="row.expanded" :actor="actor" :power="row.power" :context="context" :flags="flags"
+								:ref="`power--${row.power._id}`" />
+						</Transition>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -50,6 +62,35 @@ watch(powersWithTriggers, (newPowers) => {
 		classes: [powerUsageClass(power), powerAvailabilityClass(power)]
 	}))
 }, { immediate: true })
+
+const useCustomGroups = ref(
+	props.flags.sheetDisplay?.triggers?.customGroups?.value === 'true' ||
+	props.flags.sheetDisplay?.triggers?.customGroups?.value === true ||
+	false
+)
+const groups = computed(() => {
+	if (!useCustomGroups.value) {
+		return [{
+			title: '',
+			powerRows: powerRows.value.sort((a, b) => a.power.sort - b.power.sort)
+		}]
+	}
+
+	// Group them
+	const powerRowsByGroup = {}
+	for (const p of powerRows.value) {
+		const k = p.power.system.group?.value || ''
+		powerRowsByGroup[k] ||= []
+		powerRowsByGroup[k].push(p)
+	}
+	const sortedGroups = Object.keys(powerRowsByGroup).sort()
+
+	// Construct the output
+	return sortedGroups.map(k => ({
+		title: k,
+		powerRows: powerRowsByGroup[k].sort((a, b) => a.power.sort - b.power.sort)
+	}))
+})
 
 /**
  * Compute CSS class to assign based on special usage
