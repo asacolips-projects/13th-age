@@ -15,7 +15,7 @@ system:
   recharge:
     type: Number
     label: Recharge
-    value: null
+    value: 16
   rechargeAttempts:
     type: Number
     label: Number of Recharges Attempted
