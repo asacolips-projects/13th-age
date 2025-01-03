@@ -84,10 +84,10 @@ system:
     type: String
     label: Hit
     value: >-
-      [[@wpn.k.dice + @str.dmg + @atk.m.bonus]] damage, and as a free action you can
-      teleport next to a different nearby enemy you can see (engaging it) and
-      make a PUNCH attack ([[d20 + @wpn.m.atk + @ed]] vs. AC) against it for
-      [[@wpn.p.dice + @str.dmg + @atk.m.bonus]] damage.
+      [[@wpn.k.dice + @str.dmg + @atk.m.bonus]] damage, and as a free action you
+      can teleport next to a different nearby enemy you can see (engaging it)
+      and make a PUNCH attack ([[/r d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC)
+      against it for [[/r @wpn.p.dice + @str.dmg + @atk.m.bonus]] damage.
   hitEven:
     type: String
     label: Natural Even Hit
@@ -239,4 +239,3 @@ ownership:
 folder: null
 sort: 0
 _key: '!items!eX9p5DTvQnWw5TrX'
-
