@@ -32,12 +32,12 @@
       <!-- Main content -->
       <Tab group="mobile" :tab="tabs.mobile.combat">
         <section class="section section--main flexcol">
-  
+
           <!-- Class resources -->
           <CharResources :actor="actor"/>
           <!-- Tabs -->
           <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
-  
+
           <!-- Tabs content -->
           <section class="section section--tabs-content flexcol">
             <!-- Details tab -->
@@ -62,7 +62,7 @@
             </Tab>
           </section>
           <!-- /Tabs content -->
-  
+
         </section>
       </Tab>
       <!-- /Main content -->
@@ -75,7 +75,7 @@
 
 
 <script>
-
+import { markRaw } from 'vue';
 import { concat, localize } from '@/methods/Helpers';
 import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import {
@@ -131,22 +131,26 @@ export default {
           details: {
             key: 'details',
             label: localize('ARCHMAGE.details'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharDetails)
           },
           powers: {
             key: 'powers',
             label: localize('ARCHMAGE.powers'),
-            active: true
+            active: true,
+            componentClass: markRaw(CharPowers)
           },
           inventory: {
             key: 'inventory',
             label: localize('ARCHMAGE.inventory'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharInventory)
           },
           effects: {
             key: 'effects',
             label: localize('ARCHMAGE.effects'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharEffects)
           },
           settings: {
             key: 'settings',
@@ -154,7 +158,8 @@ export default {
             active: false,
             icon: 'fa-cogs',
             hideLabel: true,
-            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM)
+            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM),
+            componentClass: markRaw(CharSettings)
           }
         },
         mobile: {
