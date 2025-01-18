@@ -32,12 +32,12 @@
       <!-- Main content -->
       <Tab group="mobile" :tab="tabs.mobile.combat">
         <section class="section section--main flexcol">
-  
+
           <!-- Class resources -->
           <CharResources :actor="actor"/>
           <!-- Tabs -->
           <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
-  
+
           <!-- Tabs content -->
           <section class="section section--tabs-content flexcol">
             <!-- Details tab -->
@@ -47,6 +47,10 @@
             <!-- Powers tab -->
             <Tab group="primary" :tab="tabs.primary.powers">
               <CharPowers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
+            </Tab>
+            <!-- Triggers tab -->
+            <Tab group="primary" :tab="tabs.primary.triggers">
+              <CharTriggers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
             </Tab>
             <!-- Inventory tab -->
             <Tab group="primary" :tab="tabs.primary.inventory">
@@ -62,7 +66,7 @@
             </Tab>
           </section>
           <!-- /Tabs content -->
-  
+
         </section>
       </Tab>
       <!-- /Main content -->
@@ -75,7 +79,7 @@
 
 
 <script>
-
+import { markRaw } from 'vue';
 import { concat, localize } from '@/methods/Helpers';
 import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import {
@@ -92,6 +96,7 @@ import {
   CharResources,
   // CharDetails,
   CharPowers,
+  CharTriggers,
   CharInventory,
   CharEffects,
   CharSettings
@@ -114,6 +119,7 @@ export default {
     CharResources,
     CharDetails,
     CharPowers,
+    CharTriggers,
     CharInventory,
     CharEffects,
     CharSettings,
@@ -131,30 +137,44 @@ export default {
           details: {
             key: 'details',
             label: localize('ARCHMAGE.details'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharDetails)
           },
           powers: {
             key: 'powers',
             label: localize('ARCHMAGE.powers'),
-            active: true
+            active: true,
+            componentClass: markRaw(CharPowers)
+          },
+          triggers: {
+            key: 'triggers',
+            label: localize('ARCHMAGE.triggers'),
+            active: false,
+            componentClass: markRaw(CharTriggers),
+            icon: 'fa-caret-right',
+            hideLabel: true,
+            hidden: !this.actor.flags?.archmage?.showTriggersTab
           },
           inventory: {
             key: 'inventory',
             label: localize('ARCHMAGE.inventory'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharInventory)
           },
           effects: {
             key: 'effects',
             label: localize('ARCHMAGE.effects'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharEffects)
           },
           settings: {
             key: 'settings',
-            label: localize('ARCHMAGE.settings'),
+            label: localize('ARCHMAGE.CHARACTERSETTINGS.settings'),
             active: false,
             icon: 'fa-cogs',
             hideLabel: true,
-            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM)
+            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM),
+            componentClass: markRaw(CharSettings)
           }
         },
         mobile: {

@@ -1769,9 +1769,13 @@ export class ActorArchmage extends Actor {
       await this.update({img: CONFIG.ARCHMAGE.defaultMonsterTokens['default-toolkit']});
     }
 
-    // For characters only default to linked token
+    // For characters only, set some defaults
     if (this.type == "character") {
-      await this.update({token: {actorLink: true}});
+      await this.update({prototypeToken: {
+        actorLink: true,
+        disposition: 1, // friendly
+        sight: {enabled: true}
+      }});
     }
   }
 
@@ -2144,8 +2148,7 @@ export class ActorArchmage extends Actor {
       data.system.attributes.weapon.melee.dice = `d${mWpn}`;
     }
 
-    else if (changes.system.details !== undefined
-      && changes.system.details.class !== undefined) {
+    else if (changes.system.details?.class !== undefined) {
       // Here we received an update of the class name for a character
 
       let matchedClasses = ArchmageUtility.detectClasses(data.system.details.class.value);
@@ -2302,6 +2305,11 @@ export class ActorArchmage extends Actor {
             this._setUpCustomResources(data, CONFIG.ARCHMAGE.classResources[cl], busyResources);
           }
         }
+
+        // Enable the triggers tab for certain classes
+        data.flags ||= {}
+        data.flags.archmage ||= {}
+        data.flags.archmage.showTriggersTab = matchedClasses.some(x => ["bard", "commander", "occultist"].includes(x));
       }
       // Store matched classes for future reference
       data.system.details.detectedClasses = matchedClasses;
