@@ -1,6 +1,7 @@
 import { ARCHMAGE, FLAGS } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
+import { ActorTabFocusSheet } from './actor/actor-tab-focus-sheet.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
@@ -733,6 +734,8 @@ Hooks.once('ready', () => {
   addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
+
+  CONFIG.ARCHMAGE.ActorTabFocusSheet = ActorTabFocusSheet
 
   // Add a constant for whether or not we're on 2e.
   CONFIG.ARCHMAGE.is2e = game.settings.get('archmage', 'secondEdition');

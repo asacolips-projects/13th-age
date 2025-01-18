@@ -1769,9 +1769,13 @@ export class ActorArchmage extends Actor {
       await this.update({img: CONFIG.ARCHMAGE.defaultMonsterTokens['default-toolkit']});
     }
 
-    // For characters only default to linked token
+    // For characters only, set some defaults
     if (this.type == "character") {
-      await this.update({token: {actorLink: true}});
+      await this.update({prototypeToken: {
+        actorLink: true,
+        disposition: 1, // friendly
+        sight: {enabled: true}
+      }});
     }
   }
 
