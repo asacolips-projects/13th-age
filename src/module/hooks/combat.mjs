@@ -294,6 +294,12 @@ async function executeLifecycleMacro(combatant, hookName) {
         });
     }
 
+    const speaker = ChatMessage.implementation.getSpeaker();
+    const actor = game.user.character;
+    const macroData = {
+        // TODO: ???
+    };
+
     const hookBody = combatant?.actor?.system?.lifecycleHooks?.[hookName]?.trim();
     if (!hookBody) return;
 
@@ -303,8 +309,8 @@ async function executeLifecycleMacro(combatant, hookName) {
     // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
     const AsyncFunction = async function () {}.constructor;
     try {
-        const fn = new AsyncFunction(hookBody);
-        await fn.call(combatant.actor);
+        const fn = new AsyncFunction("speaker", "actor", "archmage", hookBody);
+        await fn.call(this, speaker, actor, macroData);
     } catch (ex) {
         ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errMacroSyntax'));
         console.error(`Lifecycle hook '${combatant.actor.name}' / ${hookName} failed with: ${ex}`, ex);
