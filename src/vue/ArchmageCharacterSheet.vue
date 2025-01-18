@@ -48,6 +48,10 @@
             <Tab group="primary" :tab="tabs.primary.powers">
               <CharPowers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
             </Tab>
+            <!-- Triggers tab -->
+            <Tab group="primary" :tab="tabs.primary.triggers">
+              <CharTriggers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
+            </Tab>
             <!-- Inventory tab -->
             <Tab group="primary" :tab="tabs.primary.inventory">
               <CharInventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"/>
@@ -92,6 +96,7 @@ import {
   CharResources,
   // CharDetails,
   CharPowers,
+  CharTriggers,
   CharInventory,
   CharEffects,
   CharSettings
@@ -114,6 +119,7 @@ export default {
     CharResources,
     CharDetails,
     CharPowers,
+    CharTriggers,
     CharInventory,
     CharEffects,
     CharSettings,
@@ -140,6 +146,15 @@ export default {
             active: true,
             componentClass: markRaw(CharPowers)
           },
+          triggers: {
+            key: 'triggers',
+            label: localize('ARCHMAGE.triggers'),
+            active: false,
+            componentClass: markRaw(CharTriggers),
+            icon: 'fa-caret-right',
+            hideLabel: true,
+            hidden: !this.actor.flags?.archmage?.showTriggersTab
+          },
           inventory: {
             key: 'inventory',
             label: localize('ARCHMAGE.inventory'),
@@ -154,7 +169,7 @@ export default {
           },
           settings: {
             key: 'settings',
-            label: localize('ARCHMAGE.settings'),
+            label: localize('ARCHMAGE.CHARACTERSETTINGS.settings'),
             active: false,
             icon: 'fa-cogs',
             hideLabel: true,
