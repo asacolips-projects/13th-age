@@ -150,6 +150,7 @@ export default {
             key: 'triggers',
             label: localize('ARCHMAGE.triggers'),
             active: false,
+            componentClass: markRaw(CharTriggers),
             icon: 'fa-caret-right',
             hideLabel: true,
             hidden: !this.actor.flags?.archmage?.showTriggersTab
