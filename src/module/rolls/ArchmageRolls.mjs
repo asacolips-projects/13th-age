@@ -89,7 +89,7 @@ export default class ArchmageRolls {
   static addAttackMod(item) {
     // Add @atk.mod modifier to the first inline roll, if it isn't 0
     let numAttacks = 0;
-    let attackLine = item.system.attack.value;
+    let attackLine = item.system.attack.value || "";
     const actor = item.actor ?? game.user.character;
     let matches = [...attackLine.matchAll(INLINE_ATTACK_ROLLS_FILTER)];
     if (matches) {
