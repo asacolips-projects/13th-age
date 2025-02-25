@@ -767,8 +767,17 @@ Hooks.once('ready', () => {
   })
 
   // TODO: i18n flags
-  // FLAGS.characterFlags
-  // FLAGS.npcFlags
+  [
+    "characterFlags",
+    "npcFlags"
+  ].forEach(s => {
+    for (const k of Object.keys(CONFIG.ARCHMAGE.FLAGS[s])) {
+      CONFIG.ARCHMAGE.FLAGS[s][k].name = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Name`);
+      CONFIG.ARCHMAGE.FLAGS[s][k].hint = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Hint`);
+    }
+  });
+  CONFIG.Actor.characterFlags = FLAGS.characterFlags;
+  CONFIG.Actor.npcFlags = FLAGS.npcFlags;
 
   CONFIG.ARCHMAGE.ActorTabFocusSheet = ActorTabFocusSheet
 
