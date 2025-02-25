@@ -97,8 +97,8 @@ Hooks.once('init', async function() {
   preloadHandlebarsTemplates();
 
   game.settings.register("archmage", "secondEdition", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionHint"),
+    name: "ARCHMAGE.SETTINGS.secondEditionName",
+    hint: "ARCHMAGE.SETTINGS.secondEditionHint",
     scope: "world",
     type: Boolean,
     default: false,
@@ -209,8 +209,8 @@ Hooks.once('init', async function() {
     else CONFIG.statusEffects = foundry.utils.duplicate(ARCHMAGE.statusEffects);
   }
   game.settings.register('archmage', 'extendedStatusEffects', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsHint"),
+    name: "ARCHMAGE.SETTINGS.extendedStatusEffectsName",
+    hint: "ARCHMAGE.SETTINGS.extendedStatusEffectsHint",
     scope: 'world',
     config: true,
     default: false,
@@ -328,8 +328,8 @@ Hooks.once('init', async function() {
     if (ui.combat && ui.combat._rendered) ui.combat.render();
   }
   game.settings.register('archmage', 'initiativeDexTiebreaker', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint"),
+    name: "ARCHMAGE.SETTINGS.initiativeDexTiebreakerName",
+    hint: "ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint",
     scope: 'world',
     config: true,
     default: true,
@@ -339,8 +339,8 @@ Hooks.once('init', async function() {
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
 
   game.settings.register("archmage", "initiativeStaticNpc", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeStaticNpcName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeStaticNpcHint"),
+    name: "ARCHMAGE.SETTINGS.initiativeStaticNpcName",
+    hint: "ARCHMAGE.SETTINGS.initiativeStaticNpcHint",
     scope: "world",
     type: Boolean,
     default: false,
@@ -348,8 +348,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "automateHPConditions", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.automateHPConditionsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateHPConditionsHint"),
+    name: "ARCHMAGE.SETTINGS.automateHPConditionsName",
+    hint: "ARCHMAGE.SETTINGS.automateHPConditionsHint",
     scope: "world",
     type: Boolean,
     default: true,
@@ -357,8 +357,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "staggeredOverlay", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayHint"),
+    name: "ARCHMAGE.SETTINGS.staggeredOverlayName",
+    hint: "ARCHMAGE.SETTINGS.staggeredOverlayHint",
     scope: "world",
     type: Boolean,
     default: true,
@@ -366,8 +366,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "multiTargetAttackRolls", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsHint"),
+    name: "ARCHMAGE.SETTINGS.multiTargetAttackRollsName",
+    hint: "ARCHMAGE.SETTINGS.multiTargetAttackRollsHint",
     scope: "world",
     type: Boolean,
     default: true,
@@ -375,8 +375,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "hideExtraRolls", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.hideExtraRollsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.hideExtraRollsHint"),
+    name: "ARCHMAGE.SETTINGS.hideExtraRollsName",
+    hint: "ARCHMAGE.SETTINGS.hideExtraRollsHint",
     scope: "world",
     type: Boolean,
     default: true,
@@ -384,8 +384,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "showDefensesInChat", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatHint"),
+    name: "ARCHMAGE.SETTINGS.showDefensesInChatName",
+    hint: "ARCHMAGE.SETTINGS.showDefensesInChatHint",
     scope: "world",
     type: Boolean,
     default: false,
@@ -393,8 +393,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "hideInsteadOfOpaque", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.hideInsteadOfOpaqueName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.hideInsteadOfOpaqueHint"),
+    name: "ARCHMAGE.SETTINGS.hideInsteadOfOpaqueName",
+    hint: "ARCHMAGE.SETTINGS.hideInsteadOfOpaqueHint",
     scope: "world",
     type: Boolean,
     default: false,
@@ -402,8 +402,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "enableOngoingEffectsMessages", {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesHint"),
+    name: "ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesName",
+    hint: "ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesHint",
     scope: "world",
     type: Boolean,
     default: true,
@@ -411,8 +411,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'roundUpDamageApplication', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
+    name: "ARCHMAGE.SETTINGS.RoundUpDamageApplicationName",
+    hint: "ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint",
     scope: 'world',
     config: true,
     default: true,
@@ -420,8 +420,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'allowTargetDamageApplication', {
-    name: game.i18n.localize('ARCHMAGE.SETTINGS.allowTargetDamageApplicationName'),
-    hint: game.i18n.localize('ARCHMAGE.SETTINGS.allowTargetDamageApplicationHint'),
+    name: 'ARCHMAGE.SETTINGS.allowTargetDamageApplicationName',
+    hint: 'ARCHMAGE.SETTINGS.allowTargetDamageApplicationHint',
     scope: 'world',
     config: true,
     default: false,
@@ -437,8 +437,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'allowRerolls', {
-    name: game.i18n.localize('ARCHMAGE.SETTINGS.allowRerollsName'),
-    hint: game.i18n.localize('ARCHMAGE.SETTINGS.allowRerollsHint'),
+    name: 'ARCHMAGE.SETTINGS.allowRerollsName',
+    hint: 'ARCHMAGE.SETTINGS.allowRerollsHint',
     scope: 'world',
     config: true,
     default: false,
@@ -447,8 +447,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'rechargeOncePerDay', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayHint"),
+    name: "ARCHMAGE.SETTINGS.rechargeOncePerDayName",
+    hint: "ARCHMAGE.SETTINGS.rechargeOncePerDayHint",
     scope: 'world',
     config: true,
     default: false,
@@ -456,8 +456,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'unboundEscDie', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieHint"),
+    name: "ARCHMAGE.SETTINGS.UnboundEscDieName",
+    hint: "ARCHMAGE.SETTINGS.UnboundEscDieHint",
     scope: 'world',
     config: true,
     default: false,
@@ -465,8 +465,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'automateBaseStatsFromClass', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint"),
+    name: "ARCHMAGE.SETTINGS.automateBaseStatsFromClassName",
+    hint: "ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint",
     scope: 'client',
     config: true,
     default: true,
@@ -481,22 +481,22 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'tourVisibility', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityHint"),
+    name: "ARCHMAGE.SETTINGS.tourVisibilityName",
+    hint: "ARCHMAGE.SETTINGS.tourVisibilityHint",
     scope: 'world',
     config: true,
     default: 'all',
     type: String,
     choices: {
-      all: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityAll'),
-      gm: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityGM'),
-      off: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityOff'),
+      all: 'ARCHMAGE.SETTINGS.tourVisibilityAll',
+      gm: 'ARCHMAGE.SETTINGS.tourVisibilityGM',
+      off: 'ARCHMAGE.SETTINGS.tourVisibilityOff',
     }
   });
 
   game.settings.register('archmage', 'sheetTooltips', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsHint"),
+    name: "ARCHMAGE.SETTINGS.sheetTooltipsName",
+    hint: "ARCHMAGE.SETTINGS.sheetTooltipsHint",
     scope: 'client',
     config: true,
     default: false,
@@ -504,8 +504,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'showPrivateGMAttackRolls', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsHint"),
+    name: "ARCHMAGE.SETTINGS.showPrivateGMAttackRollsName",
+    hint: "ARCHMAGE.SETTINGS.showPrivateGMAttackRollsHint",
     scope: 'world',
     config: true,
     default: false,
@@ -513,8 +513,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'nightmode', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeHint"),
+    name: "ARCHMAGE.SETTINGS.nightmodeName",
+    hint: "ARCHMAGE.SETTINGS.nightmodeHint",
     scope: 'client',
     config: true,
     default: false,
@@ -522,8 +522,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'compactMode', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.compactModeName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.compactModeHint"),
+    name: "ARCHMAGE.SETTINGS.compactModeName",
+    hint: "ARCHMAGE.SETTINGS.compactModeHint",
     scope: 'client',
     config: true,
     default: false,
@@ -532,8 +532,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'allowPasteParsing', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.allowPasteParsingName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.allowPasteParsingHint"),
+    name: "ARCHMAGE.SETTINGS.allowPasteParsingName",
+    hint: "ARCHMAGE.SETTINGS.allowPasteParsingHint",
     scope: 'client',
     config: true,
     default: false,
@@ -542,8 +542,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'showNaturalRolls', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.showNaturalRollsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showNaturalRollsHint"),
+    name: "ARCHMAGE.SETTINGS.showNaturalRollsName",
+    hint: "ARCHMAGE.SETTINGS.showNaturalRollsHint",
     scope: 'client',
     config: true,
     default: true,
@@ -553,17 +553,17 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'colorBlindMode', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
+    name: "ARCHMAGE.SETTINGS.ColorblindName",
+    hint: "ARCHMAGE.SETTINGS.ColorblindHint",
     scope: 'client',
     config: true,
     default: 'default',
     type: String,
     choices: {
-      default: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptionDefault"),
-      colorBlindRG: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG"),
-      colorBlindBY: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY"),
-      // custom: game.i18n.localize("ARCHMAGE.SETTINGS.Custom"),
+      default: "ARCHMAGE.SETTINGS.ColorblindOptionDefault",
+      colorBlindRG: "ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG",
+      colorBlindBY: "ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY",
+      // custom: "ARCHMAGE.SETTINGS.Custom",
     },
     onChange: () => {
       $('body').removeClass(['default', 'colorBlindRG', 'colorBlindBY', 'custom']).addClass(game.settings.get('archmage', 'colorBlindMode'));
