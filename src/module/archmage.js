@@ -257,11 +257,11 @@ Hooks.once('init', async function() {
     }
 
     // Update daily -> arc
-    CONFIG.ARCHMAGE.powerUsages['daily'] = 'Arc';
-    CONFIG.ARCHMAGE.powerUsages['daily-desperate'] = 'Arc/Desperate';
-    CONFIG.ARCHMAGE.equipUsages['daily'] = 'Arc';
-    CONFIG.ARCHMAGE.equipUsages['daily-desperate'] = 'Arc/Desperate';
-    CONFIG.ARCHMAGE.featUsages['daily'] = 'Arc';
+    CONFIG.ARCHMAGE.powerUsages['daily'] = 'ARCHMAGE.arc';
+    CONFIG.ARCHMAGE.powerUsages['daily-desperate'] = 'ARCHMAGE.arc-desperate';
+    CONFIG.ARCHMAGE.equipUsages['daily'] = 'ARCHMAGE.arc';
+    CONFIG.ARCHMAGE.equipUsages['daily-desperate'] = 'ARCHMAGE.arc-desperate';
+    CONFIG.ARCHMAGE.featUsages['daily'] = 'ARCHMAGE.arc';
 
     // Add additional classResources
     CONFIG.ARCHMAGE.classResources = foundry.utils.mergeObject(
@@ -734,6 +734,41 @@ Hooks.once('ready', () => {
   addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
+
+  // Apply localization to CONFIG.ARCHMAGE leaf props
+  // TODO: the following are currently localized on each usage, may need to be hunted down 
+  // one by one and moved here
+  // ARCHMAGE.statusEffects
+  // ARCHMAGE.extendedStatusEffects
+  // ARCHMAGE.effectDurationTypes
+  // ARCHMAGE.chakraSlots
+
+  // TBD (these have mechanical implications)
+  // ARCHMAGE.raceList
+  // ARCHMAGE.classList
+  // ARCHMAGE.keyModifiers
+
+  [
+    "featTiers",
+    "powerSources",
+    "powerTypes",
+    "powerUsages",
+    "equipUsages",
+    "featUsages",
+    "actionTypes",
+    "actionTypesShort",
+    "creatureTypes",
+    "creatureSizes",
+    "creatureRoles"
+  ].forEach(s => {
+    for (const [k, v] of Object.entries(CONFIG.ARCHMAGE[s])) {
+      CONFIG.ARCHMAGE[s][k] = game.i18n.localize(v);
+    }
+  })
+
+  // TODO: i18n flags
+  // FLAGS.characterFlags
+  // FLAGS.npcFlags
 
   CONFIG.ARCHMAGE.ActorTabFocusSheet = ActorTabFocusSheet
 

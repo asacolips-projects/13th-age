@@ -470,10 +470,10 @@ ARCHMAGE.extendedStatusEffects = [
 ];
 
 ARCHMAGE.featTiers = {
-  'adventurer': 'Adventurer',
-  'champion': 'Champion',
-  'epic': 'Epic',
-  'iconic': 'Zenith'
+  'adventurer': 'ARCHMAGE.adventurer',
+  'champion': 'ARCHMAGE.champion',
+  'epic': 'ARCHMAGE.epic',
+  'iconic': 'ARCHMAGE.iconic'
 }
 
 ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -492,61 +492,61 @@ ARCHMAGE.animalCompanion = {
 
 // Power Settings
 ARCHMAGE.powerSources = {
-  'class': 'Class',
-  'race': 'Race',
-  'item': 'Item',
-  'other': 'Other'
+  'class': 'ARCHMAGE.class',
+  'race': 'ARCHMAGE.race',
+  'item': 'ARCHMAGE.item',
+  'other': 'ARCHMAGE.other'
 };
 
 ARCHMAGE.powerTypes = {
-  'power': 'Power',
-  'feature': 'Feature',
-  'talent': 'Talent',
-  'flexible': 'Flexible Attack',
-  'spell': 'Spell',
-  'other': 'Other'
+  'power': 'ARCHMAGE.power',
+  'feature': 'ARCHMAGE.feature',
+  'talent': 'ARCHMAGE.talent',
+  'flexible': 'ARCHMAGE.flexible',
+  'spell': 'ARCHMAGE.spell',
+  'other': 'ARCHMAGE.other'
 };
 
 ARCHMAGE.powerUsages = {
-  'at-will': 'At Will',
-  'once-per-battle': 'Per Battle',
-  'recharge': 'Recharge',
-  'daily': 'Daily',
-  'cyclic': 'Cyclic',
-  'recharge-desperate': 'Recharge/Desperate',
-  'daily-desperate': 'Daily/Desperate',
-  'other': 'Other'
+  'at-will': 'ARCHMAGE.at-will',
+  'once-per-battle': 'ARCHMAGE.once-per-battle',
+  'recharge': 'ARCHMAGE.recharge',
+  'daily': 'ARCHMAGE.daily',
+  'cyclic': 'ARCHMAGE.cyclic',
+  'recharge-desperate': 'ARCHMAGE.recharge-desperate',
+  'daily-desperate': 'ARCHMAGE.daily-desperate',
+  'other': 'ARCHMAGE.other'
 };
 
 ARCHMAGE.equipUsages = {
-  'once-per-battle': 'Per Battle',
-  'recharge': 'Recharge',
-  'daily': 'Daily',
-  'recharge-desperate': 'Recharge/Desperate',
-  'daily-desperate': 'Daily/Desperate',
-  'other': 'Other'
+  'once-per-battle': 'ARCHMAGE.once-per-battle',
+  'recharge': 'ARCHMAGE.recharge',
+  'daily': 'ARCHMAGE.daily',
+  'recharge-desperate': 'ARCHMAGE.recharge-desperate',
+  'daily-desperate': 'ARCHMAGE.daily-desperate',
+  'other': 'ARCHMAGE.other'
 };
 
 ARCHMAGE.featUsages = {
-  'daily': 'Daily',
-  'once-per-battle': 'Per Battle',
-  'other': 'Other'
+  'daily': 'ARCHMAGE.daily',
+  'once-per-battle': 'ARCHMAGE.once-per-battle',
+  'other': 'ARCHMAGE.other'
 };
 
 ARCHMAGE.actionTypes = {
-  'standard': 'Standard',
-  'move': 'Move',
-  'quick': 'Quick',
-  'free': 'Free',
-  'interrupt': 'Interrupt'
+  'standard': 'ARCHMAGE.standard-short',
+  'move': 'ARCHMAGE.move-short',
+  'quick': 'ARCHMAGE.quick-short',
+  'free': 'ARCHMAGE.free-short',
+  'interrupt': 'ARCHMAGE.interrupt-short'
 };
 
 ARCHMAGE.actionTypesShort = {
-  'standard': 'STD',
-  'move': 'MOV',
-  'quick': 'QCK',
-  'free': 'FREE',
-  'interrupt': 'INT'
+  'standard': 'ARCHMAGE.STD',
+  'move': 'ARCHMAGE.MOV',
+  'quick': 'ARCHMAGE.QCK',
+  'free': 'ARCHMAGE.FREE',
+  'interrupt': 'ARCHMAGE.INT'
 };
 
 ARCHMAGE.effectDurationTypes = {
@@ -566,22 +566,22 @@ ARCHMAGE.effectDurationTypes = {
 };
 
 ARCHMAGE.creatureTypes = {
-  'aberration': 'Aberration',
-  'beast': 'Beast',
-  'celestial': 'Celestial',
-  'construct': 'Construct',
-  'demon': 'Demon',
-  'devil': 'Devil',
-  'dragon': 'Dragon',
-  'elemental': 'Elemental',
-  'fey': 'Fey',
-  'giant': 'Giant',
-  'humanoid': 'Humanoid',
-  'monstrosity': 'Monstrosity',
-  'ooze': 'Ooze',
-  'plant': 'Plant',
-  'spirit': 'Spirit',
-  'undead': 'Undead'
+  'aberration': 'ARCHMAGE.aberration',
+  'beast': 'ARCHMAGE.beast',
+  'celestial': 'ARCHMAGE.celestial',
+  'construct': 'ARCHMAGE.construct',
+  'demon': 'ARCHMAGE.demon',
+  'devil': 'ARCHMAGE.devil',
+  'dragon': 'ARCHMAGE.dragon',
+  'elemental': 'ARCHMAGE.elemental',
+  'fey': 'ARCHMAGE.fey',
+  'giant': 'ARCHMAGE.giant',
+  'humanoid': 'ARCHMAGE.humanoid',
+  'monstrosity': 'ARCHMAGE.monstrosity',
+  'ooze': 'ARCHMAGE.ooze',
+  'plant': 'ARCHMAGE.plant',
+  'spirit': 'ARCHMAGE.spirit',
+  'undead': 'ARCHMAGE.undead'
 };
 
 ARCHMAGE.creatureSizes = {

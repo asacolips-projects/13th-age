@@ -2,11 +2,13 @@ ARCHMAGE:
   abilities: Abilities
   abilityName: Ability Name
   abilityScore: Ability Score
+  aberration: Aberration
   act: Act.
   action: Action
   actions: Actions
   activeEffects: Active Effects
   add: Add
+  adventurer: Adventurer
   arc: Arc
   arc-desparate: Arc/Desperate
   at-will: At-Will
@@ -14,6 +16,7 @@ ARCHMAGE:
   attackMod: Attack Modifier
   attributes: Attributes
   arcane: Arcane
+  archer: Archer
   avatarAlt: Character profile image
   background: Background
   backgrounds: Backgrounds
@@ -22,7 +25,9 @@ ARCHMAGE:
   baseMD: Base MD
   basePD: Base PD
   baseRecoveries: Base Recoveries
+  beast: Beast
   biography: Biography
+  blocker: Blocker
   bonus: Bonus
   bonuses: Bonuses
   byAction: Group by if the Power has an Action or Not
@@ -30,7 +35,10 @@ ARCHMAGE:
   byType: Group by Power Type
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
+  caster: Caster
+  celestial: Celestial
   chakra: Chakra
+  champion: Champion
   checkBackground: Background Check
   checkBackgroundFormat: "{name} Background Check"
   checkSkill: Skill Check
@@ -39,6 +47,7 @@ ARCHMAGE:
   classFeat: Class Feat
   combat: Combat
   Conflicted: Conflicted
+  construct: Construct
   contextReroll: Reroll
   contextApplyDamage: Apply as Damage
   contextApplyDamageHalf: Apply as Half Damage
@@ -51,16 +60,23 @@ ARCHMAGE:
   critModDef: Crit Modifier (Defense)
   cyclic: Cyclic
   daily: Daily
-  daily-desperate: Arc/Desperate
+  daily-desperate: Daily/Desperate
   defenses: Defenses
+  demon: Demon
   description: Description
   details: Details
+  devil: Devil
   disengage: Disengage
   disengageShort: Disengage
   disengageAdjustment: Disengage Adjustment
   divine: Divine
+  double: Double-strength
+  dragon: Dragon
   edit: Edit
+  elemental: Elemental
+  elite: Elite
   effects: Effects
+  epic: Epic
   equipment: Equipment
   equipmentName: Equipment Name
   escalationDieLabel: Escalation Die
@@ -68,24 +84,32 @@ ARCHMAGE:
   feats: Feats
   feature: Feature
   features: Features
+  fey: Fey
   filter: Filter
   filterName: Filter by name
   flavor: Flavor
   flexible: Flexible Attack
   flexibles: Flexible Attacks
   free: Free Action
+  FREE: FREE
+  free-short: Free
+  giant: Giant
   groupBy: Group by
   health: Health
   hit: Hit
   hitPoints: Hit Points
+  humanoid: Humanoid
   icon: Icon
+  iconic: Zenith
   iconRelationships: Icon Relationships
   import: Import Powers
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
   initiative: Initiative
+  INT: INT
   interrupt: Interrupt Action
+  interrupt-short: Interrupt
   inventory: Inventory
   item: Item
   jabWeaponDice: JAB Weapon Dice
@@ -93,6 +117,7 @@ ARCHMAGE:
   keyReduced: Reduced to {mod} due to {kmod1}/{kmod2} key modifier
   kickWeaponDice: KICK Weapon Dice
   kin: Kin
+  leader: Leader
   level: Level
   levelFormat: "{level} level"
   loot: Loot
@@ -107,30 +132,40 @@ ARCHMAGE:
   miss: Miss
   mod: Mod
   modifyLevel: Adjust
+  monstrosity: Monstrosity
+  mook: Mook
+  MOV: MOV
   move: Move Action
+  move-short: Move
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
   Negative: Negative
   newItem: New {item}
   noneOption: "- None -"
+  normal: Normal
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
+  ooze: Ooze
   other: Other
   others: Other
+  plant: Plant
   Positive: Positive
   power: Power
   powerName: Power Name
   powers: Powers
   preview: Preview
   punchWeaponDice: PUNCH Weapon Dice
+  QCK: QCK
   quantity: Quantity
   quick: Quick Action
+  quick-short: Quick
   race: Race
   ranged: Ranged
   rangedWeaponDice: Ranged Weapon Dice
   rchg: Rchg.
   recharge: Recharge
+  recharge-desperate: Recharge/Desperate
   recoveries: Recoveries
   recovery: Recovery
   recoveryAdventurer: Potion (Adv.)
@@ -174,7 +209,11 @@ ARCHMAGE:
   special: Special
   spell: Spell
   spells: Spells
+  spirit: Spirit
+  spoiler: Spoiler
   standard: Standard Action
+  standard-short: Standard
+  STD: STD
   strength: Strength
   talent: Talent
   talents: Talents
@@ -184,9 +223,14 @@ ARCHMAGE:
   trait: Trait
   traits: Traits
   triggers: Triggers
+  triple: Triple-strength
+  troop: Troop
   type: Type
+  undead: Undead
   uses: Uses
   vulnerability: Vulnerability
+  weakling: Weakling
+  wrecker: Wrecker
   # Settings
   SETTINGS:
     newSetting: New!
