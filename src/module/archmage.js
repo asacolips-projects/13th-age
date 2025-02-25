@@ -318,6 +318,8 @@ Hooks.once('init', async function() {
   /* -------------------------------------------- */
   CONFIG.Actor.characterFlags = FLAGS.characterFlags;
   CONFIG.Actor.npcFlags = FLAGS.npcFlags;
+  // Store flags in global config for later manipulation
+  CONFIG.ARCHMAGE.FLAGS = FLAGS;
 
   /**
    * Register Initiative formula setting
@@ -776,8 +778,9 @@ Hooks.once('ready', () => {
       CONFIG.ARCHMAGE.FLAGS[s][k].hint = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Hint`);
     }
   });
-  CONFIG.Actor.characterFlags = FLAGS.characterFlags;
-  CONFIG.Actor.npcFlags = FLAGS.npcFlags;
+  // Override character flags now that we have them translated
+  CONFIG.Actor.characterFlags = CONFIG.ARCHMAGE.FLAGS.characterFlags;
+  CONFIG.Actor.npcFlags = CONFIG.ARCHMAGE.FLAGS.npcFlags;
 
   CONFIG.ARCHMAGE.ActorTabFocusSheet = ActorTabFocusSheet
 
