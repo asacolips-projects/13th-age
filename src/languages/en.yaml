@@ -339,8 +339,45 @@ ARCHMAGE:
       offense: Offense
       defense: Defense
   CHARACTERFLAGS:
+    averageRecoveriesHint: Average results for recovery rolls instead of rolling them.
+    averageRecoveriesName: Average Recovery Rolls
+    diceFormulaModeHint: Method used to display inline dice formulas on power previews in the character sheet.
+    diceFormulaModeName: Dice Formula Mode
+    diceFormulaModeOptnumeric: Calculated modifiers (experimental)
+    diceFormulaModeOptlong: Formula (long)
+    diceFormulaModeOptshort: Formula (short)
+    hideCurrencyHint: Hide the currency section in the inventory.
+    hideCurrencyName: Hide Currency
+    hideEmptyPowerGroupsHint: Hide empty Power groups on the sheet (besides the default one).
+    hideEmptyPowerGroupsName: Hide empty Power groups
+    hideImportPowersHint: Hide the Import Powers button for players.
+    hideImportPowersName: Hide Import Powers
+    hideIncrementalsHint: Hide the Incremental Advances section.
+    hideIncrementalsName: Hide Incremental Advances
+    hideOneUniqueThingHint: Hide the One Unique Thing section.
+    hideOneUniqueThingName: Hide One Unique Thing
+    hideSettingsTabHint: Hide the sheet settings tab for players.
+    hideSettingsTabName: Hide Settings tab
+    implacableHint: Paladin talent to roll saves at the start of your turn instead of at the end of your turn.
+    implacableName: Implacable/Undaunted
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
-    initiativeAdvName: Quick to Fight TEEEEST
+    initiativeAdvName: Quick to Fight
+    dexToIntHint: Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.
+    dexToIntName: Mental Phenomenon
+    grimDeterminationHint: Barbarian feature to get extra defences when you have one or more skulls.
+    grimDeterminationName: Grim Determination
+    overridePowerLevelHint: Automatically upgrade power's (e.g. spell's) level to your character's level when using it.
+    overridePowerLevelName: Cast at Actor Level
+    portraitFrameHint: Whether or not the character portrait has a white frame and shadow on the V2 sheet.
+    portraitFrameName: Portrait Frame
+    portraitRoundHint: Whether or not the character portrait is rounded on the V2 sheet.
+    portraitRoundName: Round Portrait
+    showTriggersTabHint: Show the trigger-centric powers tab.
+    showTriggersTabName: Show Triggers tab
+    strongRecoveryHint: Universal feat to improve your recovery rolls.
+    strongRecoveryName: Strong Recovery
+    toughnessHint: Universal feat to increase your max HP based on your base HP.
+    toughnessName: Toughness
   CHARACTERSETTINGS:
     bg1: Background 1
     bg2: Background 2

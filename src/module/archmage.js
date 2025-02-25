@@ -769,6 +769,7 @@ Hooks.once('ready', () => {
   })
 
   // TODO: i18n flags
+  console.log(CONFIG.ARCHMAGE.FLAGS);
   [
     "characterFlags",
     "npcFlags"
@@ -776,6 +777,11 @@ Hooks.once('ready', () => {
     for (const k of Object.keys(CONFIG.ARCHMAGE.FLAGS[s])) {
       CONFIG.ARCHMAGE.FLAGS[s][k].name = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Name`);
       CONFIG.ARCHMAGE.FLAGS[s][k].hint = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Hint`);
+      if (CONFIG.ARCHMAGE.FLAGS[s][k].options) {
+        for (const k_opt of Object.keys(CONFIG.ARCHMAGE.FLAGS[s][k].options)) {
+          CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt] = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Opt${k_opt}`);
+        }
+      }
     }
   });
   // Override character flags now that we have them translated
