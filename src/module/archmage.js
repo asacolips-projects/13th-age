@@ -748,7 +748,6 @@ Hooks.once('ready', () => {
   // TBD (these have mechanical implications)
   // ARCHMAGE.raceList
   // ARCHMAGE.classList
-  // ARCHMAGE.keyModifiers
 
   [
     "featTiers",
