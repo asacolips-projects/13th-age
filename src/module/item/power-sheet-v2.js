@@ -96,22 +96,22 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
           },
           attack: {
             key: 'attack',
-            label: 'Attack',
+            label: game.i18n.localize('ARCHMAGE.attack'),
             active: false,
           },
           special: {
             key: 'special',
-            label: 'Special',
+            label: game.i18n.localize('ARCHMAGE.special'),
             active: false,
           },
           feats: {
             key: 'feats',
-            label: 'Feats',
+            label: game.i18n.localize('ARCHMAGE.feats'),
             active: false,
           },
           effects: {
             key: 'effects',
-            label: 'Effects',
+            label: game.i18n.localize('ARCHMAGE.effects'),
             active: false,
           }
         },

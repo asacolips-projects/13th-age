@@ -12,8 +12,8 @@
       <em v-if="power.system.range.value">{{power.system.range.value}}</em>
       <div class="power-subheader flexrow">
         <strong v-if="power.system.actionType.value">{{localize(`ARCHMAGE.${power.system.actionType.value}`)}}</strong>
-        <strong v-if="power.system.powerUsage.value">{{constants.powerUsages[power.system.powerUsage.value]}}</strong>
-        <strong v-if="power.system.powerType.value">{{constants.powerTypes[power.system.powerType.value]}}</strong>
+        <strong v-if="power.system.powerUsage.value">{{localize(`ARCHMAGE.${power.system.powerUsage.value}`)}}</strong>
+        <strong v-if="power.system.powerType.value">{{localize(`ARCHMAGE.${power.system.powerType.value}`)}}</strong>
         <strong v-if="power.system.embeddedMacro.value"><em>{{localize('ARCHMAGE.CHAT.embeddedMacro')}}</em></strong>
       </div>
     </header>

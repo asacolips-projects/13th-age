@@ -7,6 +7,7 @@ ARCHMAGE:
   actions: Actions
   activeEffects: Active Effects
   add: Add
+  adventurer: Adventurer
   arc: Arc
   arc-desparate: Arc/Desperate
   at-will: At-Will
@@ -31,6 +32,7 @@ ARCHMAGE:
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
   chakra: Chakra
+  champion: Champion
   checkBackground: Background Check
   checkBackgroundFormat: "{name} Background Check"
   checkSkill: Skill Check
@@ -51,7 +53,7 @@ ARCHMAGE:
   critModDef: Crit Modifier (Defense)
   cyclic: Cyclic
   daily: Daily
-  daily-desperate: Arc/Desperate
+  daily-desperate: Daily/Desperate
   defenses: Defenses
   description: Description
   details: Details
@@ -61,6 +63,7 @@ ARCHMAGE:
   divine: Divine
   edit: Edit
   effects: Effects
+  epic: Epic
   equipment: Equipment
   equipmentName: Equipment Name
   escalationDieLabel: Escalation Die
@@ -74,18 +77,25 @@ ARCHMAGE:
   flexible: Flexible Attack
   flexibles: Flexible Attacks
   free: Free Action
+  FREE: FREE
+  free-short: Free
   groupBy: Group by
   health: Health
+  helpCompact: '<p><a href="javascript:void(0)" click="preventDefault" role="button" tabindex="-1" class="archmage-rolls-reference">Inline rolls</a> allowed here.</p>'
+  helpDetailed: '<p class="hint">Use <a href="javascript:void(0)" click="preventDefault" role="button" tabindex="-1" class="archmage-rolls-reference">inline rolls</a> such as <strong>[[d20+@str.mod+@std+@atk.a.bonus]] vs AC</strong> to insert dice rolls wherever you need them. Any roll formula will work!</p>'
   hit: Hit
   hitPoints: Hit Points
   icon: Icon
+  iconic: Zenith
   iconRelationships: Icon Relationships
   import: Import Powers
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
   initiative: Initiative
+  INT: INT
   interrupt: Interrupt Action
+  interrupt-short: Interrupt
   inventory: Inventory
   item: Item
   jabWeaponDice: JAB Weapon Dice
@@ -107,13 +117,16 @@ ARCHMAGE:
   miss: Miss
   mod: Mod
   modifyLevel: Adjust
+  MOV: MOV
   move: Move Action
+  move-short: Move
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
   Negative: Negative
   newItem: New {item}
   noneOption: "- None -"
+  normal: Normal
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
   other: Other
@@ -124,13 +137,16 @@ ARCHMAGE:
   powers: Powers
   preview: Preview
   punchWeaponDice: PUNCH Weapon Dice
+  QCK: QCK
   quantity: Quantity
   quick: Quick Action
+  quick-short: Quick
   race: Race
   ranged: Ranged
   rangedWeaponDice: Ranged Weapon Dice
   rchg: Rchg.
   recharge: Recharge
+  recharge-desperate: Recharge/Desperate
   recoveries: Recoveries
   recovery: Recovery
   recoveryAdventurer: Potion (Adv.)
@@ -171,9 +187,12 @@ ARCHMAGE:
   size: Size
   sort: Sort
   source: Source
+  special: Special
   spell: Spell
   spells: Spells
   standard: Standard Action
+  standard-short: Standard
+  STD: STD
   strength: Strength
   talent: Talent
   talents: Talents
@@ -294,8 +313,45 @@ ARCHMAGE:
       offense: Offense
       defense: Defense
   CHARACTERFLAGS:
+    averageRecoveriesHint: Average results for recovery rolls instead of rolling them.
+    averageRecoveriesName: Average Recovery Rolls
+    diceFormulaModeHint: Method used to display inline dice formulas on power previews in the character sheet.
+    diceFormulaModeName: Dice Formula Mode
+    diceFormulaModeOptnumeric: Calculated modifiers (experimental)
+    diceFormulaModeOptlong: Formula (long)
+    diceFormulaModeOptshort: Formula (short)
+    hideCurrencyHint: Hide the currency section in the inventory.
+    hideCurrencyName: Hide Currency
+    hideEmptyPowerGroupsHint: Hide empty Power groups on the sheet (besides the default one).
+    hideEmptyPowerGroupsName: Hide empty Power groups
+    hideImportPowersHint: Hide the Import Powers button for players.
+    hideImportPowersName: Hide Import Powers
+    hideIncrementalsHint: Hide the Incremental Advances section.
+    hideIncrementalsName: Hide Incremental Advances
+    hideOneUniqueThingHint: Hide the One Unique Thing section.
+    hideOneUniqueThingName: Hide One Unique Thing
+    hideSettingsTabHint: Hide the sheet settings tab for players.
+    hideSettingsTabName: Hide Settings tab
+    implacableHint: Paladin talent to roll saves at the start of your turn instead of at the end of your turn.
+    implacableName: Implacable/Undaunted
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
+    dexToIntHint: Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.
+    dexToIntName: Mental Phenomenon
+    grimDeterminationHint: Barbarian feature to get extra defences when you have one or more skulls.
+    grimDeterminationName: Grim Determination
+    overridePowerLevelHint: Automatically upgrade power's (e.g. spell's) level to your character's level when using it.
+    overridePowerLevelName: Cast at Actor Level
+    portraitFrameHint: Whether or not the character portrait has a white frame and shadow on the V2 sheet.
+    portraitFrameName: Portrait Frame
+    portraitRoundHint: Whether or not the character portrait is rounded on the V2 sheet.
+    portraitRoundName: Round Portrait
+    showTriggersTabHint: Show the trigger-centric powers tab.
+    showTriggersTabName: Show Triggers tab
+    strongRecoveryHint: Universal feat to improve your recovery rolls.
+    strongRecoveryName: Strong Recovery
+    toughnessHint: Universal feat to increase your max HP based on your base HP.
+    toughnessName: Toughness
   CHARACTERSETTINGS:
     bg1: Background 1
     bg2: Background 2
@@ -315,6 +371,26 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+  RACES:
+    aasimar: Aasimar
+    darkelf: Dark Elf
+    demontouched: Demontouched
+    dragonic: Dragonic
+    dragonspawn: Dragonspawn
+    drow: Drow
+    dwarf: Dwarf
+    dwarfforged: Dwarf-forged
+    forgeborn: Forgeborn
+    gnome: Gnome
+    halfelf: Half-Elf
+    halfling: Halfling
+    halforc: Half-Orc
+    highelf: High Elf
+    holyone: Holy One
+    human: Human
+    tiefling: Tiefling
+    silverelf: Silver Elf
+    woodelf: Wood Elf
   CLASSES:
     barbarian: Barbarian
     bard: Bard
@@ -331,6 +407,45 @@ ARCHMAGE:
     rogue: Rogue
     sorcerer: Sorcerer
     wizard: Wizard
+  CREATUREROLES:
+    archer: Archer
+    blocker: Blocker
+    caster: Caster
+    leader: Leader
+    mook: Mook
+    spoiler: Spoiler
+    troop: Troop
+    wrecker: Wrecker
+  CREATURESIZES:
+    normal: Normal
+    large: Large
+    huge: Huge
+    gargantuan: Gargantuan
+    small: Small
+    tiny: Tiny
+  CREATURESTRENGTHS:
+    normal: Normal
+    double-strength: Double-strength
+    triple-strength: Triple-strength
+    weakling: Weakling
+    elite: Elite
+  CREATURETYPES:
+    aberration: Aberration
+    beast: Beast
+    celestial: Celestial
+    construct: Construct
+    demon: Demon
+    devil: Devil
+    dragon: Dragon
+    elemental: Elemental
+    fey: Fey
+    giant: Giant
+    humanoid: Humanoid
+    monstrosity: Monstrosity
+    ooze: Ooze
+    plant: Plant
+    spirit: Spirit
+    undead: Undead
   DURATION:
     Infinite: Infinite
     Unknown: Unknown
@@ -484,6 +599,7 @@ ARCHMAGE:
     critModBonus: Critical Hit Modifier Bonus
     critModBonusHint: +1 means you would crit on 19+, etc.
     damageType: Damage Type
+    damageTypeHint: Poison
     defenseBonuses: Defense Bonuses
     dexBonus: Dexterity checks bonus
     disengageBonus: Disengage Bonus
@@ -493,6 +609,7 @@ ARCHMAGE:
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     icons: Associated Icon(s)
+    iconPlaceholder: Archmage, Elf Queen
     initBonus: Initiative Bonus
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
