@@ -179,23 +179,23 @@ Hooks.once('init', async function() {
   // Replace sheets.
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, {
-    label: game.i18n.localize('ARCHMAGE.sheetItem'),
+    label: 'ARCHMAGE.sheetItem',
     makeDefault: true,
   });
   // AppV2 + Vue based sheets. These will eventually become the default.
   Items.registerSheet("archmage", ArchmagePowerSheetV2, {
-    label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
+    label: 'ARCHMAGE.sheetItemV2',
     types: ["power"],
     makeDefault: true,
   });
   Items.registerSheet("archmage", ArchmageActionSheetV2, {
-    label: game.i18n.localize('ARCHMAGE.sheetItemV2'),
+    label: 'ARCHMAGE.sheetItemV2',
     types: ["action", "trait", "nastierSpecial"],
     makeDefault: true,
   })
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
-    label: game.i18n.localize('ARCHMAGE.sheetActiveEffect'),
+    label: 'ARCHMAGE.sheetActiveEffect',
     makeDefault: true
   });
 
@@ -303,14 +303,14 @@ Hooks.once('init', async function() {
   Actors.unregisterSheet('core', ActorSheet);
 
   Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
-    label: game.i18n.localize('ARCHMAGE.sheetNPC'),
+    label: 'ARCHMAGE.sheetNPC',
     types: ["npc"],
     makeDefault: true
   });
 
   // V2 actor sheet (See issue #118).
   Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-    label: game.i18n.localize('ARCHMAGE.sheetCharacter'),
+    label: 'ARCHMAGE.sheetCharacter',
     types: ["character"],
     makeDefault: true
   });
@@ -744,11 +744,6 @@ Hooks.once('ready', () => {
   // ARCHMAGE.extendedStatusEffects
   // ARCHMAGE.effectDurationTypes
   // ARCHMAGE.chakraSlots
-
-  // TBD (these have mechanical implications)
-  // ARCHMAGE.raceList
-  // ARCHMAGE.classList
-
   [
     "featTiers",
     "powerSources",
