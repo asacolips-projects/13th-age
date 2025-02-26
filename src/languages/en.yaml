@@ -2,7 +2,6 @@ ARCHMAGE:
   abilities: Abilities
   abilityName: Ability Name
   abilityScore: Ability Score
-  aberration: Aberration
   act: Act.
   action: Action
   actions: Actions
@@ -16,7 +15,6 @@ ARCHMAGE:
   attackMod: Attack Modifier
   attributes: Attributes
   arcane: Arcane
-  archer: Archer
   avatarAlt: Character profile image
   background: Background
   backgrounds: Backgrounds
@@ -25,9 +23,7 @@ ARCHMAGE:
   baseMD: Base MD
   basePD: Base PD
   baseRecoveries: Base Recoveries
-  beast: Beast
   biography: Biography
-  blocker: Blocker
   bonus: Bonus
   bonuses: Bonuses
   byAction: Group by if the Power has an Action or Not
@@ -35,8 +31,6 @@ ARCHMAGE:
   byType: Group by Power Type
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
-  caster: Caster
-  celestial: Celestial
   chakra: Chakra
   champion: Champion
   checkBackground: Background Check
@@ -47,7 +41,6 @@ ARCHMAGE:
   classFeat: Class Feat
   combat: Combat
   Conflicted: Conflicted
-  construct: Construct
   contextReroll: Reroll
   contextApplyDamage: Apply as Damage
   contextApplyDamageHalf: Apply as Half Damage
@@ -62,19 +55,13 @@ ARCHMAGE:
   daily: Daily
   daily-desperate: Daily/Desperate
   defenses: Defenses
-  demon: Demon
   description: Description
   details: Details
-  devil: Devil
   disengage: Disengage
   disengageShort: Disengage
   disengageAdjustment: Disengage Adjustment
   divine: Divine
-  double: Double-strength
-  dragon: Dragon
   edit: Edit
-  elemental: Elemental
-  elite: Elite
   effects: Effects
   epic: Epic
   equipment: Equipment
@@ -84,7 +71,6 @@ ARCHMAGE:
   feats: Feats
   feature: Feature
   features: Features
-  fey: Fey
   filter: Filter
   filterName: Filter by name
   flavor: Flavor
@@ -93,12 +79,10 @@ ARCHMAGE:
   free: Free Action
   FREE: FREE
   free-short: Free
-  giant: Giant
   groupBy: Group by
   health: Health
   hit: Hit
   hitPoints: Hit Points
-  humanoid: Humanoid
   icon: Icon
   iconic: Zenith
   iconRelationships: Icon Relationships
@@ -117,7 +101,6 @@ ARCHMAGE:
   keyReduced: Reduced to {mod} due to {kmod1}/{kmod2} key modifier
   kickWeaponDice: KICK Weapon Dice
   kin: Kin
-  leader: Leader
   level: Level
   levelFormat: "{level} level"
   loot: Loot
@@ -132,8 +115,6 @@ ARCHMAGE:
   miss: Miss
   mod: Mod
   modifyLevel: Adjust
-  monstrosity: Monstrosity
-  mook: Mook
   MOV: MOV
   move: Move Action
   move-short: Move
@@ -146,10 +127,8 @@ ARCHMAGE:
   normal: Normal
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
-  ooze: Ooze
   other: Other
   others: Other
-  plant: Plant
   Positive: Positive
   power: Power
   powerName: Power Name
@@ -209,8 +188,6 @@ ARCHMAGE:
   special: Special
   spell: Spell
   spells: Spells
-  spirit: Spirit
-  spoiler: Spoiler
   standard: Standard Action
   standard-short: Standard
   STD: STD
@@ -223,14 +200,10 @@ ARCHMAGE:
   trait: Trait
   traits: Traits
   triggers: Triggers
-  triple: Triple-strength
   troop: Troop
   type: Type
-  undead: Undead
   uses: Uses
   vulnerability: Vulnerability
-  weakling: Weakling
-  wrecker: Wrecker
   # Settings
   SETTINGS:
     newSetting: New!
@@ -413,6 +386,45 @@ ARCHMAGE:
     rogue: Rogue
     sorcerer: Sorcerer
     wizard: Wizard
+  CREATUREROLES:
+    archer: Archer
+    blocker: Blocker
+    caster: Caster
+    leader: Leader
+    mook: Mook
+    spoiler: Spoiler
+    troop: Troop
+    wrecker: Wrecker
+  CREATURESIZES:
+    normal: Normal
+    large: Large
+    huge: Huge
+    gargantuan: Gargantuan
+    small: Small
+    tiny: Tiny
+  CREATURESTRENGTHS:
+    normal: Normal
+    double-strength: Double-strength
+    triple-strength: Triple-strength
+    weakling: Weakling
+    elite: Elite
+  CREATURETYPES:
+    aberration: Aberration
+    beast: Beast
+    celestial: Celestial
+    construct: Construct
+    demon: Demon
+    devil: Devil
+    dragon: Dragon
+    elemental: Elemental
+    fey: Fey
+    giant: Giant
+    humanoid: Humanoid
+    monstrosity: Monstrosity
+    ooze: Ooze
+    plant: Plant
+    spirit: Spirit
+    undead: Undead
   DURATION:
     Infinite: Infinite
     Unknown: Unknown
@@ -566,6 +578,7 @@ ARCHMAGE:
     critModBonus: Critical Hit Modifier Bonus
     critModBonusHint: +1 means you would crit on 19+, etc.
     damageType: Damage Type
+    damageTypeHint: Poison
     defenseBonuses: Defense Bonuses
     dexBonus: Dexterity checks bonus
     disengageBonus: Disengage Bonus
@@ -575,6 +588,7 @@ ARCHMAGE:
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     icons: Associated Icon(s)
+    iconPlaceholder: Archmage, Elf Queen
     initBonus: Initiative Bonus
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus

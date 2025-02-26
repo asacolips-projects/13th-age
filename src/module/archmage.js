@@ -761,6 +761,7 @@ Hooks.once('ready', () => {
     "actionTypesShort",
     "creatureTypes",
     "creatureSizes",
+    "creatureStrengths",
     "creatureRoles"
   ].forEach(s => {
     for (const [k, v] of Object.entries(CONFIG.ARCHMAGE[s])) {
@@ -768,18 +769,18 @@ Hooks.once('ready', () => {
     }
   })
 
-  // TODO: i18n flags
-  console.log(CONFIG.ARCHMAGE.FLAGS);
+  // Localize actor flags
+  console.log(CONFIG.ARCHMAGE.FLAGS);  // Throws an error is object isn't accessed before loop
   [
     "characterFlags",
     "npcFlags"
   ].forEach(s => {
     for (const k of Object.keys(CONFIG.ARCHMAGE.FLAGS[s])) {
-      CONFIG.ARCHMAGE.FLAGS[s][k].name = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Name`);
-      CONFIG.ARCHMAGE.FLAGS[s][k].hint = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Hint`);
+      CONFIG.ARCHMAGE.FLAGS[s][k].name = game.i18n.localize(CONFIG.ARCHMAGE.FLAGS[s][k].name);
+      CONFIG.ARCHMAGE.FLAGS[s][k].hint = game.i18n.localize(CONFIG.ARCHMAGE.FLAGS[s][k].hint);
       if (CONFIG.ARCHMAGE.FLAGS[s][k].options) {
         for (const k_opt of Object.keys(CONFIG.ARCHMAGE.FLAGS[s][k].options)) {
-          CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt] = game.i18n.localize(`ARCHMAGE.CHARACTERFLAGS.${k}Opt${k_opt}`);
+          CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt] = game.i18n.localize(CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt]);
         }
       }
     }

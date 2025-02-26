@@ -566,50 +566,50 @@ ARCHMAGE.effectDurationTypes = {
 };
 
 ARCHMAGE.creatureTypes = {
-  'aberration': 'ARCHMAGE.aberration',
-  'beast': 'ARCHMAGE.beast',
-  'celestial': 'ARCHMAGE.celestial',
-  'construct': 'ARCHMAGE.construct',
-  'demon': 'ARCHMAGE.demon',
-  'devil': 'ARCHMAGE.devil',
-  'dragon': 'ARCHMAGE.dragon',
-  'elemental': 'ARCHMAGE.elemental',
-  'fey': 'ARCHMAGE.fey',
-  'giant': 'ARCHMAGE.giant',
-  'humanoid': 'ARCHMAGE.humanoid',
-  'monstrosity': 'ARCHMAGE.monstrosity',
-  'ooze': 'ARCHMAGE.ooze',
-  'plant': 'ARCHMAGE.plant',
-  'spirit': 'ARCHMAGE.spirit',
-  'undead': 'ARCHMAGE.undead'
+  'aberration': 'ARCHMAGE.CREATURETYPES.aberration',
+  'beast': 'ARCHMAGE.CREATURETYPES.beast',
+  'celestial': 'ARCHMAGE.CREATURETYPES.celestial',
+  'construct': 'ARCHMAGE.CREATURETYPES.construct',
+  'demon': 'ARCHMAGE.CREATURETYPES.demon',
+  'devil': 'ARCHMAGE.CREATURETYPES.devil',
+  'dragon': 'ARCHMAGE.CREATURETYPES.dragon',
+  'elemental': 'ARCHMAGE.CREATURETYPES.elemental',
+  'fey': 'ARCHMAGE.CREATURETYPES.fey',
+  'giant': 'ARCHMAGE.CREATURETYPES.giant',
+  'humanoid': 'ARCHMAGE.CREATURETYPES.humanoid',
+  'monstrosity': 'ARCHMAGE.CREATURETYPES.monstrosity',
+  'ooze': 'ARCHMAGE.CREATURETYPES.ooze',
+  'plant': 'ARCHMAGE.CREATURETYPES.plant',
+  'spirit': 'ARCHMAGE.CREATURETYPES.spirit',
+  'undead': 'ARCHMAGE.CREATURETYPES.undead'
 };
 
 ARCHMAGE.creatureSizes = {
-  'normal': 'Normal',
-  'large': 'Large',
-  'huge': 'Huge',
-  'gargantuan': 'Gargantuan',
-  'small': 'Small',
-  'tiny': 'Tiny',
+  'normal': 'ARCHMAGE.CREATURESIZES.normal',
+  'large': 'ARCHMAGE.CREATURESIZES.large',
+  'huge': 'ARCHMAGE.CREATURESIZES.huge',
+  'gargantuan': 'ARCHMAGE.CREATURESIZES.gargantuan',
+  'small': 'ARCHMAGE.CREATURESIZES.small',
+  'tiny': 'ARCHMAGE.CREATURESIZES.tiny',
 };
 
 ARCHMAGE.creatureStrengths = {
-  'normal': 'Normal',
-  'double': 'Double-strength',
-  'triple': 'Triple-strength',
-  'weakling': 'Weakling',
-  'elite': 'Elite',
+  'normal': 'ARCHMAGE.CREATURESTRENGTHS.normal',
+  'double': 'ARCHMAGE.CREATURESTRENGTHS.double-strength',
+  'triple': 'ARCHMAGE.CREATURESTRENGTHS.triple-strength',
+  'weakling': 'ARCHMAGE.CREATURESTRENGTHS.weakling',
+  'elite': 'ARCHMAGE.CREATURESTRENGTHS.elite',
 };
 
 ARCHMAGE.creatureRoles = {
-  'archer': 'Archer',
-  'blocker': 'Blocker',
-  'caster': 'Caster',
-  'leader': 'Leader',
-  'mook': 'Mook',
-  'spoiler': 'Spoiler',
-  'troop': 'Troop',
-  'wrecker': 'Wrecker'
+  'archer': 'ARCHMAGE.CREATUREROLES.archer',
+  'blocker': 'ARCHMAGE.CREATUREROLES.blocker',
+  'caster': 'ARCHMAGE.CREATUREROLES.caster',
+  'leader': 'ARCHMAGE.CREATUREROLES.leader',
+  'mook': 'ARCHMAGE.CREATUREROLES.mook',
+  'spoiler': 'ARCHMAGE.CREATUREROLES.spoiler',
+  'troop': 'ARCHMAGE.CREATUREROLES.troop',
+  'wrecker': 'ARCHMAGE.CREATUREROLES.wrecker'
 };
 
 ARCHMAGE.chakraSlots = {
@@ -1152,130 +1152,130 @@ ARCHMAGE.tokenHPColors = {
 
 FLAGS.characterFlags = {
   "overridePowerLevel": {
-    name: "Cast at Actor Level",
-    hint: "Automatically upgrade power's (e.g. spell's) level to your character's level.",
+    name: "ARCHMAGE.CHARACTERFLAGS.overridePowerLevelName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.overridePowerLevelHint",
     section: "Feats",
     type: Boolean
   },
   "initiativeAdv": {
-    name: "Quick to Fight",
-    hint: "Human kin power to roll 2d20 for initiative and keep the higher roll.",
+    name: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint",
     section: "Feats",
     type: Boolean
   },
   "strongRecovery": {
-    name: "Strong Recovery",
-    hint: "General feat to improve your recovery rolls.",
+    name: "ARCHMAGE.CHARACTERFLAGS.strongRecoveryName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.strongRecoveryHint",
     section: "Feats",
     type: Boolean
   },
   "toughness": {
-    name: "Toughness",
-    hint: "General feat to increase your max HP based on your base HP.",
+    name: "ARCHMAGE.CHARACTERFLAGS.toughnessName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.toughnessHint",
     section: "Feats",
     type: Boolean
   },
   "grimDetermination": {
-    name: "Grim Determination",
-    hint: "Barbarian feature to get extra defences when you have one or more skulls.",
+    name: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationHint",
     section: "Feats",
     type: Boolean
   },
   "dexToInt": {
-    name: "Mental Phenomenon",
-    hint: "Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.",
+    name: "ARCHMAGE.CHARACTERFLAGS.dexToIntName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.dexToIntHint",
     section: "Feats",
     type: Boolean
   },
   "implacable": {
-    name: "Implacable/Undaunted",
-    hint: "Paladin talent to roll saves at the start of your turn instead of at the end of your turn.",
+    name: "ARCHMAGE.CHARACTERFLAGS.implacableName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.implacableHint",
     section: "Feats",
     type: Boolean
   },
   "averageRecoveries": {
-    name: "Average Recovery Rolls",
-    hint: "Average results for recovery rolls instead of rolling them.",
+    name: "ARCHMAGE.CHARACTERFLAGS.averageRecoveriesName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.averageRecoveriesHint",
     section: "Dice",
     type: Boolean
   },
   "portraitRound": {
-    name: "Round Portrait",
-    hint: "Whether or not the character portrait is rounded on the V2 sheet.",
+    name: "ARCHMAGE.CHARACTERFLAGS.portraitRoundName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.portraitRoundHint",
     section: "Sheet",
     type: Boolean
   },
   "portraitFrame": {
-    name: "Portrait Frame",
-    hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
+    name: "ARCHMAGE.CHARACTERFLAGS.portraitFrameName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.portraitFrameHint",
     section: "Sheet",
     type: Boolean
   },
   "hideCurrency": {
-    name: "Hide Currency",
-    hint: "Hide the currency section in the inventory.",
+    name: "ARCHMAGE.CHARACTERFLAGS.hideCurrencyName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.hideCurrencyHint",
     section: "Sheet",
     type: Boolean
   },
   "hideEmptyPowerGroups": {
-    name: "Hide empty Power groups",
-    hint: "Hide empty Power groups on the sheet (besides the default one).",
+    name: "ARCHMAGE.CHARACTERFLAGS.hideEmptyPowerGroupsName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.hideEmptyPowerGroupsHint",
     section: "Sheet",
     type: Boolean
   },
   "showTriggersTab": {
-    name: "Show Triggers tab",
-    hint: "Show the trigger-centric powers tab.",
+    name: "ARCHMAGE.CHARACTERFLAGS.showTriggersTabName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.showTriggersTabHint",
     section: "Sheet",
     type: Boolean
   },
   "hideImportPowers": {
-    name: "Hide Import Powers",
-    hint: "Hide the Import Powers button for players.",
+    name: "ARCHMAGE.CHARACTERFLAGS.hideImportPowersName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.hideImportPowersHint",
     section: "Sheet",
     type: Boolean
   },
   "hideIncrementals": {
-    name: "Hide Incremental Advances",
-    hint: "Hide the Incremental Advances section.",
+    name: "ARCHMAGE.CHARACTERFLAGS.hideIncrementalsName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.hideIncrementalsHint",
     section: "Sheet",
     type: Boolean
   },
   "hideOneUniqueThing": {
-    name: "Hide One Unique Thing",
-    hint: "Hide the One Unique Thing section.",
+    name: "ARCHMAGE.CHARACTERFLAGS.hideOneUniqueThingName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.hideOneUniqueThingHint",
     section: "Sheet",
     type: Boolean
   },
   "hideSettingsTab": {
-    name: "Hide Settings tab",
-    hint: "Hide the sheet settings tab for players.",
+    name: "ARCHMAGE.CHARACTERFLAGS.hideSettingsTabName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.hideSettingsTabHint",
     section: "Sheet",
     type: Boolean
   },
   "diceFormulaMode": {
-    name: "Dice Formula Mode",
-    hint: "Method used to display inline dice formulas on power previews in the character sheet.",
+    name: "ARCHMAGE.CHARACTERFLAGS.diceFormulaModeName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.diceFormulaModeHint",
     section: "Sheet",
     type: String,
     options: {
-      'short': 'Formula (short)',
-      'long': 'Formula (long)',
-      'numeric': 'Calculated modifiers (experimental)'
+      'short': 'ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptshort',
+      'long': 'ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptlong',
+      'numeric': 'ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptnumeric'
     }
   }
 };
 
 FLAGS.npcFlags = {
   "portraitRound": {
-    name: "Round Portrait",
-    hint: "Whether or not the character portrait is rounded on the V2 sheet.",
+    name: "ARCHMAGE.CHARACTERFLAGS.portraitRoundName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.portraitRoundHint",
     section: "Sheet",
     type: Boolean
   },
   "portraitFrame": {
-    name: "Portrait Frame",
-    hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
+    name: "ARCHMAGE.CHARACTERFLAGS.portraitFrameName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.portraitFrameHint",
     section: "Sheet",
     type: Boolean
   }
