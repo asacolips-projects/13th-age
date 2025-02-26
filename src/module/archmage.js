@@ -761,7 +761,9 @@ Hooks.once('ready', () => {
     "creatureTypes",
     "creatureSizes",
     "creatureStrengths",
-    "creatureRoles"
+    "creatureRoles",
+    "raceList",
+    "classList"
   ].forEach(s => {
     for (const [k, v] of Object.entries(CONFIG.ARCHMAGE[s])) {
       CONFIG.ARCHMAGE[s][k] = game.i18n.localize(v);

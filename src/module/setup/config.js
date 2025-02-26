@@ -678,25 +678,25 @@ ARCHMAGE.defaultMonsterTokens = {
 };
 
 ARCHMAGE.raceList = {
-  'aasimar': "Aasimar",
-  'darkelf': "Dark Elf",
-  'demontouched': "Demontouched",
-  'dragonic': "Dragonic",
-  'dragonspawn': "Dragonspawn",
-  'drow': "Drow",
-  'dwarf': "Dwarf",
-  'dwarfforged': "Dwarf-forged",
-  'forgeborn': "Forgeborn",
-  'gnome': "Gnome",
-  'halfelf': "Half-Elf",
-  'halfling': "Halfling",
-  'halforc': "Half-Orc",
-  'highelf': "High Elf",
-  'holyone': "Holy One",
-  'human': "Human",
-  'tiefling': "Tiefling",
-  'silverelf': "Silver Elf",
-  'woodelf': "Wood Elf"
+  'aasimar': "ARCHMAGE.CLASSES.aasimar",
+  'darkelf': "ARCHMAGE.CLASSES.darkelf",
+  'demontouched': "ARCHMAGE.CLASSES.demontouched",
+  'dragonic': "ARCHMAGE.CLASSES.dragonic",
+  'dragonspawn': "ARCHMAGE.CLASSES.dragonspawn",
+  'drow': "ARCHMAGE.CLASSES.drow",
+  'dwarf': "ARCHMAGE.CLASSES.dwarf",
+  'dwarfforged': "ARCHMAGE.CLASSES.dwarfforged",
+  'forgeborn': "ARCHMAGE.CLASSES.forgeborn",
+  'gnome': "ARCHMAGE.CLASSES.gnome",
+  'halfelf': "ARCHMAGE.CLASSES.halfelf",
+  'halfling': "ARCHMAGE.CLASSES.halfling",
+  'halforc': "ARCHMAGE.CLASSES.halforc",
+  'highelf': "ARCHMAGE.CLASSES.highelf",
+  'holyone': "ARCHMAGE.CLASSES.holyone",
+  'human': "ARCHMAGE.CLASSES.human",
+  'tiefling': "ARCHMAGE.CLASSES.tiefling",
+  'silverelf': "ARCHMAGE.CLASSES.silverelf",
+  'woodelf': "ARCHMAGE.CLASSES.woodelf"
 };
 
 ARCHMAGE.classPacks = [
@@ -705,21 +705,21 @@ ARCHMAGE.classPacks = [
 ];
 
 ARCHMAGE.classList = {
-  'barbarian': 'Barbarian',
-  'bard': 'Bard',
-  'cleric': 'Cleric',
-  'fighter': 'Fighter',
-  'paladin': 'Paladin',
-  'ranger': 'Ranger',
-  'rogue': 'Rogue',
-  'sorcerer': 'Sorcerer',
-  'wizard': 'Wizard',
-  'chaosmage': 'Chaos Mage',
-  'commander': 'Commander',
-  'druid': 'Druid',
-  'monk': 'Monk',
-  'necromancer': 'Necromancer',
-  'occultist': 'Occultist'
+  'barbarian': 'ARCHMAGE.CLASSES.barbarian',
+  'bard': 'ARCHMAGE.CLASSES.bard',
+  'cleric': 'ARCHMAGE.CLASSES.cleric',
+  'fighter': 'ARCHMAGE.CLASSES.fighter',
+  'paladin': 'ARCHMAGE.CLASSES.paladin',
+  'ranger': 'ARCHMAGE.CLASSES.ranger',
+  'rogue': 'ARCHMAGE.CLASSES.rogue',
+  'sorcerer': 'ARCHMAGE.CLASSES.sorcerer',
+  'wizard': 'ARCHMAGE.CLASSES.wizard',
+  'chaosmage': 'ARCHMAGE.CLASSES.chaosmage',
+  'commander': 'ARCHMAGE.CLASSES.commander',
+  'druid': 'ARCHMAGE.CLASSES.druid',
+  'monk': 'ARCHMAGE.CLASSES.monk',
+  'necromancer': 'ARCHMAGE.CLASSES.necromancer',
+  'occultist': 'ARCHMAGE.CLASSES.occultist'
 };
 
 ARCHMAGE.classes = {

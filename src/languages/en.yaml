@@ -372,6 +372,26 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+  RACES:
+    aasimar: Aasimar
+    darkelf: Dark Elf
+    demontouched: Demontouched
+    dragonic: Dragonic
+    dragonspawn: Dragonspawn
+    drow: Drow
+    dwarf: Dwarf
+    dwarfforged: Dwarf-forged
+    forgeborn: Forgeborn
+    gnome: Gnome
+    halfelf: Half-Elf
+    halfling: Halfling
+    halforc: Half-Orc
+    highelf: High Elf
+    holyone: Holy One
+    human: Human
+    tiefling: Tiefling
+    silverelf: Silver Elf
+    woodelf: Wood Elf
   CLASSES:
     barbarian: Barbarian
     bard: Bard
