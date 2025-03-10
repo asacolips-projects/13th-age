@@ -194,19 +194,19 @@ export default {
   data() {
     return {
       resourceRestTypes: [
-        { value: 'none', label: 'Do nothing' },
-        { value: 'quickreset', label: 'Clear on Quick Rest' },
-        { value: 'fullreset', label: 'Clear on Full Heal-Up' },
-        { value: 'quick', label: 'Refill on Quick Rest' },
-        { value: 'full', label: 'Refill on Full Heal-Up' },
+        { value: 'none', label: game.i18n.localize("ARCHMAGE.RESTS.none") },
+        { value: 'quickreset', label: game.i18n.localize("ARCHMAGE.RESTS.quickreset") },
+        { value: 'fullreset', label: game.i18n.localize("ARCHMAGE.RESTS.fullreset") },
+        { value: 'quick', label: game.i18n.localize("ARCHMAGE.RESTS.quick") },
+        { value: 'full', label: game.i18n.localize("ARCHMAGE.RESTS.full") },
       ],
       abilities: [
-        { value: 'str', label: "Str"},
-        { value: 'con', label: "Con"},
-        { value: 'dex', label: "Dex"},
-        { value: 'int', label: "Int"},
-        { value: 'wis', label: "Wis"},
-        { value: 'cha', label: "Cha"},
+        { value: 'str', label: game.i18n.localize("ARCHMAGE.str.key")},
+        { value: 'con', label: game.i18n.localize("ARCHMAGE.con.key")},
+        { value: 'dex', label: game.i18n.localize("ARCHMAGE.dex.key")},
+        { value: 'int', label: game.i18n.localize("ARCHMAGE.int.key")},
+        { value: 'wis', label: game.i18n.localize("ARCHMAGE.wis.key")},
+        { value: 'cha', label: game.i18n.localize("ARCHMAGE.cha.key")},
       ]
     }
   },
