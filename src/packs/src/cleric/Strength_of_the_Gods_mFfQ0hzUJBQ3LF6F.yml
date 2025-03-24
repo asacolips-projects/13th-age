@@ -253,6 +253,18 @@ effects:
         mode: 2
         value: +1d10
         priority: null
+      - key: system.attributes.weapon.jab.dice
+        mode: 2
+        value: +1d10
+        priority: null
+      - key: system.attributes.weapon.punch.dice
+        mode: 2
+        value: +1d10
+        priority: null
+      - key: system.attributes.weapon.kick.dice
+        mode: 2
+        value: +1d10
+        priority: null
     duration:
       startTime: null
       seconds: null
