@@ -127,6 +127,16 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         value: value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       });
+      // For melee weapon damage, include monk weapons
+      if (key == 'system.attributes.weapon.melee.dice') {
+        ["jab", "punch", "kick"].forEach(k => {
+          newChanges.push({
+            key: key.replace("melee", k),
+            value: value,
+            mode: CONST.ACTIVE_EFFECT_MODES.ADD
+          });
+        });
+      }
     }
 
     // Attacks
