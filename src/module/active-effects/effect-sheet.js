@@ -51,6 +51,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     context.ongoingDamage = context.effect.flags.archmage?.ongoingDamage || 0;
     context.ongoingDamageType = context.effect.flags.archmage?.ongoingDamageType || "";
     context.ongoingDamageCrit = context.effect.flags.archmage?.ongoingDamageCrit || false;
+    context.stacksAlways = context.effect.flags.archmage?.stacksAlways || false;
 
     return context;
   }
@@ -93,6 +94,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       ongoingDamage: formData.ongoingDamage,
       ongoingDamageType: formData.ongoingDamageType,
       ongoingDamageCrit: formData.ongoingDamageCrit,
+      stacksAlways: formData.stacksAlways,
     };
 
     // Retrieve the existing effects.

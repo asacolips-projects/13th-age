@@ -182,6 +182,7 @@ export class ActorArchmage extends Actor {
     let uniqueChanges = [];
     let uniquePenalties = {};
     let uniqueBonuses = {};
+    let stackingBonuses = {};
     let uniqueBonusLabels = {};
     for ( let change of changes ) {
       change.numeric = Number(change.value);
@@ -196,8 +197,11 @@ export class ActorArchmage extends Actor {
             uniquePenalties[change.key].value = change.value;
           }
         }
-      } else { // Bonus, stacks if name is different
-        if (!uniqueBonuses[change.key]) {
+      } else { // Bonus, stacks if name is different or flagged to always stack
+        if (change.effect.flags.archmage?.stacksAlways) {
+          if (!stackingBonuses[change.key]) stackingBonuses[change.key] = [];
+          stackingBonuses[change.key].push(change);
+        } else if (!uniqueBonuses[change.key]) {
           uniqueBonuses[change.key] = change;
           uniqueBonusLabels[change.key] = {};
           uniqueBonusLabels[change.key][change.name] = change;
@@ -220,6 +224,15 @@ export class ActorArchmage extends Actor {
           }
         }
       }
+    }
+    // Merge stacking bonuses into unique bonuses
+    for (let [k, v] of Object.entries(stackingBonuses)) {
+      // Compute stacked change
+      let stackedChange = v[0];
+      for (let change of Object.values(v.slice(1))) stackedChange.value += change.value;
+      // Set or adjust unique bonus
+      if (!uniqueBonuses[stackedChange.key]) uniqueBonuses[stackedChange.key] = stackedChange;
+      else uniqueBonuses[stackedChange.key].value += stackedChange.value;
     }
     // Merge stacked bonuses into penalties to get overall change
     for (let change of Object.values(uniqueBonuses)) {
