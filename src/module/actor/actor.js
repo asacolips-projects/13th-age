@@ -182,16 +182,22 @@ export class ActorArchmage extends Actor {
     let uniqueChanges = [];
     let uniquePenalties = {};
     let uniqueBonuses = {};
+    let stackingPenalties = {};
     let stackingBonuses = {};
     let uniqueBonusLabels = {};
+    let stackedChange;
     for ( let change of changes ) {
       change.numeric = Number(change.value);
       if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
         uniqueChanges.push(change);
         continue;
       }
-      if (!Number.isNaN(change.numeric) && change.numeric < 0) { // Penalty, doesn't stack
-        if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
+      if (!Number.isNaN(change.numeric) && change.numeric < 0) { // Penalty, doesn't stack unless flagged to
+        if (change.effect.flags.archmage?.stacksAlways) {
+          if (!stackingPenalties[change.key]) stackingPenalties[change.key] = [];
+          stackingPenalties[change.key].push(change);
+        }
+        else if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
         else { // Check if the new penalty is worse than the earlier one
           if (change.numeric < uniquePenalties[change.key].numeric) {
             uniquePenalties[change.key].value = change.value;
@@ -225,10 +231,19 @@ export class ActorArchmage extends Actor {
         }
       }
     }
-    // Merge stacking bonuses into unique bonuses
+    // Merge stacking bonuses and penalties into unique bonuses
+    for (let [k, v] of Object.entries(stackingPenalties)) {
+      //TODO: is this correct, or should we stack by name and still keep the worst?
+      // Compute stacked change
+      stackedChange = v[0];
+      for (let change of Object.values(v.slice(1))) stackedChange.value += change.value;
+      // Set or adjust unique penalty
+      if (!uniquePenalties[stackedChange.key]) uniquePenalties[stackedChange.key] = stackedChange;
+      else uniquePenalties[stackedChange.key].value += stackedChange.value;
+    }
     for (let [k, v] of Object.entries(stackingBonuses)) {
       // Compute stacked change
-      let stackedChange = v[0];
+      stackedChange = v[0];
       for (let change of Object.values(v.slice(1))) stackedChange.value += change.value;
       // Set or adjust unique bonus
       if (!uniqueBonuses[stackedChange.key]) uniqueBonuses[stackedChange.key] = stackedChange;
