@@ -381,7 +381,7 @@ export async function getPackIndex(packNames = [], fields = []) {
   for (let packName of packNames) {
     const pack = game.packs.get(packName);
     const packIndex = await pack.getIndex({fields: fields});
-    packs = packs.concat(packIndex.contents);
+    packs = packs.concat(packIndex.contents.map(x => ({...x, compendiumTitle: pack.title})));
   }
 
   return packs;
