@@ -312,16 +312,14 @@ export default {
   async created() {
     console.log("Creating compendium browser creatures tab...");
 
-    const packIds = game.modules.get('13th-age-core-2e-gamma')?.active ? [
-      'archmage.srd-Monsters',
-      '13th-age-core-2e-gamma.monsters-2e',
-      '13th-age-core-2e-gamma.companions-2e',
-      'archmage.necromancer-summons',
-    ] : [
-      'archmage.srd-Monsters',
-      'archmage.animal-companions',
-      'archmage.necromancer-summons',
-    ];
+    let packIds = game.packs.contents
+      .filter(pack => pack.documentName === 'Actor')
+      .map(pack => pack.collection);
+
+    // If the 2e gamma module is active, remove the animal-companion pack that it replaces.
+    if (game.modules.get('13th-age-core-2e-gamma')?.active) {
+      packIds.splice(packIds.indexOf('archmage.animal-companions'), 1);
+    }
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
@@ -335,6 +333,11 @@ export default {
       'system.details.size.value',
       'system.details.type.value'
     ]).then(packIndex => {
+      // Ensure all entries are "monster" type
+      packIndex = packIndex.filter(entry => {
+        return entry.type === 'npc';
+      });
+
       // Restore the pack art.
       if (game.archmage.system?.moduleArt?.map?.size > 0) {
         for (let record of packIndex) {
