@@ -81,6 +81,18 @@
       />
     </div>
 
+    <!-- Location filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.location">{{ localize('ARCHMAGE.location') }}</label>
+      <Multiselect
+        v-model="location"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="locationNames"
+      />
+    </div>
+
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
       <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
@@ -193,6 +205,7 @@ export default {
       bonuses: [],
       tier: [],
       powerUsage: [],
+      location: [],
     }
   },
   methods: {
@@ -350,6 +363,11 @@ export default {
       }
       return result;
     },
+    locationNames() {
+      // List of locations from the selected entries
+      const locations = new Set(this.packIndex.map(entry => entry.compendiumTitle));
+      return Array.from(locations).sort();
+    },
     nightmode() {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
@@ -377,6 +395,9 @@ export default {
       }
       if (Array.isArray(this.tier) && this.tier.length > 0) {
         result = result.filter(entry => this.tier.includes(entry.system?.tier ?? 'adventurer'));
+      }
+      if (Array.isArray(this.location) && this.location.length > 0) {
+        result = result.filter(entry => this.location.includes(entry.compendiumTitle));
       }
 
       // Recharge.
