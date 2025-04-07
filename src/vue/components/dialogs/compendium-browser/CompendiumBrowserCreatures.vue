@@ -339,7 +339,10 @@ export default {
 
     // If the 2e gamma module is active, remove the animal-companion pack that it replaces.
     if (game.modules.get('13th-age-core-2e-gamma')?.active) {
-      packIds.splice(packIds.indexOf('archmage.animal-companions'), 1);
+      const index = packIds.indexOf('archmage.animal-companions');
+      if (index > -1) {
+        packIds.splice(index, 1);
+      }
     }
 
     // Load the pack index with the fields we need.

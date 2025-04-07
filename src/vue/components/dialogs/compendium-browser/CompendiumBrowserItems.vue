@@ -455,11 +455,17 @@ export default {
   async created() {
     console.log("Creating compendium browser magic items tab...");
 
-    const packIds = [
-      game.modules.get('13th-age-core-2e-gamma')?.active
-        ? '13th-age-core-2e-gamma.magic-items-2e'
-        : 'archmage.srd-magic-items'
-    ];
+    const packIds = game.packs.contents
+      .filter(p => p.documentName === 'Item')
+      .map(p => p.collection);
+
+    // If the 2e gamma module is active, remove the magic items pack it replaces
+    if (game.modules.get('13th-age-core-2e-gamma')?.active) {
+      const index = packIds.indexOf('archmage.srd-magic-items');
+      if (index > -1) {
+        packIds.splice(index, 1);
+      }
+    }
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
@@ -476,7 +482,10 @@ export default {
       'system.attributes.save',
       'system.attributes.disengage',
     ]).then(packIndex => {
-      this.packIndex = packIndex;
+      // Filter out non-magic-item entries.
+      this.packIndex = packIndex.filter(entry => {
+        return entry.type === 'equipment' || entry.type === 'loot';
+      });
       this.loaded = true;
     });
 
