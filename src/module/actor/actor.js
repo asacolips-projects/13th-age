@@ -187,46 +187,62 @@ export class ActorArchmage extends Actor {
     let uniqueBonusLabels = {};
     let stackedChange;
     for ( let change of changes ) {
-      change.numeric = Number(change.value);
+      // First save numeric value if we have it
+      if (!isNaN(change.value)) {
+        change.numeric = Number(change.value);
+        change.value = "";
+      } else {
+        change.numeric = 0;
+      }
+
+      // For non-stacking bonuses, let the users sort it out
       if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
         uniqueChanges.push(change);
         continue;
       }
-      if (!Number.isNaN(change.numeric) && change.numeric < 0) { // Penalty, doesn't stack unless flagged to
+
+      // Penalties do not stack (use the worst) unless flagged to
+      if (change.numeric < 0) {
+        // If it's meant to stack save it and handle it later
         if (change.effect.flags.archmage?.stacksAlways) {
           if (!stackingPenalties[change.key]) stackingPenalties[change.key] = [];
           stackingPenalties[change.key].push(change);
         }
+        // Else if it's new save it
         else if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
+        // And if it isn't check if the new penalty is worse
         else { // Check if the new penalty is worse than the earlier one
           if (change.numeric < uniquePenalties[change.key].numeric) {
-            uniquePenalties[change.key].value = change.value;
+            uniquePenalties[change.key].numeric = change.numeric;
           }
         }
-      } else { // Bonus, stacks if name is different or flagged to always stack
+      }
+      // Bonuses stack if the name is different or if flagged to
+      else { 
+        // If it's meant to stack save it and handle it later
         if (change.effect.flags.archmage?.stacksAlways) {
           if (!stackingBonuses[change.key]) stackingBonuses[change.key] = [];
           stackingBonuses[change.key].push(change);
-        } else if (!uniqueBonuses[change.key]) {
+        }
+        // Else if it's new save it
+        else if (!uniqueBonuses[change.key]) {
           uniqueBonuses[change.key] = change;
           uniqueBonusLabels[change.key] = {};
           uniqueBonusLabels[change.key][change.name] = change;
-        } else { // Check if we have other bonuses with the same name
+        }
+        // And if it isn't check if the new bonus has a new name
+        else { // Check if we have other bonuses with the same name
           if (uniqueBonusLabels[change.key][change.name]) {
             // An effect with the same name already exists, use better one
-            if (
-              !Number.isNaN(uniqueBonusLabels[change.key][change.name].numeric) &&
-              !Number.isNaN(change.numeric) &&
-              change.numeric > uniqueBonusLabels[change.key][change.name].numeric
-            )
+            if (change.numeric > uniqueBonusLabels[change.key][change.name].numeric) {
               uniqueBonuses[change.key] = change;
               uniqueBonusLabels[change.key][change.name] = change;
-            //TODO: If either of the values isn't a number we can't really compare them!
+            }
           } else {
             // No other effect with this name exists, stack
             uniqueBonusLabels[change.key][change.name] = change;
-            uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a.value + b.value)).toString();
-            uniqueBonuses[change.key].numeric += change.numeric;
+            if (change.value) uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a.value + b.value)).toString();
+            if (change.numeric) uniqueBonuses[change.key].numeric += change.numeric;
           }
         }
       }
@@ -236,23 +252,40 @@ export class ActorArchmage extends Actor {
       //TODO: is this correct, or should we stack by name and still keep the worst?
       // Compute stacked change
       stackedChange = v[0];
-      for (let change of Object.values(v.slice(1))) stackedChange.value += change.value;
+      for (let change of Object.values(v.slice(1))) {
+        stackedChange.value += change.value; // Concatenation
+        stackedChange.numeric += change.numeric;
+      }
       // Set or adjust unique penalty
       if (!uniquePenalties[stackedChange.key]) uniquePenalties[stackedChange.key] = stackedChange;
-      else uniquePenalties[stackedChange.key].value += stackedChange.value;
+      else {
+        uniquePenalties[stackedChange.key].value += stackedChange.value; // Concatenation
+        uniquePenalties[stackedChange.key].numeric += stackedChange.numeric;
+      }
     }
     for (let [k, v] of Object.entries(stackingBonuses)) {
       // Compute stacked change
       stackedChange = v[0];
-      for (let change of Object.values(v.slice(1))) stackedChange.value += change.value;
+      for (let change of Object.values(v.slice(1))) {
+        stackedChange.value += change.value; // Concatenation
+        stackedChange.numeric += change.numeric;
+      }
       // Set or adjust unique bonus
       if (!uniqueBonuses[stackedChange.key]) uniqueBonuses[stackedChange.key] = stackedChange;
-      else uniqueBonuses[stackedChange.key].value += stackedChange.value;
+      else {
+        uniqueBonuses[stackedChange.key].value += stackedChange.value; // Concatenation
+        uniqueBonuses[stackedChange.key].numeric += stackedChange.numeric;
+      }
     }
     // Merge stacked bonuses into penalties to get overall change
     for (let change of Object.values(uniqueBonuses)) {
       if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
-      else uniquePenalties[change.key].value = (uniquePenalties[change.key].value + change.value).toString();
+      else {
+        uniquePenalties[change.key].value = (uniquePenalties[change.key].value + change.value).toString();
+        uniquePenalties[change.key].numeric += change.numeric;
+      }
+      // Finally merge value and numeric
+      if (change.numeric) uniquePenalties[change.key].value += "+" + change.numeric;
     }
     // Put everything together into an array of changes, once per target value
     uniqueChanges = uniqueChanges.concat(Object.values(uniquePenalties));
