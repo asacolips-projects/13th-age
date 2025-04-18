@@ -10,26 +10,26 @@
   width: 0;
 }
 
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+// .flexrow {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: flex-start;
 
-  >* {
-    flex: 1;
-  }
-}
+//   >* {
+//     flex: 1;
+//   }
+// }
 
-.flexcol {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+// .flexcol {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: nowrap;
 
-  >* {
-    flex: 1;
-  }
-}
+//   >* {
+//     flex: 1;
+//   }
+// }
 
 input::placeholder {
   color: rgba(0, 0, 0, 0.35);
