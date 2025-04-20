@@ -1064,7 +1064,7 @@ Hooks.on('renderSceneConfig', (app, html, data) => {
   const currentTerrains = data.document.getFlag('archmage', 'terrains') || [];
 
   // Create multiple select dom element
-  const htmlSelect = $(`<select multiple="multiple" name="flags.archmage.terrains" data-dtype="String"></select>`);
+  const htmlSelect = $(`<select style="height:125px;" multiple="multiple" name="flags.archmage.terrains" data-dtype="String"></select>`);
   terrainOptions.forEach(o => {
       const attrs = ["value='"+o.value+"'", currentTerrains.includes(o.value) ? "selected=" : ""];
       const option = $(`<option ${attrs.join(" ")}>${o.label}</option>`);
@@ -1077,11 +1077,12 @@ Hooks.on('renderSceneConfig', (app, html, data) => {
   htmlFormGroup.append(htmlSelect);
 
   // Attach the select after .initial-position
-  html.find('.initial-position').after(htmlFormGroup);
-  html.find('.initial-position').after('<hr>');
+  html = $(html);
+  const lastControl = html.find('div[data-tab=basics] .form-group').last();
+  lastControl.after(htmlFormGroup);
 
   // Update the height of the scene config by setting to auto
-  app._element.css('height', 'auto');
+  $(app.element).css('height', 'auto');
 });
 
 /* -------------------------------------------- */
