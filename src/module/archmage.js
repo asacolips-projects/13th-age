@@ -865,22 +865,18 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderDocumentDirectory", (app, html, options) => {
-  if (["actor", "item"].includes(options.documentCls)) {
-    const htmlElement = $(html)[0];
-    let compendiumButton = '';
-
-    if (options.tabName == "items") {
-      compendiumButton = `
+  const htmlElement = $(html)[0];
+  if (options.documentCls === 'actor') {
+    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", `
+      <button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}</button>
+    `);
+  }
+  if (options.documentCls === 'item') {
+    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", `
       <div class="flexrow">
         <button type="button" class="open-archmage-browser" data-tab="powers"><i class="fas fa-swords open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browsePowers')}</button>
         <button type="button" class="open-archmage-browser" data-tab="items"><i class="fas fa-wand-magic-sparkles open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseItems')}</button>
-      </div>`;
-    }
-    else {
-      compendiumButton = `<button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}</button>`;
-    }
-    // Append button. Click handler added in 'ready' hook.
-    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", compendiumButton);
+      </div>`);
   }
 });
 
