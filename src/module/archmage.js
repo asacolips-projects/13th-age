@@ -1092,8 +1092,9 @@ Hooks.on("updateScene", (scene, data, options, userId) => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", async (app, html) => {
+  html = $(html);
   let button = $(`<button id="archmage-reference-btn" class="archmage-rolls-reference" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
-  html.find('button[data-action="controls"]').after(button);
+  html.find('button[data-app="controls"]').after(button);
 
   // Event trigger has been moved to the ready hook using the archmage-rolls-reference class.
   // button.on('click', ev => {
@@ -1102,7 +1103,7 @@ Hooks.on("renderSettings", async (app, html) => {
   // });
 
   let helpButton = $(`<button id="archmage-help-btn" type="button" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
-  html.find('button[data-action="controls"]').after(helpButton);
+  html.find('button[data-app="controls"]').after(helpButton);
 
   helpButton.on('click', ev => {
     ev.preventDefault();
@@ -1110,7 +1111,7 @@ Hooks.on("renderSettings", async (app, html) => {
   });
 
   let licenseButton = $(`<button id="archmage-license-btn" type="button" data-action="archmage-help"><i class="fas fa-book"></i> ${game.i18n.localize('ARCHMAGE.DIALOG.CUP.title')}</button>`);
-  html.find('button[data-action="controls"]').after(licenseButton);
+  html.find('button[data-app="controls"]').after(licenseButton);
 
   licenseButton.on('click', ev => {
     ev.preventDefault();
