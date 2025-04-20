@@ -10,6 +10,7 @@
     text-align: center;
     padding: $padding-sm;
     background: $ct-border;
+    color: $c-white--60;
     font-family: $font-stack-secondary;
     font-weight: bold;
     font-size: $font-md;
@@ -37,11 +38,11 @@
   .sheet-tabs {
     flex-wrap: wrap;
     margin: 10px 0;
-  
+
     > span {
       display: flex;
     }
-  
+
     .tab-link {
       margin: 4px;
     }
