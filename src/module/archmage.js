@@ -706,19 +706,21 @@ Hooks.on('setup', (data, options, id) => {
 
 /* ---------------------------------------------- */
 
-function addEscalationDie() {
+async function addEscalationDie() {
   const escalation = ArchmageUtility.getEscalation();
   const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
   const hideIfNotGM = !game.user.isGM ? ' hide' : '';
-  const text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
-  $('.archmage-hotbar').prepend(
-    `<div class="archmage-escalation${hide}">
-       <div class="ed-number" data-esc-die-text="${text}">${escalation}</div>
-       <div class="ed-controls${hideIfNotGM}"">
-         <button class="ed-control ed-plus">+</button>
-         <button class="ed-control ed-minus">-</button>
-       </div>
-     </div>`);
+  const subtitle = game.i18n.localize("ARCHMAGE.escalationDieLabel");
+  const htmlContent = await foundry.applications.handlebars.renderTemplate(
+    "systems/archmage/templates/sidebar/ed-display.html",
+    {
+      escalation,
+      hide,
+      hideIfNotGM,
+      subtitle,
+    }
+  )
+  $('.archmage-hotbar').prepend(htmlContent);
 
   // Add click events for ed.
   $('body').on('click', '.ed-control', (event) => {
@@ -753,9 +755,9 @@ function addEscalationDie() {
 
 /* -------------------------------------------- */
 
-Hooks.once('ready', () => {
-  $('#ui-bottom').prepend(`<div class="archmage-hotbar"></div>`);
-  addEscalationDie();
+Hooks.once('ready', async () => {
+  $('#hotbar').prepend(`<div class="archmage-hotbar"></div>`);
+  await addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
 
@@ -1897,10 +1899,10 @@ Hooks.on('updateCombat', (async (combat, update) => {
     let escalation = ArchmageUtility.getEscalation(combat);
 
     // Update the escalation die tracker.
-    let $escalationDiv = $('.archmage-escalation');
+    let $escalationDiv = $('.archmage-escalation-display');
     $escalationDiv.attr('data-value', escalation);
     $escalationDiv.removeClass('hide');
-    $escalationDiv.find('.ed-number').text(escalation);
+    $escalationDiv.find('.ed-number h1').text(escalation);
 
     // Update open sheets.
     for (let app of Object.values(ui.windows)) {
