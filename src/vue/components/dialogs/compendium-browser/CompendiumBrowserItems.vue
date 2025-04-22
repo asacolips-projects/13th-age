@@ -480,14 +480,6 @@ export default {
       .filter(p => p.documentName === 'Item')
       .map(p => p.collection);
 
-    // If the 2e gamma module is active, remove the magic items pack it replaces
-    if (game.modules.get('13th-age-core-2e-gamma')?.active) {
-      const index = packIds.indexOf('archmage.srd-magic-items');
-      if (index > -1) {
-        packIds.splice(index, 1);
-      }
-    }
-
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
       'system.chackra',
