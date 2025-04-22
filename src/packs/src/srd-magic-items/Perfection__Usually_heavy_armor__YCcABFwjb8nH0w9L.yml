@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You gain a +1 bonus to all defenses while at maximum hit points.</p>
       <p>Quirk: Made uneasy by the sight of blood.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage

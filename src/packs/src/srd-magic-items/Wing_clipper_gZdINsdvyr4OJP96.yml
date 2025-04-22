@@ -13,6 +13,7 @@ system:
       from the same tier or lower than the ammunition, it loses the flight
       ability (save ends). If the target is presently flying, it must attempt to
       land during its next turn.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage
