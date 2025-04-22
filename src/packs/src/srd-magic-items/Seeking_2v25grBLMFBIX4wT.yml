@@ -11,6 +11,7 @@ system:
     value: >-
       <p>You deal +[[4]] damage on a miss (champion: +[[10]]; epic:
       +[[25]]).</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

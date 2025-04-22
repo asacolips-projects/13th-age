@@ -14,6 +14,7 @@ system:
       until the end of its next turn.</p>
 
       <p>Quirk: Warns of impending doom.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

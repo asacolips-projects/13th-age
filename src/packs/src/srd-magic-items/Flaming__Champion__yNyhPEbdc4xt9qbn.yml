@@ -11,6 +11,7 @@ system:
     value: >-
       <p>Bursts into fire as it flies. You deal [[8]] extra ongoing fire damage
       on a hit (epic: [[20]] ongoing fire).</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

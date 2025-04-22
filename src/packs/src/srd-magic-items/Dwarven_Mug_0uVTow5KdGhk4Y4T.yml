@@ -21,6 +21,7 @@ system:
 
       <p>Quirk: Speaks in dwarven, especially while drunk, even if ordinarily
       unable to speak dwarven.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

@@ -15,6 +15,7 @@ system:
 
       <p>Quirk: Constantly attempts to refill everyone else&rsquo;s drinks. Or
       potions. Or ration bags.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

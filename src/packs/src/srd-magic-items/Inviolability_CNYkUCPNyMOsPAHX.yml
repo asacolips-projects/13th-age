@@ -14,6 +14,7 @@ system:
 
       <p>Quirk: Attempts stunts of toughness and daring that a person less
       convinced of their invulnerability might be wise enough to avoid.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

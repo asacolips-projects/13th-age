@@ -13,6 +13,7 @@ system:
       hp or fewer after the hit, the creature drops to 0 hp. If it hits but
       fails to drop its target, the ammunition is not used up. It must of course
       be retrieved.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

@@ -11,6 +11,7 @@ system:
     value: |-
       <p>The default AC bonus applies to Physical Defense as well.</p>
       <p>Quirk: Extremely stubborn.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You gain a +1 bonus to all skill checks based on Str, Con, or Dex.</p>
       <p>Quirk: Takes heightened satisfaction in their own physical prowess.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
