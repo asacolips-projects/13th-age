@@ -15,6 +15,7 @@ system:
       cast the recovered spell, roll a [[d6]]. 1&ndash;3: The book chooses the
       targets for the spell and can consider you and your allies as enemies, or
       your enemies as allies. 4&ndash;6: You choose targets normally.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

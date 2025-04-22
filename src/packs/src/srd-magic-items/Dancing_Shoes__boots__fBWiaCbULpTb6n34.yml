@@ -17,6 +17,7 @@ system:
 
       <p>Recharge 6+: You gain a +3 bonus to disengage checks until the end of
       the battle (or five minutes).</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

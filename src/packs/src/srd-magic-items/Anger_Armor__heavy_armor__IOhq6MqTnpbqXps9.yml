@@ -15,6 +15,7 @@ system:
       and the escalation die is odd, roll a save; on a failure, you are enraged
       until the start of your next turn and take a &ndash;4 penalty to all
       defenses.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage
