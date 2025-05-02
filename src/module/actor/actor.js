@@ -591,6 +591,11 @@ export class ActorArchmage extends Actor {
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
       data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
 
+    if (game.settings.get("archmage", "secondEdition")) {
+      if (data.incrementals?.pd) data.attributes.pd.value += 1;
+      if (data.incrementals?.md) data.attributes.md.value += 1;
+    }
+
     // Barbarians get a bonus based on 'skulls' as of 2e beta
     if (this.getFlag("archmage", "grimDetermination")
       && game.settings.get("archmage", "secondEdition")
@@ -647,7 +652,8 @@ export class ActorArchmage extends Actor {
     }
     // Calculate recovery formula and average.
     let recLevel = Number(data.attributes.level?.value);
-    if (data.incrementals?.recovery && game.settings.get("archmage", "secondEdition")) recLevel += 1;
+    // This was a 2e playtest option that didn't make the cut
+    // if (data.incrementals?.recovery && game.settings.get("archmage", "secondEdition")) recLevel += 1;
     let recoveryDice = CONFIG.ARCHMAGE.numDicePerLevel[recLevel];
     let recoveryDie = ["d8", "", "8"]; // Fall back
     let recoveryAvg = 4.5; // Fall back

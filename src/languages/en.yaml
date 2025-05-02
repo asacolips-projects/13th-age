@@ -472,6 +472,8 @@ ARCHMAGE:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
     abilityScoreBonus2eHint: +1 to 3/4/5 ability scores (3rd/6th/9th Level)
     abilityScoreBonusName: Ability Score Bonus
+    classFeatureHint: If you have a class feature that improves every level, bump up its effective level by one
+    classFeatureName: Class Feature
     extraMagicItemHint: Carry an extra Magic Item without becoming overwhelmed by Quirks
     extraMagicItemName: Magic Item
     featHint: Choose one feat as if you were the next level
@@ -482,6 +484,10 @@ ARCHMAGE:
     hpName: Hit Points
     iconRelationshipPointHint: Gain an extra Icon relationship point (4th/7th Level)
     iconRelationshipPointName: Icon Relationship Point
+    mdHint: Increase your MD by one, as if you were one level higher
+    mdName: Mental Defense
+    pdHint: Increase your PD by one, as if you were one level higher
+    pdName: Physical Defense
     powerSpell1Hint: Choose a power / spell as if you were the next level
     powerSpell1Name: Power / Spell
     powerSpell2Hint: Choose a power / spell as if you were the next level
