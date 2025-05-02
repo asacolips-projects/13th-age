@@ -1130,10 +1130,10 @@ export class ActorArchmage extends Actor {
     // Render modal dialog
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
     let dialogData = {avg: avg ? "checked" : ""};
-    renderTemplate(template, dialogData).then(dlg => {
-      new Dialog({
+    let epicBonus = game.settings.get("archmage", "secondEdition") ? "+4d8" : "+3d8";
+    let epicMax = game.settings.get("archmage", "secondEdition") ? 0 : 100;
+    let dialogStruct = {
         title: game.i18n.localize("ARCHMAGE.recoveryRoll"),
-        content: dlg,
         buttons: {
           normal: {
             label: game.i18n.localize("ARCHMAGE.recoveryNormal"),
@@ -1171,17 +1171,8 @@ export class ActorArchmage extends Actor {
             label: game.i18n.localize("ARCHMAGE.recoveryEpic"),
             callback: () => {
               data.label = game.i18n.localize("ARCHMAGE.recoveryEpicFull");
-              data.bonus = "+3d8";
-              data.max = 100;
-              rolled = true;
-            }
-          },
-          pot4: {
-            label: game.i18n.localize("ARCHMAGE.recoveryIconic"),
-            callback: () => {
-              data.label = game.i18n.localize("ARCHMAGE.recoveryIconicFull");
-              data.bonus = "+4d8";
-              data.max = 130;
+              data.bonus = epicBonus;
+              data.max = epicMax;
               rolled = true;
             }
           },
@@ -1196,7 +1187,21 @@ export class ActorArchmage extends Actor {
             this.rollRecovery(data);
           }
         }
-      }).render(true);
+      };
+    if (!game.settings.get("archmage", "secondEdition")) {
+      dialogStruct.buttons.pot4 = {
+        label: game.i18n.localize("ARCHMAGE.recoveryIconic"),
+        callback: () => {
+          data.label = game.i18n.localize("ARCHMAGE.recoveryIconicFull");
+          data.bonus = "+4d8";
+          data.max = 130;
+          rolled = true;
+        }
+      }
+    }
+    renderTemplate(template, dialogData).then(dlg => {
+      dialogStruct.content = dlg;
+      new Dialog(dialogStruct).render(true);
     });
   }
 
