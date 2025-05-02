@@ -601,12 +601,11 @@ export class ActorArchmage extends Actor {
 
     // Barbarians get a bonus based on 'skulls' as of 2e beta
     if (this.getFlag("archmage", "grimDetermination")
-      && game.settings.get("archmage", "secondEdition")
-      && data.attributes.saves.deathFails.value > 0) {
-      const bonus = data.attributes.saves.deathFails.value >= 3 ? 2 : 1;
-      data.attributes.ac.value += bonus;
-      data.attributes.pd.value += bonus;
-      data.attributes.md.value += bonus;
+      && game.settings.get("archmage", "secondEdition")) {
+      data.grimDeterminationBonus = Math.min(data.attributes.saves.deathFails.value, 2);
+      data.attributes.ac.value += data.grimDeterminationBonus;
+      data.attributes.pd.value += data.grimDeterminationBonus;
+      data.attributes.md.value += data.grimDeterminationBonus;
     }
 
     // Damage Modifiers
