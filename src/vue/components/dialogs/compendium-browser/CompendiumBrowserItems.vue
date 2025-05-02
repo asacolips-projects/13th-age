@@ -93,6 +93,18 @@
       />
     </div>
 
+    <!-- Location filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.location">{{ localize('ARCHMAGE.location') }}</label>
+      <Multiselect
+        v-model="location"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="locationNames"
+      />
+    </div>
+
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
       <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
@@ -207,6 +219,7 @@ export default {
       tier: [],
       powerUsage: [],
       source: [],
+      location: [],
     }
   },
   methods: {
@@ -372,6 +385,11 @@ export default {
       }
       return result;
     },
+    locationNames() {
+      // List of locations from the selected entries
+      const locations = new Set(this.packIndex.map(entry => entry.compendiumTitle));
+      return Array.from(locations).sort();
+    },
     nightmode() {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
@@ -402,6 +420,9 @@ export default {
       }
       if (Array.isArray(this.source) && this.source.length > 0) {
         result = result.filter(entry => this.source.includes(entry.system.publicationSource));
+      }
+      if (Array.isArray(this.location) && this.location.length > 0) {
+        result = result.filter(entry => this.location.includes(entry.compendiumTitle));
       }
 
       // Recharge.
@@ -490,11 +511,9 @@ export default {
   async created() {
     console.log("Creating compendium browser magic items tab...");
 
-    const packIds = [
-      game.modules.get('13th-age-core-2e-gamma')?.active
-        ? '13th-age-core-2e-gamma.magic-items-2e'
-        : 'archmage.srd-magic-items'
-    ];
+    const packIds = game.packs.contents
+      .filter(p => p.documentName === 'Item')
+      .map(p => p.collection);
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
@@ -512,7 +531,10 @@ export default {
       'system.attributes.save',
       'system.attributes.disengage',
     ]).then(packIndex => {
-      this.packIndex = packIndex;
+      // Filter out non-magic-item entries.
+      this.packIndex = packIndex.filter(entry => {
+        return entry.type === 'equipment' || entry.type === 'loot';
+      });
       this.loaded = true;
     });
 

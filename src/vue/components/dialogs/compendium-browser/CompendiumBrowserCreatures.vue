@@ -73,6 +73,18 @@
       />
     </div>
 
+    <!-- Location filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.location">{{ localize('ARCHMAGE.location') }}</label>
+      <Multiselect
+        v-model="location"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="locationNames"
+      />
+    </div>
+
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
       <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
@@ -179,6 +191,7 @@ export default {
       role: [],
       size: [],
       source: [],
+      location: [],
     }
   },
   methods: {
@@ -264,6 +277,9 @@ export default {
       if (Array.isArray(this.source) && this.source.length > 0) {
         result = result.filter(entry => this.source.includes(entry.system.publicationSource));
       }
+      if (Array.isArray(this.location) && this.location.length > 0) {
+        result = result.filter(entry => this.location.includes(entry.compendiumTitle));
+      }
 
       // Reflow pager.
       if (result.length > this.pager.perPage) {
@@ -306,22 +322,28 @@ export default {
       }
       return Array.from(sources).sort();
     },
+    locationNames() {
+      // List of locations from the selected entries
+      const locations = new Set(this.packIndex.map(entry => entry.compendiumTitle));
+      return Array.from(locations).sort();
+    }
   },
   watch: {},
   // Handle created hook.
   async created() {
     console.log("Creating compendium browser creatures tab...");
 
-    const packIds = game.modules.get('13th-age-core-2e-gamma')?.active ? [
-      'archmage.srd-Monsters',
-      '13th-age-core-2e-gamma.monsters-2e',
-      '13th-age-core-2e-gamma.companions-2e',
-      'archmage.necromancer-summons',
-    ] : [
-      'archmage.srd-Monsters',
-      'archmage.animal-companions',
-      'archmage.necromancer-summons',
-    ];
+    let packIds = game.packs.contents
+      .filter(pack => pack.documentName === 'Actor')
+      .map(pack => pack.collection);
+
+    // If the 2e gamma module is active, remove the animal-companion pack that it replaces.
+    if (game.modules.get('13th-age-core-2e-gamma')?.active) {
+      const index = packIds.indexOf('archmage.animal-companions');
+      if (index > -1) {
+        packIds.splice(index, 1);
+      }
+    }
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
@@ -335,6 +357,11 @@ export default {
       'system.details.size.value',
       'system.details.type.value'
     ]).then(packIndex => {
+      // Ensure all entries are "monster" type
+      packIndex = packIndex.filter(entry => {
+        return entry.type === 'npc';
+      });
+
       // Restore the pack art.
       if (game.archmage.system?.moduleArt?.map?.size > 0) {
         for (let record of packIndex) {

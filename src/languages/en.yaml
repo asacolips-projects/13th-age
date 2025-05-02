@@ -105,6 +105,7 @@ ARCHMAGE:
   kin: Kin
   level: Level
   levelFormat: "{level} level"
+  location: Location
   loot: Loot
   lvl: Lvl
   magicItems: Magic Items
@@ -636,6 +637,8 @@ ARCHMAGE:
     toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus
     saveBonusHPTreshold: Save Bonus HP Threshold
+    stackingBehavior: Stacking Behavior
+    stacksAlways: Always stacks
     usesMax: Maximum Uses
     usesMaxHint: Number of uses per battle/day, usually 1
     usesRemaining: Uses Remaining
