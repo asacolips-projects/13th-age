@@ -962,10 +962,13 @@ ARCHMAGE.classes2e = {
   barbarian: {
     rec_die: 12,
   },
-  bard: {},
+  bard: {
+    rec_die: 6,
+  },
   chaosmage: {},
   cleric: {
     ac_hvy_pen: -2,
+    ac_lgt: 11,
   },
   commander: {},
   druid: {},
@@ -974,9 +977,14 @@ ARCHMAGE.classes2e = {
   necromancer: {},
   occultist: {},
   paladin: {},
-  ranger: {},
+  ranger: {
+    ac_lgt: 13,
+    rec_die: 6,
+  },
   rogue: {},
-  sorcerer: {},
+  sorcerer: {
+    wpn_2h: 8,
+  },
   wizard: {}
 }
 
@@ -991,7 +999,8 @@ ARCHMAGE.classResources2e = {
   // List custom resources to configure for classes that use them - added if 2e enabled
   // Stored as an array of two-element arrays with label and reset
   'barbarian': [["Frenzy", "quickreset"]],
-  'bard' : [["Combat Riffs", "quick", 2, 2], ["Healing Magics", "quick", 2, 2], ["Miss Me Effects", "quick", 2, 2]]
+  // These were part of the 2e playtest but didn't make the cut
+  // 'bard' : [["Combat Riffs", "quick", 2, 2], ["Healing Magics", "quick", 2, 2], ["Miss Me Effects", "quick", 2, 2]]
 }
 
 ARCHMAGE.keyModifiers = {
