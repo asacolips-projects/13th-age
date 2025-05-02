@@ -735,6 +735,7 @@ export class ActorArchmage extends Actor {
           break;
 
         case 'weapon':
+          if (actor.type != 'character') continue;
           // Weapon dice
           for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
             data.attributes.weapon[wpn].value = `${CONFIG.ARCHMAGE.numDicePerLevel[data.attributes.level.value]}${data.attributes.weapon[wpn].dice}`;
