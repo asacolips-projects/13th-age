@@ -11,6 +11,7 @@ system:
     value: |-
       <p>(Recharge 6+) When you use this ring, heal using a recovery.</p>
       <p>Quirk: Eats an odd vegetarian diet and advocates it loudly.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

@@ -12,6 +12,7 @@ system:
       <p>When you rally, you gain [[4]] temporary hit points that last until the
       end of your next turn (champion: [[10]] temp hp; epic: [[25]] temp
       hp).</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage

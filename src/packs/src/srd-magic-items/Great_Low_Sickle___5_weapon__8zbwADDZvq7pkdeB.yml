@@ -11,6 +11,7 @@ system:
     value: >-
       <p>You deal +5 damage with missed attacks, but all of your defenses take a
       &ndash;3 penalty</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

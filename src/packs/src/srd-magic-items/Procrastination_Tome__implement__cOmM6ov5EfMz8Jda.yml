@@ -15,6 +15,7 @@ system:
       during the first round of each battle you must spend all your actions
       either moving or &ldquo;limbering up.&rdquo; This means not using any
       abilities, you&rsquo;re just jogging and stretching.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

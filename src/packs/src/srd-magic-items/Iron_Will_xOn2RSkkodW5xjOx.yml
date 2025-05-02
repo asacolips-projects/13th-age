@@ -11,6 +11,7 @@ system:
     value: |-
       <p>The default AC bonus applies to Mental Defense as well.</p>
       <p>Quirk: Prone to abstract speculation.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

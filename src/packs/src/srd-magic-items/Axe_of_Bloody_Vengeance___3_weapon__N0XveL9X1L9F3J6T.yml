@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You cannot rally during a battle.</p>
       <p>Quirk: Carves patterns into own skin with fingernails.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

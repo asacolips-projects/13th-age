@@ -11,6 +11,7 @@ system:
     value: >-
       <p>When you make an attack with this ammunition, the crit range of that
       attack expands by 1 (usually 18+ including the default bonus).</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

@@ -14,6 +14,7 @@ system:
 
       <p>Always: +3 AC (champion) against melee attacks, but &ndash;1 AC against
       ranged attacks.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

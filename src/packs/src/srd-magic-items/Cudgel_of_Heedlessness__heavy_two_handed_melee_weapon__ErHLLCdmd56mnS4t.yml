@@ -15,6 +15,7 @@ system:
       you roll a natural 1 with a melee attack using this weapon, you hit a
       random nearby ally with that attack and deal maximum damage. If you try to
       use a different weapon, the cudgel will teleport into your hand.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

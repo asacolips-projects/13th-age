@@ -15,6 +15,7 @@ system:
       the escalation die is odd, roll a save; on a failure, you run away from
       that enemy as far as you can go (no disengage check, take opportunity
       attacks).</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

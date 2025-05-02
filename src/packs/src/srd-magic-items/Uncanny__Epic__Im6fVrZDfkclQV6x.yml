@@ -12,6 +12,7 @@ system:
       <p>It warps the forces of necessity and miracle as it flies. When you
       attack with this ammunition, use the target&rsquo;s lowest defense instead
       of the defense your attack would normally target.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

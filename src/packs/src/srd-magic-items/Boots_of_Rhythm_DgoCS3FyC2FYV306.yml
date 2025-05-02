@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You have a +4 bonus to dance checks.</p>
       <p>Quirk: Loves to learn new dances.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage

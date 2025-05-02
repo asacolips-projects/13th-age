@@ -15,6 +15,7 @@ system:
       <p>Always: Bonus to attacks and damage: +2 (adventurer). In addition, when
       you miss with an attack and the escalation die is odd, roll a save; on a
       failure, you instead hit yourself with the attack.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

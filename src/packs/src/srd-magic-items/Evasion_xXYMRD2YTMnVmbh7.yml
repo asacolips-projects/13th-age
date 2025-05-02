@@ -14,6 +14,7 @@ system:
 
       <p>Quirk: You can&rsquo;t answer a question directly even if you want
       to.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
