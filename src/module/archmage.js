@@ -287,9 +287,10 @@ Hooks.once('init', async function() {
     id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
     CONFIG.statusEffects.splice(id, 1);
 
+    // This was a 2e playtest condition that didn't make the cut
     // Remove 2e frenzied from context menu status effects
-    id = CONFIG.statusEffects.findIndex(e => e.id == "frenzied");
-    CONFIG.statusEffects.splice(id, 1);
+    // id = CONFIG.statusEffects.findIndex(e => e.id == "frenzied");
+    // CONFIG.statusEffects.splice(id, 1);
   }
 
   // Assign the actor class to the CONFIG

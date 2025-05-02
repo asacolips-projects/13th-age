@@ -112,30 +112,31 @@ ARCHMAGE.statusEffects = [
       }
     }
   },
+  // This was a 2e playtest condition that didn't make the cut
   // Frenzied.
-  {
-    id: "frenzied",
-    name: "ARCHMAGE.EFFECT.StatusFrenzied",
-    icon: "icons/svg/pill.svg",
-    journal: "gy68o7eat5p6bpgr",
-    changes: [
-      {
-        key: 'system.attributes.escalation.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-        value: '0'
-      },
-      {
-        key: 'system.attributes.attackMod.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        value: '-4'
-      }
-    ],
-    flags: {
-      archmage: {
-        duration: "Unknown",
-      }
-    }
-  },
+  // {
+    // id: "frenzied",
+    // name: "ARCHMAGE.EFFECT.StatusFrenzied",
+    // icon: "icons/svg/pill.svg",
+    // journal: "gy68o7eat5p6bpgr",
+    // changes: [
+      // {
+        // key: 'system.attributes.escalation.value',
+        // mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        // value: '0'
+      // },
+      // {
+        // key: 'system.attributes.attackMod.value',
+        // mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        // value: '-4'
+      // }
+    // ],
+    // flags: {
+      // archmage: {
+        // duration: "Unknown",
+      // }
+    // }
+  // },
   // Grabbed.
   {
     id: "grabbed",
@@ -342,17 +343,6 @@ ARCHMAGE.extendedStatusEffects = [
       }
     }
   },
-  // Flying.
-  {
-    id: "flying",
-    name: "ARCHMAGE.EFFECT.StatusFlying",
-    icon: "icons/svg/wing.svg",
-    flags: {
-      archmage: {
-        duration: "Unknown",
-      }
-    }
-  },
   // Bonus defenses.
   {
     id: "bonusDefenses",
@@ -397,6 +387,17 @@ ARCHMAGE.extendedStatusEffects = [
       }
     }
   },
+  // Flying.
+  {
+    id: "flying",
+    name: "ARCHMAGE.EFFECT.StatusFlying",
+    icon: "icons/svg/wing.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
   // Hidden.
   {
     id: "invisible", //hidden - renamed to play nice with v11 statuses
@@ -424,6 +425,12 @@ ARCHMAGE.extendedStatusEffects = [
     id: "sleep", //asleep - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusAsleep",
     icon: "icons/svg/sleep.svg",
+  },
+  // Blind.
+  {
+    id: "blind",
+    name: "ARCHMAGE.EFFECT.StatusBlind",
+    icon: "icons/svg/blind.svg",
   },
   // Silenced.
   {

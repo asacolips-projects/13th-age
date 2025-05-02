@@ -14,47 +14,47 @@ pages:
       format: 1
       content: >-
         <p>When a monster that is grabbing you starts its turn, it deals
-        automatic damage to you as a free action. The automatic damage is equal
-        to half the normal damage that it deals with its basic melee
-        attack.</p><p>You are engaged with the creature grabbing you, and you
-        can't move away unless you teleport, pop free, or successfully
-        disengage. You can't make opportunity attacks, but you can make normal
-        attacks on your turn.</p><p>If you are smaller than the creature that is
-        grabbing you, it can move and carry you along no problem. If you are the
-        same size or larger, the creature grabbing you has to let go of you if
-        it wants to move.</p>
+        automatic damage to you as a free action usable once on its turn. This
+        automatic damage is in addition to the monster’s normal actions and
+        attacks.</p><p>Wherever the amount isn't specified, use half the damage
+        the monster deals with its typical melee attack.</p><p>You are engaged
+        with the creature grabbing you, and you can't move away unless you
+        teleport, pop free, or successfully disengage. You can't make
+        opportunity attacks, but you can make normal attacks on your
+        turn.</p><p>If you are smaller than the creature that is grabbing you,
+        it can move and carry you along no problem. If you are the same size or
+        larger, the creature grabbing you has to let go of you if it wants to
+        move.</p>
     video:
       controls: true
       volume: 0.5
     src: null
     ownership:
       default: -1
-      dwEgyf88FCl0gnfL: 3
     flags: {}
     _stats:
       compendiumSource: null
       duplicateSource: null
       coreVersion: '12.331'
-      systemId: archmage
-      systemVersion: 1.31.0
-      createdTime: 1725298853097
-      modifiedTime: 1725299335739
-      lastModifiedBy: dwEgyf88FCl0gnfL
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
     _key: '!journal.pages!e74tdY4XILWFW9VB.bfHdjOkHZLVGbwtr'
 folder: null
 sort: 0
 ownership:
   default: 0
-  dwEgyf88FCl0gnfL: 3
 flags: {}
 _stats:
   compendiumSource: null
   duplicateSource: null
   coreVersion: '12.331'
-  systemId: archmage
-  systemVersion: 1.31.0
-  createdTime: 1725298843421
-  modifiedTime: 1725298843421
-  lastModifiedBy: dwEgyf88FCl0gnfL
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
 _key: '!journal!e74tdY4XILWFW9VB'
 
