@@ -915,11 +915,11 @@ export class ActorArchmage extends Actor {
         'system.attributes.saves.lastGaspFails.value': Math.min(4, Number(this.system.attributes.saves.lastGaspFails.value) + 1)
       });
       // If this is the first failed last gasps save, add helpless
-      let filtered = this.effects.filter(x => x.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusHelpless"));
+      let filtered = this.effects.filter(x => x.name === game.i18n.localize("ARCHMAGE.EFFECT.StatusHelpless"));
       if (filtered.length == 0 && this.system.attributes.saves.lastGaspFails.value == 1) {
         let effectData = CONFIG.statusEffects.find(x => x.id == "helpless");
         let createData = foundry.utils.deepClone(effectData);
-        createData.label = game.i18n.localize(effectData.label);
+        createData.name = game.i18n.localize(effectData.name);
         createData["flags.core.statusId"] = effectData.id;
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
