@@ -1181,6 +1181,12 @@ FLAGS.characterFlags = {
     section: "Feats",
     type: Boolean
   },
+  "dexToCha": {
+    name: "ARCHMAGE.CHARACTERFLAGS.dexToChaName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.dexToChaHint",
+    section: "Feats",
+    type: Boolean
+  },
   "dexToInt": {
     name: "ARCHMAGE.CHARACTERFLAGS.dexToIntName",
     hint: "ARCHMAGE.CHARACTERFLAGS.dexToIntHint",

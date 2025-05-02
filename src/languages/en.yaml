@@ -338,9 +338,11 @@ ARCHMAGE:
     hideSettingsTabHint: Hide the sheet settings tab for players.
     hideSettingsTabName: Hide Settings tab
     implacableHint: Paladin talent to roll saves at the start of your turn instead of at the end of your turn.
-    implacableName: Implacable/Undaunted
+    implacableName: Implacable
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
+    dexToChaHint: Paladin feature to use Cha in place of Dex for AC calculation.
+    dexToChaName: Blessing of Heaven
     dexToIntHint: Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.
     dexToIntName: Mental Phenomenon
     grimDeterminationHint: Barbarian feature to get extra defences when you have one or more skulls.

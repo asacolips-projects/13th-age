@@ -273,6 +273,8 @@ Hooks.once('init', async function() {
     delete FLAGS.characterFlags.dexToInt;
     // Remove Grim Determination flag
     delete FLAGS.characterFlags.grimDetermination;
+    // Remove Blessing of Heaven flag
+    delete FLAGS.characterFlags.dexToCha;
 
     // Remove 11th level feat tier
     delete CONFIG.ARCHMAGE.featTiers.iconic;

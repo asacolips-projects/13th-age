@@ -574,18 +574,20 @@ export class ActorArchmage extends Actor {
     data.abilities.cha.bonus = chaBonus;
 
     // Defenses (second element of sorted triple equal median)
-    // Wizards can use In in place of Dex with a talent
-    if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
-      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.int.nonKey.lvlmod,
-        data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
-      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.int.nonKey.lvlmod,
-        data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
-    } else {
-      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod,
-        data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
-      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod,
-        data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+    // Wizards can use In in place of Dex with a talent, and paladin can use Cha with a feature
+    let dexACBonus = data.abilities.dex.nonKey.lvlmod;
+    let dexPDBonus = data.abilities.dex.nonKey.lvlmod;
+    if (game.settings.get("archmage", "secondEdition")) {
+      if (this.getFlag("archmage", "dexToInt")) {
+        dexACBonus = Math.max(dexACBonus, data.abilities.int.nonKey.lvlmod);
+        dexPDBonus = Math.max(dexPDBonus, data.abilities.int.nonKey.lvlmod);
+      }
+      if (this.getFlag("archmage", "dexToCha")) dexACBonus = Math.max(dexACBonus, data.abilities.cha.nonKey.lvlmod);
     }
+    data.attributes.ac.value = Number(data.attributes.ac.base) + Number([dexACBonus,
+      data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+    data.attributes.pd.value = Number(data.attributes.pd.base) + Number([dexPDBonus,
+      data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
       data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
 
