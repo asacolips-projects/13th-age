@@ -117,6 +117,9 @@ export class ActorArchmage extends Actor {
     // Fallback for attack modifier and defenses
     if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
 
+    // Tier multiplier (used by both PCs and monsters)
+    data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
+
     // Prepare Character data
     if (actorData.type === 'character') {
       this._prepareCharacterData(data, model, flags);
@@ -612,8 +615,6 @@ export class ActorArchmage extends Actor {
     if (data.attributes.level.value >= 8) data.tier = 3;
     if (data.incrementals?.abilMultiplier && game.settings.get("archmage", "secondEdition")) {
       data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value+1];
-    } else {
-      data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
     }
 
     for (let prop in data.abilities) {
