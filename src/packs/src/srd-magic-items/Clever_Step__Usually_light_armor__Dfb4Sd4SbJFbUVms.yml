@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You gain a +4 bonus to all defenses against opportunity attacks.</p>
       <p>Quirk: Likes to dance little jigs.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage

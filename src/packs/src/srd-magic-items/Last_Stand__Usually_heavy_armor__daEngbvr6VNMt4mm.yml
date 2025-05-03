@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You gain a +4 bonus to AC while you have no recoveries left.</p>
       <p>Quirk: Has a high pain tolerance.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage

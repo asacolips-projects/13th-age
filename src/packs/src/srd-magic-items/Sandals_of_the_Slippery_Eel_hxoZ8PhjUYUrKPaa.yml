@@ -11,6 +11,7 @@ system:
     value: |-
       <p>(Recharge 11+) Reroll a failed disengage check.</p>
       <p>Quirk: Loves puns.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

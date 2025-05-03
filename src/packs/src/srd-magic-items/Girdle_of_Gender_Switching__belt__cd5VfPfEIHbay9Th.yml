@@ -16,6 +16,7 @@ system:
       you if removed for more than 10 minutes. In addition, minor shifts in
       weight distribution throw your balance off, and you take a &ndash;1
       penalty with melee attacks during your first battle each day.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage

@@ -12,6 +12,7 @@ system:
       <p>On a miss, you can make a basic ranged attack against another foe that
       is near the target or along your line of sight to the target (between you
       and the original target or past the original target).</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You gain a +4 bonus to skill checks to walk quietly.</p>
       <p>Quirk: Develops a love of elegant elven poetry.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

@@ -11,6 +11,7 @@ system:
     value: >-
       <p>When you hit with an attack using this ammunition, the target also pops
       free from each enemy engaged with it.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage

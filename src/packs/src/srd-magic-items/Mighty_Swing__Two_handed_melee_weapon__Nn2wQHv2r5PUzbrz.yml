@@ -14,6 +14,7 @@ system:
       you miss, you take that damage instead.</p>
 
       <p>Quirk: Tends to break things.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage

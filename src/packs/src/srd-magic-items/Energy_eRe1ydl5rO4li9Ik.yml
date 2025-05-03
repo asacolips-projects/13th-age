@@ -12,6 +12,7 @@ system:
       <p>This ammunition has been enchanted with one of the following types of
       energy: acid, cold, fire, holy, lightning, thunder. An attack using this
       ammunition deals that type of damage.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage

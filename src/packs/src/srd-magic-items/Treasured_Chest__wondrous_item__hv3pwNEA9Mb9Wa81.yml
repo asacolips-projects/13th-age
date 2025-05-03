@@ -15,6 +15,7 @@ system:
       <p>Always: You can&rsquo;t move faster than the chest, and the chest is
       slow. You travel at half speed everywhere and can&rsquo;t use actions to
       move twice during a turn in battle.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage
