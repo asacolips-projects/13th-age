@@ -753,9 +753,10 @@ export class ActorArchmage extends Actor {
           wpnTypes.forEach(wpn => {
             if (data.wpn[wpn].dice) {
               data.wpn[wpn].die = data.wpn[wpn].dice;
-              data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+              data.wpn[wpn].dieNum = Number(data.wpn[wpn].dice.match(/d(\d+).*/)[1]);
             }
             data.wpn[wpn].dice = data.wpn[wpn].value;
+            data.wpn[wpn].diceMin2 = data.wpn[wpn].dice.replace(/d\d+/, `d${data.wpn[wpn].dieNum - 2}`);
             // data.wpn[wpn].atk = data.wpn[wpn].attack;
             // data.wpn[wpn].dmg = data.wpn[wpn].dmg;
             delete data.wpn[wpn].value;
@@ -770,7 +771,8 @@ export class ActorArchmage extends Actor {
             else if (actor.system.attributes.level.value >= 10) data.wpn.epicbonus = 30;
             if (data.wpn.epicbonus) {
               wpnTypes.forEach(wpn => {
-                data.wpn[wpn].dice += `+${data.wpn.epicbonus}`
+                data.wpn[wpn].dice += `+${data.wpn.epicBonus}`
+                data.wpn[wpn].diceMin2 += `+${data.wpn.epicBonus}`
               });
             }
           }
