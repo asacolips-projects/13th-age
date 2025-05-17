@@ -7,10 +7,7 @@ system:
   description:
     type: String
     label: Description
-    value: >-
-      <p>The flagrant blossoms form is said to have been created by the last
-      Grand Master of Flowers. If you’re not already an enemy of the ogre magi,
-      you will be when you use this form.</p>
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
