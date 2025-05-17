@@ -756,7 +756,7 @@ export class ActorArchmage extends Actor {
               data.wpn[wpn].dieNum = Number(data.wpn[wpn].dice.match(/d(\d+).*/)[1]);
             }
             data.wpn[wpn].dice = data.wpn[wpn].value;
-            data.wpn[wpn].diceMin2 = data.wpn[wpn].dice.replace(/d\d+/, `d${data.wpn[wpn].dieNum - 2}`);
+            data.wpn[wpn].diceMin2 = data.wpn[wpn].dice.replace(/d\d+/, `d${Math.max(data.wpn[wpn].dieNum - 2, 4)}`);
             // data.wpn[wpn].atk = data.wpn[wpn].attack;
             // data.wpn[wpn].dmg = data.wpn[wpn].dmg;
             delete data.wpn[wpn].value;
@@ -765,11 +765,11 @@ export class ActorArchmage extends Actor {
 
           // In 2e add extra at epic tier
           if (game.settings.get("archmage", "secondEdition")) {
-            data.wpn.epicbonus = 0;
-            if (actor.system.attributes.level.value == 8) data.wpn.epicbonus = 10;
-            else if (actor.system.attributes.level.value == 9) data.wpn.epicbonus = 20;
-            else if (actor.system.attributes.level.value >= 10) data.wpn.epicbonus = 30;
-            if (data.wpn.epicbonus) {
+            data.wpn.epicBonus = 0;
+            if (actor.system.attributes.level.value == 8) data.wpn.epicBonus = 10;
+            else if (actor.system.attributes.level.value == 9) data.wpn.epicBonus = 20;
+            else if (actor.system.attributes.level.value >= 10) data.wpn.epicBonus = 30;
+            if (data.wpn.epicBonus) {
               wpnTypes.forEach(wpn => {
                 data.wpn[wpn].dice += `+${data.wpn.epicBonus}`
                 data.wpn[wpn].diceMin2 += `+${data.wpn.epicBonus}`
