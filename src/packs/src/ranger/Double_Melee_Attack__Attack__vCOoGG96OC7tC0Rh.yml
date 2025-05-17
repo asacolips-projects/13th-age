@@ -83,7 +83,7 @@ system:
   hit:
     type: String
     label: Hit
-    value: '[[(@lvldice)d(@wpn.m.dieNum - 2) + @str.dmg + @atk.m.bonus]] damage'
+    value: '[[@wpn.m.diceMin2 + @str.dmg + @atk.m.bonus]] damage'
   hitEven:
     type: String
     label: Natural Even Hit
