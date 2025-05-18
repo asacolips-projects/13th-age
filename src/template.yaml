@@ -401,6 +401,10 @@ Actor:
           current: 'none'
           default: 'none'
           secondEdition: true
+        bravado:
+          enabled: false
+          current: 0
+          secondEdition: true
       spendable:
         ki:
           enabled: false

@@ -139,7 +139,7 @@
             {{localize(concat('ARCHMAGE.RESTS.',option.value))}}</option>
           </select>
         </div>
-        <!-- Momentum, Command Points and Focus -->
+        <!-- Bravado, Momentum, Command Points and Focus -->
         <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="settings-resource" :data-key="r">
           <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>

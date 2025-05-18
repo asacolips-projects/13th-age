@@ -49,6 +49,13 @@
         </select>
       </div>
     </section>
+    <!-- Bravado -->
+    <section v-if="actor.system.resources?.perCombat?.bravado?.enabled" class="unit unit--bravado">
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.bravado')}}</h2>
+      <div class="resource flexrow">
+        <input type="number" name="system.resources.perCombat.bravado.current" v-model="bravado">
+      </div>
+    </section>
     <!-- Stoke -->
     <section v-if="CONFIG.ARCHMAGE.is2e && actor.system.resources.spendable.stoke?.enabled" class="unit unit--has-max unit--stoke">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.stoke')}}</h2>
@@ -143,7 +150,8 @@ export default {
           max: 0
         }
       },
-      rhythm: 'none'
+      rhythm: 'none',
+      bravado: 0
     }
   },
   computed: {
@@ -168,6 +176,7 @@ export default {
       if ( game.settings.get('archmage', 'secondEdition') ) {
         if (this.actor.system.resources.perCombat?.rhythm?.enabled) count++;
         if (this.actor.system.resources.spendable?.stoke?.enabled) count++;
+        if (this.actor.system.resources.perCombat?.bravado?.enabled) count++;
       }
       return count;
     },
@@ -186,6 +195,7 @@ export default {
       if ( game.settings.get('archmage', 'secondEdition') ) {
         this.stoke = this.actor.system.resources.spendable?.stoke;
         this.rhythm = this.actor.system.resources.perCombat?.rhythm?.current;
+        this.bravado = this.actor.system.resources.perCombat?.bravado?.current;
       }
     }
   },

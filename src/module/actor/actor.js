@@ -424,6 +424,7 @@ export class ActorArchmage extends Actor {
     if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
     if (!data.resources.perCombat.commandPoints) data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
     if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
+    if (!data.resources.perCombat.bravado) data.resources.perCombat.bravado = model.resources.perCombat.bravado;
     if (!data.resources.spendable) data.resources.spendable = model.resources.spendable;
     if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
     for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
@@ -1354,7 +1355,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Resources
-    // Focus, Momentum and Command Points
+    // Bravado, Focus, Momentum and Command Points
     for (let k of Object.keys(this.system.resources.perCombat)) {
       if ( this.system.resources.perCombat[k].default )
         updateData[`system.resources.perCombat.${k}.current`] = this.system.resources.perCombat[k].default;
@@ -1498,7 +1499,7 @@ export class ActorArchmage extends Actor {
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.ki.max}`
       });
     }
-    // Focus, Momentum and Command Points
+    // Bravado, Focus, Momentum and Command Points
     for (let k of Object.keys(this.system.resources.perCombat)) {
       if ( this.system.resources.perCombat[k].default )
         updateData[`system.resources.perCombat.${k}.current`] = this.system.resources.perCombat[k].default;
@@ -2377,9 +2378,10 @@ export class ActorArchmage extends Actor {
         // Enable resources based on detected classes
         data.system.resources = {
           perCombat: {
-            momentum: {enabled: matchedClasses.includes("rogue")},
+            momentum: {enabled: matchedClasses.includes("rogue") & !game.settings.get("archmage", "secondEdition")},
             commandPoints: {enabled: matchedClasses.includes("commander")},
             focus: {enabled: matchedClasses.includes("occultist")},
+            bravado: {enabled: matchedClasses.includes("rogue") & game.settings.get("archmage", "secondEdition")},
           },
           spendable: {ki: {enabled: matchedClasses.includes("monk")}}
         };

@@ -290,6 +290,7 @@ ARCHMAGE:
     showToken: 'Show Token'
     showTokenTitle: 'Token: {name}'
     RESOURCES:
+      bravado: Bravado
       commandPoint: Command Point
       commandPoints: Command Points
       commandPointsGained: Gained {points} command points.
