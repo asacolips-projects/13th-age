@@ -2378,10 +2378,10 @@ export class ActorArchmage extends Actor {
         // Enable resources based on detected classes
         data.system.resources = {
           perCombat: {
-            momentum: {enabled: matchedClasses.includes("rogue") & !game.settings.get("archmage", "secondEdition")},
+            momentum: {enabled: matchedClasses.includes("rogue") && !game.settings.get("archmage", "secondEdition")},
             commandPoints: {enabled: matchedClasses.includes("commander")},
             focus: {enabled: matchedClasses.includes("occultist")},
-            bravado: {enabled: matchedClasses.includes("rogue") & game.settings.get("archmage", "secondEdition")},
+            bravado: {enabled: matchedClasses.includes("rogue") && game.settings.get("archmage", "secondEdition")},
           },
           spendable: {ki: {enabled: matchedClasses.includes("monk")}}
         };
