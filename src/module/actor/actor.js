@@ -1533,6 +1533,9 @@ export class ActorArchmage extends Actor {
       }
     }
 
+    // Reset desperate recharge flag
+    updateData["system.attributes.saves.desperateTriggered"] = false;
+
     // Update actor at this point (items are updated separately)
     if ( !foundry.utils.isEmpty(updateData) ) {
       await this.update(updateData);
@@ -1621,6 +1624,10 @@ export class ActorArchmage extends Actor {
   }
 
   async rechargeDesperate() {
+    // Only trigger once per full heal up
+    if (this.system.attributes.saves.desperateTriggered) return;
+    else await this.update({"system.attributes.saves.desperateTriggered": true})
+
     let templateData = {
       actor: this,
       items: []
@@ -1662,6 +1669,8 @@ export class ActorArchmage extends Actor {
       ChatMessage.applyRollMode(chatData, rollMode);
       chatData["content"] = await renderTemplate(template, templateData);
       await game.archmage.ArchmageUtility.createChatMessage(chatData);
+    } else {
+      ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.infoDesperateTriggeredEmpty"));
     }
   }
 

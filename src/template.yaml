@@ -67,6 +67,7 @@ Actor:
               - false
               - false
               - false
+          desperateTriggered: false
           lastGaspFails:
             value: 0
             max: 4
