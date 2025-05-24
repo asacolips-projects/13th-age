@@ -356,7 +356,7 @@ export class ItemArchmage extends Item {
           if (stop) return true;
         }
 
-        // Combat Rhythm
+        // Combat Rhythm - TODO: deprecated, remove at some future point far from end of 2e playtest
         else if (res.perCombat.rhythm?.enabled &&
             (str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()
             || str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense").toLowerCase())) {
@@ -706,6 +706,7 @@ export class ItemArchmage extends Item {
     await this.itemActor?.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
+  // TODO: deprecated, remove at some future point far from end of 2e playtest
   async _handleFighterCombatRhythm(itemToRender, actorUpdateData) {
     if (itemToRender.type != "power") return;
     if (!this.itemActor?.system.resources?.perCombat?.rhythm?.enabled) return;

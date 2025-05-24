@@ -38,7 +38,7 @@
         <input type="checkbox" name="system.resources.perCombat.momentum.current" v-model="momentum">
       </div>
     </section>
-    <!-- Combat Rhythm -->
+    <!-- Combat Rhythm - TODO: deprecated, remove at some future point far from end of 2e playtest -->
     <section v-if="actor.system.resources?.perCombat?.rhythm?.enabled && secondEdition" class="unit unit--rhythm">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm')}}</h2>
       <div class="resource flexrow">
