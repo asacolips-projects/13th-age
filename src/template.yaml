@@ -67,6 +67,7 @@ Actor:
               - false
               - false
               - false
+          desperateTriggered: false
           lastGaspFails:
             value: 0
             max: 4
@@ -399,6 +400,10 @@ Actor:
           enabled: false
           current: 'none'
           default: 'none'
+          secondEdition: true
+        bravado:
+          enabled: false
+          current: 0
           secondEdition: true
       spendable:
         ki:

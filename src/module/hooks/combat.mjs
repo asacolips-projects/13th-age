@@ -12,6 +12,7 @@ export async function combatTurn(combat, context, options) {
 
     // Execute start/end of turn macros
     await executeLifecycleMacro(endCombatant, "endOfTurn");
+    await _add2eFighterMomentum(endCombatant);
     await executeLifecycleMacro(startCombatant, "startOfTurn");
 
     // Exit early if the feature is disabled.
@@ -315,4 +316,19 @@ async function executeLifecycleMacro(combatant, hookName) {
         ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errMacroSyntax'));
         console.error(`Lifecycle hook '${combatant.actor.name}' / ${hookName} failed with: ${ex}`, ex);
     }
+}
+
+async function _add2eFighterMomentum(combatant) {
+    // Pseudo combatants may not have an actor.
+    if (!combatant?.actor) return;
+
+    // Only woks in 2e and for fighters
+    if (!(game.settings.get("archmage", "secondEdition") && combatant.actor?.system?.details?.detectedClasses?.includes("fighter"))) return;
+
+    // Update actor's resource
+    let updateData = {}
+    if (combatant.actor?.system.resources?.perCombat?.momentum?.enabled) {
+      updateData['system.resources.perCombat.momentum.current'] = true;
+    }
+    await combatant.actor.update(updateData);
 }
