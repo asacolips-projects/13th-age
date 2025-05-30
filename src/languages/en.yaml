@@ -513,6 +513,12 @@ ARCHMAGE:
     skillInitiativeHint: Add +1 to all skill and initiative checks
     abilMultiplierName: Ability Multiplier
     abilMultiplierHint: Double/quadruple the ability modifier contribution to damage and healing (4th/7th level)
+  ICONROLLS:
+    tooltip1e5: Benefit with complication
+    tooltip1e6: Benefit
+    tooltip2e5: Benefit with a twist
+    tooltip2e6: Benefit
+    tooltip2ealt6: Connection used this arc
   COINS:
     copper: Copper
     copperHint: 10 Copper = 1 Silver

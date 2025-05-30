@@ -16,6 +16,7 @@
                 :data-key="index"
                 :data-roll-key="rollIndex"
                 :data-roll="roll ?? 0"
+                :data-tooltip="rollResultTooltip(roll)"
             >
               {{rollResultText(roll)}}
             </li>
@@ -50,7 +51,8 @@ export default {
   },
   data: () => ({
     editArray: [],
-    is2e: CONFIG.ARCHMAGE.is2e
+    is2e: CONFIG.ARCHMAGE.is2e,
+    alternateIconRollingMethod: game.settings.get('archmage', 'alternateIconRollingMethod')
   }),
   computed: {
     icons() {
@@ -102,14 +104,27 @@ export default {
         5: '5',
         6: '6'
       }
-      if (game.settings.get('archmage', 'alternateIconRollingMethod')) {
+      if (this.alternateIconRollingMethod) {
         delete results[5]
-        results[6] = 'X';
-      } else if (CONFIG.ARCHMAGE.is2e) {
+        results[6] = '⨉';
+      } else if (this.is2e) {
         results[5] = '~';
         results[6] = '+';
       }
       return results[roll] ?? '';
+    },
+    rollResultTooltip(roll) {
+      const keys = {}
+      if (this.alternateIconRollingMethod) {
+        keys[6] = 'ARCHMAGE.ICONROLLS.tooltip2ealt6';
+      } else if (this.is2e) {
+        keys[5] = 'ARCHMAGE.ICONROLLS.tooltip2e5';
+        keys[6] = 'ARCHMAGE.ICONROLLS.tooltip2e6';
+      } else {
+        keys[5] = 'ARCHMAGE.ICONROLLS.tooltip1e5';
+        keys[6] = 'ARCHMAGE.ICONROLLS.tooltip1e6';
+      }
+      return keys[roll] ? game.i18n.localize(keys[roll]) : '';
     }
   },
   watch: {
