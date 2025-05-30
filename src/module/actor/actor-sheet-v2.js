@@ -891,6 +891,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       else if (value < 5) {
         value = 5;
       }
+      if (game.settings.get('archmage', 'alternateIconRollingMethod') && value === 5) {
+        // Skip 5's, dice are either used or not
+        value = 6;
+      }
 
       // Retrieve the original results array, replace this die result.
       let results = this.actor.system.icons[iconIndex].results;
