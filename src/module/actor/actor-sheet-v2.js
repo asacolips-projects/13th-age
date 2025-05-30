@@ -639,120 +639,145 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    */
   async _onIconRoll(iconIndex) {
     let actorData = this.actor.system;
+    if (!actorData.icons[iconIndex]) {
+      return;
+    }
 
-    if (actorData.icons[iconIndex]) {
-      let icon = actorData.icons[iconIndex];
-      let roll = new Roll(`${icon.bonus.value}d6`);
-      let result = await roll.roll();
 
-      let fives = 0;
-      let sixes = 0;
-      var rollResults;
+    let icon = actorData.icons[iconIndex];
+    let numberOfDice = icon.bonus.value;
 
-      let actorIconResults = [];
+    // If this is the 2e alt method, we only roll dice that haven't already been used
+    const is2eAlt = game.settings.get("archmage", "alternateIconRollingMethod");
+    let actorIconResults = [];
+    if (is2eAlt) {
+      actorIconResults = actorData.icons?.[iconIndex]?.results || [];
+      const usedDice = actorIconResults.filter(x => x > 0).length;
+      numberOfDice -= usedDice;
+    }
 
-      rollResults = result.terms[0].results;
-      rollResults.forEach(rollResult => {
-        if (CONFIG.ARCHMAGE.is2e) {
-          if ([5, 6].includes(rollResult.result)) {
-            sixes++;
-            actorIconResults.push(6);
+    let roll = new Roll(`${numberOfDice}d6`);
+    let result = await roll.roll();
+
+    let fives = 0;
+    let sixes = 0;
+    var rollResults;
+
+    rollResults = result.terms[0].results;
+    rollResults.forEach(rollResult => {
+      if (is2eAlt) {
+        if ([4, 5, 6].includes(rollResult.result)) {
+          sixes++;
+          // Replace the first zero with a six.
+          for (let i = 0; i < actorIconResults.length; i++) {
+            if (actorIconResults[i] === 0) {
+              actorIconResults[i] = 6;
+              break;
+            }
           }
+          actorIconResults.push(6);
         }
-        else if (rollResult.result == 5) {
-          fives++;
-          actorIconResults.push(5);
-        }
-        else if (rollResult.result == 6) {
+      }
+      else if (CONFIG.ARCHMAGE.is2e) {
+        if ([5, 6].includes(rollResult.result)) {
           sixes++;
           actorIconResults.push(6);
         }
-        else {
-          actorIconResults.push(0);
-        }
-      });
+      }
+      else if (rollResult.result == 5) {
+        fives++;
+        actorIconResults.push(5);
+      }
+      else if (rollResult.result == 6) {
+        sixes++;
+        actorIconResults.push(6);
+      }
+      else {
+        actorIconResults.push(0);
+      }
+    });
 
-      // Basic template rendering data
-      const template = `systems/archmage/templates/chat/icon-relationship-card.html`
-      const token = this.actor.token;
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/icon-relationship-card.html`
+    const token = this.actor.token;
 
-      // Basic chat message data
-      const chatData = {
-        user: game.user.id,
-        roll: roll,  // TODO: fix template to use rolls prop
-        rolls: [roll],
-        speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor)
-      };
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      roll: roll,  // TODO: fix template to use rolls prop
+      rolls: [roll],
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor)
+    };
 
-      const templateData = {
-        actor: this.actor,
-        tokenId: token ? `${token.id}` : null,
-        secondEdition: CONFIG.ARCHMAGE.is2e,
-        icon: icon,
-        fives: fives,
-        sixes: sixes,
-        hasFives: fives > 0,
-        hasSixes: sixes > 0,
-        data: chatData
-      };
+    const templateData = {
+      actor: this.actor,
+      tokenId: token ? `${token.id}` : null,
+      secondEdition: CONFIG.ARCHMAGE.is2e,
+      is2eAlt: is2eAlt,
+      icon: icon,
+      fives: fives,
+      sixes: sixes,
+      hasFives: fives > 0,
+      hasSixes: sixes > 0,
+      data: chatData
+    };
 
-      // Render the template
-      chatData["content"] = await renderTemplate(template, templateData);
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
 
-      let message = await game.archmage.ArchmageUtility.createChatMessage(chatData);
+    let message = await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
-      // Update actor.
-      let updateData = {};
-      updateData[`system.icons.${iconIndex}.results`] = actorIconResults;
-      await this.actor.update(updateData);
+    // Update actor.
+    let updateData = {};
+    updateData[`system.icons.${iconIndex}.results`] = actorIconResults;
+    await this.actor.update(updateData);
 
-      // Card support
-      if (game.decks) {
+    // Card support
+    if (game.decks) {
 
-        for (let x = 0; x < fives; x++) {
-          await addIconCard(icon.name.value, 5);
-        }
-        for (let x = 0; x < sixes; x++) {
-          await addIconCard(icon.name.value, 6);
-        }
-
-        async function addIconCard(icon, value) {
-          let decks = game.decks.decks;
-          for (let deckId in decks) {
-            let msg = {
-              type: "GETALLCARDSBYDECK",
-              playerID: game.users.find(el => el.isGM && el.active).id,
-              deckID: deckId
-            };
-
-            const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-            let foundCard = undefined;
-            game.socket.on("module.cardsupport", async (recieveMsg) => {
-              if (recieveMsg?.cards == undefined || foundCard) return;
-              let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
-
-              if (card) {
-                await ui.cardHotbar.populator.addToPlayerHand([card]);
-                foundCard = true;
-                // Unbind
-                game.socket.off("module.cardsupport");
-              }
-              foundCard = false;
-            });
-
-            game.socket.emit("module.cardsupport", msg);
-
-            await wait(200);
-            // Unbind
-            game.socket.off("module.cardsupport");
-            if (foundCard) return;
-          }
-        }
+      for (let x = 0; x < fives; x++) {
+        await addIconCard(icon.name.value, 5);
+      }
+      for (let x = 0; x < sixes; x++) {
+        await addIconCard(icon.name.value, 6);
       }
 
-      return message;
+      async function addIconCard(icon, value) {
+        let decks = game.decks.decks;
+        for (let deckId in decks) {
+          let msg = {
+            type: "GETALLCARDSBYDECK",
+            playerID: game.users.find(el => el.isGM && el.active).id,
+            deckID: deckId
+          };
+
+          const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+          let foundCard = undefined;
+          game.socket.on("module.cardsupport", async (recieveMsg) => {
+            if (recieveMsg?.cards == undefined || foundCard) return;
+            let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
+
+            if (card) {
+              await ui.cardHotbar.populator.addToPlayerHand([card]);
+              foundCard = true;
+              // Unbind
+              game.socket.off("module.cardsupport");
+            }
+            foundCard = false;
+          });
+
+          game.socket.emit("module.cardsupport", msg);
+
+          await wait(200);
+          // Unbind
+          game.socket.off("module.cardsupport");
+          if (foundCard) return;
+        }
+      }
     }
+
+    return message;
   }
 
   /**
