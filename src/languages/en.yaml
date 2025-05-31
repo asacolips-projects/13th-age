@@ -519,6 +519,11 @@ ARCHMAGE:
     tooltip2e5: Benefit with a twist
     tooltip2e6: Benefit
     tooltip2ealt6: Connection used this arc
+    rolldialogtitle: Roll for Icon Relationships
+    rollone: "{name} Only"
+    rollall: Roll All
+    rollDialogHint: "Roll dice for <strong>{name}</strong> only, or for all icons?"
+    noDiceLeft: You have no dice left to roll for this icon.
   COINS:
     copper: Copper
     copperHint: 10 Copper = 1 Silver

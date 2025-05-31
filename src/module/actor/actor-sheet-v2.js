@@ -638,13 +638,38 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * @returns object | Chat message
    */
   async _onIconRoll(iconIndex) {
-    let actorData = this.actor.system;
+    const actorData = this.actor.system;
     if (!actorData.icons[iconIndex]) {
       return;
     }
 
+    const icon = actorData.icons[iconIndex];
+    // TODO: pop up a dialog that allows the user to roll one icon or all of them at once
+    // Use game.ARCHMAGE.is2e and game.settings.get("archmage", "alternateIconRollingMethod")
+    return new Dialog({
+      title: game.i18n.localize('ARCHMAGE.ICONROLLS.rolldialogtitle'),
+      content: `<p>${game.i18n.format('ARCHMAGE.ICONROLLS.rollDialogHint', { name: icon.name.value })}</p>`,
+      buttons: {
+        singleicon: {
+          label: game.i18n.format('ARCHMAGE.ICONROLLS.rollone', { name: icon.name.value }),
+          callback: () => this.rollSingleIcon(iconIndex)
+        },
+        allicons: {
+          label: game.i18n.localize('ARCHMAGE.ICONROLLS.rollall'),
+          callback: () => this.rollAllIcons()
+        },
+        cancel: {
+          label: game.i18n.localize('ARCHMAGE.CHAT.Cancel'),
+          callback: () => {}
+        }
+      },
+      default: 'apply'
+    }).render(true);
+  }
 
-    let icon = actorData.icons[iconIndex];
+  async rollSingleIcon(iconIndex) {
+    const actorData = this.actor.system;
+    const icon = actorData.icons[iconIndex];
     let numberOfDice = icon.bonus.value;
 
     // If this is the 2e alt method, we only roll dice that haven't already been used
@@ -654,6 +679,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       actorIconResults = actorData.icons?.[iconIndex]?.results || [];
       const usedDice = actorIconResults.filter(x => x > 0).length;
       numberOfDice -= usedDice;
+    }
+
+    if (numberOfDice <= 0) {
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
+      return;
     }
 
     let roll = new Roll(`${numberOfDice}d6`);
@@ -778,6 +808,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     }
 
     return message;
+  }
+
+  async rollAllIcons() {
+    console.log('rollAllIcons');
+    // TODO: roll dice for all icons and update the actor
   }
 
   /**
