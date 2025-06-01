@@ -390,7 +390,7 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
-   * 1.3X.0: Update PC to remove Toughness flag
+   * 1.36.0: Update PC to remove Toughness flag
    *
    * @param {object} actor Actor document to update.
    * @param {object} updateData Update data object to merge changes into.
