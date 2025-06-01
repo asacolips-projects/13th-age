@@ -148,7 +148,7 @@ export class ActorArchmage extends Actor {
     switch (weight) {
       // Handle ability scores and base attributes.
       case 'pre':
-        relevant = (c => {return c.key.match(/system\.(abilities\..*\.value|attributes\..*\.base)/g);});
+        relevant = (c => {return c.key.match(/system\.(abilities\..*\.value|attributes\..*\.base|attributes\.hp\.extra)/g);});
         break;
       // Handle the non-special active effects.
       case 'default':
