@@ -360,8 +360,6 @@ ARCHMAGE:
     showTriggersTabName: Show Triggers tab
     strongRecoveryHint: Universal feat to improve your recovery rolls.
     strongRecoveryName: Strong Recovery
-    # toughnessHint: DEPRECATED, will be removed soon. Use the Hit Points Adjustment field instead.
-    # toughnessName: Toughness - DEPRECATED
   CHARACTERSETTINGS:
     bg1: Background 1
     bg2: Background 2
