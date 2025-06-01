@@ -3,6 +3,7 @@ type: npc
 _id: qSPzqbjstcYA04gv
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: cold
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fire Giant Holy Warrior
   displayName: 0
@@ -107,7 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -138,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -147,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Burning axe
     type: action
@@ -161,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -168,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -198,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: k7Go1MXq09SqcXBF
     effects: []
     folder: null
@@ -218,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -226,7 +315,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+11]] vs. PD ([[1d3]] nearby enemies in a group or one faraway
+          [[d20 + 11]] vs. PD ([[1d3]] nearby enemies in a group or one faraway
           enemy)
       hit:
         type: String
@@ -257,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 47kkgMvdMhLqYl4Z
     effects: []
     folder: null
@@ -280,11 +367,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: gp5if6Rv8tkHZJXv
     effects: []
@@ -307,14 +396,16 @@ items:
         value: >-
           <p>Enemies engaged with a fire giant holy warrior at the end of their
           turn take fire damage equal to the escalation die value times five
-          ([[@ed*5]]) if they have not taken fire damage since the end of their
+          ([[@ed * 5]]) if they have not taken fire damage since the end of their
           last turn. Enemies who resist fire damage ignore this fire
           giant&rsquo;s fire aura.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: yaNv3aHyuJE82rqC
     effects: []
@@ -337,11 +428,13 @@ items:
         value: >-
           <p>Once per battle, the fire giant holy warrior gains an additional
           use of <em>breath of Unyr</em> when they become staggered.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vsKhRMGyE4irL3dL
     effects: []

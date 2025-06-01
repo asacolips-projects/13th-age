@@ -3,6 +3,7 @@ name: Manafang Naga
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 7
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: X5jjOzazEui12uQT
     flags: {}
@@ -134,6 +189,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -141,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC'
+        value: '[[d20 + 12]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -176,8 +236,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!qSwaG0siGiYi5pqU.X5jjOzazEui12uQT'
   - _id: PssyfnBA0mz9IUU5
     flags: {}
@@ -192,6 +250,10 @@ items:
         type: String
         label: Description
         value: '<p>Limited use: 1/battle.</p>'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -232,8 +294,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!qSwaG0siGiYi5pqU.PssyfnBA0mz9IUU5'
   - _id: wlQcA7PRNUrRgDPY
     flags: {}
@@ -247,6 +307,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -255,7 +320,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+12]] vs. MD ([[1]] nearby enemy, or [[1]] nearby enemy per point
+          [[d20 + 12]] vs. MD ([[1]] nearby enemy, or [[1]] nearby enemy per point
           of es. die if mystic escalator benefit is active)
       hit:
         type: String
@@ -291,8 +356,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!qSwaG0siGiYi5pqU.wlQcA7PRNUrRgDPY'
   - _id: y15hKUg0Bf3Uqtbk
     flags: {}
@@ -314,6 +377,10 @@ items:
           per-battle or daily spell, roll a hard save (16+) immediately after
           the spell is cast; on a success, the spellcaster doesn&rsquo;t expend
           the spell.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -321,8 +388,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!qSwaG0siGiYi5pqU.y15hKUg0Bf3Uqtbk'
   - _id: KQbvW5buwNQCfGyr
     flags: {}
@@ -340,6 +405,10 @@ items:
           <p>The naga and each of its nearby allies can use the escalation die
           unless the naga has been targeted by an enemy&rsquo;s spell since its
           last turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -347,8 +416,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!qSwaG0siGiYi5pqU.KQbvW5buwNQCfGyr'
 effects: []
 folder: null
@@ -392,14 +459,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -409,8 +483,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!qSwaG0siGiYi5pqU'
 

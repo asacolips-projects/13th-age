@@ -3,6 +3,7 @@ type: npc
 _id: QJRj6q4fAXmNCfpy
 img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: troop
     size:
       value: triple
+    strength:
+      value: ''
     type:
       value: spirit
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Eidolon in Guardian Form
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Empowered weapon
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC (2 attacks)'
+        value: '[[d20 + 14]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -197,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: XVVOfaUJGpZdbsxJ
     effects: []
     folder: null
@@ -217,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -225,7 +317,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+14]] vs. PD (all non- immortal creatures within the sound of its
+          [[d20 + 14]] vs. PD (all non- immortal creatures within the sound of its
           voice)
       hit:
         type: String
@@ -258,8 +350,6 @@ items:
         type: String
         label: Miss
         value: '[[25]] holy damage.'
-      embeddedMacro:
-        value: ''
     _id: TWunB0CiPxaKg20v
     effects: []
     folder: null
@@ -278,6 +368,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -285,7 +380,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. MD'
+        value: '[[d20 + 14]] vs. MD'
       hit:
         type: String
         label: Hit
@@ -315,8 +410,6 @@ items:
         type: String
         label: Miss
         value: The attack can be used again this battle.
-      embeddedMacro:
-        value: ''
     _id: 147mu5CWjvGJwa1P
     effects: []
     folder: null
@@ -338,11 +431,13 @@ items:
         value: >-
           <p>This eidolon chooses to manifest wings, though its ability to fly
           has very little to do with flapping them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ZVtbE8QHbl8GLvfD
     effects: []
@@ -368,11 +463,13 @@ items:
           subtract the total rolled amount from any holy damage the adventurer
           would otherwise take. This includes holy damage from creatures that
           are not the eidolon.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: T9ZLOjYV2vo6mo6M
     effects: []
@@ -395,11 +492,13 @@ items:
         value: >-
           <p>Until the eidolon makes its divine proclamation, natural odd attack
           rolls against it miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PAAiEU8qOesYMZRN
     effects: []
@@ -428,11 +527,13 @@ items:
           interact with and if a mortal proves too troublesome the eidolon will
           move on. In general eidolons need defeating on three separate
           occasions to convince them to stay away forever.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Qlddq7YCa2Ms8l3q
     effects: []
@@ -465,11 +566,13 @@ items:
           which reality their character is now in. At the start of each round,
           the eidolon can choose which version(s) of reality its allies are
           in.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YLFI485QcFnozcNS
     effects: []
@@ -497,11 +600,13 @@ items:
           initiative order as determined by the eidolon. Alternately, the
           eidolon warps the momentum of the battle and the escalation die value
           is determined at the start of the round with a [[/r d6]] roll.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 12mdy75MCpynbdPW
     effects: []
@@ -529,11 +634,13 @@ items:
           the start of the round. Alternately, if you are using minis and some
           sort of map tiles you can rearrange the tiles with the minis still on
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WZre6GKGwKwwMs9T
     effects: []

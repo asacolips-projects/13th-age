@@ -3,6 +3,7 @@ type: npc
 _id: k1MhkxKuWo5SmMlA
 img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: cold
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Pyroclastic Salamander
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Furnace skin
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. PD (each creature engaged with the salamander)'
+        value: '[[d20 + 17]] vs. PD (each creature engaged with the salamander)'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Kld3SQpAXV3sguCa
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 17]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -254,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Xj5D52U7h0eg3rVP
     effects: []
     folder: null
@@ -279,11 +367,13 @@ items:
           and who during any point on their turn is next to or engaged with a
           creature taking ongoing fire damage, must roll a save (11+) or take
           [[50]] ongoing fire damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dmnfZRmsPgEGIDEv
     effects: []
@@ -306,11 +396,13 @@ items:
         value: >-
           <p>Enemies take a penalty to saves against ongoing fire damage equal
           to the escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: LZ1cOtKPdBtgj4fK
     effects: []
@@ -334,11 +426,13 @@ items:
           <p>Ranged weapon attacks with non-magical weapons or non-magical
           ammunition against the salamander fail&mdash;the missiles simply burn
           up mid-air.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Gi23GluwNSiNd3ek
     effects: []
@@ -366,11 +460,13 @@ items:
           to use the escalation die until the end of its next turn, or longer if
           it&rsquo;s a powerful or lingering spell. Avoid casting fireball in
           battle with a salamander!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5RGcTTEZ0JLgwd3I
     effects: []
@@ -397,11 +493,13 @@ items:
           <p>Fire attacks against the salamander must roll a natural 16+ attack
           roll or the attack does half damage. Whether or not such an attack
           hits, see *escalating inferno!*</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8AU9ZuxmERoPAzPq
     effects: []
@@ -429,11 +527,13 @@ items:
           salamander and who roll a natural 1 or 3 take ongoing fire damage
           equal to twice the salamander&rsquo;s level unless they drop their
           weapon as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YgvglMKFfoAq3sq8
     effects: []

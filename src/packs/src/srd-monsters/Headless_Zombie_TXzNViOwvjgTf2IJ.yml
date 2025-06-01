@@ -3,6 +3,7 @@ name: Headless Zombie
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 9
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 43Wep3x0asEFvB0d
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!TXzNViOwvjgTf2IJ.43Wep3x0asEFvB0d'
   - _id: oncPL3STWMLjk33Y
     flags: {}
@@ -183,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -219,8 +280,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!TXzNViOwvjgTf2IJ.oncPL3STWMLjk33Y'
   - _id: tt5xZqiWv8t1Jz24
     flags: {}
@@ -237,6 +296,10 @@ items:
         value: >-
           When a headless zombie drops to 0 hp, it flails with its fists and
           makes a mouthless cry attack as a free action before it dies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,8 +307,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!TXzNViOwvjgTf2IJ.tt5xZqiWv8t1Jz24'
   - _id: nOsdKvlfdLAl6FAK
     flags: {}
@@ -263,6 +324,10 @@ items:
           When a creature tries to affect the zombie’s attack, such as forcing a
           reroll or applying a penalty, it must roll a normal save; on a
           failure, the effect is negated.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,8 +335,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!TXzNViOwvjgTf2IJ.nOsdKvlfdLAl6FAK'
   - _id: kh72jRL6E61uBWoK
     flags: {}
@@ -288,6 +351,10 @@ items:
         value: >-
           While nearby a headless zombie, when a creature would heal, it only
           heals half the normal hit points.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,8 +362,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!TXzNViOwvjgTf2IJ.kh72jRL6E61uBWoK'
   - _id: zFkEfnrm5bqz3tL9
     flags: {}
@@ -313,6 +378,10 @@ items:
         value: >-
           When the escalation die increases to 6, each headless zombie in the
           battle is restored to maximum hit points, including the dead ones.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,8 +389,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!TXzNViOwvjgTf2IJ.zFkEfnrm5bqz3tL9'
 effects: []
 folder: null
@@ -366,6 +433,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/undead.webp
     scaleX: 1
@@ -373,6 +443,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -382,8 +457,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!TXzNViOwvjgTf2IJ'
 

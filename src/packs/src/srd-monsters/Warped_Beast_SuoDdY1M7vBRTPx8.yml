@@ -3,6 +3,7 @@ name: Warped Beast
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 5
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 9v66OO8hLtZEPEwQ
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -170,8 +229,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.9v66OO8hLtZEPEwQ'
   - _id: xASJS5GlvzD80yf0
     flags: {}
@@ -185,6 +242,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -221,8 +282,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.xASJS5GlvzD80yf0'
   - _id: 3UtxEJKZ0HiqDzPI
     flags: {}
@@ -240,6 +299,10 @@ items:
           At the start of each of the warped beast’s turns, roll a [[d6]]. The
           warped beast gains the corresponding ability until the start of its
           next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,8 +310,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.3UtxEJKZ0HiqDzPI'
   - _id: ccrlMGo2YMMApmUX
     flags: {}
@@ -263,6 +324,10 @@ items:
         type: ''
         label: Description
         value: The beast has resist damage 11+ to all damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,8 +335,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.ccrlMGo2YMMApmUX'
   - _id: DcncSBsMUj0fngPN
     flags: {}
@@ -289,6 +352,10 @@ items:
           Once during its turn, the warped beast can teleport anywhere nearby it
           can see as a move action. Each enemy engaged with it when it teleports
           is *confused* until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -296,8 +363,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.DcncSBsMUj0fngPN'
   - _id: 1NtW5ZRHcmYAuIsP
     flags: {}
@@ -315,6 +380,10 @@ items:
           While engaged with the warped beast, enemies that have 24 hp or fewer
           are *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -322,8 +391,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.1NtW5ZRHcmYAuIsP'
   - _id: o4shP5Usq0AVd464
     flags: {}
@@ -340,6 +407,10 @@ items:
         value: >-
           When an enemy ends its turn engaged with the warped beast, it’s
           *confused* until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -347,8 +418,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.o4shP5Usq0AVd464'
   - _id: I0YG74xGa3PN4GwL
     flags: {}
@@ -368,6 +437,10 @@ items:
           erupt from the creature and make an additional basic attack that turn
           (special abilities/effects don’t trigger on those extra attacks). Each
           of those attacks only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -375,8 +448,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.I0YG74xGa3PN4GwL'
   - _id: OmllZEWdeWlKRrF9
     flags: {}
@@ -394,6 +465,10 @@ items:
           When the warped beast hits a creature with a tentacle maw attack, the
           target also takes [[5]] ongoing psychic damage and a -2 penalty to
           saves (save ends both).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,8 +476,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.OmllZEWdeWlKRrF9'
   - _id: f4ByDJVZZswDXHFm
     flags: {}
@@ -419,6 +492,10 @@ items:
         value: >-
           Roll two madness features instead of one each round (reroll similar
           results).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -426,8 +503,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!SuoDdY1M7vBRTPx8.f4ByDJVZZswDXHFm'
 effects: []
 folder: null
@@ -472,6 +547,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
     scaleX: 1
@@ -479,6 +557,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -488,8 +571,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!SuoDdY1M7vBRTPx8'
 

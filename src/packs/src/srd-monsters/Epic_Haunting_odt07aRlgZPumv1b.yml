@@ -3,6 +3,7 @@ type: npc
 _id: odt07aRlgZPumv1b
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Epic Haunting
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Mob-based
     type: trait
@@ -164,11 +246,13 @@ items:
           <p>For every separate mob of epic haunting mooks in the battle (mobs
           start with at least four mooks), add a +1 bonus to the epic
           haunting&rsquo;s attacks and +[[5]] to its damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: CXkuTZN61YG9ciDl
     effects: []
@@ -192,11 +276,13 @@ items:
           <p>This creature has resist damage 14+ to all damage except holy
           damage. A ghost can move through solid objects, but can&rsquo;t end
           its turn inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WDnkTZKVknP6i9YR
     effects: []
@@ -220,11 +306,13 @@ items:
           <p>While there are three or more lesser, major, or epic haunting mooks
           in a battle, the fear abilities of their allies affect enemies with
           half again as many hit points as usual.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KsZaJqaivQ53Oxu4
     effects: []
@@ -244,6 +332,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -251,7 +344,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD'
+        value: '[[d20 + 13]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -281,8 +374,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: H8Vw5kImt1ADbcEy
     effects: []
     folder: null
@@ -301,11 +392,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PIDEPbA33sq2tHVc
     effects: []
@@ -342,11 +436,13 @@ items:
           ghosts that aren&rsquo;t bound to anything, but at that stage there
           are several other questions that surface and odd magical, iconic, or
           unique intervention seems likely.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GYmnYBaZ09ycrjri
     effects: []
@@ -377,11 +473,13 @@ items:
           <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
           constrained to act much like they acted when they were alive, and
           flying wasn&rsquo;t part of their life package.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VUB1PHU0Dv5mcGND
     effects: []
@@ -415,11 +513,13 @@ items:
           ghost stories than part of a creature&rsquo;s combat abilities, and
           you can safely ignore it unless you find telling moments when it adds
           to the game.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8ZWZpaaPPR3mIDNr
     effects: []

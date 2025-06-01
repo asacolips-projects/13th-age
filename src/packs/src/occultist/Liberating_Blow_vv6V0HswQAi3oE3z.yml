@@ -1,6 +1,4 @@
 name: Liberating Blow
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Liberating Blow
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: null
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Occultist
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Liberating Blow
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -115,27 +138,61 @@ system:
     value: >-
       <p>The triggering ally can make a basic melee attack against<br />an enemy
       engaged with it as a free action, but it uses your<br />attack roll
-      instead of its own: [[d20+@int.mod+@std+@atk.a.bonus]] vs. MD. On<br />a
+      instead of its own: [[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD. On<br />a
       hit, the attack deals normal damage and the disengage check<br />is
       successful.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: >-
       The target can now make an at-will or close-quarters attack instead of a
       basic melee attack, using your attack roll
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -144,18 +201,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: null
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -182,5 +235,9 @@ flags: {}
 img: icons/skills/melee/strike-axe-energy-pink.webp
 _id: vv6V0HswQAi3oE3z
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!vv6V0HswQAi3oE3z'
 

@@ -2,7 +2,7 @@ name: Random Demon Abilities
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 1
@@ -15,7 +15,7 @@ results:
     _id: MEVDyPLFvTc13W0n
     flags: {}
     _key: '!tables.results!fnh84WoLu1gwdosl.MEVDyPLFvTc13W0n'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 2
@@ -28,7 +28,7 @@ results:
     _id: VVljIJNSbquO25vm
     flags: {}
     _key: '!tables.results!fnh84WoLu1gwdosl.VVljIJNSbquO25vm'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 3
@@ -41,7 +41,7 @@ results:
     _id: c6L2jYZ4AXFaJn9z
     flags: {}
     _key: '!tables.results!fnh84WoLu1gwdosl.c6L2jYZ4AXFaJn9z'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 4
@@ -54,7 +54,7 @@ results:
     _id: abU60RmfxzOT8iYc
     flags: {}
     _key: '!tables.results!fnh84WoLu1gwdosl.abU60RmfxzOT8iYc'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 5
@@ -67,7 +67,7 @@ results:
     _id: t50alDgyctQJQkPa
     flags: {}
     _key: '!tables.results!fnh84WoLu1gwdosl.t50alDgyctQJQkPa'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 6
@@ -80,7 +80,7 @@ results:
     _id: Xd595FgKrWRuLCov
     flags: {}
     _key: '!tables.results!fnh84WoLu1gwdosl.Xd595FgKrWRuLCov'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 7
@@ -93,7 +93,7 @@ results:
     _id: tmf0Mff8X6vIvF9q
     flags: {}
     _key: '!tables.results!fnh84WoLu1gwdosl.tmf0Mff8X6vIvF9q'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 8
@@ -109,13 +109,12 @@ results:
 formula: 1d8
 replacement: true
 displayRoll: false
-flags: null
+flags:
+  archmage: {}
 folder: null
 sort: 0
 ownership:
   default: 0
 _id: fnh84WoLu1gwdosl
-permission:
-  default: 0
 _key: '!tables!fnh84WoLu1gwdosl'
 

@@ -1,3 +1,5 @@
+const INLINE_ATTACK_ROLLS_FILTER = /(\[\[.*?d20.+?\]\])/g
+
 export default class ArchmageRolls {
 
   static async rollItemTargets(item) {
@@ -5,6 +7,7 @@ export default class ArchmageRolls {
     let newTargetLine = undefined;
     let targets = 1;
     let nlpMap = {}
+    const actor = item.actor ?? game.user.character;
     for (let i=2; i<=9; i++) {
       nlpMap[game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)+" "] = i;
       nlpMap[i.toString()] = i;
@@ -25,10 +28,10 @@ export default class ArchmageRolls {
         // Remove all numbers with at least 2 digits (so 10+)
         // except for inline rolls (by checking for preceding '[[')
         lineToParse = lineToParse.replace(/(?<!\[\[)[0-9]{2,}/g, '');
-        rolls = ArchmageRolls.getInlineRolls(lineToParse, item.actor.getRollData());
+        rolls = ArchmageRolls.getInlineRolls(lineToParse, actor?.getRollData() ?? {});
         if (rolls != undefined) {
           // Roll the targets now
-          await ArchmageRolls.rollAll(rolls, item.actor);
+          await ArchmageRolls.rollAll(rolls, actor);
           targets = 0;
           newTargetLine = foundry.utils.duplicate(targetLine);
           rolls.forEach(r => {
@@ -59,10 +62,10 @@ export default class ArchmageRolls {
       if (targetLine != null) {
         targetLine = targetLine[0];
         // First check for rolls
-        rolls = ArchmageRolls.getInlineRolls(targetLine, item.actor.getRollData());
+        rolls = ArchmageRolls.getInlineRolls(targetLine, actor?.getRollData());
         if (rolls !== undefined) {
           // Roll the targets now
-          await ArchmageRolls.rollAll(rolls, item.actor);
+          await ArchmageRolls.rollAll(rolls, actor);
           targets = 0;
           rolls.forEach(r => targets += r.total);
         } else {
@@ -85,20 +88,28 @@ export default class ArchmageRolls {
 
   static addAttackMod(item) {
     // Add @atk.mod modifier to the first inline roll, if it isn't 0
-    let attackLine = item.system.attack.value;
-    let atkMod = item.actor.getRollData().atk.mod;
-    if (atkMod) {
-      let match = /(\[\[.+?\]\])/.exec(attackLine);
-      if (match) {
-        let formula = match[1];
-        let newFormula = formula.replace("]]", "+@atk.mod]]");
-        attackLine = attackLine.replace(formula, newFormula);
+    let numAttacks = 0;
+    let attackLine = item.system.attack.value || "";
+    const actor = item.actor ?? game.user.character;
+    let matches = [...attackLine.matchAll(INLINE_ATTACK_ROLLS_FILTER)];
+    if (matches) {
+      numAttacks = matches.length;
+      let atkMod = actor?.getRollData().atk.mod ?? 0;
+      if (atkMod) {
+        for (let match of matches) {
+          let formula = match[1];
+          let newFormula = formula.replace("]]", " + @atk.mod]]");
+          attackLine = attackLine.replace(formula, newFormula);
+        }
       }
     }
-    return attackLine;
+    return {attackLine: attackLine, numManualAttacks: numAttacks};
   }
 
-  static rollItemAdjustAttacks(item, newAttackLine, numTargets) {
+  static rollItemAdjustAttacks(item, newAttackLine, numTargets, numManualAttacks) {
+    // If the user manually defined multiple attacks, don't touch anything
+    if (numManualAttacks > 1) return {line: newAttackLine, atks: numManualAttacks};
+
     // If the user has targeted tokens, limit number of rolls by the lower of
     // selected targets or number listed on the power. If no targets are
     // selected, just use the number listed on the power.
@@ -131,7 +142,7 @@ export default class ArchmageRolls {
       }
       newAttackLine += " " + vs;
     }
-    return newAttackLine;
+    return {line: newAttackLine, atks: targetsCount};
   }
 
   static _handleCrescendo(newAttackLine) {

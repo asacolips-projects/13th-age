@@ -3,6 +3,7 @@ name: Kobold Shadow-Warrior
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 4
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: MfCBSHW8pryhJgYS
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -166,8 +225,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!vrrOm7z9dJ5x0fby.MfCBSHW8pryhJgYS'
   - _id: 2ArNE3ZQESGhRqWZ
     flags: {}
@@ -181,6 +238,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -217,8 +278,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!vrrOm7z9dJ5x0fby.2ArNE3ZQESGhRqWZ'
   - _id: ryvoThaxg5UELTvO
     flags: {}
@@ -232,6 +291,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -266,8 +329,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!vrrOm7z9dJ5x0fby.ryvoThaxg5UELTvO'
   - _id: RbV7zx1oRimceMzq
     flags: {}
@@ -288,6 +349,10 @@ items:
           its next turn, it reappears (dropping down from the ceiling or
           springing out of cover and re-entering play) and can make an elusive
           strike attack as a standard action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,8 +360,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!vrrOm7z9dJ5x0fby.RbV7zx1oRimceMzq'
   - _id: ClAnRl99rl0sXUBK
     flags: {}
@@ -311,6 +374,10 @@ items:
         type: ''
         label: Description
         value: Kobolds take no damage from missed attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -318,8 +385,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!vrrOm7z9dJ5x0fby.ClAnRl99rl0sXUBK'
   - _id: iCQXdLiGDmxIh5xH
     flags: {}
@@ -336,6 +401,10 @@ items:
         value: >-
           A kobold shadow-warrior can climb on ceilings and walls as easily as
           it moves on the ground.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,8 +412,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!vrrOm7z9dJ5x0fby.iCQXdLiGDmxIh5xH'
 effects: []
 folder: null
@@ -389,6 +456,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
     scaleX: 1
@@ -396,6 +466,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -405,8 +480,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!vrrOm7z9dJ5x0fby'
 

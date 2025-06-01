@@ -3,6 +3,7 @@ type: npc
 _id: Ev8kF94zDseE8Wva
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Briar Elf Sorcerer
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Fear Aura
     type: nastierSpecial
@@ -164,11 +246,13 @@ items:
           <p><span class="fontstyle0">Enemies engaged with this briar elf who
           have fewer than 72 hp are dazed (-4 attack) and can&rsquo;t use the
           escalation die.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Uyo4O6WT7pe8H2Z4
     effects: []
@@ -195,11 +279,13 @@ items:
           <p><span class="fontstyle0">On turns when the escalation die is even,
           the briar elf sorcerer uses the escalation die, and each staggered
           adventurer does not.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: o5RouID4HVURbRrk
     effects: []
@@ -222,6 +308,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -229,7 +320,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD'
+        value: '[[d20 + 15]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -261,8 +352,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: A86AUBN9akAOKWVP
     effects: []
     folder: null
@@ -281,6 +370,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -288,7 +382,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD'
+        value: '[[d20 + 16]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -320,8 +414,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: lXzMtOnMlbgE6IVJ
     effects: []
     folder: null
@@ -340,6 +432,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -347,7 +444,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD ([[d3]] enemies in a group)'
+        value: '[[d20 + 16]] vs. PD ([[d3]] enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -377,8 +474,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: fijlHlPGItWysk9A
     effects: []
     folder: null
@@ -403,11 +498,13 @@ items:
           battle the briar elf sorcerer can use this ability as a free action:
           to stop another character mid-movement, to pop a creature free, or to
           block and cancel a ranged attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qs2aW7Y19PJt6iaN
     effects: []
@@ -427,11 +524,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PfrhuG3q1rSH4ikI
     effects: []
@@ -457,11 +557,13 @@ items:
         value: >-
           <p><span class="fontstyle0">Once per battle, for one turn; storm of
           thorns becomes a quick action to use.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: CqJjtdXZ4iQWv892
     effects: []
@@ -488,11 +590,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [plant].
           Every time the briar elf sorcerer misses with its flesh to bark
           attack, its crit range with that attack expands by 1.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QoCSYZYeMzOeUYtR
     effects: []
@@ -521,11 +625,13 @@ items:
           end its turn inside another object or creature. The monster
           automatically disengages when it moves, and cannot be intercepted
           (unless the creature intercepting it is also phasing)</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iJc8ofaQYkdnxfbL
     effects: []
@@ -547,5 +653,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
+sort: 0
 _key: '!actors!Ev8kF94zDseE8Wva'
 

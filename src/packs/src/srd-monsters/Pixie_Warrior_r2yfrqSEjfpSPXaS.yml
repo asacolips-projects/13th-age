@@ -3,6 +3,7 @@ name: Pixie Warrior
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 3
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: ni2EXhoLW4wU7F6n
     flags: {}
@@ -134,6 +189,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -141,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD'
+        value: '[[d20 + 8]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -176,8 +236,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!r2yfrqSEjfpSPXaS.ni2EXhoLW4wU7F6n'
   - _id: jcnMYu7nzl6zJnJh
     flags: {}
@@ -191,6 +249,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -198,7 +261,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD'
+        value: '[[d20 + 8]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -233,8 +296,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!r2yfrqSEjfpSPXaS.jcnMYu7nzl6zJnJh'
   - _id: 5ucPWaHhnpaj6Zol
     flags: {}
@@ -248,6 +309,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -255,7 +321,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD'
+        value: '[[d20 + 8]] vs. MD'
       hit:
         type: String
         label: Hit
@@ -288,8 +354,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!r2yfrqSEjfpSPXaS.5ucPWaHhnpaj6Zol'
   - _id: ISBrB5j8MNX3ZnRT
     flags: {}
@@ -330,6 +394,10 @@ items:
           has been hit multiple times with this effect.</li><li>Pacifism. The
           target can&rsquo;t attack until the end of the pixie&rsquo;s next
           turn.</li></ol>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,8 +405,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!r2yfrqSEjfpSPXaS.ISBrB5j8MNX3ZnRT'
   - _id: SNWmQEaiNYpxHrv2
     flags: {}
@@ -357,6 +423,10 @@ items:
           countless flashy illusions. The effects are disorienting enough that
           the PCs don&rsquo;t get to add the escalation die to their
           attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -364,8 +434,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!r2yfrqSEjfpSPXaS.SNWmQEaiNYpxHrv2'
   - _id: Rve62i6ohoHFGhWR
     flags: {}
@@ -380,6 +448,10 @@ items:
         type: String
         label: Description
         value: <p>Pixies make flying look like a lot of fun.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -387,8 +459,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!r2yfrqSEjfpSPXaS.Rve62i6ohoHFGhWR'
   - _id: OFgUMmeqe5JtzZOs
     flags: {}
@@ -408,6 +478,10 @@ items:
           attacks). A pixie can also turn invisible as a standard action, in
           which case the invisibility still lasts until the start of its next
           turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -415,8 +489,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!r2yfrqSEjfpSPXaS.OFgUMmeqe5JtzZOs'
 effects: []
 folder: null
@@ -463,14 +535,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -480,8 +559,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!r2yfrqSEjfpSPXaS'
 

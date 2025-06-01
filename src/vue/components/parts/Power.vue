@@ -1,36 +1,47 @@
 <template>
-  <section class="power">
+  <section :class="`power ${includeTitle ? 'include-title': ''}`">
+    <!-- Optionally show the title bar. -->
+    <div v-if="includeTitle" :class="`power-summary grid power-grid ${powerUsageClass(power)} ${power.system.trigger.value ? 'power-summary--trigger' : ''} active`">
+      <span class="power-name" :data-item-id="power._id">
+        <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>
+      </span>
+    </div>
     <!-- Group, range, and quick info. -->
     <header class="power-header flexcol">
       <strong v-if="power.system.group.value">{{power.system.group.value}}</strong>
       <em v-if="power.system.range.value">{{power.system.range.value}}</em>
       <div class="power-subheader flexrow">
-        <strong v-if="power.system.actionType.value">{{localize(concat('ARCHMAGE.',power.system.actionType.value))}}</strong>
-        <strong v-if="power.system.powerUsage.value">{{constants.powerUsages[power.system.powerUsage.value]}}</strong>
-        <strong v-if="power.system.powerType.value">{{constants.powerTypes[power.system.powerType.value]}}</strong>
+        <strong v-if="power.system.actionType.value">{{localize(`ARCHMAGE.${power.system.actionType.value}`)}}</strong>
+        <strong v-if="power.system.powerUsage.value">{{localize(`ARCHMAGE.${power.system.powerUsage.value}`)}}</strong>
+        <strong v-if="power.system.powerType.value">{{localize(`ARCHMAGE.${power.system.powerType.value}`)}}</strong>
         <strong v-if="power.system.embeddedMacro.value"><em>{{localize('ARCHMAGE.CHAT.embeddedMacro')}}</em></strong>
       </div>
     </header>
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="power-details flexcol">
       <div v-if="power.system.description.value" class="power-detail power-detail--description">
-        <Suspense>
+        <span v-if="enriched" class="power-detail-value" v-html="enriched['system.description.value'].enriched"></span>
+        <Suspense v-else>
           <Enriched tag="span" class="power-detail-value" :text="power.system.description.value" :diceFormulaMode="diceFormulaMode" />
         </Suspense>
       </div>
-      <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', field))}}:</strong>
-        <Suspense>
-          <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field"/>
-        </Suspense>
-      </div>
+      <template v-for="field in powerDetailFields" :key="field">
+        <div v-if="canCastSpell(field)" class="power-detail" :data-field="field">
+          <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
+          <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
+          <Suspense v-else>
+            <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field"/>
+          </Suspense>
+        </div>
+      </template>
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
-      <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
-        <strong class="feat-detail-label">{{localize(concat('ARCHMAGE.CHAT.', feat.tier?.value))}}:</strong>
+      <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="`power-feat ${feat.isActive.value || includeTitle ? 'active' : ''}`">
+        <strong class="feat-detail-label">{{localize(`ARCHMAGE.CHAT.${feat.tier?.value}`)}}:</strong>
         <div class="flexrow">
-          <Suspense>
+          <div v-if="enriched" class="power-detail-content" v-html="enriched[`feat.${index}`].enriched"></div>
+          <Suspense v-else>
             <Enriched tag="div" class="power-detail-content" :text="feat.description.value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData"/>
           </Suspense>
           <div class="feat-uses" v-if="feat.isActive.value">
@@ -44,18 +55,18 @@
 </template>
 
 <script>
-import { concat, localize } from '@/methods/Helpers';
+import { localize } from '@/methods/Helpers';
 import Enriched from '@/components/parts/Enriched.vue';
 export default {
   name: 'Power',
-  props: ['power', 'actor', 'context'],
+  props: ['power', 'actor', 'context', 'include-title', 'enriched'],
   components: {
     Enriched
   },
   setup() {
     return {
-      concat,
       localize,
+      CONFIG,
     }
   },
   data() {
@@ -120,6 +131,30 @@ export default {
   },
   methods: {
     /**
+     * Determine if this power has one or more feats.
+     */
+     hasFeats(power) {
+      let hasFeats = false;
+      if (power && power.system && power.system.feats) {
+        for (let [id, feat] of Object.entries(power.system.feats)) {
+          if (feat.description.value || feat.isActive.value) {
+            hasFeats = true;
+            break;
+          }
+        }
+      }
+      return hasFeats;
+    },
+    /**
+     * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
+     */
+    getActionShort(actionType) {
+      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
+        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
+      }
+      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
+    },
+    /**
      * Filter empty feats
      */
     filterFeats(featObj) {
@@ -129,6 +164,49 @@ export default {
         if (feat.description.value) res[tier] = feat;
       }
       return res;
+    },
+    /**
+     * Compute CSS class to assign based on special usage
+     */
+     powerUsageClass(power) {
+      let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
+      if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
+      if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
+      else if (use == 'cyclic') {
+        if (this.actor && this.actor?.system.attributes.escalation?.value > 0
+          && this.actor?.system.attributes.escalation.value % 2 == 0) {
+          use = 'at-will cyclic';
+        } else use = 'once-per-battle cyclic';
+      }
+      return use;
+    },
+    /**
+     * Determine if a character is high enough level to cast a spell.
+     * 
+     * @param {string} field Field name, such as "spellLevel1".
+     * @returns {boolean} True if the power's current (or overridden) level
+     *   is greater than or equal to this particular field's level.
+     */
+    canCastSpell(field) {
+      if (!field.includes('spellLevel')) return true;
+
+      const overridePowerLevel = this.actor?.flags?.archmage.overridePowerLevel ?? false;
+      const actorLevel = Number(this.actor?.system?.attributes?.level?.value ?? 1);
+      const powerLevel = Number(this.power.system.powerLevel.value ?? 1);
+      const fieldLevel = Number(field.match(/\d+/g)?.[0] ?? 0);
+      const overriddenLevel = overridePowerLevel
+        ? Math.max(actorLevel, powerLevel)
+        : (powerLevel ?? 1);
+
+      if (this.power.system[field]?.hide && overriddenLevel !== fieldLevel) {
+        // @todo This is an OK-ish solution to handling hidden spells in 1e, but
+        // it needs to be improved.
+        if (fieldLevel > overriddenLevel) return false;
+        if (fieldLevel < overriddenLevel - 1) return false;
+        return !this.power.system[`spellLevel${fieldLevel + 1}`].value ? true : false;
+      }
+
+      return overriddenLevel >= fieldLevel;
     }
   },
   async mounted() {}

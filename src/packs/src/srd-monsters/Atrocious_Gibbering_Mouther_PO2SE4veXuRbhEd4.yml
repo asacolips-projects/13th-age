@@ -3,6 +3,7 @@ type: npc
 _id: PO2SE4veXuRbhEd4
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Atrocious Gibbering Mouther
   displayName: 0
@@ -107,7 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -138,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -147,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Tearing mouths
     type: action
@@ -161,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -168,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -198,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: tnxUjbuGozIv4cwa
     effects: []
     folder: null
@@ -218,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -225,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD (1 nearby enemy)'
+        value: '[[d20 + 11]] vs. PD (1 nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -255,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: GocUAqw4GdWNXHve
     effects: []
     folder: null
@@ -275,6 +362,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,7 +374,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD (up to two grabbed enemies)'
+        value: '[[d20 + 11]] vs. PD (up to two grabbed enemies)'
       hit:
         type: String
         label: Hit
@@ -316,8 +408,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] acid damage'
-      embeddedMacro:
-        value: ''
     _id: mWV8ERTgcrf6sY0c
     effects: []
     folder: null
@@ -336,6 +426,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,7 +438,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD (2 random nearby enemies)'
+        value: '[[d20 + 11]] vs. MD (2 random nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -373,8 +468,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: g7a4O6Sh63wuf8Jl
     effects: []
     folder: null
@@ -400,11 +493,13 @@ items:
           become stuck (save ends). On turns when the ground softens the
           gibbering mouther can move once on its turn as a quick action, as well
           as once as a move action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BIAG5hC7XmKIKxwh
     effects: []
@@ -429,11 +524,13 @@ items:
           special slowly turns the softening terrain to flesh, then absorbs it.
           When the escalation die becomes 6, the die flips straight back to 1
           and the gibbering mouther heals up to half its full hit points.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tShfBwXw88Cs6ktQ
     effects: []
@@ -454,11 +551,13 @@ items:
         type: String
         label: Description
         value: <p>Gibbering mouthers can&rsquo;t be ambushed or sneaked up on.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 17QNq950a0S58yQi
     effects: []
@@ -482,11 +581,13 @@ items:
         type: String
         label: Description
         value: <p>The gibbering mouther is immune to opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1f1ZlRiWX02izKmc
     effects: []
@@ -513,11 +614,13 @@ items:
           <p>The gibbering mouther is immune to effects. When an attack applies
           a condition to a gibbering mouther (dazed, hampered, weakened, ongoing
           damage, etc.), that condition doesn&rsquo;t affect it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XtFvloODXtRePwwS
     effects: []

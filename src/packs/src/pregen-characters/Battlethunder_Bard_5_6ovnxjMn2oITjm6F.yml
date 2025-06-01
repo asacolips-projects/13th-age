@@ -128,6 +128,89 @@ system:
       value: ''
     detectedClasses:
       - bard
+  resources:
+    perCombat:
+      momentum:
+        enabled: false
+        current: false
+      commandPoints:
+        enabled: false
+        current: 0
+      focus:
+        enabled: false
+        current: false
+      rhythm:
+        enabled: false
+        current: none
+        default: none
+        secondEdition: true
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      ki:
+        enabled: false
+        current: 0
+        max: 0
+      rerolls:
+        enabled: false
+        AC:
+          current: 0
+          max: 0
+        save:
+          current: 0
+          max: 0
   abilities:
     str:
       type: Number
@@ -317,81 +400,6 @@ system:
         type: Boolean
         value: false
       results: []
-  resources:
-    perCombat:
-      momentum:
-        enabled: false
-        current: false
-      commandPoints:
-        enabled: false
-        current: 0
-      focus:
-        enabled: false
-        current: false
-      rhythm:
-        enabled: false
-        current: none
-        default: none
-        secondEdition: true
-    spendable:
-      ki:
-        enabled: false
-        current: 0
-        max: 0
-      custom1:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom2:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom3:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom4:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom5:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom6:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom7:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom8:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom9:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
   incrementals:
     abilityScoreBonus: false
     extraMagicItem: false
@@ -429,6 +437,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -459,6 +472,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -468,9 +484,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Highblood Teleport
     type: power
@@ -502,6 +531,10 @@ items:
         type: Number
         label: Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -607,40 +640,54 @@ items:
         label: Effect
         value: <p>Place yourself in a nearby location you can see.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -663,7 +710,7 @@ items:
           description:
             type: String
             value: >-
-              <p>Deal [[2*@lvl]] damage to one enemy engaged with you before or
+              <p>Deal [[2 * @lvl]] damage to one enemy engaged with you before or
               after you teleport.</p>
           isActive:
             type: Boolean
@@ -680,10 +727,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/svg/d20.svg
     _id: oiqtNhgBE69Nas01
@@ -692,13 +735,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.oiqtNhgBE69Nas01'
   - name: Bardic Songs
     type: power
@@ -709,6 +745,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -729,6 +766,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -859,40 +900,54 @@ items:
           can't start another song that round.</p><p>Bardic songs are loud, and
           cancel any of stealth effects you may have.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -934,10 +989,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/skills/trades/music-notes-sound-blue.webp
     _id: JOrcBQ0Wf7fwcSu6
@@ -946,13 +997,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.JOrcBQ0Wf7fwcSu6'
   - name: Bardic Spells
     type: power
@@ -963,6 +1007,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -983,6 +1028,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1094,40 +1143,54 @@ items:
           weapon attacks use Strength or Dexterity, while their spells use
           Charisma.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1146,10 +1209,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/magic/light/projectile-flare-blue.webp
     _id: y3Albal0PjcJJvFe
@@ -1158,13 +1217,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.y3Albal0PjcJJvFe'
   - name: Battle Cries
     type: power
@@ -1175,6 +1227,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1195,6 +1248,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1306,40 +1363,54 @@ items:
           not the attack hits.</p><p>Bonuses provided by battle cries can help a
           bard's allies but not the bard.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1377,10 +1448,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -1394,13 +1461,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880180033
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.kxUdoudiDHnAc7ph'
   - name: Melee attack (Bard)
     type: power
@@ -1411,6 +1471,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1431,6 +1492,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1478,11 +1543,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + max(@str.mod,@dex.mod) + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage'
+        value: '[[@wpn.m.dice + max(@str.dmg,@dex.dmg) + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1536,40 +1601,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1588,10 +1667,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/weapons/swords/sword-guard-engraved.webp
     _id: 4OETjFW0K5eK69dj
@@ -1600,13 +1675,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.4OETjFW0K5eK69dj'
   - name: Ranged Attack (Bard)
     type: power
@@ -1617,6 +1685,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1637,6 +1706,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1684,11 +1757,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1742,40 +1815,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1794,10 +1881,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/weapons/crossbows/crossbow-slotted.webp
     _id: DeeSIMest4y37XdL
@@ -1806,13 +1889,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.DeeSIMest4y37XdL'
   - name: Pull it Together!
     type: power
@@ -1823,6 +1899,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1843,6 +1920,10 @@ items:
         type: Number
         label: Max Uses
         value: 2
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1948,40 +2029,54 @@ items:
         label: Effect
         value: <p>One nearby ally can heal using a recovery.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2061,10 +2156,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/magic/life/heart-area-circle-red-green.webp
     _id: S02d6HVEJgsWX5kE
@@ -2073,13 +2164,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880281126
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.S02d6HVEJgsWX5kE'
   - name: Stay Strong!
     type: power
@@ -2090,6 +2174,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2110,6 +2195,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2217,40 +2306,54 @@ items:
           <p>Give a nearby ally a +2 bonus to AC until the start of your next
           turn.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2326,10 +2429,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/equipment/shield/buckler-wooden-boss-glowing-blue.webp
     _id: ijcfZQWNMfp8bYn9
@@ -2338,13 +2437,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.ijcfZQWNMfp8bYn9'
   - name: Song of Heroes
     type: power
@@ -2355,6 +2447,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2375,6 +2468,10 @@ items:
         type: Number
         label: Max Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2482,40 +2579,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: The effect also provides a +1 bonus to saves.
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: Sustain the song on a 9+
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: Recharge check is now 6+
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: The effect also provides a +1 bonus to MD
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2534,10 +2645,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -2551,13 +2658,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880382225
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.hq02NKP68OCOhtqD'
   - name: Song of Spilt Blood
     type: power
@@ -2568,6 +2668,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2588,6 +2689,10 @@ items:
         type: Number
         label: Max Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2697,40 +2802,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: Sustain the song on a 4+
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: Add +5 hp to the recovery
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: Add +10 hp to the recovery
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: Add +15 hp to the recovery
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2749,10 +2868,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -2766,13 +2881,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880389619
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.tSuLa97o7y5cVxQj'
   - name: Soundburst
     type: power
@@ -2783,6 +2891,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2803,6 +2912,10 @@ items:
         type: Number
         label: Max Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2850,12 +2963,12 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
         value: >-
-          [[5d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the target is
+          [[5d6 + @cha.dmg + @atk.a.bonus]] thunder damage, and the target is
           *dazed* until end of your next turn.
       hitEven:
         type: String
@@ -2912,40 +3025,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
-        value: '[[6d8+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[6d8 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
-        value: '[[8d10+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[8d10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
-        value: '[[2d6*10+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[2d6 * 10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
-        value: '[[3d6*10+@cha.dmg+@atk.a.bonus]] damage'
+        value: '[[3d6 * 10 + @cha.dmg + @atk.a.bonus]] damage'
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3023,10 +3150,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -3040,13 +3163,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880371549
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.27ggurNBGAbwWjjv'
   - name: Songmaster
     type: power
@@ -3057,6 +3173,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -3077,6 +3194,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -3186,40 +3307,54 @@ items:
           you get a bonus of +1 to +3 to maintain the song.</p><p>This talent is
           for those that enjoy improvisation.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3238,10 +3373,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/magic/light/orbs-firefly-hand-yellow.webp
     _id: ERIgPqzMCfEsrg7Z
@@ -3250,13 +3381,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.ERIgPqzMCfEsrg7Z'
   - name: Spellsinger
     type: power
@@ -3267,6 +3391,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -3287,6 +3412,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -3392,40 +3521,54 @@ items:
         label: Effect
         value: "<p>You cannot take this talent if you have taken the\_<em>Battle Skald</em>\_talent.</p><p>You can choose an extra bardic song or bard spell at the highest level you know.</p>"
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3444,10 +3587,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/magic/sonic/projectile-sound-rings-wave.webp
     _id: jWMSkrT3Ijgi2nwX
@@ -3456,13 +3595,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.jWMSkrT3Ijgi2nwX'
   - name: Storyteller
     type: power
@@ -3473,6 +3605,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -3493,6 +3626,10 @@ items:
         type: Number
         label: Max Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -3603,40 +3740,54 @@ items:
           allows them to reroll the relationship check if they don't like the
           first result.</span></p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3655,10 +3806,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/sundries/books/book-purple-detail.webp
     _id: VnoXPXVjZVEQS6ue
@@ -3667,13 +3814,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880114478
-      modifiedTime: 1708880114478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.VnoXPXVjZVEQS6ue'
   - name: Hang Tough!
     type: power
@@ -3684,6 +3824,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -3704,6 +3845,10 @@ items:
         type: Number
         label: Max Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -3811,40 +3956,54 @@ items:
           <p>Give a nearby ally temporary hit points equal to your Charisma
           modifier.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3924,10 +4083,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/magic/control/debuff-energy-hold-green.webp
     _id: 0i3vjMKAkAgPmuIP
@@ -3936,13 +4091,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880350075
-      modifiedTime: 1708880428829
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.0i3vjMKAkAgPmuIP'
   - name: Song of Aid
     type: power
@@ -3953,6 +4101,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -3973,6 +4122,10 @@ items:
         type: Number
         label: Max Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -4080,42 +4233,56 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: '[[5d6]] tempory hit points; sustain the song on a 9+.'
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: >-
           [[7d6]] temporary hit points, and the recovery from the final verse is
           free.
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: '[[9d8]] temporary hit points; sustain the song on a 7+.'
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -4134,10 +4301,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -4151,13 +4314,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880350075
-      modifiedTime: 1708880397668
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.rd2sBhaHUIgziaRb'
   - name: Song of Thunder
     type: power
@@ -4168,6 +4324,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -4188,6 +4345,10 @@ items:
         type: Number
         label: Max Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -4227,7 +4388,7 @@ items:
       target:
         type: String
         label: Target
-        value: '[[1d4+1]] nearby enemies'
+        value: '[[1d4 + 1]] nearby enemies'
       always:
         type: String
         label: Always
@@ -4235,11 +4396,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+        value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
       hit:
         type: String
         label: Hit
-        value: '[[5d6+@cha.dmg+@atk.a.bonus]] thunder damage'
+        value: '[[5d6 + @cha.dmg + @atk.a.bonus]] thunder damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -4295,40 +4456,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
-        value: '[[7d6+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[7d6 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
-        value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[9d8 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
-        value: '[[10d12+@cha.dmg+@atk.a.bonus]] damage.'
+        value: '[[10d12 + @cha.dmg + @atk.a.bonus]] damage.'
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -4385,10 +4560,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -4402,13 +4573,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880407560
-      modifiedTime: 1708880470878
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.uChSUFD9IjtLkbDS'
   - name: Song of Magic
     type: power
@@ -4419,6 +4583,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -4439,6 +4604,10 @@ items:
         type: Number
         label: Max Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -4549,44 +4718,58 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: >-
           Gain a bonus to song of magic&#039;s sustain check equal to the
           escalation die.
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: >-
           Rolls to retain expended spells gain a bonus equal to the escalation
           die.
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -4605,10 +4788,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/magic/symbols/runes-star-orange-purple.webp
     _id: L6ziFjaLzimVpDJs
@@ -4617,13 +4796,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880407560
-      modifiedTime: 1708880407560
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.L6ziFjaLzimVpDJs'
   - name: Toughness
     type: power
@@ -4655,6 +4827,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -4760,40 +4936,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -4835,10 +5025,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/svg/d20.svg
     _id: 6YU7V3dWJsm5Wks6
@@ -4847,13 +5033,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708880438845
-      modifiedTime: 1708880438845
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6ovnxjMn2oITjm6F.6YU7V3dWJsm5Wks6'
 effects: []
 folder: null
@@ -4887,13 +5066,6 @@ flags:
     hideSettingsTab: false
     diceFormulaMode: ''
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.27.0
-  coreVersion: '11.315'
-  createdTime: 1708880032830
-  modifiedTime: 1708880495200
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _id: 6ovnxjMn2oITjm6F
 sort: 0
 _key: '!actors!6ovnxjMn2oITjm6F'

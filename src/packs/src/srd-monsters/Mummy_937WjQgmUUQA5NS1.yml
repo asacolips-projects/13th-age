@@ -3,6 +3,7 @@ name: Mummy
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -99,6 +94,8 @@ system:
       value: double
       type: String
       label: Size
+    strength:
+      value: ''
     type:
       value: humanoid
       type: String
@@ -117,55 +114,66 @@ system:
       value: 8
       min: 0
       max: 12
-token:
-  flags: {}
-  name: Mummy
-  displayName: 0
-  img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-  width: 1
-  height: 1
-  scale: 1
-  lockRotation: false
-  rotation: 0
-  vision: false
-  dimSight: 0
-  brightSight: 0
-  dimLight: 0
-  brightLight: 0
-  sightAngle: 0
-  lightAngle: 360
-  lightAlpha: 1
-  actorId: tpZ1wwESQJ72NllH
-  actorLink: false
-  actorData: {}
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  mirrorX: false
-  mirrorY: false
-  alpha: 1
-  light:
-    alpha: 0.5
-    angle: 0
-    bright: 0
-    coloration: 1
-    dim: 0
-    gradual: true
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: ZIatJFomkVBPjKj3
     flags: {}
@@ -179,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -217,8 +229,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.ZIatJFomkVBPjKj3'
   - _id: 1gLrlLVI2G9WxhV2
     flags: {}
@@ -233,6 +243,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/round, as a quick action.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -266,8 +280,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.1gLrlLVI2G9WxhV2'
   - _id: S7U1sHfEX45uLoE0
     flags: {}
@@ -281,6 +293,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -315,8 +331,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.S7U1sHfEX45uLoE0'
   - _id: tHxjqOzMttcK4h3y
     flags: {}
@@ -334,6 +348,10 @@ items:
           The target’s flesh begins to rot and the ongoing damage increases by
           +40 (cumulative). Saves granted by special powers don’t increase this
           damage if they fail, only end of turn failures.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,8 +359,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.tHxjqOzMttcK4h3y'
   - _id: VR0uCHxT2i37nKwr
     flags: {}
@@ -361,6 +377,10 @@ items:
           negative energy damage by 40. If the target isn’t affected by mummy
           rot already, it takes [[40]] ongoing negative energy damage and is
           affected by mummy rot (save ends both)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,8 +388,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.VR0uCHxT2i37nKwr'
   - _id: N2nNURhtAaUgkhW7
     flags: {}
@@ -390,6 +408,10 @@ items:
           to their attacks. Each time an enemy with 200 hp or fewer attacks the
           mummy, hit or miss, it must roll a save. On a success, it’s no longer
           affected by the fear aura effects of any mummy in the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -397,8 +419,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.N2nNURhtAaUgkhW7'
   - _id: Ucocggx8AJDRoo7Q
     flags: {}
@@ -415,6 +435,10 @@ items:
         value: >-
           When the mummy takes [[20]] damage or less from a non-fire attack, it
           takes no damage instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -422,8 +446,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.Ucocggx8AJDRoo7Q'
   - _id: dGFt4qVEfRx1XapQ
     flags: {}
@@ -438,6 +460,10 @@ items:
         type: ''
         label: Description
         value: The mummy has a +4 bonus to all defenses until it takes damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -445,8 +471,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.dGFt4qVEfRx1XapQ'
   - _id: 6WVgc3F9382YDktQ
     flags: {}
@@ -464,6 +488,10 @@ items:
           Once per battle as a quick action, the mummy can issue a bone-chilling
           cry that seems to echo from some unseen tomb or portal and it makes a
           call of the sarcophagus attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -471,15 +499,89 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!937WjQgmUUQA5NS1.6WVgc3F9382YDktQ'
 effects: []
 folder: null
 sort: 100001
-permission:
-  default: 0
 flags:
   archmage: {}
+ownership:
+  default: 0
+prototypeToken:
+  flags: {}
+  name: Mummy
+  displayName: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  actorLink: false
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+      type: null
+    darkness:
+      min: 0
+      max: 1
+    attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    anchorX: 0.5
+    anchorY: 0.5
+    offsetX: 0
+    offsetY: 0
+    fit: contain
+    rotation: 0
+    tint: '#ffffff'
+    alphaThreshold: 0.75
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    color: null
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  hexagonalShape: 0
+  detectionModes: []
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!937WjQgmUUQA5NS1'
 

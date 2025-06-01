@@ -376,14 +376,18 @@ export async function getPackIndex(packNames = [], fields = []) {
   if (!packNames) return;
   if (!fields || fields.length < 1) return;
 
-  let packs = [];
-
-  for (let packName of packNames) {
+  const promises = packNames.map(async packName => {
     const pack = game.packs.get(packName);
-    const packIndex = await pack.getIndex({fields: fields});
-    packs = packs.concat(packIndex.contents);
-  }
+    if (!pack) return [];
+    const index = await pack.getIndex({ fields: fields });
+    return index.contents.map(x => ({ ...x, compendiumTitle: pack.title }));
+  });
+  const results = await Promise.all(promises);
 
+  let packs = [];
+  for (const result of results) {
+    packs = packs.concat(result);
+  }
   return packs;
 }
 

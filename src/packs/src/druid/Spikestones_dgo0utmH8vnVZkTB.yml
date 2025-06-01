@@ -1,6 +1,4 @@
 name: Spikestones
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Spikestones
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: 'Terrain Caster: Cave, Dungeon, Underworld'
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Spikestones
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -117,7 +140,7 @@ system:
       dangerous to move in. When an enemy moves through the area on the ground
       (enemies using teleport or similar powers aren&rsquo;t affected), it must
       roll a normal save that turn. On a failure, that creature takes
-      [[7d6+@atk.d.bonus]] damage. If they move again that turn, they
+      [[7d6 + @atk.d.bonus]] damage. If they move again that turn, they
       don&rsquo;t have to roll a save.</p><p>You can move normally in the area.
       Your allies must roll an easy save (6+); if they fail they take half
       damage when they move.</p><p>Since the spell normally only works
@@ -126,22 +149,56 @@ system:
       floors. If you&rsquo;re in a giant cavern when you cast it, fliers could
       probably zip around away from surfaces without too much trouble
       (GM&rsquo;s call).</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: ' [[7d10+@atk.d.bonus]] damage.'
+    value: ' [[7d10 + @atk.d.bonus]] damage.'
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[9d10+@atk.d.bonus]] damage.'
+    value: '[[9d10 + @atk.d.bonus]] damage.'
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -150,26 +207,22 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  feats: null
-  group:
+    label: Sustain On
+    value: ''
+  rollTable:
     type: String
-    label: Group
-    value: 'Terrain Caster: Cave, Dungeon, Underworld'
+    label: Roll Table
+    value: ''
+  feats: null
 flags: {}
 img: icons/magic/earth/barrier-stone-explosion-red.webp
 _id: dgo0utmH8vnVZkTB
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!dgo0utmH8vnVZkTB'
 

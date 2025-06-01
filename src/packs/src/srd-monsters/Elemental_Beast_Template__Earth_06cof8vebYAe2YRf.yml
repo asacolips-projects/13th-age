@@ -3,6 +3,7 @@ type: npc
 _id: 06cof8vebYAe2YRf
 img: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -107,12 +108,74 @@ system:
       value: ''
     size:
       value: ''
+    strength:
+      value: ''
     type:
       value: ''
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: 'Elemental Beast Template: Earth'
   displayName: 0
@@ -126,6 +189,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -156,6 +224,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -165,9 +236,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Roots of earth
     type: trait
@@ -182,11 +266,13 @@ items:
         value: >-
           <p>When an effect would move this creature, roll a save. On a success,
           the creature doesn&rsquo;t move.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: mwerhcLmaKCzPx6r
     effects: []
@@ -206,11 +292,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oOtiidLYq6FTEI6W
     effects: []
@@ -230,11 +319,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: L7yKyY7hgut2ffmP
     effects: []
@@ -255,11 +347,13 @@ items:
         type: String
         label: Description
         value: <p>This creature gains a +2 bonus to MD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BJgSAItIlxRVq1kE
     effects: []
@@ -283,11 +377,13 @@ items:
           <p>This creature takes normal damage from critical hits. In addition,
           once per battle as a free action, it can take only half damage from an
           attack that hits.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: NTW89gXBDcqgijDW
     effects: []
@@ -310,11 +406,13 @@ items:
         value: >-
           <p>The creature gains the <em>burrower</em> trait if it does not
           already have it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 98qBzazCC9SYOItI
     effects: []
@@ -336,12 +434,14 @@ items:
         label: Description
         value: >-
           <p>When this creature moves before making an attack, it deals
-          additional damage equal to [[2*@lvl]] on a hit.</p>
+          additional damage equal to [[2 * @lvl]] on a hit.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6rx0QHVsfCDItU5t
     effects: []
@@ -361,11 +461,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: on0tD6JEDRgJR78z
     effects: []
@@ -389,11 +492,13 @@ items:
           <p>Once per battle as a standard action, this creature can heal [[15]]
           hp or 20% of its maximum health, whichever is higher. It can only use
           this ability while it is in contact with the ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: P4oZszeKhLclz9rr
     effects: []
@@ -413,11 +518,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: P1wqvM0FfYX4lLTh
     effects: []
@@ -443,5 +551,6 @@ flags:
         primary:
           value: actions
   core: {}
+sort: 0
 _key: '!actors!06cof8vebYAe2YRf'
 

@@ -1,6 +1,4 @@
 name: Faerie Fire
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -10,10 +8,34 @@ system:
     type: String
     label: Description
     value: ''
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Faerie Fire
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: Elemental Caster
   powerSource:
     type: String
     label: Power Source
@@ -22,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Faerie Fire
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -57,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
-    value: ' [[3d6+@wis.dmg+@atk.d.bonus]] fire damage, and the target is *vulnerable* (hard save ends, 16+).'
+    value: ' [[3d6 + @wis.dmg + @atk.d.bonus]] fire damage, and the target is *vulnerable* (hard save ends, 16+).'
   hitEven:
     type: String
     label: Natural Even Hit
@@ -116,27 +138,61 @@ system:
     type: String
     label: Effect
     value: ''
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: false
     type: String
     label: 3rd Level Spell
     value: >-
-      [[6d6+@wis.dmg+@atk.d.bonus]] damage, and in addition to being
+      [[6d6 + @wis.dmg + @atk.d.bonus]] damage, and in addition to being
       *vulnerable*, the target can’t turn invisible or hide from you or your
       allies (save ends both).
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: false
     type: String
     label: 5th Level Spell
     value: >-
-      [[6d10+@wis.dmg+@atk.d.bonus]] damage, and the target also can’t teleport
+      [[6d10 + @wis.dmg + @atk.d.bonus]] damage, and the target also can’t teleport
       (save ends all).
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: false
     type: String
     label: 7th Level Spell
-    value: '[[10d10+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[10d10 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: false
     type: String
     label: 9th Level Spell
-    value: '[[2d8*10+@wis.dmg+@atk.d.bonus]] damage.'
+    value: '[[2d8 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -145,26 +201,22 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  feats: null
-  group:
+    label: Sustain On
+    value: null
+  rollTable:
     type: String
-    label: Group
-    value: Elemental Caster
+    label: Roll Table
+    value: ''
+  feats: null
 flags: {}
 img: icons/magic/light/projectiles-trio-pink.webp
 _id: h567iEVdHQamjxsi
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!h567iEVdHQamjxsi'
 

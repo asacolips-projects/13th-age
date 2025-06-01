@@ -3,6 +3,7 @@ name: Braincap
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/plant.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -99,6 +94,8 @@ system:
       value: double
       type: String
       label: Size
+    strength:
+      value: ''
     type:
       value: plant
       type: String
@@ -117,55 +114,66 @@ system:
       value: 3
       min: 0
       max: 12
-token:
-  flags: {}
-  name: Braincap
-  displayName: 0
-  img: systems/archmage/assets/icons/tokens/monsters/plant.webp
-  width: 1
-  height: 1
-  scale: 1
-  lockRotation: false
-  rotation: 0
-  vision: false
-  dimSight: 0
-  brightSight: 0
-  dimLight: 0
-  brightLight: 0
-  sightAngle: 0
-  lightAngle: 360
-  lightAlpha: 1
-  actorId: 0o7bowWnzXKmkc8o
-  actorLink: false
-  actorData: {}
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  mirrorX: false
-  mirrorY: false
-  alpha: 1
-  light:
-    alpha: 0.5
-    angle: 0
-    bright: 0
-    coloration: 1
-    dim: 0
-    gradual: true
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: obSiil3HKkUbVMhd
     flags: {}
@@ -179,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -215,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2ayP8nkrJUfbTKxn.obSiil3HKkUbVMhd'
   - _id: Xbr57s9vuSEEfD6c
     flags: {}
@@ -230,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -270,8 +284,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2ayP8nkrJUfbTKxn.Xbr57s9vuSEEfD6c'
   - _id: khblwgABnxlho5pK
     flags: {}
@@ -285,6 +297,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -319,8 +335,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2ayP8nkrJUfbTKxn.khblwgABnxlho5pK'
   - _id: pw0nGAJuI40pXALr
     flags: {}
@@ -339,6 +353,10 @@ items:
           braincap uses focused brain blast. When no enemies are staggered, the
           braincap uses hallucinogenia if its hit points are even, and psionic
           filaments if its hit points are odd.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -346,8 +364,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2ayP8nkrJUfbTKxn.pw0nGAJuI40pXALr'
   - _id: gdJu2jmHNnRsFUjE
     flags: {}
@@ -362,6 +378,10 @@ items:
         type: ''
         label: Description
         value: This creature can’t make opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,15 +389,89 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2ayP8nkrJUfbTKxn.gdJu2jmHNnRsFUjE'
 effects: []
 folder: null
 sort: 100001
-permission:
-  default: 0
 flags:
   archmage: {}
+ownership:
+  default: 0
+prototypeToken:
+  flags: {}
+  name: Braincap
+  displayName: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  actorLink: false
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+      type: null
+    darkness:
+      min: 0
+      max: 1
+    attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/plant.webp
+    scaleX: 1
+    scaleY: 1
+    anchorX: 0.5
+    anchorY: 0.5
+    offsetX: 0
+    offsetY: 0
+    fit: contain
+    rotation: 0
+    tint: '#ffffff'
+    alphaThreshold: 0.75
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    color: null
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  hexagonalShape: 0
+  detectionModes: []
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!2ayP8nkrJUfbTKxn'
 

@@ -3,6 +3,7 @@ type: npc
 _id: u128IpFMguDbUy56
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Great Hound
   displayName: 0
@@ -107,7 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -138,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -147,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Savage bite
     type: action
@@ -161,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -168,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -198,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: nE2rfIdWukl9YGxg
     effects: []
     folder: null
@@ -218,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -225,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD'
+        value: '[[d20 + 13]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -255,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Xnsuu6x68Bj3uqzO
     effects: []
     folder: null
@@ -278,11 +365,13 @@ items:
         value: >-
           <p>This creature gains different abilities based on which name it has
           taken.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Ezil397ytc7lESp6
     effects: []
@@ -308,11 +397,13 @@ items:
         value: >-
           <p>When the hound scores a critical hit with its <em>savage bite</em>
           attack, it heals [[20]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: AU1TIPFMz4GnCFBB
     effects: []
@@ -335,11 +426,13 @@ items:
         value: >-
           <p>When the hound hits with its <em>savage bite</em> attack, the
           target is also *vulnerable* (save ends).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FYO2RTE6n3mdzxv2
     effects: []
@@ -365,11 +458,13 @@ items:
           rider, if any, takes the other half. In addition, a creature riding
           the hound deals only half damage with natural even misses with melee
           attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qBcz4AbeV8Q5hJLj
     effects: []
@@ -397,11 +492,13 @@ items:
           <p><strong>4:</strong> Poison</p>
           <p><strong>5:</strong> Dire regeneration</p>
           <p><strong>6:</strong> Fury</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UFQ8ZyIapPQz8bpC
     effects: []
@@ -422,11 +519,13 @@ items:
         type: String
         label: Description
         value: <p>Add +2 to the dire animal&rsquo;s AC, and add +1 to its PD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: k0p5vGHCQ3U21epB
     effects: []
@@ -449,11 +548,13 @@ items:
         value: >-
           <p>Whenever an enemy hits the hound with a melee attack, deal [[10]]
           damage to that attacker.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dZRb0tMrn742JvTW
     effects: []
@@ -476,11 +577,13 @@ items:
         value: >-
           <p>The hound&rsquo;s attacks that miss deal [[5]] damage. When
           staggered, its missed attacks deal [[10]] damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qRw0ANaGLpPH6lmn
     effects: []
@@ -501,11 +604,13 @@ items:
         type: String
         label: Description
         value: <p>Savage bite also deals [[10]] ongoing poison.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KhPuoG5G40AUBRvv
     effects: []
@@ -526,11 +631,13 @@ items:
         type: String
         label: Description
         value: <p>When the escalation die is even, the hound heals [[15]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Y6u21fSSPAS1QRQR
     effects: []
@@ -554,11 +661,13 @@ items:
           <p>While staggered, the hound gains a +2 attack bonus and deals +[[4]]
           damage, but at the end of each of its turns it takes [[2d6]]
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: CsD58sgOG7PVjE5g
     effects: []

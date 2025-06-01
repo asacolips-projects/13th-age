@@ -3,6 +3,7 @@ type: npc
 _id: h4qiPjNWN78ZcrUb
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Koruku Landkiller
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Thrashing tail
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC (one nearby enemy)'
+        value: '[[d20 + 13]] vs. AC (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -201,8 +288,6 @@ items:
         type: String
         label: Miss
         value: '[[40]] damage'
-      embeddedMacro:
-        value: ''
     _id: iIemtd42r4L27lYG
     effects: []
     folder: null
@@ -221,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -228,7 +318,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD (2 attacks)'
+        value: '[[d20 + 13]] vs. PD (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -258,8 +348,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: bWG9wq5pwgpJOmLM
     effects: []
     folder: null
@@ -279,13 +367,15 @@ items:
         type: String
         label: Description
         value: >-
-          <p>The koruku landkiller adds twice the escalation die ([[2*@ed]]) to
+          <p>The koruku landkiller adds twice the escalation die ([[2 * @ed]]) to
           its saves.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pVMebtfntKZyazIB
     effects: []
@@ -305,6 +395,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +437,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: jrJXYh1V6aDVoWSp
     effects: []
     folder: null
@@ -362,6 +455,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,7 +467,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -401,8 +499,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: YqPlZC2gxfEJ3qo0
     effects: []
     folder: null
@@ -421,6 +517,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -428,7 +529,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD ([[1d3]] nearby enemies in a group)'
+        value: '[[d20 + 13]] vs. PD ([[1d3]] nearby enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -460,8 +561,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9RlRKuTc4WSVsUc2
     effects: []
     folder: null
@@ -480,6 +579,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -487,7 +591,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. MD ([[1d4]] nearby enemies)'
+        value: '[[d20 + 13]] vs. MD ([[1d4]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -519,8 +623,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: rB9GLZQK9s343sap
     effects: []
     folder: null
@@ -539,6 +641,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -546,7 +653,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. MD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 13]] vs. MD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -578,8 +685,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1xJbX1J1KSkBxtcP
     effects: []
     folder: null
@@ -598,6 +703,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -605,7 +715,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC ([[1d3]] nearby enemies)'
+        value: '[[d20 + 13]] vs. AC ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -637,8 +747,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: z5DKzXRwHJYifioG
     effects: []
     folder: null
@@ -657,6 +765,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -664,7 +777,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD (all nearby enemies)'
+        value: '[[d20 + 13]] vs. PD (all nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -694,8 +807,6 @@ items:
         type: String
         label: Miss
         value: '[[35]] lightning damage.'
-      embeddedMacro:
-        value: ''
     _id: 9aFMMgxUsq4SNYGZ
     effects: []
     folder: null
@@ -724,11 +835,13 @@ items:
           allows the landkiller to regain stolen magic, it doesn&rsquo;t have to
           choose which magical attack it will use until it actually uses the
           attack.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rebKxseQuhaK3GsX
     effects: []
@@ -751,11 +864,13 @@ items:
         value: >-
           <p>When the koruku landkiller is hit by an attack, add a koruku
           servitor to the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DgBb5BBCYFWzQhed
     effects: []

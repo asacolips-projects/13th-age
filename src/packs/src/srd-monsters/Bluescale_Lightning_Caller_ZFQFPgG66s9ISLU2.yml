@@ -3,6 +3,7 @@ type: npc
 _id: ZFQFPgG66s9ISLU2
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Bluescale Lightning Caller
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Sharp claws
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC (2 attacks)'
+        value: '[[d20 + 8]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: wAfjlQU2iydTwirM
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD (up to 2 nearby enemies)'
+        value: '[[d20 + 10]] vs. PD (up to 2 nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -256,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vLHL0AT7yD1AMVEV
     effects: []
     folder: null
@@ -276,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -315,8 +408,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ntoZa24UcdqAWfeW
     effects: []
     folder: null
@@ -335,6 +426,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,7 +438,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD (one enemy attacking the lightning caller)'
+        value: '[[d20 + 10]] vs. PD (one enemy attacking the lightning caller)'
       hit:
         type: String
         label: Hit
@@ -374,8 +470,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: xayObUKuQZUUJ28j
     effects: []
     folder: null
@@ -398,11 +492,13 @@ items:
           <p>When a lightning attack targets this creature, the attacker must
           roll a natural 14+ on the attack roll or it only deals half
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ebsqAMVmvvyIkMqk
     effects: []
@@ -429,11 +525,13 @@ items:
           can&rsquo;t be attacked directly. When an enemy attacks the lightning
           caller, one minion makes a <em>lightning zap</em> attack against it as
           an interrupt action. All minions dissipate at the end of battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pBFp4WPvGbl63Tjf
     effects: []
@@ -462,11 +560,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tH9GV3lrpHebJ1wa
     effects: []
@@ -494,11 +594,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WvebAvDBXLpybXbz
     effects: []

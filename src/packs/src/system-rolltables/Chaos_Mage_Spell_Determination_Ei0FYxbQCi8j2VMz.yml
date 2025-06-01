@@ -1,13 +1,11 @@
 name: Chaos Mage Spell Determination
-permission:
-  default: 0
 flags: {}
 img: icons/svg/d20-grey.svg
 description: ''
 results:
   - _id: B4eZF9b2pezTNcLF
     flags: {}
-    type: 0
+    type: text
     text: Attack
     img: icons/svg/d20-black.svg
     weight: 1
@@ -20,7 +18,7 @@ results:
     _key: '!tables.results!Ei0FYxbQCi8j2VMz.B4eZF9b2pezTNcLF'
   - _id: oEMdEueTvulCJ1Va
     flags: {}
-    type: 0
+    type: text
     text: Attack
     img: icons/svg/d20-black.svg
     weight: 1
@@ -33,7 +31,7 @@ results:
     _key: '!tables.results!Ei0FYxbQCi8j2VMz.oEMdEueTvulCJ1Va'
   - _id: JZI8hogxBdutPmtG
     flags: {}
-    type: 0
+    type: text
     text: Defense
     img: icons/svg/d20-black.svg
     weight: 1
@@ -46,7 +44,7 @@ results:
     _key: '!tables.results!Ei0FYxbQCi8j2VMz.JZI8hogxBdutPmtG'
   - _id: hlqkTbwXOLLyMbL5
     flags: {}
-    type: 0
+    type: text
     text: Defense
     img: icons/svg/d20-black.svg
     weight: 1
@@ -57,7 +55,7 @@ results:
     documentId: null
     documentCollection: ''
     _key: '!tables.results!Ei0FYxbQCi8j2VMz.hlqkTbwXOLLyMbL5'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 5
@@ -70,7 +68,7 @@ results:
     _id: 1qpXpB4pNWS5zTDh
     flags: {}
     _key: '!tables.results!Ei0FYxbQCi8j2VMz.1qpXpB4pNWS5zTDh'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 6
@@ -87,5 +85,9 @@ formula: 1d6
 replacement: false
 displayRoll: false
 _id: Ei0FYxbQCi8j2VMz
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!tables!Ei0FYxbQCi8j2VMz'
 

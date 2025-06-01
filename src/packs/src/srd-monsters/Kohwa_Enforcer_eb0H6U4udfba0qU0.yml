@@ -3,6 +3,7 @@ type: npc
 _id: eb0H6U4udfba0qU0
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Kohwa Enforcer
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Tooth and claw
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC (2 attacks)'
+        value: '[[d20 + 12]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: '[[12]] damage'
-      embeddedMacro:
-        value: ''
     _id: qscskN2Be9q3HGAr
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD (1 nearby or faraway enemy)'
+        value: '[[d20 + 10]] vs. PD (1 nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -257,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: zRVP7Ht74NTYbCjn
     effects: []
     folder: null
@@ -277,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -284,7 +377,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. PD ([[1d4]] nearby enemies)'
+        value: '[[d20 + 12]] vs. PD ([[1d4]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -314,8 +407,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vD9N52EIld6CrLsu
     effects: []
     folder: null
@@ -334,6 +425,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,7 +437,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC'
+        value: '[[d20 + 12]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -371,8 +467,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: ed9zIdWRlX8kmuTy
     effects: []
     folder: null
@@ -393,12 +487,14 @@ items:
         label: Description
         value: >-
           <p>When staggered, the kohwa enforcer gains a bonus to damage equal to
-          triple the escalation die ([[3*@ed]]).</p>
+          triple the escalation die ([[3 * @ed]]).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cyDaLLpAeWhrnl1b
     effects: []
@@ -422,11 +518,13 @@ items:
           <p>The first time the enforcer is struck by a critical hit, provided
           it survives the blow, it sprays horrible acidic urine on its enemies
           using its <em>pitter patter</em> attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Bc7CunV4Nhf7Cjy6
     effects: []
@@ -449,11 +547,13 @@ items:
         value: >-
           <p>If the enforcer is unengaged and moves to engage an enemy, it can
           make a <em>leaping strike</em> attack as a standard action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cCD3Snnp4mGicBsw
     effects: []
@@ -478,11 +578,13 @@ items:
           strong fliers and able to travel great distances in this way, they are
           acutely aware of how ungainly they look while doing so, and therefore
           prefer to walk or run unless they are certain no one is watching.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xRrdZ6JZHbEWXxja
     effects: []
@@ -508,11 +610,13 @@ items:
         value: >-
           <p>Unlike many cat species, kohwa are perfectly at home in the water,
           so diving into a lake or river is a poor defense against them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Fvg3CNRkN7tPHUE2
     effects: []
@@ -541,11 +645,13 @@ items:
           communicating with others of their species at greater distances, as
           when one is in trouble, others are sure to
           appear&mdash;eventually.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ISJOpfdigR12Q0fx
     effects: []

@@ -3,6 +3,7 @@ type: npc
 _id: GfAWl9pum3sr8cgD
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Colossal Hubris Devil
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Omni strike
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. AC (4 attacks)'
+        value: '[[d20 + 16]] vs. AC (4 attacks)'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Fc1KZRfiJvxE4ta1
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. PD'
+        value: '[[d20 + 17]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -256,8 +346,6 @@ items:
         type: String
         label: Miss
         value: The target is *dazed* and *hampered* until the end of its next turn.
-      embeddedMacro:
-        value: ''
     _id: CliuJ7LzLzt5OmSS
     effects: []
     folder: null
@@ -276,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -283,7 +376,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. MD ([[1d6]] nearby enemies)'
+        value: '[[d20 + 17]] vs. MD ([[1d6]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -315,8 +408,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Kv5ibkoAJQhxDdsI
     effects: []
     folder: null
@@ -343,11 +434,13 @@ items:
           For example, if two PCs have given it its due, and a third does so,
           during the devil&rsquo;s next turn it can make a <em>suffocating
           fear</em> attack against those three PCs.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2OJqTgrq1s6ggoZb
     effects: []
@@ -370,11 +463,13 @@ items:
         value: >-
           <p>When a holy attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Pp4fTqIR7OV6rwz3
     effects: []
@@ -400,11 +495,13 @@ items:
           forcing the characters to be more careful with their attacks. Any
           natural 1&ndash;5 attack roll against the devil is an automatic miss
           with no miss damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2KCylHXTX1cJ8zTQ
     effects: []
@@ -431,11 +528,13 @@ items:
           <p>When the hubris devil attacks, it gains a surprise round unless the
           PCs were extremely perceptive (by making a ridiculously hard skill
           check for tier).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: gEFxeESiLq2JBkE5
     effects: []
@@ -523,11 +622,13 @@ items:
           leading to an entirely new set of quests and complications.</li>
 
           </ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: A4wpI2BvZfQlrxiz
     effects: []

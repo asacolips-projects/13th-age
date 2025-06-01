@@ -15,20 +15,20 @@ system:
       take: white (halfling); black (halfling, half-orc, human, wood elf );
       green (dwarf, dark elf ); blue (high elf, half-orc); red (half-orc, human,
       wood elf ).</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
     value: ''
-  embeddedMacro:
-    value: ''
 effects: []
-flags: null
+flags: {}
 folder: null
 sort: 0
 ownership:
   default: 0
 _id: 91Sdk8JCusE4B6JT
-permission:
-  default: 0
 _key: '!items!91Sdk8JCusE4B6JT'
 

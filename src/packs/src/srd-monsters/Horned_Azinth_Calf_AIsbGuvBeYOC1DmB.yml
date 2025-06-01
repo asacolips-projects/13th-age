@@ -3,6 +3,7 @@ type: npc
 _id: AIsbGuvBeYOC1DmB
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: wrecker
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: beast
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Horned Azinth Calf
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Headbutt
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -198,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 0TGbklaRPs5NJ3Rj
     effects: []
     folder: null
@@ -223,11 +310,13 @@ items:
           attacker must roll the miss chance before the attack roll. In
           addition, the azinth is nearly invisible while standing still or
           slowly grazing, as it blends in with its surroundings.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QKRIs1jwfbjFS1Jy
     effects: []
@@ -251,11 +340,13 @@ items:
           <p>Each horned azinth adult gains a +1 attack bonus during a battle
           that includes one or more calves, +2 if any calves are attacked, and
           +4 if any calves are killed!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FYVYp5Y57xXtTblg
     effects: []

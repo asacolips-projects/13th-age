@@ -16,6 +16,7 @@ system:
 
       <p>Quirk: Constantly checking self out and flexing, and seems to want to
       be caught doing that.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
@@ -62,6 +63,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'champion'
   isActive: true
   price:
     value: ''
@@ -70,17 +91,9 @@ effects: []
 folder: ZROEuvUmPPM5izdo
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647683598
-  modifiedTime: 1714647692625
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: o0dL6ridD3fOi1rg
 sort: 600000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!o0dL6ridD3fOi1rg'
 

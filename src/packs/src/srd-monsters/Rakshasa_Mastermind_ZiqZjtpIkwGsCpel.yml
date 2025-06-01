@@ -3,6 +3,7 @@ type: npc
 _id: ZiqZjtpIkwGsCpel
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: caster
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: humanoid
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Rakshasa Mastermind
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Decisive bite
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC'
+        value: '[[d20 + 14]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -195,8 +284,6 @@ items:
         type: String
         label: Miss
         value: '[[45]] damage'
-      embeddedMacro:
-        value: ''
     _id: pKPFLO1M4wEeeDCG
     effects: []
     folder: null
@@ -215,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. PD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 14]] vs. PD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -254,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 5PZGPmvw2Y9caxaP
     effects: []
     folder: null
@@ -274,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -281,7 +376,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 14]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -311,8 +406,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 6MqUIGooi6G73NE8
     effects: []
     folder: null
@@ -339,11 +432,13 @@ items:
           new ally should be about as tough as a single PC according to the
           building battles table. Explain this ability as the culmination of the
           rakshasas&rsquo; cunning plans.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cUTHAGUAig33yI2b
     effects: []
@@ -367,11 +462,13 @@ items:
           <p>As a standard action, the rakshasa can change its form to that of
           any humanoid, or back to its own shape. Seeing through the shapechange
           requires a DC 20 skill check.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4HFjwFDOTP2M1LrS
     effects: []
@@ -406,11 +503,13 @@ items:
           quest to find the lockheart&rsquo;s key before confronting the
           rakshasa! That&rsquo;s a story angle you get to manipulate as you
           choose.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: isfSS5zHsBsANw9K
     effects: []
@@ -442,11 +541,13 @@ items:
           whether this rakshasa gets to use the escalation die until the end of
           the battle. If the PC group is split, the decision goes to the
           character with the highest initiative.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: G4lRMTi3mawumiHB
     effects: []

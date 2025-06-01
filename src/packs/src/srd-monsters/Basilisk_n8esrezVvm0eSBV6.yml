@@ -3,6 +3,7 @@ name: Basilisk
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 4
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 5SOoHJg8tZbBnJ2d
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.5SOoHJg8tZbBnJ2d'
   - _id: RSITmVbqHx3CEjT2
     flags: {}
@@ -183,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -221,8 +282,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.RSITmVbqHx3CEjT2'
   - _id: 70vsKUvErvhvnrqJ
     flags: {}
@@ -240,6 +299,10 @@ items:
           When a basilisk hits an enemy that is already taking ongoing poison
           damage, the basilisk can make a basilisk’s stare attack against the
           target as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,8 +310,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.70vsKUvErvhvnrqJ'
   - _id: qOQISPkvHe4CqTS8
     flags: {}
@@ -263,6 +324,10 @@ items:
         type: ''
         label: Description
         value: The target takes [[25]] poison damage as its blood turns to poison.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,8 +335,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.qOQISPkvHe4CqTS8'
   - _id: NL4YOhntJTUH8aiW
     flags: {}
@@ -286,6 +349,10 @@ items:
         type: ''
         label: Description
         value: The target’s body liquefies and they die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -293,8 +360,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.NL4YOhntJTUH8aiW'
   - _id: RKZLxzDZkULV2HwX
     flags: {}
@@ -312,6 +377,10 @@ items:
           The target takes [[15]] fire damage, and each of the target’s nearby
           allies takes [[5]] fire damage as the target’s blood boils under their
           skin and sprays outward in gouts of liquid fire.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -319,8 +388,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.RKZLxzDZkULV2HwX'
   - _id: pFi2SwlpfmGqfUk1
     flags: {}
@@ -337,6 +404,10 @@ items:
         value: >-
           The target’s body ignites as their flaming skull shoots upward on a
           jet of burning blood, killing them.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,8 +415,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.pFi2SwlpfmGqfUk1'
   - _id: avR7EKPIx6knlHh6
     flags: {}
@@ -362,6 +431,10 @@ items:
         value: >-
           The target’s blood begins to coagulate and harden, and dust puffs out
           of their lungs through their mouth.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,8 +442,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.avR7EKPIx6knlHh6'
   - _id: 3s0kOIGtMnD04AYE
     flags: {}
@@ -385,6 +456,10 @@ items:
         type: ''
         label: Description
         value: The target’s body turns to stone and they die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -392,8 +467,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.3s0kOIGtMnD04AYE'
   - _id: 3vIF7u6ThFTzlLPc
     flags: {}
@@ -412,6 +485,10 @@ items:
           normal save (11+) or it loses a chunk of flesh or a limb, whatever is
           dramatic but will allow the creature to survive (perhaps with minuses
           until healed).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -419,8 +496,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.3vIF7u6ThFTzlLPc'
   - _id: KC0nF5CmsVudZa8P
     flags: {}
@@ -435,6 +510,10 @@ items:
         type: ''
         label: Description
         value: The target’s body explodes into a fine red mist and they die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -442,8 +521,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.KC0nF5CmsVudZa8P'
   - _id: zfg0C4ekhLsKRXIU
     flags: {}
@@ -465,6 +542,10 @@ items:
           can make a basilisk’s stare attack against them as a free action
           before the attack. Constructs and undead are not affected by this
           resistance.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -472,8 +553,6 @@ items:
     sort: 1100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.zfg0C4ekhLsKRXIU'
   - _id: iD4wjK4tCPuYi0S6
     flags: {}
@@ -491,6 +570,10 @@ items:
           When an enemy makes a ranged attack against the basilisk, the basilisk
           can make a basilisk’s stare attack against them as a free action
           before the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -498,8 +581,6 @@ items:
     sort: 1200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.iD4wjK4tCPuYi0S6'
   - _id: O3BBD3jhd0vHV59I
     flags: {}
@@ -516,6 +597,10 @@ items:
         value: >-
           Each creature engaged with the basilisk at the end of the basilisk’s
           turn takes [[10]] poison damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -523,8 +608,6 @@ items:
     sort: 1300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!n8esrezVvm0eSBV6.O3BBD3jhd0vHV59I'
 effects: []
 folder: null
@@ -569,6 +652,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
     scaleX: 1
@@ -576,6 +662,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -585,8 +676,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!n8esrezVvm0eSBV6'
 

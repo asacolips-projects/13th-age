@@ -3,6 +3,7 @@ name: Minotaur
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 4
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 3jPbTKj3KOveRdUZ
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!kihDm8d9NIwdJHRn.3jPbTKj3KOveRdUZ'
   - _id: iKAvqBrqudZB3M8X
     flags: {}
@@ -187,6 +244,10 @@ items:
           The attack instead deals [[40]] damage on a hit if the minotaur first
           moves before attacking an enemy it was not engaged with at the start
           of its turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -194,8 +255,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!kihDm8d9NIwdJHRn.iKAvqBrqudZB3M8X'
   - _id: xCJEoOHMdU9P6n5u
     flags: {}
@@ -210,6 +269,10 @@ items:
         type: ''
         label: Description
         value: Minotaurs gain a +4 melee attack bonus against staggered enemies.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -217,8 +280,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!kihDm8d9NIwdJHRn.xCJEoOHMdU9P6n5u'
   - _id: 0LzdaOYnGVbwig57
     flags: {}
@@ -235,6 +296,10 @@ items:
         value: >-
           The first time each round the minotaur takes damage, prevent [[2d6]]
           of it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,8 +307,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!kihDm8d9NIwdJHRn.0LzdaOYnGVbwig57'
   - _id: 2o31dHLM3eDHMkNs
     flags: {}
@@ -261,6 +324,10 @@ items:
           While engaged with this creature, enemies that have 24 hp or fewer are
           *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -268,16 +335,12 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!kihDm8d9NIwdJHRn.2o31dHLM3eDHMkNs'
 effects: []
 folder: null
 sort: 100001
 flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
+  archmage: {}
 ownership:
   default: 0
 prototypeToken:
@@ -316,6 +379,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
     scaleX: 1
@@ -323,6 +389,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -332,8 +403,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!kihDm8d9NIwdJHRn'
 

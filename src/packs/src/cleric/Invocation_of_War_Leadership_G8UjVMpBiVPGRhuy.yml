@@ -8,6 +8,7 @@ system:
   description:
     type: String
     label: Description
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -28,14 +29,14 @@ system:
     type: Number
     label: Uses
     value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
     value: ''
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Invocation of War/Leadership
   powerSource:
     type: String
     label: Power Source
@@ -44,6 +45,10 @@ system:
     type: String
     label: Power Source
     value: Cleric
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Invocation of War/Leadership
   powerType:
     type: String
     label: Power Type
@@ -132,21 +137,55 @@ system:
     type: String
     label: Effect
     value: <p>Increase the escalation die by 1.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -160,12 +199,17 @@ system:
     type: Number
     label: Sustain On
     value: null
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
 effects: []
 folder: null
 sort: 0
-permission:
-  default: 0
 _id: G8UjVMpBiVPGRhuy
+ownership:
+  default: 0
+flags: {}
 _key: '!items!G8UjVMpBiVPGRhuy'
 

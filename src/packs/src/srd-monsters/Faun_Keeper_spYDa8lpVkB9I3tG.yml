@@ -3,6 +3,7 @@ type: npc
 _id: spYDa8lpVkB9I3tG
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Faun Keeper
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Destiny
     type: trait
@@ -163,11 +245,13 @@ items:
         value: >-
           <p>Choose either <em>Path of the Sword</em> or <em>Path of
           Song</em>.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: sCX0emzuMFh12AHT
     effects: []
@@ -190,6 +274,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -197,7 +286,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -227,8 +316,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: khLcc04DJy8AbszP
     effects: []
     folder: null
@@ -247,6 +334,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -254,7 +346,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD (one nearby enemy engaged with an ally)'
+        value: '[[d20 + 10]] vs. PD (one nearby enemy engaged with an ally)'
       hit:
         type: String
         label: Hit
@@ -284,8 +376,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 2WcKY52kDubAIP26
     effects: []
     folder: null
@@ -307,11 +397,13 @@ items:
         value: >-
           <p><em>Sweep the leg</em>&mdash;On a natural odd hit with <em>gnarled
           staff</em>, the target loses its next move action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oBhYZ6eUppwUSitA
     effects: []
@@ -338,13 +430,15 @@ items:
           <p><span style="font-family: var(--font-primary); font-size:
           var(--font-size-14);"><em>Thorny whip</em>&mdash;If the natural roll
           with <em>snare</em> is above the target&rsquo;s Constitution, it deals
-          additional ongoing poison damage equal to [[2*@ed]] (save
+          additional ongoing poison damage equal to [[2 * @ed]] (save
           ends).</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Kmn1eNvQROGpoWSj
     effects: []
@@ -367,11 +461,13 @@ items:
         value: >-
           <p>The keeper gains the other destiny benefit, and adds 1 to its lower
           defense.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: S5uRCmLHXnxOkSJ4
     effects: []

@@ -1,6 +1,4 @@
 name: Two-Weapon Pressure
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Two-Weapon Pressure
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Fighter
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Two-Weapon Pressure
   powerType:
     type: String
     label: Power Type
     value: flexible
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -115,22 +138,56 @@ system:
     value: >-
       <p>Until the end of your next turn, you gain a +2 melee attack bonus
       against the target.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -139,18 +196,14 @@ system:
     type: String
     label: Breath Weapon
     value: null
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -175,5 +228,9 @@ flags: {}
 img: icons/weapons/swords/swords-short.webp
 _id: 8MYr04jig6k0lDRv
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!8MYr04jig6k0lDRv'
 

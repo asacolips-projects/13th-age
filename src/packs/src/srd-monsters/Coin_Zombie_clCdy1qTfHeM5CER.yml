@@ -3,6 +3,7 @@ type: npc
 _id: clCdy1qTfHeM5CER
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Coin Zombie
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Headshot
     type: trait
@@ -166,11 +248,13 @@ items:
           jackpot </span><span class="fontstyle0">ability that turn, though if
           the crit eliminates more than one coin zombie, others will still
           trigger their own lethal jackpots.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: t7tAeLswpYFZpKwy
     effects: []
@@ -196,11 +280,13 @@ items:
           +2 bonus to the save against the ongoing psychic damage from the
           </span><span class="fontstyle2">lethal jackpot </span><span
           class="fontstyle0">attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: naff54OH7LXKr4jI
     effects: []
@@ -220,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -227,7 +318,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC '
+        value: '[[d20 + 7]] vs. AC '
       hit:
         type: String
         label: Hit
@@ -257,8 +348,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: nSfO66W72sMoLwQr
     effects: []
     folder: null
@@ -284,6 +373,10 @@ items:
           <p><span class="fontstyle0">Limited use: </span><span
           class="fontstyle2">1/battle per coin zombie mook, when that zombie
           drops to 0 hit points.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -291,7 +384,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. MD ([[1d3]] nearby enemies/bystanders)'
+        value: '[[d20 + 7]] vs. MD ([[1d3]] nearby enemies/bystanders)'
       hit:
         type: String
         label: Hit
@@ -324,8 +417,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: iixKsOSUEjD6WVUd
     effects: []
     folder: null
@@ -346,5 +437,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
+sort: 0
 _key: '!actors!clCdy1qTfHeM5CER'
 

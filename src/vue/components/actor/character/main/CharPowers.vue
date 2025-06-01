@@ -29,7 +29,7 @@
       <div class="power-group-header">
         <!-- Group title and add button. -->
         <div class="power-header-title grid power-grid">
-          <h2 class="power-group-title unit-title">{{localize(group)}}</h2>
+          <h2 class="power-group-title unit-title">{{localize(CONFIG.ARCHMAGE.is2e && group === 'ARCHMAGE.daily' ? 'ARCHMAGE.arc' : group)}}</h2>
           <div class="item-controls">
             <a class="item-control item-create" data-item-type="power" :data-group-type="groupBy" :data-power-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
@@ -45,9 +45,9 @@
         </div>
       </div>
       <ul class="power-group-content flexcol">
-        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-draggable="true" draggable="true">
+        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-document-class="Item" data-draggable="true" draggable="true">
           <!-- Clickable power header. -->
-          <div :class="concat('power-summary grid power-grid ', powerUsageClass(power), (power.system.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
+          <div :class="`power-summary grid power-grid ${powerUsageClass(power)} ${powerAvailabilityClass(power)} ${power.system.trigger.value ? 'power-summary--trigger' : ''} ${activePowers[power._id] ? 'active' : ''}`">
             <Rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></Rollable>
             <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
               <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>
@@ -58,7 +58,7 @@
               </ul>
             </div>
             <div class="power-action" v-if="power.system.actionType.value">{{getActionShort(power.system.actionType.value)}}</div>
-            <div class="power-recharge" v-if="power.system.recharge.value && power.system.powerUsage.value == 'recharge'">
+            <div class="power-recharge" v-if="power.system.recharge.value && ['recharge', 'recharge-desperate'].includes(power.system.powerUsage.value)">
               <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.system.recharge.value) || 16}}+</Rollable>
             </div>
             <div class="power-uses" :data-item-id="power._id" :data-quantity="power.system.quantity.value"><span v-if="power.system.quantity.value !== null">{{power.system.quantity.value}}</span></div>
@@ -90,7 +90,8 @@ export default {
   setup() {
     return {
       concat,
-      localize
+      localize,
+      CONFIG,
     }
   },
   components: {
@@ -350,6 +351,7 @@ export default {
     powerUsageClass(power) {
       let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
       if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
+      if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
       else if (use == 'cyclic') {
         if (this.actor.system.attributes.escalation.value > 0
           && this.actor.system.attributes.escalation.value % 2 == 0) {
@@ -357,6 +359,13 @@ export default {
         } else use = 'once-per-battle cyclic';
       }
       return use;
+    },
+
+    /**
+     * Compute CSS class to assign based on power availability
+     */
+    powerAvailabilityClass(power) {
+      return power.system?.quantity?.value === 0 ? 'unavailable' : '';
     }
   },
   /**

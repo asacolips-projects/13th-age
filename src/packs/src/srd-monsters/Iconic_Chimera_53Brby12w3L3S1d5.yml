@@ -3,6 +3,7 @@ name: Iconic Chimera
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 8
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: skx5i1mo7OKFH147
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -177,8 +236,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.skx5i1mo7OKFH147'
   - _id: CfgabSuiffmnNNQS
     flags: {}
@@ -192,6 +249,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -226,8 +287,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.CfgabSuiffmnNNQS'
   - _id: K5hrzuQddo0Hjl2D
     flags: {}
@@ -245,6 +304,10 @@ items:
           Limited use: Once the chimera has damaged an enemy with this attack,
           it can’t use tusk charge again until it drops an enemy to 0 hp or
           lower.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +341,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.K5hrzuQddo0Hjl2D'
   - _id: KZb3Uy7C5wHDzbNz
     flags: {}
@@ -303,6 +364,10 @@ items:
           icon’s chimerical benefit (B) without the flaw. Actual benefits and
           flaws are up to the GM, and should reflect the icons with which the
           players have relationships.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -310,8 +375,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.KZb3Uy7C5wHDzbNz'
   - _id: HndvWwv2TERazKuR
     flags: {}
@@ -328,6 +391,10 @@ items:
         value: >-
           When a spell attack misses the chimera, it has no miss effect and the
           chimera heals 40 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +402,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.HndvWwv2TERazKuR'
   - _id: V1taQqSsAoImkAQs
     flags: {}
@@ -351,6 +416,10 @@ items:
         type: ''
         label: Description
         value: The crit range of melee attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -358,8 +427,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.V1taQqSsAoImkAQs'
   - _id: yMpL30G12MZ8HEHJ
     flags: {}
@@ -376,6 +443,10 @@ items:
         value: >-
           When the chimera saves against a condition, it becomes immune to that
           condition until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -383,8 +454,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.yMpL30G12MZ8HEHJ'
   - _id: lfK5s94KCzUGwwSm
     flags: {}
@@ -399,6 +468,10 @@ items:
         type: ''
         label: Description
         value: The crit range of spell attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -406,8 +479,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.lfK5s94KCzUGwwSm'
   - _id: A3wVzIBroAeyqLE7
     flags: {}
@@ -424,6 +495,10 @@ items:
         value: >-
           When a creature is engaged with the chimera at the start of its turn,
           it takes [[20]] fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -431,8 +506,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.A3wVzIBroAeyqLE7'
   - _id: wCDPmpDnrWriCq2H
     flags: {}
@@ -449,6 +522,10 @@ items:
         value: >-
           Each time the chimera scores a critical hit, it takes a cumulative -2
           penalty to all defenses.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -456,8 +533,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.wCDPmpDnrWriCq2H'
   - _id: gwqdAI6qE2hqkYbM
     flags: {}
@@ -474,6 +549,10 @@ items:
         value: >-
           Any damage dice that roll maximum damage against the chimera count as
           1s.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -481,8 +560,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.gwqdAI6qE2hqkYbM'
   - _id: Cxb71zuHtQywtcAA
     flags: {}
@@ -497,6 +574,10 @@ items:
         type: ''
         label: Description
         value: The chimera won’t willingly disengage from a creature engaged with it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -504,8 +585,6 @@ items:
     sort: 1100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.Cxb71zuHtQywtcAA'
   - _id: QxZ2UNC7oX5LTY9y
     flags: {}
@@ -522,6 +601,10 @@ items:
         value: >-
           When the escalation die is odd, the chimera gains an additional
           standard action that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -529,8 +612,6 @@ items:
     sort: 1200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.QxZ2UNC7oX5LTY9y'
   - _id: dgDj7OxFXWoCbDbA
     flags: {}
@@ -547,6 +628,10 @@ items:
         value: >-
           The chimera’s form is unusually frail, and any damage dice that roll
           1s against the chimera count as 2s.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -554,8 +639,6 @@ items:
     sort: 1300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.dgDj7OxFXWoCbDbA'
   - _id: RL9bIYRZ3KYCccOC
     flags: {}
@@ -572,6 +655,10 @@ items:
         value: >-
           Enemies engaged with the chimera who are below 48 hit points are
           *dazed* and can’t use the escalation die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -579,8 +666,6 @@ items:
     sort: 1400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.RL9bIYRZ3KYCccOC'
   - _id: 37ynlZlE3GHW49lt
     flags: {}
@@ -600,6 +685,10 @@ items:
           adventurer in gems and precious metals. At the GM’s say-so, knowledge
           of this bounty may grant particularly mercenary characters a +1 attack
           bonus against the chimera once it’s staggered.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -607,8 +696,6 @@ items:
     sort: 1500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.37ynlZlE3GHW49lt'
   - _id: 1lD1atHjaA8wrh4p
     flags: {}
@@ -625,6 +712,10 @@ items:
         value: >-
           When the chimera makes a fiery breath attack, it can make another
           fiery breath attack that turn as a quick action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -632,8 +723,6 @@ items:
     sort: 1600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.1lD1atHjaA8wrh4p'
   - _id: N9or0sPwDsa4DkNj
     flags: {}
@@ -650,6 +739,10 @@ items:
         value: >-
           When the chimera rolls a natural odd miss with fiery breath, it takes
           [[20]] fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -657,8 +750,6 @@ items:
     sort: 1700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.N9or0sPwDsa4DkNj'
   - _id: axzfFZraVXalUDE1
     flags: {}
@@ -676,6 +767,10 @@ items:
           The chimera is constantly evolving and changing. When an enemy rolls a
           natural 1-5 on an attack roll against it, the chimera adds the
           escalation die to its attack rolls until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -683,8 +778,6 @@ items:
     sort: 1800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.axzfFZraVXalUDE1'
   - _id: 2ZfZXzBkOKpYE5oZ
     flags: {}
@@ -699,6 +792,10 @@ items:
         type: ''
         label: Description
         value: The crit range of poison attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -706,8 +803,6 @@ items:
     sort: 1900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.2ZfZXzBkOKpYE5oZ'
   - _id: FLSWrybzZvvmi2HX
     flags: {}
@@ -725,6 +820,10 @@ items:
           When an enemy rolls a natural even miss with a melee attack against
           the chimera, the weapon temporarily loses all its bonuses and powers
           and the wielder is *weakened* (save ends both).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -732,8 +831,6 @@ items:
     sort: 2000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.FLSWrybzZvvmi2HX'
   - _id: R4EtK1OBUQvXpRL2
     flags: {}
@@ -748,6 +845,10 @@ items:
         type: ''
         label: Description
         value: The crit range of holy attacks against the chimera expands by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -755,8 +856,6 @@ items:
     sort: 2100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.R4EtK1OBUQvXpRL2'
   - _id: fUWMG276MZ77afyc
     flags: {}
@@ -773,6 +872,10 @@ items:
         value: >-
           As a standard action, the chimera can make a tusk charge attack. It
           can’t make any other attacks the same turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -780,8 +883,6 @@ items:
     sort: 2200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.fUWMG276MZ77afyc'
   - _id: sHQ7US1GMVZe9snR
     flags: {}
@@ -799,6 +900,10 @@ items:
           The horns and tusks of the chimera lock together at inopportune
           moments. When it rolls a natural 1-5 with an attack against multiple
           targets, it loses any further attacks that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -806,8 +911,6 @@ items:
     sort: 2300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.sHQ7US1GMVZe9snR'
   - _id: SmwIJJaY9Vpj2G8x
     flags: {}
@@ -822,6 +925,10 @@ items:
         type: ''
         label: Description
         value: The chimera can fly like an eagle, swooping in and out of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -829,8 +936,6 @@ items:
     sort: 2400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.SmwIJJaY9Vpj2G8x'
   - _id: D8BL4DU7w1Pfic8f
     flags: {}
@@ -847,6 +952,10 @@ items:
         value: >-
           The crit range of negative energy attacks against the chimera expands
           by 2.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -854,8 +963,6 @@ items:
     sort: 2500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.D8BL4DU7w1Pfic8f'
   - _id: UijhoKIpvpWwqmfQ
     flags: {}
@@ -872,6 +979,10 @@ items:
         value: >-
           When the chimera rolls a natural 1-5 with an attack and misses, the
           target takes [[20]] ongoing poison damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -879,8 +990,6 @@ items:
     sort: 2600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.UijhoKIpvpWwqmfQ'
   - _id: IJ4gXDyoYikEqDM8
     flags: {}
@@ -897,6 +1006,10 @@ items:
         value: >-
           The first time each turn the chimera hits with an attack, it rerolls
           the attack and takes the lower roll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -904,8 +1017,6 @@ items:
     sort: 2700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.IJ4gXDyoYikEqDM8'
   - _id: 67qknGx19cTunQZF
     flags: {}
@@ -922,6 +1033,10 @@ items:
         value: >-
           While not staggered, the chimera rolls [[2d20]] with its melee attacks
           and uses the higher roll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -929,8 +1044,6 @@ items:
     sort: 2800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.67qknGx19cTunQZF'
   - _id: Ts7lIB1DpmiKH22G
     flags: {}
@@ -947,6 +1060,10 @@ items:
         value: >-
           Whenever the chimera moves, it rolls an easy save (6+). On a failure,
           it provokes opportunity attacks from each nearby enemy.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -954,8 +1071,6 @@ items:
     sort: 2900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!53Brby12w3L3S1d5.Ts7lIB1DpmiKH22G'
 effects: []
 folder: null
@@ -1000,6 +1115,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
     scaleX: 1
@@ -1007,6 +1125,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -1016,8 +1139,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!53Brby12w3L3S1d5'
 

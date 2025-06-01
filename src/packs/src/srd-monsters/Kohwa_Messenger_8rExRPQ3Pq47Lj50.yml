@@ -3,6 +3,7 @@ type: npc
 _id: 8rExRPQ3Pq47Lj50
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Kohwa Messenger
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Jaws of steel
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC'
+        value: '[[d20 + 9]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: z17PFM8ye1Q4ADLY
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD'
+        value: '[[d20 + 9]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -257,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 468lc76cl1iBCJHh
     effects: []
     folder: null
@@ -277,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -284,7 +377,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. PD ([[1d4]] nearby enemies)'
+        value: '[[d20 + 11]] vs. PD ([[1d4]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -314,8 +407,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: eLhy1OEtL5jT6q2Y
     effects: []
     folder: null
@@ -343,11 +434,13 @@ items:
           normal damage (although they do still trigger the kohwa
           enforcer&rsquo;s acid rain attack, if appropriate). As soon as the
           roll fails, the protection lapses.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: utboRel9HST5b6JE
     effects: []
@@ -370,11 +463,13 @@ items:
         value: >-
           <p>The kowha messenger can use the&nbsp;<em>implacable dread</em>
           attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VZVhOpevFWSKKsoV
     effects: []
@@ -394,6 +489,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -401,7 +501,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD'
+        value: '[[d20 + 11]] vs. MD'
       hit:
         type: String
         label: Hit
@@ -437,8 +537,6 @@ items:
         type: String
         label: Miss
         value: The target develops a deep and abiding mistrust of all kohwa.
-      embeddedMacro:
-        value: ''
     _id: IXMZSIP71iBwV3t4
     effects: []
     folder: null
@@ -462,11 +560,13 @@ items:
           strong fliers and able to travel great distances in this way, they are
           acutely aware of how ungainly they look while doing so, and therefore
           prefer to walk or run unless they are certain no one is watching.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 66dcA6WBSHggpjBN
     effects: []
@@ -489,11 +589,13 @@ items:
         value: >-
           <p>Unlike many cat species, kohwa are perfectly at home in the water,
           so diving into a lake or river is a poor defense against them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: nmFFNWLoHjm6jCtz
     effects: []
@@ -519,11 +621,13 @@ items:
           communicating with others of their species at greater distances, as
           when one is in trouble, others are sure to
           appear&mdash;eventually.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: D0GVHu6urDrXc0LL
     effects: []

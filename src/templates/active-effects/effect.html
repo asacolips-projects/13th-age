@@ -2,8 +2,7 @@
 
     <!-- Effect Header -->
     <header class="sheet-header">
-        {{!-- todo: update this to use img instead of icon for v12/v13 --}}
-        <img class="effect-icon" src="{{ effect.icon }}" data-edit="icon">
+        <img class="effect-icon" src="{{ effect.img }}" data-edit="img">
         <h1 class="effect-title"><input type="text" name="name" value="{{effect.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
@@ -18,13 +17,6 @@
             <div class="sheet-tabs-content">
                 <!-- Details Tab -->
                 <section class="tab" data-tab="details">
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.Icon" }}</label>
-                        <div class="form-fields">
-                            {{filePicker target="icon" type="image"}}
-                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{effect.icon}}"/>
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Disabled" }}</label>
@@ -38,6 +30,7 @@
                             <input type="text" name="origin" value="{{ effect.origin }}" />
                         </div>
                     </div>
+                    {{/if}}
 
                     <div class="form-group">
                         <label>{{ localize "EFFECT.TabDuration" }}</label>
@@ -47,16 +40,16 @@
                             </select>
                         </div>
                     </div>
-                    {{/if}}
 
-                    {{#if isItemEffect}}
+                    {{!-- We may enable this later, but for now, disable it. --}}
+                    {{!-- {{#if isItemEffect}}
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Transfer" }}</label>
                         <div class="form-fields">
                             <input type="checkbox" name="effect.transfer" {{checked effect.transfer}}/>
                         </div>
                     </div>
-                    {{/if}}
+                    {{/if}} --}}
 
                     {{#if supportsDescription}}
                     <div class="form-group stacked description">
@@ -102,6 +95,18 @@
                         <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeWeaponDamageBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.weapon.melee.dice" type="text" value="{{system.attributes.weapon.melee.dice}}"
+                               data-dtype="text" placeholder="+2d10" />
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rangedWeaponDamageBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.weapon.ranged.dice" type="text" value="{{system.attributes.weapon.ranged.dice}}"
+                               data-dtype="text" placeholder="+2d10" />
+                    </div>
                     {{/unless}}
 
                     <div class="settings-group">
@@ -110,6 +115,11 @@
                                data-dtype="Number" placeholder="0" />
                     </div>
                     <p class="notes">{{localize 'ARCHMAGE.ITEM.critModBonusHint'}}</p>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.escalationBlockedHint'}}</strong>
+                        <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked blockedFromEscalationDie}} />
+                    </div>
 
                     <div class="settings-group form-group" style="padding-top: 10px;">
                         <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
@@ -157,6 +167,12 @@
                         <input class="attribute-input" name="system.attributes.disengageBonus" type="text" value="{{system.attributes.disengageBonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.initBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.init.value" type="text" value="{{system.attributes.init.value}}"
+                               data-dtype="Number" placeholder="0" />
+                    </div>
                     {{/unless}}
 
                     <div class="settings-group">
@@ -165,13 +181,6 @@
                                data-dtype="Number" placeholder="0" />
                     </div>
                     <p class="notes">{{localize 'ARCHMAGE.ITEM.critDefBonusHint'}}</p>
-
-                    {{#unless isNpc}}
-                    <div class="settings-group">
-                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.escalationBlockedHint'}}</strong>
-                        <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked system.blockedFromEscalationDie}} />
-                    </div>
-                    {{/unless}}
 
                     <div class="settings-group form-group" style="padding-top: 10px;">
                         <label>{{localize 'ARCHMAGE.ITEM.ongoingDamage'}}</label>
@@ -186,7 +195,21 @@
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.damageType'}}</strong>
                         <input class="attribute-input" name="ongoingDamageType" type="text" value="{{ongoingDamageType}}"
-                               data-dtype="String" placeholder="Poison" />
+                               data-dtype="String" placeholder="{{localize 'ARCHMAGE.ITEM.damageTypeHint'}}" />
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.ongoingDamageCrit'}}</strong>
+                        <input class="attribute-input" name="ongoingDamageCrit" type="checkbox" {{checked ongoingDamageCrit}}/>
+                    </div>
+
+                    <div class="settings-group form-group" style="padding-top: 10px;">
+                        <label>{{localize 'ARCHMAGE.ITEM.stackingBehavior'}}</label>
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.stacksAlways'}}</strong>
+                        <input class="attribute-input" name="stacksAlways" type="checkbox" {{checked stacksAlways}}/>
                     </div>
                 </section>
             </div>

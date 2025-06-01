@@ -10,6 +10,7 @@
 
 .container--bottom {
   .filters {
+    flex: 0 0 300px;
     align-items: flex-start;
     justify-content: flex-start;
 
@@ -61,6 +62,10 @@
       &:hover,
       &:focus {
         box-shadow: 0 0 5px $c-black;
+      }
+
+      option {
+        background: $c-blue;
       }
     }
 
@@ -171,7 +176,7 @@
     }
 
     .equipment-grid {
-      grid-template-columns: auto 100px 60px 60px;
+      grid-template-columns: 75px auto 100px 60px 60px 50px;
     }
 
     .equipment-title {
@@ -179,8 +184,13 @@
       justify-content: flex-start;
     }
 
-    .equipment-bonus {
+    .equipment-tier {
       grid-column-start: 1;
+      justify-content: flex-start;
+    }
+
+    .equipment-bonus {
+      grid-column-start: 2;
       align-items: center;
       justify-content: flex-end;
 
@@ -192,15 +202,15 @@
     }
 
     .equipment-usage {
-      grid-column-start: 2;
-    }
-
-    .equipment-chakra {
       grid-column-start: 3;
     }
 
-    .equipment-recharge {
+    .equipment-chakra {
       grid-column-start: 4;
+    }
+
+    .equipment-recharge {
+      grid-column-start: 5;
     }
 
     &.creature-summary {
@@ -209,7 +219,7 @@
     }
 
     .creature-grid {
-      grid-template-columns: auto 100px 100px 100px;
+      grid-template-columns: auto 100px 100px 100px 50px;
       gap: 2px;
       font-size: $font-tiny;
       font-family: $font-stack-label;

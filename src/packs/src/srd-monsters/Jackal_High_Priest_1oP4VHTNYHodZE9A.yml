@@ -3,6 +3,7 @@ type: npc
 _id: 1oP4VHTNYHodZE9A
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: leader
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: humanoid
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Jackal High Priest
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Morningstar of reckoning
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. AC'
+        value: '[[d20 + 15]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -195,8 +284,6 @@ items:
         type: String
         label: Miss
         value: '[[35]] damage'
-      embeddedMacro:
-        value: ''
     _id: ys0TnIqfkV6Dt9XO
     effects: []
     folder: null
@@ -215,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. PD (1 or 2 nearby or faraway enemies)'
+        value: '[[d20 + 15]] vs. PD (1 or 2 nearby or faraway enemies)'
       hit:
         type: String
         label: Hit
@@ -252,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: uwUec62SJflH3mje
     effects: []
     folder: null
@@ -272,6 +362,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -279,7 +374,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. MD (1 nearby enemy)'
+        value: '[[d20 + 15]] vs. MD (1 nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -311,8 +406,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: kT9uwqkhrWH4ziEa
     effects: []
     folder: null
@@ -333,22 +426,24 @@ items:
         label: Description
         value: >-
           <p>The jackal high priest starts each battle accompanied by a mob of
-          [[/r 1d6+1]] 10th level greater summoned ghoul mooks. (The mooks
+          [[/r 1d6 + 1]] 10th level greater summoned ghoul mooks. (The mooks
           gained via this ability are accounted for in the building battle math
           by the jackal priest&rsquo;s designation as a double-strength
           monster.) At the start of each of the jackal priest&rsquo;s turns,
           (whether or not the jackal high priest is engaged!) roll a [[/r d6]].
           If you roll less than or equal to the escalation die, use the jackal
-          priest&rsquo;s standard action to add another mob of [[/r 1d6+1]]
+          priest&rsquo;s standard action to add another mob of [[/r 1d6 + 1]]
           greater summoned ghoul mooks to the battle. The newly summoned mooks
           take their turn after the jackal high priest&rsquo;s turn. Stop
           rolling the d6 after the ability has triggered to summon the second
           mob of ghoul mooks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2sEz0XTJPdPASKoR
     effects: []
@@ -372,11 +467,13 @@ items:
           <p>While engaged with this creature, if the target has 72 hp or fewer,
           it&rsquo;s *dazed* (&ndash;4 attack) and does not add the escalation
           die to its attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6dRcYVdBSMjILRlX
     effects: []
@@ -401,11 +498,13 @@ items:
           isn&rsquo;t allied with it must roll a hard save (16+). On a failure,
           it takes [[12]] psychic damage. In addition, the high priest can use
           <em>summon ghouls</em> as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: DTzms6NA4XtBtnkT
     effects: []

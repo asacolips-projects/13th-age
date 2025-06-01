@@ -3,6 +3,7 @@ type: npc
 _id: 4pL6dxCToYXWG5eo
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: holy
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fomori Torturer
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Irradiant touch
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC'
+        value: '[[d20 + 17]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -199,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 5SjNnwvjvAfm1YrR
     effects: []
     folder: null
@@ -219,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -226,7 +316,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. MD (one nearby or faraway enemy)'
+        value: '[[d20 + 17]] vs. MD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -258,8 +348,6 @@ items:
         type: String
         label: Miss
         value: '[[45]] psychic damage'
-      embeddedMacro:
-        value: ''
     _id: aV0b8Mm7Z60NjUWl
     effects: []
     folder: null
@@ -299,11 +387,13 @@ items:
 
           <p><strong>6:</strong> Doom&mdash;The fomori and its allies use the
           escalation die and the adventurers do not.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: e3tdkhwGSdJHrqud
     effects: []
@@ -326,11 +416,13 @@ items:
         value: >-
           <p>Enemies engaged with the true-fomori who have 120 hp or fewer are
           *dazed* and cannot use the escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4Tj34O6PiHfVUkR0
     effects: []
@@ -355,11 +447,13 @@ items:
           each fomorian that can see or hear it, and also heals [[5]] hp if at
           least one unclean-one can see or hear it. This effect affects the
           fomori even if it&rsquo;s dead, healing it from 0 hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: nC9AJQqN4fjKLGHi
     effects: []
@@ -379,6 +473,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -386,7 +485,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+5+@lvl]] vs. PD'
+        value: '[[d20 + 5 + @lvl]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -418,8 +517,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: tLhaGCGifi4bWCi9
     effects: []
     folder: null
@@ -441,6 +538,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -448,7 +550,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+5+@lvl]] vs. AC'
+        value: '[[d20 + 5 + @lvl]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -480,8 +582,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: IxGJqjVOzPqM3UwK
     effects: []
     folder: null
@@ -504,11 +604,13 @@ items:
         type: String
         label: Description
         value: <p>These fomori sing songs that drive listeners to insanity.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: fUAjJafs6OOwMEbM
     effects: []
@@ -537,11 +639,13 @@ items:
           *confused* until the end of its next turn. When the escalation die is
           even, the same effect applies to the enemy with the lowest MD. The
           fomori chooses if enemies are tied for highest or lowest MD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oTXBPcRKCTVoFOxU
     effects: []
@@ -569,11 +673,13 @@ items:
           and continue to do so until the end of the day. Until the next full
           heal-up, those creatures take a &ndash;4 penalty to skill checks
           involving social situations or detecting sounds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: EwXbZeYdFwiyceHM
     effects: []
@@ -600,11 +706,13 @@ items:
           <p>The first time each battle the true fomori is staggered, each of
           its enemies in the battle is hampered until the end of its next
           turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: NIMPoQbKOF9OmDhS
     effects: []
@@ -630,11 +738,13 @@ items:
         value: >-
           <p>These fomori usually have lots of eyes, or a single prominent eye,
           and fly by hovering.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Ky1OPxHaFYvuShII
     effects: []
@@ -660,11 +770,13 @@ items:
         value: >-
           <p>This creature flies, its host&rsquo;s unwashed and diseased feet
           hovering inches above the ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YUuGfrjZkASTtHqy
     effects: []
@@ -690,11 +802,13 @@ items:
         value: >-
           <p>Once per turn as a quick action, the fomori can fire a powerful
           *eye beam* from one or more of its eyes.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: fOGUcBNFbzuij4Pd
     effects: []
@@ -723,11 +837,13 @@ items:
           hit and damage. Enemies that die in the presence of this fomori do
           indeed have their eyes sucked out as the fomori absorbs the
           eyeballs.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Xg5PoohZDa6QAiBO
     effects: []
@@ -753,11 +869,13 @@ items:
         value: >-
           <p>These fomori shift their forms instinctually, constantly devolving
           into ever-more horrible creatures.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hAuZjD17typKsRxu
     effects: []
@@ -784,11 +902,13 @@ items:
           <p>When the true-fomori is hit by an attack that targets PD or MD,
           until the start of its next turn, the values of its PD and MD switch
           and it gains a bonus to AC equal to the escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: usGbsbLeanAbmn9Z
     effects: []
@@ -816,11 +936,13 @@ items:
           (randomly choose on a tie) has a nightmare during the following night,
           with a 50% chance that the nightmare somehow comes true the next
           day.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: GJ4EE6uXeAH8EgUr
     effects: []
@@ -849,11 +971,13 @@ items:
           skin, and the target is *stunned* (save ends). Replacing the skin
           might take more than normal healing, too, and it might take a while to
           look right on a creature again.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4HjcN5tu1o43L6q4
     effects: []
@@ -879,11 +1003,13 @@ items:
         value: >-
           <p>These true-fomori tend to have lots of legs and can control
           spiders, scorpions, ticks, and other arachnids.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qj0cjnomZGhHePm6
     effects: []
@@ -909,11 +1035,13 @@ items:
         value: >-
           <p>The true-fomori can climb like a spider and squeeze its body down
           to scuttle swiftly under low openings.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: C43Co64dS9xDJBEx
     effects: []
@@ -940,11 +1068,13 @@ items:
           <p>Once per turn as a quick action, the true-fomori can make a
           *draining bite* attack to inject acid into its victim and drink its
           innards.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: G8mSY3V3uJhNH6rW
     effects: []
@@ -975,11 +1105,13 @@ items:
           is unable to see or feel the healing sun, whenever it rolls recovery
           dice, it must reroll any die that has the maximum result (for example,
           a 10 on a d10).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vtlNBZC6MHI3ry9e
     effects: []
@@ -1005,11 +1137,13 @@ items:
         value: >-
           <p>These true-fomori have plumage or fur in unnatural madness-causing
           colors.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WmVnyGMo1t2wZDCe
     effects: []
@@ -1036,11 +1170,13 @@ items:
           <p>An enemy making a ranged attack against the true-fomori takes a
           penalty to the attack equal to the escalation die and can&rsquo;t use
           the escalation die for that attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: jzonh2dGOe21pK86
     effects: []
@@ -1070,11 +1206,13 @@ items:
           social skill checks and a &ndash;1 penalty to saves. Restoring color
           to the creature requires a quest involving walking a sacred
           labyrinth.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: sXXG2HnTpswGsRnC
     effects: []

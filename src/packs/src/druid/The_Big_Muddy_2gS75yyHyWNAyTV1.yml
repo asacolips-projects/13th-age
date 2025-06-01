@@ -1,6 +1,4 @@
 name: The Big Muddy
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: The Big Muddy
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: 'Terrain Caster: Swamp, Lake, River'
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: The Big Muddy
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -58,7 +81,7 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
@@ -115,22 +138,56 @@ system:
     type: String
     label: Effect
     value: ''
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: Targets with 80 hit points or fewer.
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: Targets with 140 hit points or fewer.
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: Targets with 200 hit points or fewer.
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: Targets with 320 hit points or fewer.
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -139,26 +196,22 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  feats: null
-  group:
+    label: Sustain On
+    value: ''
+  rollTable:
     type: String
-    label: Group
-    value: 'Terrain Caster: Swamp, Lake, River'
+    label: Roll Table
+    value: ''
+  feats: null
 flags: {}
 img: icons/magic/earth/projectile-boulder-dust.webp
 _id: 2gS75yyHyWNAyTV1
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!2gS75yyHyWNAyTV1'
 

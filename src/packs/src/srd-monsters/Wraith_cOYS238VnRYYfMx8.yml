@@ -3,6 +3,7 @@ name: Wraith
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 5
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: yHVsEIvhetNyGXna
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!cOYS238VnRYYfMx8.yHVsEIvhetNyGXna'
   - _id: M3naHylOBk2MWBIF
     flags: {}
@@ -186,6 +243,10 @@ items:
         value: >-
           Limited use: The wraith can use spiraling assault only when the
           escalation die is even.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -221,8 +282,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!cOYS238VnRYYfMx8.M3naHylOBk2MWBIF'
   - _id: z8vpUQhhHaMPRCO6
     flags: {}
@@ -237,6 +296,10 @@ items:
         type: ''
         label: Description
         value: Flight
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,8 +307,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!cOYS238VnRYYfMx8.z8vpUQhhHaMPRCO6'
   - _id: 6Mi9Eio0PqqtBf51
     flags: {}
@@ -263,6 +324,10 @@ items:
           This creature has resist damage 16+ to all damage (including holy
           damage) except force damage, which damages it normally. A wraith can
           move through solid objects, but it can’t end its movement inside them.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,8 +335,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!cOYS238VnRYYfMx8.6Mi9Eio0PqqtBf51'
   - _id: vokoZnapidz6ZIcI
     flags: {}
@@ -288,6 +351,10 @@ items:
         value: >-
           The wraith heals half the damage it deals when it hits with a natural
           18+ attack roll.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,8 +362,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!cOYS238VnRYYfMx8.vokoZnapidz6ZIcI'
 effects: []
 folder: null
@@ -341,6 +406,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/undead.webp
     scaleX: 1
@@ -348,6 +416,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -357,8 +430,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!cOYS238VnRYYfMx8'
 

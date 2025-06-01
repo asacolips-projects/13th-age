@@ -1,14 +1,52 @@
 name: Hindered
-permission:
-  default: 0
-folder: ''
+folder: null
 flags: {}
-content: >-
-  <p>You can’t cast spells, use powers (not even kin powers), use limited use
-  abilities, or make attacks other than basic attacks. You can move normally but
-  you can’t use limited use abilities or powers to move. </p>
-img: ''
 _id: FHDyJEb29LWnO2Dg
-pages: []
+pages:
+  - name: Hindered
+    type: text
+    title:
+      show: false
+      level: 1
+    text:
+      format: 1
+      content: >-
+        <p>You can’t cast spells, use powers (not even kin powers), use
+        limited-use abilities, or make attacks other than no-trigger attacks.
+        You can move normally, but you can’t use limited-use abilities or powers
+        to move. </p>
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: X9vsS08yM2bNBScT
+    system: {}
+    image: {}
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!FHDyJEb29LWnO2Dg.X9vsS08yM2bNBScT'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+sort: 0
 _key: '!journal!FHDyJEb29LWnO2Dg'
 

@@ -3,6 +3,7 @@ name: Tarrasque
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 15
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: xBYwbGZvZMBqdfYX
     flags: {}
@@ -139,6 +194,10 @@ items:
           round as a standard action. Note that flying is usually no defense
           against the tarrasque, which is huge and powerful enough to pluck or
           whack enemies out of the sky with surprising leaps.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -146,8 +205,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.xBYwbGZvZMBqdfYX'
   - _id: T0TqFN0XAhSlLKyZ
     flags: {}
@@ -161,6 +218,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -168,7 +230,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+19]] vs. AC'
+        value: '[[d20 + 19]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -203,8 +265,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.T0TqFN0XAhSlLKyZ'
   - _id: PqXCHbOTgNqCXRtR
     flags: {}
@@ -218,6 +278,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -225,7 +290,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. AC'
+        value: '[[d20 + 18]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -260,8 +325,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.PqXCHbOTgNqCXRtR'
   - _id: BiMgv7heBd7fk8Oq
     flags: {}
@@ -275,6 +338,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,7 +350,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+20]] vs. AC (each nearby enemy in a group)'
+        value: '[[d20 + 20]] vs. AC (each nearby enemy in a group)'
       hit:
         type: String
         label: Hit
@@ -315,8 +383,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.BiMgv7heBd7fk8Oq'
   - _id: qyKrPyraMaovy3HF
     flags: {}
@@ -330,6 +396,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -337,7 +408,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. PD (each nearby enemy in a group)'
+        value: '[[d20 + 18]] vs. PD (each nearby enemy in a group)'
       hit:
         type: String
         label: Hit
@@ -370,8 +441,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.qyKrPyraMaovy3HF'
   - _id: u1lTY3GoWStcenUX
     flags: {}
@@ -388,6 +457,10 @@ items:
         value: >-
           <p>The tarrasque can swim and breathe underwater (or it holds so much
           air in its vast lungs that it makes no difference).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -395,8 +468,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.u1lTY3GoWStcenUX'
   - _id: J5rb34UlQaBl89X3
     flags: {}
@@ -415,6 +486,10 @@ items:
           addition, normal-sized enemies are like fleas to it, and disengaging
           from the tarrasque requires only an easy save (6+), unless the target
           is grabbed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -422,8 +497,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.J5rb34UlQaBl89X3'
   - _id: BzjSBhx11SwQbpyg
     flags: {}
@@ -444,6 +517,10 @@ items:
           the amount of damage required to make it disgorge swallowed enemies
           and flee to go hibernate while it regenerates the damage it suffered
           and decide if it wants to rampage again.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -451,8 +528,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.BzjSBhx11SwQbpyg'
   - _id: F88rsynPSMSQatSf
     flags: {}
@@ -473,6 +548,10 @@ items:
           the amount of damage required to make it disgorge swallowed enemies
           and flee to go hibernate while it regenerates the damage it suffered
           and decide if it wants to rampage again.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -480,8 +559,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.F88rsynPSMSQatSf'
   - _id: 71NNnol3kVk2kcfd
     flags: {}
@@ -495,6 +572,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -502,7 +584,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+21]] vs. PD (each creature on its back)'
+        value: '[[d20 + 21]] vs. PD (each creature on its back)'
       hit:
         type: String
         label: Hit
@@ -537,8 +619,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.71NNnol3kVk2kcfd'
   - _id: mpMxqbmnmPEA6TpC
     flags: {}
@@ -561,6 +641,10 @@ items:
           that would apply a condition or effect upon the tarrasque. Of course,
           they must also provide a story to go along with the reason the
           tarrasque is affected.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -568,8 +652,6 @@ items:
     sort: 1100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.mpMxqbmnmPEA6TpC'
   - _id: dOOJgcvto5X1r0jb
     flags: {}
@@ -589,6 +671,10 @@ items:
           wall, temple, or ship. The beast automatically reduces the structure
           to rubble, rendering it useless. Each creature on top of or within the
           structure is subject to a&nbsp;collapse&nbsp;attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -596,8 +682,6 @@ items:
     sort: 1200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.dOOJgcvto5X1r0jb'
   - _id: M6JkPU25gvWAHzsL
     flags: {}
@@ -611,6 +695,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -618,7 +707,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. PD (each creature in/on the structure)'
+        value: '[[d20 + 18]] vs. PD (each creature in/on the structure)'
       hit:
         type: String
         label: Hit
@@ -653,8 +742,6 @@ items:
     sort: 1300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.M6JkPU25gvWAHzsL'
   - _id: dbb1NyXKV0ULWTJj
     flags: {}
@@ -677,6 +764,10 @@ items:
           gullet, freeing the creature. During the tarrasque&rsquo;s turn, it
           can make a&nbsp;gullet digestion&nbsp;attack against the target as a
           free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -684,8 +775,6 @@ items:
     sort: 1400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.dbb1NyXKV0ULWTJj'
   - _id: fXCuatACU3jrvstg
     flags: {}
@@ -699,6 +788,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -706,7 +800,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+19]] vs. PD'
+        value: '[[d20 + 19]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -739,8 +833,6 @@ items:
     sort: 1500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.fXCuatACU3jrvstg'
   - _id: VPmlnQcKwZw2j08K
     flags: {}
@@ -759,6 +851,10 @@ items:
           &ndash;5 penalty to all defenses against attacks from inside its
           gullet, though only melee and close attacks can be made in there. The
           tarrasque&rsquo;s insides are immune to acid damage, however.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -766,8 +862,6 @@ items:
     sort: 1600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.VPmlnQcKwZw2j08K'
   - _id: mBcWFXpFTmW3o8q3
     flags: {}
@@ -785,6 +879,10 @@ items:
           <p>While engaged with the tarrasque, enemies that have 216 hp or fewer
           are *dazed* (&ndash;4 attack) and do not add the escalation die to
           their attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -792,8 +890,6 @@ items:
     sort: 1700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.mBcWFXpFTmW3o8q3'
   - _id: EPWoJpvAuWOOdZBx
     flags: {}
@@ -815,6 +911,10 @@ items:
           against the five-use limit. With this power, the monstrosity is likely
           unstoppable without a powerful magical artifact designed specifically
           to bind, wound, or otherwise hamper the tarrasque.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -822,8 +922,6 @@ items:
     sort: 1800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!zLKJGIgmDtRCCVvo.EPWoJpvAuWOOdZBx'
 effects: []
 folder: null
@@ -867,14 +965,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -884,8 +989,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!zLKJGIgmDtRCCVvo'
 

@@ -3,6 +3,7 @@ name: Prismatic Ogre Mage
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 9
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: uVgGdROvJbKyizIh
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -170,8 +229,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.uVgGdROvJbKyizIh'
   - _id: veic8cbKSCqiSrZG
     flags: {}
@@ -185,6 +242,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -219,8 +280,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.veic8cbKSCqiSrZG'
   - _id: NJOrGS30zjTBB2Ce
     flags: {}
@@ -234,6 +293,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -272,8 +335,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.NJOrGS30zjTBB2Ce'
   - _id: hB7EUBiZIVj00RfE
     flags: {}
@@ -290,6 +351,10 @@ items:
         value: >-
           This power only requires a quick action (once per round) instead of a
           standard action when the escalation die is odd.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,8 +362,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.hB7EUBiZIVj00RfE'
   - _id: aOFedScK5pqsVnUj
     flags: {}
@@ -313,6 +376,10 @@ items:
         type: ''
         label: Description
         value: '[[50]] damage, and the target is *confused* (save ends).'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,8 +387,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.aOFedScK5pqsVnUj'
   - _id: NvlQNOQeSQARtMZ9
     flags: {}
@@ -336,6 +401,10 @@ items:
         type: ''
         label: Description
         value: '[[40]] ongoing poison damage.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,8 +412,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.NvlQNOQeSQARtMZ9'
   - _id: XGbkfnDsvdQUKaUp
     flags: {}
@@ -359,6 +426,10 @@ items:
         type: ''
         label: Description
         value: The target loses a recovery, and the prismatic ogre mage heals 70 hp.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -366,8 +437,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.XGbkfnDsvdQUKaUp'
   - _id: N2P2wNSie6ZbMKNP
     flags: {}
@@ -382,6 +451,10 @@ items:
         type: ''
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -389,8 +462,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.N2P2wNSie6ZbMKNP'
   - _id: KhqyiS5Oy2SA58tc
     flags: {}
@@ -405,6 +476,10 @@ items:
         type: ''
         label: Description
         value: The target is *stunned* (save ends).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -412,8 +487,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.KhqyiS5Oy2SA58tc'
   - _id: wgMQOItvSbPMOKnV
     flags: {}
@@ -430,6 +503,10 @@ items:
         value: >-
           The target is *dazed* and *confused* (save ends both). When the target
           saves, it takes [[40]] psychic damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -437,8 +514,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.wgMQOItvSbPMOKnV'
   - _id: 1Vf6mYwQVlQ4KWD4
     flags: {}
@@ -457,6 +532,10 @@ items:
           play, returning it to the battle in (or near) its previous location at
           the end of its next turn. No time seems to pass for the target while
           it’s gone.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -464,8 +543,6 @@ items:
     sort: 1100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.1Vf6mYwQVlQ4KWD4'
   - _id: OLQZUpTdz0L6cbCl
     flags: {}
@@ -483,6 +560,10 @@ items:
           When a limited attack (not an at-will attack) targets this creature,
           the attacker must roll a natural 16+ on the attack roll or it only
           deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -490,8 +571,6 @@ items:
     sort: 1200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.OLQZUpTdz0L6cbCl'
   - _id: sE67A3PnIeNVaIHo
     flags: {}
@@ -516,6 +595,10 @@ items:
           relationships, attributes, bonuses, etc.). They are personal details
           that have been warped and scrambled by the prismatic ogre mage’s
           magic.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -523,8 +606,6 @@ items:
     sort: 1300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ym8uVQH29CAoWuTW.sE67A3PnIeNVaIHo'
 effects: []
 folder: null
@@ -569,6 +650,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/giant.webp
     scaleX: 1
@@ -576,6 +660,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -585,8 +674,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!ym8uVQH29CAoWuTW'
 

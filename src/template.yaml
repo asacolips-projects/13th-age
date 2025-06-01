@@ -68,6 +68,7 @@ Actor:
               - false
               - false
               - false
+          desperateTriggered: false
           lastGaspFails:
             value: 0
             max: 4
@@ -83,9 +84,67 @@ Actor:
         biography:
           type: String
           label: Biography
+      resources:
+        perCombat: {}
+        spendable:
+          custom1:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom2:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom3:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom4:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom5:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom6:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom7:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom8:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
+          custom9:
+            label: ""
+            current: 0
+            max: 0
+            enabled: false
+            rest: "none"
   character:
     templates:
       - standard
+      - resources
     abilities:
       str:
         type: Number
@@ -343,60 +402,16 @@ Actor:
           current: 'none'
           default: 'none'
           secondEdition: true
+        bravado:
+          enabled: false
+          current: 0
+          secondEdition: true
       spendable:
         ki:
           enabled: false
           current: 0
           max: 0
         custom1:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom2:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom3:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom4:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom5:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom6:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom7:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom8:
-          label: ""
-          current: 0
-          max: 0
-          enabled: false
-          rest: "none"
-        custom9:
           label: ""
           current: 0
           max: 0
@@ -431,9 +446,14 @@ Actor:
       gold: 0
       silver: 0
       copper: 0
+    lifecycleHooks:
+      startOfTurn: ''
+      endOfTurn: ''
   npc:
     templates:
       - standard
+      - resources
+    publicationSource: ''
     details:
       flavor:
         value: ''
@@ -449,6 +469,12 @@ Actor:
         value: ''
       vulnerability:
         value: ''
+    resources:
+      perCombat: {}
+      spendable:
+        stoke:
+          enabled: false
+          current: 0
 Item:
   types:
     - power
@@ -466,6 +492,7 @@ Item:
       description:
         type: String
         label: Description
+        value: ''
     spendable:
       quantity:
         type: Number
@@ -496,10 +523,23 @@ Item:
         type: Number
         label: Max Uses
         value: null
+    supportsMacro:
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    supportsSequencer:
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
   power:
     templates:
       - standard
       - usable
+      - supportsMacro
+      - supportsSequencer
     group:
       type: String
       label: Group
@@ -545,6 +585,10 @@ Item:
       label: Always
       value: ''
     attack:
+      type: String
+      label: Attack
+      value: ''
+    critMod:
       type: String
       label: Attack
       value: ''
@@ -605,42 +649,52 @@ Item:
       label: Effect
       value: ''
     spellLevel2:
+      hide: false
       type: String
       label: 2nd Level Spell
       value: ''
     spellLevel3:
+      hide: false
       type: String
       label: 3rd Level Spell
       value: ''
     spellLevel4:
+      hide: false
       type: String
       label: 4th Level Spell
       value: ''
     spellLevel5:
+      hide: false
       type: String
       label: 5th Level Spell
       value: ''
     spellLevel6:
+      hide: false
       type: String
       label: 6th Level Spell
       value: ''
     spellLevel7:
+      hide: false
       type: String
       label: 7th Level Spell
       value: ''
     spellLevel8:
+      hide: false
       type: String
       label: 8th Level Spell
       value: ''
     spellLevel9:
+      hide: false
       type: String
       label: 9th Level Spell
       value: ''
     spellLevel10:
+      hide: false
       type: String
       label: 10th Level Spell
       value: ''
     spellLevel11:
+      hide: false
       type: String
       label: 11th Level Spell
       value: ''
@@ -660,33 +714,11 @@ Item:
       type: String
       label: Roll Table
       value: ''
-    feats:
-      # 0:
-        # description:
-          # type: String
-          # value: ''
-        # isActive:
-          # type: Boolean
-          # value: false
-        # tier:
-          # type: String
-          # value: 'adventurer'
-        # powerUsage:
-          # type: String
-          # value: ''
-        # quantity:
-          # type: Number
-          # value: null
-        # maxQuantity:
-          # type: Number
-          # value: null
-    embeddedMacro:
-      type: String
-      label: Embedded Macro
-      value: ''
+    feats: {}
   trait:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -694,6 +726,8 @@ Item:
   action:
     templates:
       - standard
+      - supportsMacro
+      - supportsSequencer
     group:
       type: String
       label: Group
@@ -701,6 +735,9 @@ Item:
     attack:
       type: String
       label: Attack Roll
+    critMod:
+      type: String
+      value: ''
     hit:
       type: String
       label: Hit
@@ -725,6 +762,7 @@ Item:
   nastierSpecial:
     templates:
       - standard
+      - supportsMacro
     group:
       type: String
       label: Group
@@ -786,4 +824,6 @@ Item:
       cha:
         bonus: 0
     icons: ''
+    tier: 'adventurer'
     isActive: true
+    publicationSource: ''

@@ -3,6 +3,7 @@ name: Djinn
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 9
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: IaRm6tp1C1aEOeGA
     flags: {}
@@ -135,6 +190,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -142,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC ([[2]] attacks)'
+        value: '[[d20 + 13]] vs. AC ([[2]] attacks)'
       hit:
         type: String
         label: Hit
@@ -177,8 +236,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.IaRm6tp1C1aEOeGA'
   - _id: s6Ta0Wut29ksRqmg
     flags: {}
@@ -195,6 +252,10 @@ items:
         value: >-
           <p>Limited use: The djinn can only use this attack while it's not
           staggered.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -203,7 +264,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+13]] vs. PD ([[1d4+1]] nearby creatures, including invisible
+          [[d20 + 13]] vs. PD ([[1d4 + 1]] nearby creatures, including invisible
           creatures)
       hit:
         type: String
@@ -239,8 +300,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.s6Ta0Wut29ksRqmg'
   - _id: XYEzB0KvGtub3yDb
     flags: {}
@@ -257,6 +316,10 @@ items:
         value: >-
           <p>Genies fly extremely well, but lumber, at best, when walking on the
           ground.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -264,8 +327,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.XYEzB0KvGtub3yDb'
   - _id: Ge1u12cqZXnPRaiI
     flags: {}
@@ -286,6 +347,10 @@ items:
           conflicted relationship with. Treat this advantage as if it came from
           a positive relationship. The GM is encouraged to treat this result
           with the utmost benevolence and compassion.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -293,8 +358,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.Ge1u12cqZXnPRaiI'
   - _id: NgjOtCBLB4s1t16q
     flags: {}
@@ -313,6 +376,10 @@ items:
           16+&nbsp;against all spells except those cast by a PC that has at
           least a one point icon relationship with the icon that is channeling
           the djinn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,8 +387,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.NgjOtCBLB4s1t16q'
   - _id: nXGLZvtWhl3QoLl3
     flags: {}
@@ -338,6 +403,10 @@ items:
         value: >-
           <p>When an enemy makes a melee attack against the djinn and misses, it
           takes [[2d20]] damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,8 +414,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.nXGLZvtWhl3QoLl3'
   - _id: AuNwgSNgzO18n9Mm
     flags: {}
@@ -361,6 +428,10 @@ items:
         type: String
         label: Description
         value: <p>The djinn gains a random demonic feature (see Demon).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,8 +439,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.AuNwgSNgzO18n9Mm'
   - _id: YU5qvPd8tLuUKEX0
     flags: {}
@@ -388,6 +457,10 @@ items:
           there&rsquo;s a 50% chance that the power fails. If it does, the item
           refuses to let its owner use that power until the end of the
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -395,8 +468,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.YU5qvPd8tLuUKEX0'
   - _id: NnhLLBMrTZxxFneW
     flags: {}
@@ -413,6 +484,10 @@ items:
         value: >-
           <p>The djinn&rsquo;s&nbsp;assault of the whirlwind&nbsp;attack can
           also target far away enemies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -420,8 +495,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.NnhLLBMrTZxxFneW'
   - _id: 4ck4Rp8OrYjxZ6ql
     flags: {}
@@ -439,6 +512,10 @@ items:
           <p>Twice per battle as a free action, the djinn can turn an
           ally&rsquo;s normal save into an easy save (6+), or an enemy&rsquo;s
           normal save into a hard save (16+).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -446,8 +523,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.4ck4Rp8OrYjxZ6ql'
   - _id: Y53huhLAtThYacww
     flags: {}
@@ -464,6 +539,10 @@ items:
         value: >-
           <p>While not staggered, the djinn has&nbsp;resist melee damage
           16+.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -471,8 +550,6 @@ items:
     sort: 1100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.Y53huhLAtThYacww'
   - _id: TQE7pbwvwPzLQPmU
     flags: {}
@@ -489,6 +566,10 @@ items:
         value: >-
           <p>The djinn takes a &ndash;1 penalty to all defenses. While not
           staggered, its crit range expands by 3.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -496,8 +577,6 @@ items:
     sort: 1200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!AHweCvDlAvWJjZc3.TQE7pbwvwPzLQPmU'
 effects: []
 folder: null
@@ -541,14 +620,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/giant.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -558,8 +644,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!AHweCvDlAvWJjZc3'
 

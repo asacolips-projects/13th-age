@@ -3,6 +3,7 @@ name: Vampire
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 10
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: TNS2E3yA1nKNBZkR
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -172,8 +231,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RvLmLtl6CskfOkyf.TNS2E3yA1nKNBZkR'
   - _id: kY67bm2MYzgtjtQ1
     flags: {}
@@ -191,6 +248,10 @@ items:
           Limited use: The vampire can use vampiric compulsion as a free action
           only when a nearby enemy attacks the vampire and misses with a natural
           attack roll of 1-5.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,8 +285,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RvLmLtl6CskfOkyf.kY67bm2MYzgtjtQ1'
   - _id: 1PskPMhn749i4xYi
     flags: {}
@@ -242,6 +301,10 @@ items:
         value: >-
           The vampire regenerates 1 hp per level at the start of each round
           indefinitely, but it turns to mist if it drops to 0 hp (see below).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,8 +312,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RvLmLtl6CskfOkyf.1PskPMhn749i4xYi'
   - _id: 1Ax3HyrAGmNJG0n5
     flags: {}
@@ -268,6 +329,10 @@ items:
           Unless it is slain in a manner appropriate for truly killing vampires
           in the campaign, a vampire that drops to 0 hp drifts away to return
           and fight some other day.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -275,8 +340,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!RvLmLtl6CskfOkyf.1Ax3HyrAGmNJG0n5'
 effects: []
 folder: null
@@ -321,6 +384,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/undead.webp
     scaleX: 1
@@ -328,6 +394,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -337,8 +408,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!RvLmLtl6CskfOkyf'
 

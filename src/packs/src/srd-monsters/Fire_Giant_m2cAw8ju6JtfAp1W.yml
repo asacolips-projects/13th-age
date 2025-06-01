@@ -3,6 +3,7 @@ name: Fire Giant
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 8
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 2OiktR6A4rkkLqqi
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!m2cAw8ju6JtfAp1W.2OiktR6A4rkkLqqi'
   - _id: dyyHf6izYF7PUvJL
     flags: {}
@@ -183,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -219,8 +280,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!m2cAw8ju6JtfAp1W.dyyHf6izYF7PUvJL'
   - _id: Y0Dxbx9hTddPg6nk
     flags: {}
@@ -234,6 +293,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -270,8 +333,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!m2cAw8ju6JtfAp1W.Y0Dxbx9hTddPg6nk'
   - _id: OuEiYAdMTOFd8zfw
     flags: {}
@@ -288,6 +349,10 @@ items:
         value: >-
           The fire giant adds the escalation die to its attacks against targets
           taking ongoing fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,8 +360,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!m2cAw8ju6JtfAp1W.OuEiYAdMTOFd8zfw'
   - _id: TSEeFcVHIdrgRyaG
     flags: {}
@@ -313,6 +376,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,8 +387,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!m2cAw8ju6JtfAp1W.TSEeFcVHIdrgRyaG'
   - _id: mF7rkTQHf5ybM5cQ
     flags: {}
@@ -338,6 +403,10 @@ items:
         value: >-
           When a fire giant becomes staggered, it deals [[10]] ongoing fire
           damage to each enemy engaged with it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,8 +414,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!m2cAw8ju6JtfAp1W.mF7rkTQHf5ybM5cQ'
   - _id: YN2sS66afaEHOqbz
     flags: {}
@@ -363,6 +430,10 @@ items:
         value: >-
           Twice per battle, the giant can make a slam attack as a quick action
           (once per round).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -370,8 +441,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!m2cAw8ju6JtfAp1W.YN2sS66afaEHOqbz'
 effects: []
 folder: null
@@ -416,6 +485,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/giant.webp
     scaleX: 1
@@ -423,6 +495,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -432,8 +509,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!m2cAw8ju6JtfAp1W'
 

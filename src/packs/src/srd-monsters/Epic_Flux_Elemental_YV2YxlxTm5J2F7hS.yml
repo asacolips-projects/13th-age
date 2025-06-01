@@ -3,6 +3,7 @@ type: npc
 _id: YV2YxlxTm5J2F7hS
 img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Epic Flux Elemental
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Shift
     type: trait
@@ -184,11 +266,13 @@ items:
           <p><strong>6</strong> Shift to water: When the flux elemental shifts
           to water, it gains [[6d10]] additional hit points (cumulative) until
           the end of the battle!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Skcm8k6i7E7WJzAi
     effects: []
@@ -211,11 +295,13 @@ items:
         value: >-
           <p>The bonuses from shifts are cumulative, but each category of bonus
           maxes out at 4 bonuses.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5DfHXkf3wwDvybS7
     effects: []
@@ -235,6 +321,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,7 +333,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. PD'
+        value: '[[d20 + 14]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -272,8 +363,6 @@ items:
         type: String
         label: Miss
         value: '[[15]] damage'
-      embeddedMacro:
-        value: ''
     _id: mbdCfnICcKSHQ2GV
     effects: []
     folder: null
@@ -292,6 +381,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -299,7 +393,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC'
+        value: '[[d20 + 14]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -329,8 +423,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: P8QqgigGnYzfa1fw
     effects: []
     folder: null
@@ -349,6 +441,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -356,7 +453,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. PD'
+        value: '[[d20 + 14]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -386,8 +483,6 @@ items:
         type: String
         label: Miss
         value: '[[15]] fire damage'
-      embeddedMacro:
-        value: ''
     _id: DNrI8aOpcDAbCbAe
     effects: []
     folder: null
@@ -406,6 +501,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -413,7 +513,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. PD'
+        value: '[[d20 + 14]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -445,8 +545,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 3Gnq67NiNhLNroRH
     effects: []
     folder: null
@@ -468,5 +566,6 @@ flags:
         primary:
           value: actions
   core: {}
+sort: 0
 _key: '!actors!YV2YxlxTm5J2F7hS'
 

@@ -11,6 +11,7 @@ system:
     value: >-
       <p>You deal +[[1d10]] damage on a hit (champion: +[[2d10]]; epic:
       +[[4d10]]).</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
@@ -57,6 +58,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -65,17 +86,9 @@ effects: []
 folder: eCDLouIDFlYBPsnQ
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647621753
-  modifiedTime: 1714647621753
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: zO8Ubzd36RkPl0gT
 sort: 0
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!zO8Ubzd36RkPl0gT'
 

@@ -3,6 +3,7 @@ type: npc
 _id: 0qTh4ckibHXFIiMb
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: cold
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fire Giant Smith
   displayName: 0
@@ -107,7 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -138,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -147,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Burning hammer
     type: action
@@ -161,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -168,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -202,8 +288,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: r6fxgrUd2hsn9qCa
     effects: []
     folder: null
@@ -222,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -229,7 +318,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 12]] vs. PD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -262,8 +351,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] fire damage'
-      embeddedMacro:
-        value: ''
     _id: 1R9cRk64rALStKxI
     effects: []
     folder: null
@@ -282,6 +369,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,7 +381,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. PD ([[1d3]] nearby enemies in a group)'
+        value: '[[d20 + 12]] vs. PD ([[1d3]] nearby enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -321,8 +413,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: TEgBBmqzBrmlu6Lp
     effects: []
     folder: null
@@ -349,11 +439,13 @@ items:
           take [[1d6]] fire damage, and those with coins or clasps of metal take
           [[1d4]] fire damage&mdash;a maximum of 4d6+1d4 fire damage. Enemies
           with absolutely no metal items or belongings ignore this ability.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: aMy5iCCCLD4jd5D2
     effects: []
@@ -376,11 +468,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YocRk44NjzBdz1tf
     effects: []
@@ -403,14 +497,16 @@ items:
         value: >-
           <p>Enemies engaged with a fire giant holy warrior at the end of their
           turn take fire damage equal to the escalation die value times five
-          ([[@ed*5]]) if they have not taken fire damage since the end of their
+          ([[@ed * 5]]) if they have not taken fire damage since the end of their
           last turn. Enemies who resist fire damage ignore this fire
           giant&rsquo;s fire aura.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tnW9sQ8j73R7CyTI
     effects: []
@@ -437,11 +533,13 @@ items:
           <p>Fire attacks that miss the fire giant smith do not damage it and
           have no effect, and the fire giant instead heals hp equal to twice the
           attacker&rsquo;s level.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pcJr5O8NylDyMPgU
     effects: []

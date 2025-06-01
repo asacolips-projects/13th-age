@@ -3,6 +3,7 @@ type: npc
 _id: oZIxx2NuhNrnwg7O
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: spoiler
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: undead
     resistance:
       value: ''
     vulnerability:
       value: holy
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Twisted Soul
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Disturbing caress
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. PD'
+        value: '[[d20 + 12]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -195,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: xLiQrsiwJOYCxCHl
     effects: []
     folder: null
@@ -215,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. MD (one random nearby enemy)'
+        value: '[[d20 + 12]] vs. MD (one random nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -255,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: s6Zv9RNPGd6ZHSOg
     effects: []
     folder: null
@@ -279,11 +369,13 @@ items:
           <p>This creature has resist damage 12+ to all damage except holy
           damage. A ghost can move through solid objects, but can&rsquo;t end
           its turn inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zks0FF66SmqmkYbj
     effects: []
@@ -307,11 +399,13 @@ items:
           <p>Each enemy that has one or more icon relationship points with the
           Demonic Icon that misses an attack with a natural odd roll takes a -2
           penalty to all its defenses until the end of the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: x6Xo8MDa0mNdjHuD
     effects: []
@@ -331,11 +425,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: IEWDNdpW9XaYu27i
     effects: []
@@ -372,11 +469,13 @@ items:
           ghosts that aren&rsquo;t bound to anything, but at that stage there
           are several other questions that surface and odd magical, iconic, or
           unique intervention seems likely.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: bOI23ZqrOE7UspgK
     effects: []
@@ -407,11 +506,13 @@ items:
           <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
           constrained to act much like they acted when they were alive, and
           flying wasn&rsquo;t part of their life package.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zac0EsnJeZnNHd3z
     effects: []
@@ -445,11 +546,13 @@ items:
           ghost stories than part of a creature&rsquo;s combat abilities, and
           you can safely ignore it unless you find telling moments when it adds
           to the game.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cXRsiQkWPGVSWsvt
     effects: []

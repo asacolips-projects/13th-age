@@ -2,6 +2,7 @@ _id: Eh6NWAnhtdODWqzb
 name: Stirgelings
 type: npc
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -73,12 +74,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -118,6 +113,66 @@ system:
       value: 0
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 sort: 100001
 flags:
   archmage: {}
@@ -135,6 +190,14 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
         value: ''
       attack:
         type: ''
@@ -184,6 +247,14 @@ items:
         type: ''
         label: Description
         value: The target takes [[3]] damage, and [[3]] ongoing damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
     sort: 100000
     effects: []
     _key: '!actors.items!Eh6NWAnhtdODWqzb.3FgxfYvoJVBmt2sc'
@@ -200,6 +271,14 @@ items:
         type: ''
         label: Description
         value: The target takes [[6]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
     sort: 200000
     effects: []
     _key: '!actors.items!Eh6NWAnhtdODWqzb.WuD7bGoZZfymgsuN'
@@ -218,6 +297,14 @@ items:
         value: >-
           The target takes [[3]] damage and is *stuck* until end of its next
           turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
     sort: 300000
     effects: []
     _key: '!actors.items!Eh6NWAnhtdODWqzb.t06pM4PTJrlOD4l5'
@@ -234,6 +321,14 @@ items:
         type: ''
         label: Description
         value: They aren’t strong fliers but they are quick and agile.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
     sort: 400000
     effects: []
     _key: '!actors.items!Eh6NWAnhtdODWqzb.n8mAFdYzvEI788Uk'
@@ -275,6 +370,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
     scaleX: 1
@@ -282,6 +380,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -291,10 +394,23 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   alpha: 1
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 folder: null
 _key: '!actors!Eh6NWAnhtdODWqzb'
 

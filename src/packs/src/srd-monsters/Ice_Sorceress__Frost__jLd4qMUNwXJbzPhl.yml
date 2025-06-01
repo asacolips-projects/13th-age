@@ -3,6 +3,7 @@ name: Ice Sorceress (Frost)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 7
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: ASBrTWX6sRPMZTew
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.ASBrTWX6sRPMZTew'
   - _id: KiCgN3167ylM61sm
     flags: {}
@@ -183,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -221,8 +282,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.KiCgN3167ylM61sm'
   - _id: OHp7v2J7d8jaOVG7
     flags: {}
@@ -236,6 +295,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -272,8 +335,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.OHp7v2J7d8jaOVG7'
   - _id: 9W42VctdGAZPFmH0
     flags: {}
@@ -287,6 +348,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -325,8 +390,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.9W42VctdGAZPFmH0'
   - _id: YHSbjCrBH3WzHi50
     flags: {}
@@ -343,6 +406,10 @@ items:
         value: >-
           *confused* (hard save ends, 16+); OR *stunned* (save ends). After
           saving, the creature rerolls its initiative.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -350,8 +417,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.YHSbjCrBH3WzHi50'
   - _id: A2H0EbKghQJvBOn0
     flags: {}
@@ -370,6 +435,10 @@ items:
           to conjure forth a wall of ice that stops one enemy’s movement or
           ranged attack. The giant can’t use this ability to target creatures
           making fire attacks or wielding weapons that deal fire damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,8 +446,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.A2H0EbKghQJvBOn0'
   - _id: 9ksR8pIdTD7PJM3F
     flags: {}
@@ -395,6 +462,10 @@ items:
         value: >-
           While battling one or more frost giants, there is only a 50% chance
           that the escalation die increases at the start of the round.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -402,8 +473,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.9ksR8pIdTD7PJM3F'
   - _id: nMZBWfLKH1huvt4q
     flags: {}
@@ -420,6 +489,10 @@ items:
         value: >-
           When a cold attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -427,8 +500,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.nMZBWfLKH1huvt4q'
   - _id: iuqym70YfuJtJY9b
     flags: {}
@@ -445,6 +516,10 @@ items:
         value: >-
           The ice sorceress has resist damage 16+ unless the attack deals fire
           damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -452,8 +527,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!jLd4qMUNwXJbzPhl.iuqym70YfuJtJY9b'
 effects: []
 folder: null
@@ -498,6 +571,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/giant.webp
     scaleX: 1
@@ -505,6 +581,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -514,8 +595,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!jLd4qMUNwXJbzPhl'
 

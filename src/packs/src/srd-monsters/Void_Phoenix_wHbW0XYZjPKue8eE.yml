@@ -3,6 +3,7 @@ type: npc
 _id: wHbW0XYZjPKue8eE
 img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Void Phoenix
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Fly-by talons
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -203,8 +290,6 @@ items:
         value: >-
           The void phoenix can use a *void calling* attack as a quick action,
           either this turn, or on its next turn.
-      embeddedMacro:
-        value: ''
     _id: W6N3NKrFeVEcscVR
     effects: []
     folder: null
@@ -225,6 +310,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -232,7 +322,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -264,8 +354,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: bwNqNcNuLd9Ibjlr
     effects: []
     folder: null
@@ -287,11 +375,13 @@ items:
         value: >-
           <p>The void phoenix can fly amazingly well for a creature that is
           turning itself spiritually inside out.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cELbZRCTz8GyO4rC
     effects: []
@@ -315,11 +405,13 @@ items:
           <p>Enemies that end their turns engaged with the void phoenix must
           attempt an easy save (6+). If the save fails, they&rsquo;re *dazed*
           until the end of their next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FZgMzP1VpGU9vlAW
     effects: []
@@ -343,11 +435,13 @@ items:
           <p>When a fire attack or negative energy attack targets this creature,
           the attacker must roll a natural 16+ on the attack roll or it only
           deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WW2TEttwI6qs8dw6
     effects: []
@@ -371,11 +465,13 @@ items:
           <p>When the phoenix is dealt a critical hit, it must roll an easy save
           (6+). If the save fails, the phoenix drops to 0 hit points; see the
           reborn in void ability below!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vM8z2h5VcsYYWXsQ
     effects: []
@@ -424,11 +520,13 @@ items:
           somewhere nearby in a few hours, days, months, or years. Probably not
           relevant to the PCs unless they or the phoenix bear a special
           grudge.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ZUQU1Hv5tETviUtu
     effects: []
@@ -448,6 +546,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -455,7 +558,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. PD (every nearby enemy)'
+        value: '[[d20 + 13]] vs. PD (every nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -484,8 +587,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: gJXZeoNXdXGfVPSd
     effects: []

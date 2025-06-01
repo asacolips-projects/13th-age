@@ -3,6 +3,7 @@ type: npc
 _id: b75kXznM7zzAROAu
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: spoiler
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: elemental
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Wild Oread
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Hardened fist
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: IYNzBzbZ7UM1gsAz
     effects: []
     folder: null
@@ -221,11 +308,13 @@ items:
           <p>As a move action once per round, the oread can sink into the ground
           and emerge somewhere nearby. This movement doesn&rsquo;t provoke
           opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hNXyoUW1978Ux8PN
     effects: []
@@ -248,11 +337,13 @@ items:
         value: >-
           <p>When a weapon attack targets this creature, the attacker must roll
           a natural 14+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: YjryV7DG1w7SoRqO
     effects: []
@@ -276,11 +367,13 @@ items:
           <p>Nymphs are tied to an area of land or water. Land areas will be at
           most a couple miles wide; water areas might be much larger. As a rule,
           nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: sXAOlNzOJr0mfvJq
     effects: []
@@ -310,11 +403,13 @@ items:
           life. After eight hours, a nymph needs a normal save to return to
           life. If the nymph has still not returned, roll an easy save at the
           end of each 24 hours until the nymph succeeds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xidQS9uS6lAFpRZR
     effects: []
@@ -341,11 +436,13 @@ items:
           <p>Nymphs with the humanoid type probably remember themselves. Nymphs
           that have probably forgotten their original selves have the elemental
           type.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hIqRRqlrDcB9ijUD
     effects: []

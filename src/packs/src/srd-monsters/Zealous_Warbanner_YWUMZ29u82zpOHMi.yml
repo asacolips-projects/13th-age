@@ -3,6 +3,7 @@ name: Zealous Warbanner
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -101,6 +96,8 @@ system:
       value: double
       type: String
       label: Size
+    strength:
+      value: ''
     type:
       value: construct
       type: String
@@ -119,56 +116,66 @@ system:
       value: 3
       min: 0
       max: 10
-token:
-  flags: {}
-  name: Vicious Warbanner
-  displayName: 0
-  img: systems/archmage/assets/icons/tokens/monsters/construct.webp
-  tint: null
-  width: 1
-  height: 1
-  scale: 1
-  lockRotation: false
-  rotation: 0
-  vision: false
-  dimSight: 0
-  brightSight: 0
-  dimLight: 0
-  brightLight: 0
-  sightAngle: 0
-  lightAngle: 360
-  lightAlpha: 1
-  actorId: jA9L9C1xWVFxdrK5
-  actorLink: false
-  actorData: {}
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  mirrorX: false
-  mirrorY: false
-  alpha: 1
-  light:
-    alpha: 0.5
-    angle: 0
-    bright: 0
-    coloration: 1
-    dim: 0
-    gradual: true
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: VKWQBZXlbynLcWnp
     flags: {}
@@ -182,6 +189,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -189,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -222,8 +234,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.VKWQBZXlbynLcWnp'
   - _id: tzTUph3dfEGRz2tZ
     flags: {}
@@ -247,6 +257,10 @@ items:
           damage on hits with melee attacks.</li><li>16&ndash;20:&nbsp;The
           warbanner can make a&nbsp;false rally&nbsp;attack as a free
           action.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,8 +303,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.tzTUph3dfEGRz2tZ'
   - _id: EmA4YzPbzIRAezBj
     flags: {}
@@ -304,6 +316,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -311,7 +328,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD ([[1]] nearby enemy with 15HP or fewer)'
+        value: '[[d20 + 8]] vs. MD ([[1]] nearby enemy with 15HP or fewer)'
       hit:
         type: String
         label: Hit
@@ -347,8 +364,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.EmA4YzPbzIRAezBj'
   - _id: hcAStbTNapnkkSek
     flags: {}
@@ -367,6 +382,10 @@ items:
           above a lower-level ally in its band and designate that ally as its
           bearer. Alternately, it can release itself from a bearer and fly
           free.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -374,8 +393,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.hcAStbTNapnkkSek'
   - _id: loPz9DAC3Y3bPwvB
     flags: {}
@@ -393,6 +410,10 @@ items:
           <p>While the warbanner has a bearer it moves with the bearer and is
           engaged by enemies that engage the bearer. The bearer is *vulnerable*
           to all attacks but it can use the escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -400,8 +421,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.loPz9DAC3Y3bPwvB'
   - _id: 0cBLgHZ6Qm3HRtFE
     flags: {}
@@ -416,6 +435,10 @@ items:
         type: String
         label: Description
         value: <p>As feral warbanner</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -423,8 +446,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.0cBLgHZ6Qm3HRtFE'
   - _id: gkEoGqQ7PSN0UBRg
     flags: {}
@@ -439,6 +460,10 @@ items:
         type: String
         label: Description
         value: <p>As feral warbanner</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -446,8 +471,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.gkEoGqQ7PSN0UBRg'
   - _id: j9tZRZCXSP4KARSI
     flags: {}
@@ -464,6 +487,10 @@ items:
         value: >-
           <p>Mooks fighting in the warbanner&rsquo;s band gain a bonus to their
           hit points equal to the warbanner&rsquo;s level (3).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -471,14 +498,88 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!YWUMZ29u82zpOHMi.j9tZRZCXSP4KARSI'
 effects: []
 folder: null
 sort: 100001
-permission:
-  default: 0
 flags: {}
+ownership:
+  default: 0
+prototypeToken:
+  flags: {}
+  name: Vicious Warbanner
+  displayName: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  actorLink: false
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+      type: null
+    darkness:
+      min: 0
+      max: 1
+    attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    tint: '#ffffff'
+    scaleX: 1
+    scaleY: 1
+    anchorX: 0.5
+    anchorY: 0.5
+    offsetX: 0
+    offsetY: 0
+    fit: contain
+    rotation: 0
+    alphaThreshold: 0.75
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    color: null
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  hexagonalShape: 0
+  detectionModes: []
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!YWUMZ29u82zpOHMi'
 

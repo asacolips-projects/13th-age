@@ -3,6 +3,7 @@ name: Kobold Skyclaw
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 2
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: pRmTCObNhRpLCYEM
     flags: {}
@@ -135,6 +190,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -142,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+5]] vs. AC'
+        value: '[[d20 + 5]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -175,8 +234,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!uPClx3nOxlMEDIzJ.pRmTCObNhRpLCYEM'
   - _id: iKWaC2EuPKu6egRj
     flags: {}
@@ -197,6 +254,10 @@ items:
           is *stuck* (save ends).</li><li>Kobold blasting powder: There’s a loud
           bang and the battlefield is obscured with thick smoke. Each non-kobold
           creature takes a -2 attack penalty during its next turn.</li></ol>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -204,7 +265,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+6]] vs. PD ([[1]] nearby enemy or a far away enemy at -2 atk)'
+        value: '[[d20 + 6]] vs. PD ([[1]] nearby enemy or a far away enemy at -2 atk)'
       hit:
         type: String
         label: Hit
@@ -237,8 +298,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!uPClx3nOxlMEDIzJ.iKWaC2EuPKu6egRj'
   - _id: 7oWZeUcE17BO9A39
     flags: {}
@@ -260,6 +319,10 @@ items:
           (see&nbsp;mook).</li><li>2&ndash;15:&nbsp;It lands
           safely.</li><li>16+:&nbsp;It stays aloft and can keep
           flying.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,8 +330,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!uPClx3nOxlMEDIzJ.7oWZeUcE17BO9A39'
   - _id: edlJT0WMvFEX2V6t
     flags: {}
@@ -283,6 +344,10 @@ items:
         type: String
         label: Description
         value: <p>Kobolds take no damage from missed attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,8 +355,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!uPClx3nOxlMEDIzJ.edlJT0WMvFEX2V6t'
 effects: []
 folder: null
@@ -335,14 +398,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -352,8 +422,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!uPClx3nOxlMEDIzJ'
 

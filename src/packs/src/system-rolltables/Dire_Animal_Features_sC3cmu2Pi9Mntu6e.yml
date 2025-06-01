@@ -2,7 +2,7 @@ name: Dire Animal Features
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 1
@@ -15,7 +15,7 @@ results:
     _id: LJkxvMzHzhL5VEzM
     flags: {}
     _key: '!tables.results!sC3cmu2Pi9Mntu6e.LJkxvMzHzhL5VEzM'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 2
@@ -28,7 +28,7 @@ results:
     _id: PBMSMQUM5MEk0br4
     flags: {}
     _key: '!tables.results!sC3cmu2Pi9Mntu6e.PBMSMQUM5MEk0br4'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 3
@@ -41,7 +41,7 @@ results:
     _id: c1rxrflVmOhB4b1l
     flags: {}
     _key: '!tables.results!sC3cmu2Pi9Mntu6e.c1rxrflVmOhB4b1l'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 4
@@ -54,7 +54,7 @@ results:
     _id: RM2JRJbxJBPuOmZ7
     flags: {}
     _key: '!tables.results!sC3cmu2Pi9Mntu6e.RM2JRJbxJBPuOmZ7'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 5
@@ -67,7 +67,7 @@ results:
     _id: 7cpxNjYuryfDdQ4b
     flags: {}
     _key: '!tables.results!sC3cmu2Pi9Mntu6e.7cpxNjYuryfDdQ4b'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 6
@@ -83,13 +83,11 @@ results:
 formula: 1d6
 replacement: true
 displayRoll: false
-flags: null
+flags: {}
 folder: null
 sort: 0
 ownership:
   default: 0
 _id: sC3cmu2Pi9Mntu6e
-permission:
-  default: 0
 _key: '!tables!sC3cmu2Pi9Mntu6e'
 

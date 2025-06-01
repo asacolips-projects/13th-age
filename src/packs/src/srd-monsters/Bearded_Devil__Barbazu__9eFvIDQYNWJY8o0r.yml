@@ -3,6 +3,7 @@ name: Bearded Devil (Barbazu)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 6
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: XCG7dycXH0I2cvvT
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -170,8 +229,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.XCG7dycXH0I2cvvT'
   - _id: U35Tv0Dku9OoMI0L
     flags: {}
@@ -185,6 +242,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -221,8 +282,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.U35Tv0Dku9OoMI0L'
   - _id: BhkVyY864ZzJO6fN
     flags: {}
@@ -240,6 +299,10 @@ items:
           When an enemy engaged with the bearded devil misses it with an attack,
           the devil can make a filthy beard attack against that enemy as a free
           action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -247,8 +310,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.BhkVyY864ZzJO6fN'
   - _id: WRg4S6zjdm89t38t
     flags: {}
@@ -266,6 +327,10 @@ items:
           When you choose to add the escalation die to an attack against a
           bearded devil, the devil or one of its nearby allies can roll a save
           against a save ends effect.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -273,8 +338,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.WRg4S6zjdm89t38t'
   - _id: uZYh7OE2rzxl9aZD
     flags: {}
@@ -291,6 +354,10 @@ items:
         value: >-
           When the bearded devil makes an opportunity attack, it can also make a
           filthy beard attack against the same target as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -298,8 +365,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.uZYh7OE2rzxl9aZD'
   - _id: Nw3rCjeOTHptWYMX
     flags: {}
@@ -318,6 +383,10 @@ items:
           enemies. As a free action, it can either make a disengage check to try
           to move to intercept the enemy, or move to intercept the enemy and
           only take half damage from opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -325,8 +394,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.Nw3rCjeOTHptWYMX'
   - _id: A2RmcEDKOIybI8Bc
     flags: {}
@@ -343,6 +410,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -350,8 +421,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.A2RmcEDKOIybI8Bc'
   - _id: L9qxvfno9EvOE1vV
     flags: {}
@@ -368,6 +437,10 @@ items:
         value: >-
           The target of the bearded devil’s filthy beard attack now takes [[10]]
           ongoing poison damage and is *weakened* (save ends both) instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -375,8 +448,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!9eFvIDQYNWJY8o0r.L9qxvfno9EvOE1vV'
 effects: []
 folder: null
@@ -421,6 +492,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/devil.webp
     scaleX: 1
@@ -428,6 +502,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -437,8 +516,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!9eFvIDQYNWJY8o0r'
 

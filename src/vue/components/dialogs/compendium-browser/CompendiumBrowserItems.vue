@@ -57,6 +57,18 @@
       />
     </div>
 
+    <!-- Tier filter. -->
+    <div class="unit unit--input">
+      <h2 class="unit-title" for="compendiumBrowser.tier">{{ localize('ARCHMAGE.CHAT.tier') }}</h2>
+      <Multiselect
+        v-model="tier"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="tierOptions"
+      />
+    </div>
+
     <!-- Usage filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerUsage">{{ localize('ARCHMAGE.GROUPS.powerUsage') }}</label>
@@ -66,6 +78,30 @@
         :searchable="false"
         :create-option="false"
         :options="CONFIG.ARCHMAGE.powerUsages"
+      />
+    </div>
+
+    <!-- Source filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.source">{{ localize('ARCHMAGE.source') }}</label>
+      <Multiselect
+        v-model="source"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="sources"
+      />
+    </div>
+
+    <!-- Location filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.location">{{ localize('ARCHMAGE.location') }}</label>
+      <Multiselect
+        v-model="location"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="locationNames"
       />
     </div>
 
@@ -92,6 +128,9 @@
             </div>
             <!-- Second row is supplemental info. -->
             <div class="grid equipment-grid">
+              <div class="equipment-tier" :data-tooltip="localize('ARCHMAGE.CHAT.tier')">
+                {{ CONFIG.ARCHMAGE.featTiers[equipment.system.tier] }}
+              </div>
               <div class="equipment-bonus flexrow" :data-tooltip="localize('ARCHMAGE.bonuses')" data-tooltip-direction="RIGHT" v-if="equipment.system.attributes">
                 <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
                   <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
@@ -101,6 +140,7 @@
               <div class="equipment-usage" v-if="equipment.system?.powerUsage?.value" :data-tooltip="localize('ARCHMAGE.GROUPS.powerUsage')">{{ CONFIG.ARCHMAGE.powerUsages[equipment.system?.powerUsage?.value ?? ''] ?? '' }}</div>
               <div class="equipment-chakra" :data-tooltip="localize('ARCHMAGE.chakra')" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
               <div class="equipment-recharge" :data-tooltip="localize('ARCHMAGE.recharge')">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
+              <div v-if="equipment?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(equipment?.system?.publicationSource)">{{ equipment?.system?.publicationSource }}</div>
             </div>
           </div>
         </li>
@@ -166,6 +206,7 @@ export default {
         { value: 'name', label: game.i18n.localize('ARCHMAGE.name') },
         { value: 'chakra', label: game.i18n.localize('ARCHMAGE.chakra') },
         { value: 'recharge', label: game.i18n.localize('ARCHMAGE.recharge') },
+        { value: 'tier', label: game.i18n.localize('ARCHMAGE.CHAT.tier') },
         { value: 'usage', label: game.i18n.localize('ARCHMAGE.GROUPS.powerUsage') },
       ],
       // Our list of pseudo documents returned from the compendium.
@@ -175,7 +216,10 @@ export default {
       chakra: [],
       recharge: [],
       bonuses: [],
+      tier: [],
       powerUsage: [],
+      source: [],
+      location: [],
     }
   },
   methods: {
@@ -211,6 +255,7 @@ export default {
       this.chakra = [];
       this.recharge = [];
       this.bonuses = [];
+      this.tier = [];
       this.powerUsage = [];
     },
     getBonuses(equipment) {
@@ -228,6 +273,14 @@ export default {
         }
       }
       return bonuses;
+    },
+    /**
+     * Tooltip for a publication source, which may be translated
+     */
+    sourceTooltip(source) {
+      let localized = game.i18n.localize(`ARCHMAGE.COMPENDIUMBROWSER.sources.${source}`);
+      if (localized.startsWith('ARCHMAGE')) { localized = source }
+      return game.i18n.format('ARCHMAGE.COMPENDIUMBROWSER.sources.tooltipTemplate', {source: localized});
     },
   },
   computed: {
@@ -309,12 +362,33 @@ export default {
         }
       ]
     },
+    tierOptions() {
+      return [
+        {
+          value: 'adventurer',
+          label: 'Adventurer',
+        },
+        {
+          value: 'champion',
+          label: 'Champion',
+        },
+        {
+          value: 'epic',
+          label: 'Epic',
+        },
+      ]
+    },
     chakraSlots() {
       const result = {};
       for (let [k,v] of Object.entries(CONFIG.ARCHMAGE.chakraSlots)) {
         result[k] = this.game.i18n.localize(`${v}Label`);
       }
       return result;
+    },
+    locationNames() {
+      // List of locations from the selected entries
+      const locations = new Set(this.packIndex.map(entry => entry.compendiumTitle));
+      return Array.from(locations).sort();
     },
     nightmode() {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
@@ -340,6 +414,15 @@ export default {
       }
       if (Array.isArray(this.powerUsage) && this.powerUsage.length > 0) {
         result = result.filter(entry => this.powerUsage.includes(entry.system?.powerUsage?.value ?? 'other'));
+      }
+      if (Array.isArray(this.tier) && this.tier.length > 0) {
+        result = result.filter(entry => this.tier.includes(entry.system?.tier ?? 'adventurer'));
+      }
+      if (Array.isArray(this.source) && this.source.length > 0) {
+        result = result.filter(entry => this.source.includes(entry.system.publicationSource));
+      }
+      if (Array.isArray(this.location) && this.location.length > 0) {
+        result = result.filter(entry => this.location.includes(entry.compendiumTitle));
       }
 
       // Recharge.
@@ -399,6 +482,8 @@ export default {
             return (a.system?.chackra ?? '').localeCompare((b.system?.chackra ?? ''));
           case 'usage':
             return (a.system?.powerUsage?.value ?? '').localeCompare((b.system?.powerUsage?.value ?? ''));
+          case 'tier':
+            return (a.system?.tier ?? '').localeCompare(b.system?.tier ?? '');
           case 'recharge':
             return (a.system?.recharge?.value ?? 0) - (b.system?.recharge?.value ?? 0);
         }
@@ -410,17 +495,31 @@ export default {
         ? result.slice(this.pager.firstIndex, this.pager.lastIndex)
         : result;
     },
+    sources() {
+      // List of publication sources from the selected entries
+      const sources = new Set();
+      for (const entry of this.packIndex) {
+        if (entry.system.publicationSource) {
+          sources.add(entry.system.publicationSource);
+        }
+      }
+      return Array.from(sources).sort();
+    },
   },
   watch: {},
   // Handle created hook.
   async created() {
     console.log("Creating compendium browser magic items tab...");
 
+    const packIds = game.packs.contents
+      .filter(p => p.documentName === 'Item')
+      .map(p => p.collection);
+
     // Load the pack index with the fields we need.
-    getPackIndex([
-      'archmage.srd-magic-items',
-    ], [
+    getPackIndex(packIds, [
       'system.chackra',
+      'system.tier',
+      'system.publicationSource',
       'system.recharge.value',
       'system.powerUsage.value',
       'system.attributes.attack',
@@ -432,7 +531,10 @@ export default {
       'system.attributes.save',
       'system.attributes.disengage',
     ]).then(packIndex => {
-      this.packIndex = packIndex;
+      // Filter out non-magic-item entries.
+      this.packIndex = packIndex.filter(entry => {
+        return entry.type === 'equipment' || entry.type === 'loot';
+      });
       this.loaded = true;
     });
 

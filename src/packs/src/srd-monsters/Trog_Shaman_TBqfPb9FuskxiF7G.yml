@@ -3,6 +3,7 @@ type: npc
 _id: TBqfPb9FuskxiF7G
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Trog Shaman
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Grimy spear
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC'
+        value: '[[d20 + 11]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -201,8 +288,6 @@ items:
         value: >-
           Damage equal to three times the penalty the trog’s stench currently
           imposes on the target.
-      embeddedMacro:
-        value: ''
     _id: nI32ny4zKFNhFIph
     effects: []
     folder: null
@@ -221,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -228,7 +318,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -260,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: nRK52v98EOOpGvj2
     effects: []
     folder: null
@@ -284,11 +372,13 @@ items:
           <p>Until the trog shaman drops to 0 hp, the melee attacks of each trog
           nearby the shaman deals [[6]] extra damage to elves and dwarves, and
           [[3]] extra damage to half-elves.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: k2YKAW5ZLrEGxL69
     effects: []
@@ -312,11 +402,13 @@ items:
           <p>Underground, or in swamps and rivers, attacks against troglodytes
           by enemies who aren&rsquo;t engaged with them take a &ndash;4
           penalty.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8MSvPpEwNBTAT9Iy
     effects: []
@@ -405,11 +497,13 @@ items:
           </table>
 
           <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dh39v33CxOvm58CS
     effects: []
@@ -432,11 +526,13 @@ items:
         value: >-
           <p>*Grimy spear* now re-applies trog stench on any natural odd roll
           (other than a natural 1, of course)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MC9OSuNv3NPFUx0p
     effects: []

@@ -3,6 +3,7 @@ type: npc
 _id: pV32DIGlGJHcZWrg
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -104,6 +105,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fallen Icon – Nature
   displayName: 0
@@ -117,7 +178,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -148,6 +213,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -157,9 +225,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Wrathful Earth
     type: action
@@ -171,6 +252,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -178,7 +264,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+19]] vs. AC (3 attacks)'
+        value: '[[d20 + 19]] vs. AC (3 attacks)'
       hit:
         type: String
         label: Hit
@@ -215,8 +301,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Xj9GxIgqjtGivdyV
     effects: []
     folder: null
@@ -235,6 +319,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -243,7 +332,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+19]] vs. PD (all nearby flying enemies, and a number of random
+          [[d20 + 19]] vs. PD (all nearby flying enemies, and a number of random
           nearby enemies equal to the escalation die ([[@ed]]), one attack per
           target, or all nearby enemies when the escalation die is 6 or higher)
       hit:
@@ -279,8 +368,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 103PI49CKow91xl3
     effects: []
     folder: null
@@ -299,6 +386,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -306,7 +398,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD (each creature in/on structure)'
+        value: '[[d20 + 16]] vs. PD (each creature in/on structure)'
       hit:
         type: String
         label: Hit
@@ -338,8 +430,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: HrsETQ9jClByhcc0
     effects: []
     folder: null
@@ -364,11 +454,13 @@ items:
           before or after the movement takes [[60]] damage. In addition, the
           Fallen Icon is immune to opportunity attacks. Enemies of less than
           huge size can disengage from it with an easy save (6+).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oL0vkaRzlMj2RhVv
     effects: []
@@ -392,11 +484,13 @@ items:
           <p>At the start of its turn, the Fallen Icon can change its creature
           type to beast, elemental, or plant. This ends all conditions affecting
           it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0eUuwsCiNDNDPtza
     effects: []
@@ -420,11 +514,13 @@ items:
           <p>The Fallen Icon has resist poison 16+. In addition, as a beast it
           has resist cold 16+. As a plant it has resist lightning 16+. As an
           elemental it has resist fire 16+.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VJ97c47Ovlt8Nu4C
     effects: []
@@ -447,11 +543,13 @@ items:
         value: >-
           <p>The Fallen Icon can sprout wings to clumsily fly, and can swim
           indefinitely at any depth.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 13KL8qBsXTkeaCfI
     effects: []
@@ -476,11 +574,13 @@ items:
           magic (but not druidic magic): natural odd hits by arcane and divine
           spells miss the Fallen Icon, while odd misses are rerolled against an
           enemy engaged with the Fallen Icon. Natural 1s target the caster.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MqdZQVMpeYnxg4V4
     effects: []
@@ -506,11 +606,13 @@ items:
           The structure is automatically rendered useless, and each creature
           inside or on the structure is subject to a <em>collapse</em>
           attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Jl7I49rs6ZHNQbKv
     effects: []
@@ -536,11 +638,13 @@ items:
           Icon mooks will join the battle nearby the triggering enemy. While
           these creatures are in play, the Fallen Icon has a bonus to all
           defenses equal to the number of Fallen Icon mobs in the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: cpkPrNF88CS8FDxN
     effects: []
@@ -567,11 +671,13 @@ items:
           some distant wilderness. If the campaign somehow ends while the Fallen
           Icon is still dead, it&rsquo;s the GM&rsquo;s call whether the Fallen
           Icon stays dead or rises after the events of the campaign.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 08e1QnKYdyTQAnek
     effects: []
@@ -595,11 +701,13 @@ items:
           <p>When a creature engaged with or next to the Fallen Icon dies
           (including the last mook of a mob), the Fallen Icon consumes it and
           regains [[100]] HP.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: RAR4rBogmL2xsxOr
     effects: []

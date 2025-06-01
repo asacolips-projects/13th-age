@@ -193,6 +193,8 @@ export class ArchmageMacros {
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
+  //TODO: StrengthoftheGods
+
   ////////////////////////////////////////////////
   /**
    * Commander Macros.
@@ -301,8 +303,7 @@ export class ArchmageMacros {
       }
     }
 
-    // @todo change icon to img in v12/v13
-    let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
+    let effectData = { label: archmage.item.name, img: archmage.item.img, changes: effects };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
 
     const existingEffect = actor.effects.getName('Defensive Fighting');
@@ -313,6 +314,8 @@ export class ArchmageMacros {
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
     }
   }
+
+  //TODO: GritAndScrap2e
 
   ////////////////////////////////////////////////
   /**
@@ -325,38 +328,41 @@ export class ArchmageMacros {
    */
   static async wizardLight(speaker, actor, token, character, archmage) {
     if (!token) return;
-    const radiusBright = 3;
-    const radiusDim = 4;
-    let conf = {
-      alpha: 0.35,
-      angle: 0,
-      coloration: 1,
-      gradual: true,
-      luminosity: 0.5,
-      saturation: 0,
-      contrast: 0,
-      shadows: 0,
-      animation: {
-        speed: 2,
-        intensity: 2,
-        reverse: false,
-        type: "torch",
-      },
-      darkness: {
-        min: 0,
-        max: 1,
-      },
-    };
-    if (token.data.light.bright != 0) {
-      conf.bright = 0;
-      conf.dim = 0;
-      await token.document.update({light: conf});
-      archmage.suppressMessage = true;
+    if (!token.light) {
+      let data = foundry.data.LightData.cleanData();
+      data.bright = 3;
+      data.dim = 4;
+      data.animation.type = 'torch';
+      data.animation.speed = 3;
+      data.animation.intensity = 3;
+      await token.document.update({light: data});
     } else {
-      conf.bright = radiusBright;
-      conf.dim = radiusDim;
-      await token.document.update({light: conf});
+      await token.document.update({light: undefined});
+      archmage.suppressMessage = true;
     }
+  }
 
+  ////////////////////////////////////////////////
+  /**
+   * Item Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * "Flaming" weapon (2e).
+   */
+  static async flamingWeapon(speaker, actor, token, character, archmage) {
+    const rollData = actor.getRollData();
+    const effectData = {
+      label: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [{
+        key: "system.attributes.weapon.melee.dice",
+        value: `+${rollData.lvl}-${rollData.atk.m.bonus}`, // replace item bonus with level
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
+    };
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
+    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 }

@@ -1,6 +1,4 @@
 name: Ritual Magic
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Ritual Magic
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: null
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Cleric
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Ritual Magic
   powerType:
     type: String
     label: Power Type
     value: feature
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
   powerLevel:
     type: Number
     label: Level
@@ -128,21 +151,55 @@ system:
       spell consumed by the ritual, the greater the effect.</li></ol><p>No
       matter the outcome, the spell is expended until your next full
       heal-up.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -152,24 +209,22 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
-  group:
-    value: null
 flags: {}
 img: systems/archmage/assets/icons/items/inventory/book-purple.jpg
 effects: []
 _id: 3jyycQFCKOY1Ed9C
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!3jyycQFCKOY1Ed9C'
 

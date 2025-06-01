@@ -13,6 +13,7 @@ system:
       bonus with that spell if it has more than one target.</p>
 
       <p>Quirk: Obsessed with numbers and calculations.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage
@@ -59,6 +60,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'champion'
   isActive: true
   price:
     value: ''
@@ -67,17 +88,9 @@ effects: []
 folder: hdNGdgWFpXBVwTZG
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714648234993
-  modifiedTime: 1714648234993
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: 6ZcXG9fV9LZ6qKTf
 sort: 0
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!6ZcXG9fV9LZ6qKTf'
 

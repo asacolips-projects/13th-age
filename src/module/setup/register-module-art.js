@@ -20,7 +20,7 @@ async function registerModuleArt() {
   // Iterate over each module and check to see if there's a map.
   for (const [moduleKey, foundryModule] of activeModules) {
     // If the pf2e token pack isn't enabled, skip the system map.
-    if (moduleKey == 'archmage' && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
+    if (['archmage', '13th-age-core-2e-gamma'].includes(moduleKey) && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
       continue;
     }
     // We can skip the pf2e-tokens-bestiaries map since we've provided our own in the
@@ -34,11 +34,13 @@ async function registerModuleArt() {
 
     // We found an art map, so iterate over the packs and entries in that map.
     for (const [packName, art] of Object.entries(moduleArt)) {
+      // Handle packnames keyed by module as well as system packs.
+      const fullPackName = packName.includes('.') ? packName : `archmage.${packName}`;
       // Load the compendium pack.
-      const pack = game.packs.get(`archmage.${packName}`);
+      const pack = game.packs.get(fullPackName);
       if (!pack) {
         console.warn(
-          `13th Age System | Failed pack lookup from module art registration (${moduleKey}): ${packName}`
+          `13th Age System | Failed pack lookup from module art registration (${moduleKey}): ${fullPackName}`
         );
         continue;
       }
@@ -53,7 +55,7 @@ async function registerModuleArt() {
         // Set the index image to the map image for this actor.
         record.img = paths.actor;
         // Update the map to reference the art object.
-        game.archmage.system.moduleArt.map.set(`Compendium.archmage.${packName}.${actorId}`, paths);
+        game.archmage.system.moduleArt.map.set(`Compendium.${fullPackName}.${actorId}`, paths);
       }
     }
   }

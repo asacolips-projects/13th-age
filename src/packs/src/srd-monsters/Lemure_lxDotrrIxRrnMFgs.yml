@@ -3,6 +3,7 @@ name: Lemure
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 3
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: JTxbX4Wl77xTaikK
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -166,8 +225,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!lxDotrrIxRrnMFgs.JTxbX4Wl77xTaikK'
   - _id: lhq4kOOk7qjDIiFB
     flags: {}
@@ -187,6 +244,10 @@ items:
           in the battle, though it’s hard to say how exactly. They don’t seem to
           teleport, but there are so many of the things squirming around it just
           happens.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -194,8 +255,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!lxDotrrIxRrnMFgs.lhq4kOOk7qjDIiFB'
   - _id: cB7JcHfIuO2Okpgs
     flags: {}
@@ -214,6 +273,10 @@ items:
           move it along with them as they please without taking opportunity
           attacks. The enemy getting moved around pops free of any other enemies
           engaged with it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -221,8 +284,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!lxDotrrIxRrnMFgs.cB7JcHfIuO2Okpgs'
   - _id: ERcT9VwUI3eOGM6g
     flags: {}
@@ -242,6 +303,10 @@ items:
           lemures fight in a straightforward way, without tactics. They never
           disengage willingly, and they’re not coordinated enough to concentrate
           attacks on a *vulnerable* target.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,8 +314,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!lxDotrrIxRrnMFgs.ERcT9VwUI3eOGM6g'
   - _id: RJBnU2YdTRNAuPFS
     flags: {}
@@ -267,6 +330,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -274,8 +341,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!lxDotrrIxRrnMFgs.RJBnU2YdTRNAuPFS'
   - _id: Jmh5uTcDCLzId3A7
     flags: {}
@@ -293,6 +358,10 @@ items:
           Heedless of each other’s safety or their own, lemures use sheer
           numbers to press through locked doors, climb walls, or dog pile on
           defenders.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -300,8 +369,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!lxDotrrIxRrnMFgs.Jmh5uTcDCLzId3A7'
   - _id: VsFFRPOas72UTy22
     flags: {}
@@ -326,6 +393,10 @@ items:
           limited-use power, such as a daily spell, might also keep a number of
           downed lemures totally dead. Once the last member of the mob drops,
           stop rolling to see if lemures rise up.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -333,8 +404,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!lxDotrrIxRrnMFgs.VsFFRPOas72UTy22'
 effects: []
 folder: null
@@ -379,6 +448,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/devil.webp
     scaleX: 1
@@ -386,6 +458,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -395,8 +472,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!lxDotrrIxRrnMFgs'
 

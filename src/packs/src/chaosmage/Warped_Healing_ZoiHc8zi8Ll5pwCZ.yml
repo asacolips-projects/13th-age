@@ -1,6 +1,4 @@
 name: Warped Healing
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Warped Healing
+    label: Power Usage
+    value: once-per-battle
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: Defense
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Chaos Mage
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Warped Healing
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: once-per-battle
   powerLevel:
     type: Number
     label: Level
@@ -117,22 +140,56 @@ system:
       recovery. The other target gains [[10]] temporary hit points and grows a
       strange eye, limb, or other physical feature that lasts as long as the
       temporary hit points do.</p><p>&nbsp;</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: '[[20]] temporary hit points.'
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: '[[30]] temporary hit points.'
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: '[[45]] temporary hit points.'
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: '[[70]] temporary hit points.'
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -141,26 +198,22 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  feats: null
-  group:
+    label: Sustain On
+    value: ''
+  rollTable:
     type: String
-    label: Group
-    value: Defense
+    label: Roll Table
+    value: ''
+  feats: null
 flags: {}
 img: systems/archmage/assets/icons/skills/shadow_18.jpg
 _id: ZoiHc8zi8Ll5pwCZ
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!ZoiHc8zi8Ll5pwCZ'
 

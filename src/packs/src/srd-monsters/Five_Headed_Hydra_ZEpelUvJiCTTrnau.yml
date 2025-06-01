@@ -3,6 +3,7 @@ name: Five-Headed Hydra
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 5
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: DtEADxe15QjVwjil
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -173,8 +232,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ZEpelUvJiCTTrnau.DtEADxe15QjVwjil'
   - _id: ubSb0GQ4CaN5jBP4
     flags: {}
@@ -189,6 +246,10 @@ items:
         type: ''
         label: Description
         value: '*confused*, *dazed*, *hampered*, *stunned*, or *weakened*.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -196,8 +257,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ZEpelUvJiCTTrnau.ubSb0GQ4CaN5jBP4'
   - _id: iDAQIa5xTiHQlVY3
     flags: {}
@@ -216,6 +275,10 @@ items:
           turn, it can expend one of those attacks to move to engage a nearby
           enemy as a free action (but it will take opportunity attacks for doing
           so).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -223,8 +286,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ZEpelUvJiCTTrnau.iDAQIa5xTiHQlVY3'
   - _id: 8CbrbfhJtzIIZTdb
     flags: {}
@@ -244,6 +305,10 @@ items:
           undamaged at its new hit point total. Using the hydra’s current hit
           points as a new baseline, the hydra will be staggered again when it
           drops below 50% of that total.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -251,8 +316,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ZEpelUvJiCTTrnau.8CbrbfhJtzIIZTdb'
   - _id: qu9NhKORpBy7KjJ5
     flags: {}
@@ -271,6 +334,10 @@ items:
           hit points and a seventh gnashing teeth attack, etc. Use a new hit
           point baseline as before, but there is no eighth head waiting to
           sprout.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -278,8 +345,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ZEpelUvJiCTTrnau.qu9NhKORpBy7KjJ5'
   - _id: mafofVA7oaWboqi8
     flags: {}
@@ -294,6 +359,10 @@ items:
         type: ''
         label: Description
         value: You know the drill.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -301,8 +370,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ZEpelUvJiCTTrnau.mafofVA7oaWboqi8'
 effects: []
 folder: null
@@ -347,6 +414,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
     scaleX: 1
@@ -354,6 +424,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -363,8 +438,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!ZEpelUvJiCTTrnau'
 

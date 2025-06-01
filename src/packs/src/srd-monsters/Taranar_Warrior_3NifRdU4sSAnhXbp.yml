@@ -3,6 +3,7 @@ type: npc
 _id: 3NifRdU4sSAnhXbp
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: cold, fire
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Taranar Warrior
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Fists of stone
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC (2 attacks)'
+        value: '[[d20 + 12]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -199,8 +286,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 2BGiTqxFfKOwQ5wn
     effects: []
     folder: null
@@ -219,6 +304,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -226,7 +316,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD (one nearby or faraway enemy)'
+        value: '[[d20 + 8]] vs. PD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -259,8 +349,6 @@ items:
         type: String
         label: Miss
         value: The target is *dazed* until the end of their next turn.
-      embeddedMacro:
-        value: ''
     _id: xYwozB1NpdSnOg6f
     effects: []
     folder: null
@@ -285,11 +373,13 @@ items:
           using a weapon against a taranar, the attacker deals only half damage.
           The resistance also applies to negative energy damage, which tends to
           fizzle ineffectively against the ancient stones.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: m6DhrZGVyozkLwmv
     effects: []
@@ -320,11 +410,13 @@ items:
           conditions for it to wake are met again (providing they can be). Such
           severely damaged creatures reawaken as broken taranar, regardless of
           what they were before.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kVZyfFfMhFsQFpRp
     effects: []
@@ -350,11 +442,13 @@ items:
           made vulnerable to anything beyond those energies they are already
           vulnerable to (fire and cold; see below). Taranar are also immune to
           ongoing damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dOhVUGTuacWY7UkL
     effects: []

@@ -1,6 +1,4 @@
 name: Divine Endurance
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Divine Endurance
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: null
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Cleric
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Divine Endurance
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -115,22 +138,56 @@ system:
     type: String
     label: Effect
     value: <p>You can cast this spell for power or for broad effect.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: Temporary hp = [[60]]/[[30]].
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: Temporary hp = [[80]]/[[40]].
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: Temporary hp = [[100]]/[[50]].
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -139,24 +196,22 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
-  group:
-    value: null
 flags: {}
 img: systems/archmage/assets/icons/skills/light_06.jpg
 effects: []
 _id: 19Iw7CQIyfOaBRhG
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!19Iw7CQIyfOaBRhG'
 

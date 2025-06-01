@@ -1,6 +1,4 @@
 name: Coronation
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Coronation
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: Elf Queen (Light of the High Ones)
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Chaos Mage
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Coronation
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -56,7 +79,7 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
@@ -116,21 +139,55 @@ system:
       <p>Until the end of the battle, when a staggered enemy hits you with an
       attack, you can make the following attack against that enemy as a free
       action after the attack.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -140,18 +197,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -197,13 +250,13 @@ system:
       maxQuantity:
         type: Number
         value: null
-  group:
-    type: String
-    label: Group
-    value: Elf Queen (Light of the High Ones)
 flags: {}
 img: systems/archmage/assets/icons/spells/haste-sky-3.jpg
 _id: Ug5fPICd7FjACw1r
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!Ug5fPICd7FjACw1r'
 

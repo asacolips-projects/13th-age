@@ -163,8 +163,8 @@ class ArchmageUpdateHandler {
       updateData = this.__migrateNPCSplitSizeStrength(actor, updateData);
     }
 
-    // Append NC migration for version 1.31.0
-    if (this.versionBelow('1.31.0')) {
+    // Append NC migration for version 1.36.0
+    if (this.versionBelow('1.36.0')) {
       updateData = this.__migratePCToughnessFlag(actor, updateData);
     }
 
@@ -423,7 +423,7 @@ class ArchmageUpdateHandler {
   async executeMigration() {
     // Exit early if the version matches.
     // @todo Update this for each new version that requires a migration.
-    if (!this.versionBelow('1.31.0')) {
+    if (!this.versionBelow('1.36.0')) {
       return;
     }
 
@@ -456,8 +456,8 @@ class ArchmageUpdateHandler {
       ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_30_0'), {permanent: true});
     }
 
-    if (this.versionBelow('1.31.0')) {
-      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_31_0'), {permanent: true});
+    if (this.versionBelow('1.36.0')) {
+      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_36_0'), {permanent: true});
     }
 
     // 1. Update world actors.

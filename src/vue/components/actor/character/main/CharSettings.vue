@@ -143,7 +143,7 @@
             {{localize(concat('ARCHMAGE.RESTS.',option.value))}}</option>
           </select>
         </div>
-        <!-- Momentum, Command Points and Focus -->
+        <!-- Bravado, Momentum, Command Points and Focus -->
         <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="settings-resource" :data-key="r">
           <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
@@ -154,15 +154,41 @@
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
         </div>
       </div>
+
+      <div class="flexcol unit unit--hooks" style="grid-column-end: span 6">
+        <h3>
+          {{localize('ARCHMAGE.SETTINGS.lifecycleHooks.title')}}
+          <InfoBubble :tooltip="localize('ARCHMAGE.SETTINGS.lifecycleHooks.hint')"/>
+        </h3>
+        <div class="flexrow form-group stacked">
+          <div class="flexcol field">
+            <label style="flex-grow: 0;">{{localize('ARCHMAGE.SETTINGS.lifecycleHooks.startOfTurn')}}</label>
+            <CodemirrorWrapper class="attribute-value"
+              name="system.lifecycleHooks.startOfTurn"
+              :value="actor.system.lifecycleHooks.startOfTurn"
+              :disable-paste-parsing="true" />
+          </div>
+          <div class="flexcol field">
+            <label style="flex-grow: 0;">{{localize('ARCHMAGE.SETTINGS.lifecycleHooks.endOfTurn')}}</label>
+            <CodemirrorWrapper class="attribute-value"
+              name="system.lifecycleHooks.endOfTurn"
+              :value="actor.system.lifecycleHooks.endOfTurn"
+              :disable-paste-parsing="true" />
+          </div>
+        </div>
+      </div>
     </section>
   </section>
 </template>
 
 <script>
 import { concat, localize } from '@/methods/Helpers';
+import { CodemirrorWrapper, InfoBubble } from '@/components';
+
 export default {
   name: 'CharSettings',
   props: ['actor', 'owner', 'tab'],
+  components: { CodemirrorWrapper, InfoBubble },
   setup() {
     return {
       concat,
@@ -172,19 +198,19 @@ export default {
   data() {
     return {
       resourceRestTypes: [
-        { value: 'none', label: 'Do nothing' },
-        { value: 'quickreset', label: 'Clear on Quick Rest' },
-        { value: 'fullreset', label: 'Clear on Full Heal-Up' },
-        { value: 'quick', label: 'Refill on Quick Rest' },
-        { value: 'full', label: 'Refill on Full Heal-Up' },
+        { value: 'none', label: game.i18n.localize("ARCHMAGE.RESTS.none") },
+        { value: 'quickreset', label: game.i18n.localize("ARCHMAGE.RESTS.quickreset") },
+        { value: 'fullreset', label: game.i18n.localize("ARCHMAGE.RESTS.fullreset") },
+        { value: 'quick', label: game.i18n.localize("ARCHMAGE.RESTS.quick") },
+        { value: 'full', label: game.i18n.localize("ARCHMAGE.RESTS.full") },
       ],
       abilities: [
-        { value: 'str', label: "Str"},
-        { value: 'con', label: "Con"},
-        { value: 'dex', label: "Dex"},
-        { value: 'int', label: "Int"},
-        { value: 'wis', label: "Wis"},
-        { value: 'cha', label: "Cha"},
+        { value: 'str', label: game.i18n.localize("ARCHMAGE.str.key")},
+        { value: 'con', label: game.i18n.localize("ARCHMAGE.con.key")},
+        { value: 'dex', label: game.i18n.localize("ARCHMAGE.dex.key")},
+        { value: 'int', label: game.i18n.localize("ARCHMAGE.int.key")},
+        { value: 'wis', label: game.i18n.localize("ARCHMAGE.wis.key")},
+        { value: 'cha', label: game.i18n.localize("ARCHMAGE.cha.key")},
       ]
     }
   },

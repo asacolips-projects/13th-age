@@ -3,6 +3,7 @@ type: npc
 _id: A09ECdNszfwyILij
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Star-Brain Dungeon Heart
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: 'C: Mutagenic emanations'
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+22]] vs. AC (each enemy)'
+        value: '[[d20 + 22]] vs. AC (each enemy)'
       hit:
         type: String
         label: Hit
@@ -200,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: RSAFufjA1i4SIsf9
     effects: []
     folder: null
@@ -220,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -227,7 +317,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+22]] vs. MD (one nearby or faraway enemy)'
+        value: '[[d20 + 22]] vs. MD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -264,8 +354,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: eNiVZzQfSwbA1Thj
     effects: []
     folder: null
@@ -284,6 +372,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -291,7 +384,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+22]] vs. MD (the enemy that staggered the dungeon heart)'
+        value: '[[d20 + 22]] vs. MD (the enemy that staggered the dungeon heart)'
       hit:
         type: String
         label: Hit
@@ -321,8 +414,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 5rMRibaAMuLg4duw
     effects: []
     folder: null
@@ -344,11 +435,13 @@ items:
         value: >-
           <p>The first time the dungeon heart is staggered, it makes a
           *mind-erasing blast* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: o3a3zDZRqPl1jbVC
     effects: []
@@ -369,11 +462,13 @@ items:
         type: String
         label: Description
         value: <p>The dungeon heart can&rsquo;t make opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: e8ifQzgNtCsrVzec
     effects: []
@@ -398,11 +493,13 @@ items:
           nearby matter, turning wherever it is into more of itself: if you are
           close enough to fight the brain, you are de-facto engaged with it, and
           will be affected by its *mutagenic emanations* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xsjFFOO1EBZsVbKI
     effects: []
@@ -425,11 +522,13 @@ items:
         value: >-
           <p>When an enemy fails to save against the ongoing damage from
           mutagenic emanations, the dungeon heart heals [[20]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 73PNxcqTctzJZj4Y
     effects: []
@@ -454,11 +553,13 @@ items:
           with no resurrection or healing possible&mdash;their soul is gone. (Of
           course, there may be some miraculous quest for healing magic that
           could restore them.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qJ84KiNGfHX2yI3X
     effects: []

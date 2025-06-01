@@ -1,12 +1,15 @@
 <template>
-  <div :class="concat('archmage-v2-vue flexcol ', nightmode)">
+  <div :class="concat('archmage-v2-vue character flexcol ', nightmode)">
 
     <!-- Top group -->
     <section class="container container--top flexcol">
       <!-- Header -->
       <CharHeader :actor="actor"/>
-      <!-- Attributes section -->
-      <CharAttributes :actor="actor"/>
+      <Tabs :actor="actor" group="mobile" :tabs="tabs.mobile" :flags="flags" hamburger="true" />
+      <Tab group="mobile" :tab="tabs.mobile.attributes">
+        <!-- Attributes section -->
+        <CharAttributes :actor="actor"/>
+      </Tab>
     </section>
     <!-- /Top group -->
 
@@ -14,50 +17,58 @@
     <section class="container container--bottom flexrow">
 
       <!-- Left sidebar -->
-      <section class="section section--sidebar flexcol">
-        <CharInitiative :actor="actor"/>
-        <CharAbilities :actor="actor"/>
-        <CharBackgrounds :actor="actor"/>
-        <CharIconRelationships :actor="actor"/>
-        <CharOut :actor="actor" :owner="context.owner"/>
-        <CharIncrementals :actor="actor"/>
-      </section>
+      <Tab group="mobile" :tab="tabs.mobile.abilities">
+        <section class="section section--sidebar flexcol">
+          <CharInitiative :actor="actor"/>
+          <CharAbilities :actor="actor"/>
+          <CharBackgrounds :actor="actor"/>
+          <CharIconRelationships :actor="actor"/>
+          <CharOut :actor="actor" :owner="context.owner"/>
+          <CharIncrementals :actor="actor"/>
+        </section>
+      </Tab>
       <!-- /Left sidebar -->
 
       <!-- Main content -->
-      <section class="section section--main flexcol">
+      <Tab group="mobile" :tab="tabs.mobile.combat">
+        <section class="section section--main flexcol">
 
-        <!-- Class resources -->
-        <CharResources :actor="actor"/>
-        <!-- Tabs -->
-        <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
+          <!-- Class resources -->
+          <CharResources :actor="actor"/>
+          <!-- Tabs -->
+          <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
 
-        <!-- Tabs content -->
-        <section class="section section--tabs-content flexcol">
-          <!-- Details tab -->
-          <Tab group="primary" :tab="tabs.primary.details">
-            <CharDetails :actor="actor" :owner="context.owner" :tab="tabs.primary.details" :flags="flags"/>
-          </Tab>
-          <!-- Powers tab -->
-          <Tab group="primary" :tab="tabs.primary.powers">
-            <CharPowers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
-          </Tab>
-          <!-- Inventory tab -->
-          <Tab group="primary" :tab="tabs.primary.inventory">
-            <CharInventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"/>
-          </Tab>
-          <!-- Effects tab -->
-          <Tab group="primary" :tab="tabs.primary.effects">
-            <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags"/>
-          </Tab>
-          <!-- Settings tab -->
-          <Tab group="primary" :tab="tabs.primary.settings" v-if="shouldDisplaySettingsTab(actor)">
-            <CharSettings :actor="actor" :tab="tabs.primary.settings"/>
-          </Tab>
+          <!-- Tabs content -->
+          <section class="section section--tabs-content flexcol">
+            <!-- Details tab -->
+            <Tab group="primary" :tab="tabs.primary.details">
+              <CharDetails :actor="actor" :owner="context.owner" :tab="tabs.primary.details" :flags="flags"/>
+            </Tab>
+            <!-- Powers tab -->
+            <Tab group="primary" :tab="tabs.primary.powers">
+              <CharPowers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
+            </Tab>
+            <!-- Triggers tab -->
+            <Tab group="primary" :tab="tabs.primary.triggers">
+              <CharTriggers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
+            </Tab>
+            <!-- Inventory tab -->
+            <Tab group="primary" :tab="tabs.primary.inventory">
+              <CharInventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"/>
+            </Tab>
+            <!-- Effects tab -->
+            <Tab group="primary" :tab="tabs.primary.effects">
+              <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags" :key="context._renderKey"/>
+            </Tab>
+            <!-- Settings tab -->
+            <Tab group="primary" :tab="tabs.primary.settings" v-if="shouldDisplaySettingsTab(actor)">
+              <CharSettings :actor="actor" :tab="tabs.primary.settings"/>
+            </Tab>
+          </section>
+          <!-- /Tabs content -->
+
         </section>
-        <!-- /Tabs content -->
-
-      </section>
+      </Tab>
       <!-- /Main content -->
 
     </section>
@@ -68,7 +79,7 @@
 
 
 <script>
-
+import { markRaw } from 'vue';
 import { concat, localize } from '@/methods/Helpers';
 import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import {
@@ -85,6 +96,7 @@ import {
   CharResources,
   // CharDetails,
   CharPowers,
+  CharTriggers,
   CharInventory,
   CharEffects,
   CharSettings
@@ -107,6 +119,7 @@ export default {
     CharResources,
     CharDetails,
     CharPowers,
+    CharTriggers,
     CharInventory,
     CharEffects,
     CharSettings,
@@ -124,30 +137,61 @@ export default {
           details: {
             key: 'details',
             label: localize('ARCHMAGE.details'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharDetails)
           },
           powers: {
             key: 'powers',
             label: localize('ARCHMAGE.powers'),
-            active: true
+            active: true,
+            componentClass: markRaw(CharPowers)
+          },
+          triggers: {
+            key: 'triggers',
+            label: localize('ARCHMAGE.triggers'),
+            active: false,
+            componentClass: markRaw(CharTriggers),
+            icon: 'fa-caret-right',
+            hideLabel: true,
+            hidden: !this.actor.flags?.archmage?.showTriggersTab
           },
           inventory: {
             key: 'inventory',
             label: localize('ARCHMAGE.inventory'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharInventory)
           },
           effects: {
             key: 'effects',
             label: localize('ARCHMAGE.effects'),
-            active: false
+            active: false,
+            componentClass: markRaw(CharEffects)
           },
           settings: {
             key: 'settings',
-            label: localize('ARCHMAGE.settings'),
+            label: localize('ARCHMAGE.CHARACTERSETTINGS.settings'),
             active: false,
             icon: 'fa-cogs',
             hideLabel: true,
-            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM)
+            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM),
+            componentClass: markRaw(CharSettings)
+          }
+        },
+        mobile: {
+          attributes: {
+            key: 'attributes',
+            label: localize('ARCHMAGE.attributes'),
+            active: false,
+          },
+          abilities: {
+            key: 'abilities',
+            label: localize('ARCHMAGE.abilities'),
+            active: false,
+          },
+          combat: {
+            key: 'combat',
+            label: localize('ARCHMAGE.combat'),
+            active: false,
           }
         }
       }
@@ -159,7 +203,7 @@ export default {
         return false;
       }
       return true;
-    }
+    },
   },
   computed: {
     nightmode() {
@@ -177,7 +221,8 @@ export default {
             'sortBy': {'value': 'custom'}
           },
           'tabs': {
-            'primary': {'value': 'powers'}
+            'primary': {'value': 'powers'},
+            'mobile': {'value': 'attributes'},
           },
         }
       }

@@ -3,6 +3,7 @@ type: npc
 _id: MmAQh2bxjyj0Kj5Y
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: spoiler
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: humanoid
     resistance:
       value: ''
     vulnerability:
       value: fire
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Wood Nymph (Dryad)
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Sharp wooden fingers
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -195,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: mAoBXFQkWUB1Ntbk
     effects: []
     folder: null
@@ -215,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+6]] vs. AC'
+        value: '[[d20 + 6]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -252,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yX5McqvtdoOyvbEK
     effects: []
     folder: null
@@ -272,6 +362,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -279,7 +374,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs. MD ([[1d2]] nearby enemies)'
+        value: '[[d20 + 7]] vs. MD ([[1d2]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -312,8 +407,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: kMCTZ4C9Jph7jBKG
     effects: []
     folder: null
@@ -336,11 +429,13 @@ items:
           <p>As a move action, a dryad can enter any living tree within its
           domain it&rsquo;s touching and teleport to another tree within that
           region. This movement doesn&rsquo;t provoke opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8YoxaYBSiWXctVct
     effects: []
@@ -363,11 +458,13 @@ items:
         value: >-
           <p>Before the start of the battle, the dryad summons [[2d4]] awakened
           trees that fight with it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6oC058TnY4fTXZhf
     effects: []
@@ -396,11 +493,13 @@ items:
           person spell). It then considers the dryad a friend. Creatures missed
           by the attackonly notice the charm attempt if it misses by 4 or more.
           A dryad can attempt to charm a creature only once per day.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Y3b0nQeT6EVGWiJs
     effects: []
@@ -423,11 +522,13 @@ items:
         value: >-
           <p>The dryad can take an extra standard action during its turn when
           the escalation die is even.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BkOfeTX1lE6oHFII
     effects: []
@@ -451,11 +552,13 @@ items:
           <p>Nymphs are tied to an area of land or water. Land areas will be at
           most a couple miles wide; water areas might be much larger. As a rule,
           nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dZNuOXlFpnn1OzQ2
     effects: []
@@ -482,11 +585,13 @@ items:
           life. After eight hours, a nymph needs a normal save to return to
           life. If the nymph has still not returned, roll an easy save at the
           end of each 24 hours until the nymph succeeds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VQalLgUCLGaLnDvR
     effects: []
@@ -510,11 +615,13 @@ items:
           <p>Nymphs with the humanoid type probably remember themselves. Nymphs
           that have probably forgotten their original selves have the elemental
           type.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5DtwntvmiSLGrcNT
     effects: []

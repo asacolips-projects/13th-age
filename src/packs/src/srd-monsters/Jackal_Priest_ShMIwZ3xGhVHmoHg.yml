@@ -3,6 +3,7 @@ type: npc
 _id: ShMIwZ3xGhVHmoHg
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: wrecker
     size:
       value: elite
+    strength:
+      value: ''
     type:
       value: humanoid
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Jackal Priest
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Obsidian scimitar and terrible claws
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. AC (2 attacks)'
+        value: '[[d20 + 12]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -195,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: OEPEFcedbl5XRdQR
     effects: []
     folder: null
@@ -215,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+12]] vs. PD (1 or 2 enemies)'
+        value: '[[d20 + 12]] vs. PD (1 or 2 enemies)'
       hit:
         type: String
         label: Hit
@@ -252,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 4roToKVWVIcDby9T
     effects: []
     folder: null
@@ -280,15 +370,17 @@ items:
           of the jackal priest&rsquo;s turns, if the jackal priest is not
           engaged, roll a [[/r d6]]. If you roll less than or equal to the
           escalation die, use the jackal priest&rsquo;s standard action to add
-          another mob of [[/r 1d4+1]] summoned ghoul mooks to the battle. The
+          another mob of [[/r 1d4 + 1]] summoned ghoul mooks to the battle. The
           newly summoned mooks take their turn after the jackal priest&rsquo;s
           turn. Stop rolling the d6 after the ability has triggered to summon
           the second mob of ghoul mooks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: betYPyFH2iEmBNqY
     effects: []
@@ -311,11 +403,13 @@ items:
         value: >-
           <p>When building battles with this monster, it counts as 1.5 of a
           monster at 7th level.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: j5x0VFIvpRkSmaGf
     effects: []
@@ -338,11 +432,13 @@ items:
         value: >-
           <p>As the jackal priest drops to 0 hp, she can use summon ghouls as a
           free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Z3f4o2WKAQS2erRT
     effects: []

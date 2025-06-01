@@ -3,6 +3,7 @@ type: npc
 _id: 0Hx6lHDEY2v4H0vf
 img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: wrecker
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: elemental
     resistance:
       value: ''
     vulnerability:
       value: cold
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Flamebird Phoenix
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Fly-by flaming talons
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -199,8 +288,6 @@ items:
         value: >-
           The flamebird phoenix can use a *flaming screech* attack as a quick
           action, either this turn, or on its next turn.
-      embeddedMacro:
-        value: ''
     _id: mjcWsHz16iVseUeh
     effects: []
     folder: null
@@ -221,6 +308,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -228,7 +320,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 8]] vs. PD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -258,8 +350,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Cu0m0NMOuNAgOXTP
     effects: []
     folder: null
@@ -278,6 +368,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -285,7 +380,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD (every nearby enemy)'
+        value: '[[d20 + 9]] vs. PD (every nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -315,8 +410,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: SpNVY4uMqHcPX9PX
     effects: []
     folder: null
@@ -336,11 +429,13 @@ items:
         type: String
         label: Description
         value: <p>The flamebird phoenix can fly extremely well.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: OQNxe1UAfNurV1eQ
     effects: []
@@ -363,11 +458,13 @@ items:
         value: >-
           <p>The flamebird phoenix deals [[4]] fire damage to each enemy that
           ends it turn engaged with the phoenix.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: OM4qOXsCD9XEAsi5
     effects: []
@@ -390,11 +487,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uZyPZgWwAIxSDrPg
     effects: []
@@ -418,11 +517,13 @@ items:
           <p>When the phoenix is dealt a critical hit, it must roll an easy save
           (6+). If the save fails, the phoenix drops to 0 hit points; see the
           *reborn in fire* ability below!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QYcNdfmtTDMhDjT2
     effects: []
@@ -470,11 +571,13 @@ items:
           somewhere nearby in a few hours, days, months, or years. Probably not
           relevant to the PCs unless they or the phoenix bear a special
           grudge.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: oeyzDa97nafRmcSm
     effects: []
@@ -498,11 +601,13 @@ items:
           <p>If a fire attack against the flamebird phoenix fails to beat its
           resistance, then instead of taking damage the flamebird phoenix heals
           that amount instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dYwS7LDDb29XD9hE
     effects: []

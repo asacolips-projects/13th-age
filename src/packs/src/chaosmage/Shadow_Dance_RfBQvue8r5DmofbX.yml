@@ -1,6 +1,4 @@
 name: Shadow Dance
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Shadow Dance
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: Prince of Shadows (Twisted Path)
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Chaos Mage
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Shadow Dance
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -114,24 +137,58 @@ system:
     label: Effect
     value: >-
       <p>The targets teleport and swap places. Each teleported enemy takes
-      [[1d6+@atk.a.bonus]] damage. You and your allies don&rsquo;t take damage
+      [[1d6 + @atk.a.bonus]] damage. You and your allies don&rsquo;t take damage
       from teleporting.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[2d6+@atk.a.bonus]] damage'
+    value: '[[2d6 + @atk.a.bonus]] damage'
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
-    value: '[[2d10+@atk.a.bonus]] damage'
+    value: '[[2d10 + @atk.a.bonus]] damage'
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: '[[3d12+@atk.a.bonus]] damage'
+    value: '[[3d12 + @atk.a.bonus]] damage'
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[4d12+@atk.a.bonus]] damage'
+    value: '[[4d12 + @atk.a.bonus]] damage'
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -140,18 +197,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -212,13 +265,13 @@ system:
       maxQuantity:
         type: Number
         value: null
-  group:
-    type: String
-    label: Group
-    value: Prince of Shadows (Twisted Path)
 flags: {}
 img: systems/archmage/assets/icons/spells/link-royal-1.jpg
 _id: RfBQvue8r5DmofbX
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!RfBQvue8r5DmofbX'
 

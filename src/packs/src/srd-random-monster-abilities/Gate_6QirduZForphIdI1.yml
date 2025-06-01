@@ -14,20 +14,20 @@ system:
       allied demon rolls initiative and does not appear on the battlefield until
       its turn starts. (Note that using a gate costs the demon an obligation, so
       some demons would rather flee or die than activate one.)</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
     value: ''
-  embeddedMacro:
-    value: ''
 effects: []
-flags: null
+flags: {}
 folder: null
 sort: 0
 ownership:
   default: 0
 _id: 6QirduZForphIdI1
-permission:
-  default: 0
 _key: '!items!6QirduZForphIdI1'
 

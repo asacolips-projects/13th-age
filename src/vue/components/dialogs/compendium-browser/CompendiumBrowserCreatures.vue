@@ -14,7 +14,7 @@
       <div class="level-range flexrow">
         <div class="level-label"><span>{{ levelRange[0] }}</span><span v-if="levelRange[0] !== levelRange[1]"> - {{ levelRange[1] }}</span></div>
         <div class="level-input slider-wrapper flexrow">
-          <Slider v-model="levelRange" :min="1" :max="15" :tooltips="false"/>
+          <Slider v-model="levelRange" :min="0" :max="15" :tooltips="false"/>
         </div>
       </div>
     </div>
@@ -61,6 +61,30 @@
       />
     </div>
 
+    <!-- Source filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.source">{{ localize('ARCHMAGE.source') }}</label>
+      <Multiselect
+        v-model="source"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="sources"
+      />
+    </div>
+
+    <!-- Location filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.location">{{ localize('ARCHMAGE.location') }}</label>
+      <Multiselect
+        v-model="location"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="locationNames"
+      />
+    </div>
+
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
       <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
@@ -93,6 +117,7 @@
               <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
               <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
               <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
+              <div v-if="entry?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(entry?.system?.publicationSource)">{{ entry?.system?.publicationSource }}</div>
             </div>
           </div>
         </li>
@@ -161,10 +186,12 @@ export default {
       packIndex: [],
       // Filters.
       name: '',
-      levelRange: [1, 15],
+      levelRange: [0, 15],
       type: [],
       role: [],
       size: [],
+      source: [],
+      location: [],
     }
   },
   methods: {
@@ -197,11 +224,19 @@ export default {
      resetFilters() {
       this.sortBy = 'level';
       this.name = '';
-      this.levelRange = [1, 15];
+      this.levelRange = [0, 15];
       this.type = [];
       this.role = [];
       this.size = [];
     },
+    /**
+     * Tooltip for a publication source, which may be translated
+     */
+    sourceTooltip(source) {
+      let localized = game.i18n.localize(`ARCHMAGE.COMPENDIUMBROWSER.sources.${source}`);
+      if (localized.startsWith('ARCHMAGE')) { localized = source }
+      return game.i18n.format('ARCHMAGE.COMPENDIUMBROWSER.sources.tooltipTemplate', {source: localized});
+    }
   },
   computed: {
     nightmode() {
@@ -239,6 +274,12 @@ export default {
       if (Array.isArray(this.size) && this.size.length > 0) {
         result = result.filter(entry => this.size.includes(entry.system.details.size.value));
       }
+      if (Array.isArray(this.source) && this.source.length > 0) {
+        result = result.filter(entry => this.source.includes(entry.system.publicationSource));
+      }
+      if (Array.isArray(this.location) && this.location.length > 0) {
+        result = result.filter(entry => this.location.includes(entry.compendiumTitle));
+      }
 
       // Reflow pager.
       if (result.length > this.pager.perPage) {
@@ -271,18 +312,42 @@ export default {
         ? result.slice(this.pager.firstIndex, this.pager.lastIndex)
         : result;
     },
+    sources() {
+      // List of publication sources from the selected entries
+      const sources = new Set();
+      for (const entry of this.packIndex) {
+        if (entry.system.publicationSource) {
+          sources.add(entry.system.publicationSource);
+        }
+      }
+      return Array.from(sources).sort();
+    },
+    locationNames() {
+      // List of locations from the selected entries
+      const locations = new Set(this.packIndex.map(entry => entry.compendiumTitle));
+      return Array.from(locations).sort();
+    }
   },
   watch: {},
   // Handle created hook.
   async created() {
     console.log("Creating compendium browser creatures tab...");
 
+    let packIds = game.packs.contents
+      .filter(pack => pack.documentName === 'Actor')
+      .map(pack => pack.collection);
+
+    // If the 2e gamma module is active, remove the animal-companion pack that it replaces.
+    if (game.modules.get('13th-age-core-2e-gamma')?.active) {
+      const index = packIds.indexOf('archmage.animal-companions');
+      if (index > -1) {
+        packIds.splice(index, 1);
+      }
+    }
+
     // Load the pack index with the fields we need.
-    getPackIndex([
-      'archmage.srd-Monsters',
-      'archmage.animal-companions',
-      'archmage.necromancer-summons',
-    ], [
+    getPackIndex(packIds, [
+      'system.publicationSource',
       'system.attributes.level',
       'system.attributes.hp.max',
       'system.attributes.ac.value',
@@ -292,6 +357,11 @@ export default {
       'system.details.size.value',
       'system.details.type.value'
     ]).then(packIndex => {
+      // Ensure all entries are "monster" type
+      packIndex = packIndex.filter(entry => {
+        return entry.type === 'npc';
+      });
+
       // Restore the pack art.
       if (game.archmage.system?.moduleArt?.map?.size > 0) {
         for (let record of packIndex) {

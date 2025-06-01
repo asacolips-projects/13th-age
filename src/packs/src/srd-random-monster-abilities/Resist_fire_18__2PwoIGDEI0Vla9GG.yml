@@ -11,20 +11,20 @@ system:
     value: >-
       <p>You&rsquo;ll see that the demon resists fire the first time you use
       fire against it.</p>
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   group:
     type: String
     label: Group
     value: ''
-  embeddedMacro:
-    value: ''
 effects: []
-flags: null
+flags: {}
 folder: null
 sort: 0
 ownership:
   default: 0
 _id: 2PwoIGDEI0Vla9GG
-permission:
-  default: 0
 _key: '!items!2PwoIGDEI0Vla9GG'
 

@@ -17,6 +17,9 @@
                 {{#each data.properties}}
                 <div class="card-prop"><strong>{{this.label}}:</strong> {{{this.value}}}</div>
                 {{/each}}
+                {{#if data.critMod.value }}
+                  <div class="card-prop"><strong>{{localize 'ARCHMAGE.CHAT.critMod'}}:</strong> {{{data.critMod.value}}}</div>
+                {{/if}}
                 {{#each data.effects}}
                 <div class="card-row">
                     <div class="card-prop"><strong class="card-label">{{this.label}}:</strong> {{{this.value}}}</div>
@@ -29,7 +32,7 @@
                 {{/if}}
                 {{#if data.description.value}}
                     <div class="card-row">
-                        {{{data.description.value}}}
+                        <div class="card-prop">{{{data.description.value}}}</div>
                     </div>
                 {{/if}}
                 {{#if data.feats}}

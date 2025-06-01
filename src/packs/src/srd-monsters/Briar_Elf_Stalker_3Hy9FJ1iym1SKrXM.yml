@@ -3,6 +3,7 @@ type: npc
 _id: 3Hy9FJ1iym1SKrXM
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Briar Elf Stalker
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Whip of Thorns
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: 9Yhz2HAWdwDro7FK
     effects: []
     folder: null
@@ -221,6 +306,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -228,7 +317,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC '
+        value: '[[d20 + 14]] vs. AC '
       hit:
         type: String
         label: Hit
@@ -260,8 +349,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: MF33oSDntnZeWa0x
     effects: []
     folder: null
@@ -289,11 +376,13 @@ items:
           disappear. At the start of their next turn they reappear next to
           another nearby tree, and hit or miss their attack does double
           damage.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: eg81qvGTDB5Ir3w8
     effects: []
@@ -316,11 +405,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QJYdYczSydPQQdI0
     effects: []
@@ -346,11 +438,13 @@ items:
         value: >-
           <p><span class="fontstyle0">Twice per battle, make a barbed arrows
           attack as a quick action.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8Dyov51PlsM2zAuX
     effects: []
@@ -377,11 +471,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [plant]. Once
           per battle when this monster reappears after its green walk it does
           triple damage instead of double damage.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: VRfphwgwTs8waYsJ
     effects: []
@@ -408,11 +504,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
           Once per battle when the escalation die is 4+, this monster green
           walks it immediately gets another turn.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qTTNDDjITQ3R1MPX
     effects: []
@@ -439,11 +537,13 @@ items:
           <p><span class="fontstyle0">When this monster </span><span
           class="fontstyle2">green walks </span><span class="fontstyle0">it
           heals 1d4 x 10 hit points.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: nUc5YmuuwHEfLAa5
     effects: []
@@ -467,11 +567,13 @@ items:
           <p><span class="fontstyle0">Enemies engaged with this briar elf who
           have fewer than 48 hp are dazed (-4 attack) and can&rsquo;t use the
           escalation die.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ygQRftqriZEnJTve
     effects: []
@@ -493,5 +595,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
+sort: 0
 _key: '!actors!3Hy9FJ1iym1SKrXM'
 

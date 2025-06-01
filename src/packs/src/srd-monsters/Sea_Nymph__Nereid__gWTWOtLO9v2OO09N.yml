@@ -3,6 +3,7 @@ type: npc
 _id: gWTWOtLO9v2OO09N
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: spoiler
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: humanoid
     resistance:
       value: ''
     vulnerability:
       value: fire
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Sea Nymph (Nereid)
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Coral claws
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC (2 attacks)'
+        value: '[[d20 + 10]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -195,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: MLvDTESQouYBrn3l
     effects: []
     folder: null
@@ -215,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. MD (up to 2 nearby enemies)'
+        value: '[[d20 + 9]] vs. MD (up to 2 nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -255,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: xUEeLlIkcWi1jbiN
     effects: []
     folder: null
@@ -282,11 +372,13 @@ items:
           nereid. The creature must start making last gasp saves, which replace
           its save against being unconscious. After the fourth failure, it
           drowns.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Pk1xwK8Sluvz5gQx
     effects: []
@@ -310,11 +402,13 @@ items:
           <p>The nereid can walk atop the waves and move (and breathe)
           underwater without restraint. Its enemies might have a more difficult
           time engaging it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JAxMZRSFPPHYpt7t
     effects: []
@@ -338,11 +432,13 @@ items:
           <p>Nymphs are tied to an area of land or water. Land areas will be at
           most a couple miles wide; water areas might be much larger. As a rule,
           nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dOppLdxJmyGbW9H1
     effects: []
@@ -372,11 +468,13 @@ items:
           life. After eight hours, a nymph needs a normal save to return to
           life. If the nymph has still not returned, roll an easy save at the
           end of each 24 hours until the nymph succeeds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9BNSGy3eve4nUN7b
     effects: []
@@ -403,11 +501,13 @@ items:
           <p>Nymphs with the humanoid type probably remember themselves. Nymphs
           that have probably forgotten their original selves have the elemental
           type.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qJP7LvYbUqh1TVW4
     effects: []

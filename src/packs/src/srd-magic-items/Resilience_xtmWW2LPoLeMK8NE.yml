@@ -11,6 +11,7 @@ system:
     value: |-
       <p>(Recharge 6+) When you use this ring, heal using a recovery.</p>
       <p>Quirk: Eats an odd vegetarian diet and advocates it loudly.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
@@ -57,6 +58,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -65,17 +86,9 @@ effects: []
 folder: Fra2TRtKCXKmIFPo
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714648183293
-  modifiedTime: 1714648183293
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: xtmWW2LPoLeMK8NE
 sort: 0
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!xtmWW2LPoLeMK8NE'
 

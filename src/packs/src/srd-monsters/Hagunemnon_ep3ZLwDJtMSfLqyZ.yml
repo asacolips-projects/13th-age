@@ -3,6 +3,7 @@ name: Hagunemnon
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 13
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: Hlq8s13ochEeXC4T
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -173,8 +232,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ep3ZLwDJtMSfLqyZ.Hlq8s13ochEeXC4T'
   - _id: jhfCX6QkH74BDPS1
     flags: {}
@@ -192,6 +249,10 @@ items:
           With each subsequent hit after the first, spontaneous metamorphosing
           limbs deals [[20]] less damage. The hagunemnon also doesn’t gain any
           extra attacks when it makes a basic attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -199,8 +260,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ep3ZLwDJtMSfLqyZ.jhfCX6QkH74BDPS1'
   - _id: MJgK2DYY9zYLcYBJ
     flags: {}
@@ -217,6 +276,10 @@ items:
         value: >-
           As a move action when the escalation die is odd, the hagunemnon can
           teleport nearby or far away to a location it can see.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,8 +287,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ep3ZLwDJtMSfLqyZ.MJgK2DYY9zYLcYBJ'
   - _id: xp6oMKAepmruPeck
     flags: {}
@@ -242,6 +303,10 @@ items:
         value: >-
           When a psychic attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,8 +314,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ep3ZLwDJtMSfLqyZ.xp6oMKAepmruPeck'
   - _id: Mir5sbSTzZDQoMgL
     flags: {}
@@ -268,6 +331,10 @@ items:
           As a standard action, the hagunemnon can change its form to that of
           any large or medium creature, or back to its own shape. Seeing through
           the shapechange requires a DC 25 skill check.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -275,8 +342,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ep3ZLwDJtMSfLqyZ.Mir5sbSTzZDQoMgL'
   - _id: XqXY9tOMbQMHscOP
     flags: {}
@@ -295,6 +360,10 @@ items:
           turn, it takes [[4d10]] psychic damage. If it takes [[31]] or more
           damage this way during a single turn, it’s also *confused* until the
           start of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -302,8 +371,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!ep3ZLwDJtMSfLqyZ.XqXY9tOMbQMHscOP'
 effects: []
 folder: null
@@ -348,6 +415,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
     scaleX: 1
@@ -355,6 +425,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -364,8 +439,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!ep3ZLwDJtMSfLqyZ'
 

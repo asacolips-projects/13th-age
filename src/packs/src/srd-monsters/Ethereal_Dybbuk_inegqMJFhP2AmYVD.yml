@@ -3,6 +3,7 @@ name: Ethereal Dybbuk
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -99,6 +94,8 @@ system:
       value: double
       type: String
       label: Size
+    strength:
+      value: ''
     type:
       value: demon
       type: String
@@ -117,55 +114,66 @@ system:
       value: 7
       min: 0
       max: 12
-token:
-  flags: {}
-  name: Ethereal Dybbuk
-  displayName: 0
-  img: systems/archmage/assets/icons/tokens/monsters/demon.webp
-  width: 1
-  height: 1
-  scale: 1
-  lockRotation: false
-  rotation: 0
-  vision: false
-  dimSight: 0
-  brightSight: 0
-  dimLight: 0
-  brightLight: 0
-  sightAngle: 0
-  lightAngle: 360
-  lightAlpha: 1
-  actorId: Gsx0TSi3j2JBhnJv
-  actorLink: false
-  actorData: {}
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  mirrorX: false
-  mirrorY: false
-  alpha: 1
-  light:
-    alpha: 0.5
-    angle: 0
-    bright: 0
-    coloration: 1
-    dim: 0
-    gradual: true
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: nul8sHRinRX6sOXl
     flags: {}
@@ -183,6 +191,10 @@ items:
           Limited use: If the dybbuk hits the same target with its first two
           soul-suck attacks, it must make the third attack against a different
           target if it can (or loses the attack).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -216,8 +228,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!inegqMJFhP2AmYVD.nul8sHRinRX6sOXl'
   - _id: DMzEwfe7ydJ99ME2
     flags: {}
@@ -233,10 +243,14 @@ items:
         label: Description
         value: >-
           When the escalation die is 2+, the dybbuk’s soul-suck attack only
-          deals [[19]] damage, and when it’s 4+, soul-suck only deals [[10]]
+          deals [[19]] damage, and when it’s 4 + , soul-suck only deals [[10]]
           damage. When the escalation die reaches 6, the dybbuk fades away at
           the end of the round. A dybbuk that fades away undefeated is not gone
           forever and may return in a later adventure.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,8 +258,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!inegqMJFhP2AmYVD.DMzEwfe7ydJ99ME2'
   - _id: pXqFR0pcOy412VcS
     flags: {}
@@ -263,6 +275,10 @@ items:
           While engaged with this creature, enemies that have 36 hp or fewer are
           *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,8 +286,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!inegqMJFhP2AmYVD.pXqFR0pcOy412VcS'
   - _id: iIB1mFE9F2qIERIS
     flags: {}
@@ -286,6 +300,10 @@ items:
         type: ''
         label: Description
         value: The dybbuk hovers eerily, roughly 6 feet off the ground.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -293,8 +311,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!inegqMJFhP2AmYVD.iIB1mFE9F2qIERIS'
   - _id: q0ySSoLxoirG6zuW
     flags: {}
@@ -312,6 +328,10 @@ items:
           When a melee attack that doesn’t deal holy damage targets this
           creature, the attacker must roll a natural 18+ on the attack roll or
           it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -319,15 +339,89 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!inegqMJFhP2AmYVD.q0ySSoLxoirG6zuW'
 effects: []
 folder: null
 sort: 100001
-permission:
-  default: 0
 flags:
   archmage: {}
+ownership:
+  default: 0
+prototypeToken:
+  flags: {}
+  name: Ethereal Dybbuk
+  displayName: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  actorLink: false
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+      type: null
+    darkness:
+      min: 0
+      max: 1
+    attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/demon.webp
+    scaleX: 1
+    scaleY: 1
+    anchorX: 0.5
+    anchorY: 0.5
+    offsetX: 0
+    offsetY: 0
+    fit: contain
+    rotation: 0
+    tint: '#ffffff'
+    alphaThreshold: 0.75
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    color: null
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  hexagonalShape: 0
+  detectionModes: []
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!inegqMJFhP2AmYVD'
 

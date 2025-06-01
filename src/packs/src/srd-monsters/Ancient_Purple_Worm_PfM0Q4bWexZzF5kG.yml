@@ -3,6 +3,7 @@ name: Ancient Purple Worm
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 12
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: Rc9Ml6aEsBaHJPX9
     flags: {}
@@ -134,6 +189,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -141,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. PD'
+        value: '[[d20 + 18]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -176,8 +236,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!PfM0Q4bWexZzF5kG.Rc9Ml6aEsBaHJPX9'
   - _id: hcNmED25Cc07cGnL
     flags: {}
@@ -191,6 +249,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -198,7 +261,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. AC (up to [[2]] random nearby enemies)'
+        value: '[[d20 + 18]] vs. AC (up to [[2]] random nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -231,8 +294,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!PfM0Q4bWexZzF5kG.hcNmED25Cc07cGnL'
   - _id: HOZNQoN1nbTx818U
     flags: {}
@@ -250,6 +311,10 @@ items:
           <p>Limited use: The worm can make this attack as a free action if it
           has no enemies swallowed after using its standar action during its
           turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -257,7 +322,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC ([[1d4]] random nearby enemies)'
+        value: '[[d20 + 13]] vs. AC ([[1d4]] random nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -292,8 +357,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!PfM0Q4bWexZzF5kG.HOZNQoN1nbTx818U'
   - _id: 8Y8jjCXN26OstjaU
     flags: {}
@@ -323,6 +386,10 @@ items:
           hard save (16+); on a success, the worm vomits you out and spits you
           somewhere nearby. The worm also vomits out all creatures it has
           swallowed when it drops to 0 hp.</li></ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -330,8 +397,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!PfM0Q4bWexZzF5kG.8Y8jjCXN26OstjaU'
   - _id: kRxrh5pr9eWZ8qVo
     flags: {}
@@ -346,6 +411,10 @@ items:
         type: String
         label: Description
         value: <p>As the standard monster ability</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -353,8 +422,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!PfM0Q4bWexZzF5kG.kRxrh5pr9eWZ8qVo'
   - _id: BQueHhahfEZw0Jg7
     flags: {}
@@ -373,6 +440,10 @@ items:
           larvae or parasitic lightning beetles). Feel free to add this nastier
           special if a PC acts dismissive about the possibility of being
           swallowed by the worm.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -380,8 +451,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!PfM0Q4bWexZzF5kG.BQueHhahfEZw0Jg7'
   - _id: rq0CZdRSCEW7ylGr
     flags: {}
@@ -404,6 +473,10 @@ items:
           figure out what energy types work against the
           worm.</p><p>1:&nbsp;acid;&nbsp;2:&nbsp;cold;&nbsp;3:&nbsp;fire;&nbsp;4:&nbsp;lightning;&nbsp;5:&nbsp;thunder;&nbsp;6:&nbsp;holy;&nbsp;7:&nbsp;negative
           energy;&nbsp;8:&nbsp;poison.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -411,8 +484,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!PfM0Q4bWexZzF5kG.rq0CZdRSCEW7ylGr'
 effects: []
 folder: null
@@ -456,14 +527,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -473,8 +551,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!PfM0Q4bWexZzF5kG'
 

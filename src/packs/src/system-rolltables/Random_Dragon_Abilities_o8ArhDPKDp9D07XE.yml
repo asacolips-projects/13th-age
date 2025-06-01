@@ -2,7 +2,7 @@ name: Random Dragon Abilities
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 1
@@ -15,7 +15,7 @@ results:
     _id: Yt1YaotDRTgcIhTf
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.Yt1YaotDRTgcIhTf'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 2
@@ -28,7 +28,7 @@ results:
     _id: atnNGvwtnEIkN6V4
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.atnNGvwtnEIkN6V4'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 3
@@ -41,7 +41,7 @@ results:
     _id: uIya88iWRqqmy0zE
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.uIya88iWRqqmy0zE'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 4
@@ -54,7 +54,7 @@ results:
     _id: vsf2HuPFWUaBaTlX
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.vsf2HuPFWUaBaTlX'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 5
@@ -67,7 +67,7 @@ results:
     _id: Qy2LeaMhNzstMHfE
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.Qy2LeaMhNzstMHfE'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 6
@@ -80,7 +80,7 @@ results:
     _id: 1UqvJFtg69Li2BKM
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.1UqvJFtg69Li2BKM'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 7
@@ -93,7 +93,7 @@ results:
     _id: Trp6drU624ANxNlI
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.Trp6drU624ANxNlI'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 8
@@ -106,7 +106,7 @@ results:
     _id: shGsMGIIwv1wQFps
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.shGsMGIIwv1wQFps'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 9
@@ -119,7 +119,7 @@ results:
     _id: VPHBBJmKhaJHjD7b
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.VPHBBJmKhaJHjD7b'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 10
@@ -132,7 +132,7 @@ results:
     _id: M9Wu8pammDbqY0VU
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.M9Wu8pammDbqY0VU'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 11
@@ -145,7 +145,7 @@ results:
     _id: xfOzLw9bXECLDp9t
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.xfOzLw9bXECLDp9t'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 12
@@ -158,7 +158,7 @@ results:
     _id: OGBrJBjs3C2TW5v8
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.OGBrJBjs3C2TW5v8'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 13
@@ -171,7 +171,7 @@ results:
     _id: tMbAgIZOuh70QpvE
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.tMbAgIZOuh70QpvE'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 14
@@ -187,13 +187,12 @@ results:
 formula: 1d12
 replacement: true
 displayRoll: false
-flags: null
+flags:
+  archmage: {}
 folder: null
 sort: 0
 ownership:
   default: 0
 _id: o8ArhDPKDp9D07XE
-permission:
-  default: 0
 _key: '!tables!o8ArhDPKDp9D07XE'
 

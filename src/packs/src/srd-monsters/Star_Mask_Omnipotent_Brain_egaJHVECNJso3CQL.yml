@@ -3,6 +3,7 @@ type: npc
 _id: egaJHVECNJso3CQL
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Star-Mask Omnipotent Brain
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Invasive tentacles
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC ([[1d3]] nearby enemies)'
+        value: '[[d20 + 17]] vs. AC ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -200,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: kqTOZQNMtbG30uIb
     effects: []
     folder: null
@@ -220,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -227,7 +317,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. MD (one nearby or faraway enemy)'
+        value: '[[d20 + 17]] vs. MD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -263,8 +353,6 @@ items:
         type: String
         label: Miss
         value: The brain heals [[50]] hp.
-      embeddedMacro:
-        value: ''
     _id: JcpDVp5PnHlI2Eje
     effects: []
     folder: null
@@ -286,11 +374,13 @@ items:
         value: >-
           <p>The brain can crawl about on tentacles but prefers to use its
           telekinetic grasp to move enemies toward it or its allies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: LQaa2YFuEz54rOhJ
     effects: []
@@ -313,11 +403,13 @@ items:
         value: >-
           <p>Creatures engaged with the star-mask omnipotent brain that have 120
           hp or fewer can&rsquo;t target the omnipotent brain with attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hw3A5rfnPmqas7tF
     effects: []
@@ -343,11 +435,13 @@ items:
           its will. If it succeeds, there&rsquo;s no effect. Enemies hurled
           against solid objects or other allies take [[2d20]] damage, or
           possibly more if hurled into dangerous terrain.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: l9MvosYHTP2e8o1W
     effects: []
@@ -376,11 +470,13 @@ items:
           with a DC 30 skill check as a standard action. If the check fails by 5
           or more, the assisting ally is also now absorbed with the same
           effects.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: HY78gvvMnBrpzw5s
     effects: []
@@ -404,11 +500,13 @@ items:
           <p>When an enemy targets the omnipotent brain with a ranged attack and
           rolls a natural 1&ndash;5, it must reroll the attack against an ally
           engaged with the brain, if any, as if it had fumbled.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kWJNmYRu0yzitSsT
     effects: []
@@ -432,11 +530,13 @@ items:
           <p>The omnipotent brain can use a standard action to allow a nearby
           ally to make an attack as a free action with a +4 attack bonus. If the
           ally misses it takes [[1d8]] damage and the brain heals [[50]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xP51fwdUUbDmcKoo
     effects: []

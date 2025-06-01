@@ -3,6 +3,7 @@ name: Large Copper Dragon (Metallic)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 9
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: true
+        current: 0
 items:
   - _id: p2SIaoQp3athDwIC
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -166,8 +225,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!pvCCsyJ9PIt1AgMb.p2SIaoQp3athDwIC'
   - _id: Sb6colcuVv8RFAsF
     flags: {}
@@ -181,6 +238,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -215,8 +276,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!pvCCsyJ9PIt1AgMb.Sb6colcuVv8RFAsF'
   - _id: uXCT3uw8tSnXoOF1
     flags: {}
@@ -230,6 +289,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -266,8 +329,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!pvCCsyJ9PIt1AgMb.uXCT3uw8tSnXoOF1'
   - _id: ycIaEXAQzdUXEozw
     flags: {}
@@ -282,6 +343,10 @@ items:
         type: ''
         label: Description
         value: The dragon can make an acrid smoke attack as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -289,8 +354,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!pvCCsyJ9PIt1AgMb.ycIaEXAQzdUXEozw'
   - _id: Dugw1dRdUd5UHcAP
     flags: {}
@@ -308,6 +371,10 @@ items:
           Once per battle as a free action when an enemy rolls a natural even
           attack against the dragon, the dragon negates the attack (no damage or
           effects).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -315,8 +382,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!pvCCsyJ9PIt1AgMb.Dugw1dRdUd5UHcAP'
   - _id: mJixQn1cuFY2sF72
     flags: {}
@@ -333,6 +398,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,8 +409,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!pvCCsyJ9PIt1AgMb.mJixQn1cuFY2sF72'
   - _id: jd63ap3IbbffJapT
     flags: {}
@@ -358,6 +425,10 @@ items:
         value: >-
           Once per battle as a free action when an attack targets the dragon’s
           MD, it can force the attacker to reroll the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -365,8 +436,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!pvCCsyJ9PIt1AgMb.jd63ap3IbbffJapT'
 effects: []
 folder: null
@@ -411,6 +480,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp
     scaleX: 1
@@ -418,6 +490,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -427,8 +504,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!pvCCsyJ9PIt1AgMb'
 

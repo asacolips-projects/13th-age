@@ -1,6 +1,4 @@
 name: Melee attack (Commander)
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Melee attack (Commander)
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: null
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Commander
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Melee attack (Commander)
   powerType:
     type: String
     label: Power Type
     value: feature
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -56,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+    value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
   hit:
     type: String
     label: Hit
     value: >-
-      [[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage, and gain command points from
+      [[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage, and gain command points from
       your Fight from the Front class feature.
   hitEven:
     type: String
@@ -115,21 +138,55 @@ system:
     type: String
     label: Effect
     value: ''
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -139,24 +196,22 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
-  group:
-    value: null
 flags: {}
 img: systems/archmage/assets/icons/items/weapons/sword-great.jpg
 effects: []
 _id: lPJPvGnj0y6O2ov5
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!lPJPvGnj0y6O2ov5'
 

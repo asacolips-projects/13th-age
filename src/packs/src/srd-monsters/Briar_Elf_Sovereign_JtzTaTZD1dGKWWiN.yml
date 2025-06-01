@@ -3,6 +3,7 @@ type: npc
 _id: JtzTaTZD1dGKWWiN
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: leader
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: humanoid
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Briar Elf Sovereign
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Thorny scepter
     type: action
@@ -159,6 +243,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -166,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC'
+        value: '[[d20 + 17]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -199,8 +287,6 @@ items:
         type: String
         label: Miss
         value: '[[50]] damage'
-      embeddedMacro:
-        value: ''
     _id: c0llzSPnYqfAvYPW
     effects: []
     folder: null
@@ -222,6 +308,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -229,7 +320,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 18]] vs. PD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -264,8 +355,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: vNnYnyWtYnyTzr7m
     effects: []
     folder: null
@@ -293,6 +382,10 @@ items:
           take the better roll. When the escalation die value is 2 the sovereign
           can do this twice during the round. When the escalation die is 3+ the
           sovereign gets to order three attacks rerolled.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -330,8 +423,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: cpnmOdbZ957ogNSA
     effects: []
     folder: null
@@ -353,11 +444,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: g9WFu70MPvy7Edct
     effects: []
@@ -389,11 +483,13 @@ items:
           item actually is.</span> </p>
 
           <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: r3H66KMdQEzae6yl
     effects: []
@@ -420,11 +516,13 @@ items:
           <p><span class="fontstyle0">This monster&rsquo;s type is [plant].
           Whenever the briar elf sovereign is standing on soil and doesn&rsquo;t
           move on its turn it heals 14 hit points.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: AaFMVCbl2yTnhtwZ
     effects: []
@@ -452,11 +550,13 @@ items:
           Other undead refuse to fight this monster (sorry necromancers). Cleric
           attack spells that target this monster only deal half damage on a
           hit.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 5Q8rJmJ8eCiBchFS
     effects: []
@@ -487,11 +587,13 @@ items:
           five rerolls when the escalation die is 5, and can order six allies a
           round to reroll their attacks once the escalation die reaches
           6.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: LLo7duBPxyzVuLdb
     effects: []
@@ -515,11 +617,13 @@ items:
           <p><span class="fontstyle0">Enemies engaged with this briar elf who
           have fewer than 120 hp are dazed (-4 attack) and can&rsquo;t use the
           escalation die.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4pLgb2qnEz4NVaIo
     effects: []
@@ -546,11 +650,13 @@ items:
           <p><span class="fontstyle0">On turns when the escalation die is even
           the briar elves uses the escalation die, and their enemies do
           not.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: NdLGUsMZt4S8XLFt
     effects: []
@@ -569,5 +675,6 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
+sort: 0
 _key: '!actors!JtzTaTZD1dGKWWiN'
 

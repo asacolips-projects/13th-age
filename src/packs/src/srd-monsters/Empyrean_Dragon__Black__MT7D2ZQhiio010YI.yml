@@ -3,6 +3,7 @@ name: Empyrean Dragon (Black)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 9
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: true
+        current: 0
 items:
   - _id: TJ9F0VxozBMgeGv3
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.TJ9F0VxozBMgeGv3'
   - _id: cPI4vy8VBovZDEQN
     flags: {}
@@ -183,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -217,8 +278,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.cPI4vy8VBovZDEQN'
   - _id: XgMaLDsO6LbitDKn
     flags: {}
@@ -233,6 +292,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 1/battle, as a free action when first staggered.'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -268,8 +331,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.XgMaLDsO6LbitDKn'
   - _id: jBFuZofQfGvy9Tl5
     flags: {}
@@ -284,6 +345,10 @@ items:
         type: ''
         label: Description
         value: The target can’t use recoveries until end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -291,8 +356,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.jBFuZofQfGvy9Tl5'
   - _id: 83ooIoFapRiVAiM1
     flags: {}
@@ -309,6 +372,10 @@ items:
         value: >-
           One enemy that hit the dragon since the dragon’s last turn takes
           [[12]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -316,8 +383,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.83ooIoFapRiVAiM1'
   - _id: 9hdWe7LtafQo19oZ
     flags: {}
@@ -335,6 +400,10 @@ items:
           The target moves to a nearby non-harmful location of the dragon’s
           choice as a free action. This movement can provoke opportunity
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +411,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.9hdWe7LtafQo19oZ'
   - _id: 2e4kLhpStoybokAj
     flags: {}
@@ -360,6 +427,10 @@ items:
         value: >-
           Take [[25]] damage; OR roll twice for each attack roll it makes that
           turn, taking the lower result.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -367,8 +438,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.2e4kLhpStoybokAj'
   - _id: yUQwcHx8JjKV5gFH
     flags: {}
@@ -389,6 +458,10 @@ items:
           addition, when a target saves against the ongoing damage from this
           attack, the crit range of its attacks against the dragon expands by 1
           until the end of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,8 +469,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.yUQwcHx8JjKV5gFH'
   - _id: cotSqXOTIFuoDrpr
     flags: {}
@@ -418,6 +489,10 @@ items:
           attacks to end any condition affecting it except for ongoing damage
           (this includes the *stunned* condition, even though it technically
           doesn’t get an action when stunned).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -425,8 +500,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.cotSqXOTIFuoDrpr'
   - _id: ifzyMvtsTrYZDyTr
     flags: {}
@@ -455,6 +528,10 @@ items:
           remaining heads can make only one gleaming bite attack as a standard
           action and can’t sacrifice that attack to remove conditions. The
           dragon dies if all three heads are removed.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -462,8 +539,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.ifzyMvtsTrYZDyTr'
   - _id: 0INnXGZKsxBj2jBJ
     flags: {}
@@ -480,6 +555,10 @@ items:
         value: >-
           An empyrean dragon can use venom breath [[1d2]] + 1 times per battle,
           but never two turns in a row.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -487,8 +566,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!MT7D2ZQhiio010YI.0INnXGZKsxBj2jBJ'
 effects: []
 folder: null
@@ -533,6 +610,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
     scaleX: 1
@@ -540,6 +620,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -549,8 +634,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!MT7D2ZQhiio010YI'
 

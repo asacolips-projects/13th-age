@@ -13,6 +13,7 @@ system:
       additional hit points (champion [[75]] hp; epic: [[200]] hp).</p>
 
       <p>Quirk: Stubbornly independent.</p>
+  publicationSource: 13TW
   powerUsage:
     type: String
     label: Power Usage
@@ -59,6 +60,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -67,17 +88,9 @@ effects: []
 folder: yyTzewZiGJj1uSbs
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647658013
-  modifiedTime: 1714647667230
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: sb8RLVGiap8PQkQ5
 sort: 700000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!sb8RLVGiap8PQkQ5'
 

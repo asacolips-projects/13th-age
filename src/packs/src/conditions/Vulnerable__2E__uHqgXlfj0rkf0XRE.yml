@@ -1,25 +1,54 @@
 name: Vulnerable (2E)
-permission:
-  default: 0
-folder: ''
+folder: null
 flags: {}
-content: >-
-  <p>When you attack a creature that’s vulnerable to that attack, you deal bonus
-  damage equal to double your level as you attack. In other words, hit or miss,
-  crit or fumble, deal bonus damage equal to double your level before applying
-  any other damage from the attack. (<i>Exception</i>: Mooks and weaklings only
-  deal damage equal to their level, not twice their level.)</p> <p>When you
-  attack a creature that’s vulnerable to that attack, you deal bonus damage
-  equal to double your level whether you hit or miss. If you score a critical
-  hit, double that and deal bonus damage equal to 4 times your level! If you
-  roll a 1 and fumble, you deal 0 damage as usual, vulnerable can’t help you
-  when you fumble. (Exception: Mooks and weaklings only deal damage equal to
-  their level, not twice their level.)</p> </p>As usual, a natural 1 fumble
-  attack against a vulnerable target still deals no damage, and a critical hit
-  against a vulnerable target doubles the bonus damage—in other words, a
-  critical deals bonus damage equal to quadruple the attackers’ level.</p>
-img: ''
 _id: uHqgXlfj0rkf0XRE
-pages: []
+pages:
+  - name: Vulnerable (2E)
+    type: text
+    title:
+      show: false
+      level: 1
+    text:
+      format: 1
+      content: >-
+        <p>When you attack a creature that’s vulnerable to that attack, you deal
+        bonus damage equal to double your level, whether you hit or miss. If you
+        score a critical hit, you deal bonus damage equal to triple your level!
+        If you fumble (roll a 1), you deal 0 damage; as usual.
+        V</p><p><em>Exception</em>: Mooks and weaklings only deal damage equal
+        to their level, not twice their level.</p>
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    _id: DSm7r73qk49CXuBZ
+    system: {}
+    image: {}
+    video:
+      controls: true
+      volume: 0.5
+    src: null
+    sort: 0
+    ownership:
+      default: -1
+    flags: {}
+    _key: '!journal.pages!uHqgXlfj0rkf0XRE.DSm7r73qk49CXuBZ'
+_stats:
+  coreVersion: '12.331'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+ownership:
+  default: 0
+sort: 0
 _key: '!journal!uHqgXlfj0rkf0XRE'
 

@@ -3,6 +3,7 @@ type: npc
 _id: xQJjM3Haex8xZjib
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Redscale Flamewing
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Burning mace
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC (1 or 2 attacks)'
+        value: '[[d20 + 17]] vs. AC (1 or 2 attacks)'
       hit:
         type: String
         label: Hit
@@ -200,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: C21cie5a7QzUTYBK
     effects: []
     folder: null
@@ -220,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -227,7 +317,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 17]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -257,8 +347,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] fire damage'
-      embeddedMacro:
-        value: ''
     _id: 3A3LBPCabGkCRAeE
     effects: []
     folder: null
@@ -277,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -284,7 +377,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC ([[2d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 17]] vs. AC ([[2d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -317,8 +410,6 @@ items:
           Any ally of the flamewing engaged with the missed target takes [[20]]
           fire damage, and the flamewing loses its ability to fly using its
           fiery wings until the end of the battle.
-      embeddedMacro:
-        value: ''
     _id: tjiT9BCfkBiVRZAC
     effects: []
     folder: null
@@ -344,11 +435,13 @@ items:
           two locations as it flies past. As its wings are made of fire, the
           flamewing might accidentally set the environment ablaze, which might
           benefit one side or the other in the battle (or harm both).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vQFnD7X1dEgLzuF6
     effects: []
@@ -371,11 +464,13 @@ items:
         value: >-
           <p>When the flamewing is forced to land, it rolls 3d20 for its next
           attack roll and takes the best result.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TTEMvvk5d8F54Erv
     effects: []
@@ -401,11 +496,13 @@ items:
           can&rsquo;t hover, so in tight quarters it needs to land. Also, its
           wings are made of fire, and overusing its fireball breath can cause
           the wings to gutter and fade.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SsPF6jsXcIQ50kZT
     effects: []
@@ -428,11 +525,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: df9H8ztFvSOcwMPb
     effects: []
@@ -455,11 +554,13 @@ items:
         value: >-
           <p>The first time each battle the flamewing is hit by a fire attack,
           instead of taking the fire damage it heals that many hit points.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Yxv4vYCtTNMIrJeE
     effects: []
@@ -482,11 +583,13 @@ items:
         value: >-
           <p>The dragonic deals [[2d12]] extra damage to a target it misses with
           a melee attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: yOEL4yFu6huxoISF
     effects: []
@@ -506,6 +609,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -513,7 +621,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+17]] vs. AC ([[1d3]] closest nearby enemies)'
+        value: '[[d20 + 17]] vs. AC ([[1d3]] closest nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -543,8 +651,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: PnIpwbjpR9WNJqN0
     effects: []
     folder: null
@@ -572,11 +678,13 @@ items:
           limited flight prefer to use their burning wings to fly in combat
           wherever possible, resorting to their physical wings only if
           needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MPWdAML5r6xYBvyD
     effects: []
@@ -604,11 +712,13 @@ items:
           Roll a [[/r d10]] and consult the random dragon ability table, or
           choose one of the first ten options that looks likely to shape the
           story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: P2sR30ECr6OLaxPB
     effects: []

@@ -3,6 +3,7 @@ name: Soul Flenser
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 9
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 5Vp6dMSsHITkWs1a
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -176,8 +235,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!7aZQJ3hIvQT276zZ.5Vp6dMSsHITkWs1a'
   - _id: h3ee7KdPAxfhFvA2
     flags: {}
@@ -191,6 +248,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -236,8 +297,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!7aZQJ3hIvQT276zZ.h3ee7KdPAxfhFvA2'
   - _id: lZvRafmYhc3db0sT
     flags: {}
@@ -255,6 +314,10 @@ items:
           When a creature slays a soul flenser, it can roll a hard save (16+).
           If it succeeds, the creature regains one power it has had flensed
           away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -262,8 +325,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!7aZQJ3hIvQT276zZ.lZvRafmYhc3db0sT'
   - _id: tS9bOfjmizjct98O
     flags: {}
@@ -280,6 +341,10 @@ items:
         value: >-
           When an enemy misses the soul flenser with an attack against MD, that
           attacker takes half the miss damage, if any.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -287,8 +352,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!7aZQJ3hIvQT276zZ.tS9bOfjmizjct98O'
   - _id: VUj4Y9GjzQYW2Ki6
     flags: {}
@@ -310,6 +373,10 @@ items:
           teleport back to its home underkraken, no matter how distant, leaving
           the battle behind. Soul flensers fighting beside or within their
           underkraken can’t use this ability; they’re already home.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -317,8 +384,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!7aZQJ3hIvQT276zZ.VUj4Y9GjzQYW2Ki6'
   - _id: ae6HPcVT132DqyJh
     flags: {}
@@ -335,6 +400,10 @@ items:
         value: >-
           The soul flenser gains an attack bonus equal to the escalation die
           against creatures that have had one or more powers flensed away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -342,8 +411,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!7aZQJ3hIvQT276zZ.ae6HPcVT132DqyJh'
   - _id: NmMiaXwyreVka1bI
     flags: {}
@@ -361,6 +428,10 @@ items:
           While *confused* by a soul flenser’s effect, a creature that has had a
           power flensed away can use and re-use that limited power against their
           erstwhile allies, if the GM sees how to use the power in a useful way.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -368,8 +439,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!7aZQJ3hIvQT276zZ.NmMiaXwyreVka1bI'
 effects: []
 folder: null
@@ -414,6 +483,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
     scaleX: 1
@@ -421,6 +493,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -430,8 +507,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!7aZQJ3hIvQT276zZ'
 

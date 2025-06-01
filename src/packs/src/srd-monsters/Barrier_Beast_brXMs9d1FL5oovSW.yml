@@ -3,6 +3,7 @@ type: npc
 _id: brXMs9d1FL5oovSW
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: (varies)
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Barrier Beast
   displayName: 0
@@ -107,7 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 3
   height: 3
   lockRotation: false
@@ -138,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -147,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: >-
       Barrier breaker (1 target, or adjusted targets equal to the escalation
@@ -177,6 +258,10 @@ items:
 
           <p><em>Natural 20</em>: All non-druidic spells cast on the barrier
           beast or the target end.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -184,7 +269,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. AC'
+        value: '[[d20 + 16]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -214,8 +299,6 @@ items:
         type: String
         label: Miss
         value: '[[50]] damage'
-      embeddedMacro:
-        value: ''
     _id: BOCukC80GxN4vcHH
     effects: []
     folder: null
@@ -234,6 +317,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -241,7 +329,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD ([[1d4]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 16]] vs. PD ([[1d4]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -271,8 +359,6 @@ items:
         type: String
         label: Miss
         value: '[[20]] damage'
-      embeddedMacro:
-        value: ''
     _id: grxsDVMXJos4pnT7
     effects: []
     folder: null
@@ -298,11 +384,13 @@ items:
           &lsquo;cost&rsquo; of two points on the escalation die. For example,
           if the escalation die is 6, the attack could target two engaged
           enemies and two nearby enemies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: lCiQTrrPc20QGJkf
     effects: []
@@ -323,11 +411,13 @@ items:
         type: String
         label: Description
         value: <p>Each barrier beasts has one of the following wild abilities.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JsrMWIR1vxorhusr
     effects: []
@@ -348,11 +438,13 @@ items:
         type: String
         label: Description
         value: <p>The barrier beast can swim underwater swiftly and indefinitely.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: KYbjWrxJAIzKDPCO
     effects: []
@@ -375,11 +467,13 @@ items:
         value: >-
           <p>As amphibious, but instead of travelling underwater the barrier
           beast can &ldquo;swim&rdquo; through the earth.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SaIZzHCK7OBWElcr
     effects: []
@@ -400,11 +494,13 @@ items:
         type: String
         label: Description
         value: <p>The barrier beast can fly very quickly, if not very gracefully.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: yRr3TBulMFKjTBPo
     effects: []
@@ -427,11 +523,13 @@ items:
         value: >-
           <p>Twice per battle as a standard action, the barrier beast can gain a
           +4 to all defenses until it makes an attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Al0lwr8YvLCiWd8Y
     effects: []
@@ -454,11 +552,13 @@ items:
         value: >-
           <p>Twice per battle as a standard action, the barrier beast can regain
           [[100]] hit points.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: R9AzNEg2gjCrqp5j
     effects: []
@@ -483,11 +583,13 @@ items:
           GM or determined randomly). When a barrier beast is hit by an attack
           it is vulnerable to, it cannot use <em>beast surge</em> until the end
           of its next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: JsEarRnZozlbAOZt
     effects: []
@@ -512,11 +614,13 @@ items:
           that is not huge size or larger (like a barrier beast). Normal sized
           enemies can disengage from a barrier beast by rolling 6+ instead of
           the normal 11+.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0CMWbOf8XzPVytRW
     effects: []
@@ -555,11 +659,13 @@ items:
           <p>If the barrier beast has <em>regrowth</em>, it can use that ability
           as a free action that does not count against its uses of the
           ability.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ZPfOH0DFrt9PV8to
     effects: []
@@ -585,11 +691,13 @@ items:
           deals half damage unless the natural attack roll is 16+. This ability
           does not work against attacks it is vulnerable to, and ends when the
           escalation die is 6+.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: SnzDTVQggve8PJM2
     effects: []
@@ -610,11 +718,13 @@ items:
         type: String
         label: Description
         value: <p>The barrier beast ignores damage that&rsquo;s less than 10.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WJfSr1fjQWP3Cfz1
     effects: []
@@ -638,11 +748,13 @@ items:
           <p>The barrier beast has two (or even three!) wild abilities instead
           of one. Choose which additional effect is used each time beast surge
           is triggered.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qfQJfIBGqHn7Wa9I
     effects: []
@@ -668,11 +780,13 @@ items:
           additional effect when beast surge is triggered. Pick or roll a random
           energy type that is different from the vulnerability of the barrier
           beast. Breath weapon does that type of damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WR2Lczbzcc1ihN1u
     effects: []

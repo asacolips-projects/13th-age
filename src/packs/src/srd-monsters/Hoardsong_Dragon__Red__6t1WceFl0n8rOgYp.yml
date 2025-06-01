@@ -3,6 +3,7 @@ name: Hoardsong Dragon (Red)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 9
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: true
+        current: 0
 items:
   - _id: 3tExos08lleUG9Nh
     flags: {}
@@ -135,6 +190,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -142,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC ([[3]] attacks)'
+        value: '[[d20 + 14]] vs. AC ([[3]] attacks)'
       hit:
         type: String
         label: Hit
@@ -175,8 +234,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.3tExos08lleUG9Nh'
   - _id: isQZ3YM08Sy0ZQCU
     flags: {}
@@ -191,6 +248,10 @@ items:
         type: String
         label: Description
         value: <p>Limited use:&nbsp;2/battle, as a quick action (once per round).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -231,8 +292,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.isQZ3YM08Sy0ZQCU'
   - _id: 60zA9an1tJHDCr9C
     flags: {}
@@ -249,6 +308,10 @@ items:
         value: >-
           <p>Intermittent breath: A hoardsong dragon can use precise breath
           [[1d4]] times per battle, but never two turns in a row.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -256,7 +319,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. PD ([[1d4+1]] nearby enemies, or [[1]] enemy)'
+        value: '[[d20 + 14]] vs. PD ([[1d4 + 1]] nearby enemies, or [[1]] enemy)'
       hit:
         type: String
         label: Hit
@@ -294,8 +357,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.60zA9an1tJHDCr9C'
   - _id: GXAS23NzUEg0jOED
     flags: {}
@@ -315,6 +376,10 @@ items:
           valuables. While in its lair with its hoard, the hoardsong dragon is
           immune to invisibility and ignores illusions, and creatures attempting
           to hide from it take a -5 penalty to their checks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -322,8 +387,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.GXAS23NzUEg0jOED'
   - _id: 0gb3G2FIoPJRhLcA
     flags: {}
@@ -338,6 +401,10 @@ items:
         type: String
         label: Description
         value: <p>If the dragon is in his lair, it has +1 to AC.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -345,8 +412,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.0gb3G2FIoPJRhLcA'
   - _id: CdCIbqatGzCBK6e0
     flags: {}
@@ -368,6 +433,10 @@ items:
           themselves in coins, wear empty suits of armor, etc., and defend the
           dragon&rsquo;s hoard. Roll initiative for the minions once and use
           that count for all additional minions.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -375,8 +444,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.CdCIbqatGzCBK6e0'
   - _id: CCcS0rebhTcInK5z
     flags: {}
@@ -404,6 +471,10 @@ items:
           PCs won&rsquo;t attack the dragon, but can make a normal save each
           round in battle to break the charm effect (or every day outside of
           combat).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -411,8 +482,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!6t1WceFl0n8rOgYp.CCcS0rebhTcInK5z'
 effects: []
 folder: null
@@ -456,14 +525,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -473,8 +549,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!6t1WceFl0n8rOgYp'
 

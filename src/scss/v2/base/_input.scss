@@ -30,48 +30,4 @@ button {
   padding: 0 $padding-sm;
 }
 
-// Expandable textareas.
-// @see CharBackgrounds.vue for an example.
-// @see https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/
-.grow-wrap {
-  display: grid;
-
-  // Pseudo element provides the height and needs to be visually hidden.
-  &::after {
-    content: attr(data-replicated-value) " ";
-    white-space: pre-wrap;
-    visibility: hidden;
-  }
-
-  // Disable textarea behavior.
-  > textarea {
-    resize: none;
-    overflow: hidden;
-    background: transparent;
-
-    // Match focus behavior from other inputs.
-    &:hover,
-    &:focus {
-      border-color: $c-blue;
-      color: $c-blue;
-      text-shadow: none;
-      box-shadow: none;
-      background: transparent;
-    }
-  }
-
-  // Pseudo element and textarea need to have an *identical* height. This
-  // means the font size, padding, height, etc. have to be set for both.
-  &::after,
-  > textarea {
-    border: none;
-    padding: 5px;
-    font: inherit;
-    grid-area: 1 / 1 / 2 / 2;
-    height: auto;
-    min-height: 0;
-    text-align: left;
-    border-radius: 0;
-    line-height: 1.1;
-  }
-}
+@import 'textarea-grow';

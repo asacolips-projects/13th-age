@@ -11,6 +11,7 @@ system:
     value: |-
       <p>You gain a +4 bonus to skill checks to walk quietly.</p>
       <p>Quirk: Develops a love of elegant elven poetry.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
@@ -57,6 +58,26 @@ system:
       threshold: 0
     disengage:
       bonus: 1
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -65,17 +86,9 @@ effects: []
 folder: oEtqWlOkypylr6Am
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647842370
-  modifiedTime: 1714647845225
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: H3a2fBth57Dd6brx
 sort: 200000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!H3a2fBth57Dd6brx'
 

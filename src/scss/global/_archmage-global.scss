@@ -159,6 +159,28 @@ option[selected] {
       color: $c-black;
     }
   }
+
+  .natural-rolls {
+    display: none;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    line-height: 0;
+    padding: 2px;
+    margin: 0 3px;
+    font-size: 12px;
+
+    s {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    i {
+      font-size: 10px;
+    }
+  }
+  &.show-natural-rolls .natural-rolls {
+    display: inline-block;
+  }
 }
 
 .ability-usage {
@@ -481,6 +503,20 @@ option[selected] {
         }
       }
     }
+
+    .effect-sheet {
+      .settings-group {
+        .attribute-input {
+          flex: 0 0 100px;
+          text-align: right;
+          padding-right: 5px;
+
+          &[type='checkbox'] {
+            flex: 0 0 32px;
+          }
+        }
+      }
+    }
   }
 
   &.npc-sheet {
@@ -548,8 +584,28 @@ option[selected] {
   }
 
   &.effect-sheet {
-    .description {
-      height: 50%;
+    .tab.active {
+      display: flex;
+      flex-direction: column;
+
+      > * {
+        flex: 0 auto;
+      }
+
+      .description {
+        flex: 1;
+      }
+
+      .prosemirror {
+        .editor-container {
+          margin: 0;
+        }
+
+        .editor-content {
+          background: transparent;
+          border: none;
+        }
+      }
     }
   }
 
@@ -1919,6 +1975,9 @@ option[selected] {
           }
         }
 
+        &.second-edition .roll.die.result-5 {
+          background: #93c385;
+        }
       }
     }
   }

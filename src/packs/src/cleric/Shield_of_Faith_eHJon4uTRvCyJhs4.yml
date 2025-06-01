@@ -1,6 +1,4 @@
 name: Shield of Faith
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Shield of Faith
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Cleric
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Shield of Faith
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -115,24 +138,58 @@ system:
     type: String
     label: Effect
     value: <p><span>You can cast this spell for power or for broad effect.</span></p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: false
     type: String
     label: 3rd Level Spell
     value: The bonus also applies to PD.
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: false
     type: String
     label: 5th Level Spell
     value: The bonus increases by +1 while the target is staggered.
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: false
     type: String
     label: 7th Level Spell
     value: The bonus also applies to MD.
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: false
     type: String
     label: 9th Level Spell
     value: >-
       The bonus when cast for power increases to +4. The bonus when cast for
       broad effect increases to +2.
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -141,24 +198,84 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  feats: null
-  group:
+    label: Sustain On
     value: null
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
+  feats: null
 flags: {}
 img: systems/archmage/assets/icons/skills/weapon_16.jpg
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Shield of Faith (Power)
+    img: systems/archmage/assets/icons/skills/weapon_16.jpg
+    _id: puV1sHLd45FW8GQ0
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!eHJon4uTRvCyJhs4.puV1sHLd45FW8GQ0'
+  - origin: null
+    disabled: false
+    name: Shield of Faith (Broad Effect)
+    img: systems/archmage/assets/icons/skills/weapon_16.jpg
+    _id: zj4C72OPqdJa9yxd
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!eHJon4uTRvCyJhs4.zj4C72OPqdJa9yxd'
 _id: eHJon4uTRvCyJhs4
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!eHJon4uTRvCyJhs4'
 

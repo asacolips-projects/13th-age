@@ -3,6 +3,7 @@ name: Ogre Mage Knight
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: Exceptional attacks 16+
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Ogre Mage Knight
   displayName: 0
@@ -105,7 +166,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -137,6 +202,8 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   sight:
     enabled: false
     range: 0
@@ -152,6 +219,18 @@ prototypeToken:
   randomImg: false
   appendNumber: false
   prependAdjective: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Naginata
     type: action
@@ -163,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -170,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs AC'
+        value: '[[d20 + 11]] vs AC'
       hit:
         type: String
         label: Hit
@@ -209,8 +293,6 @@ items:
         value: >-
           Natural odd miss: The ogre mage knight can use cone of cold as a free
           action.
-      embeddedMacro:
-        value: ''
     _id: ofMDR0oMKXiaibcR
     effects: []
     folder: null
@@ -230,6 +312,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -237,7 +324,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs PD'
+        value: '[[d20 + 11]] vs PD'
       hit:
         type: String
         label: Hit
@@ -270,8 +357,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 3lJ8CDph1me81jNg
     effects: []
     folder: null
@@ -291,6 +376,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -299,7 +389,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+11]] vs PD (up to [[3]] nearby enemies in a group, also targets
+          [[d20 + 11]] vs PD (up to [[3]] nearby enemies in a group, also targets
           the ogre's allies engaged with the targets)
       hit:
         type: String
@@ -330,8 +420,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] cold damage'
-      embeddedMacro:
-        value: ''
     _id: LYtCCTqF6NsOnwt9
     effects: []
     folder: null
@@ -351,6 +439,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -358,7 +451,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs PD (one random nearby or far away enemy)'
+        value: '[[d20 + 11]] vs PD (one random nearby or far away enemy)'
       hit:
         type: String
         label: Hit
@@ -388,8 +481,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: yM3pJrwcwE3AiLvP
     effects: []
     folder: null
@@ -409,6 +500,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -416,7 +512,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs PD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 11]] vs PD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -446,8 +542,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: YfHdk7CPDThTH247
     effects: []
     folder: null
@@ -471,6 +565,10 @@ items:
           <p>When a limited attack (not an at-will attack) targets this
           creature, the attacker must roll a natural 16+ on the attack roll or
           it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -504,6 +602,10 @@ items:
           can&rsquo;t regenerate during its next turn.<br>&emsp;Dropping an ogre
           mage to 0 hp doesn&rsquo;t kill it if it has any uses of regeneration
           left.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -532,6 +634,10 @@ items:
           ki as a free action, once per round, to change the ogre mage
           knight&rsquo;s natural attack result by one; a natural 1 could become
           a 2, a natural 19 could become a natural 20, and so on.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

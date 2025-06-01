@@ -28,10 +28,9 @@
             <template v-slot:display>
               <ul>
                 <li class="level">{{levelFormatted}}</li>
-                <li v-if="sizeFormatted" class="details">{{sizeFormatted}}</li>
-                <li v-if="strengthFormatted" class="details">{{strengthFormatted}}</li>
+                <li v-if="strengthFormatted && this.actor.system.details?.strength?.value !== 'normal'" class="details">{{strengthFormatted}}</li>
                 <li v-if="roleFormatted" class="role">{{roleFormatted}}</li>
-                <li v-if="typeFormatted" class="type">[{{typeFormatted}}]</li>
+                <li v-if="typeFormatted" class="type">[<span class="size" v-if="this.actor.system.details?.size?.value !== 'normal'">{{ sizeFormatted }}</span>{{typeFormatted}}]</li>
               </ul>
             </template>
             <!-- Form inputs for creature details. -->
@@ -112,7 +111,8 @@
         return game.archmage.ArchmageUtility.formatLevel(this.actor.system.attributes.level.value ?? 0);
       },
       sizeFormatted() {
-        return CONFIG.ARCHMAGE.creatureSizes[this.actor.system.details?.size?.value] ?? this.actor.system.details?.size?.value;
+        let size = CONFIG.ARCHMAGE.creatureSizes[this.actor.system.details?.size?.value] ?? this.actor.system.details?.size?.value;
+        return typeof size == 'string' ? `${size.toUpperCase()} ` : '';
       },
       strengthFormatted() {
         return CONFIG.ARCHMAGE.creatureStrengths[this.actor.system.details?.strength?.value] ?? this.actor.system.details?.strength?.value;
@@ -206,6 +206,22 @@
 .archmage-v2.npc-sheet {
   .npc-header {
     position: relative;
+
+    .unit {
+      input,
+      .rollable--init {
+        font-family: $font-stack-base;
+        font-size: $font-xs;
+        font-weight: normal;
+        border-color: transparent;
+      }
+
+      input:hover,
+      input:focus,
+      .edit-wrapper input {
+        border-bottom: 2px solid;
+      }
+    }
   }
 
   .section--details,
@@ -225,22 +241,6 @@
     #context-menu {
       left: auto;
       right: 0;
-    }
-  }
-
-  .unit {
-    input,
-    .rollable--init {
-      font-family: $font-stack-base;
-      font-size: $font-xs;
-      font-weight: normal;
-      border-color: transparent;
-    }
-
-    input:hover,
-    input:focus,
-    .edit-wrapper input {
-      border-bottom: 2px solid;
     }
   }
 
@@ -299,7 +299,7 @@
 
   .unit--roles {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
 
@@ -309,8 +309,9 @@
     }
 
     .edit-wrapper {
-      display: inline-block;
+      display: flex;
       flex: 1;
+      width: 100%;
 
       ul {
         display: flex;

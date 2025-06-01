@@ -3,6 +3,7 @@ type: npc
 _id: 4dnPbusAoZHE4FTf
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Sadsack
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Jarring touch
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+7]] vs AC'
+        value: '[[d20 + 7]] vs AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: PHtyLdi5mHL4wCho
     effects: []
     folder: null
@@ -222,11 +307,13 @@ items:
           battle takes a -2 penalty to all its defenses until they score a
           critical hit or the sadsack is reduced to 0 hit points. (As usual,
           this ability does not stack.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: vM9O7tdcZPLAoo2J
     effects: []
@@ -250,11 +337,13 @@ items:
           <p>This creature has resist damage 12+ to all damage except holy
           damage. A ghost can move through solid objects, but can&rsquo;t end
           its turn inside them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: M3ibN4sor1LhW9Au
     effects: []
@@ -277,11 +366,13 @@ items:
         value: >-
           <p>Sadsacks are also vulnerable to the type of weapon or attack that
           ended their lives. Interpret this liberally, GM.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: l08bTs5es8llOW0U
     effects: []
@@ -304,11 +395,13 @@ items:
         value: >-
           <p>Gravity does not influence sadsacks unless they are staggered. When
           they&rsquo;re staggered, they sink to the ground and stay there.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Omip6g5J8aoVEv7p
     effects: []
@@ -342,11 +435,13 @@ items:
           ghosts that aren&rsquo;t bound to anything, but at that stage there
           are several other questions that surface and odd magical, iconic, or
           unique intervention seems likely.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Hx2P7xMeCNEwpewo
     effects: []
@@ -374,11 +469,13 @@ items:
           <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
           constrained to act much like they acted when they were alive, and
           flying wasn&rsquo;t part of their life package.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wX9g5ojc4D0faie0
     effects: []
@@ -409,11 +506,13 @@ items:
           ghost stories than part of a creature&rsquo;s combat abilities, and
           you can safely ignore it unless you find telling moments when it adds
           to the game.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 1gphpVgsE4AJt6cT
     effects: []
@@ -433,11 +532,14 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: D7Rfwqnis7wIMhb7
     effects: []

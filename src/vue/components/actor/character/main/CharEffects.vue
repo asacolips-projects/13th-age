@@ -10,10 +10,17 @@
         </div>
       </div>
       <ul class="effects-group-content flexcol">
-        <li v-for="(effect, effectKey) in effects" :key="effectKey" :class="concat('item effects-item ', concat('effect-', effect._id), (effect.disabled ? ' effects-disabled' : ''))" :data-effect-id="effect._id" data-draggable="true" draggable="true">
+        <li v-for="(effect, effectKey) in effects" :key="effectKey"
+          :class="concat('item effect effects-item ', concat('effect-', effect._id), (effect.disabled ? ' effects-disabled' : ''))"
+          :data-effect-id="effect._id"
+          :data-parent-id="actor._id"
+          data-document-class="ActiveEffect"
+          data-drag="true"
+          data-draggable="true"
+          draggable="true">
           <div class="effects-summary grid effects-grid effects">
             <div class="effects-icon">
-              <img :src="effect?.img ?? effect?.icon" class="effects-image"/>
+              <img :src="effect.img ?? 'icons/svg/cowled.svg'" class="effects-image"/>
             </div>
             <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
               <h3 class="effects-title unit-subtitle">{{effect?.name ?? effect?.label}}</h3>
@@ -56,7 +63,7 @@ import { reactive, computed, toRefs } from 'vue';
 // https://vuejs.org/api/composition-api-setup.html
 export default {
   name: 'CharEffects',
-  props: ['actor', 'tab', 'flags'],
+  props: ['actor'],
   setup() {
     // Equivalent to data: and computed:
     const componentData = reactive({
@@ -140,14 +147,14 @@ export default {
       const element = this.$el.querySelector(`.effect-${id} > .effect-detail--description`);
     }
   },
-  watch: {
-    'actor.effects': {
-      deep: true,
-      handler() {
-        this.getEffects()
-      }
-    }
-  },
+  // watch: {
+  //   'actor.effects': {
+  //     deep: true,
+  //     handler() {
+  //       this.getEffects()
+  //     }
+  //   }
+  // },
   // Execute getEffects as soon as we're mounted.
   async mounted() {
     this.getEffects();

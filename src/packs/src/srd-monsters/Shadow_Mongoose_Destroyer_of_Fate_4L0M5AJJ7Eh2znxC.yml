@@ -3,6 +3,7 @@ type: npc
 _id: 4L0M5AJJ7Eh2znxC
 img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Shadow Mongoose Destroyer of Fate
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Cloud of claws
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC'
+        value: '[[d20 + 9]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -200,8 +287,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: DpVYXIc1rBW35Dr4
     effects: []
     folder: null
@@ -220,6 +305,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -228,7 +318,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+9]] vs. MD (one target that has been hit twice by the shadow
+          [[d20 + 9]] vs. MD (one target that has been hit twice by the shadow
           mongoose this battle)
       hit:
         type: String
@@ -266,8 +356,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: p95WN5g3zvF03nfI
     effects: []
     folder: null
@@ -289,11 +377,13 @@ items:
         value: >-
           <p>The shadow mongoose can move over any solid surface, slithering
           like a shadow.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: rQ5HQfsOuPa5XOuX
     effects: []
@@ -323,11 +413,13 @@ items:
           fleeing the battle if it succeeds, the PCs can go ahead and blast away
           at what they think is the corpse, but they&rsquo;ll be fragging the
           mongoose&rsquo;s shadows, not the mongoose itself.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: QuJvsC8FLax3lTlC
     effects: []
@@ -351,11 +443,13 @@ items:
           <p>The shadow mongoose can change shape, though not mid-battle. Shadow
           mongoose destroyers of fate use this ability to seem innocuous until
           they are ready to strike.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: EYE2IZRRfwDXLK8c
     effects: []
@@ -380,11 +474,13 @@ items:
           it stole return to their owners. The person who killed the shadow
           mongoose gains a magic item that the shadow mongoose had stolen
           (though maybe not one that it had stolen from the party).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: zKolTdvgmsf3HZod
     effects: []
@@ -410,11 +506,13 @@ items:
           and vise-versa (conflicted relationships are unaffected). This
           relationship inversion is temporary, lasting only until the end of the
           next game session.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hg5mfxdq8FV7JV7X
     effects: []
@@ -439,11 +537,13 @@ items:
           into a flat shadow, and cannot be intercepted or attacked it is moving
           in this form. When it returns to its normal form, it deals double
           damage with its next attack, hit or miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ybmbPcaysULol6Rz
     effects: []

@@ -33,6 +33,19 @@
   .tab-link--settings {
     flex: 0 0 44px;
   }
+
+  .sheet-tabs {
+    flex-wrap: wrap;
+    margin: 10px 0;
+  
+    > span {
+      display: flex;
+    }
+  
+    .tab-link {
+      margin: 4px;
+    }
+  }
 }
 
 .section--tabs-content {
@@ -46,4 +59,17 @@
       justify-content: flex-start;
     }
   }
+}
+
+// Hide the mobile tabs on desktop sheets.
+.tab.abilities,
+.tab.combat {
+  // flex: 1;
+  height: 100%;
+}
+.section--tabs-mobile {
+  display: none;
+}
+.tab[data-tab][data-group="mobile"] {
+  display: block;
 }

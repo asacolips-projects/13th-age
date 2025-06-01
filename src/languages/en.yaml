@@ -5,7 +5,11 @@ ARCHMAGE:
   act: Act.
   action: Action
   actions: Actions
+  activeEffects: Active Effects
   add: Add
+  adventurer: Adventurer
+  arc: Arc
+  arc-desparate: Arc/Desperate
   at-will: At-Will
   attack: Attack
   attackMod: Attack Modifier
@@ -28,11 +32,14 @@ ARCHMAGE:
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
   chakra: Chakra
+  champion: Champion
   checkBackground: Background Check
   checkBackgroundFormat: "{name} Background Check"
   checkSkill: Skill Check
   checkSkillFormat: "{name} Skill Check"
   class: Class
+  classFeat: Class Feat
+  combat: Combat
   Conflicted: Conflicted
   contextReroll: Reroll
   contextApplyDamage: Apply as Damage
@@ -44,7 +51,9 @@ ARCHMAGE:
   contextApplyTempHealth: Apply as Temp Health
   critModAtk: Crit Modifier (Attack)
   critModDef: Crit Modifier (Defense)
+  cyclic: Cyclic
   daily: Daily
+  daily-desperate: Daily/Desperate
   defenses: Defenses
   description: Description
   details: Details
@@ -54,6 +63,7 @@ ARCHMAGE:
   divine: Divine
   edit: Edit
   effects: Effects
+  epic: Epic
   equipment: Equipment
   equipmentName: Equipment Name
   escalationDieLabel: Escalation Die
@@ -67,19 +77,26 @@ ARCHMAGE:
   flexible: Flexible Attack
   flexibles: Flexible Attacks
   free: Free Action
+  FREE: FREE
+  free-short: Free
   groupBy: Group by
   health: Health
+  helpCompact: '<p><a href="javascript:void(0)" click="preventDefault" role="button" tabindex="-1" class="archmage-rolls-reference">Inline rolls</a> allowed here.</p>'
+  helpDetailed: '<p class="hint">Use <a href="javascript:void(0)" click="preventDefault" role="button" tabindex="-1" class="archmage-rolls-reference">inline rolls</a> such as <strong>[[d20+@str.mod+@std+@atk.a.bonus]] vs AC</strong> to insert dice rolls wherever you need them. Any roll formula will work!</p>'
   hit: Hit
   hitPoints: Hit Points
   hpAdjustment: Hit Points Adjustment
   icon: Icon
+  iconic: Zenith
   iconRelationships: Icon Relationships
   import: Import Powers
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
   initiative: Initiative
+  INT: INT
   interrupt: Interrupt Action
+  interrupt-short: Interrupt
   inventory: Inventory
   item: Item
   jabWeaponDice: JAB Weapon Dice
@@ -89,6 +106,7 @@ ARCHMAGE:
   kin: Kin
   level: Level
   levelFormat: "{level} level"
+  location: Location
   loot: Loot
   lvl: Lvl
   magicItems: Magic Items
@@ -101,13 +119,16 @@ ARCHMAGE:
   miss: Miss
   mod: Mod
   modifyLevel: Adjust
+  MOV: MOV
   move: Move Action
+  move-short: Move
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
   Negative: Negative
   newItem: New {item}
   noneOption: "- None -"
+  normal: Normal
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
   other: Other
@@ -116,14 +137,18 @@ ARCHMAGE:
   power: Power
   powerName: Power Name
   powers: Powers
+  preview: Preview
   punchWeaponDice: PUNCH Weapon Dice
+  QCK: QCK
   quantity: Quantity
   quick: Quick Action
+  quick-short: Quick
   race: Race
   ranged: Ranged
   rangedWeaponDice: Ranged Weapon Dice
   rchg: Rchg.
   recharge: Recharge
+  recharge-desperate: Recharge/Desperate
   recoveries: Recoveries
   recovery: Recovery
   recoveryAdventurer: Potion (Adv.)
@@ -159,12 +184,17 @@ ARCHMAGE:
   sheetActiveEffect: 13th Age Active Effect Sheet
   sheetCharacter: Character Sheet
   sheetItem: Item Sheet
+  sheetItemV2: Item Sheet V2
   sheetNPC: NPC Sheet
   size: Size
   sort: Sort
+  source: Source
+  special: Special
   spell: Spell
   spells: Spells
   standard: Standard Action
+  standard-short: Standard
+  STD: STD
   strength: Strength
   talent: Talent
   talents: Talents
@@ -173,6 +203,7 @@ ARCHMAGE:
   tool: Tool
   trait: Trait
   traits: Traits
+  triggers: Triggers
   type: Type
   uses: Uses
   vulnerability: Vulnerability
@@ -191,12 +222,14 @@ ARCHMAGE:
     automateHPConditionsName: Auto-manage Dead and Staggered
     ColorblindHint: Change the colors of the power cards to a more accessibile color palette.
     ColorblindName: Enable Colorblind Accessibility Mode
-    ColorblindIssuesMessage: We're always trying to improve our accessibility. Suggest accessibility improvements at <a href="https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues/new" target="_blank">our issue tracker</a> and include the <strong>a11y</strong> label. 
+    ColorblindIssuesMessage: We're always trying to improve our accessibility. Suggest accessibility improvements at <a href="https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues/new" target="_blank">our issue tracker</a> and include the <strong>a11y</strong> label.
     ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
     ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
     ColorblindOptionDefault: Default Colors
     extendedStatusEffectsHint: If enabled extends the official status list with a handful of useful token markers.
     extendedStatusEffectsName: Extended Status Effects List
+    allowPasteParsingHint: If enabled, the system will attempt to parse clipboard contents for dice rolls before pasting them into fields on power sheets and monster action sheets.
+    allowPasteParsingName: Paste Roll Parsing
     hideExtraRollsHint: If enabled, powers with multiple attack rolls will display at most one attack per targeted token if any is targeted.
     hideExtraRollsName: Limit extra rolls to targeted tokens
     hideInsteadOfOpaqueHint: Enable this if you prefer not seeing inactive details at all.
@@ -219,12 +252,14 @@ ARCHMAGE:
     allowTargetDamageApplicationName: Allow target damage application
     allowRerollsHint: Whether or not to allow non-GM players to reroll their own dice rolls.
     allowRerollsName: Allow dice rerolls
-    secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
-    secondEditionName: Use 2e Gamma Playtest Rules
+    secondEditionHint: Turn this on to use the 13th Age second edition rules, off if you'd prefer the first edition rules.
+    secondEditionName: Use 2e Rules
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
     showDefensesInChatHint: Enable this to display a list of targeted defenses in the attack line of chat power cards.
     showDefensesInChatName: Show target(s) defense(s) in chat
+    showNaturalRollsHint: Enable this to display natural dice results for d20 rolls in chat power cards.
+    showNaturalRollsName: Show natural d20 rolls in chat
     staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
     staggeredOverlayName: Staggered as overlay
     sheetTooltipsHint: Adds tooltips to sheets containing relevant SRD rules and tips. May be most useful when first learning the system or for the GM who only references player sheets occasionally. Client setting.
@@ -240,6 +275,11 @@ ARCHMAGE:
     UnboundEscDieName: Unlimited Escalation Die
     enableOngoingEffectsMessagesName: Enable ongoing effects messages
     enableOngoingEffectsMessagesHint: Enable chat messages for ongoing effects on actors at the start and end of their turns.
+    lifecycleHooks:
+      title: Lifecycle Hooks
+      hint: <p>These macros will run on this character's owner's client. If that player is not logged in, they will not be executed.</p><p>In the body, available arguments are <code>this</code>, <code>speaker</code>, <code>actor</code>, and <code>archmage</code>.</p>
+      startOfTurn: Start of Turn
+      endOfTurn: End of Turn
   AUTOLEVEL:
     confirm: Confirm (create duplicate)
     help: Use this form to create a copy of this actor with its stats (including attacks) adjusted to the new level.
@@ -251,6 +291,7 @@ ARCHMAGE:
     showToken: 'Show Token'
     showTokenTitle: 'Token: {name}'
     RESOURCES:
+      bravado: Bravado
       commandPoint: Command Point
       commandPoints: Command Points
       commandPointsGained: Gained {points} command points.
@@ -274,13 +315,53 @@ ARCHMAGE:
       rerollSave: Reroll Save
       rerollSaveDesc: Reroll a save
       rhythm: Combat Rhythm
+      stoke: Stoke
     RHYTHMCHOICES:
       none: None
       offense: Offense
       defense: Defense
   CHARACTERFLAGS:
+    averageRecoveriesHint: Average results for recovery rolls instead of rolling them.
+    averageRecoveriesName: Average Recovery Rolls
+    diceFormulaModeHint: Method used to display inline dice formulas on power previews in the character sheet.
+    diceFormulaModeName: Dice Formula Mode
+    diceFormulaModeOptnumeric: Calculated modifiers (experimental)
+    diceFormulaModeOptlong: Formula (long)
+    diceFormulaModeOptshort: Formula (short)
+    hideCurrencyHint: Hide the currency section in the inventory.
+    hideCurrencyName: Hide Currency
+    hideEmptyPowerGroupsHint: Hide empty Power groups on the sheet (besides the default one).
+    hideEmptyPowerGroupsName: Hide empty Power groups
+    hideImportPowersHint: Hide the Import Powers button for players.
+    hideImportPowersName: Hide Import Powers
+    hideIncrementalsHint: Hide the Incremental Advances section.
+    hideIncrementalsName: Hide Incremental Advances
+    hideOneUniqueThingHint: Hide the One Unique Thing section.
+    hideOneUniqueThingName: Hide One Unique Thing
+    hideSettingsTabHint: Hide the sheet settings tab for players.
+    hideSettingsTabName: Hide Settings tab
+    implacableHint: Paladin talent to roll saves at the start of your turn instead of at the end of your turn.
+    implacableName: Implacable
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
+    dexToChaHint: Paladin feature to use Cha in place of Dex for AC calculation.
+    dexToChaName: Blessing of Heaven
+    dexToIntHint: Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.
+    dexToIntName: Mental Phenomenon
+    grimDeterminationHint: Barbarian feature to get extra defences when you have one or more skulls.
+    grimDeterminationName: Grim Determination
+    overridePowerLevelHint: Automatically upgrade power's (e.g. spell's) level to your character's level when using it.
+    overridePowerLevelName: Cast at Actor Level
+    portraitFrameHint: Whether or not the character portrait has a white frame and shadow on the V2 sheet.
+    portraitFrameName: Portrait Frame
+    portraitRoundHint: Whether or not the character portrait is rounded on the V2 sheet.
+    portraitRoundName: Round Portrait
+    showTriggersTabHint: Show the trigger-centric powers tab.
+    showTriggersTabName: Show Triggers tab
+    strongRecoveryHint: Universal feat to improve your recovery rolls.
+    strongRecoveryName: Strong Recovery
+    toughnessHint: DEPRECATED, will be removed soon. Use the Extra hp field instead.
+    toughnessName: Toughness - DEPRECATED
   CHARACTERSETTINGS:
     bg1: Background 1
     bg2: Background 2
@@ -296,9 +377,85 @@ ARCHMAGE:
     i3: Icon 3
     i4: Icon 4
     i5: Icon 5
+    publicationSource: 'Publication Source:'
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+  RACES:
+    aasimar: Aasimar
+    darkelf: Dark Elf
+    demontouched: Demontouched
+    dragonic: Dragonic
+    dragonspawn: Dragonspawn
+    drow: Drow
+    dwarf: Dwarf
+    dwarfforged: Dwarf-forged
+    forgeborn: Forgeborn
+    gnome: Gnome
+    halfelf: Half-Elf
+    halfling: Halfling
+    halforc: Half-Orc
+    highelf: High Elf
+    holyone: Holy One
+    human: Human
+    tiefling: Tiefling
+    silverelf: Silver Elf
+    woodelf: Wood Elf
+  CLASSES:
+    barbarian: Barbarian
+    bard: Bard
+    chaosmage: Chaos Mage
+    cleric: Cleric
+    commander: Commander
+    druid: Druid
+    fighter: Fighter
+    monk: Monk
+    necromancer: Necromancer
+    occultist: Occultist
+    paladin: Paladin
+    ranger: Ranger
+    rogue: Rogue
+    sorcerer: Sorcerer
+    wizard: Wizard
+  CREATUREROLES:
+    archer: Archer
+    blocker: Blocker
+    caster: Caster
+    leader: Leader
+    mook: Mook
+    spoiler: Spoiler
+    troop: Troop
+    wrecker: Wrecker
+  CREATURESIZES:
+    normal: Normal
+    large: Large
+    huge: Huge
+    gargantuan: Gargantuan
+    small: Small
+    tiny: Tiny
+  CREATURESTRENGTHS:
+    normal: Normal
+    double-strength: Double-strength
+    triple-strength: Triple-strength
+    weakling: Weakling
+    elite: Elite
+  CREATURETYPES:
+    aberration: Aberration
+    beast: Beast
+    celestial: Celestial
+    construct: Construct
+    demon: Demon
+    devil: Devil
+    dragon: Dragon
+    elemental: Elemental
+    fey: Fey
+    giant: Giant
+    humanoid: Humanoid
+    monstrosity: Monstrosity
+    ooze: Ooze
+    plant: Plant
+    spirit: Spirit
+    undead: Undead
   DURATION:
     Infinite: Infinite
     Unknown: Unknown
@@ -310,11 +467,16 @@ ARCHMAGE:
     NormalSaveEnds: Normal Save Ends
     HardSaveEnds: Hard Save Ends
     EndOfCombat: End of Battle
+    EndOfArc: End of Arc
     StartOfEachTurn: Start of Each Turn
+    EndOfRound: End of Current Round
+    EndOfRoundWarning: No active combat, cannot determine end of round; assuming first round.
   INCREMENTALS:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
     abilityScoreBonus2eHint: +1 to 3/4/5 ability scores (3rd/6th/9th Level)
     abilityScoreBonusName: Ability Score Bonus
+    classFeatureHint: If you have a class feature that improves every level, bump up its effective level by one
+    classFeatureName: Class Feature
     extraMagicItemHint: Carry an extra Magic Item without becoming overwhelmed by Quirks
     extraMagicItemName: Magic Item
     featHint: Choose one feat as if you were the next level
@@ -325,6 +487,10 @@ ARCHMAGE:
     hpName: Hit Points
     iconRelationshipPointHint: Gain an extra Icon relationship point (4th/7th Level)
     iconRelationshipPointName: Icon Relationship Point
+    mdHint: Increase your MD by one, as if you were one level higher
+    mdName: Mental Defense
+    pdHint: Increase your PD by one, as if you were one level higher
+    pdName: Physical Defense
     powerSpell1Hint: Choose a power / spell as if you were the next level
     powerSpell1Name: Power / Spell
     powerSpell2Hint: Choose a power / spell as if you were the next level
@@ -371,6 +537,13 @@ ARCHMAGE:
       browseCreatures: 'Browse Creatures'
       browsePowers: 'Browse Powers'
       browseItems: 'Browse Items'
+    sources:
+      tooltipTemplate: 'Source: {source}'
+      '1e': '13th Age Core Rulebook (1e)'
+      '13TW': '13 True Ways'
+      'B1': '13th Age Bestiary 1'
+      'B2': '13th Age Bestiary 2'
+      '2eɣ': '13th Age 2e GMG (gamma playtest draft)'
 # Ability Scores
   str:
     key: STR
@@ -442,6 +615,7 @@ ARCHMAGE:
     critModBonus: Critical Hit Modifier Bonus
     critModBonusHint: +1 means you would crit on 19+, etc.
     damageType: Damage Type
+    damageTypeHint: Poison
     defenseBonuses: Defense Bonuses
     dexBonus: Dexterity checks bonus
     disengageBonus: Disengage Bonus
@@ -451,16 +625,21 @@ ARCHMAGE:
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     icons: Associated Icon(s)
+    iconPlaceholder: Archmage, Elf Queen
+    initBonus: Initiative Bonus
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
+    meleeWeaponDamageBonus: Melee Weapon Damage Bonus
     ongoingDamage: Ongoing Damage
+    ongoingDamageCrit: Ongoing Damage is from a critical hit
     otherBonuses: Other Bonuses
     pdBonus: PD Bonus
     price: Price
     pricePlaceholder: 1,000gp
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
+    rangedWeaponDamageBonus: Ranged Weapon Damage Bonus
     recoveriesBonus: Recoveries Bonus
     rerollAcBonus: Force reroll attack vs. AC
     rerollSaveBonus: Reroll Save
@@ -468,6 +647,8 @@ ARCHMAGE:
     toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus
     saveBonusHPTreshold: Save Bonus HP Threshold
+    stackingBehavior: Stacking Behavior
+    stacksAlways: Always stacks
     usesMax: Maximum Uses
     usesMaxHint: Number of uses per battle/day, usually 1
     usesRemaining: Uses Remaining
@@ -524,6 +705,7 @@ ARCHMAGE:
     wondrousLabel: Wondrous
   CHAT:
     actionType: Action Type
+    advantages: Advantages
     adventurer: Adventurer Feat
     always: Always
     alwaysPlaceholder: Some effect that always happens
@@ -531,10 +713,12 @@ ARCHMAGE:
     attack: Attack
     attackPlaceholder: "[[d20+@str.mod+@std]] vs. AC"
     attackTitle: Attack formula, such as "[[d20+@str.mod+@std]] vs. AC"
+    attacks: Attacks
     Apply: Apply
     applyAETitle: Apply Active Effect?
     applyDamage: Apply Damage
     breathWeapon: Breath Weapon
+    breath: 'Breath'
     Cancel: Cancel
     castBroadEffect: Cast for Broad Effect
     castPower: Cast for Power
@@ -542,6 +726,9 @@ ARCHMAGE:
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
     crit: Crit
+    critMod: Critical Range Modifier
+    critModPlaceholder: "+[[@ed]]"
+    critModTitle: Critical hit range modifier, such as "3" or "[[@ed]]"
     critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
@@ -550,6 +737,8 @@ ARCHMAGE:
     disengage: Disengage Check
     duration: Duration
     effect: Effect
+    effectRemoved: temporary effect removed
+    effectTitle: General effect of a spell or power when it's used.
     epic: Epic Feat
     even: even
     finalVerse: Final Verse
@@ -557,18 +746,31 @@ ARCHMAGE:
     FullHealBody: Regain all health, recoveries, and power uses.
     FullHealHP: reset to maximum
     group: Group
+    groupTitle: Custom group used to organize this on character sheets.
+    higherLevels: Higher Levels
     hit: Hit
     hitPlaceholder: "[[@wpn.m.dice+@str.dmg]] damage"
     hitTitle: Effects on successful hit, for example "[[@wpn.m.dice+@str.dmg]] damage"
     hit1: Special Roll (1)
+    hit1NamePlaceholder: "Natural even hit"
+    hit1ValuePlaceholder: "The target is also grabbed."
     hit2: Special Roll (2)
+    hit2NamePlaceholder: "Natural 18+"
+    hit2ValuePlaceholder: "Make a *screeching wail* attack as a free action."
     hit3: Special Roll (3)
+    hit3NamePlaceholder: "Natural odd miss"
+    hit3ValuePlaceholder: "Deal [[8]] miss damage"
     hit4: Special Roll (4)
+    hit4NamePlaceholder: "Natural odd miss"
+    hit4ValuePlaceholder: "Deal [[8]] miss damage"
     hit5: Special Roll (5)
+    hit5NamePlaceholder: "Natural odd miss"
+    hit5ValuePlaceholder: "Deal [[8]] miss damage"
     hitEven: Even Hit
     hitEvenTitle: Effects that happen on even hits
     hitOdd: Odd Hit
     hitOddTitle: Effects that happen on odd hits
+    hitSlashMiss: Hit / Miss
     HP: HP
     iconic: Zenith Feat
     ItemReset: uses restored to
@@ -584,13 +786,16 @@ ARCHMAGE:
     missEvenPlaceholder: Effects that happen on even misses
     missOdd: Odd Miss
     missOddPlaceholder: Effects that happen on odd misses
+    modifiers: Modifiers
     MomentReset: lost
     natural: natural
+    NaturalRoll: 'Natural {naturalRolls}'
     NoResources: Not enough resources
     NoUses: No uses left
     NoUsesMsg: No uses left, do you want to use this anyway?
     numbersOnly: Numbers only, such as '16'
     odd: odd
+    ongoingDamageTooltip: '{damage} ongoing {type} damage'
     ongoingDamage: '{target} takes [[{damage}]] ongoing {type}damage due to {source}'
     ongoingSelfEnded: The following Effects <strong>have ended on this</strong> Actor
     ongoingOtherEnded: The following Effects <strong>have ended on another</strong> Actor
@@ -598,6 +803,7 @@ ARCHMAGE:
     ongoingSelfTriggered: The following Effects <strong>triggered on this</strong> Actor
     hasUnknown: The following Effects with an <strong>unknown duration</strong> are currently active on this Actor
     powerLevel: Level
+    powerLevelTitle: Adjusting the power level will affect which level effects get sent to chat.
     powerSource: Power Source
     powerSourceName: Source Name
     powerSourcePlaceholder: Wizard
@@ -624,9 +830,11 @@ ARCHMAGE:
     RechargeSucc: recharged
     resources: Resources
     resourcesPlaceholder: -2 command points
+    resourcesTitle: Enter a positive or negative number and a resource name that matches one of the resources on your character sheet, such as "-2 command points"
     removeEffect: Remove Effect
     Rest: Rest
     Rests: Rests
+    sequencer: Sequencer
     sequencerDesc: Configure a sequencer animation.
     sequencerTarget: Sequencer File (Target)
     sequencerRay: Sequencer File (Ray)
@@ -634,7 +842,10 @@ ARCHMAGE:
     sequencerReverse: Reverse Sequence
     source: Source
     special: Special
+    specialTitle: Special conditions to use the power.
     spellChain: Chain Spell
+    hideSpellFromChat: Hide spell level {level} from chat.
+    spellLevel1: 1st Level
     spellLevel2: 2nd Level
     spellLevel2Placeholder: "[[2d6]] damage"
     spellLevel3: 3rd Level
@@ -728,6 +939,7 @@ ARCHMAGE:
     StatusBlessed: Blessed
     StatusBonusDefenses: Bonus Defenses
     StatusBuffed: Buffed
+    StatusBlind: Blind
     StatusCharmed: Charmed
     StatusConfused: Confused
     StatusCursed: Cursed
@@ -775,6 +987,7 @@ ARCHMAGE:
     errNotInteger: must be an integer number
     errNoInitiativeOutsideCombat: Can't roll initiative without an encounter in the combat tracker.
     errOnlyTextRolltables: Only text Roll Tables are supported for now.
+    infoDesperateTriggeredEmpty: You triggered your desperate recharge for this arc, but there was nothing to recharge.
     warnStatusEffect: Effect data empty, can't apply this effect.
     warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
     warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.
@@ -784,6 +997,7 @@ ARCHMAGE:
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
     classChange: "Class change detected, base stats adjusted: {classes}."
+    parseInlineRolls: Parse Dice Rolls
   MIGRATIONS:
     start: 'Applying 13th Age System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "13th Age System Migration to version {version} completed!"
@@ -799,7 +1013,7 @@ ARCHMAGE:
     '1_25_0': "13th Age 1.25.0: Updating Powers cost field to new resources syntax."
     '1_26_0': "13th Age 1.26.0: Updating Powers feat structure."
     '1_30_0': "13th Age 1.30.0: Updating NPC actors to separate Size and Strength."
-    '1_31_0': "13th Age 1.31.0: Updating PC actors to remove Toughness flag."
+    '1_36_0': "13th Age 1.36.0: Updating PC actors to remove Toughness flag."
   TOOLTIP:
     portrait: Portrait image.<br>Click to edit (may need permissions).
     pcAbility: |
@@ -917,6 +1131,24 @@ ARCHMAGE:
       Saves are used for anything from power recharges to saves against effects to death saves.
       There are three DCs for saves, if a save doesn't specify a DC, it's a <b>Normal</b> save:<br><b>Easy</b> (6+)<br><b>Normal</b> (11+)<br><b>Hard</b> (16+)
       There are no standard modifiers or bonuses to saves, but some talents, feats and items provide save bonuses.
+    macroEditorHint: |
+      <p>Use the field below to write a macro that executes when the power is used. Available variables are:</p>
+      <ul>
+        <li><strong>speaker</strong>: User activating the item.</li>
+        <li><strong>actor</strong>: Actor that owns the item.</li>
+        <li><strong>token</strong>: Active token for the actor that owns the item.</li>
+        <li><strong>archmage</strong>: System-specifc data you can modify to implement custom automation that overrides the system's own.</li>
+      </ul>
+    hideSpellLevelsHint: |
+      Use the checkboxes next to each spell level to hide that level from chat if it's made redundant by a higher level version of the spell.
+    firstLevelHint: |
+      See the <strong>Hit</strong> and <strong>Effect</strong> fields in the <strong>Attack</strong> tab.
+    activeEffectsItemHint: |
+      Active Effects will not be applied directly to this item's parent actor, but they will show up as draggable effects on power cards in chat messages.
+    actionAttackHint: |
+      For ranged attacks, include either "R:" or "C:" in the action's name, above. For targeting, include possible targets in parentheses at the end of the attack line, such as "[[d20+9]] vs AC ([[d3]] nearby enemies)".
+    actionSpecialHint: |
+      Enter special attacks here. Use the top row of each field to specify the conditions (such as "Natural 16+") and the bottom row of each field to specify the effect (such as "[[20]] damage and 7 ongoing damage").
 # Tours
   TOURS:
     '170':
@@ -994,5 +1226,5 @@ TYPES:
     equipment: Magic Item
     nastierSpecial: Nastier Special
     power: Power
-    tool: Tool
+    tool: Tool (Deprecated)
     trait: Trait

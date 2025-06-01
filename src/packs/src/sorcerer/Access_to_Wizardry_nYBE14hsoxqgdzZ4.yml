@@ -1,6 +1,4 @@
 name: Access to Wizardry
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Access to Wizardry
+    label: Power Usage
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,18 +44,18 @@ system:
     type: String
     label: Power Source
     value: Sorcerer
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Access to Wizardry
   powerType:
     type: String
     label: Power Type
     value: feature
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: ''
   powerLevel:
     type: Number
     label: Level
-    value: '1'
+    value: 1
   actionType:
     type: String
     label: Action
@@ -40,15 +63,15 @@ system:
   range:
     type: String
     label: Range
-    value: null
+    value: ''
   trigger:
     type: String
     label: Trigger
-    value: null
+    value: ''
   target:
     type: String
     label: Target
-    value: null
+    value: ''
   always:
     type: String
     label: Always
@@ -56,11 +79,11 @@ system:
   attack:
     type: String
     label: Attack
-    value: null
+    value: ''
   hit:
     type: String
     label: Hit
-    value: null
+    value: ''
   hitEven:
     type: String
     label: Natural Even Hit
@@ -76,15 +99,15 @@ system:
   miss:
     type: String
     label: Miss
-    value: null
+    value: ''
   missEven:
     type: String
     label: Even Miss
-    value: null
+    value: ''
   missOdd:
     type: String
     label: Odd Miss
-    value: null
+    value: ''
   resources:
     type: String
     label: Resources
@@ -92,19 +115,19 @@ system:
   castBroadEffect:
     type: String
     label: Cast for Broad Effect
-    value: null
+    value: ''
   castPower:
     type: String
     label: Cast for Power
-    value: null
+    value: ''
   sustainedEffect:
     type: String
     label: Opening and Sustained Effect
-    value: null
+    value: ''
   finalVerse:
     type: String
     label: Final Verse
-    value: null
+    value: ''
   special:
     type: String
     label: Special
@@ -116,46 +139,80 @@ system:
       <p>Starting at 3rd level, you can take a wizard spell in place of a
       sorcerer spell. The wizard spell must be two levels lower than the
       sorcerer spell.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
-    value: null
+    value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
-    value: null
+    value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: null
+    value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: null
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
-    value: null
+    value: ''
   breathWeapon:
     type: String
     label: Breath Weapon
-    value: null
-  recharge:
+    value: ''
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
+    label: Sustain On
     value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats: null
 flags: {}
 img: icons/sundries/books/book-symbol-spiral-silver-blue.webp
 _id: nYBE14hsoxqgdzZ4
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!nYBE14hsoxqgdzZ4'
 

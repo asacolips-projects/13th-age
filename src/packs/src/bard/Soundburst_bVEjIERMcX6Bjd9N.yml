@@ -1,6 +1,4 @@
 name: Soundburst
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Soundburst
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Bard
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Soundburst
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -56,12 +79,12 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+    value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
   hit:
     type: String
     label: Hit
     value: >-
-      [[5d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the target is *dazed*
+      [[5d6 + @cha.dmg + @atk.a.bonus]] thunder damage, and the target is *dazed*
       until end of your next turn.
   hitEven:
     type: String
@@ -117,22 +140,56 @@ system:
     type: String
     label: Effect
     value: ''
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
-    value: '[[6d8+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[6d8 + @cha.dmg + @atk.a.bonus]] damage'
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
-    value: '[[8d10+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[8d10 + @cha.dmg + @atk.a.bonus]] damage'
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
-    value: '[[2d6*10+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[2d6 * 10 + @cha.dmg + @atk.a.bonus]] damage'
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
-    value: '[[3d6*10+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[3d6 * 10 + @cha.dmg + @atk.a.bonus]] damage'
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -141,18 +198,14 @@ system:
     type: String
     label: Breath Weapon
     value: null
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -215,5 +268,9 @@ flags: {}
 img: icons/magic/sonic/explosion-shock-wave-teal.webp
 _id: bVEjIERMcX6Bjd9N
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!bVEjIERMcX6Bjd9N'
 

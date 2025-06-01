@@ -3,6 +3,7 @@ type: npc
 _id: f2wEMxC9C6IxM3Cl
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: spoiler
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: undead
     resistance:
       value: ''
     vulnerability:
       value: holy
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Gruesome Reaver
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Reaping scythe
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. AC (2 attacks)'
+        value: '[[d20 + 15]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -196,8 +285,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: HjcCJYSKaxpzKXdm
     effects: []
@@ -232,11 +319,13 @@ items:
 
           <p>The reaver can also using phasing outside of battle, but only for a
           short time.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6H7bA8j6A4Gc5rZw
     effects: []
@@ -261,11 +350,13 @@ items:
           or construct) enemies or non-mook allies rolls a death save or dies, a
           death shade enters the battle. Death shades act immediately after the
           reaver in initiative order.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8bVK7KJKcIoXI1Td
     effects: []
@@ -288,11 +379,13 @@ items:
         value: >-
           <p>When the escalation die is 6+, all normal saves made during the
           battle become hard saves (16+).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8uIuguCX034cGb8L
     effects: []
@@ -315,11 +408,13 @@ items:
         value: >-
           <p>While engaged with this creature, enemies with 72 hp or fewer are
           *dazed* and do not add the escalation die to their attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MBCSWuE00IXFJV3I
     effects: []
@@ -342,11 +437,13 @@ items:
         value: >-
           <p>Reavers ignore the bonds of gravity while they&rsquo;re
           phasing.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kFdkLgggvrLwtrRr
     effects: []
@@ -370,11 +467,13 @@ items:
           <p>When a creature disengages or moves away from a reaver that&rsquo;s
           phasing, that creature is vulnerable to negative energy until the end
           of its next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BywBqRFmA2MWAiTO
     effects: []
@@ -397,11 +496,13 @@ items:
         value: >-
           <p>Deal [[3d10]] negative energy damage to any creature that targets
           the gruesome reaver with an attack that deals holy damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: HePt62WTWNucfwmJ
     effects: []

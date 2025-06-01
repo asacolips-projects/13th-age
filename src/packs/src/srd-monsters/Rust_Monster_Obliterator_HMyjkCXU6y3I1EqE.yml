@@ -3,6 +3,7 @@ name: Rust Monster Obliterator
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 5
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 6DQ8SbJfWc3Lzm4J
     flags: {}
@@ -134,6 +189,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -141,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC ([[1]] creature wearing light armor or no armor)'
+        value: '[[d20 + 10]] vs. AC ([[1]] creature wearing light armor or no armor)'
       hit:
         type: String
         label: Hit
@@ -179,8 +239,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!HMyjkCXU6y3I1EqE.6DQ8SbJfWc3Lzm4J'
   - _id: PPAkROBsPZM5jOhn
     flags: {}
@@ -199,6 +257,10 @@ items:
           this attack, it gains a different random demon ability until the end
           of the battle (reroll duplicate abilities). (See the demon abilities
           table.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -206,7 +268,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD ([[1]] creature wearing heavy armor)'
+        value: '[[d20 + 10]] vs. PD ([[1]] creature wearing heavy armor)'
       hit:
         type: String
         label: Hit
@@ -244,8 +306,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!HMyjkCXU6y3I1EqE.PPAkROBsPZM5jOhn'
   - _id: CXGlSqn8pAhEtvJm
     flags: {}
@@ -264,6 +324,10 @@ items:
           attacker must roll a save; on a failure, the weapon is destroyed.
           Magic weapons require an easy save (6+) instead. This effect is
           permanent.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -271,8 +335,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!HMyjkCXU6y3I1EqE.CXGlSqn8pAhEtvJm'
   - _id: pflITxvemkzQQLJN
     flags: {}
@@ -290,6 +352,10 @@ items:
           <p>Magic items wielded by creatures with 100 hp or more are not
           affected by the rust monster&rsquo;s ability to destroy items (but the
           target still takes damage).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,8 +363,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!HMyjkCXU6y3I1EqE.pflITxvemkzQQLJN'
   - _id: AdxkUpE0uqhh7JjS
     flags: {}
@@ -320,6 +384,10 @@ items:
           received the support it needs from its owner to survive the rust
           monster&rsquo;s destructive effects, and the item is destroyed at the
           end of the next battle even if its owner saved.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -327,8 +395,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!HMyjkCXU6y3I1EqE.AdxkUpE0uqhh7JjS'
   - _id: BYMyfllMq1KlWFIX
     flags: {}
@@ -347,6 +413,10 @@ items:
           the rust monster rolls a save. On a success, the spell has no effect
           on the rust monster. If the rust monster is staggered, it must roll a
           hard save (16+) instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -354,8 +424,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!HMyjkCXU6y3I1EqE.BYMyfllMq1KlWFIX'
 effects: []
 folder: null
@@ -399,14 +467,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -416,8 +491,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!HMyjkCXU6y3I1EqE'
 

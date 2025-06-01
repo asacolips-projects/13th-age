@@ -1,6 +1,4 @@
 name: Barbarian Rage
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Barbarian Rage
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: 16
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source Name
     value: Barbarian
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Barbarian Rage
   powerType:
     type: String
     label: Power Type
     value: feature
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
   powerLevel:
     type: Number
     label: Level
@@ -113,22 +136,56 @@ system:
     type: String
     label: Effect
     value: "<p>Once per day, use a quick action to start raging. A rage lasts until the end of battle, or about 5 minutes.</p><p>While raging, you roll 2d20 to hit with your barbarian melee and thrown weapon attacks instead of 1d20. Use the higher roll for the attack. If you roll a natural 11+ with both dice and your highest attack roll is a hit, the attack is a critical hit!</p><p><em>Recharge 16+:</em>\_After a battle in which you rage, roll a d20 and add your Constitution modifier. On a 16+, you can use Barbarian Rage again later in the day.</p>"
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -137,18 +194,14 @@ system:
     type: String
     label: Breath Weapon
     value: null
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 16
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -214,5 +267,9 @@ flags: {}
 img: icons/creatures/abilities/mouth-teeth-human.webp
 _id: GZcNLViOy3mRvZgE
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!GZcNLViOy3mRvZgE'
 

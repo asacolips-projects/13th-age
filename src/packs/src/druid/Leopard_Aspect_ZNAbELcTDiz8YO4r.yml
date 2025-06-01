@@ -1,6 +1,4 @@
 name: Leopard Aspect
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Leopard Aspect
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 16
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: Shifter
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Leopard Aspect
   powerType:
     type: String
     label: Power Type
     value: power
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -121,21 +144,55 @@ system:
       initiate effect, and you gain a +2 bonus to AC. You also gain a +5 bonus
       to disengage checks and to saves against being *stuck*, *dazed*, or
       *stunned*.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -145,26 +202,57 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 16
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  feats: null
-  group:
+    label: Sustain On
+    value: ''
+  rollTable:
     type: String
-    label: Group
-    value: Shifter
+    label: Roll Table
+    value: ''
+  feats: null
 flags: {}
 img: icons/creatures/abilities/paw-print-orange.webp
 _id: ZNAbELcTDiz8YO4r
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Leopard Aspect Adept Bonus
+    img: icons/creatures/abilities/paw-print-orange.webp
+    _id: CESUEgJMv5CwuRW5
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+      - key: system.attributes.disengageBonus
+        value: '5'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!ZNAbELcTDiz8YO4r.CESUEgJMv5CwuRW5'
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!ZNAbELcTDiz8YO4r'
 

@@ -74,6 +74,18 @@
       <input type="text" name="compendiumBrowser.trigger" v-model="trigger" placeholder="Even hit"/>
     </div>
 
+    <!-- Location filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.location">{{ localize('ARCHMAGE.location') }}</label>
+      <Multiselect
+        v-model="location"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="locationNames"
+      />
+    </div>
+
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
       <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
@@ -180,6 +192,7 @@ export default {
       powerSourceName: '',
       powerUsage: [],
       trigger: '',
+      location: [],
     }
   },
   methods: {
@@ -266,6 +279,11 @@ export default {
     },
   },
   computed: {
+    locationNames() {
+      // List of locations from the selected entries
+      const locations = new Set(this.packIndex.map(entry => entry.compendiumTitle));
+      return Array.from(locations).sort();
+    },
     nightmode() {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
@@ -313,6 +331,9 @@ export default {
       if (Array.isArray(this.actionType) && this.actionType.length > 0) {
         result = result.filter(entry => this.actionType.includes(entry.system.actionType.value));
       }
+      if (Array.isArray(this.location) && this.location.length > 0) {
+        result = result.filter(entry => this.location.includes(entry.compendiumTitle));
+      }
 
       // Reflow pager.
       if (result.length > this.pager.perPage) {
@@ -353,42 +374,31 @@ export default {
   async created() {
     console.log("Creating compendium browser powers tab...");
     // Handle packs.
-    const packIds = game.modules.get('13th-age-core-2e')?.active ? [
-      '13th-age-core-2e.barbarian-2e',
-      '13th-age-core-2e.bard-2e',
-      '13th-age-core-2e.cleric-2e',
-      '13th-age-core-2e.fighter-2e',
-      '13th-age-core-2e.paladin-2e',
-      '13th-age-core-2e.ranger-2e',
-      '13th-age-core-2e.rogue-2e',
-      '13th-age-core-2e.sorcerer-2e',
-      '13th-age-core-2e.wizard-2e',
-      '13th-age-core-2e.kin-powers-2e',
-      '13th-age-core-2e.universal-feats-2e',
-      'archmage.chaosmage',
-      'archmage.commander',
-      'archmage.druid',
-      'archmage.monk',
-      'archmage.necromancer',
-      'archmage.occultist',
-    ] : [
-      'archmage.barbarian',
-      'archmage.bard',
-      'archmage.cleric',
-      'archmage.fighter',
-      'archmage.paladin',
-      'archmage.ranger',
-      'archmage.animal-companion',
-      'archmage.rogue',
-      'archmage.sorcerer',
-      'archmage.wizard',
-      'archmage.chaosmage',
-      'archmage.commander',
-      'archmage.druid',
-      'archmage.monk',
-      'archmage.necromancer',
-      'archmage.occultist',
-    ];
+    const packIds = game.packs.contents
+      .filter(pack => pack.documentName === 'Item')
+      .map(pack => pack.collection);
+
+    // If the 2e gamma module is active, remove the packs that it replaces.
+    if (game.modules.get('13th-age-core-2e-gamma')?.active) {
+      const gammaReplacedPacks = [
+        'archmage.barbarian',
+        'archmage.bard',
+        'archmage.cleric',
+        'archmage.fighter',
+        'archmage.paladin',
+        'archmage.ranger',
+        'archmage.animal-companion',
+        'archmage.rogue',
+        'archmage.sorcerer',
+        'archmage.wizard',
+      ]
+      for (const packId of gammaReplacedPacks) {
+        const index = packIds.indexOf(packId);
+        if (index > -1) {
+          packIds.splice(index, 1);
+        }
+      }
+    }
 
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
@@ -401,7 +411,7 @@ export default {
       'system.trigger.value',
       'system.feats'
     ]).then(packIndex => {
-      this.packIndex = packIndex;
+      this.packIndex = packIndex.filter(x => x.type === 'power');
       this.loaded = true;
     });
 

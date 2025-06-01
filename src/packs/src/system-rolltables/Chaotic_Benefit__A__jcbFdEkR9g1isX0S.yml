@@ -1,49 +1,51 @@
 name: Chaotic Benefit (A)
-permission:
-  default: 0
 flags: {}
 img: icons/svg/d20-grey.svg
 description: ''
 results:
   - _id: J3b3nfkIx5VVDdlY
     flags: {}
-    type: 0
+    type: text
     text: You gain a +1 bonus to AC until the start of your next turn.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 2
     range:
       - 1
       - 2
     drawn: false
+    documentId: null
     _key: '!tables.results!jcbFdEkR9g1isX0S.J3b3nfkIx5VVDdlY'
   - _id: UXhDiu0OqmmWDyuE
     flags: {}
-    type: 0
+    type: text
     text: Deal [[@lvl]] damage to all nearby staggered enemies.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 2
     range:
       - 3
       - 4
     drawn: false
+    documentId: null
     _key: '!tables.results!jcbFdEkR9g1isX0S.UXhDiu0OqmmWDyuE'
   - _id: keCG3oBCGlYwrE3D
     flags: {}
-    type: 0
+    type: text
     text: Deal [[@lvl]] damage to one nearby enemy.
     img: icons/svg/d20-black.svg
-    resultId: ''
     weight: 2
     range:
       - 5
       - 6
     drawn: false
+    documentId: null
     _key: '!tables.results!jcbFdEkR9g1isX0S.keCG3oBCGlYwrE3D'
 formula: 1d6
 replacement: true
 displayRoll: false
 _id: jcbFdEkR9g1isX0S
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!tables!jcbFdEkR9g1isX0S'
 

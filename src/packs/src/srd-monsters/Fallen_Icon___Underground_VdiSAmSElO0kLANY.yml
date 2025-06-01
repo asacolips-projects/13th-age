@@ -3,6 +3,7 @@ type: npc
 _id: VdiSAmSElO0kLANY
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -98,12 +99,74 @@ system:
       value: spoiler
     size:
       value: triple
+    strength:
+      value: ''
     type:
       value: aberration
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fallen Icon – Underground
   displayName: 0
@@ -117,6 +180,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -147,6 +215,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -156,9 +227,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Hammer of golden sovereignty
     type: action
@@ -170,6 +254,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -177,7 +266,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. AC (up to 3 enemies)'
+        value: '[[d20 + 18]] vs. AC (up to 3 enemies)'
       hit:
         type: String
         label: Hit
@@ -209,8 +298,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 1ZVWgnWWJ2PXKgH7
     effects: []
     folder: null
@@ -229,6 +316,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -236,7 +328,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 18]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -268,8 +360,6 @@ items:
         value: >-
           [[80]] psychic damage and the target is *weakened* until the end of
           its next turn.
-      embeddedMacro:
-        value: ''
     _id: Auc977EQ3fWEB4zC
     effects: []
     folder: null
@@ -288,6 +378,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -295,7 +390,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 18]] vs. MD (one nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -330,8 +425,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: MXcdq2TuV9oRyjSD
     effects: []
     folder: null
@@ -354,11 +447,13 @@ items:
           <p>When first staggered, the Fallen Icon makes a <em>behind the
           mask</em> attack against the enemy that caused the triggering damage
           as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: bl8qGiBmV3I46w4Z
     effects: []
@@ -381,11 +476,13 @@ items:
         value: >-
           <p>The Fallen Icon can deal [[4d6]] damage to itself and teleport
           someplace it can see nearby as a move action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6dbza1bJUCvn8aHp
     effects: []
@@ -412,11 +509,13 @@ items:
           sovereignty attacks (that&rsquo;s right&mdash;eschewing magic items
           makes it easier to defeat the minions of the Fallen Icon, but harder
           to beat the Fallen Icon itself).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: EXtfVvVTyxoBlUzU
     effects: []
@@ -440,11 +539,13 @@ items:
           <p>When the escalation die is even, the Fallen Icon rolls 2d20 instead
           of 1d20 and uses the higher result whenever it attacks or rolls a
           save.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WDPH1oWaNLo0DPTp
     effects: []
@@ -472,11 +573,13 @@ items:
           easier to defeat. (To be clear: if the PCs don&rsquo;t achieve any of
           these campaign victories, the Fallen Icon will be difficult or perhaps
           even impossible to destroy.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dBoeCucSWKuD7WKU
     effects: []
@@ -500,11 +603,13 @@ items:
           <p>An epic-tier dwarf, forgeborn, or human slain by the Fallen Icon
           will arise at the end of the battle as a bronze kingsguard, loyal
           gatherer, or royal bearer&mdash;whichever seems most appropriate.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: FOzph4r3MH76tG2e
     effects: []
@@ -532,11 +637,13 @@ items:
           while the Fallen Icon is still dead, it&rsquo;s the GM&rsquo;s call
           whether the Fallen Icon stays dead or rises after the events of the
           campaign.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BGFEH1fHBD6fMsbE
     effects: []
@@ -561,11 +668,13 @@ items:
           power until the escalation die reaches 4 or higher, and not when
           engaged with the Fallen Icon (so standard humans are simply out of
           luck).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wIUDDPi9WoOYsimn
     effects: []
@@ -592,11 +701,13 @@ items:
           closest nearby royal bearer, then finally the closest bronze
           kingsguard. If these have all been destroyed, the Fallen Icon is
           reduced to zero hit points&mdash;but see long live the icon below.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: k68C4oYL7yneLDrd
     effects: []
@@ -624,11 +735,13 @@ items:
           confused targets violently fighting over the mask. When no targets are
           confused, the mask crumbles into dust. (If one PC slays the others
           while confused, they&rsquo;re probably going to put on the mask.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0tYNKjJTBCGHcf2Y
     effects: []

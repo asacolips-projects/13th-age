@@ -3,6 +3,7 @@ name: Wibble
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 1
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: XoS5ZFwCAUdM1ntZ
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -166,8 +225,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!KmDGXmA1yaxPLe9k.XoS5ZFwCAUdM1ntZ'
   - _id: RVgXZCXYLXps4H6r
     flags: {}
@@ -185,6 +242,10 @@ items:
           Wibbles gain a +5 bonus to disengage checks. They also don’t remain
           engaged with their foes and will move every turn in battle. When they
           fail a disengage check, a wibble moves away anyway.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -192,8 +253,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!KmDGXmA1yaxPLe9k.RVgXZCXYLXps4H6r'
   - _id: s14wlPxD0l7nceQZ
     flags: {}
@@ -210,6 +269,10 @@ items:
         value: >-
           When an enemy hits a wibble with a melee attack, it takes force damage
           equal to its level.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -217,8 +280,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!KmDGXmA1yaxPLe9k.s14wlPxD0l7nceQZ'
   - _id: U0OfxKqghukeJx6e
     flags: {}
@@ -235,6 +296,10 @@ items:
         value: >-
           Wibbles waft about. They can fly well enough to ignore most wind, but
           not strong gale winds.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,8 +307,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!KmDGXmA1yaxPLe9k.U0OfxKqghukeJx6e'
   - _id: AGjnVfckPN3pOhzn
     flags: {}
@@ -263,6 +326,10 @@ items:
           new wibbles typically melt back into their “parent” at the end of a
           battle if not destroyed, but sometimes they remain separate and drift
           off on their own.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -270,8 +337,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!KmDGXmA1yaxPLe9k.AGjnVfckPN3pOhzn'
 effects: []
 folder: null
@@ -316,6 +381,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/construct.webp
     scaleX: 1
@@ -323,6 +391,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -332,8 +405,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!KmDGXmA1yaxPLe9k'
 

@@ -2,7 +2,7 @@ name: Chaotic Benefit
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 1
@@ -15,7 +15,7 @@ results:
     _id: oxsAg9eafCaXA6yU
     flags: {}
     _key: '!tables.results!PQbtKGZVFy83A85d.oxsAg9eafCaXA6yU'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 2
@@ -28,7 +28,7 @@ results:
     _id: MxloVN4q71UE1ZeS
     flags: {}
     _key: '!tables.results!PQbtKGZVFy83A85d.MxloVN4q71UE1ZeS'
-  - type: 2
+  - type: pack
     weight: 1
     range:
       - 3
@@ -50,7 +50,5 @@ sort: 0
 ownership:
   default: 0
 _id: PQbtKGZVFy83A85d
-permission:
-  default: 0
 _key: '!tables!PQbtKGZVFy83A85d'
 

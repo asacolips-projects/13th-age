@@ -3,6 +3,7 @@ name: Whispering Prophet
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 5
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: BbvfBgCfyp3QijEL
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hl450KWioG8D2lmK.BbvfBgCfyp3QijEL'
   - _id: FcHKMvlwt6h46cs7
     flags: {}
@@ -183,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -227,8 +288,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hl450KWioG8D2lmK.FcHKMvlwt6h46cs7'
   - _id: d5OwuFLD8aSqpl9n
     flags: {}
@@ -249,6 +308,10 @@ items:
           of natural 15 becomes a roll of natural 16 with a +1 bonus, or a
           natural 17 with a +2 bonus, etc.). The ally can choose not to use the
           bonus.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -256,8 +319,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hl450KWioG8D2lmK.d5OwuFLD8aSqpl9n'
   - _id: CuTRU3FZsjbsBH6P
     flags: {}
@@ -275,6 +336,10 @@ items:
           Twice per battle as a free action, the prophet can try to avoid a
           non-critical attack that hits it. The attacker must reroll the attack
           roll with a -4 penalty.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -282,8 +347,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hl450KWioG8D2lmK.CuTRU3FZsjbsBH6P'
   - _id: vIogDI5f4Eo5spaL
     flags: {}
@@ -301,6 +364,10 @@ items:
           Twice per battle as a move action, the prophet can teleport to
           anywhere it can see, or to a location it can’t see but that has the
           correct geometry and that it has previously prepared (a lair).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -308,8 +375,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hl450KWioG8D2lmK.vIogDI5f4Eo5spaL'
   - _id: lGQdy2K1QudRh8gK
     flags: {}
@@ -328,6 +393,10 @@ items:
           turn, as a quick action it can get a glimpse of the near-future. It
           grants [[1d3]] nearby allies a +4 bonus to attacks and to all defenses
           until the start of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +404,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hl450KWioG8D2lmK.lGQdy2K1QudRh8gK'
   - _id: oST36cb5Yi5ETNCV
     flags: {}
@@ -354,6 +421,10 @@ items:
           When the prophet makes a whispered secrets attack, it can choose to
           target only [[1]] nearby enemy. If it does, it gains a +4 attack bonus
           against that enemy and the hit effects are save ends.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -361,8 +432,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hl450KWioG8D2lmK.oST36cb5Yi5ETNCV'
 effects: []
 folder: null
@@ -407,6 +476,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
     scaleX: 1
@@ -414,6 +486,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -423,8 +500,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!hl450KWioG8D2lmK'
 

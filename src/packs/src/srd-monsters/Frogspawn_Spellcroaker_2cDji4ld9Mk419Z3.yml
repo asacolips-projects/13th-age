@@ -3,6 +3,7 @@ type: npc
 _id: 2cDji4ld9Mk419Z3
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Frogspawn Spellcroaker
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Frogspear
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC'
+        value: '[[d20 + 9]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 5JlY1FNz9p6W79lH
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. MD (one nearby or faraway enemy)'
+        value: '[[d20 + 9]] vs. MD (one nearby or faraway enemy)'
       hit:
         type: String
         label: Hit
@@ -257,8 +347,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 4KMsOrmj4b7cktrn
     effects: []
     folder: null
@@ -277,6 +365,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -284,7 +377,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. PD (all engaged enemies)'
+        value: '[[d20 + 9]] vs. PD (all engaged enemies)'
       hit:
         type: String
         label: Hit
@@ -315,8 +408,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2GvYTUoyk16GCzx2
     effects: []
@@ -360,11 +451,13 @@ items:
           d20]]&mdash;on a 11+, the remaining spellcroakers maintain the
           croaking chorus for the rest of the round. Otherwise, the chorus
           effect is cancelled for the rest of that round.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iNI7CHwkjN24sMDR
     effects: []
@@ -387,11 +480,13 @@ items:
         value: >-
           <p>This spellcroaker counts as two spellcroakers for the purposes of
           the croaking chorus.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: MaYSWNwxj81CcrP1
     effects: []
@@ -418,11 +513,13 @@ items:
           somehow ran its full course, the target would no doubt shrink down
           into a frog, but PCs are made of strong stuff and should be able to
           evade a fate that might affect common folk.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: tjm3u1fcKLHRCILi
     effects: []
@@ -446,11 +543,13 @@ items:
           <p>You should certainly use one ability per frogspawn, occasionally
           two. For frogspawn mooks, treat the abilities as usable once per
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UUuiwvOzFjrjNceD
     effects: []
@@ -477,11 +576,13 @@ items:
           <p>The frogspawn deals [[@lvl]] poison damage to any character that
           pops free of it or successfully disengages from it. (Teleporting away
           is probably tongue-free unless the GM is hopping mad.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: jeJTmW5ZUFADpQwl
     effects: []
@@ -510,11 +611,13 @@ items:
           of sight. Remove the frogspawn from the table until the start of its
           next turn. At the start of its next turn, place it anywhere nearby its
           previous location, but not engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: u5vvGHL3jgy4AslJ
     effects: []
@@ -542,11 +645,13 @@ items:
           random nearby enemy the frogspawn can see. The frogspawn leaps into
           engagement with that enemy and its crit range with melee attacks
           expands by 3 until the end of the turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: pG8BRH4SkH9NHcDI
     effects: []
@@ -577,11 +682,13 @@ items:
           frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
           to die. (Gamemaster: Don&rsquo;t give this ability to all the
           frogspawn in a battle. Just one or two.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9laL3D7R3xhp3Ndr
     effects: []

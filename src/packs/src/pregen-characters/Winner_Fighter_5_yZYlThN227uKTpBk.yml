@@ -128,6 +128,89 @@ system:
       value: ''
     detectedClasses:
       - fighter
+  resources:
+    perCombat:
+      momentum:
+        enabled: false
+        current: false
+      commandPoints:
+        enabled: false
+        current: 0
+      focus:
+        enabled: false
+        current: false
+      rhythm:
+        enabled: false
+        current: none
+        default: none
+        secondEdition: true
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      ki:
+        enabled: false
+        current: 0
+        max: 0
+      rerolls:
+        enabled: false
+        AC:
+          current: 0
+          max: 0
+        save:
+          current: 0
+          max: 0
   abilities:
     str:
       type: Number
@@ -317,81 +400,6 @@ system:
         type: Boolean
         value: false
       results: []
-  resources:
-    perCombat:
-      momentum:
-        enabled: false
-        current: false
-      commandPoints:
-        enabled: false
-        current: 0
-      focus:
-        enabled: false
-        current: false
-      rhythm:
-        enabled: false
-        current: none
-        default: none
-        secondEdition: true
-    spendable:
-      ki:
-        enabled: false
-        current: 0
-        max: 0
-      custom1:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom2:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom3:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom4:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom5:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom6:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom7:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom8:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom9:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
   incrementals:
     abilityScoreBonus: false
     extraMagicItem: false
@@ -429,6 +437,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -459,6 +472,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -468,9 +484,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Surprising
     type: power
@@ -502,6 +531,10 @@ items:
         type: Number
         label: Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -609,40 +642,54 @@ items:
           <p>Subtract one from the natural result of one of your own d20
           rolls.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -682,10 +729,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/svg/d20.svg
     _id: EZ8KgIFJUjzhEXuQ
@@ -694,13 +737,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878257487
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.EZ8KgIFJUjzhEXuQ'
   - name: Extra Tough
     type: power
@@ -711,6 +747,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -731,6 +768,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -836,40 +877,54 @@ items:
         label: Effect
         value: <p>You start with nine recoveries instead of the usual eight.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -907,10 +962,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/magic/control/buff-strength-muscle-damage-orange.webp
     _id: QIvdDRwHGJpf1i8X
@@ -919,13 +970,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878257487
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.QIvdDRwHGJpf1i8X'
   - name: Melee attack (Fighter)
     type: power
@@ -936,6 +980,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -956,6 +1001,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1003,11 +1052,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+        value: '[[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1061,40 +1110,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1113,10 +1176,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -1130,13 +1189,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878482246
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.zVZmur3CsLe52JgR'
   - name: Ranged Attack (Fighter)
     type: power
@@ -1147,6 +1199,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1167,6 +1220,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1214,11 +1271,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1272,40 +1329,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1324,10 +1395,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/weapons/bows/bow-recurve-black.webp
     _id: AwvyH8uKtECmxMUl
@@ -1336,13 +1403,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878257487
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.AwvyH8uKtECmxMUl'
   - name: Threatening
     type: power
@@ -1353,6 +1413,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1373,6 +1434,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1484,40 +1549,54 @@ items:
           <p>The penalty doesn't apply if you are *stunned*, grabbed, or
           otherwise incapable of making an opportunity attack.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1576,10 +1655,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -1593,13 +1668,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878430343
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.UfPPJrISgdreUsbV'
   - name: Brace for it
     type: power
@@ -1610,6 +1678,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1630,6 +1699,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1737,40 +1810,54 @@ items:
           <p>Until the end of your next turn, the first critical hit you take
           from a melee attack becomes a normal hit instead.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -1827,10 +1914,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/skills/melee/shield-block-gray-yellow.webp
     _id: Kik9iwsHF4NAaLt1
@@ -1839,13 +1922,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878572349
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.Kik9iwsHF4NAaLt1'
   - name: Grim Intent
     type: power
@@ -1856,6 +1932,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -1876,6 +1953,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -1981,40 +2062,54 @@ items:
         label: Effect
         value: "<p>The next time you would deal miss damage with a melee attack, add a WEAPON die to that damage. At 5th\_level, instead add 2 total WEAPON dice; at 8th\_level, instead add 3 total WEAPON dice.</p>"
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2033,10 +2128,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/skills/melee/strike-dagger-skull-white.webp
     _id: mdVSD3L8SSpvz2qu
@@ -2045,13 +2136,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878257487
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.mdVSD3L8SSpvz2qu'
   - name: Heavy Blows
     type: power
@@ -2062,6 +2146,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2082,6 +2167,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2189,40 +2278,54 @@ items:
           <p>You gain a bonus to your miss damage with that attack equal to the
           escalation die.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2281,10 +2384,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/skills/melee/strike-hammer-destructive-blue.webp
     _id: ZlsGqhDSyyFDkuNR
@@ -2293,13 +2392,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878257487
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.ZlsGqhDSyyFDkuNR'
   - name: Comeback Strike
     type: power
@@ -2310,6 +2402,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2330,6 +2423,10 @@ items:
         type: Number
         label: Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2437,40 +2534,54 @@ items:
           <p>Once per battle as a free action, make another attack with a –2
           penalty after your first fighter attack during your turn misses.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2552,10 +2663,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
       sequencer:
         self: ''
         ray: ''
@@ -2569,13 +2676,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878535533
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.e0lWiZrnwWMIPl40'
   - name: Counter-Attack
     type: power
@@ -2586,6 +2686,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2606,6 +2707,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2716,40 +2821,54 @@ items:
           attack can't use any limited abilities or flexible attack
           maneuvers.)</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -2830,10 +2949,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/skills/melee/maneuver-daggers-paired-orange.webp
     _id: 21EjK3AlcA4yeAlk
@@ -2842,13 +2957,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878257487
-      modifiedTime: 1708878257487
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.21EjK3AlcA4yeAlk'
   - name: Cleave
     type: power
@@ -2859,6 +2967,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -2879,6 +2988,10 @@ items:
         type: Number
         label: Uses
         value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -2986,40 +3099,54 @@ items:
           <p>Once per battle, make a fighter melee attack as a free action after
           one of your melee attacks drops an enemy to 0 hp.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3100,10 +3227,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/skills/melee/strike-slashes-orange.webp
     _id: 63c0LJV27DfQkyct
@@ -3112,13 +3235,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878302375
-      modifiedTime: 1708878308189
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.63c0LJV27DfQkyct'
   - name: Two-Weapon Pressure
     type: power
@@ -3129,6 +3245,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -3149,6 +3266,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -3256,40 +3377,54 @@ items:
           <p>Until the end of your next turn, you gain a +2 melee attack bonus
           against the target.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3327,10 +3462,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/weapons/swords/swords-short.webp
     _id: AhMcphDa0hLoGNBQ
@@ -3339,13 +3470,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878508510
-      modifiedTime: 1708878641523
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.AhMcphDa0hLoGNBQ'
   - name: Carve an Opening
     type: power
@@ -3356,6 +3480,7 @@ items:
       description:
         type: String
         label: Description
+        value: ''
       powerUsage:
         type: String
         label: Power Usage
@@ -3376,6 +3501,17 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: >-
+          // For the code executed in this macro, see
+
+          //
+          https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+          game.archmage.ArchmageMacros.fighterCarveAnOpening(speaker, actor,
+          token, character, archmage);
       group:
         type: String
         label: Group
@@ -3484,40 +3620,54 @@ items:
           battle until you score a melee critical hit. When you score a melee
           critical hit, your crit range drops back to normal.</p>
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: null
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: null
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: null
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: null
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3557,17 +3707,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: >-
-          // For the code executed in this macro, see
-
-          //
-          https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
-
-          game.archmage.ArchmageMacros.fighterCarveAnOpening(speaker, actor,
-          token, character, archmage);
     flags: {}
     img: icons/skills/melee/strike-sword-stabbed-brown.webp
     _id: 2ryKIV2CuwxuxIsL
@@ -3576,13 +3715,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878597884
-      modifiedTime: 1708878597884
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.2ryKIV2CuwxuxIsL'
   - name: Toughness
     type: power
@@ -3614,6 +3746,10 @@ items:
         type: Number
         label: Uses
         value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -3719,40 +3855,54 @@ items:
         label: Effect
         value: ''
       spellLevel2:
+        hide: true
         type: String
         label: 2nd Level Spell
         value: ''
       spellLevel3:
+        hide: true
         type: String
         label: 3rd Level Spell
         value: ''
       spellLevel4:
+        hide: true
         type: String
         label: 4th Level Spell
         value: ''
       spellLevel5:
+        hide: true
         type: String
         label: 5th Level Spell
         value: ''
       spellLevel6:
+        hide: true
         type: String
         label: 6th Level Spell
         value: ''
       spellLevel7:
+        hide: true
         type: String
         label: 7th Level Spell
         value: ''
       spellLevel8:
+        hide: true
         type: String
         label: 8th Level Spell
         value: ''
       spellLevel9:
+        hide: true
         type: String
         label: 9th Level Spell
         value: ''
       spellLevel10:
+        hide: true
         type: String
         label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
         value: ''
       spellChain:
         type: String
@@ -3794,10 +3944,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
     flags: {}
     img: icons/svg/d20.svg
     _id: S5eeIq9AYhDGutQO
@@ -3806,13 +3952,6 @@ items:
       default: 0
     folder: null
     sort: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708878607060
-      modifiedTime: 1708878613278
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yZYlThN227uKTpBk.S5eeIq9AYhDGutQO'
 effects: []
 folder: null
@@ -3846,13 +3985,6 @@ flags:
     hideSettingsTab: false
     diceFormulaMode: ''
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.27.0
-  coreVersion: '11.315'
-  createdTime: 1708878182623
-  modifiedTime: 1708887364610
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _id: yZYlThN227uKTpBk
 sort: 0
 _key: '!actors!yZYlThN227uKTpBk'

@@ -3,6 +3,7 @@ type: npc
 _id: oJCYPxJ7fLOb8jvv
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Frog Knight
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Knobbly club
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: RYYKVKtCaNvqixbU
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -254,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: XR5QrhlcK6YS8wQh
     effects: []
     folder: null
@@ -280,11 +368,13 @@ items:
           knight may immediately leap to its ally&rsquo;s side and give that
           ally a +2 bonus to AC for the rest of the round as an interrupt
           action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: UM9AgK6Qv7RvuXIw
     effects: []
@@ -307,11 +397,13 @@ items:
         value: >-
           <p>Once per battle, when struck by an attack that targets AC, take
           half damage from that attack instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PZg1rqkkv1LGb46X
     effects: []
@@ -334,11 +426,13 @@ items:
         value: >-
           <p>On a natural 16+, a hit from a frog knight&rsquo;s club inflicts
           [[5]] ongoing poison damage (save ends).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: recX0fNxIEVu7LYT
     effects: []
@@ -362,11 +456,13 @@ items:
           <p>You should certainly use one ability per frogspawn, occasionally
           two. For frogspawn mooks, treat the abilities as usable once per
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: RsZ8POQLIQA5xiDl
     effects: []
@@ -393,11 +489,13 @@ items:
           <p>The frogspawn deals [[@lvl]] poison damage to any character that
           pops free of it or successfully disengages from it. (Teleporting away
           is probably tongue-free unless the GM is hopping mad.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: jR645tLbGPKtvg4L
     effects: []
@@ -426,11 +524,13 @@ items:
           of sight. Remove the frogspawn from the table until the start of its
           next turn. At the start of its next turn, place it anywhere nearby its
           previous location, but not engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: BShu8fmj5gVjvZHe
     effects: []
@@ -458,11 +558,13 @@ items:
           random nearby enemy the frogspawn can see. The frogspawn leaps into
           engagement with that enemy and its crit range with melee attacks
           expands by 3 until the end of the turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3BRqcNIdhe9GmvU8
     effects: []
@@ -493,11 +595,13 @@ items:
           frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
           to die. (Gamemaster: Don&rsquo;t give this ability to all the
           frogspawn in a battle. Just one or two.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: WfYlXFWYdTTt32gz
     effects: []

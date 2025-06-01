@@ -13,6 +13,7 @@ system:
       Mental Defense.</p>
 
       <p>Quirk: Stretches and meditates whenever inactive.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
@@ -59,6 +60,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -67,17 +88,9 @@ effects: []
 folder: xyEGAhEbvQAYa3A6
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647599384
-  modifiedTime: 1714647599384
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: m8110GWgnH0copb6
 sort: 0
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!m8110GWgnH0copb6'
 

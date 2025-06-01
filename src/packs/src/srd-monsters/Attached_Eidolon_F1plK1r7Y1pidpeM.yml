@@ -3,6 +3,7 @@ type: npc
 _id: F1plK1r7Y1pidpeM
 img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Attached Eidolon
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Sharp claws, sharper teeth
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: mXKXjRHxBzFJ9UUJ
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 8]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -254,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: oJbiC4ZTtAcTslmX
     effects: []
     folder: null
@@ -279,11 +367,13 @@ items:
           beast or humanoid creature. It generally changes shape to blend in,
           choosing to look like a pet or attractive humanoid companion of the
           one who summoned them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: ODpYwpfklbRwylZI
     effects: []
@@ -306,11 +396,13 @@ items:
         value: >-
           <p>Attached eidolons can fly, but not well. If their current shape
           doesn&rsquo;t have wings, it can grow some as a move action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0aTHjeHm8ge7ZVB1
     effects: []
@@ -335,11 +427,13 @@ items:
           enemy engaged with it that has 30 hp or fewer (they are dazed and
           unable to use the escalation die until the end of their next turn) as
           a fear effect.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3SlurmyghLQpvHUC
     effects: []
@@ -370,11 +464,13 @@ items:
 
           <p><em>Wide smile</em>: The ally gains a +1 attack bonus until the end
           of the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0BvmOnQcPLHzGVna
     effects: []
@@ -403,11 +499,13 @@ items:
           interact with and if a mortal proves too troublesome the eidolon will
           move on. In general eidolons need defeating on three separate
           occasions to convince them to stay away forever.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 9nmVOmG8xEzSTqxJ
     effects: []
@@ -440,11 +538,13 @@ items:
           which reality their character is now in. At the start of each round,
           the eidolon can choose which version(s) of reality its allies are
           in.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Ve6GZ5SPMnAfmkVE
     effects: []
@@ -472,11 +572,13 @@ items:
           initiative order as determined by the eidolon. Alternately, the
           eidolon warps the momentum of the battle and the escalation die value
           is determined at the start of the round with a [[/r d6]] roll.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8NwcRqPF5gFCnroF
     effects: []
@@ -504,11 +606,13 @@ items:
           the start of the round. Alternately, if you are using minis and some
           sort of map tiles you can rearrange the tiles with the minis still on
           them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qek5GIBG0JGLJ2yj
     effects: []

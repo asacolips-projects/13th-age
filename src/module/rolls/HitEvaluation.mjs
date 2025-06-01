@@ -2,7 +2,7 @@ import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 
 export default class HitEvaluation {
 
-    static processRowText(row_text, targets, $row_self, attacker, addEdToCritRange) {
+    static processRowText(row_text, targets, $row_self, attacker, critMod) {
         // If the user currently has Targets selected, try and figure out if we hit or missed said target
 
         let targetsHit = [];
@@ -14,7 +14,7 @@ export default class HitEvaluation {
         let hasMissed = undefined;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
-        let critRangeMin = 20 - attacker.system.attributes.critMod.atk.value;
+        let critRangeMin = 20 - attacker?.system?.attributes.critMod.atk.value - critMod;
 
         let $rolls = $row_self.find('.inline-result');
         if ($rolls.length == 0) {
@@ -32,13 +32,27 @@ export default class HitEvaluation {
             roll_data.terms.forEach(p => {if (p.faces === 20) isD20 = true;});
             if (!isD20) return;
 
+            // Add natural-roll tooltips
+            const origTooltip = $roll_self.attr('data-tooltip');
+            const naturalRolls = roll_data.terms.filter(p => p.faces === 20)
+              .flatMap(term => term.results.map(die => die.active ? die.result : `<s>${die.result}</s>`))
+              .join(', ');
+            const tooltipValue = game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls});
+            $roll_self.attr('data-tooltip', origTooltip + '<br>' + tooltipValue)
+
+            // Add and/or replace the natural-roll span
+            if ($roll_self.next().attr("class") === "natural-rolls") $roll_self.next().remove();
+            $roll_self.after(`<span class="natural-rolls" data-tooltip="${tooltipValue}">
+              <i class="fas fa-n"></i>
+              ${naturalRolls}
+            </span>`);
+
             // Crit/fumble check
             let rollResult = 0;
             let hasCrit = false;
             let hasFumbled = false;
             let target = (roll_index < targetsToProcess) ? targets[roll_index]: undefined;
             let critRangeMinTarget = critRangeMin - HitEvaluation._getTargetCritDefenseValue(target);
-            if (addEdToCritRange) critRangeMinTarget -= attacker.system.attributes.escalation.value;
             for (let i = 0; i < roll_data.terms.length; i++) {
               var part = roll_data.terms[i];
               if (part.results) {
@@ -56,7 +70,7 @@ export default class HitEvaluation {
                       hasFumbled = true;
                     }
                     // Barbarian crit.
-                    else if (attacker?.system.details.detectedClasses?.includes("barbarian")
+                    else if (attacker?.system?.details.detectedClasses?.includes("barbarian")
                       && !game.settings.get("archmage", "secondEdition")
                       && roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
                       && part.results[1].result > 10) {
@@ -64,7 +78,7 @@ export default class HitEvaluation {
                       hasCrit = true;
                     }
                     // Natural 2, if dual-wielding.
-                    else if (attacker && attacker.type === 'character'
+                    else if (attacker && attacker?.type === 'character'
                       && attacker.system.attributes.weapon.melee.dualwield
                       && r.result === 2 && !r.discarded && !r.rerolled) {
                       $roll_self.addClass('dc-reroll');
@@ -111,17 +125,17 @@ export default class HitEvaluation {
             defenses: defenses,
             $rolls: $rolls
         };
-        
+
     }
 
     // Get either the Token overridden value or the base sheet value
     static _getTargetDefenseValue(target, defense) {
-        return target.actor.system.attributes[defense]?.value;
+        return target.actor?.system.attributes[defense]?.value;
     }
 
     static _getTargetCritDefenseValue(target) {
       if (!target) return 0;
-      return target.actor.system.attributes.critMod.def.value;
+      return target.actor?.system.attributes.critMod.def.value;
     }
 
     static _getTargetDefense(row_text) {

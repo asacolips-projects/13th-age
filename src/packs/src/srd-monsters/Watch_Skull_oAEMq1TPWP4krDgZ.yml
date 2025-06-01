@@ -3,6 +3,7 @@ name: Watch Skull
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 1
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: 2RPKH13e6EWfJWnK
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -173,8 +232,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!oAEMq1TPWP4krDgZ.2RPKH13e6EWfJWnK'
   - _id: jFrwBjDymb1rvjxw
     flags: {}
@@ -189,6 +246,10 @@ items:
         type: ''
         label: Description
         value: The skull can’t hop, jump, roll, or fly. It can’t even move its jaw.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -196,8 +257,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!oAEMq1TPWP4krDgZ.jFrwBjDymb1rvjxw'
   - _id: FEjwe6GmHTxBnJgJ
     flags: {}
@@ -212,6 +271,10 @@ items:
         type: ''
         label: Description
         value: This creature can’t make opportunity attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -219,8 +282,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!oAEMq1TPWP4krDgZ.FEjwe6GmHTxBnJgJ'
   - _id: rX6DOAsELVI71jqU
     flags: {}
@@ -237,6 +298,10 @@ items:
         value: >-
           Creatures that have been mystically “keyed” to the skull aren’t
           affected by its screech attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -244,8 +309,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!oAEMq1TPWP4krDgZ.rX6DOAsELVI71jqU'
   - _id: GXYNslJocOK5AWqJ
     flags: {}
@@ -265,6 +328,10 @@ items:
           abilities offer no protection from the skull and its screech attack.
           (If the PCs come up with a plausible tactic to bypass the skull, give
           the skull a normal save to detect them.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -272,8 +339,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!oAEMq1TPWP4krDgZ.GXYNslJocOK5AWqJ'
   - _id: dqwlI77cCea23Oyf
     flags: {}
@@ -293,6 +358,10 @@ items:
           interrupts the move. The skull can use this ability twice per round.
           Shadow walking, teleporting, and other non-standard modes of movement
           will trigger the screech attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -300,8 +369,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!oAEMq1TPWP4krDgZ.dqwlI77cCea23Oyf'
 effects: []
 folder: null
@@ -346,6 +413,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/undead.webp
     scaleX: 1
@@ -353,6 +423,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -362,8 +437,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!oAEMq1TPWP4krDgZ'
 

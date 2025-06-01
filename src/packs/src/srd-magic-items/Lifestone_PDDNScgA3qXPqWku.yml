@@ -15,6 +15,7 @@ system:
 
       <p>Quirk: Chides others for taking risks when they have lesser magical
       protection.</p>
+  publicationSource: 1e
   powerUsage:
     type: String
     label: Power Usage
@@ -61,6 +62,26 @@ system:
       threshold: 10
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -69,17 +90,9 @@ effects: []
 folder: IBGzYvealgID1OwQ
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714648162007
-  modifiedTime: 1714648165074
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: PDDNScgA3qXPqWku
 sort: 200000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!PDDNScgA3qXPqWku'
 

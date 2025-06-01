@@ -3,6 +3,7 @@ type: npc
 _id: 3MNGAtjTfqVsjPT4
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: troop
     size:
       value: elite
+    strength:
+      value: ''
     type:
       value: elemental
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Great Xorn
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Claw claw claw
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC (3 attacks)'
+        value: '[[d20 + 13]] vs. AC (3 attacks)'
       hit:
         type: String
         label: Hit
@@ -195,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: U0Ca4ZsuyuBzsBad
     effects: []
     folder: null
@@ -215,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+15]] vs. AC'
+        value: '[[d20 + 15]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -252,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Tz9bHxrC73kc3IyQ
     effects: []
     folder: null
@@ -275,11 +365,13 @@ items:
         value: >-
           <p>When the xorn moves out of the floor or wall or ceiling into
           engagement with an enemy, deal [[6d6]] damage to that enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 3q2OHGKuTumoRVzj
     effects: []
@@ -302,11 +394,13 @@ items:
         value: >-
           <p>Twice per battle as a quick action (once per round), the xorn can
           heal [[20]] hit points.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: kxIKYitJoFY2s30b
     effects: []
@@ -327,11 +421,13 @@ items:
         type: String
         label: Description
         value: <p>The xorn&rsquo;s attacks deal half damage on a miss.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: eeT4mZT34b6amqyJ
     effects: []
@@ -354,11 +450,13 @@ items:
         value: >-
           <p>Once per battle when the xorn attacks immediately after swimming
           out from rock, it can deal double damage on a hit.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8g8zMPhAI4bvWvNR
     effects: []
@@ -383,11 +481,13 @@ items:
           only deals half damage. In addition, a natural 1 means that the spell
           is reflected back at the caster (the enemy rerolls the attack against
           itself).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: TWv9gQkrC4Q8ujmO
     effects: []
@@ -410,11 +510,13 @@ items:
         value: >-
           <p>As a move action the xorn can swim through the ground, or through a
           wall.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: brE5KwOFN1xnzAJD
     effects: []
@@ -437,11 +539,13 @@ items:
         value: >-
           <p>The xorn can&rsquo;t be surprised, and rogues can&rsquo;t use their
           Sneak Attack class feature on them.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: AcErrai3rCH4VWIG
     effects: []
@@ -464,11 +568,13 @@ items:
         value: >-
           <p>The xorn can see through all types of rock and soil for some
           distance, let&rsquo;s say &ldquo;nearby&rdquo;.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: R69y4t8kBoGW9XbT
     effects: []
@@ -493,11 +599,13 @@ items:
           rock&mdash;when a cold or fire attack targets a xorn, the attacker
           must roll a natural 16+ on the attack roll or it only deals half
           damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 6yScYv375aiAevtz
     effects: []

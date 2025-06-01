@@ -3,6 +3,7 @@ name: Smoke Devil
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: Resist fire 13+
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Smoke Devil
   displayName: 0
@@ -105,7 +166,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -137,6 +202,8 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
   sight:
     enabled: false
     range: 0
@@ -152,6 +219,18 @@ prototypeToken:
   randomImg: false
   appendNumber: false
   prependAdjective: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Dire Embrace
     type: action
@@ -163,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -170,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs PD'
+        value: '[[d20 + 10]] vs PD'
       hit:
         type: String
         label: Hit
@@ -202,8 +286,6 @@ items:
         type: String
         label: Miss
         value: '[[7]] poison damage'
-      embeddedMacro:
-        value: ''
     _id: eL6jc8y5n1TT5cNr
     effects: []
     folder: null
@@ -229,6 +311,10 @@ items:
           action during its turn, the devil can make an <em>ember burst</em>
           attack. It also makes this attack as an interrupt action when it drops
           to 0 hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -252,6 +338,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -259,7 +350,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs PD (each enemy engaged with the devil)'
+        value: '[[d20 + 10]] vs PD (each enemy engaged with the devil)'
       hit:
         type: String
         label: Hit
@@ -292,8 +383,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: 9v3a7ttLA17Ux1W3
     effects: []
     folder: null
@@ -317,6 +406,10 @@ items:
           <p>When you choose to add the escalation die to an attack against a
           smoke devil, it gains <em>resist damage 16+</em> against the
           attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -341,6 +434,10 @@ items:
         type: String
         label: Description
         value: <p>Smoke devils drift and eddy as if blown by an evil wind.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -367,6 +464,10 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -394,6 +495,10 @@ items:
           <p>Smoke devils have a preternatural ability to get to their chosen
           victims. Keeping the smoke devil out is a hard, champion-tier
           challenge (DC 25).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -421,6 +526,10 @@ items:
           <p>A smoke devil can &ldquo;take 12&rdquo; on disengage checks, taking
           a natural result of 12 instead of rolling (which normally would allow
           it to disengage automatically from up to two enemies).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group

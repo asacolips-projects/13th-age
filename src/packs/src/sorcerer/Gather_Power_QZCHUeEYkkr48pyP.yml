@@ -1,6 +1,4 @@
 name: Gather Power
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Gather Power
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Sorcerer
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Gather Power
   powerType:
     type: String
     label: Power Type
     value: feature
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -151,22 +174,56 @@ system:
       gathered power.</p><p>If you've gathered power for a spell that deals
       ongoing damage, the ongoing damage is doubled the first time it is dealt,
       but not on subsequent rounds, if any.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: null
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: null
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: null
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: null
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -175,22 +232,14 @@ system:
     type: String
     label: Breath Weapon
     value: null
+  sustainOn:
+    type: Number
+    label: Sustain On
+    value: ''
   rollTable:
     type: String
     label: Roll Table
     value: Chaotic Benefit
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
   feats:
     '0':
       description:
@@ -259,6 +308,115 @@ system:
 flags: {}
 img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
 _id: QZCHUeEYkkr48pyP
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Chaotic Defense Bonus (Adventurer)
+    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+    _id: enEqCVZQMJUc06dX
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!QZCHUeEYkkr48pyP.enEqCVZQMJUc06dX'
+  - origin: null
+    disabled: false
+    name: Chaotic Defense Bonus (Champion)
+    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+    _id: S05dVICrz0ZtGCCI
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+      - key: system.attributes.pd.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!QZCHUeEYkkr48pyP.S05dVICrz0ZtGCCI'
+  - origin: null
+    disabled: false
+    name: Chaotic Defense Bonus (Epic)
+    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+    _id: lB6vPLCwTOCp7co9
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '1'
+        mode: 2
+        priority: null
+      - key: system.attributes.md.value
+        value: '1'
+        mode: 2
+        priority: null
+      - key: system.attributes.pd.value
+        value: '1'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        duration: EndOfNextTurn
+        ongoingDamage: 0
+        ongoingDamageType: ''
+    _key: '!items.effects!QZCHUeEYkkr48pyP.lB6vPLCwTOCp7co9'
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!QZCHUeEYkkr48pyP'
 

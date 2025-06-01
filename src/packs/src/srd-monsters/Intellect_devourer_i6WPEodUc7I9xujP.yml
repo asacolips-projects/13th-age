@@ -3,6 +3,7 @@ name: Intellect devourer
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 3
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: kAhCZTgnoP4ULvsO
     flags: {}
@@ -135,6 +190,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -142,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD ([[1]] nearby enemy)'
+        value: '[[d20 + 8]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: String
         label: Hit
@@ -175,8 +234,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.kAhCZTgnoP4ULvsO'
   - _id: fQRAqXu7qGF34TzV
     flags: {}
@@ -191,6 +248,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -198,7 +259,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD ([[1]] nearby or far away enemy)'
+        value: '[[d20 + 8]] vs. MD ([[1]] nearby or far away enemy)'
       hit:
         type: String
         label: Hit
@@ -234,8 +295,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.fQRAqXu7qGF34TzV'
   - _id: iWtbOaOw9t5KR5bM
     flags: {}
@@ -250,6 +309,10 @@ items:
         type: String
         label: Description
         value: '<p>Limited use: 1/battle</p>'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -257,7 +320,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. MD ([[1]] nearby enemy per point on esc. die)'
+        value: '[[d20 + 10]] vs. MD ([[1]] nearby enemy per point on esc. die)'
       hit:
         type: String
         label: Hit
@@ -295,8 +358,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.iWtbOaOw9t5KR5bM'
   - _id: pdz3GiFnD8eVqquM
     flags: {}
@@ -313,6 +374,10 @@ items:
         value: >-
           <p>The intellect devourer&rsquo;s crit range with attacks against MD
           expands by 2.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -320,8 +385,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.pdz3GiFnD8eVqquM'
   - _id: hGm9hTD08gzzMcvB
     flags: {}
@@ -336,6 +399,10 @@ items:
         type: String
         label: Description
         value: <p>This creature can&rsquo;t make opportunity attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -343,8 +410,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.hGm9hTD08gzzMcvB'
   - _id: yfjIHQaz5i5MMmBG
     flags: {}
@@ -363,6 +428,10 @@ items:
           the first time its host body drops to 0 hit points in a battle and
           gains a bonus equal to that value to all attacks and defenses until
           the end of the battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -370,8 +439,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.yfjIHQaz5i5MMmBG'
   - _id: hbSDoXvx2wfdCIGM
     flags: {}
@@ -390,6 +457,10 @@ items:
           the intellect devourer&rsquo;s&nbsp;recall
           trauma&nbsp;attack.</p><p>Natural 5, 10, 15, 20:&nbsp;The target
           can&rsquo;t cast spells until the end of its next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -397,8 +468,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!i6WPEodUc7I9xujP.hbSDoXvx2wfdCIGM'
 effects: []
 folder: null
@@ -442,14 +511,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -459,8 +535,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!i6WPEodUc7I9xujP'
 

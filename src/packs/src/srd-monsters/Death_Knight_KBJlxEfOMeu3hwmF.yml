@@ -3,6 +3,7 @@ type: npc
 _id: KBJlxEfOMeu3hwmF
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: wrecker
     size:
       value: double
+    strength:
+      value: ''
     type:
       value: undead
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Death Knight
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Soul-piercing spear
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -194,8 +283,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7ZsoJvSTzXpM08NX
     effects: []
@@ -233,6 +320,10 @@ items:
           var(--font-size-14);">ends).</span></p>
 
           <p><em>Quick use</em>: 1/round, as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -240,7 +331,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. MD'
+        value: '[[d20 + 13]] vs. MD'
       hit:
         type: String
         label: Hit
@@ -270,8 +361,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: Fxe6bAnd0Zou1zm2
     effects: []
     folder: null
@@ -290,6 +379,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -297,7 +391,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+13]] vs. AC'
+        value: '[[d20 + 13]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -327,8 +421,6 @@ items:
         type: String
         label: Miss
         value: '[[10]] damage'
-      embeddedMacro:
-        value: ''
     _id: 3asUY4unZLR7n77J
     effects: []
     folder: null
@@ -350,11 +442,13 @@ items:
         value: >-
           <p>Nearby targets who attack the death knight and roll a 1 take [[20]]
           negative energy damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Liqse8Kz9aiEmwMy
     effects: []
@@ -380,11 +474,13 @@ items:
           as a nastier special while ignoring the phantomaton&rsquo;s other
           stats. As a standard action the phantomaton horse can make the
           *trample* on its turn while it is still mid-move.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: fqdt1szBouJbrvTF
     effects: []

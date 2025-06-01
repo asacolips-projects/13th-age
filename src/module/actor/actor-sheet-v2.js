@@ -13,6 +13,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     this.vueApp = null;
     this.vueRoot = null;
     this.vueListenersActive = false;
+    this._renderKey = 0;
     this.vueComponents = {
       'character-sheet': ArchmageCharacterSheet
     };
@@ -22,6 +23,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     const compactMode = game.settings.get('archmage', 'compactMode');
+    const nightMode = game.settings.get("archmage", "nightmode");
     foundry.utils.mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
       width: compactMode ? 826 : 960,
@@ -33,6 +35,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     if (compactMode) {
       options.classes.push('compact-mode');
+    }
+
+    if (nightMode) {
+      options.classes.push('nightmode');
     }
 
     return options;
@@ -59,7 +65,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       isCharacter: this.actor.type === "character",
       isNPC: this.actor.type === "npc",
       config: CONFIG.ARCHMAGE,
-      rollData: this.actor.getRollData(this.actor)
+      rollData: this.actor.getRollData(this.actor),
+      _renderKey: this._renderKey,
     };
 
     // Convert the actor data into a more usable version.
@@ -118,6 +125,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /** @override */
   render(force=false, options={}) {
+    this._renderKey++;
     const context = this.getData();
 
     // Render the vue application after loading. We'll need to destroy this
@@ -215,6 +223,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     super.activateListeners(html);
     ActorHelpersV2._activatePortraitArtContextMenu(this, html)
 
+    // Close the mobile menu if open.
+    html.on('click', (event) => {
+      const button = event?.target?.closest('.sheet-tabs-toggle') ?? event.target;
+      // Exit early if is the mobile menu button itself, that's handled in the component.
+      if (button?.classList?.contains('sheet-tabs-toggle')) return;
+      // Otherwise close the menu.
+      const parent = event?.target?.classList?.contains('archmage-v2-vue')
+        ? event.target
+        : event?.target?.closest('.archmage-v2-vue');
+      const mobileMenu = parent.querySelector('.tabs--mobile.active');
+      if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+      }
+    })
+
     if (!this.options.editable) return;
 
     // CRUD listeners.
@@ -260,6 +283,31 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     html.on('click', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, true));
     html.on('contextmenu', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, false));
     html.on('click', '.feat-pip', (event) => this._updatePips(event));
+  }
+
+  /**
+   * Handle changing a Document's image.
+   * @param {MouseEvent} event  The click event.
+   * @returns {Promise}
+   * @override
+   */
+  _onEditImage(event) {
+    if (!this.isEditable) return false;
+    const attr = event.currentTarget.dataset.edit;
+    const current = foundry.utils.getProperty(this.object, attr);
+    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+    const fp = new FilePicker({
+      current,
+      type: "image",
+      redirectToRoot: img ? [img] : [],
+      callback: path => {
+        event.currentTarget.src = path;
+        if ( this.options.submitOnChange ) return this.document.update({[attr]: path});
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10
+    });
+    return fp.browse();
   }
 
   /**
@@ -327,8 +375,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Handle the power group.
     if (dataset?.groupType && dataset?.powerType) {
       let groupType = dataset.groupType;
-      // @todo update when v11 is dropped.
-      let model = (game?.system?.model || game?.data?.model).Item[itemType];
+      let model = game.data.model.Item[itemType];
       if (model[groupType] && groupType !== 'powerType') {
         dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
         delete dataset.powerType;
@@ -355,7 +402,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       name: game.archmage.ArchmageUtility.formatNewItemName(itemType),
       type: itemType,
       img: img,
-      data: data
+      system: data
     };
     await this.actor.createEmbeddedDocuments('Item', [itemData]);
   }
@@ -430,8 +477,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     switch (dataset.action) {
       case 'create':
         return this.actor.createEmbeddedDocuments('ActiveEffect', [{
-          label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
-          icon: 'icons/svg/aura.svg',
+          name: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
+          img: 'icons/svg/aura.svg',
           origin: this.actor.uuid,
           disabled: false
         }]);
@@ -606,7 +653,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       rollResults = result.terms[0].results;
       rollResults.forEach(rollResult => {
-        if (rollResult.result == 5) {
+        if (CONFIG.ARCHMAGE.is2e) {
+          if ([5, 6].includes(rollResult.result)) {
+            sixes++;
+            actorIconResults.push(6);
+          }
+        }
+        else if (rollResult.result == 5) {
           fives++;
           actorIconResults.push(5);
         }
@@ -626,14 +679,15 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // Basic chat message data
       const chatData = {
         user: game.user.id,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-        roll: roll,
+        roll: roll,  // TODO: fix template to use rolls prop
+        rolls: [roll],
         speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor)
       };
 
       const templateData = {
         actor: this.actor,
         tokenId: token ? `${token.id}` : null,
+        secondEdition: CONFIG.ARCHMAGE.is2e,
         icon: icon,
         fives: fives,
         sixes: sixes,
@@ -722,8 +776,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Basic chat message data
     const chatData = {
       user: game.user.id,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      roll: roll,
+      roll: roll,  // TODO: fix template to use rolls prop
+      rolls: [roll],
       speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
     };
 
@@ -1000,6 +1054,37 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       li.setAttribute('draggable', true);
       li.addEventListener('dragstart', dragHandler, false);
     });
+  }
+
+  /**
+   * Callback actions which occur at the beginning of a drag start workflow.
+   * @param {DragEvent} event       The originating DragEvent
+   * @protected
+   */
+  _onDragStart(event) {
+    const li = event.currentTarget;
+    if ("link" in event.target.dataset) return;
+
+    let dragData = null;
+
+    // Active Effect
+    if (li.dataset.documentClass === 'ActiveEffect') {
+      if (li.dataset.effectId) {
+        const effect = this.actor.effects.get(li.dataset.effectId);
+        dragData = effect.toDragData();
+      }
+    }
+    else if (li.dataset.documentClass === 'Item') {
+      if (li.dataset.itemId) {
+        const item = this.actor.items.get(li.dataset.itemId);
+        dragData = item.toDragData();
+      }
+    }
+
+    if (!dragData) return;
+
+    // Set data transfer
+    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
   }
 
   /** @override */

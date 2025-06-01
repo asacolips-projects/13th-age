@@ -3,6 +3,7 @@ name: Shadow Dragon
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 8
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: true
+        current: 0
 items:
   - _id: 16bu71tqURwAFtXh
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.16bu71tqURwAFtXh'
   - _id: rrr1B5zKqXgOZLU8
     flags: {}
@@ -188,6 +245,10 @@ items:
           staggered. If it hasn’t already made a nightmare breath attack when it
           becomes staggered, the dragon makes the attack as a free action and
           then the breath recharges.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -223,8 +284,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.rrr1B5zKqXgOZLU8'
   - _id: IdApCcUtVbJO8YVC
     flags: {}
@@ -242,6 +301,10 @@ items:
           While a living shadow, the target can’t physically interact with or
           gain aid from companions or aid them (including healing, bonuses, and
           effects) but is otherwise “normal.”
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -249,8 +312,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.IdApCcUtVbJO8YVC'
   - _id: 7tEZ2EiNyDdxHuGy
     flags: {}
@@ -270,6 +331,10 @@ items:
           shadow dragon end up in the dragon’s belly (save ends). While there,
           they are *helpless* and take [[2d12]] damage at the start of each of
           their turns until they save and fall back out of shadow.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -277,8 +342,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.7tEZ2EiNyDdxHuGy'
   - _id: dYhXvbO56WM1pWUY
     flags: {}
@@ -296,6 +359,10 @@ items:
           When in poorly lit areas of shadow, the dragon adds the escalation die
           to its attack rolls. Complete darkness or bright daylight negates the
           ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -303,8 +370,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.dYhXvbO56WM1pWUY'
   - _id: 6XnYidGuu6L2hn69
     flags: {}
@@ -328,6 +393,10 @@ items:
           to avoid holy ground, and shadow thieves can only enter it while
           possessing victims and will flee once the possession ends. It’s up to
           the GM what counts as “holy ground” in their game.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -335,8 +404,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.6XnYidGuu6L2hn69'
   - _id: HS1PJMBFdu1qiclC
     flags: {}
@@ -356,6 +423,10 @@ items:
           detect). Daylight will show the illusion for what it is—an
           insubstantial dragon. Dragons with a Book of Many Faces will have
           perfect humanoid disguises. Dropping the illusion is a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -363,8 +434,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.HS1PJMBFdu1qiclC'
   - _id: y24qJJU5bXiIIclZ
     flags: {}
@@ -383,6 +452,10 @@ items:
           dragon automatically miss. When the escalation die is odd, natural
           even attack rolls against the dragon automatically miss. Attacks that
           deal holy damage ignore this ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -390,8 +463,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!2aX994HRJMOg5RRb.y24qJJU5bXiIIclZ'
 effects: []
 folder: null
@@ -436,6 +507,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
     scaleX: 1
@@ -443,6 +517,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -452,8 +531,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!2aX994HRJMOg5RRb'
 

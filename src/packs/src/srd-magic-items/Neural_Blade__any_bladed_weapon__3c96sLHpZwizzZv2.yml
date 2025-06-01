@@ -19,6 +19,7 @@ system:
 
       <p>Quirk: Large sphincters on arm where the ganglia-tentacles from the
       blade&rsquo;s hilt insert themselves.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage
@@ -65,6 +66,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -73,17 +94,9 @@ effects: []
 folder: uGMLSN6ivBLGtUfv
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647939444
-  modifiedTime: 1714647940826
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: 3c96sLHpZwizzZv2
 sort: 600000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!3c96sLHpZwizzZv2'
 

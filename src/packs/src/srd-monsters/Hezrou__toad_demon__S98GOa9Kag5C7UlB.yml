@@ -3,6 +3,7 @@ name: Hezrou (toad demon)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 system:
+  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 7
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: TDYrIKm9H7Shwzbv
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -166,8 +225,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!S98GOa9Kag5C7UlB.TDYrIKm9H7Shwzbv'
   - _id: wRrjnF4EcHQ8sNeG
     flags: {}
@@ -186,6 +243,10 @@ items:
           The grabbed foe can’t move except to teleport, pop free, or attempt to
           disengage, and disengage attempts take a -5 penalty unless the
           creature hit the hezrou with an attack that turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -193,8 +254,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!S98GOa9Kag5C7UlB.wRrjnF4EcHQ8sNeG'
   - _id: dJRJuZWtKAgkdai6
     flags: {}
@@ -209,6 +268,10 @@ items:
         type: ''
         label: Description
         value: The hezrou gains a +4 attack bonus against any enemy it is grabbing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -216,8 +279,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!S98GOa9Kag5C7UlB.dJRJuZWtKAgkdai6'
   - _id: FdqcQ2uaTvHohXF0
     flags: {}
@@ -235,6 +296,10 @@ items:
           While engaged with this creature, enemies with 84 hp or fewer are
           *dazed* (-4 attack) and do not add the escalation die to their
           attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -242,8 +307,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!S98GOa9Kag5C7UlB.FdqcQ2uaTvHohXF0'
   - _id: 69dzmEdzlbxC1TxX
     flags: {}
@@ -260,6 +323,10 @@ items:
         value: >-
           Lower-level non-mook demons nearby the hezrou deal damage equal to
           their level when they miss with an attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -267,8 +334,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!S98GOa9Kag5C7UlB.69dzmEdzlbxC1TxX'
   - _id: RRqEpQdmOZsflfHj
     flags: {}
@@ -285,6 +350,10 @@ items:
         value: >-
           The hezrou’s allies gain a +4 attack bonus against any creature it is
           grabbing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -292,8 +361,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!S98GOa9Kag5C7UlB.RRqEpQdmOZsflfHj'
 effects: []
 folder: null
@@ -338,6 +405,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
     scaleX: 1
@@ -345,6 +415,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -354,8 +429,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!S98GOa9Kag5C7UlB'
 

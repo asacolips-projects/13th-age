@@ -1,6 +1,4 @@
 name: Invoke the Storm
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Invoke the Storm
+    label: Power Usage
+    value: once-per-battle
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: Warrior Druid
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Invoke the Storm
   powerType:
     type: String
     label: Power Type
     value: flexible
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: once-per-battle
   powerLevel:
     type: Number
     label: Level
@@ -113,23 +136,57 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>Deal [[d3*5]] lightning damage to one nearby enemy other than the
+      <p>Deal [[d3 * 5]] lightning damage to one nearby enemy other than the
       target of the triggering attack.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -139,23 +196,19 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
         type: String
-        value: <p>[[d4*5]] damage instead.</p>
+        value: <p>[[d4 * 5]] damage instead.</p>
       isActive:
         type: Boolean
         value: false
@@ -174,7 +227,7 @@ system:
     '1':
       description:
         type: String
-        value: <p>Roll a [[max((d6),@ed)*5]] instead of a d4.</p>
+        value: <p>Roll a [[max((d6),@ed) * 5]] instead of a d4.</p>
       isActive:
         type: Boolean
         value: false
@@ -193,7 +246,7 @@ system:
     '2':
       description:
         type: String
-        value: <p>[[(@ed+1d6)*5]]damage instead.</p>
+        value: <p>[[(@ed + 1d6) * 5]]damage instead.</p>
       isActive:
         type: Boolean
         value: false
@@ -209,13 +262,13 @@ system:
       maxQuantity:
         type: Number
         value: null
-  group:
-    type: String
-    label: Group
-    value: Warrior Druid
 flags: {}
 img: icons/magic/lightning/bolts-salvo-clouds-sky.webp
 _id: Y23hNV8BMtKDEHhI
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!Y23hNV8BMtKDEHhI'
 

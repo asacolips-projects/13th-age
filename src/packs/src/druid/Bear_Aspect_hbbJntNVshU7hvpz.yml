@@ -1,6 +1,4 @@
 name: Bear Aspect
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Bear Aspect
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 16
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: Shifter
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Druid
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Bear Aspect
   powerType:
     type: String
     label: Power Type
     value: power
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -116,26 +139,60 @@ system:
       <p><strong>Initiate Effect</strong>: Until the end of the battle, while in
       beast form you gain a +[[2]] bonus to attacks and damage against lower
       level enemies and mooks of any level (damage bonus increases to
-      [[2+@str.dmg]] or [[2+@dex.dmg]] at 5th level).</p><p><strong>Adept
+      [[2 + @str.dmg]] or [[2 + @dex.dmg]] at 5th level).</p><p><strong>Adept
       Effect</strong>: As the initiate effect, and when you first shift into
       this aspect, roll your recovery dice as if you were healing, but you
       instead gain that many temporary hit points. You don&rsquo;t spend a
       recovery.</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -145,18 +202,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 16
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -219,13 +272,44 @@ system:
       maxQuantity:
         type: Number
         value: 1
-  group:
-    type: String
-    label: Group
-    value: Shifter
 flags: {}
 img: icons/commodities/claws/claw-bear-brown.webp
 _id: hbbJntNVshU7hvpz
-effects: []
+effects:
+  - origin: null
+    disabled: false
+    name: Bear Aspect Champion Feat Bonus
+    img: icons/commodities/claws/claw-bear-brown.webp
+    _id: CESUEgJMv5CwuRW3
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.value
+        value: '2'
+        mode: 2
+        priority: null
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      archmage:
+        ongoingDamage: 0
+        ongoingDamageType: ''
+        duration: EndOfCombat
+    _key: '!items.effects!hbbJntNVshU7hvpz.CESUEgJMv5CwuRW3'
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!hbbJntNVshU7hvpz'
 

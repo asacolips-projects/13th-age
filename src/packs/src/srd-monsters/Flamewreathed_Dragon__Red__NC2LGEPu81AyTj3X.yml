@@ -3,6 +3,7 @@ name: Flamewreathed Dragon (Red)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 12
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: true
+        current: 0
 items:
   - _id: vapoOzENSucCNRet
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -168,8 +227,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.vapoOzENSucCNRet'
   - _id: 31MYT4yzWwEIdnMm
     flags: {}
@@ -183,6 +240,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -225,8 +286,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.31MYT4yzWwEIdnMm'
   - _id: SNMcHSpvLqfTDqj1
     flags: {}
@@ -241,6 +300,10 @@ items:
         type: ''
         label: Description
         value: 'Limited use: 2/battle, as a quick action (once per round).'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -276,8 +339,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.SNMcHSpvLqfTDqj1'
   - _id: RA96Xl2f5vx0m38P
     flags: {}
@@ -294,6 +355,10 @@ items:
         value: >-
           A flamewreathed dragon can use primal fire breath [[1d4]] + 2 times
           per battle, but never two turns in a row.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -301,8 +366,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.RA96Xl2f5vx0m38P'
   - _id: K91kYAYcUc3Bpmol
     flags: {}
@@ -319,6 +382,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -326,8 +393,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.K91kYAYcUc3Bpmol'
   - _id: 792IKkmLbQD4PTx0
     flags: {}
@@ -345,6 +410,10 @@ items:
           While engaged with this creature, enemies with 120 hp or fewer are
           *dazed* (-4 attacks), do not add the escalation die to their attacks,
           and take [[4d20]] fire damage at the start of their turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -352,8 +421,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.792IKkmLbQD4PTx0'
   - _id: NMqK1B7aTsLp6o4j
     flags: {}
@@ -370,6 +437,10 @@ items:
         value: >-
           The dragon’s will and magic are so powerful that it ignores the fire
           resistance of creatures battling it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,8 +448,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.NMqK1B7aTsLp6o4j'
   - _id: VmW0nbD0eSGTqgsz
     flags: {}
@@ -399,6 +468,10 @@ items:
           minions that take humanoid or bestial form and defend the dragon’s
           lair. Roll initiative for the minions once and use that count for all
           additional minions.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -406,8 +479,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!NC2LGEPu81AyTj3X.VmW0nbD0eSGTqgsz'
 effects: []
 folder: null
@@ -452,6 +523,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
     scaleX: 1
@@ -459,6 +533,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -468,8 +547,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!NC2LGEPu81AyTj3X'
 

@@ -16,6 +16,7 @@ system:
       that ability, but whenever you roll a natural 1 or 2 with any d20 roll,
       the staff flings you into danger (you take [[2d6]] damage and possibly
       provoke opportunity attacks in battle).</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage
@@ -62,6 +63,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -72,17 +93,9 @@ effects: []
 folder: 4kES6iUsw34OPUMb
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714648033163
-  modifiedTime: 1714648080652
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: Y6K5ZsUP3boBtYos
 sort: 2100000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!Y6K5ZsUP3boBtYos'
 

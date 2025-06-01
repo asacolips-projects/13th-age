@@ -3,6 +3,7 @@ type: npc
 _id: 1brMqzNUfHYt4ByV
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Mutant Bullfrog
   displayName: 0
@@ -107,7 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -138,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -147,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Gore
     type: action
@@ -161,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -168,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -198,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: PIXR8TPTPMhCgbsp
     effects: []
     folder: null
@@ -218,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -225,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD (one nearby target)'
+        value: '[[d20 + 10]] vs. PD (one nearby target)'
       hit:
         type: String
         label: Hit
@@ -257,8 +346,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: KTB76Nm7gIkiq4Pg
     effects: []
     folder: null
@@ -277,6 +364,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -284,7 +376,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -317,8 +409,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: pO0bcgucPkUdyIEp
     effects: []
     folder: null
@@ -337,6 +427,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,7 +439,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. PD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 10]] vs. PD ([[1d3]] nearby enemies)'
       hit:
         type: String
         label: Hit
@@ -374,8 +469,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: GKDSwmqBSevZmpW8
     effects: []
     folder: null
@@ -397,11 +490,13 @@ items:
         value: >-
           <p>The bullfrog <em>bellow</em>s as a free action when first staggered
           or when the escalation die becomes even.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: PfIeC57dttazWRHq
     effects: []
@@ -424,11 +519,13 @@ items:
         value: >-
           <p>The bullfrog may add the escalation die to its attack rolls when
           staggered.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: aCmAwTHcI1ubfsc9
     effects: []
@@ -452,11 +549,13 @@ items:
           <p>You should certainly use one ability per frogspawn, occasionally
           two. For frogspawn mooks, treat the abilities as usable once per
           battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: XU8EOeAAeeI8RhYN
     effects: []
@@ -483,11 +582,13 @@ items:
           <p>The frogspawn deals [[@lvl]] poison damage to any character that
           pops free of it or successfully disengages from it. (Teleporting away
           is probably tongue-free unless the GM is hopping mad.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: qjo8DpRtykr8FZKy
     effects: []
@@ -516,11 +617,13 @@ items:
           of sight. Remove the frogspawn from the table until the start of its
           next turn. At the start of its next turn, place it anywhere nearby its
           previous location, but not engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 2eUJeTgqxMXLV2kE
     effects: []
@@ -548,11 +651,13 @@ items:
           random nearby enemy the frogspawn can see. The frogspawn leaps into
           engagement with that enemy and its crit range with melee attacks
           expands by 3 until the end of the turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: fUg0sfgwsvrqZxrE
     effects: []
@@ -583,11 +688,13 @@ items:
           frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
           to die. (Gamemaster: Don&rsquo;t give this ability to all the
           frogspawn in a battle. Just one or two.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: unBwqLVTokhc5lpD
     effects: []

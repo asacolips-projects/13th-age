@@ -1,6 +1,4 @@
 name: Utility Spell
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -9,10 +7,35 @@ system:
   description:
     type: String
     label: Description
-  powerOriginName:
+    value: ''
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Utility Spell
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: null
   powerSource:
     type: String
     label: Power Source
@@ -21,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Wizard
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Utility Spell
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
   powerLevel:
     type: Number
     label: Level
@@ -113,21 +136,55 @@ system:
     type: String
     label: Effect
     value: "<p>When you choose spells during a full heal-up, instead of taking a standard spell, you can choose to give up a spell slot to memorize the\_<em>utility spell</em>\_at the same level. When you take the\_<em>utility spell</em>, you gain access to a range of useful non-combat spells of the level you memorized it or below. You cast each\_<em>utility spell</em>\_at the level of the spell slot you gave up for it. You can give up multiple spell slots to take\_<em>utility spell</em>\_multiple times.</p><p>Choose from among the following utility spells:</p><table border=\"1\" cellpadding=\"7\" cellspacing=\"0\"><thead><tr><th>Spell Level</th><th>Spell</th></tr><tr><td><strong>1st\_level</strong></td><td>disguise self</td></tr><tr><td><strong>1st\_level</strong></td><td>feather fall</td></tr><tr><td><strong>1st\_level</strong></td><td>hold portal</td></tr><tr><td><strong>3rd\_level</strong></td><td>levitate</td></tr><tr><td><strong>3rd\_level</strong></td><td>message</td></tr><tr><td><strong>3rd\_level</strong></td><td>speak with item</td></tr><tr><td><strong>5th\_level</strong></td><td>water breathing</td></tr><tr><td><strong>7th\_level</strong></td><td>scrying</td></tr></thead></table>"
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -137,18 +194,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -188,11 +241,13 @@ system:
       maxQuantity:
         type: Number
         value: null
-  group:
-    value: null
 flags: {}
 img: systems/archmage/assets/icons/items/inventory/briefcase.jpg
 effects: []
 _id: FrYfZZgrO1dQZiQR
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!FrYfZZgrO1dQZiQR'
 

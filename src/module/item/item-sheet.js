@@ -109,6 +109,7 @@ export class ItemArchmageSheet extends ItemSheet {
     // Equipment-specific data
     else if (this.item.type === 'equipment') {
       context['equipUsages'] = CONFIG.ARCHMAGE.equipUsages;
+      context['tiers'] = CONFIG.ARCHMAGE.featTiers;
     }
 
     if (this.actor) {
@@ -353,8 +354,8 @@ export class ItemArchmageSheet extends ItemSheet {
     switch (dataset.action) {
       case 'create':
         return this.document.createEmbeddedDocuments('ActiveEffect', [{
-          label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
-          icon: this.document.img || 'icons/svg/aura.svg',
+          name: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
+          img: this.document.img || 'icons/svg/aura.svg',
           origin: this.document.uuid,
           disabled: false
         }]);

@@ -3,6 +3,7 @@ type: npc
 _id: 1NaWP3m3UOnoIzrr
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: cold
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fire Giant Priest-General
   displayName: 0
@@ -107,7 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint: null
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -138,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -147,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Spear of burning iron
     type: action
@@ -161,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -168,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC'
+        value: '[[d20 + 14]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -198,8 +284,6 @@ items:
         type: String
         label: Miss
         value: '[[40]] damage'
-      embeddedMacro:
-        value: ''
     _id: CEm9FcdIKG6TAgfL
     effects: []
     folder: null
@@ -218,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -225,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+14]] vs. AC ([[1d4]] nearby or faraway enemies in a group)'
+        value: '[[d20 + 14]] vs. AC ([[1d4]] nearby or faraway enemies in a group)'
       hit:
         type: String
         label: Hit
@@ -255,8 +344,6 @@ items:
         type: String
         label: Miss
         value: '[[35]] holy damage'
-      embeddedMacro:
-        value: ''
     _id: DOZ2M3pT88Yhyi5L
     effects: []
     folder: null
@@ -279,11 +366,13 @@ items:
           <p>Whenever the fire giant priest-general makes an attack that
           staggers a target or reduces a target to 0 hp or fewer, each non-mook
           fire giant in the battle heals [[25]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8ItN7IInZIDh2MEv
     effects: []
@@ -306,11 +395,13 @@ items:
         value: >-
           <p>When a fire attack targets this creature, the attacker must roll a
           natural 18+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: xyVAhavtvzy8OmNi
     effects: []
@@ -332,15 +423,17 @@ items:
         label: Description
         value: >-
           <p>Enemies engaged with a fire giant at the end of their turn take
-          fire damage equal to the escalation die value times ten ([[@ed*10]])
+          fire damage equal to the escalation die value times ten ([[@ed * 10]])
           if they have not taken fire damage since the end of their last turn.
           Enemies who resist fire damage take half damage from this fire
           giant&rsquo;s fire aura.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 8jdVFHfuiYadyORA
     effects: []
@@ -363,11 +456,13 @@ items:
         value: >-
           <p>Once per battle, the fire giant priest- general can use
           <em>Unyr&rsquo;s divine fist</em> as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: wOfj59246f9huPCX
     effects: []
@@ -391,11 +486,13 @@ items:
           <p>Whenever the fire giant priest-general makes an attack that
           staggers a target or reduces a target to 0 hp or fewer, enemies lose
           their fire resistances until the escalation die next advances.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: f3Wx2aQTS9ljspYx
     effects: []
@@ -419,11 +516,13 @@ items:
           <p>Fire attacks that miss the fire giant do not damage it and have no
           effect, and the fire giant instead heals hp equal to five times the
           attacker&rsquo;s level.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: iFQuGK2wnYSo3ytj
     effects: []

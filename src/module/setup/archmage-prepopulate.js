@@ -35,14 +35,23 @@ export class ArchmagePrepopulate {
    */
   async getCompendiums(classes = [], race = '') {
     let validRaces = Object.values(CONFIG.ARCHMAGE.raceList);
-    let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && !p.metadata.name.includes("2e"));
     let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
     if (game.settings.get('archmage', 'secondEdition')) {
-      let classPacks2e = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && p.metadata.name.includes("2e"));
-      if (classPacks2e.length > 0) classPacks = classPacks2e;
       let racePacks2e = await game.packs.filter(p => p.metadata.name == 'kin-powers-2e');
       if (racePacks2e.length > 0) racePacks = racePacks2e;
     }
+    // Search class packs by class
+    let classPacks = {};
+    for (const cls of classes) {
+      classPacks[cls] = await game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && !p.metadata.name.includes("2e"));
+      if (game.settings.get('archmage', 'secondEdition')) {
+        // Check if we have a 2e version
+        let classPack2e = await game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && p.metadata.name.includes("2e"));
+        if (classPack2e.length > 0) classPacks[cls] = classPack2e;
+      }
+    }
+    // Reduce back to flat array of packs
+    classPacks = Object.values(classPacks).reduce((a,b) => a.concat(b))
     let content = {};
 
     // Load racial powers
@@ -199,55 +208,59 @@ export class ArchmagePrepopulate {
    *   power type. Each power has a simplified data structure compared to its
    *   compendium equivalent.
    */
-  getPowersFromPack(powersArray, actor = null) {
+  async getPowersFromPack(powersArray, actor = null) {
     // Get an array of powers currently on the actor. This is used later to preselect class features.
     let actorPowers = actor?.items ? actor.items.filter(i => i.type == 'power').map(i => i.system.powerOriginName.value) : [];
     // Presort all of the powers by level, type, and name.
-    let preSorted = powersArray.sort((a, b) => {
-      function sortTest(a, b) {
-        if (a < b) {
-          return -1;
+    let preSorted = await Promise.all(
+      powersArray.sort((a, b) => {
+        function sortTest(a, b) {
+          if (a < b) {
+            return -1;
+          }
+          if (a > b) {
+            return 1;
+          }
+          return 0;
         }
-        if (a > b) {
-          return 1;
-        }
-        return 0;
-      }
-      let aSort = [
-        a.system.powerType.value,
-        a.system.powerLevel.value,
-        a.name
-      ];
-      let bSort = [
-        b.system.powerType.value,
-        b.system.powerLevel.value,
-        b.name
-      ];
-      return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
-    })
-    // Return a simplified data object.
-    .map(p => {
-      let chatData = p.getChatData();
-      chatData.feats.forEach(f => {
-        f.isActive = true;
-      });
+        let aSort = [
+          a.system.powerType.value,
+          a.system.powerLevel.value,
+          a.name
+        ];
+        let bSort = [
+          b.system.powerType.value,
+          b.system.powerLevel.value,
+          b.name
+        ];
+        return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
+      })
+      // Return a simplified data object.
+      .map(async p => {
+        let chatData = await p.getChatData();
+        chatData.feats.forEach(f => {
+          f.isActive = true;
+        });
 
-      return {
-        uuid: p._id,
-        title: p.name,
-        usage: p.system.powerUsage.value,
-        usageClass: p.system.powerUsage.value ? this.getPowerClasses(p.system.powerUsage.value)[0] : 'other',
-        powerType: p.system.powerType.value,
-        level: p.system.powerLevel.value,
-        powerData: p,
-        powerCard: chatData,
-        // selected: p.system.powerType.value === 'feature'
-          // && ['class', 'race'].includes(p.system.powerSource.value)
-          // && !actorPowers.includes(p.system.powerOriginName.value)
-        selected: p.system.powerType.value === 'feature' && actorPowers.length == 0
-          && p.system.powerSource.value === 'class'
-      };
-    });
+        return {
+          uuid: p._id,
+          title: p.name,
+          usage: p.system.powerUsage.value,
+          usageClass: p.system.powerUsage.value ? this.getPowerClasses(p.system.powerUsage.value)[0] : 'other',
+          powerType: p.system.powerType.value,
+          level: p.system.powerLevel.value,
+          powerData: p,
+          powerCard: chatData,
+          // selected: p.system.powerType.value === 'feature'
+            // && ['class', 'race'].includes(p.system.powerSource.value)
+            // && !actorPowers.includes(p.system.powerOriginName.value)
+          selected: p.system.powerType.value === 'feature'
+            && !p.name.toLocaleLowerCase().startsWith(game.i18n.localize('ARCHMAGE.classFeat').toLocaleLowerCase())
+            && actorPowers.length == 0
+            && p.system.powerSource.value === 'class'
+        };
+      })
+    );
 
     // Rearrange the powers into groups by type.
     let powersByGroup = [];
@@ -336,7 +349,7 @@ export class ArchmagePrepopulate {
     for (let [classKey, classObject] of Object.entries(classCompendiums)) {
       classKey = this.cleanClassName(classKey);
       let classPowerPage = await this.renderPowerPage({
-        powers: this.getPowersFromPack(classObject.content, actor),
+        powers: await this.getPowersFromPack(classObject.content, actor),
         className: classObject.name,
         classContent: classJournals[classKey],
         machineName: classKey
@@ -355,6 +368,7 @@ export class ArchmagePrepopulate {
     let options = {
       width: 1080,
       height: 1080,
+      resizable: true,
       classes: ['archmage-prepopulate']
     };
     let powers = Object.values(classCompendiums).reduce((accumulator, current) => {

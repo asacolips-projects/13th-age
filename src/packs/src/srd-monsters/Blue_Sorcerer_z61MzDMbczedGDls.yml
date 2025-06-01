@@ -3,6 +3,7 @@ name: Blue Sorcerer
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 3
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: hjI6MwJIHvJExo4h
     flags: {}
@@ -135,6 +190,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -142,7 +201,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. AC'
+        value: '[[d20 + 8]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -175,8 +234,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.hjI6MwJIHvJExo4h'
   - _id: aNbhel42WSI13bxe
     flags: {}
@@ -191,6 +248,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -198,7 +259,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD'
+        value: '[[d20 + 8]] vs. PD'
       hit:
         type: String
         label: Hit
@@ -231,8 +292,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.aNbhel42WSI13bxe'
   - _id: 8Bt4Ccu6y2SfNiv9
     flags: {}
@@ -247,6 +306,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -254,12 +317,12 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. PD ([[1]] nearby enemy)'
+        value: '[[d20 + 8]] vs. PD ([[1]] nearby enemy)'
       hit:
         type: String
         label: Hit
         value: >-
-          [[10]] lightning damage, and at the start of the target's next turn, 
+          [[10]] lightning damage, and at the start of the target's next turn,
           [[1d6]] nearby allies of the target take [[4]] lightning damage.
       hit1:
         type: String
@@ -289,8 +352,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.8Bt4Ccu6y2SfNiv9'
   - _id: 6MCeal3SkvoTXKWU
     flags: {}
@@ -305,6 +366,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -312,7 +377,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+8]] vs. MD ([[1d3]] nearby enemies'
+        value: '[[d20 + 8]] vs. MD ([[1d3]] nearby enemies'
       hit:
         type: String
         label: Hit
@@ -348,8 +413,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.6MCeal3SkvoTXKWU'
   - _id: 7w8MpCU25te0G4Hz
     flags: {}
@@ -370,6 +433,10 @@ items:
           cast a spell, roll a [[1d20]] to see if it uses a minor spell or a
           major spell:&nbsp;1&ndash;10:&nbsp;minor
           spell;&nbsp;11&ndash;20:&nbsp;major spell.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -377,8 +444,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.7w8MpCU25te0G4Hz'
   - _id: uT2YUtd3dyKyjHJt
     flags: {}
@@ -405,6 +470,10 @@ items:
           sorcerer&rsquo;s level (3); OR grant one nearby dragon
           with&nbsp;intermittent breath&nbsp;an additional use of its breath
           weapon this battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -412,8 +481,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.uT2YUtd3dyKyjHJt'
   - _id: PZyc5SGB22V03eif
     flags: {}
@@ -430,6 +497,10 @@ items:
         value: >-
           <p>Add the escalation die to the
           sorcerer&rsquo;s&nbsp;power-monger&nbsp;rolls and attack rolls.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -437,8 +508,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.PZyc5SGB22V03eif'
   - _id: iCOfeC1qEI8lSNZi
     flags: {}
@@ -456,6 +525,10 @@ items:
           <p>Once per battle when an attack misses the sorcerer, the attacker
           takes the miss damage from that attack, if any, and the sorcerer takes
           no damage</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -463,8 +536,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!z61MzDMbczedGDls.iCOfeC1qEI8lSNZi'
 effects: []
 folder: null
@@ -508,14 +579,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -525,8 +603,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!z61MzDMbczedGDls'
 

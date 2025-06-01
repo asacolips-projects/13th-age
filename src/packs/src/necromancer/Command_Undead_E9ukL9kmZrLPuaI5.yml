@@ -1,6 +1,4 @@
 name: Command Undead
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -10,10 +8,34 @@ system:
     type: String
     label: Description
     value: ''
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Command Undead
+    label: Power Usage
+    value: once-per-battle
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -22,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Necromancer
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Command Undead
   powerType:
     type: String
     label: Power Type
     value: spell
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: once-per-battle
   powerLevel:
     type: Number
     label: Level
@@ -57,7 +79,7 @@ system:
   attack:
     type: String
     label: Attack
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
   hit:
     type: String
     label: Hit
@@ -114,22 +136,56 @@ system:
     type: String
     label: Effect
     value: ''
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: Target with 96 hit points or fewer.
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: Target with 120 hit points or fewer.
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: Target with 266hit points or fewer.
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
     value: Target with 460 hit points or fewer.
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
+    value: ''
   spellChain:
     type: String
     label: Chain Spell
@@ -138,18 +194,14 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
@@ -220,5 +272,9 @@ flags: {}
 img: systems/archmage/assets/icons/skills/yellow_19.jpg
 _id: E9ukL9kmZrLPuaI5
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!E9ukL9kmZrLPuaI5'
 

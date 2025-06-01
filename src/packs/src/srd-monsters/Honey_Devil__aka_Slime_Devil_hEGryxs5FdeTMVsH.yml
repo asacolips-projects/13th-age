@@ -3,6 +3,7 @@ name: Honey Devil, aka Slime Devil
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 system:
+  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 4
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: IcZUwnKIrzDv4Az6
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -166,8 +225,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.IcZUwnKIrzDv4Az6'
   - _id: Qxpze4uLwGrncHuH
     flags: {}
@@ -181,6 +238,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -215,8 +276,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.Qxpze4uLwGrncHuH'
   - _id: siaQpmYn7koMMP04
     flags: {}
@@ -231,6 +290,10 @@ items:
         type: ''
         label: Description
         value: The honey devil can make a disengage check this turn as a free action.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -238,8 +301,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.siaQpmYn7koMMP04'
   - _id: TnQYAmuXQw0vfDud
     flags: {}
@@ -256,6 +317,10 @@ items:
         value: >-
           When the honey devil is staggered by an attack, it makes a confusing
           plea attack against the attacker as a free action after the attack.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -263,8 +328,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.TnQYAmuXQw0vfDud'
   - _id: 3NvN6p4QcWPGnOny
     flags: {}
@@ -283,6 +346,10 @@ items:
           worst, it’s ugly, but is that a crime? When an enemy rolls a natural
           odd attack roll against a honey devil, the attack misses and has no
           effect.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -290,8 +357,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.3NvN6p4QcWPGnOny'
   - _id: Pv1A02dAqcGNfiUQ
     flags: {}
@@ -308,6 +373,10 @@ items:
         value: >-
           When a fire attack targets this creature, the attacker must roll a
           natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -315,8 +384,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.Pv1A02dAqcGNfiUQ'
   - _id: Hm7zsVfp13mqM9bV
     flags: {}
@@ -333,6 +400,10 @@ items:
         value: >-
           When building battles using this monster, it only counts as half a
           normal monster.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -340,8 +411,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.Hm7zsVfp13mqM9bV'
   - _id: 1A5WVqfReM6cUQVj
     flags: {}
@@ -367,6 +436,10 @@ items:
           gaining information, which in turn sends them down a dead end or into
           a trap. In a direct confrontation, the devil is likewise hard to pin
           down, see through, or otherwise get the better of.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -374,8 +447,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!hEGryxs5FdeTMVsH.1A5WVqfReM6cUQVj'
 effects: []
 folder: null
@@ -420,6 +491,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/devil.webp
     scaleX: 1
@@ -427,6 +501,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -436,8 +515,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!hEGryxs5FdeTMVsH'
 

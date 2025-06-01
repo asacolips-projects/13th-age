@@ -3,6 +3,7 @@ type: npc
 _id: cdREcpckbGsRlDU7
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -86,12 +87,74 @@ system:
       value: leader
     size:
       value: triple
+    strength:
+      value: ''
     type:
       value: construct
     resistance:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Bonded Prophet
   displayName: 0
@@ -105,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 1
   height: 1
   lockRotation: false
@@ -135,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -144,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Smite the unworthy, bless the worthy
     type: action
@@ -158,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -166,7 +255,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+18]] vs. AC ([[1d4]] engaged enemies or allies the bonded is
+          [[d20 + 18]] vs. AC ([[1d4]] engaged enemies or allies the bonded is
           touching)
       hit:
         type: String
@@ -199,8 +288,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: F13ZdQAIBa9SRJCc
     effects: []
     folder: null
@@ -219,6 +306,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -226,7 +318,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. PD ([[1d3]] nearby or far away enemies or dead allies)'
+        value: '[[d20 + 18]] vs. PD ([[1d3]] nearby or far away enemies or dead allies)'
       hit:
         type: String
         label: Hit
@@ -261,8 +353,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: gUN2MBPhVR6tDoHk
     effects: []
     folder: null
@@ -281,6 +371,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -288,7 +383,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+18]] vs. MD (one nearby or far away enemy)'
+        value: '[[d20 + 18]] vs. MD (one nearby or far away enemy)'
       hit:
         type: String
         label: Hit
@@ -320,8 +415,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: cdf7rzh1SGFymPPW
     effects: []
     folder: null
@@ -345,11 +438,13 @@ items:
           creatures, even returning corpses that are no more than dust and bones
           to full life. GMs beware, this is a very nasty special if the bonded
           prophet happens to be standing in a graveyard at the time.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: sl77CwBke1YDx6cQ
     effects: []
@@ -374,11 +469,13 @@ items:
           has violated some taboo, broken a sacred law, or transgressed into a
           holy place. The attack deals an additional [[20]] force damage, hit or
           miss, even on a 1.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: hin1AY6ksBImXGiE
     effects: []

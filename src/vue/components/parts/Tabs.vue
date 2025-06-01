@@ -1,22 +1,34 @@
 <template>
-  <section class="section section--tabs flexshrink">
+  <section :class="`section section--tabs section--tabs-${group} flexshrink`">
     <!-- <input type="hidden" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="currentTab"/> -->
-    <nav :class="'sheet-tabs tabs tabs--' + group" :data-group="group">
-      <span v-for="(tab, tabKey) in tabs" :key="'tab-' + group + '-' + tabKey">
-        <a @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
+    <button v-if="hamburger" :class="`sheet-tabs-toggle sheet-tabs-toggle--${group}`" @click="toggleMenu">
+      <i class="fas fa-bars"></i><span class="visually-hidden"> Toggle Navigation</span>
+    </button>
+    <nav :class="`sheet-tabs tabs tabs--${group}`" :data-group="group">
+      <template v-if="noSpan">
+        <a v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`" @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" :data-tooltip="tab.hideLabel ? tab.label : undefined" data-tooltip-direction="UP">
           <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
           <span v-if="!tab.hideLabel">{{tab.label}}</span>
         </a>
-      </span>
+      </template>
+      <template v-else>
+        <span v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`" :data-tooltip="tab.hideLabel ? tab.label : undefined" data-tooltip-direction="UP">
+          <a @click="changeTab" @click.right="popOut" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
+            <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
+            <span v-if="!tab.hideLabel">{{tab.label}}</span>
+          </a>
+        </span>
+      </template>
     </nav>
   </section>
 </template>
 
 <script>
 import { concat, getActor } from '@/methods/Helpers';
+import { toRaw } from 'vue';
 export default {
   name: 'Tabs',
-  props: ['context', 'actor', 'group', 'tabs', 'flags'],
+  props: ['context', 'actor', 'group', 'tabs', 'flags', 'hamburger', 'no-span'],
   setup() {
     return { concat }
   },
@@ -48,13 +60,38 @@ export default {
           actor.setFlag('archmage', `sheetDisplay.tabs.${this.group}.value`, this.currentTab);
         });
       }
+      // Close the mobile menu if open. We also need a click listener in the actor sheet class
+      // to close it as well, ideally.
+      const menu = event?.target?.closest('.section--tabs')?.querySelector('.sheet-tabs');
+      if (menu) {
+        menu.classList.remove('active');
+      }
+    },
+    async popOut(event) {
+      const tab = this.tabs[event.currentTarget.dataset.tab];
+      if (tab.componentClass){
+        const actor = await getActor(this.actor);
+        new CONFIG.ARCHMAGE.ActorTabFocusSheet(tab.componentClass, actor).render(true);
+      }
+    },
+    toggleMenu(event) {
+      const target = event.target;
+      const menu = target?.closest('.section--tabs')?.querySelector('.sheet-tabs');
+      if (menu) {
+        menu.classList.toggle('active');
+      }
     },
     getTabClass(tab, index) {
       return `tab-link tab-link--${index}${tab.active ? ' active': ''}`;
     }
   },
   async mounted() {
-    this.currentTab = this.flags.sheetDisplay.tabs[this.group].value ? this.flags.sheetDisplay.tabs[this.group].value : 'details';
+    // Attempt to get the current tab from sheet flags.
+    const flagTab = this.flags?.sheetDisplay?.tabs[this.group]?.value;
+    // Otherwise, attempt to get the current tab from the first active tab.
+    const rawTabs = toRaw(this.tabs);
+    this.currentTab = flagTab ?? (Object.values(rawTabs).find(t => t.active)?.key ?? 'details');
+    // If the tab is hidden, default to details.
     if (this.tabs[this.currentTab].hidden) {
       this.currentTab = 'details';
     }

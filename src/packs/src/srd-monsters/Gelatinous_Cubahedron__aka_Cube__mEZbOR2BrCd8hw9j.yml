@@ -3,6 +3,7 @@ name: Gelatinous Cubahedron (aka Cube)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/ooze.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 6
   details:
@@ -119,6 +114,66 @@ system:
       value: 5
       min: 0
       max: 12
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 items:
   - _id: mMpW9PTw140b28U0
     flags: {}
@@ -132,6 +187,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -170,8 +229,6 @@ items:
     sort: 0
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.mMpW9PTw140b28U0'
   - _id: 26LuO9YRWeq8SV9x
     flags: {}
@@ -185,6 +242,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -221,8 +282,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.26LuO9YRWeq8SV9x'
   - _id: hTZPIcczYF0Cklkl
     flags: {}
@@ -236,6 +295,10 @@ items:
       description:
         type: ''
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
         value: ''
       group:
         type: String
@@ -272,8 +335,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.hTZPIcczYF0Cklkl'
   - _id: pll8Dp7FXXwYpEug
     flags: {}
@@ -294,6 +355,10 @@ items:
           simultaneously. Any engulfed creature that is also staggered must
           begin making last gasp saves or become paralyzed as the cube’s toxins
           overwhelm it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -301,8 +366,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.pll8Dp7FXXwYpEug'
   - _id: J6Y3uba3EX5AtMlH
     flags: {}
@@ -322,6 +385,10 @@ items:
           roll a [[d6]] to see what the cubahedron does. If an option is not
           viable (you roll a 5 but there is no engulfed enemy), reroll until you
           get a valid option.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -329,8 +396,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.J6Y3uba3EX5AtMlH'
   - _id: RwRl4Tb65emfEQjD
     flags: {}
@@ -348,6 +413,10 @@ items:
           1. The cubahedron jiggles in place. Each nearby enemy takes [[5]] acid
           damage. Each creature engulfed by the cube takes a -4 penalty to its
           saves until the end of its next turn.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -355,8 +424,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.RwRl4Tb65emfEQjD'
   - _id: FRkYwEZHZ068wqH5
     flags: {}
@@ -374,6 +441,10 @@ items:
           2. The cubahedron moves as a quick action. If the cube ends its move
           engaged with enemies, each of those enemies must roll a save; on a
           failure, the cubahedron grabs them (but they’re not engulfed).
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -381,8 +452,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.FRkYwEZHZ068wqH5'
   - _id: tK7dc00mmvlFiIF3
     flags: {}
@@ -400,6 +469,10 @@ items:
           3. The cubahedron spits an engulfed creature into the air above it and
           makes a shlup’n’schlorp attack against that creature with a +5 attack
           bonus. Then the creature is engulfed again.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -407,8 +480,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.tK7dc00mmvlFiIF3'
   - _id: yOwx6b0v0DI0fWGR
     flags: {}
@@ -427,6 +498,10 @@ items:
           possibly across the ceiling. The cube falls at the end of its turn.
           Each creature engulfed by the cube takes [[30]] damage, and it makes a
           gel drop attack against enemies below it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -434,8 +509,6 @@ items:
     sort: 800000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.yOwx6b0v0DI0fWGR'
   - _id: XD0jbRIQalT2Zran
     flags: {}
@@ -455,6 +528,10 @@ items:
           time the cube is targeted by an attack, the engulfed creature must
           roll a save; on a failure, it becomes the target of the attack
           instead.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -462,8 +539,6 @@ items:
     sort: 900000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.XD0jbRIQalT2Zran'
   - _id: gnzeKqpLOminazrj
     flags: {}
@@ -480,6 +555,10 @@ items:
         value: >-
           6. The cubahedron spits out each enemy engulfed by it with great force
           in different directions; each of those creatures takes [[50]] damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -487,8 +566,6 @@ items:
     sort: 1000000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!mEZbOR2BrCd8hw9j.gnzeKqpLOminazrj'
 effects: []
 folder: null
@@ -533,6 +610,9 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/ooze.webp
     scaleX: 1
@@ -540,6 +620,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -549,8 +634,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!mEZbOR2BrCd8hw9j'
 

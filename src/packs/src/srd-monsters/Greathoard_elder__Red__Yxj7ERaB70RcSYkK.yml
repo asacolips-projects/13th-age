@@ -3,6 +3,7 @@ name: Greathoard elder (Red)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
 system:
+  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -74,12 +75,6 @@ system:
           - false
           - false
           - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
       base: 8
       automatic: true
     escalation:
@@ -121,6 +116,66 @@ system:
       value: 11
       min: 0
       max: 10
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: true
+        current: 0
 items:
   - _id: SUqrHWPY9kuxRoOQ
     flags: {}
@@ -135,6 +190,10 @@ items:
         type: String
         label: Description
         value: <p>If the dragon is in his lair, it has +1 to AC.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -142,8 +201,6 @@ items:
     sort: 100000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Yxj7ERaB70RcSYkK.SUqrHWPY9kuxRoOQ'
   - _id: WbSReDASagc388Wk
     flags: {}
@@ -158,6 +215,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -165,7 +226,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. AC ([[2]] attacks)'
+        value: '[[d20 + 16]] vs. AC ([[2]] attacks)'
       hit:
         type: String
         label: Hit
@@ -198,8 +259,6 @@ items:
     sort: 200000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Yxj7ERaB70RcSYkK.WbSReDASagc388Wk'
   - _id: 9Q1zxVWws6euoy9l
     flags: {}
@@ -214,6 +273,10 @@ items:
         type: String
         label: Description
         value: <p>Limited use:&nbsp;2/battle, as a quick action (once per round).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -222,7 +285,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+16]] vs. MD (the nearby non-*confused* enemy with de most true
+          [[d20 + 16]] vs. MD (the nearby non-*confused* enemy with de most true
           magic items)
       hit:
         type: String
@@ -256,8 +319,6 @@ items:
     sort: 300000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Yxj7ERaB70RcSYkK.9Q1zxVWws6euoy9l'
   - _id: kUDXgv1rMODx7Rh8
     flags: {}
@@ -272,6 +333,10 @@ items:
         type: String
         label: Description
         value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -279,7 +344,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+16]] vs. PD ([[1d4+1]] nearby enemies, or [[1]] enemy)'
+        value: '[[d20 + 16]] vs. PD ([[1d4 + 1]] nearby enemies, or [[1]] enemy)'
       hit:
         type: String
         label: Hit
@@ -317,8 +382,6 @@ items:
     sort: 400000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Yxj7ERaB70RcSYkK.kUDXgv1rMODx7Rh8'
   - _id: cT3YbyYUxJMolmGy
     flags: {}
@@ -337,6 +400,10 @@ items:
           while it&rsquo;s in its lair, the elder can reroll one of its missed
           attacks each round (cumulative) as its hoard sings a song of carnage
           to it.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -344,8 +411,6 @@ items:
     sort: 500000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Yxj7ERaB70RcSYkK.cT3YbyYUxJMolmGy'
   - _id: zWlKHIumlaKeOJFE
     flags: {}
@@ -362,6 +427,10 @@ items:
         value: >-
           <p>A greathoard elder can use&nbsp;precise breath [[1d4 + 1]] times
           per battle, but never two turns in a row.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -369,8 +438,6 @@ items:
     sort: 600000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Yxj7ERaB70RcSYkK.zWlKHIumlaKeOJFE'
   - _id: GTATp1VE2ihScEqP
     flags: {}
@@ -389,6 +456,10 @@ items:
           hoards. For each PC who has at least one positive or conflicted
           relationship point with one or more of those icons, the greathoard
           elder gains an extra use of&nbsp;treasury master&nbsp;this battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -396,8 +467,6 @@ items:
     sort: 700000
     effects: []
     folder: null
-    permission:
-      default: 0
     _key: '!actors.items!Yxj7ERaB70RcSYkK.GTATp1VE2ihScEqP'
 effects: []
 folder: null
@@ -441,14 +510,21 @@ prototypeToken:
       min: 0
       max: 1
     attenuation: 0.5
+    negative: false
+    priority: 0
+    color: null
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
-    tint: null
+    tint: '#ffffff'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
   sight:
     angle: 360
     enabled: false
@@ -458,8 +534,21 @@ prototypeToken:
     attenuation: 0.1
     saturation: 0
     contrast: 0
+    color: null
   appendNumber: false
   prependAdjective: false
   detectionModes: []
+  hexagonalShape: 0
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 _key: '!actors!Yxj7ERaB70RcSYkK'
 

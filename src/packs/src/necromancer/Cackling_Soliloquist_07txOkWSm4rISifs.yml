@@ -1,6 +1,4 @@
 name: Cackling Soliloquist
-permission:
-  default: 0
 type: power
 system:
   name:
@@ -10,10 +8,34 @@ system:
     type: String
     label: Description
     value: ''
-  powerOriginName:
+  powerUsage:
     type: String
-    label: Power Original Name
-    value: Cackling Soliloquist
+    label: Power Usage
+    value: at-will
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
   powerSource:
     type: String
     label: Power Source
@@ -22,14 +44,14 @@ system:
     type: String
     label: Power Source
     value: Necromancer
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Cackling Soliloquist
   powerType:
     type: String
     label: Power Type
     value: talent
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
   powerLevel:
     type: Number
     label: Level
@@ -122,21 +144,55 @@ system:
       instead of daily, and you can invent a slight improvement to the spell,
       especially if it’s partly story-oriented, that provides an extra benefit
       determined by the GM or by you (with GM approval).</p>
+  spellLevel2:
+    hide: true
+    type: String
+    label: 2nd Level Spell
+    value: ''
   spellLevel3:
+    hide: true
     type: String
     label: 3rd Level Spell
     value: ''
+  spellLevel4:
+    hide: true
+    type: String
+    label: 4th Level Spell
+    value: ''
   spellLevel5:
+    hide: true
     type: String
     label: 5th Level Spell
     value: ''
+  spellLevel6:
+    hide: true
+    type: String
+    label: 6th Level Spell
+    value: ''
   spellLevel7:
+    hide: true
     type: String
     label: 7th Level Spell
     value: ''
+  spellLevel8:
+    hide: true
+    type: String
+    label: 8th Level Spell
+    value: ''
   spellLevel9:
+    hide: true
     type: String
     label: 9th Level Spell
+    value: ''
+  spellLevel10:
+    hide: true
+    type: String
+    label: 10th Level Spell
+    value: ''
+  spellLevel11:
+    hide: true
+    type: String
+    label: 11th Level Spell
     value: ''
   spellChain:
     type: String
@@ -146,25 +202,21 @@ system:
     type: String
     label: Breath Weapon
     value: ''
-  recharge:
+  sustainOn:
     type: Number
-    label: Recharge
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: ''
   feats:
     '0':
       description:
         type: String
         value: >-
           <p>The sound of your own voice invigorates you—you gain
-          [[d6+@lvl+@cha.dmg]] temporary hit points when you use Cackling
+          [[d6 + @lvl + @cha.dmg]] temporary hit points when you use Cackling
           Soliloquist.</p>
       isActive:
         type: Boolean
@@ -232,5 +284,9 @@ flags: {}
 img: systems/archmage/assets/icons/skills/water_03.jpg
 _id: 07txOkWSm4rISifs
 effects: []
+ownership:
+  default: 0
+folder: null
+sort: 0
 _key: '!items!07txOkWSm4rISifs'
 

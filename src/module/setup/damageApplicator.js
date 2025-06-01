@@ -1,6 +1,9 @@
 import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from '../rolls/Targeting.mjs';
 import Triggers from '../Triggers/Triggers.mjs';
+
+const REGEX_EXPANDED_INLINE_ROLL = /.*=\s(\d+)/gm;
+
 export class DamageApplicator {
 
   getRollValue(roll) {
@@ -10,13 +13,18 @@ export class DamageApplicator {
     if (roll instanceof Roll) {
       return roll.total;
     }
-    return Number.parseInt(roll[0].innerText.trim());
+    // Try the regex for expanded rolls.
+    let match = REGEX_EXPANDED_INLINE_ROLL.exec(roll[0].innerText);
+    if (match) return Number.parseInt(match[1]);
+    // Regex failed to match, try grabbing the inner text.
+    match = Number.parseInt(roll[0].innerText.trim());
+    return match || 0;  // Fallback if we failed to parse
   }
 
   getTargets(targetType) {
     const targets = targetType === 'targeted'
       ? [...game.user.targets]
-      : canvas.tokens.controlled;
+      : (canvas?.tokens?.controlled ?? []);
 
     if (!targets || targets?.length < 1) {
       ui.notifications.warn(game.i18n.localize(`ARCHMAGE.UI.${targetType === 'targeted' ? 'noTarget' : 'noToken'}`));
@@ -143,6 +151,7 @@ export class DamageApplicator {
       const actorElement = element.closest('[data-actor-uuid]');
       const messageElement = element.closest('[data-message-id]');
       const actor = actorElement?.dataset?.actorUuid ? await fromUuid(actorElement.dataset.actorUuid) : false;
+      const item = actor && actorElement.dataset?.itemId ? actor.items.get(actorElement.dataset.itemId) : false;
       const message = messageElement?.dataset?.messageId ? game.messages.get(messageElement.dataset.messageId) : false;
       const rowElement = inlineroll.parent('.card-prop');
       const rowText = rowElement?.text() ?? '';
@@ -180,8 +189,18 @@ export class DamageApplicator {
           };
           const $attackRow = $(element.closest('.card-prop'));
           const targets = Targeting.getTargetsFromRowText(rowText, $attackRow, targetOptions.numTargets, targetOptions.cachedTargets);
-          const addEdToCritRange = false;
-          const hitEvaluationResults = HitEvaluation.processRowText(rowText, targets, $attackRow, actor, addEdToCritRange);
+          let addEdToCritRange = false;
+          let addStokeToCritRange = false;
+          if (game.settings.get('archmage', 'secondEdition') && item) {
+            addEdToCritRange = item.system.breathWeapon?.value?.length > 0;
+            if (actor.system.details?.type?.value === 'dragon') {
+              const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
+              if (item.name.toLocaleLowerCase().includes(breathString)) {
+                  addStokeToCritRange = true;
+              }
+          }
+          }
+          const hitEvaluationResults = HitEvaluation.processRowText(rowText, targets, $attackRow, actor, addEdToCritRange, addStokeToCritRange);
 
           if (hitEvaluationResults.defenses.length > 0) {
             // @todo Re-evaluate rolls here.

@@ -18,6 +18,7 @@ system:
       the battle or for five minutes.</p>
 
       <p>Quirk: Strangely pronounced spine.</p>
+  publicationSource: B1
   powerUsage:
     type: String
     label: Power Usage
@@ -64,6 +65,26 @@ system:
       threshold: 0
     disengage:
       bonus: 0
+    rerollAc:
+      bonus: 0
+      current: 0
+    rerollSave:
+      bonus: 0
+      current: 0
+    str:
+      bonus: 0
+    dex:
+      bonus: 0
+    con:
+      bonus: 0
+    int:
+      bonus: 0
+    wis:
+      bonus: 0
+    cha:
+      bonus: 0
+  icons: ''
+  tier: 'adventurer'
   isActive: true
   price:
     value: ''
@@ -72,17 +93,9 @@ effects: []
 folder: uGMLSN6ivBLGtUfv
 flags:
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1714647935996
-  modifiedTime: 1714647940826
-  lastModifiedBy: zQqK0qgL2au7apj0
 _id: 1kveWGIU0E8JtlTz
 sort: 400000
 ownership:
   default: 0
-  zQqK0qgL2au7apj0: 3
 _key: '!items!1kveWGIU0E8JtlTz'
 

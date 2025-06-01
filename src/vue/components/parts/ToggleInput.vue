@@ -32,7 +32,7 @@ export default {
   methods: {
     toggleEdit(event) {
       // Determine if this is an input or not.
-      const isInput = ['INPUT','SELECT'].includes(event.target.tagName);
+      const isInput = ['INPUT','SELECT','OPTION'].includes(event.target.tagName);
 
       // Toggle the state if this isn't an input, otherwise persist it.
       this.active = !isInput ? !this.active : this.active;
@@ -45,6 +45,13 @@ export default {
           setTimeout(() => {
             $el.focus().trigger('select');
           }, 100);
+        }
+      }
+
+      // If we're no longer active, blur the toggle.
+      if (!this.active) {
+        if (event.target.classList.contains('input-edit-toggle')) {
+          event.target.blur();
         }
       }
     },

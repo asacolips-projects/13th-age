@@ -3,6 +3,10 @@ import Targeting from "../rolls/Targeting.mjs";
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
+
+const REGEX_ONGOING_DAMAGE = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
+
+
 export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(uuid, $rows) {
@@ -53,11 +57,10 @@ export default class preCreateChatMessageHandler {
         // If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
         for (const row of $rows) {
-            const regex = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
-            const ongoingEffects = Array.from(row.innerHTML.matchAll(regex));
+            const ongoingEffects = Array.from(row.innerHTML.matchAll(REGEX_ONGOING_DAMAGE));
             if (ongoingEffects.length > 0) {
                 ongoingEffects.forEach((ongoingEffect) => {
-                    let damageValue = ongoingEffect[2];
+                    let damageValue = Number(ongoingEffect[2]);
                     let damageType = ongoingEffect[4];
                     if ( damageType ) damageType += " ";
                     let savesEndsText = ongoingEffect[5];
@@ -72,9 +75,10 @@ export default class preCreateChatMessageHandler {
                     name = name.replace(/^R: /, "");
                     let tooltip = message;
                     if ( savesEndsText ) tooltip += " " + savesEndsText;
+                    const img = damageValue >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
                     let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
                         data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
-                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><i class="fas fa-flask-round-poison"></i> ${message}</a>`;
+                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><img class="effects-icon" src="${img}"/> ${message}</a>`;
                     row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
                 });
             }
@@ -88,6 +92,7 @@ export default class preCreateChatMessageHandler {
         let hitEvaluationResults = undefined;
         let targets = [...game.user.targets.values()]; // needed to checkRowText of npcs
         let numTargets = options.targets ? options.targets : 1;
+        let critMod = options.critMod ? options.critMod : 0;
         let type = options.type ? options.type : 'power';
         let actorDocument = data.speaker?.actor ? game.actors.get(data.speaker.actor) : null;
         let tokenDocument = data.speaker?.token ? canvas.tokens.get(data.speaker.token) : null;
@@ -116,18 +121,12 @@ export default class preCreateChatMessageHandler {
             game.i18n.localize("ARCHMAGE.CHAT.breathWeapon") + ':'
         ];
 
-        let tokens = canvas.tokens.controlled;
+        let tokens = canvas?.tokens?.controlled;
         let actor = tokens ? tokens[0] : null;
         let token = tokens ? tokens[0] : null;
 
         if (options.actor) actor = options.actor;
         if (options.token) token = options.token;
-
-        // In 2e sorcerer breath spells add the E.D. to their crit range
-        let addEdToCritRange = false;
-        if (game.settings.get("archmage", "secondEdition")) {
-          addEdToCritRange = options.item.system.breathWeapon?.value?.length > 0;
-        }
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');  // Updated later
@@ -170,7 +169,13 @@ export default class preCreateChatMessageHandler {
                 if ((type == "power" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.target") + ':')) ||
                     (type == "action" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':'))) {
 
-                    targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
+                    // targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
+                    // In case of manual rolls we may have more rolls than targets - replicate targets until we have enough.
+                    var min_targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
+                    if (targets.length > 0) {
+                      while (min_targets.length < numTargets) min_targets = min_targets.concat(min_targets);
+                    }
+                    targets = min_targets.slice(0, numTargets);
 
                     if (targets.length > 0) {
                         var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
@@ -179,7 +184,7 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
-                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, addEdToCritRange);
+                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, critMod);
                 }
 
                 if (hitEvaluationResults) {

@@ -3,6 +3,7 @@ type: npc
 _id: 0GoJyZ7SkCOPcEr3
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
+  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -94,6 +95,66 @@ system:
       value: ''
     vulnerability:
       value: ''
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
 prototypeToken:
   name: Fomorian Brute
   displayName: 0
@@ -107,6 +168,11 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    tint: '#ffffff'
+    alphaThreshold: 0.75
   width: 2
   height: 2
   lockRotation: false
@@ -137,6 +203,9 @@ prototypeToken:
     darkness:
       min: 0
       max: 1
+    negative: false
+    priority: 0
+    color: null
   sight:
     enabled: false
     range: 0
@@ -146,9 +215,22 @@ prototypeToken:
     brightness: 0
     saturation: 0
     contrast: 0
+    color: null
   detectionModes: []
   flags: {}
   randomImg: false
+  hexagonalShape: 1
+  occludable:
+    radius: 0
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      scale: 1
+      texture: null
 items:
   - name: Crude club
     type: action
@@ -160,6 +242,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -167,7 +254,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+10]] vs. AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -197,8 +284,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: NaluER1PyuqdnVEV
     effects: []
     folder: null
@@ -217,6 +302,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -224,7 +314,7 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC (2 attacks)'
       hit:
         type: String
         label: Hit
@@ -254,8 +344,6 @@ items:
         type: String
         label: Miss
         value: ''
-      embeddedMacro:
-        value: ''
     _id: hQpTXUMWtBoMyHK6
     effects: []
     folder: null
@@ -277,11 +365,13 @@ items:
         value: >-
           <p>If there are at least three other fomorians engaged with the
           target, the fomorian brute can make the *bite* attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 4BldjdImYNNbuc1B
     effects: []
@@ -304,11 +394,13 @@ items:
         value: >-
           <p>The fomorian brute mook counts as two 5th level mooks when you are
           building battles.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: Fr2r9nphZTmKnFrS
     effects: []
@@ -380,11 +472,13 @@ items:
           </tbody>
 
           </table>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: RPSHPuDxI8xAbkrx
     effects: []
@@ -407,11 +501,13 @@ items:
         value: >-
           <p>When the escalation die is odd, the fomorian can make one extra
           melee attack per round as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 7gNbOjGT0ObwY5io
     effects: []
@@ -436,11 +532,13 @@ items:
           huge eye on a shoulder, a slug-like eye stalk, etc. The fomorian
           can&rsquo;t be surprised or ambushed, and it has true sight (spells
           like blur, invisibility, etc. don&rsquo;t work on it).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: eaGDoO0uXwXEMCi4
     effects: []
@@ -463,11 +561,13 @@ items:
         value: >-
           <p>Once per turn as a free action, the fomorian can make the <em>evil
           eye</em> attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: dVpx0j28FHVjSHyS
     effects: []
@@ -488,11 +588,13 @@ items:
         type: String
         label: Description
         value: <p>+1 AC and +2 PD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
-        value: ''
-      embeddedMacro:
         value: ''
     _id: 0yLDKkZjdbi5lirC
     effects: []
@@ -512,6 +614,11 @@ items:
       description:
         type: String
         label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
       group:
         type: String
         label: Group
@@ -520,7 +627,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20+11]] vs. PD (one nearby or faraway enemy, but not one that has
+          [[d20 + 11]] vs. PD (one nearby or faraway enemy, but not one that has
           been targeted by this attack since the start of the last round)
       hit:
         type: String
@@ -557,8 +664,6 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
-      embeddedMacro:
         value: ''
     _id: uzvwbl0AuBWlujZE
     effects: []
