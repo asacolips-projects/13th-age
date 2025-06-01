@@ -523,7 +523,8 @@ ARCHMAGE:
     rollone: "{name} Only"
     rollall: Roll All
     rollDialogHint: "Roll dice for <strong>{name}</strong> only, or for all icons?"
-    noDiceLeft: You have no dice left to roll for this icon.
+    noDiceLeft: You have no icon dice left to roll.
+    chatCardTitle: Icon Relationship Roll
   COINS:
     copper: Copper
     copperHint: 10 Copper = 1 Silver
