@@ -1174,27 +1174,27 @@ FLAGS.characterFlags = {
     section: "Feats",
     type: Boolean
   },
-  "initiativeAdv": {
-    name: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvName",
-    hint: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint",
-    section: "Feats",
-    type: Boolean
-  },
   "strongRecovery": {
     name: "ARCHMAGE.CHARACTERFLAGS.strongRecoveryName",
     hint: "ARCHMAGE.CHARACTERFLAGS.strongRecoveryHint",
     section: "Feats",
     type: Boolean
   },
-  "toughness": {
-    name: "ARCHMAGE.CHARACTERFLAGS.toughnessName",
-    hint: "ARCHMAGE.CHARACTERFLAGS.toughnessHint",
+  "initiativeAdv": {
+    name: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint",
     section: "Feats",
     type: Boolean
   },
   "grimDetermination": {
     name: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationName",
     hint: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationHint",
+    section: "Feats",
+    type: Boolean
+  },
+  "implacable": {
+    name: "ARCHMAGE.CHARACTERFLAGS.implacableName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.implacableHint",
     section: "Feats",
     type: Boolean
   },
@@ -1207,12 +1207,6 @@ FLAGS.characterFlags = {
   "dexToInt": {
     name: "ARCHMAGE.CHARACTERFLAGS.dexToIntName",
     hint: "ARCHMAGE.CHARACTERFLAGS.dexToIntHint",
-    section: "Feats",
-    type: Boolean
-  },
-  "implacable": {
-    name: "ARCHMAGE.CHARACTERFLAGS.implacableName",
-    hint: "ARCHMAGE.CHARACTERFLAGS.implacableHint",
     section: "Feats",
     type: Boolean
   },
