@@ -106,6 +106,16 @@ Hooks.once('init', async function() {
     requiresReload: true
   });
 
+  game.settings.register("archmage", "alternateIconRollingMethod", {
+    name: "ARCHMAGE.SETTINGS.alternateIconRollingMethodName",
+    hint: "ARCHMAGE.SETTINGS.alternateIconRollingMethodHint",
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true,
+    requiresReload: false
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheetV2,
@@ -741,7 +751,7 @@ Hooks.once('ready', () => {
   renderSceneTerrains();
 
   // Apply localization to CONFIG.ARCHMAGE leaf props
-  // TODO: the following are currently localized on each usage, may need to be hunted down 
+  // TODO: the following are currently localized on each usage, may need to be hunted down
   // one by one and moved here
   // ARCHMAGE.statusEffects
   // ARCHMAGE.extendedStatusEffects
@@ -906,7 +916,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
   const groups = [
     {
       label: 'ARCHMAGE.SETTINGS.groups.secondEdition',
-      settings: ['secondEdition'],
+      settings: ['secondEdition', 'alternateIconRollingMethod'],
       highlights: [],
     },
     {
