@@ -116,6 +116,16 @@ Hooks.once('init', async function() {
     requiresReload: false
   });
 
+  game.settings.register("archmage", "resetIconsOnRest", {
+    name: "ARCHMAGE.SETTINGS.resetIconsOnRestName",
+    hint: "ARCHMAGE.SETTINGS.resetIconsOnRestHint",
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true,
+    requiresReload: false
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheetV2,
@@ -923,6 +933,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       label: 'ARCHMAGE.SETTINGS.groups.automation',
       settings: [
         'enableOngoingEffectsMessages',
+        'resetIconsOnRest',
         'automateHPConditions',
         'staggeredOverlay',
         'multiTargetAttackRolls',
