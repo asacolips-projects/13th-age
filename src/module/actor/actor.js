@@ -1539,6 +1539,15 @@ export class ActorArchmage extends Actor {
     // Reset desperate recharge flag
     updateData["system.attributes.saves.desperateTriggered"] = false;
 
+    // Reset icons using JT's style
+    if (game.settings.get("archmage", "alternateIconRollingMethod")) {
+      [1, 2, 3, 4, 5].forEach(i => {
+        if (this.system.icons[`i${i}`].isActive.value) {
+          updateData[`system.icons.i${i}.results`] = Array(this.system.icons[`i${i}`].bonus.value).fill(0)
+        }
+      });
+    }
+
     // Update actor at this point (items are updated separately)
     if ( !foundry.utils.isEmpty(updateData) ) {
       await this.update(updateData);
