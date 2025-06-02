@@ -644,8 +644,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     }
 
     const icon = actorData.icons[iconIndex];
-    // TODO: pop up a dialog that allows the user to roll one icon or all of them at once
-    // Use game.ARCHMAGE.is2e and game.settings.get("archmage", "alternateIconRollingMethod")
     return new Dialog({
       title: game.i18n.localize('ARCHMAGE.ICONROLLS.rolldialogtitle'),
       content: `<p>${game.i18n.format('ARCHMAGE.ICONROLLS.rollDialogHint', { name: icon.name.value })}</p>`,

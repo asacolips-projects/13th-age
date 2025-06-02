@@ -915,7 +915,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
   // Define groups for organization.
   const groups = [
     {
-      label: 'ARCHMAGE.SETTINGS.groups.secondEdition',
+      label: 'ARCHMAGE.SETTINGS.groups.edition',
       settings: ['secondEdition', 'alternateIconRollingMethod'],
       highlights: [],
     },
