@@ -600,6 +600,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * Roll initiative for the actor.
    */
   async _onInitRoll() {
+    let formula = this.actor.getInitiativeFormula();
+    // TODO: show dialog, add bonus to formula
+    formula += " + 12"
+
     let combat = game.combat;
     // Check to see if this actor is already in the combat.
     if (!combat) {
@@ -609,11 +613,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
     // Create the combatant if needed.
     if (!combatant) {
-      await this.actor.rollInitiative({createCombatants: true});
+      await this.actor.rollInitiative({createCombatants: true, initiativeOptions: {formula}});
     }
     // Otherwise, determine if the existing combatant should roll init.
     else if (!combatant.initiative && combatant.initiative !== 0) {
-      await combat.rollInitiative([combatant.id]);
+      await combat.rollInitiative([combatant.id], {formula});
     }
   }
 
