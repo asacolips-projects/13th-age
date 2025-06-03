@@ -221,7 +221,7 @@ export class ActorArchmage extends Actor {
         }
       }
       // Bonuses stack if the name is different or if flagged to
-      else { 
+      else {
         // If it's meant to stack save it and handle it later
         if (change.effect.flags.archmage?.stacksAlways) {
           if (!stackingBonuses[change.key]) stackingBonuses[change.key] = [];
@@ -862,6 +862,17 @@ export class ActorArchmage extends Actor {
     }
 
     return data;
+  }
+
+  getInitiativeFormula() {
+    const init = this.system.attributes.init.mod;
+    // Init mod includes dex + level + misc bonuses.
+    const parts = ["1d20", init];
+    if (this.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
+    if (game.settings.get("archmage", "initiativeStaticNpc") &&  this.type == 'npc') parts[0] = "10";
+    if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
+    else parts.push((this.type === 'npc' ? 0.01 : 0));
+    return parts.filter(p => p !== null).join(" + ");
   }
 
   async rollSave(difficulty, target=11) {
