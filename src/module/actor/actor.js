@@ -221,7 +221,7 @@ export class ActorArchmage extends Actor {
         }
       }
       // Bonuses stack if the name is different or if flagged to
-      else { 
+      else {
         // If it's meant to stack save it and handle it later
         if (change.effect.flags.archmage?.stacksAlways) {
           if (!stackingBonuses[change.key]) stackingBonuses[change.key] = [];
@@ -447,7 +447,6 @@ export class ActorArchmage extends Actor {
     }
 
     // Fix max death saves based on 2e.
-    data.attributes.saves.deathFails.max = game.settings.get('archmage', 'secondEdition') ? 5 : 4;
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
     data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
@@ -1867,11 +1866,14 @@ export class ActorArchmage extends Actor {
 
     // For characters only, set some defaults
     if (this.type == "character") {
-      await this.update({prototypeToken: {
-        actorLink: true,
-        disposition: 1, // friendly
-        sight: {enabled: true}
-      }});
+      await this.update({
+        prototypeToken: {
+          actorLink: true,
+          disposition: 1, // friendly
+          sight: { enabled: true },
+        },
+        "system.attributes.saves.deathFails.max": CONFIG.ARCHMAGE.is2e ? 5 : 4,
+      });
     }
   }
 
