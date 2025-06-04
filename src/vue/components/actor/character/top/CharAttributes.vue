@@ -71,11 +71,7 @@
           <div class="death-saves" :data-tooltip="tooltip('pcDeathSaves')">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('ARCHMAGE.SAVE.death')}}</a>
             <div class="death-save-attempts attempts flexrow">
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[0]" data-opt="1"/>
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[1]" data-opt="2"/>
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[2]" data-opt="3"/>
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[3]" data-opt="4"/>
-              <input v-if="secondEdition" type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[4]" data-opt="5"/>
+              <input type="checkbox" v-for="(step, i) in deathSaves" :key="i" v-model="actor.system.attributes.saves.deathFails.steps[i]" :data-opt="i+1"/>
             </div>
           </div>
           <div class="last-gasp-saves" :data-tooltip="tooltip('pcLastGaspSaves')">
@@ -123,7 +119,18 @@ export default {
   computed: {
     secondEdition() {
       return game.settings.get('archmage', 'secondEdition') === true;
-    }
+    },
+    deathSaves() {
+      const deathFails = this.actor.system.attributes.saves.deathFails;
+      const max = parseInt(deathFails.max) || 4;
+      const ret = Array.from(Array(max)).fill(false);
+      for (let i = 0; i < Math.min(deathFails.steps.length, max); i++) {
+        if (deathFails.steps[i]) {
+          ret[i] = true;
+        }
+      }
+      return ret;
+    },
   },
   methods: {
     getAvatarDimensions() {
