@@ -76,6 +76,8 @@
               <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[2]" data-opt="3"/>
               <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[3]" data-opt="4"/>
               <input v-if="secondEdition" type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[4]" data-opt="5"/>
+              <input v-if="actor.flags.archmage.extraSkulls" class="extra-skull" type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[5]" data-opt="6"/>
+              <input v-if="actor.flags.archmage.extraSkulls" class="extra-skull" type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[6]" data-opt="7"/>
             </div>
           </div>
           <div class="last-gasp-saves" :data-tooltip="tooltip('pcLastGaspSaves')">
