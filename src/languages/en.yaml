@@ -331,6 +331,8 @@ ARCHMAGE:
     diceFormulaModeOptnumeric: Calculated modifiers (experimental)
     diceFormulaModeOptlong: Formula (long)
     diceFormulaModeOptshort: Formula (short)
+    extraSkullsName: Extra Skulls
+    extraSkullsHint: Forgeborn or Undead Remnant sorcerers might have access to more than the usual number of skulls.
     hideCurrencyHint: Hide the currency section in the inventory.
     hideCurrencyName: Hide Currency
     hideEmptyPowerGroupsHint: Hide empty Power groups on the sheet (besides the default one).

@@ -1198,6 +1198,12 @@ FLAGS.characterFlags = {
     section: "Feats",
     type: Boolean
   },
+  "extraSkulls": {
+    name: "ARCHMAGE.CHARACTERFLAGS.extraSkullsName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.extraSkullsHint",
+    section: "Feats",
+    type: Boolean
+  },
   "dexToCha": {
     name: "ARCHMAGE.CHARACTERFLAGS.dexToChaName",
     hint: "ARCHMAGE.CHARACTERFLAGS.dexToChaHint",
