@@ -446,7 +446,10 @@ export class ActorArchmage extends Actor {
       delete data.incrementals.feature;
     }
 
-    // Fix max death saves based on 2e.
+    // If max death saves are not already set, make sure they get the default value.
+    // This is done on character creation, but if a character was created before the new adjustable-death-saves feature,
+    // it will not have the max set.
+    data.attributes.saves.deathFails.max ||= game.settings.get('archmage', 'secondEdition') ? 5 : 4;
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
     data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
