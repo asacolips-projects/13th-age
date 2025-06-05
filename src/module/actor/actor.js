@@ -284,8 +284,10 @@ export class ActorArchmage extends Actor {
         uniquePenalties[change.key].value = (uniquePenalties[change.key].value + change.value).toString();
         uniquePenalties[change.key].numeric += change.numeric;
       }
-      // Finally merge value and numeric
-      if (change.numeric) uniquePenalties[change.key].value += "+" + change.numeric;
+    }
+    // Finally merge value and numeric
+    for (let change of Object.values(uniquePenalties)) {
+      if (change.numeric) uniquePenalties[change.key].value += (change.numeric < 0 ? "" : "+") + change.numeric;
     }
     // Put everything together into an array of changes, once per target value
     uniqueChanges = uniqueChanges.concat(Object.values(uniquePenalties));
