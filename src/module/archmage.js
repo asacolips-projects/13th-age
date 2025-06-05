@@ -614,17 +614,8 @@ Hooks.once('init', async function() {
    * @private
    */
   Combatant.prototype._getInitiativeFormula = function() {
-    const actor = this.actor;
-    if (!actor) return "1d20";
-    const init = actor.system.attributes.init.mod;
-    // Init mod includes dex + level + misc bonuses.
-    const parts = ["1d20", init];
-    if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
-    if (game.settings.get("archmage", "initiativeStaticNpc") &&  actor.type == 'npc') parts[0] = "10";
-    if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
-    else parts.push((actor.type === 'npc' ? 0.01 : 0));
-    return parts.filter(p => p !== null).join(" + ");
-  }
+    return this.actor?.getInitiativeFormula() ?? "1d20";
+  };
 
   ArchmageUtility.fixVuePopoutBug();
 });

@@ -606,14 +606,39 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
       return;
     }
-    let combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
+    const combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
+    if (combatant?.initiative !== null) {
+      return;
+    }
+
+    // Prompt the user for an optional bonus
+    let bonus = 0;
+    try {
+      bonus = await foundry.applications.api.DialogV2.prompt({
+        window: { title: "ARCHMAGE.initAdjustment" },
+        content: `
+          <label for="bonus">${game.i18n.localize("ARCHMAGE.initBonus")}</label>
+          <input name="bonus" type="number" step="1" default="0" placeholder="0" autofocus>`,
+        ok: {
+          label: "COMBAT.InitiativeRoll",
+          callback: (event, button, dialog) => button.form.elements.bonus.valueAsNumber
+        }
+      });
+    } catch(error) {
+      // dialog canceled
+      return;
+    }
+
+    let formula = this.actor.getInitiativeFormula();
+    if (bonus) formula += ` + ${bonus ?? 0}`;
+
     // Create the combatant if needed.
     if (!combatant) {
-      await this.actor.rollInitiative({createCombatants: true});
+      await this.actor.rollInitiative({createCombatants: true, initiativeOptions: { formula }});
     }
     // Otherwise, determine if the existing combatant should roll init.
     else if (!combatant.initiative && combatant.initiative !== 0) {
-      await combat.rollInitiative([combatant.id]);
+      await combat.rollInitiative([combatant.id], { formula });
     }
   }
 
