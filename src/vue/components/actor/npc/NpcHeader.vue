@@ -51,9 +51,13 @@
               <br/>
               {{localize("ARCHMAGE.role")}}
               <Select name="system.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
+              /
+              <Select name="system.details.roleB.value" :actor="actor" :options="getOptions('creatureRoles', true)"/>
               <br/>
               {{localize("ARCHMAGE.type")}}
               <Select name="system.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
+              /
+              <Select name="system.details.typeB.value" :actor="actor" :options="getOptions('creatureTypes', true)"/>
               <br/>
             </template>
           </ToggleInput>
@@ -174,8 +178,12 @@
           });
         }
       },
-      getOptions(key) {
-        return CONFIG.ARCHMAGE[key] ?? [];
+      getOptions(key, includeNone = false) {
+        let options = CONFIG.ARCHMAGE[key] ?? [];
+        if (includeNone) {
+          options = {"":"", ...options};
+        }
+        return options;
       }
     },
     watch: {
