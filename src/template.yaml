@@ -62,6 +62,7 @@ Actor:
             value: 0
             # Max and steps are adjusted in actor.js depending on 2e setting.
             max: 4
+            maxOverride: 0
             steps:
               - false
               - false

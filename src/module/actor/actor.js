@@ -449,7 +449,8 @@ export class ActorArchmage extends Actor {
     }
 
     // Fix max death saves based on 2e.
-    data.attributes.saves.deathFails.max = game.settings.get('archmage', 'secondEdition') ? 5 : 4;
+    data.attributes.saves.deathFails.max = parseInt(data.attributes.saves.deathFails.maxOverride)
+      || (game.settings.get('archmage', 'secondEdition') ? 5 : 4);
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
     data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
