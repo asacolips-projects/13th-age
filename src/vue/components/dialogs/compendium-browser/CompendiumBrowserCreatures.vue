@@ -280,10 +280,16 @@ export default {
 
       // Handle multiselect filters, which use arrays as their values.
       if (Array.isArray(this.type) && this.type.length > 0) {
-        result = result.filter(entry => this.type.includes(entry.system.details.type.value));
+        result = result.filter(entry =>
+          this.type.includes(entry.system.details?.type?.value) ||
+          this.type.includes(entry.system.details?.typeB?.value)
+        );
       }
       if (Array.isArray(this.role) && this.role.length > 0) {
-        result = result.filter(entry => this.role.includes(entry.system.details.role.value));
+        result = result.filter(entry =>
+          this.role.includes(entry.system.details?.role?.value) ||
+          this.role.includes(entry.system.details?.roleB?.value)
+        );
       }
       if (Array.isArray(this.size) && this.size.length > 0) {
         result = result.filter(entry => this.size.includes(entry.system.details.size.value));
