@@ -86,9 +86,9 @@ system:
     role:
       value: leader
     size:
-      value: double
+      value: normal
     strength:
-      value: ''
+      value: double
     type:
       value: humanoid
     resistance:

@@ -86,9 +86,9 @@ system:
     role:
       value: troop
     size:
-      value: triple
+      value: normal
     strength:
-      value: ''
+      value: triple
     type:
       value: spirit
     resistance:
