@@ -114,8 +114,8 @@
                 <span><strong>{{ localize('ARCHMAGE.pd.key') }}:</strong> {{ entry.system.attributes.pd.value }}</span>
                 <span><strong>{{ localize('ARCHMAGE.md.key') }}:</strong> {{ entry.system.attributes.md.value }}</span>
               </div>
-              <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
-              <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
+              <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ creatureType(entry) }}</div>
+              <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ creatureRole(entry) }}</div>
               <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
               <div v-if="entry?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(entry?.system?.publicationSource)">{{ entry?.system?.publicationSource }}</div>
             </div>
@@ -236,7 +236,21 @@ export default {
       let localized = game.i18n.localize(`ARCHMAGE.COMPENDIUMBROWSER.sources.${source}`);
       if (localized.startsWith('ARCHMAGE')) { localized = source }
       return game.i18n.format('ARCHMAGE.COMPENDIUMBROWSER.sources.tooltipTemplate', {source: localized});
-    }
+    },
+    creatureRole(entry) {
+      const {role, roleB} = entry?.system?.details || {};
+      if (roleB?.value) {
+        return `${CONFIG.ARCHMAGE.creatureRoles[role?.value]}/${CONFIG.ARCHMAGE.creatureRoles[roleB.value]}`;
+      }
+      return CONFIG.ARCHMAGE.creatureRoles[role?.value];
+    },
+    creatureType(entry) {
+      const {type, typeB} = entry?.system?.details || {};
+      if (typeB?.value) {
+        return `${CONFIG.ARCHMAGE.creatureTypes[type?.value]}/${CONFIG.ARCHMAGE.creatureTypes[typeB.value]}`;
+      }
+      return CONFIG.ARCHMAGE.creatureTypes[type?.value];
+    },
   },
   computed: {
     nightmode() {
@@ -266,10 +280,16 @@ export default {
 
       // Handle multiselect filters, which use arrays as their values.
       if (Array.isArray(this.type) && this.type.length > 0) {
-        result = result.filter(entry => this.type.includes(entry.system.details.type.value));
+        result = result.filter(entry =>
+          this.type.includes(entry.system.details?.type?.value) ||
+          this.type.includes(entry.system.details?.typeB?.value)
+        );
       }
       if (Array.isArray(this.role) && this.role.length > 0) {
-        result = result.filter(entry => this.role.includes(entry.system.details.role.value));
+        result = result.filter(entry =>
+          this.role.includes(entry.system.details?.role?.value) ||
+          this.role.includes(entry.system.details?.roleB?.value)
+        );
       }
       if (Array.isArray(this.size) && this.size.length > 0) {
         result = result.filter(entry => this.size.includes(entry.system.details.size.value));
@@ -354,8 +374,10 @@ export default {
       'system.attributes.pd.value',
       'system.attributes.md.value',
       'system.details.role.value',
+      'system.details.roleB.value',
       'system.details.size.value',
-      'system.details.type.value'
+      'system.details.type.value',
+      'system.details.typeB.value',
     ]).then(packIndex => {
       // Ensure all entries are "monster" type
       packIndex = packIndex.filter(entry => {
