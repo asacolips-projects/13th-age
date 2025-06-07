@@ -37,6 +37,18 @@
       />
     </div>
 
+    <!-- Strength filter. -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.strength">{{ localize('ARCHMAGE.strength') }}</label>
+      <Multiselect
+        v-model="strength"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="CONFIG.ARCHMAGE.creatureStrengths"
+      />
+    </div>
+
     <!-- Role filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.role">{{ localize('ARCHMAGE.role') }}</label>
@@ -115,8 +127,9 @@
                 <span><strong>{{ localize('ARCHMAGE.md.key') }}:</strong> {{ entry.system.attributes.md.value }}</span>
               </div>
               <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ creatureType(entry) }}</div>
+              <div class="creature-strength" :data-tooltip="localize('ARCHMAGE.strength')">{{ CONFIG.ARCHMAGE.creatureStrengths[entry?.system?.details?.strength?.value] }}</div>
               <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ creatureRole(entry) }}</div>
-              <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
+              <!-- <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div> -->
               <div v-if="entry?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(entry?.system?.publicationSource)">{{ entry?.system?.publicationSource }}</div>
             </div>
           </div>
@@ -181,6 +194,7 @@ export default {
         { value: 'type', label: game.i18n.localize('ARCHMAGE.type') },
         { value: 'role', label: game.i18n.localize('ARCHMAGE.role') },
         { value: 'size', label: game.i18n.localize('ARCHMAGE.size') },
+        { value: 'strength', label: game.i18n.localize('ARCHMAGE.strength') },
       ],
       // Our list of pseudo documents returned from the compendium.
       packIndex: [],
@@ -190,6 +204,7 @@ export default {
       type: [],
       role: [],
       size: [],
+      strength: [],
       source: [],
       location: [],
     }
@@ -228,6 +243,7 @@ export default {
       this.type = [];
       this.role = [];
       this.size = [];
+      this.strength = [];
     },
     /**
      * Tooltip for a publication source, which may be translated
@@ -285,6 +301,9 @@ export default {
           this.type.includes(entry.system.details?.typeB?.value)
         );
       }
+      if (Array.isArray(this.strength) && this.strength.length > 0) {
+        result = result.filter(entry => this.strength.includes(entry.system.details?.strength?.value));
+      }
       if (Array.isArray(this.role) && this.role.length > 0) {
         result = result.filter(entry =>
           this.role.includes(entry.system.details?.role?.value) ||
@@ -323,6 +342,8 @@ export default {
             return a.system.details?.role?.value.localeCompare(b.system.details?.role?.value);
           case 'size':
             return a.system.details?.size?.value.localeCompare(b.system.details?.size?.value);
+          case 'strength':
+            return a.system.details?.strength?.value.localeCompare(b.system.details?.strength?.value);
         }
         return a.system.attributes.level.value - b.system.attributes.level.value;
       });
@@ -376,6 +397,7 @@ export default {
       'system.details.role.value',
       'system.details.roleB.value',
       'system.details.size.value',
+      'system.details.strength.value',
       'system.details.type.value',
       'system.details.typeB.value',
     ]).then(packIndex => {
