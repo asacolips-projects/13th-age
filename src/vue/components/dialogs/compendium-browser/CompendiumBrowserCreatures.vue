@@ -129,7 +129,7 @@
               <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ creatureType(entry) }}</div>
               <div class="creature-strength" :data-tooltip="localize('ARCHMAGE.strength')">{{ CONFIG.ARCHMAGE.creatureStrengths[entry?.system?.details?.strength?.value] }}</div>
               <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ creatureRole(entry) }}</div>
-              <!-- <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div> -->
+              <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
               <div v-if="entry?.system?.publicationSource" class="creature-source" :data-tooltip="sourceTooltip(entry?.system?.publicationSource)">{{ entry?.system?.publicationSource }}</div>
             </div>
           </div>
