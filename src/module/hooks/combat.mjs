@@ -50,15 +50,20 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         // Handle ongoing.
         const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
         effect.isOngoing = isOngoing;
-        const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
-        effect.isCrit = isCrit;
+        let critMult = 1;
+        if (isOngoing && effect.flags.archmage?.ongoingDamageCrit === true) critMult = 2;
+        if (isOngoing && effect.flags.archmage?.ongoingDamageCrit3 === true) critMult = 3;
+        if (critMult > 1) {
+          effect.isCrit = true;
+          effect.critMult = critMult;
+        }
         effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
         effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
             damage: effect.ongoingDamage,
             type: effect.flags.archmage?.ongoingDamageType ?? '',
         });
-        if (isCrit) {
-            effect.ongoingDamage = effect.ongoingDamage * 2;
+        if (critMult > 1) {
+            effect.ongoingDamage = effect.ongoingDamage * critMult;
         }
         // Handle durations.
         if (effect.name === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead")) isDead = true;
@@ -88,15 +93,20 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
             for (const effect of otherCombatant.actor.effects) {
                 const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;;
                 effect.isOngoing = isOngoing;
-                const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
-                effect.isCrit = isCrit;
+                let critMult = 1;
+                if (isOngoing && effect.flags.archmage?.ongoingDamageCrit === true) critMult = 2;
+                if (isOngoing && effect.flags.archmage?.ongoingDamageCrit3 === true) critMult = 3;
+                if (critMult > 1) {
+                  effect.isCrit = true;
+                  effect.critMult = critMult;
+                }
                 effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
                 effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
                     damage: effect.ongoingDamage,
                     type: effect.flags.archmage?.ongoingDamageType ?? '',
                 });
-                if (isCrit) {
-                    effect.ongoingDamage = effect.ongoingDamage * 2;
+                if (critMult > 1) {
+                    effect.ongoingDamage = effect.ongoingDamage * critMult;
                 }
                 const duration = effect.flags.archmage?.duration || "Unknown";
                 if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
@@ -176,15 +186,20 @@ export async function preDeleteCombat(combat, context, options) {
                 if (!effect.active) continue;
                 const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
                 effect.isOngoing = isOngoing;
-                const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
-                effect.isCrit = isCrit;
+                let critMult = 1;
+                if (isOngoing && effect.flags.archmage?.ongoingDamageCrit === true) critMult = 2;
+                if (isOngoing && effect.flags.archmage?.ongoingDamageCrit3 === true) critMult = 3;
+                if (critMult > 1) {
+                  effect.isCrit = true;
+                  effect.critMult = critMult;
+                }
                 effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage.ongoingDamage) : 0;
                 effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
                     damage: effect.ongoingDamage,
                     type: effect.flags.archmage?.ongoingDamageType ?? '',
                 });
-                if (isCrit) {
-                    effect.ongoingDamage = effect.ongoingDamage * 2;
+                if (critMult > 1) {
+                    effect.ongoingDamage = effect.ongoingDamage * critMult;
                 }
                 const duration = effect.flags.archmage?.duration || "Unknown";
                 // If duration is longer than battle skip

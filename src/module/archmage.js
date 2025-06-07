@@ -1308,6 +1308,7 @@ async function _applyAE(actor, data) {
           ongoingDamage: data.value,
           ongoingDamageType: data.damageType,
           ongoingDamageCrit: false,
+          ongoingDamageCrit3: false,
           duration: data.ends,
           tooltip: data.tooltip
         }
@@ -1360,6 +1361,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
             const ongoing = {
               half: html.find('[name="ongoingHalf"]')?.is(":checked") ?? false,
               crit: html.find('[name="ongoingCrit"]')?.is(":checked") ?? false,
+              crit3: html.find('[name="ongoingCrit3"]')?.is(":checked") ?? false,
             };
             if ( !duration ) duration = "Unknown";
             let options = {};
@@ -1374,6 +1376,9 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
             }
             if (ongoing.crit) {
               effectData.flags.archmage.ongoingDamageCrit = true;
+            }
+            if (ongoing.crit3) {
+              effectData.flags.archmage.ongoingDamageCrit3 = true;
             }
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
@@ -1632,8 +1637,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
         else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectApplied.${effectId}`});
         // Unset crit flag on ongoing damage if needed.
-        if (effect?.flags?.archmage?.ongoingDamageCrit === true) {
-          await effect.update({'flags.archmage.ongoingDamageCrit': false});
+        if (effect?.flags?.archmage?.ongoingDamageCrit === true || effect?.flags?.archmage?.ongoingDamageCrit3 === true) {
+          await effect.update({'flags.archmage.ongoingDamageCrit': false, 'flags.archmage.ongoingDamageCrit3': false});
         }
         break;
       case "save":
