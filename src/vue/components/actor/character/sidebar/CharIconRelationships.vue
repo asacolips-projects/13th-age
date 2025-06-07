@@ -8,7 +8,7 @@
             <span class="icon-symbol flexshrink">{{iconSymbol(item.relationship.value)}}</span>
             <span class="icon-name">{{item.bonus.value}} {{item.name.value}}</span>
           </div>
-          <ul v-if="item.results" class="icon-rolls flexrow" :key="changeKey">
+          <ul v-if="item.results" class="icon-rolls flexrow">
             <li v-for="(roll, rollIndex) in item.results"
                 :key="rollIndex"
                 class="icon-roll"
@@ -16,6 +16,7 @@
                 :data-key="index"
                 :data-roll-key="rollIndex"
                 :data-roll="roll ?? 0"
+                :data-tooltip="rollResultTooltip(roll)"
             >
               {{rollResultText(roll)}}
             </li>
@@ -30,7 +31,7 @@
           <input type="number" v-bind:name="concat('system.icons.', index, '.bonus.value')" class="icon-bonus-edit" v-model="item.bonus.value"/>
           <input type="text" v-bind:name="concat('system.icons.', index, '.name.value')" class="icon-name-edit" v-model="item.name.value"/>
         </div>
-        <span class="icon-edit-toggle fas fa-edit" v-on:click="toggleEdit"></span>
+        <span class="icon-edit-toggle fas fa-edit" @click="toggleEdit"></span>
       </li>
     </ul>
   </section>
@@ -50,8 +51,8 @@ export default {
   },
   data: () => ({
     editArray: [],
-    changeKey: 0,
-    is2e: CONFIG.ARCHMAGE.is2e
+    is2e: CONFIG.ARCHMAGE.is2e,
+    alternateIconRollingMethod: game.settings.get('archmage', 'alternateIconRollingMethod')
   }),
   computed: {
     icons() {
@@ -103,11 +104,27 @@ export default {
         5: '5',
         6: '6'
       }
-      if (CONFIG.ARCHMAGE.is2e) {
+      if (this.alternateIconRollingMethod) {
+        delete results[5]
+        results[6] = '⨉';
+      } else if (this.is2e) {
         results[5] = '~';
         results[6] = '+';
       }
       return results[roll] ?? '';
+    },
+    rollResultTooltip(roll) {
+      const keys = {}
+      if (this.alternateIconRollingMethod) {
+        keys[6] = 'ARCHMAGE.ICONROLLS.tooltip2ealt6';
+      } else if (this.is2e) {
+        keys[5] = 'ARCHMAGE.ICONROLLS.tooltip2e5';
+        keys[6] = 'ARCHMAGE.ICONROLLS.tooltip2e6';
+      } else {
+        keys[5] = 'ARCHMAGE.ICONROLLS.tooltip1e5';
+        keys[6] = 'ARCHMAGE.ICONROLLS.tooltip1e6';
+      }
+      return keys[roll] ? game.i18n.localize(keys[roll]) : '';
     }
   },
   watch: {

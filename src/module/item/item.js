@@ -65,7 +65,8 @@ export class ItemArchmage extends Item {
     const crit_mod = await this._rollCritMod(itemToRender);
 
     // Handle special class triggers
-    await this._handleFighterCombatRhythm(itemToRender, actorUpdateData);
+    await this._handleFighterCombatRhythm(itemToRender, actorUpdateData);  // TODO: deprecated, remove at some future point far from end of 2e playtest
+    await this._handleFighterMomentum(itemToRender);
 
     // Check targets.
     let targets = await this._rollMultiTargets(itemToRender);
@@ -356,7 +357,7 @@ export class ItemArchmage extends Item {
           if (stop) return true;
         }
 
-        // Combat Rhythm
+        // Combat Rhythm - TODO: deprecated, remove at some future point far from end of 2e playtest
         else if (res.perCombat.rhythm?.enabled &&
             (str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()
             || str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense").toLowerCase())) {
@@ -706,6 +707,7 @@ export class ItemArchmage extends Item {
     await this.itemActor?.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
+  // TODO: deprecated, remove at some future point far from end of 2e playtest
   async _handleFighterCombatRhythm(itemToRender, actorUpdateData) {
     if (itemToRender.type != "power") return;
     if (!this.itemActor?.system.resources?.perCombat?.rhythm?.enabled) return;
@@ -722,6 +724,21 @@ export class ItemArchmage extends Item {
       const attackLine = itemToRender.system.attack.value;
       itemToRender.system.attack.value = attackLine.replace("1d20", "d20").replace("d20", "2d20kh");
     }
+  }
+
+  async _handleFighterMomentum(itemToRender) {
+    if (!game.settings.get("archmage", "secondEdition")
+      || itemToRender.type != "power"
+      || itemToRender.system.powerSource.value != "class"
+      || !this.itemActor?.system?.details?.detectedClasses?.includes("fighter")
+      || !this.itemActor?.system.resources?.perCombat?.momentum?.enabled
+      || !this.itemActor?.system.resources?.perCombat?.momentum?.current
+      || itemToRender.system.powerSourceName.value.toLowerCase() != game.i18n.localize("fighter").toLowerCase()
+      ) return;
+
+    // Replace "1d20" and "d20" in the attack line with "2d20kh"
+    const attackLine = itemToRender.system.attack.value;
+    itemToRender.system.attack.value = attackLine.replace("1d20", "d20").replace("d20", "2d20kh");
   }
 
   async _handleSong(itemToRender, usageMode) {

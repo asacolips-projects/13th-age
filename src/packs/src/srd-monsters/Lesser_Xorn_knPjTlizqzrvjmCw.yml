@@ -86,9 +86,9 @@ system:
     role:
       value: troop
     size:
-      value: elite
+      value: normal
     strength:
-      value: ''
+      value: elite
     type:
       value: elemental
     resistance:

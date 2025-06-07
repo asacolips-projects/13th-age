@@ -11,9 +11,10 @@ pages:
     text:
       format: 1
       content: >-
-        <p>You can’t cast spells, use powers (not even kin powers), use limited
-        use abilities, or make attacks other than basic attacks. You can move
-        normally but you can’t use limited use abilities or powers to move. </p>
+        <p>You can’t cast spells, use powers (not even kin powers), use
+        limited-use abilities, or make attacks other than no-trigger attacks.
+        You can move normally, but you can’t use limited-use abilities or powers
+        to move. </p>
     _stats:
       coreVersion: '12.331'
       systemId: null
