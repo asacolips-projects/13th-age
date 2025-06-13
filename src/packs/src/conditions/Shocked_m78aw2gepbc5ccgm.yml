@@ -15,9 +15,11 @@ pages:
     text:
       format: 1
       content: >-
-        <p>Whenever you roll a d20, roll twice and keep the lower result. This
-        includes attack rolls, saves, background checks, and all other d20
-        rolls.</p>
+        <p>You roll twice for all d20 rolls (attacks, saves, skill rolls, etc.)
+        and must use the lower result. Any power or ability you possess to roll
+        more than one d20 is temporarily canceled while you’re shocked. If you
+        get to reroll a d20 roll while shocked, you must roll twice and use the
+        lower result again.</p>
     video:
       controls: true
       volume: 0.5
@@ -25,6 +27,15 @@ pages:
     ownership:
       default: -1
     flags: {}
+    _stats:
+      coreVersion: '12.331'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
     _key: '!journal.pages!m78aw2gepbc5ccgm.ICyd5YwP8myp2Bfa'
 _stats:
   coreVersion: '12.331'
