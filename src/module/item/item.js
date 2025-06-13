@@ -110,7 +110,7 @@ export class ItemArchmage extends Item {
           const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
           if (combatantUuid && combatantUuid == this.itemActor.uuid && this.name.toLocaleLowerCase().includes(breathString)) {
             // This will be set to false at the start of the actor's turn.
-            game.combat.combatant.setFlag('archmage', 'breathUsed', true);
+            await this.itemActor.update({ "system.resources.spendable.stoke.breathUsed": true });
           }
         }
       }
