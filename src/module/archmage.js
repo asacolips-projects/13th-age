@@ -918,7 +918,9 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.edition',
       settings: ['secondEdition', 'alternateIconRollingMethod'],
-      highlights: [],
+      highlights: [
+        'alternateIconRollingMethod',
+      ],
     },
     {
       label: 'ARCHMAGE.SETTINGS.groups.automation',
@@ -939,8 +941,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'showPrivateGMAttackRolls',
       ],
       highlights: [
-        'allowTargetDamageApplication',
-        'allowRerolls',
       ],
     },
     {
@@ -952,8 +952,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'sheetTooltips',
       ],
       highlights: [
-        'compactMode',
-        'showNaturalRolls',
       ],
     },
     {
@@ -974,7 +972,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'tourVisibility',
       ],
       highlights: [
-        'allowPasteParsing'
       ],
     }
   ];
