@@ -1975,7 +1975,9 @@ option[selected] {
           }
         }
 
-        &.second-edition .roll.die.result-5 {
+        &.second-edition .roll.die.result-5,
+        &.second-edition.alt .roll.die.result-4,
+         {
           background: #93c385;
         }
       }
