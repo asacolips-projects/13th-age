@@ -54,6 +54,7 @@
     font-family: $font-stack-base;
     line-height: 44px;
     padding: 0 5px;
+    margin-bottom: 0.5rem;
     border-bottom: 1px solid $c-blue-dark;
     text-shadow: none;
   }
@@ -109,8 +110,7 @@
     }
   }
 
-  .reroll,
-  .modifiers {
+  .reroll {
     border-top: 1px solid $c-blue-dark;
   }
 
