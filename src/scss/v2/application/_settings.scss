@@ -5,7 +5,7 @@
   }
 
   details {
-    border: 1px solid $color-fieldset-border;
+    border: 1px solid var(--color-fieldset-border);
     padding: 4px;
     border-radius: 2px;
 
@@ -47,10 +47,6 @@
     + .form-group {
       // padding: 20px 10px;
       border-top: 1px solid $c-black--25;
-    }
-
-    .form-fields {
-      flex: 0 0 auto;
     }
 
     input[type="checkbox"]:checked,
