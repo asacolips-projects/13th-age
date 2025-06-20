@@ -154,6 +154,8 @@ export async function combatRound(combat, context, options) {
 
 export async function preDeleteCombat(combat, context, options) {
     await cleanupStoke(combat, context, options);
+    $('.archmage-escalation-display').addClass('hide');
+
 
     // Exit early if the feature is disabled.
     if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
