@@ -49,6 +49,10 @@
       border-top: 1px solid $c-black--25;
     }
 
+    .form-fields {
+      flex: 0 0 40%;
+    }
+
     input[type="checkbox"]:checked,
     input[type="radio"]:checked {
       accent-color: $c-blue;
