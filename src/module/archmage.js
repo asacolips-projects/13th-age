@@ -1408,7 +1408,8 @@ function uuidv4() {
 }
 
 
-Hooks.on('renderChatMessage', (chatMessage, html, options) => {
+Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
+  const html = $(rawhtml);
 
   // Override the inline roll click behavior.
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
