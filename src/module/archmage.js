@@ -707,26 +707,31 @@ Hooks.on('setup', (data, options, id) => {
 /* ---------------------------------------------- */
 
 async function addEscalationDie() {
-  const escalation = ArchmageUtility.getEscalation();
-  const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
-  const hideIfNotGM = !game.user.isGM ? ' hide' : '';
-  const subtitle = game.i18n.localize("ARCHMAGE.escalationDieLabel");
-  const htmlContent = await foundry.applications.handlebars.renderTemplate(
-    "systems/archmage/templates/sidebar/ed-display.html",
-    {
-      escalation,
-      hide,
-      hideIfNotGM,
-      subtitle,
-    }
-  )
+  const render = () => {
+    const escalation = ArchmageUtility.getEscalation();
+    const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
+    const hideIfNotGM = !game.user.isGM ? ' hide' : '';
+    const subtitle = game.i18n.localize("ARCHMAGE.escalationDieLabel");
+    return foundry.applications.handlebars.renderTemplate(
+      "systems/archmage/templates/sidebar/ed-display.html",
+      {
+        escalation,
+        hide,
+        hideIfNotGM,
+        subtitle,
+      }
+    );
+  };
+  const htmlContent = await render();
   $('.archmage-hotbar').prepend(htmlContent);
 
   // Add click events for ed.
-  $('body').on('click', '.ed-control', (event) => {
+  $('body').on('click', '.ed-control', async (event) => {
     let $self = $(event.currentTarget);
     let isIncrease = $self.hasClass('ed-plus');
-    ArchmageUtility.setEscalationOffset(game.combat, isIncrease);
+    await ArchmageUtility.setEscalationOffset(game.combat, isIncrease);
+    const htmlContent = await render();
+    $('.archmage-hotbar').find('.archmage-escalation-display').replaceWith(htmlContent);
   });
 
   // Add click events for effect links
@@ -756,7 +761,7 @@ async function addEscalationDie() {
 /* -------------------------------------------- */
 
 Hooks.once('ready', async () => {
-  $('#hotbar').prepend(`<div class="archmage-hotbar"></div>`);
+  $('#hotbar').prepend(`<div class="archmage-hotbar flexrow"></div>`);
   await addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
