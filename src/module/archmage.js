@@ -925,6 +925,7 @@ Hooks.on('canvasReady', (canvas) => {
 });
 
 Hooks.on('renderSettingsConfig', (app, html, data) => {
+  html = $(html);
   // Define groups for organization.
   const groups = [
     {
@@ -989,8 +990,8 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
   ];
 
   // Find the parent category element.
-  const settingsElements = html.find('.form-group[data-setting-id*="archmage"]');
-  const parent = settingsElements.closest('.category');
+  const settingsElements = html.find('section[data-category="system"] .form-group');
+  const parent = settingsElements.closest('section');
   parent.addClass('archmage-settings');
 
   // Iterate through our groups and move all of their settings into the matching element.
@@ -999,7 +1000,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     let settingsCount = 0;
 
     for (let setting of group.settings) {
-      const element = html.find(`[data-setting-id="archmage.${setting}"]`);
+      const element = html.find(`label[for="settings-config-archmage.${setting}"]`).parent();
       if (element.length < 1) continue;
 
       // Add a highlight if necessary.
