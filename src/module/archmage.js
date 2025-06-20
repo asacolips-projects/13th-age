@@ -709,7 +709,7 @@ Hooks.on('setup', (data, options, id) => {
 async function addEscalationDie() {
   const render = () => {
     const escalation = ArchmageUtility.getEscalation();
-    const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
+    const hide = game.combats.contents.length < 1 ? ' hide' : '';
     const hideIfNotGM = !game.user.isGM ? ' hide' : '';
     const subtitle = game.i18n.localize("ARCHMAGE.escalationDieLabel");
     return foundry.applications.handlebars.renderTemplate(
@@ -761,7 +761,7 @@ async function addEscalationDie() {
 /* -------------------------------------------- */
 
 Hooks.once('ready', async () => {
-  $('#hotbar').prepend(`<div class="archmage-hotbar flexrow"></div>`);
+  $('#players').prepend(`<div class="archmage-hotbar flexcol"></div>`);
   await addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
@@ -904,8 +904,12 @@ function renderSceneTerrains() {
   if ( !terrains || (terrains.length === 0) ) return;
 
   const label = game.i18n.localize('ARCHMAGE.terrains');
-  const isGM = game.user.isGM ? ' gm' : '';
-  const aside = $(`<aside class="archmage-terrains${isGM}" data-terrains-text="${label}"></aside>`);
+  const isGM = game.user.isGM ? 'gm' : '';
+  const aside = $(`
+    <aside class="archmage-terrains flexcol ${isGM}">
+      <h4 class="archmage-terrains-header">${label}</h4>
+    </aside>
+  `);
   if ( terrains ) {
       terrains.forEach(t => {
         const terrain = game.archmage.terrains.find(x => x.id === t);
@@ -913,7 +917,6 @@ function renderSceneTerrains() {
       });
   }
   // Set height based on number of terrains
-  aside.css('height', `${18 * (terrains.length + 1)}px`);
   $('.archmage-hotbar').append(aside);
 }
 

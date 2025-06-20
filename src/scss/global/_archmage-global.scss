@@ -1615,6 +1615,7 @@ option[selected] {
 .archmage-hotbar {
   justify-content: start !important; // Important needed to override Foundry's #ui-bottom
   margin: 0 4px 8px;
+  position: relative;
 }
 
 // Escalation die.
@@ -1622,6 +1623,7 @@ option[selected] {
   pointer-events: all;
   color: $c-white;
   position: relative;
+  width: 100px;
 
   &.hide {
     display: none !important; // Important needed to override Foundry's #ui-bottom
@@ -1665,6 +1667,7 @@ option[selected] {
 
 // Scene Terrains
 .archmage-terrains {
+  pointer-events: all;
   background: $c-black--75;
   border: 1px solid $c-black;
   border-radius: 5px;
@@ -1673,32 +1676,14 @@ option[selected] {
   color: $c-white;
   font-family: $font-stack-secondary;
   font-size: 14px;
-  height: 84px;
-  left: 8px;
   line-height: 1.2;
-  position: relative;
   text-align: center;
   width: 200px;
   padding: 5px;
+  margin-top: 5px;
 
   &.hide {
     display: none;
-  }
-
-  &.gm {
-    left: 54px;
-  }
-
-  &::before {
-    bottom: 2px;
-    content: attr(data-terrains-text);
-    font-family: $font-stack-base;
-    font-size: 12px;
-    left: 50%;
-    line-height: 1;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 80px;
   }
 }
 
