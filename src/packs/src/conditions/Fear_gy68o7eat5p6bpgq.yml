@@ -10,7 +10,9 @@ pages:
       level: 1
     text:
       format: 1
-      content: <p>Fear *dazes* you and prevents you from using the escalation die.</p>
+      content: >-
+        <p>Fear makes you *dazed* you and prevents you from using the escalation
+        die.</p>
     _stats:
       coreVersion: '12.331'
       systemId: null

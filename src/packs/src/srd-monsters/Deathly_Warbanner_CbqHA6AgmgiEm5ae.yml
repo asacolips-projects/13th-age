@@ -93,11 +93,11 @@ system:
       type: String
       label: Role
     size:
-      value: double
+      value: normal
       type: String
       label: Size
     strength:
-      value: ''
+      value: double
     type:
       value: construct
       type: String
