@@ -30,7 +30,7 @@ export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItem
     },
     position: {
       width: 950,
-      height: 550,
+      height: 650,
     },
     window: {
       resizable: true,

@@ -18,6 +18,8 @@ export { default as PowerDetails } from '@/components/item/power/PowerDetails.vu
 export { default as PowerSpells } from '@/components/item/power/PowerSpells.vue';
 export { default as PowerFeats } from '@/components/item/power/PowerFeats.vue';
 
+export { default as EquipmentDetails } from '@/components/item/equipment/EquipmentDetails.vue';
+
 export { default as ActionDetails } from '@/components/item/action/ActionDetails.vue';
 export { default as ActionAttack } from '@/components/item/action/ActionAttack.vue';
 
