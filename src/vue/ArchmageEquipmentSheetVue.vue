@@ -18,7 +18,7 @@
 
         <!-- Details fields -->
         <Tab group="primary" :tab="tabs.primary.details">
-          <!--EquipmentPower :item="equipment" :context="context" /-->
+          <EquipmentDetails :item="equipment" :context="context" />
         </Tab>
 
         <!-- Details fields -->
@@ -44,7 +44,7 @@
         <div class="archmage-v2 sheet">
           <section class="section--inventory">
             <div class="equipment-summary grid equipment-grid equipment">
-              <div class="equipment-feat-pips" v-if="groupKey === 'equipment'">
+              <div class="equipment-feat-pips">
                 <ul class="feat-pips">
                   <li :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))"
                     :data-item-id="equipment._id">
@@ -84,8 +84,9 @@ import {
   Tabs,
   Tab,
   Equipment,
-  EquipmentPower,
+  EquipmentDetails,
   CharEffects,
+  Rollable
 } from '@/components';
 import { inject, reactive, toRaw } from 'vue';
 import { concat, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
