@@ -54,7 +54,7 @@
                 </ul>
               </div>
               <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
-                <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
+                <span class="bonus" v-for="(bonus, bonusProp) in bonuses" :key="bonusProp">
                   <span class="bonus-label">{{ localizeEquipmentBonus(bonusProp) }} </span>
                   <span class="bonus-value">{{ numberFormat(bonus, 0, true) }}</span>
                 </span>
@@ -71,7 +71,7 @@
                 :data-quantity="equipment.system.quantity.value"><span>{{ equipment.system.quantity.value }}</span>
               </div>
             </div>
-            <Equipment :equipment="equipment" :bonuses="getBonuses(equipment)" />
+            <Equipment :equipment="equipment" :bonuses="bonuses" />
           </section>
         </div>
       </fieldset>
@@ -90,7 +90,7 @@ import {
   CharEffects,
   Rollable
 } from '@/components';
-import { inject, reactive, toRaw } from 'vue';
+import { inject, reactive, toRaw, computed } from 'vue';
 import { concat, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
 
 const props = defineProps(['context']);
@@ -104,7 +104,7 @@ const itemDocument = inject('itemDocument');
 
 const equipment = props.context.item;
 
-function getBonuses(equipment) {
+const bonuses = computed(() => {
   let bonuses = {};
   for (let [prop, value] of Object.entries(equipment.system.attributes)) {
     if (value.bonus) {
@@ -120,5 +120,5 @@ function getBonuses(equipment) {
     }
   }
   return bonuses;
-}
+})
 </script>
