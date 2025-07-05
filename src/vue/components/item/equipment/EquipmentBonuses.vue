@@ -105,6 +105,37 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label>
+        {{ game.i18n.localize(disengageKey) }}
+      </label>
+      <div class="field">
+        <input type="number" name="system.attributes.disengage.bonus" v-model="item.system.attributes.disengage.bonus" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.ITEM.rerollAcBonus') }}
+      </label>
+      <div class="field flexrow">
+        <input type="number" name="system.attributes.rerollAc.current" v-model="item.system.attributes.rerollAc.current" />
+        <span :class="$style.divider">/</span>
+        <input type="number" name="system.attributes.rerollAc.bonus" v-model="item.system.attributes.rerollAc.bonus" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.ITEM.rerollSaveBonus') }}
+      </label>
+      <div class="field flexrow">
+        <input :class="$style.halfwidth" type="number" name="system.attributes.rerollSave.current" v-model="item.system.attributes.rerollSave.current" />
+        <span :class="$style.divider">/</span>
+        <input :class="$style.halfwidth" type="number" name="system.attributes.rerollSave.bonus" v-model="item.system.attributes.rerollSave.bonus" />
+      </div>
+    </div>
+
   </fieldset>
 
 </template>
@@ -114,4 +145,13 @@ import {
   InfoBubble,
 } from '@/components';
 const props = defineProps(['item', 'context']);
+
+const disengageKey = CONFIG.ARCHMAGE.is2e ? 'ARCHMAGE.ITEM.disengageBonus' : 'ARCHMAGE.ITEM.disengageInitBonus';
 </script>
+
+<style lang="css" module>
+.divider {
+  flex-grow: 0 !important;
+  margin: 0 0.5rem;
+}
+</style>
