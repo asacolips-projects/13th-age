@@ -1,5 +1,5 @@
 <template>
-  <div :class="`archmage-appv2-vue flexcol`">
+  <div class="archmage-appv2-vue flexcol equipment">
     <!-- Header -->
     <header class="sheet-header">
       <img class="profile-img" :src="equipment.img" data-edit="img" data-action="onEditImage" :title="equipment.name"
@@ -23,6 +23,7 @@
 
         <!-- Details fields -->
         <Tab group="primary" :tab="tabs.primary.bonuses">
+          <EquipmentBonuses :item="equipment" :context="context" />
         </Tab>
 
         <!-- Active Effect Fields -->
@@ -64,7 +65,7 @@
                 v-if="equipment.system.recharge && equipment.system.recharge.value && equipment.system.powerUsage.value == 'recharge'">
                 <Rollable name="recharge" type="recharge" :opt="equipment._id">{{
                   Number(equipment.system.recharge.value)
-                  || 16}}+</Rollable>
+                  || 16 }}+</Rollable>
               </div>
               <div class="equipment-quantity" :data-item-id="equipment._id"
                 :data-quantity="equipment.system.quantity.value"><span>{{ equipment.system.quantity.value }}</span>
@@ -85,6 +86,7 @@ import {
   Tab,
   Equipment,
   EquipmentDetails,
+  EquipmentBonuses,
   CharEffects,
   Rollable
 } from '@/components';
