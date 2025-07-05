@@ -21,13 +21,6 @@ export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItem
   /** @override */
   static DEFAULT_OPTIONS = {
     classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
-    actions: {
-      onEditImage: this._onEditImage,
-      edit: this._viewEffect,
-      create: this._createEffect,
-      delete: this._deleteEffect,
-      toggle: this._toggleEffect
-    },
     position: {
       width: 950,
       height: 650,
