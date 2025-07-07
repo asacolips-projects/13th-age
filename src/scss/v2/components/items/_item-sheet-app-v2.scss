@@ -42,6 +42,10 @@
       flex: 1;
       overflow-y: auto;
     }
+
+    &.equipment .form-group>label {
+      flex: 3;
+    }
   }
 
   // fixes a weird bug with form heights in fieldsets
@@ -132,7 +136,7 @@
   .field.flexcol {
     gap: 8px;
   }
-  
+
   .power.include-title {
     .power-summary,
     .power-header-labels {
