@@ -102,11 +102,11 @@ const tabs = reactive({ ...rawTabs });
 // the VueApplicationMixin.
 const itemDocument = inject('itemDocument');
 
-const equipment = props.context.item;
+const equipment = computed(() => props.context.item);
 
 const bonuses = computed(() => {
   let bonuses = {};
-  for (let [prop, value] of Object.entries(equipment.system.attributes)) {
+  for (let [prop, value] of Object.entries(equipment.value.system.attributes)) {
     if (value.bonus) {
       if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengage&initiative';
       bonuses[prop] = value.bonus;
