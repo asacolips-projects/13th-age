@@ -86,9 +86,9 @@ system:
     role:
       value: caster
     size:
-      value: triple
+      value: normal
     strength:
-      value: ''
+      value: triple
     type:
       value: construct
     resistance:

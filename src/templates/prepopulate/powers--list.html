@@ -9,7 +9,7 @@
       <h2 class="power-list-title">{{localize (concatenate "ARCHMAGE." groupKey "s")}}</h2>
         {{#each group as |level levelKey|}}
         <h3 class="power-list-subtitle">{{localize "ARCHMAGE.level"}} {{levelKey}} {{localize (concatenate "ARCHMAGE." groupKey "s")}}</h3>
-        <ul class="import-powers-list grid grid-2col">
+        <ul class="import-powers-list" style="column-width: 30em;">
           {{#each level as |power powerKey|}}
             <li class="import-powers-item">
               <div class="title">

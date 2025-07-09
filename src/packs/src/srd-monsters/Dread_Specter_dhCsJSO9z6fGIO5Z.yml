@@ -91,11 +91,11 @@ system:
       type: String
       label: Role
     size:
-      value: triple
+      value: normal
       type: String
       label: Size
     strength:
-      value: ''
+      value: triple
     type:
       value: undead
       type: String

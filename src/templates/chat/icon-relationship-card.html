@@ -1,35 +1,52 @@
 <div class="archmage chat-card icon-roll">
   <header class="card-header flexrow">
-    <img src="{{actor.img}}" title="{{actor.name}}" width="36" height="36"/>
-    <h3 class="ability-usage ability-usage--recharge">{{icon.name.value}}: {{iconSymbol icon.relationship.value}}{{icon.bonus.value}} {{localize (concatenate "ARCHMAGE." icon.relationship.value)}}</h3>
+    <img src="{{actor.img}}" title="{{actor.name}}" width="36" height="36" />
+    <h3 class="ability-usage ability-usage--recharge">{{localize 'ARCHMAGE.ICONROLLS.chatCardTitle'}}</h3>
   </header>
+
   <div class="card-content">
+    {{#each inputs}}
+    <h4 class="ability-usage ability-usage--recharge">
+      {{icon.name.value}}: {{icon.bonus.value}} {{localize (concatenate "ARCHMAGE." icon.relationship.value)}}
+    </h4>
     <div class="dice-tooltip">
       <section class="tooltip-part">
         <div class="dice">
-            <header class="part-header flexrow">
-                <span class="part-formula">{{data.roll.formula}}</span>
-                <span class="part-total">{{data.roll.total}}</span>
-            </header>
-            <ol class="dice-rolls {{#if secondEdition}}second-edition{{/if}}">
-              {{#each data.roll.terms as |term i|}}
-                {{#each term.results as |result r|}}
-                <li class="roll die d{{term.faces}} result-{{result.result}}">{{result.result}}</li>
-                {{/each}}
-              {{/each}}
-            </ol>
+          <ol class="dice-rolls {{#if ../is2e}}second-edition{{/if}} {{#if ../is2eAlt}}alt{{/if}}">
+            {{#each results as |result r|}}
+            <li class="roll die d6 result-{{result}}">{{result}}</li>
+            {{/each}}
+          </ol>
         </div>
       </section>
     </div>
     <div class="card-row">
       <div class="card-prop">
-        {{#if secondEdition}}
-        <span {{#if hasSixes}}style="color: green;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.advantages' }}: </b> {{sixes}}</span><br />
+        {{#if ../is2eAlt}}
+        {{!-- TODO: display this differently? --}}
+        <span {{#if hasSixes}}style="color: green;" {{/if}}>
+          <b>{{ localize 'ARCHMAGE.CHAT.advantages' }}: </b>
+          {{sixes}}
+        </span><br />
         {{else}}
-        <span {{#if hasSixes}}style="color: green;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.unambiguousAdvantages' }}: </b> {{sixes}}</span><br />
-        <span {{#if hasFives}}style="color: orange;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.complicatedAdvantages'}}: </b> {{fives}}</span>
+        {{#if ../is2e}}
+        <span {{#if hasSixes}}style="color: green;" {{/if}}>
+          <b>{{ localize 'ARCHMAGE.CHAT.advantages' }}: </b>
+          {{sixes}}
+        </span><br />
+        {{else}}
+        <span {{#if hasSixes}}style="color: green;" {{/if}}>
+          <b>{{ localize 'ARCHMAGE.CHAT.unambiguousAdvantages' }}: </b>
+          {{sixes}}
+        </span><br />
+        <span {{#if hasFives}}style="color: orange;" {{/if}}>
+          <b>{{ localize 'ARCHMAGE.CHAT.complicatedAdvantages'}}: </b>
+          {{fives}}
+        </span>
+        {{/if}}
         {{/if}}
       </div>
     </div>
+    {{/each}}
   </div>
 </div>

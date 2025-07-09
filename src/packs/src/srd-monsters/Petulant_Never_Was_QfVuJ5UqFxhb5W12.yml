@@ -86,9 +86,9 @@ system:
     role:
       value: caster
     size:
-      value: double
+      value: normal
     strength:
-      value: ''
+      value: double
     type:
       value: undead
     resistance:
