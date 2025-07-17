@@ -1,4 +1,4 @@
-name: Greeting Fist Damage
+name: Sneak Attack (2e) Damage +1
 img: icons/svg/d20-grey.svg
 description: ''
 results:
@@ -9,56 +9,43 @@ results:
       - 1
     drawn: false
     documentCollection: ''
-    _id: 9i7Fw131LG66pcw5
+    _id: NOtpaCU1b0GbGW1T
     text: +[[1d6]] damage.
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.9i7Fw131LG66pcw5'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.NOtpaCU1b0GbGW1T'
   - type: text
     weight: 1
     range:
       - 2
       - 2
-    drawn: false
-    documentCollection: ''
-    _id: NOtpaCU1b0GbGW1T
-    text: +[[2d6]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.NOtpaCU1b0GbGW1T'
-  - type: text
-    weight: 1
-    range:
-      - 3
-      - 3
     drawn: false
     documentCollection: ''
     _id: qo16CSmUTBmgCezX
+    text: +[[1d8]] damage.
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.qo16CSmUTBmgCezX'
+  - type: text
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+    documentCollection: ''
+    _id: EVE6YA96WghhR6Qa
     text: +[[2d6]] damage.
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.qo16CSmUTBmgCezX'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.EVE6YA96WghhR6Qa'
   - type: text
     weight: 1
     range:
       - 4
       - 4
-    drawn: false
-    documentCollection: ''
-    _id: EVE6YA96WghhR6Qa
-    text: +[[2d8]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.EVE6YA96WghhR6Qa'
-  - type: text
-    weight: 1
-    range:
-      - 5
-      - 5
     drawn: false
     documentCollection: ''
     _id: 9Q69k3xWJhv9sc47
@@ -66,25 +53,25 @@ results:
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.9Q69k3xWJhv9sc47'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.9Q69k3xWJhv9sc47'
   - type: text
     weight: 1
     range:
-      - 6
-      - 6
+      - 5
+      - 5
     drawn: false
     documentCollection: ''
     _id: YkVE7LF8EFZOL0nd
-    text: +[[4d6]] damage.
+    text: +[[3d6]] damage.
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.YkVE7LF8EFZOL0nd'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.YkVE7LF8EFZOL0nd'
   - type: text
     weight: 1
     range:
-      - 7
-      - 7
+      - 6
+      - 6
     drawn: false
     documentCollection: ''
     _id: JQwplMCdh5pv3WdL
@@ -92,54 +79,69 @@ results:
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.JQwplMCdh5pv3WdL'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.JQwplMCdh5pv3WdL'
   - type: text
     weight: 1
     range:
-      - 8
-      - 8
+      - 7
+      - 7
     drawn: false
     documentCollection: ''
     _id: dFfXaM6DiV5UXJ1D
-    text: +[[4d10]] damage.
+    text: +[[20]] damage.
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.dFfXaM6DiV5UXJ1D'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.dFfXaM6DiV5UXJ1D'
   - type: text
     weight: 1
     range:
-      - 9
-      - 9
+      - 8
+      - 8
     drawn: false
     documentCollection: ''
     _id: 9Cc3qzN9yU06kh19
-    text: +[[4d10]] damage.
+    text: +[[25]] damage.
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.9Cc3qzN9yU06kh19'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.9Cc3qzN9yU06kh19'
   - type: text
+    weight: 1
+    range:
+      - 9
+      - 9
+    drawn: false
+    documentCollection: ''
+    _id: DYHcnD9z5JoxKJcC
+    text: +[[30]] damage.
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.DYHcnD9z5JoxKJcC'
+  - type: text
+    documentCollection: ''
     weight: 1
     range:
       - 10
       - 10
     drawn: false
-    documentCollection: ''
-    _id: DYHcnD9z5JoxKJcC
-    text: +[[6d12]] damage.
+    _id: Frr2x5Do5GYYo5X2
+    text: ''
     img: icons/svg/d20-black.svg
     documentId: null
     flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.DYHcnD9z5JoxKJcC'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.Frr2x5Do5GYYo5X2'
 formula: '@lvl'
 replacement: true
 displayRoll: false
-flags: {}
+flags:
+  core: {}
 folder: null
-sort: 700000
 ownership:
   default: 0
-_id: 8WCCTzukG6PRCm6N
-_key: '!tables!8WCCTzukG6PRCm6N'
+  nPjNg32wEG3J72a7: 3
+_id: qBUZ50ztAmmYnP6I
+sort: 200000
+_key: '!tables!qBUZ50ztAmmYnP6I'
 
