@@ -782,6 +782,7 @@ Item:
   equipment:
     templates:
       - standard
+      - spendable
       - usable
     properties: {}
     attributes:
