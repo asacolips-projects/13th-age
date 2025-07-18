@@ -2,6 +2,17 @@
   <fieldset class="fieldset-description">
     <legend>{{ game.i18n.localize('ARCHMAGE.description') }}</legend>
     <Prosemirror :editable="context.editable" :field="context.editors['system.description.value']" />
+
+    <div class="form-group">
+      <label>{{ game.i18n.localize('ARCHMAGE.ITEM.chakraSlot') }}</label>
+      <div class="field">
+        <select name="system.chackra" v-model="item.system.chackra">
+          <option value="">{{ game.i18n.localize('ARCHMAGE.CHAKRA.none') }}</option>
+          <option v-for="(label, value) in CONFIG.ARCHMAGE.chakraSlots" :key="value" :value="value">{{ game.i18n.localize(label) }}</option>
+        </select>
+      </div>
+    </div>
+
   </fieldset>
 
   <fieldset class="fieldset-usage">
