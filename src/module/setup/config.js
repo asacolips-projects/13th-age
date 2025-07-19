@@ -678,25 +678,25 @@ ARCHMAGE.defaultMonsterTokens = {
 };
 
 ARCHMAGE.raceList = {
-  'aasimar': "ARCHMAGE.CLASSES.aasimar",
-  'darkelf': "ARCHMAGE.CLASSES.darkelf",
-  'demontouched': "ARCHMAGE.CLASSES.demontouched",
-  'dragonic': "ARCHMAGE.CLASSES.dragonic",
-  'dragonspawn': "ARCHMAGE.CLASSES.dragonspawn",
-  'drow': "ARCHMAGE.CLASSES.drow",
-  'dwarf': "ARCHMAGE.CLASSES.dwarf",
-  'dwarfforged': "ARCHMAGE.CLASSES.dwarfforged",
-  'forgeborn': "ARCHMAGE.CLASSES.forgeborn",
-  'gnome': "ARCHMAGE.CLASSES.gnome",
-  'halfelf': "ARCHMAGE.CLASSES.halfelf",
-  'halfling': "ARCHMAGE.CLASSES.halfling",
-  'halforc': "ARCHMAGE.CLASSES.halforc",
-  'highelf': "ARCHMAGE.CLASSES.highelf",
-  'holyone': "ARCHMAGE.CLASSES.holyone",
-  'human': "ARCHMAGE.CLASSES.human",
-  'tiefling': "ARCHMAGE.CLASSES.tiefling",
-  'silverelf': "ARCHMAGE.CLASSES.silverelf",
-  'woodelf': "ARCHMAGE.CLASSES.woodelf"
+  'aasimar': "ARCHMAGE.RACES.aasimar",
+  'darkelf': "ARCHMAGE.RACES.darkelf",
+  'demontouched': "ARCHMAGE.RACES.demontouched",
+  'dragonic': "ARCHMAGE.RACES.dragonic",
+  'dragonspawn': "ARCHMAGE.RACES.dragonspawn",
+  'drow': "ARCHMAGE.RACES.drow",
+  'dwarf': "ARCHMAGE.RACES.dwarf",
+  'dwarfforged': "ARCHMAGE.RACES.dwarfforged",
+  'forgeborn': "ARCHMAGE.RACES.forgeborn",
+  'gnome': "ARCHMAGE.RACES.gnome",
+  'halfelf': "ARCHMAGE.RACES.halfelf",
+  'halfling': "ARCHMAGE.RACES.halfling",
+  'halforc': "ARCHMAGE.RACES.halforc",
+  'highelf': "ARCHMAGE.RACES.highelf",
+  'holyone': "ARCHMAGE.RACES.holyone",
+  'human': "ARCHMAGE.RACES.human",
+  'tiefling': "ARCHMAGE.RACES.tiefling",
+  'silverelf': "ARCHMAGE.RACES.silverelf",
+  'woodelf': "ARCHMAGE.RACES.woodelf"
 };
 
 ARCHMAGE.classPacks = [
