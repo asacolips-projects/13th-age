@@ -67,7 +67,7 @@ system:
   trigger:
     type: String
     label: Trigger
-    value: One of your allies hits, but does not crit, a nearby enemy with an attack
+    value: One of your allies hits a nearby enemy with an attack
   target:
     type: String
     label: Target
