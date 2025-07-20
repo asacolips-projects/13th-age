@@ -1,19 +1,17 @@
 <template>
-  <component :is="tag" v-html="wrappedRolls"/>
+  <component :is="tag" v-html="wrappedRolls" />
 </template>
 
-<script>
+<script setup>
+import { ref, watch } from 'vue';
 import { wrapRolls } from '@/methods/Helpers';
-export default {
-  name: 'Enriched',
-  props: ['tag', 'text', 'replacements', 'diceFormulaMode', 'rollData', 'field'],
-  async setup(props) {
-    const wrappedRolls = await wrapRolls(props.text, props.replacements, props.diceFormulaMode, props.rollData, props.field);
-    return {
-      wrappedRolls
-    };
-  },
-  computed: {},
-  methods: {},
-}
+
+const props = defineProps(['tag', 'text', 'replacements', 'diceFormulaMode', 'rollData', 'field']);
+
+const wrappedRolls = ref(props.text);
+
+watch(() => props.text, async (newText) => {
+  wrappedRolls.value = await wrapRolls(newText, props.replacements, props.diceFormulaMode, props.rollData, props.field);
+}, { immediate: true });
+
 </script>

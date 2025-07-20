@@ -6,6 +6,7 @@ import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
 import { ArchmagePowerSheetV2 } from './item/power-sheet-v2.js';
+import { ArchmageEquipmentSheetV2 } from './item/equipment-sheet-v2.js';
 import { ArchmageActionSheetV2 } from './item/action-sheet-v2.js';
 import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
@@ -206,6 +207,11 @@ Hooks.once('init', async function() {
   Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["power"],
+    makeDefault: true,
+  });
+  Items.registerSheet("archmage", ArchmageEquipmentSheetV2, {
+    label: 'ARCHMAGE.sheetItemV2',
+    types: ["equipment"],
     makeDefault: true,
   });
   Items.registerSheet("archmage", ArchmageActionSheetV2, {
