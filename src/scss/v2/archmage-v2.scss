@@ -97,9 +97,7 @@
   @import 'application/settings';
 }
 
-.chat-sidebar {
-  @import 'components/chat/ongoing-effects';
-}
+@import 'components/chat/ongoing-effects';
 
 // Global AppV2 styles.
 @import 'components/items/item-sheet-app-v2';
