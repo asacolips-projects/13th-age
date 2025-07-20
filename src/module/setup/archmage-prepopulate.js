@@ -58,6 +58,7 @@ export class ArchmagePrepopulate {
     if (race != '' && racePacks.length > 0) {
       let raceAr = [race];
       if (race.includes(" ")) raceAr.push(race.replace(" ", "-"));
+      raceAr = raceAr.map(applyKinAliasMap);
       for (let i=0; i < validRaces.length; i++) {
         let regexRace = new RegExp("(\\W|^)(" + validRaces[i] + ")(\\W|$)", "i");
         for (const race of raceAr) {
@@ -386,4 +387,24 @@ export class ArchmagePrepopulate {
       }
     };
   }
+}
+
+function applyKinAliasMap (kin) {
+  const kinAliasMap = {
+    'high elf': /(light elf|bright elf)/i,
+    'wood elf': /(gr[ae]y elf|wild elf|green elf)/i,
+    'silver elf': /(drow|silver ?folk|dark elf)/i,
+    'troll-kin': /(druid('s )?folk|wood troll|half-orc|trollkin)/i,
+    'dragonic': /dragon(born|spawn)/i,
+    'forgeborn': /dwarf-forged/i,
+    'tiefling': /demon-?touched/i,
+    'holy one': /aasimar/i,
+  }
+
+  for (const [alias, regex] of Object.entries(kinAliasMap)) {
+    if (kin.match(regex)) {
+      return alias;
+    }
+  }
+  return kin;
 }
