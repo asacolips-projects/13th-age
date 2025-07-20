@@ -703,6 +703,7 @@ ARCHMAGE.raceList = {
   'holyone': "ARCHMAGE.RACES.holyone",
   'human': "ARCHMAGE.RACES.human",
   'tiefling': "ARCHMAGE.RACES.tiefling",
+  'trollkin': "ARCHMAGE.RACES.trollkin",
   'silverelf': "ARCHMAGE.RACES.silverelf",
   'woodelf': "ARCHMAGE.RACES.woodelf"
 };
