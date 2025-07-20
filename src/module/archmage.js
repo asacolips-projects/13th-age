@@ -582,7 +582,9 @@ Hooks.once('init', async function() {
     default: true,
     type: Boolean,
     requiresReload: false,
-    onChange: newValue => $('#chat').toggleClass('show-natural-rolls', newValue)
+    onChange: newValue => {
+      $('#chat').toggleClass('show-natural-rolls', newValue)
+      $('#chat-notifications').toggleClass('show-natural-rolls', newValue);}
   });
 
   game.settings.register('archmage', 'colorBlindMode', {
@@ -756,6 +758,7 @@ async function addEscalationDie() {
   });
 
   $('#chat').toggleClass('show-natural-rolls', game.settings.get('archmage', 'showNaturalRolls'));
+  $('#chat-notifications').toggleClass('show-natural-rolls', game.settings.get('archmage', 'showNaturalRolls'));
 }
 
 /* -------------------------------------------- */
