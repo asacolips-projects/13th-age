@@ -2082,3 +2082,27 @@ a.effect-link,
   }
 }
 
+.archmage-appv2-vue {
+  header.sheet-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    > * {
+      flex: 1;
+    }
+
+    img {
+      flex: 0 0 64px;
+      height: 64px;
+      margin-right: 6px;
+      box-sizing: border-box;
+      border: 1px solid var(--color-border);
+      border-radius: 2px;
+      max-width: 100%;
+    }
+  }
+}
