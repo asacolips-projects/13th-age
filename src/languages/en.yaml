@@ -995,6 +995,7 @@ ARCHMAGE:
     targeted: Targeted
     selected: Selected
     errMacroSyntax: There was an error in your macro syntax. See the console (F12) for details.
+    errNotEnoughBravado: You don't have enough Bravado to use this power. Use anyway?
     errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?

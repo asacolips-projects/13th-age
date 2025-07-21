@@ -369,6 +369,16 @@ export class ItemArchmage extends Item {
           if (stop) return true;
         }
 
+        // Bravado
+        if (res.perCombat.bravado.enabled && num &&
+            str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.bravado").toLowerCase()) {
+          let path = 'system.resources.perCombat.bravado.current';
+          let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughBravado");
+          let resObj = res.perCombat.bravado;
+          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg);
+          if (stop) return true;
+        }
+
         // Recoveries
         else if ((str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recoveries").toLowerCase()
             || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recovery").toLowerCase()) && num) {
