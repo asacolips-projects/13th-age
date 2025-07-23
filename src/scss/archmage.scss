@@ -35,6 +35,10 @@
 /* ----------------------------------------- */
 /*  Context Dropdown Menu
 /* ----------------------------------------- */
+.chat-message .message-content {
+  overflow: initial;
+}
+
 #context-menu2 {
   width: 100%;
   height: max-content;
