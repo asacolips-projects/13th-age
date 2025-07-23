@@ -1630,7 +1630,7 @@ option[selected] {
 // Escalation die.
 .archmage-escalation-display {
   pointer-events: all;
-  color: $c-white;
+  color: var(--control-icon-color);
   position: relative;
   width: 100px;
 
@@ -1640,10 +1640,9 @@ option[selected] {
 
   .ed-number {
     text-align: center;
-    background: $c-black--75;
-    border: 1px solid $c-black;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
-    box-shadow: 0 0 10px $c-black;
     box-sizing: content-box;
     padding: 3px 1em;
 
@@ -1677,12 +1676,11 @@ option[selected] {
 // Scene Terrains
 .archmage-terrains {
   pointer-events: all;
-  background: $c-black--75;
-  border: 1px solid $c-black;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
-  box-shadow: 0 0 10px $c-black;
   box-sizing: content-box;
-  color: $c-white;
+  color: var(--control-icon-color);
   font-family: $font-stack-secondary;
   font-size: 14px;
   line-height: 1.2;
