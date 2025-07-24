@@ -607,7 +607,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       return;
     }
     const combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
-    if (combatant?.initiative !== null) {
+    if (combatant && combatant?.initiative !== null) {
       return;
     }
 
@@ -626,6 +626,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       });
     } catch(error) {
       // dialog canceled
+      console.error(error);
       return;
     }
 
