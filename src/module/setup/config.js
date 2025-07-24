@@ -112,30 +112,31 @@ ARCHMAGE.statusEffects = [
       }
     }
   },
+  // This was a 2e playtest condition that didn't make the cut
   // Frenzied.
-  {
-    id: "frenzied",
-    name: "ARCHMAGE.EFFECT.StatusFrenzied",
-    icon: "icons/svg/pill.svg",
-    journal: "gy68o7eat5p6bpgr",
-    changes: [
-      {
-        key: 'system.attributes.escalation.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-        value: '0'
-      },
-      {
-        key: 'system.attributes.attackMod.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        value: '-4'
-      }
-    ],
-    flags: {
-      archmage: {
-        duration: "Unknown",
-      }
-    }
-  },
+  // {
+    // id: "frenzied",
+    // name: "ARCHMAGE.EFFECT.StatusFrenzied",
+    // icon: "icons/svg/pill.svg",
+    // journal: "gy68o7eat5p6bpgr",
+    // changes: [
+      // {
+        // key: 'system.attributes.escalation.value',
+        // mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        // value: '0'
+      // },
+      // {
+        // key: 'system.attributes.attackMod.value',
+        // mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        // value: '-4'
+      // }
+    // ],
+    // flags: {
+      // archmage: {
+        // duration: "Unknown",
+      // }
+    // }
+  // },
   // Grabbed.
   {
     id: "grabbed",
@@ -342,17 +343,6 @@ ARCHMAGE.extendedStatusEffects = [
       }
     }
   },
-  // Flying.
-  {
-    id: "flying",
-    name: "ARCHMAGE.EFFECT.StatusFlying",
-    icon: "icons/svg/wing.svg",
-    flags: {
-      archmage: {
-        duration: "Unknown",
-      }
-    }
-  },
   // Bonus defenses.
   {
     id: "bonusDefenses",
@@ -397,6 +387,17 @@ ARCHMAGE.extendedStatusEffects = [
       }
     }
   },
+  // Flying.
+  {
+    id: "flying",
+    name: "ARCHMAGE.EFFECT.StatusFlying",
+    icon: "icons/svg/wing.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
   // Hidden.
   {
     id: "invisible", //hidden - renamed to play nice with v11 statuses
@@ -424,6 +425,12 @@ ARCHMAGE.extendedStatusEffects = [
     id: "sleep", //asleep - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusAsleep",
     icon: "icons/svg/sleep.svg",
+  },
+  // Blind.
+  {
+    id: "blind",
+    name: "ARCHMAGE.EFFECT.StatusBlind",
+    icon: "icons/svg/blind.svg",
   },
   // Silenced.
   {
@@ -481,8 +488,9 @@ ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // TODO: keep this handy for now until we know where the rules settle
 ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-ARCHMAGE.tierMultPerLevel = [0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3];
-ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4];
+// Goes to 15th to support monsters
+ARCHMAGE.tierMultPerLevel = [0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4];
+ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 8, 8, 8, 8, 8];
 
 // Animal companion data
 ARCHMAGE.animalCompanion = {
@@ -695,6 +703,7 @@ ARCHMAGE.raceList = {
   'holyone': "ARCHMAGE.RACES.holyone",
   'human': "ARCHMAGE.RACES.human",
   'tiefling': "ARCHMAGE.RACES.tiefling",
+  'trollkin': "ARCHMAGE.RACES.trollkin",
   'silverelf': "ARCHMAGE.RACES.silverelf",
   'woodelf': "ARCHMAGE.RACES.woodelf"
 };
@@ -954,10 +963,13 @@ ARCHMAGE.classes2e = {
   barbarian: {
     rec_die: 12,
   },
-  bard: {},
+  bard: {
+    rec_die: 6,
+  },
   chaosmage: {},
   cleric: {
     ac_hvy_pen: -2,
+    ac_lgt: 11,
   },
   commander: {},
   druid: {},
@@ -966,9 +978,14 @@ ARCHMAGE.classes2e = {
   necromancer: {},
   occultist: {},
   paladin: {},
-  ranger: {},
+  ranger: {
+    ac_lgt: 13,
+    rec_die: 6,
+  },
   rogue: {},
-  sorcerer: {},
+  sorcerer: {
+    wpn_2h: 8,
+  },
   wizard: {}
 }
 
@@ -982,8 +999,9 @@ ARCHMAGE.classResources = {
 ARCHMAGE.classResources2e = {
   // List custom resources to configure for classes that use them - added if 2e enabled
   // Stored as an array of two-element arrays with label and reset
-  'barbarian': [["Frenzy", "quickreset"]],
-  'bard' : [["Combat Riffs", "quick", 2, 2], ["Healing Magics", "quick", 2, 2], ["Miss Me Effects", "quick", 2, 2]]
+  // 'barbarian': [["Frenzy", "quickreset"]], // optional, manually setup via instructions
+  // These were part of the 2e playtest but didn't make the cut
+  // 'bard' : [["Combat Riffs", "quick", 2, 2], ["Healing Magics", "quick", 2, 2], ["Miss Me Effects", "quick", 2, 2]]
 }
 
 ARCHMAGE.keyModifiers = {
@@ -1178,6 +1196,12 @@ FLAGS.characterFlags = {
   "grimDetermination": {
     name: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationName",
     hint: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationHint",
+    section: "Feats",
+    type: Boolean
+  },
+  "dexToCha": {
+    name: "ARCHMAGE.CHARACTERFLAGS.dexToChaName",
+    hint: "ARCHMAGE.CHARACTERFLAGS.dexToChaHint",
     section: "Feats",
     type: Boolean
   },

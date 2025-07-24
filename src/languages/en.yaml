@@ -9,7 +9,7 @@ ARCHMAGE:
   add: Add
   adventurer: Adventurer
   arc: Arc
-  arc-desparate: Arc/Desperate
+  arc-desperate: Arc/Desperate
   at-will: At-Will
   attack: Attack
   attackMod: Attack Modifier
@@ -92,6 +92,7 @@ ARCHMAGE:
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
+  initBonus: Optional Initiative Bonus
   initiative: Initiative
   INT: INT
   interrupt: Interrupt Action
@@ -111,6 +112,7 @@ ARCHMAGE:
   magicItems: Magic Items
   maneuver: Maneuver
   maneuvers: Maneuvers
+  maxSkulls: Max Death Saves/Skulls
   melee: Melee
   meleeWeaponDice: Melee Weapon Dice
   misc: Misc.
@@ -210,7 +212,7 @@ ARCHMAGE:
   SETTINGS:
     newSetting: New!
     groups:
-      secondEdition: 2e Playtest
+      edition: Edition Rules
       automation: Automation
       appearance: Appearance
       accessibility: Accessibility
@@ -245,14 +247,18 @@ ARCHMAGE:
     compactModeName: Compact Sheet Mode
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
+    resetIconsOnRestHint: Automatically clear icon relationship results (advantages, uses) on a full heal-up.
+    resetIconsOnRestName: Reset Icon Relationships on Full Heal-Up
     RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
     RoundUpDamageApplicationName: Round damage/healing up (true) or down (false)
     allowTargetDamageApplicationHint: Whether or not to allow damage and healing on chat messages to be applied to targeted tokens in addition to selected tokens. Targeting does not require permissions, so this can allow players and GMs to apply damage to ANY token they can see.
     allowTargetDamageApplicationName: Allow target damage application
     allowRerollsHint: Whether or not to allow non-GM players to reroll their own dice rolls.
     allowRerollsName: Allow dice rerolls
-    secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
-    secondEditionName: Use 2e Gamma Playtest Rules
+    secondEditionHint: Turn this on to use the 13th Age second edition rules, off if you'd prefer the first edition rules.
+    secondEditionName: Use 2e Rules
+    alternateIconRollingMethodHint: Turn this on to use Jonathan's alternate icon rolling method, which allows you to roll for icons in the moment instead of at the start of the arc.
+    alternateIconRollingMethodName: Use Alternate Icon Rolling Method
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
     showDefensesInChatHint: Enable this to display a list of targeted defenses in the attack line of chat power cards.
@@ -290,6 +296,7 @@ ARCHMAGE:
     showToken: 'Show Token'
     showTokenTitle: 'Token: {name}'
     RESOURCES:
+      bravado: Bravado
       commandPoint: Command Point
       commandPoints: Command Points
       commandPointsGained: Gained {points} command points.
@@ -339,9 +346,11 @@ ARCHMAGE:
     hideSettingsTabHint: Hide the sheet settings tab for players.
     hideSettingsTabName: Hide Settings tab
     implacableHint: Paladin talent to roll saves at the start of your turn instead of at the end of your turn.
-    implacableName: Implacable/Undaunted
+    implacableName: Implacable
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
+    dexToChaHint: Paladin feature to use Cha in place of Dex for AC calculation.
+    dexToChaName: Blessing of Heaven
     dexToIntHint: Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.
     dexToIntName: Mental Phenomenon
     grimDeterminationHint: Barbarian feature to get extra defences when you have one or more skulls.
@@ -395,6 +404,7 @@ ARCHMAGE:
     holyone: Holy One
     human: Human
     tiefling: Tiefling
+    trollkin: Troll-Kin
     silverelf: Silver Elf
     woodelf: Wood Elf
   CLASSES:
@@ -471,6 +481,8 @@ ARCHMAGE:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
     abilityScoreBonus2eHint: +1 to 3/4/5 ability scores (3rd/6th/9th Level)
     abilityScoreBonusName: Ability Score Bonus
+    classFeatureHint: If you have a class feature that improves every level, bump up its effective level by one
+    classFeatureName: Class Feature
     extraMagicItemHint: Carry an extra Magic Item without becoming overwhelmed by Quirks
     extraMagicItemName: Magic Item
     featHint: Choose one feat as if you were the next level
@@ -481,6 +493,10 @@ ARCHMAGE:
     hpName: Hit Points
     iconRelationshipPointHint: Gain an extra Icon relationship point (4th/7th Level)
     iconRelationshipPointName: Icon Relationship Point
+    mdHint: Increase your MD by one, as if you were one level higher
+    mdName: Mental Defense
+    pdHint: Increase your PD by one, as if you were one level higher
+    pdName: Physical Defense
     powerSpell1Hint: Choose a power / spell as if you were the next level
     powerSpell1Name: Power / Spell
     powerSpell2Hint: Choose a power / spell as if you were the next level
@@ -502,6 +518,18 @@ ARCHMAGE:
     skillInitiativeHint: Add +1 to all skill and initiative checks
     abilMultiplierName: Ability Multiplier
     abilMultiplierHint: Double/quadruple the ability modifier contribution to damage and healing (4th/7th level)
+  ICONROLLS:
+    tooltip1e5: Benefit with complication
+    tooltip1e6: Benefit
+    tooltip2e5: Benefit with a twist
+    tooltip2e6: Benefit
+    tooltip2ealt6: Connection used this arc
+    rolldialogtitle: Roll for Icon Relationships
+    rollone: "{name} Only"
+    rollall: Roll All
+    rollDialogHint: "Roll dice for <strong>{name}</strong> only, or for all icons?"
+    noDiceLeft: You have no icon dice left to roll.
+    chatCardTitle: Icon Relationship Roll
   COINS:
     copper: Copper
     copperHint: 10 Copper = 1 Silver
@@ -929,6 +957,7 @@ ARCHMAGE:
     StatusBlessed: Blessed
     StatusBonusDefenses: Bonus Defenses
     StatusBuffed: Buffed
+    StatusBlind: Blind
     StatusCharmed: Charmed
     StatusConfused: Confused
     StatusCursed: Cursed
@@ -966,6 +995,7 @@ ARCHMAGE:
     targeted: Targeted
     selected: Selected
     errMacroSyntax: There was an error in your macro syntax. See the console (F12) for details.
+    errNotEnoughBravado: You don't have enough Bravado to use this power. Use anyway?
     errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?
@@ -976,6 +1006,7 @@ ARCHMAGE:
     errNotInteger: must be an integer number
     errNoInitiativeOutsideCombat: Can't roll initiative without an encounter in the combat tracker.
     errOnlyTextRolltables: Only text Roll Tables are supported for now.
+    infoDesperateTriggeredEmpty: You triggered your desperate recharge for this arc, but there was nothing to recharge.
     warnStatusEffect: Effect data empty, can't apply this effect.
     warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
     warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.

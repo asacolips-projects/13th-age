@@ -86,9 +86,9 @@ system:
     role:
       value: leader
     size:
-      value: elite
+      value: normal
     strength:
-      value: ''
+      value: elite
     type:
       value: humanoid
     resistance:

@@ -6,6 +6,7 @@ import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
 import { ArchmagePowerSheetV2 } from './item/power-sheet-v2.js';
+import { ArchmageEquipmentSheetV2 } from './item/equipment-sheet-v2.js';
 import { ArchmageActionSheetV2 } from './item/action-sheet-v2.js';
 import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
@@ -106,6 +107,26 @@ Hooks.once('init', async function() {
     requiresReload: true
   });
 
+  game.settings.register("archmage", "alternateIconRollingMethod", {
+    name: "ARCHMAGE.SETTINGS.alternateIconRollingMethodName",
+    hint: "ARCHMAGE.SETTINGS.alternateIconRollingMethodHint",
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true,
+    requiresReload: false
+  });
+
+  game.settings.register("archmage", "resetIconsOnRest", {
+    name: "ARCHMAGE.SETTINGS.resetIconsOnRestName",
+    hint: "ARCHMAGE.SETTINGS.resetIconsOnRestHint",
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true,
+    requiresReload: false
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheetV2,
@@ -186,6 +207,11 @@ Hooks.once('init', async function() {
   Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["power"],
+    makeDefault: true,
+  });
+  Items.registerSheet("archmage", ArchmageEquipmentSheetV2, {
+    label: 'ARCHMAGE.sheetItemV2',
+    types: ["equipment"],
     makeDefault: true,
   });
   Items.registerSheet("archmage", ArchmageActionSheetV2, {
@@ -273,6 +299,8 @@ Hooks.once('init', async function() {
     delete FLAGS.characterFlags.dexToInt;
     // Remove Grim Determination flag
     delete FLAGS.characterFlags.grimDetermination;
+    // Remove Blessing of Heaven flag
+    delete FLAGS.characterFlags.dexToCha;
 
     // Remove 11th level feat tier
     delete CONFIG.ARCHMAGE.featTiers.iconic;
@@ -285,9 +313,10 @@ Hooks.once('init', async function() {
     id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
     CONFIG.statusEffects.splice(id, 1);
 
+    // This was a 2e playtest condition that didn't make the cut
     // Remove 2e frenzied from context menu status effects
-    id = CONFIG.statusEffects.findIndex(e => e.id == "frenzied");
-    CONFIG.statusEffects.splice(id, 1);
+    // id = CONFIG.statusEffects.findIndex(e => e.id == "frenzied");
+    // CONFIG.statusEffects.splice(id, 1);
   }
 
   // Assign the actor class to the CONFIG
@@ -591,17 +620,8 @@ Hooks.once('init', async function() {
    * @private
    */
   Combatant.prototype._getInitiativeFormula = function() {
-    const actor = this.actor;
-    if (!actor) return "1d20";
-    const init = actor.system.attributes.init.mod;
-    // Init mod includes dex + level + misc bonuses.
-    const parts = ["1d20", init];
-    if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
-    if (game.settings.get("archmage", "initiativeStaticNpc") &&  actor.type == 'npc') parts[0] = "10";
-    if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
-    else parts.push((actor.type === 'npc' ? 0.01 : 0));
-    return parts.filter(p => p !== null).join(" + ");
-  }
+    return this.actor?.getInitiativeFormula() ?? "1d20";
+  };
 
   ArchmageUtility.fixVuePopoutBug();
 });
@@ -738,7 +758,7 @@ Hooks.once('ready', () => {
   renderSceneTerrains();
 
   // Apply localization to CONFIG.ARCHMAGE leaf props
-  // TODO: the following are currently localized on each usage, may need to be hunted down 
+  // TODO: the following are currently localized on each usage, may need to be hunted down
   // one by one and moved here
   // ARCHMAGE.statusEffects
   // ARCHMAGE.extendedStatusEffects
@@ -902,14 +922,17 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
   // Define groups for organization.
   const groups = [
     {
-      label: 'ARCHMAGE.SETTINGS.groups.secondEdition',
-      settings: ['secondEdition'],
-      highlights: [],
+      label: 'ARCHMAGE.SETTINGS.groups.edition',
+      settings: ['secondEdition', 'alternateIconRollingMethod'],
+      highlights: [
+        'alternateIconRollingMethod',
+      ],
     },
     {
       label: 'ARCHMAGE.SETTINGS.groups.automation',
       settings: [
         'enableOngoingEffectsMessages',
+        'resetIconsOnRest',
         'automateHPConditions',
         'staggeredOverlay',
         'multiTargetAttackRolls',
@@ -924,8 +947,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'showPrivateGMAttackRolls',
       ],
       highlights: [
-        'allowTargetDamageApplication',
-        'allowRerolls',
       ],
     },
     {
@@ -937,8 +958,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'sheetTooltips',
       ],
       highlights: [
-        'compactMode',
-        'showNaturalRolls',
       ],
     },
     {
@@ -959,7 +978,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'tourVisibility',
       ],
       highlights: [
-        'allowPasteParsing'
       ],
     }
   ];

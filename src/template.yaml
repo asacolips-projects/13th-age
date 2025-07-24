@@ -62,11 +62,13 @@ Actor:
             value: 0
             # Max and steps are adjusted in actor.js depending on 2e setting.
             max: 4
+            maxOverride: 0
             steps:
               - false
               - false
               - false
               - false
+          desperateTriggered: false
           lastGaspFails:
             value: 0
             max: 4
@@ -400,6 +402,10 @@ Actor:
           current: 'none'
           default: 'none'
           secondEdition: true
+        bravado:
+          enabled: false
+          current: 0
+          secondEdition: true
       spendable:
         ki:
           enabled: false
@@ -453,7 +459,11 @@ Actor:
         value: ''
       role:
         value: ''
+      roleB:
+        value: ''
       size:
+        value: ''
+      sizeB:
         value: ''
       strength:
         value: ''
@@ -772,6 +782,7 @@ Item:
   equipment:
     templates:
       - standard
+      - spendable
       - usable
     properties: {}
     attributes:

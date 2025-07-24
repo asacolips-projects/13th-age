@@ -12,6 +12,7 @@ export async function combatTurn(combat, context, options) {
 
     // Execute start/end of turn macros
     await executeLifecycleMacro(endCombatant, "endOfTurn");
+    await _add2eFighterMomentum(endCombatant);
     await executeLifecycleMacro(startCombatant, "startOfTurn");
 
     // Exit early if the feature is disabled.
@@ -152,6 +153,8 @@ export async function combatRound(combat, context, options) {
 }
 
 export async function preDeleteCombat(combat, context, options) {
+    await cleanupStoke(combat, context, options);
+
     // Exit early if the feature is disabled.
     if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
 
@@ -223,14 +226,28 @@ export async function preDeleteCombat(combat, context, options) {
 
 async function handleStoke(combat, context, options) {
     const endCombatant = combat.combatant;
-    if (endCombatant?.actor?.type === 'npc' && endCombatant.actor.system?.resources?.spendable?.stoke?.enabled) {
-        const stokeDelta = endCombatant.getFlag('archmage', 'breathUsed') ? -1 : 1;
+    const {enabled, current, breathUsed} = endCombatant?.actor?.system?.resources?.spendable?.stoke ?? {};
+    if (endCombatant?.actor?.type === 'npc' && enabled) {
+        const stokeDelta = breathUsed ? -1 : 1;
+        const newCurrent = Math.max(0, (current ?? 0) + stokeDelta);
         await endCombatant.actor.update({
-            'system.resources.spendable.stoke.current': stokeDelta + (endCombatant.actor.system.resources.spendable.stoke.current ?? 0),
+            'system.resources.spendable.stoke.current': newCurrent,
+            'system.resources.spendable.stoke.breathUsed': false
         });
-        await endCombatant.setFlag('archmage', 'breathUsed', false);
         // Show scrolling text for the update.
         endCombatant.actor._showScrollingText(stokeDelta, game.i18n.localize('ARCHMAGE.CHARACTER.RESOURCES.stoke'), {}, '#1776D5');
+    }
+}
+
+async function cleanupStoke(combat, context, options) {
+    for (const c of combat.combatants) {
+        // If the combatant has a stoke resource, reset it
+        if (c?.actor?.system?.resources?.spendable?.stoke?.enabled) {
+            await c.actor.update({
+                'system.resources.spendable.stoke.current': 0,
+                'system.resources.spendable.stoke.breathUsed': false
+            });
+        }
     }
 }
 
@@ -315,4 +332,19 @@ async function executeLifecycleMacro(combatant, hookName) {
         ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errMacroSyntax'));
         console.error(`Lifecycle hook '${combatant.actor.name}' / ${hookName} failed with: ${ex}`, ex);
     }
+}
+
+async function _add2eFighterMomentum(combatant) {
+    // Pseudo combatants may not have an actor.
+    if (!combatant?.actor) return;
+
+    // Only woks in 2e and for fighters
+    if (!(game.settings.get("archmage", "secondEdition") && combatant.actor?.system?.details?.detectedClasses?.includes("fighter"))) return;
+
+    // Update actor's resource
+    let updateData = {}
+    if (combatant.actor?.system.resources?.perCombat?.momentum?.enabled) {
+      updateData['system.resources.perCombat.momentum.current'] = true;
+    }
+    await combatant.actor.update(updateData);
 }

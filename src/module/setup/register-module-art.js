@@ -20,7 +20,7 @@ async function registerModuleArt() {
   // Iterate over each module and check to see if there's a map.
   for (const [moduleKey, foundryModule] of activeModules) {
     // If the pf2e token pack isn't enabled, skip the system map.
-    if (['archmage', '13th-age-core-2e-gamma'].includes(moduleKey) && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
+    if (['archmage', '13th-age-core-2e-gamma', '13th-age-core-2e'].includes(moduleKey) && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
       continue;
     }
     // We can skip the pf2e-tokens-bestiaries map since we've provided our own in the
@@ -63,10 +63,10 @@ async function registerModuleArt() {
 
 /**
  * Get the art entry for usage in the system's art map.
- * 
+ *
  * @param {object|string|null} art Art object used for the map entry.
  *   If supplied as a string, assume it's a JSON file andtry to load it via fetch().
- * 
+ *
  * @returns {object|null} Art object, or null.
  */
 async function getArtMap(art) {
@@ -103,7 +103,7 @@ async function getArtMap(art) {
 
 /**
  * Determine if a given object matches the expected art structure.
- * 
+ *
  * @param {object} record Object to test and determine whether it's a
  *   valid art object or not.
  * @returns {boolean}
@@ -136,7 +136,7 @@ function isModuleArt(record) {
 
 /**
  * Helper function to determine if the supplied variable is an object.
- * 
+ *
  * @param {mixed} obj Object to test.
  * @returns {boolean}
  */

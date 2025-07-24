@@ -51,9 +51,13 @@
               <br/>
               {{localize("ARCHMAGE.role")}}
               <Select name="system.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
+              /
+              <Select name="system.details.roleB.value" :actor="actor" :options="getOptions('creatureRoles', true)"/>
               <br/>
               {{localize("ARCHMAGE.type")}}
               <Select name="system.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
+              /
+              <Select name="system.details.typeB.value" :actor="actor" :options="getOptions('creatureTypes', true)"/>
               <br/>
             </template>
           </ToggleInput>
@@ -118,11 +122,16 @@
         return CONFIG.ARCHMAGE.creatureStrengths[this.actor.system.details?.strength?.value] ?? this.actor.system.details?.strength?.value;
       },
       roleFormatted() {
-        return CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.role?.value] ?? this.actor.system.details?.role?.value;
+        const roleA = CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.role?.value] ?? this.actor.system.details?.role?.value;
+        const roleB = CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.roleB?.value] ?? this.actor.system.details?.roleB?.value;
+        return roleB ? `${roleA}/${roleB}` : roleA;
       },
       typeFormatted() {
-        let type = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.type?.value] ?? this.actor.system.details?.type?.value;
-        return typeof type == 'string' ? type.toUpperCase() : '';
+        let typeA = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.type?.value] ?? this.actor.system.details?.type?.value;
+        let typeB = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.typeB?.value] ?? this.actor.system.details?.typeB?.value;
+        if (typeB) return `${typeA.toUpperCase()}/${typeB.toUpperCase()}`;
+        if (typeof typeA == 'string') return typeA.toUpperCase();
+        return "";
       },
     },
     methods: {
@@ -174,8 +183,12 @@
           });
         }
       },
-      getOptions(key) {
-        return CONFIG.ARCHMAGE[key] ?? [];
+      getOptions(key, includeNone = false) {
+        let options = CONFIG.ARCHMAGE[key] ?? [];
+        if (includeNone) {
+          options = {"":"", ...options};
+        }
+        return options;
       }
     },
     watch: {
