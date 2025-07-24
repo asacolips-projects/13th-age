@@ -85,6 +85,7 @@ ARCHMAGE:
   helpDetailed: '<p class="hint">Use <a href="javascript:void(0)" click="preventDefault" role="button" tabindex="-1" class="archmage-rolls-reference">inline rolls</a> such as <strong>[[d20+@str.mod+@std+@atk.a.bonus]] vs AC</strong> to insert dice rolls wherever you need them. Any roll formula will work!</p>'
   hit: Hit
   hitPoints: Hit Points
+  hpAdjustment: Hit Points Adjustment
   icon: Icon
   iconic: Zenith
   iconRelationships: Icon Relationships
@@ -365,8 +366,6 @@ ARCHMAGE:
     showTriggersTabName: Show Triggers tab
     strongRecoveryHint: Universal feat to improve your recovery rolls.
     strongRecoveryName: Strong Recovery
-    toughnessHint: Universal feat to increase your max HP based on your base HP.
-    toughnessName: Toughness
   CHARACTERSETTINGS:
     bg1: Background 1
     bg2: Background 2
@@ -1032,6 +1031,7 @@ ARCHMAGE:
     '1_25_0': "13th Age 1.25.0: Updating Powers cost field to new resources syntax."
     '1_26_0': "13th Age 1.26.0: Updating Powers feat structure."
     '1_30_0': "13th Age 1.30.0: Updating NPC actors to separate Size and Strength."
+    '1_36_0': "13th Age 1.36.0: Updating PC actors to remove Toughness flag."
   TOOLTIP:
     portrait: Portrait image.<br>Click to edit (may need permissions).
     pcAbility: |
