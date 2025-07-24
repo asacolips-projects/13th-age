@@ -1,0 +1,136 @@
+name: Sword Way Damage
+_id: T8UXLe2cui7dDgLY
+img: icons/svg/d20-grey.svg
+description: ''
+results:
+  - type: text
+    weight: 1
+    range:
+      - 1
+      - 1
+    drawn: false
+    _id: 0DdomT27hhDCoCvG
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.0DdomT27hhDCoCvG'
+  - type: text
+    weight: 1
+    range:
+      - 2
+      - 2
+    drawn: false
+    _id: uniKy2ovpIgV89eF
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.uniKy2ovpIgV89eF'
+  - type: text
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+    _id: lJmEGd03dDeE7xYl
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.lJmEGd03dDeE7xYl'
+  - type: text
+    weight: 1
+    range:
+      - 4
+      - 4
+    drawn: false
+    _id: CfAyvqT9q4sOuL2d
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.CfAyvqT9q4sOuL2d'
+  - type: text
+    weight: 1
+    range:
+      - 5
+      - 5
+    drawn: false
+    _id: IU3KS3icKP22Wtaj
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.IU3KS3icKP22Wtaj'
+  - type: text
+    weight: 1
+    range:
+      - 6
+      - 6
+    drawn: false
+    _id: Y0ayczvA1xnG2CNy
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.Y0ayczvA1xnG2CNy'
+  - type: text
+    weight: 1
+    range:
+      - 7
+      - 7
+    drawn: false
+    _id: J34fDDNx7gsVK5Rn
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.J34fDDNx7gsVK5Rn'
+  - type: text
+    weight: 1
+    range:
+      - 8
+      - 8
+    drawn: false
+    _id: k4xJm4PK0Jc2TsMe
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.k4xJm4PK0Jc2TsMe'
+  - type: text
+    weight: 1
+    range:
+      - 9
+      - 9
+    drawn: false
+    _id: vYnPTH5Mf0AE2ZIh
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.vYnPTH5Mf0AE2ZIh'
+  - type: text
+    weight: 1
+    range:
+      - 10
+      - 10
+    drawn: false
+    _id: dZXJx8PCkOLa0CHR
+    text: ''
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.dZXJx8PCkOLa0CHR'
+replacement: true
+displayRoll: false
+folder: null
+sort: 1900000
+ownership:
+  default: 0
+  nPjNg32wEG3J72a7: 3
+flags: {}
+formula: ''
+_key: '!tables!T8UXLe2cui7dDgLY'
+

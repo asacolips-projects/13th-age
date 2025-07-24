@@ -110,7 +110,7 @@ export class ItemArchmage extends Item {
           const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
           if (combatantUuid && combatantUuid == this.itemActor.uuid && this.name.toLocaleLowerCase().includes(breathString)) {
             // This will be set to false at the start of the actor's turn.
-            game.combat.combatant.setFlag('archmage', 'breathUsed', true);
+            await this.itemActor.update({ "system.resources.spendable.stoke.breathUsed": true });
           }
         }
       }
@@ -366,6 +366,16 @@ export class ItemArchmage extends Item {
           let resObj =  res.perCombat.rhythm;
           let opt = (str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()) ? "offense" : "defense";
           let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, null, resObj, msg, opt);
+          if (stop) return true;
+        }
+
+        // Bravado
+        if (res.perCombat.bravado.enabled && num &&
+            str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.bravado").toLowerCase()) {
+          let path = 'system.resources.perCombat.bravado.current';
+          let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughBravado");
+          let resObj = res.perCombat.bravado;
+          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg);
           if (stop) return true;
         }
 

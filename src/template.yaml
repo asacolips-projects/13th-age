@@ -63,6 +63,7 @@ Actor:
             value: 0
             # Max and steps are adjusted in actor.js depending on 2e setting.
             max: 4
+            maxOverride: 0
             steps:
               - false
               - false
@@ -459,7 +460,11 @@ Actor:
         value: ''
       role:
         value: ''
+      roleB:
+        value: ''
       size:
+        value: ''
+      sizeB:
         value: ''
       strength:
         value: ''
@@ -778,6 +783,7 @@ Item:
   equipment:
     templates:
       - standard
+      - spendable
       - usable
     properties: {}
     attributes:

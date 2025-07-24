@@ -9,7 +9,7 @@ ARCHMAGE:
   add: Add
   adventurer: Adventurer
   arc: Arc
-  arc-desparate: Arc/Desperate
+  arc-desperate: Arc/Desperate
   at-will: At-Will
   attack: Attack
   attackMod: Attack Modifier
@@ -93,6 +93,7 @@ ARCHMAGE:
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
+  initBonus: Optional Initiative Bonus
   initiative: Initiative
   INT: INT
   interrupt: Interrupt Action
@@ -112,6 +113,7 @@ ARCHMAGE:
   magicItems: Magic Items
   maneuver: Maneuver
   maneuvers: Maneuvers
+  maxSkulls: Max Death Saves/Skulls
   melee: Melee
   meleeWeaponDice: Melee Weapon Dice
   misc: Misc.
@@ -211,7 +213,7 @@ ARCHMAGE:
   SETTINGS:
     newSetting: New!
     groups:
-      secondEdition: 2e Playtest
+      edition: Edition Rules
       automation: Automation
       appearance: Appearance
       accessibility: Accessibility
@@ -246,6 +248,8 @@ ARCHMAGE:
     compactModeName: Compact Sheet Mode
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
+    resetIconsOnRestHint: Automatically clear icon relationship results (advantages, uses) on a full heal-up.
+    resetIconsOnRestName: Reset Icon Relationships on Full Heal-Up
     RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
     RoundUpDamageApplicationName: Round damage/healing up (true) or down (false)
     allowTargetDamageApplicationHint: Whether or not to allow damage and healing on chat messages to be applied to targeted tokens in addition to selected tokens. Targeting does not require permissions, so this can allow players and GMs to apply damage to ANY token they can see.
@@ -254,6 +258,8 @@ ARCHMAGE:
     allowRerollsName: Allow dice rerolls
     secondEditionHint: Turn this on to use the 13th Age second edition rules, off if you'd prefer the first edition rules.
     secondEditionName: Use 2e Rules
+    alternateIconRollingMethodHint: Turn this on to use Jonathan's alternate icon rolling method, which allows you to roll for icons in the moment instead of at the start of the arc.
+    alternateIconRollingMethodName: Use Alternate Icon Rolling Method
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
     showDefensesInChatHint: Enable this to display a list of targeted defenses in the attack line of chat power cards.
@@ -397,6 +403,7 @@ ARCHMAGE:
     holyone: Holy One
     human: Human
     tiefling: Tiefling
+    trollkin: Troll-Kin
     silverelf: Silver Elf
     woodelf: Wood Elf
   CLASSES:
@@ -510,6 +517,18 @@ ARCHMAGE:
     skillInitiativeHint: Add +1 to all skill and initiative checks
     abilMultiplierName: Ability Multiplier
     abilMultiplierHint: Double/quadruple the ability modifier contribution to damage and healing (4th/7th level)
+  ICONROLLS:
+    tooltip1e5: Benefit with complication
+    tooltip1e6: Benefit
+    tooltip2e5: Benefit with a twist
+    tooltip2e6: Benefit
+    tooltip2ealt6: Connection used this arc
+    rolldialogtitle: Roll for Icon Relationships
+    rollone: "{name} Only"
+    rollall: Roll All
+    rollDialogHint: "Roll dice for <strong>{name}</strong> only, or for all icons?"
+    noDiceLeft: You have no icon dice left to roll.
+    chatCardTitle: Icon Relationship Roll
   COINS:
     copper: Copper
     copperHint: 10 Copper = 1 Silver
@@ -975,6 +994,7 @@ ARCHMAGE:
     targeted: Targeted
     selected: Selected
     errMacroSyntax: There was an error in your macro syntax. See the console (F12) for details.
+    errNotEnoughBravado: You don't have enough Bravado to use this power. Use anyway?
     errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?

@@ -221,7 +221,7 @@ export class ActorArchmage extends Actor {
         }
       }
       // Bonuses stack if the name is different or if flagged to
-      else { 
+      else {
         // If it's meant to stack save it and handle it later
         if (change.effect.flags.archmage?.stacksAlways) {
           if (!stackingBonuses[change.key]) stackingBonuses[change.key] = [];
@@ -287,8 +287,10 @@ export class ActorArchmage extends Actor {
         uniquePenalties[change.key].value = (uniquePenalties[change.key].value + change.value).toString();
         uniquePenalties[change.key].numeric += change.numeric;
       }
-      // Finally merge value and numeric
-      if (change.numeric) uniquePenalties[change.key].value += "+" + change.numeric;
+    }
+    // Finally merge value and numeric
+    for (let change of Object.values(uniquePenalties)) {
+      if (change.numeric) uniquePenalties[change.key].value += (change.numeric < 0 ? "" : "+") + change.numeric;
     }
     // Put everything together into an array of changes, once per target value
     uniqueChanges = uniqueChanges.concat(Object.values(uniquePenalties));
@@ -447,7 +449,8 @@ export class ActorArchmage extends Actor {
     }
 
     // Fix max death saves based on 2e.
-    data.attributes.saves.deathFails.max = game.settings.get('archmage', 'secondEdition') ? 5 : 4;
+    data.attributes.saves.deathFails.max = parseInt(data.attributes.saves.deathFails.maxOverride)
+      || (game.settings.get('archmage', 'secondEdition') ? 5 : 4);
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
     data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
@@ -751,7 +754,7 @@ export class ActorArchmage extends Actor {
               data.wpn[wpn].dieNum = Number(data.wpn[wpn].dice.match(/d(\d+).*/)[1]);
             }
             data.wpn[wpn].dice = data.wpn[wpn].value;
-            data.wpn[wpn].diceSml = data.wpn[wpn].dice.replace(/d\d+/, `d${Math.max(data.wpn[wpn].dieNum - 2, 4)}`);
+            data.wpn[wpn].diceSml = data.wpn[wpn].dice.replace(/d\d+/, `d${Math.max(data.wpn[wpn].dieNum - 2, 3)}`);  // Min dice d3
             data.wpn[wpn].diceLrg = data.wpn[wpn].dice.replace(/d\d+/, `d${data.wpn[wpn].dieNum + 2}`); // TODO: handle d12->2d6? (Nothing needs it in core)
             // data.wpn[wpn].atk = data.wpn[wpn].attack;
             // data.wpn[wpn].dmg = data.wpn[wpn].dmg;
@@ -848,6 +851,17 @@ export class ActorArchmage extends Actor {
     }
 
     return data;
+  }
+
+  getInitiativeFormula() {
+    const init = this.system.attributes.init.mod;
+    // Init mod includes dex + level + misc bonuses.
+    const parts = ["1d20", init];
+    if (this.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
+    if (game.settings.get("archmage", "initiativeStaticNpc") &&  this.type == 'npc') parts[0] = "10";
+    if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
+    else parts.push((this.type === 'npc' ? 0.01 : 0));
+    return parts.filter(p => p !== null).join(" + ");
   }
 
   async rollSave(difficulty, target=11) {
@@ -1524,6 +1538,15 @@ export class ActorArchmage extends Actor {
 
     // Reset desperate recharge flag
     updateData["system.attributes.saves.desperateTriggered"] = false;
+
+    // Reset icons
+    if (game.settings.get("archmage", "resetIconsOnRest")) {
+      [1, 2, 3, 4, 5].forEach(i => {
+        if (this.system.icons[`i${i}`].isActive.value) {
+          updateData[`system.icons.i${i}.results`] = Array(this.system.icons[`i${i}`].bonus.value).fill(0)
+        }
+      });
+    }
 
     // Update actor at this point (items are updated separately)
     if ( !foundry.utils.isEmpty(updateData) ) {

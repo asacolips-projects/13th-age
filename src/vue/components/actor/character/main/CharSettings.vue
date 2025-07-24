@@ -69,6 +69,16 @@
             <option v-for="(option, index) in abilities" :key="index" :value="option.value">{{option.label}}</option>
           </select>
         </div>
+        <div class="sub-unit sub-unit--skulls flexrow">
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.maxSkulls')}}</strong>
+          <select name="system.attributes.saves.deathFails.maxOverride" v-model="actor.system.attributes.saves.deathFails.maxOverride">
+            <option :value="0">{{localize('Default')}}</option>
+            <option :value="4">4</option>
+            <option :value="5">5</option>
+            <option :value="6">6</option>
+            <option :value="7">7</option>
+          </select>
+        </div>
         <div class="sub-unit sub-unit--melee">
           <div class="sub-unit sub-unit--melee-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.meleeWeaponDice')}}</strong>

@@ -606,14 +606,40 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
       return;
     }
-    let combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
+    const combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
+    if (combatant && combatant?.initiative !== null) {
+      return;
+    }
+
+    // Prompt the user for an optional bonus
+    let bonus = 0;
+    try {
+      bonus = await foundry.applications.api.DialogV2.prompt({
+        window: { title: "ARCHMAGE.initAdjustment" },
+        content: `
+          <label for="bonus">${game.i18n.localize("ARCHMAGE.initBonus")}</label>
+          <input name="bonus" type="number" step="1" default="0" placeholder="0" autofocus>`,
+        ok: {
+          label: "COMBAT.InitiativeRoll",
+          callback: (event, button, dialog) => button.form.elements.bonus.valueAsNumber
+        }
+      });
+    } catch(error) {
+      // dialog canceled
+      console.error(error);
+      return;
+    }
+
+    let formula = this.actor.getInitiativeFormula();
+    if (bonus) formula += ` + ${bonus ?? 0}`;
+
     // Create the combatant if needed.
     if (!combatant) {
-      await this.actor.rollInitiative({createCombatants: true});
+      await this.actor.rollInitiative({createCombatants: true, initiativeOptions: { formula }});
     }
     // Otherwise, determine if the existing combatant should roll init.
     else if (!combatant.initiative && combatant.initiative !== 0) {
-      await combat.rollInitiative([combatant.id]);
+      await combat.rollInitiative([combatant.id], { formula });
     }
   }
 
@@ -638,122 +664,131 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * @returns object | Chat message
    */
   async _onIconRoll(iconIndex) {
-    let actorData = this.actor.system;
+    const actorData = this.actor.system;
+    if (!actorData.icons[iconIndex]) {
+      return;
+    }
 
-    if (actorData.icons[iconIndex]) {
-      let icon = actorData.icons[iconIndex];
-      let roll = new Roll(`${icon.bonus.value}d6`);
-      let result = await roll.roll();
-
-      let fives = 0;
-      let sixes = 0;
-      var rollResults;
-
-      let actorIconResults = [];
-
-      rollResults = result.terms[0].results;
-      rollResults.forEach(rollResult => {
-        if (CONFIG.ARCHMAGE.is2e) {
-          if ([5, 6].includes(rollResult.result)) {
-            sixes++;
-            actorIconResults.push(6);
+    const icon = actorData.icons[iconIndex];
+    return new Dialog({
+      title: game.i18n.localize('ARCHMAGE.ICONROLLS.rolldialogtitle'),
+      content: `<p>${game.i18n.format('ARCHMAGE.ICONROLLS.rollDialogHint', { name: icon.name.value })}</p>`,
+      buttons: {
+        singleicon: {
+          label: game.i18n.format('ARCHMAGE.ICONROLLS.rollone', { name: icon.name.value }),
+          callback: () => {
+            this.rollAndDisplayIconDice([iconIndex]);
           }
-        }
-        else if (rollResult.result == 5) {
-          fives++;
-          actorIconResults.push(5);
-        }
-        else if (rollResult.result == 6) {
-          sixes++;
-          actorIconResults.push(6);
-        }
-        else {
-          actorIconResults.push(0);
-        }
-      });
-
-      // Basic template rendering data
-      const template = `systems/archmage/templates/chat/icon-relationship-card.html`
-      const token = this.actor.token;
-
-      // Basic chat message data
-      const chatData = {
-        user: game.user.id,
-        roll: roll,  // TODO: fix template to use rolls prop
-        rolls: [roll],
-        speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor)
-      };
-
-      const templateData = {
-        actor: this.actor,
-        tokenId: token ? `${token.id}` : null,
-        secondEdition: CONFIG.ARCHMAGE.is2e,
-        icon: icon,
-        fives: fives,
-        sixes: sixes,
-        hasFives: fives > 0,
-        hasSixes: sixes > 0,
-        data: chatData
-      };
-
-      // Render the template
-      chatData["content"] = await renderTemplate(template, templateData);
-
-      let message = await game.archmage.ArchmageUtility.createChatMessage(chatData);
-
-      // Update actor.
-      let updateData = {};
-      updateData[`system.icons.${iconIndex}.results`] = actorIconResults;
-      await this.actor.update(updateData);
-
-      // Card support
-      if (game.decks) {
-
-        for (let x = 0; x < fives; x++) {
-          await addIconCard(icon.name.value, 5);
-        }
-        for (let x = 0; x < sixes; x++) {
-          await addIconCard(icon.name.value, 6);
-        }
-
-        async function addIconCard(icon, value) {
-          let decks = game.decks.decks;
-          for (let deckId in decks) {
-            let msg = {
-              type: "GETALLCARDSBYDECK",
-              playerID: game.users.find(el => el.isGM && el.active).id,
-              deckID: deckId
-            };
-
-            const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-            let foundCard = undefined;
-            game.socket.on("module.cardsupport", async (recieveMsg) => {
-              if (recieveMsg?.cards == undefined || foundCard) return;
-              let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
-
-              if (card) {
-                await ui.cardHotbar.populator.addToPlayerHand([card]);
-                foundCard = true;
-                // Unbind
-                game.socket.off("module.cardsupport");
-              }
-              foundCard = false;
-            });
-
-            game.socket.emit("module.cardsupport", msg);
-
-            await wait(200);
-            // Unbind
-            game.socket.off("module.cardsupport");
-            if (foundCard) return;
+        },
+        allicons: {
+          label: game.i18n.localize('ARCHMAGE.ICONROLLS.rollall'),
+          callback: () => {
+            this.rollAndDisplayIconDice(Object.keys(actorData.icons));
           }
+        },
+        cancel: {
+          label: game.i18n.localize('ARCHMAGE.CHAT.Cancel'),
+          callback: () => {}
         }
+      },
+      default: 'apply'
+    }).render(true);
+  }
+
+  async rollAndDisplayIconDice(iconIndexes) {
+    const actorData = this.actor.system;
+
+    const is2e = CONFIG.ARCHMAGE.is2e;
+    const is2eAlt = game.settings.get("archmage", "alternateIconRollingMethod");
+
+    // Gather the rolling inputs
+    const inputs = iconIndexes.map(iconIndex => {
+      const icon = actorData.icons[iconIndex];
+
+      let numberOfDice = icon.bonus.value;
+      // If this is the 2e alt method, we only roll dice that haven't already been used
+      if (is2eAlt) {
+        const actorIconResults = actorData.icons?.[iconIndex]?.results || [];
+        const usedDice = actorIconResults.filter(x => x > 0).length;
+        numberOfDice -= usedDice;
       }
 
-      return message;
+      return { iconIndex, icon, numberOfDice };
+    }).filter(x => x.numberOfDice > 0);
+
+    if (inputs.length === 0) {
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
+      return;
     }
+
+    // Roll the dice
+    const rollTerms = inputs.map(input => `${input.numberOfDice}d6`)
+    const roll = await new Roll(`{${rollTerms.join(",")}}`).roll();
+
+    // Calculate the results and build up an actor-update object
+    const actorUpdate = {};
+    inputs.forEach((input, i) => {
+      const results = roll.terms[0].rolls[i].terms[0].results.map(x => x.result);
+      input.results = results;
+
+      actorUpdate[`system.icons.${input.iconIndex}.results`] = [];
+      if (is2eAlt) {
+        // For 2e alt, we count 4, 5, and 6 as successes, and we do not replace the existing results
+        input.fives = 0;
+        input.sixes = results.filter(x => [4, 5, 6].includes(x)).length;
+        actorUpdate[`system.icons.${input.iconIndex}.results`] = actorData.icons?.[input.iconIndex]?.results || [];
+      } else if (is2e) {
+        // For 2e standard, we count 5 and 6 as successes and reset all dice
+        input.fives = 0;
+        input.sixes = results.filter(x => [5, 6].includes(x)).length;
+      } else {
+        // For 1e, we count 5 and 6 separately and reset all dice
+        input.fives = results.filter(x => x === 5).length;
+        input.sixes = results.filter(x => x === 6).length;
+      }
+
+      const replaceFirstZero = (arr, value) => {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === 0) {
+            arr[i] = value;
+            return;
+          }
+        }
+        arr.push(value); // If no zero found, append the value
+      };
+      if (input.numberOfDice > 0) {
+        for (let i = 0; i < input.fives; i++) {
+          replaceFirstZero( actorUpdate[`system.icons.${input.iconIndex}.results`], 5 );
+        }
+        for (let i = 0; i < input.sixes; i++) {
+          replaceFirstZero( actorUpdate[`system.icons.${input.iconIndex}.results`], 6 );
+        }
+      }
+    });
+
+    // Update the actor
+    await this.actor.update(actorUpdate);
+
+    // Display the message
+    const template = `systems/archmage/templates/chat/icon-relationship-card.html`;
+    const token = this.actor.token;
+    const templateData = {
+      actor: this.actor,
+      tokenId: token ? `${token.id}` : null,
+      is2e,
+      is2eAlt,
+      inputs
+    };
+    const chatData = {
+      user: game.user.id,
+      roll: roll,  // TODO: fix template to use rolls prop
+      rolls: [roll],
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
+      content: await renderTemplate(template, templateData)
+    };
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
+
 
   /**
    * Roll command points for an actor, and apply them.
@@ -890,6 +925,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       }
       else if (value < 5) {
         value = 5;
+      }
+      if (game.settings.get('archmage', 'alternateIconRollingMethod') && value === 5) {
+        // Skip 5's, dice are either used or not
+        value = 6;
       }
 
       // Retrieve the original results array, replace this die result.

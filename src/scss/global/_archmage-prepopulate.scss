@@ -190,6 +190,8 @@
 
   .import-powers-item {
     color: $c-black;
+    padding: 1em 0;
+    break-inside: avoid-column;
   }
 }
 
