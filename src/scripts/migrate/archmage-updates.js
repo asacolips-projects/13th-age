@@ -608,11 +608,10 @@ class ArchmageUpdateHandler {
     // Retrieve documents.
     // await pack.migrate();
     const documents = await pack.getDocuments();
-    let progress = 0;
     let count = 0;
 
     const packLabel = pack?.metadata?.label ?? '';
-    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: 0});
+    const progressMessage = ui.notifications.info('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {format: {pack: packLabel}, progress: true, console: false});
 
     // Retrieve actors.
     const actors = callbackFilter ? documents.filter(actor => callbackFilter(actor)) : documents;
@@ -620,8 +619,7 @@ class ArchmageUpdateHandler {
     if (total > 0) {
       for (let actor of actors) {
         count++;
-        progress = Math.ceil(count / total * 100);
-        SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: progress});
+        progressMessage.update({pct: count/total});
         try {
           await actor.update(this.prepareMigrateActorData(actor));
           for (let item of actor.items) {
@@ -634,7 +632,7 @@ class ArchmageUpdateHandler {
       };
     }
 
-    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: 100});
+    progressMessage.update({pct: 1});
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
@@ -658,18 +656,16 @@ class ArchmageUpdateHandler {
     // await pack.migrate();
     const scenes = await pack.getDocuments();
     const total = scenes.length;
-    let progress = 0;
     let count = 0;
 
     const packLabel = pack?.metadata?.label ?? '';
-    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: 0});
+    const progressMessage = ui.notifications.info('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {format: {pack: packLabel}, progress: true, console: false});
 
     // Retrieve actros.
     if (total > 0) {
       for (let scene of scenes) {
         count++;
-        progress = Math.ceil(count / total * 100);
-        SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: progress});
+        progressMessage.update({pct: count/total});
 
         const tokens = this.queryTokens(scene);
         const updates = [];
@@ -687,7 +683,7 @@ class ArchmageUpdateHandler {
       };
     }
 
-    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: 100});
+    progressMessage.update({pct: 1});
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
@@ -710,11 +706,10 @@ class ArchmageUpdateHandler {
     // Retrieve documents.
     // await pack.migrate();
     const documents = await pack.getDocuments();
-    let progress = 0;
     let count = 0;
 
     const packLabel = pack?.metadata?.label ?? '';
-    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {pack: packLabel}), pct: 0});
+    const progressMessage = ui.notifications.info('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {format: {pack: packLabel}, progress: true, console: false});
 
     // Retrieve items.
     const items = callbackFilter ? documents.filter(item => callbackFilter(item)) : documents;
@@ -722,8 +717,7 @@ class ArchmageUpdateHandler {
     if (total > 0) {
       for (let item of items) {
         count++;
-        progress = Math.ceil(count / total * 100);
-        SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {pack: packLabel}), pct: progress});
+        progressMessage.update({pct: count/total});
         try {
           await item.update(this.prepareMigrateItemData(item));
         } catch (error) {
@@ -733,7 +727,7 @@ class ArchmageUpdateHandler {
       };
     }
 
-    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {pack: packLabel}), pct: 100});
+    progressMessage.update({pct: 1});
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
