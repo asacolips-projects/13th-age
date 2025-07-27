@@ -23,6 +23,7 @@ import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
+import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
 
 Hooks.once('init', async function() {
 
@@ -135,6 +136,7 @@ Hooks.once('init', async function() {
     ItemArchmage,
     ItemArchmageSheet,
     EffectArchmageSheet,
+    ArchmageActiveEffectSheetV2,
     ArchmageMacros,
     ArchmageUtility,
     MacroUtils,
@@ -220,7 +222,7 @@ Hooks.once('init', async function() {
     makeDefault: true,
   })
 
-  foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", ArchmageActiveEffectSheetV2, {
     label: 'ARCHMAGE.sheetActiveEffect',
     makeDefault: true
   });

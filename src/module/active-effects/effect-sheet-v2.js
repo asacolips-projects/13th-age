@@ -1,0 +1,113 @@
+import VueRenderingMixin from '../item/_vue-application-mixin.mjs'
+import { ArchmageActiveEffectSheetVue } from '../../vue/components.vue.es.js'
+
+export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
+  foundry.applications.sheets.ActiveEffectConfig
+) {
+  vueParts = {
+    'archmage-active-effect-sheet-vue': {
+      component: ArchmageActiveEffectSheetVue,
+      template: `<archmage-active-effect-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-active-effect-sheet-vue>`
+    }
+  }
+
+  /** @override */
+  static DEFAULT_OPTIONS = {
+    // classes: ["archmage", "item"],
+    classes: [
+      'archmage-appv2',
+      'archmage-dialog',
+      'active-effect-config',
+      'dialog-form',
+      'standard-form'
+    ],
+    actions: {},
+    position: {
+      width: 550,
+      height: 600
+    },
+    window: {
+      resizable: true
+    },
+    form: {
+      submitOnChange: true,
+      submitOnClose: true
+    },
+    // Custom property that's merged into `this.options`
+    dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }]
+  }
+
+  /* -------------------------------------------- */
+
+  /** @inheritDoc */
+  _initializeApplicationOptions (options) {
+    options = super._initializeApplicationOptions(options)
+    if (options.document.compendium) {
+      const hasOption = options.window.controls.find(
+        o => o.action === 'importFromCompendium'
+      )
+      if (!hasOption) {
+        options.window.controls.push({
+          action: 'importFromCompendium',
+          icon: 'fa-solid fa-download',
+          label: 'Import'
+        })
+      }
+    }
+    return options
+  }
+
+  async _prepareContext (options) {
+    const context = {
+      // Validates both permissions and compendium status
+      editable: this.isEditable,
+      owner: this.isOwner,
+      limited: this.document.limited,
+      // Add the item document.
+      document: this.document.toObject(),
+      actor: this.actor?.toObject() ?? false,
+      // Adding system and flags for easier access
+      system: this.document.system,
+      flags: this.document.flags,
+      // Adding a pointer to CONFIG.ARCHMAGE
+      config: CONFIG.ARCHMAGE,
+      // Sequencer (module) support.
+      sequencerEnabled: game.modules.get('sequencer')?.active,
+      // Add tabs:
+      tabs: {
+        primary: {
+          details: {
+            key: 'details',
+            label: game.i18n.localize('ARCHMAGE.details'),
+            active: true
+          },
+          bonuses: {
+            key: 'bonuses',
+            label: game.i18n.localize('ARCHMAGE.bonuses'),
+            active: false
+          },
+          effects: {
+            key: 'effects',
+            label: game.i18n.localize('ARCHMAGE.effects'),
+            active: false
+          }
+        }
+      },
+      // Force re-renders. Defined in the vue mixin.
+      _renderKey: this._renderKey ?? 0
+      // @todo add this after switching to DataModel
+      // fields: this.document.schema.fields,
+      // systemFields: this.document.system.schema.fields
+    }
+
+    // Handle enriched fields.
+    const enrichmentOptions = {
+      // Whether to show secret blocks in the finished html
+      secrets: this.document.isOwner,
+      // Relative UUID resolution
+      relativeTo: this.document
+    }
+
+    return context
+  }
+}
