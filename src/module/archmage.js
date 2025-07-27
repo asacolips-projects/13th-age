@@ -198,29 +198,29 @@ Hooks.once('init', async function() {
   };
 
   // Replace sheets.
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("archmage", ItemArchmageSheet, {
+  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet("archmage", ItemArchmageSheet, {
     label: 'ARCHMAGE.sheetItem',
     makeDefault: true,
   });
   // AppV2 + Vue based sheets. These will eventually become the default.
-  Items.registerSheet("archmage", ArchmagePowerSheetV2, {
+  foundry.documents.collections.Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["power"],
     makeDefault: true,
   });
-  Items.registerSheet("archmage", ArchmageEquipmentSheetV2, {
+  foundry.documents.collections.Items.registerSheet("archmage", ArchmageEquipmentSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["equipment"],
     makeDefault: true,
   });
-  Items.registerSheet("archmage", ArchmageActionSheetV2, {
+  foundry.documents.collections.Items.registerSheet("archmage", ArchmageActionSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["action", "trait", "nastierSpecial"],
     makeDefault: true,
   })
 
-  DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
     label: 'ARCHMAGE.sheetActiveEffect',
     makeDefault: true
   });
@@ -329,16 +329,16 @@ Hooks.once('init', async function() {
   // Override CONFIG
   CONFIG.Item.sheetClass = ItemArchmageSheet;
 
-  Actors.unregisterSheet('core', ActorSheet);
+  foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
 
-  Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
+  foundry.documents.collections.Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
     label: 'ARCHMAGE.sheetNPC',
     types: ["npc"],
     makeDefault: true
   });
 
   // V2 actor sheet (See issue #118).
-  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+  foundry.documents.collections.Actors.registerSheet("archmage", ActorArchmageSheetV2, {
     label: 'ARCHMAGE.sheetCharacter',
     types: ["character"],
     makeDefault: true
