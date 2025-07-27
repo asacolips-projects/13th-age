@@ -1,7 +1,7 @@
 /**
  * Extend the base Token class to implement additional system-specific logic.
  */
-export class TokenArchmage extends Token {
+export class TokenArchmage extends foundry.canvas.placeables.Token {
 
   /** @inheritdoc */
   _drawBar(number, bar, data) {
