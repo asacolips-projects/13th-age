@@ -1,5 +1,6 @@
 import VueRenderingMixin from '../item/_vue-application-mixin.mjs'
 import { ArchmageActiveEffectSheetVue } from '../../vue/components.vue.es.js'
+import { wrapRolls } from '../item/_item-sheet-helpers.mjs'
 
 export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
   foundry.applications.sheets.ActiveEffectConfig
@@ -29,33 +30,25 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
     window: {
       resizable: true
     },
+    tag: 'form',
     form: {
       submitOnChange: true,
       submitOnClose: true
-    },
-    // Custom property that's merged into `this.options`
-    dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }]
+    }
+  }
+
+  static TABS = {
+    sheet: {
+      tabs: [
+        { id: 'details', icon: 'fa-solid fa-book' },
+        { id: 'effects', icon: 'fa-solid fa-gears' }
+      ],
+      initial: 'details',
+      labelPrefix: 'EFFECT.TABS'
+    }
   }
 
   /* -------------------------------------------- */
-
-  /** @inheritDoc */
-  _initializeApplicationOptions (options) {
-    options = super._initializeApplicationOptions(options)
-    if (options.document.compendium) {
-      const hasOption = options.window.controls.find(
-        o => o.action === 'importFromCompendium'
-      )
-      if (!hasOption) {
-        options.window.controls.push({
-          action: 'importFromCompendium',
-          icon: 'fa-solid fa-download',
-          label: 'Import'
-        })
-      }
-    }
-    return options
-  }
 
   async _prepareContext (options) {
     const context = {
@@ -81,11 +74,11 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
             label: game.i18n.localize('ARCHMAGE.details'),
             active: true
           },
-          bonuses: {
-            key: 'bonuses',
-            label: game.i18n.localize('ARCHMAGE.bonuses'),
-            active: false
-          },
+          // bonuses: {
+          //   key: 'bonuses',
+          //   label: game.i18n.localize('ARCHMAGE.bonuses'),
+          //   active: false
+          // },
           effects: {
             key: 'effects',
             label: game.i18n.localize('ARCHMAGE.effects'),
@@ -104,8 +97,35 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
     const enrichmentOptions = {
       // Whether to show secret blocks in the finished html
       secrets: this.document.isOwner,
+      // Data to fill in for inline rolls
+      rollData: this.item?.getRollData() ?? {},
       // Relative UUID resolution
-      relativeTo: this.document
+      relativeTo: this.item
+    }
+
+    const editorOptions = {
+      toggled: true,
+      collaborate: true,
+      documentUUID: this.document.uuid,
+      height: 300
+    }
+
+    context.editors = {
+      'document.description.value': {
+        enriched: await wrapRolls(
+          this.document.description.value ?? '',
+          [],
+          'short',
+          {},
+          'description',
+          enrichmentOptions
+        ),
+        element: foundry.applications.elements.HTMLProseMirrorElement.create({
+          ...editorOptions,
+          name: 'document.description.value',
+          value: context.document.description?.value ?? ''
+        })
+      }
     }
 
     return context
