@@ -1,4 +1,4 @@
-export class FeatureTour extends Tour {
+export class FeatureTour extends foundry.nue.Tour {
 
   exit() {
     super.exit();

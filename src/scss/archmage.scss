@@ -35,6 +35,10 @@
 /* ----------------------------------------- */
 /*  Context Dropdown Menu
 /* ----------------------------------------- */
+.chat-message .message-content {
+  overflow: initial;
+}
+
 #context-menu2 {
   width: 100%;
   height: max-content;
@@ -50,9 +54,11 @@
   z-index: 31;
 
   h2 {
+    color: #EEE;
     font-family: $font-stack-base;
     line-height: 44px;
     padding: 0 5px;
+    margin-bottom: 0.5rem;
     border-bottom: 1px solid $c-blue-dark;
     text-shadow: none;
   }
@@ -84,14 +90,15 @@
   z-index: 101;
 }
 
-#chat-log #context-menu2 {
-  button {
+#context-menu2 {
+  .damage-modifier {
     font-size: 12px;
     background: transparent;
     color: $c-white;
     border: 1px dashed $c-blue;
     box-shadow: none;
     opacity: 0.5;
+    padding: 0;
 
     &.active,
     &:hover {
@@ -107,8 +114,7 @@
     }
   }
 
-  .reroll,
-  .modifiers {
+  .reroll {
     border-top: 1px solid $c-blue-dark;
   }
 
