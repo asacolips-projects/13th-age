@@ -14,10 +14,8 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
 
   /** @override */
   static DEFAULT_OPTIONS = {
-    // classes: ["archmage", "item"],
     classes: [
       'archmage-appv2',
-      'archmage-dialog',
       'active-effect-config',
       'dialog-form',
       'standard-form'
@@ -33,7 +31,8 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
     tag: 'form',
     form: {
       submitOnChange: true,
-      submitOnClose: true
+      submitOnClose: true,
+      closeOnSubmit: false
     }
   }
 

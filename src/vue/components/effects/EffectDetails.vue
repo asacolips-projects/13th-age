@@ -18,22 +18,20 @@
 	</div>
 
 	<div class="form-group">
+		<label>{{ localize("ARCHMAGE.ITEM.stacksAlways") }}</label>
+		<input type="checkbox" v-model="effect.flags.archmage.stacksAlways" />
+	</div>
+
+	<div class="form-group">
 		<label>{{ localize("EFFECT.TABS.duration") }}</label>
 		<div class="form-fields">
-			<select name="duration" v-model="effect.duration">
+			<select name="duration" v-model="effect.flags.archmage.duration">
           <option value="">{{ localize('ARCHMAGE.noneOption') }}</option>
 				<option v-for="(label, value) in CONFIG.ARCHMAGE.effectDurationTypes" :key="value" :value="value">
 					{{ localize(label) }}
 				</option>
-				selectOptions durationOptions selected = duration localize = true
 			</select>
 		</div>
-	</div>
-
-	<div class="form-group stacked description" v-if="effect.supportsDescription">
-		<label>{{ localize("EFFECT.FIELDS.description.label") }}</label>
-		editor descriptionHTML target = "description" button = true editable = editable engine = "prosemirror" collaborate =
-		false
 	</div>
 </template>
 

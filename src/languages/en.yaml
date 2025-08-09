@@ -635,9 +635,11 @@ ARCHMAGE:
     damageTypeHint: Poison
     defenseBonuses: Defense Bonuses
     dexBonus: Dexterity checks bonus
+    diceExpressionHint: A dice expression, e.g. +2d10
     disengageBonus: Disengage Bonus
     disengageInitBonus: Disengage and Initiative Bonus
     divineBonus: Divine Spell / Divine Attack Bonus
+    escalationBlocked: Block ED
     escalationBlockedHint: Denies usage of Escalation Die
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus

@@ -1,5 +1,5 @@
 <template>
-  <div :class="`archmage-appv2-vue flexcol`">
+  <div class="archmage-appv2-vue flexcol effects">
     <!-- Header -->
     <header class="sheet-header">
       <img class="profile-img" :src="effect.img" data-edit="img" data-action="onEditImage" :title="effect.name"
@@ -26,17 +26,17 @@
                   <h3 class="effects-title unit-subtitle">{{ effect?.name ?? effect?.label }}</h3>
                 </a>
                 <div class="effects-bonus flexrow">
-                  <div class="bonus" v-for="(bonus, bonusKey) in getChanges(context.document)" :key="bonusKey">
+                  <div class="bonus" v-for="(bonus, bonusKey) in changes" :key="bonusKey">
                     <span class="bonus-label"><i :class="bonus.icon"></i> {{ bonus.name }} </span>
                     <span class="bonus-mode"><i :class="concat('fas fa-', bonus.mode)"></i> </span>
                     <span class="bonus-value">{{ numberFormat(bonus.value, 0, false) }}</span>
                   </div>
                   <div class="bonus" v-if="effect.flags.archmage?.ongoingDamage">
                     <span class="bonus-label"><i class="fas fa-flask-round-poison"></i>
-                      {{ getOngoingDamage(context.document) }}</span>
+                      {{ ongoingDamage }}</span>
                   </div>
                   <div class="bonus" v-if="effect.flags.archmage?.duration">
-                    <span class="bonus-label"><i class="fas fa-timer"></i> {{ getDuration(context.document) }}</span>
+                    <span class="bonus-label"><i class="fas fa-timer"></i> {{ duration }}</span>
                   </div>
                 </div>
                 <div class="item-controls effect-controls">
@@ -71,7 +71,7 @@
         </Tab>
 
         <Tab group="primary" :tab="tabs.primary.effects">
-          TODO
+          <EffectEffects :effect="effect" :context="context" />
         </Tab>
       </section>
     </div>
@@ -84,9 +84,10 @@ import {
   Tabs,
   Tab,
   EffectDetails,
+  EffectEffects,
 } from '@/components';
-import { inject, reactive, toRaw } from 'vue';
-import { concat, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { computed, reactive, toRaw } from 'vue';
+import { concat, localize, numberFormat } from '@/methods/Helpers';
 
 const props = defineProps(['context']);
 // Convert the tabs into a new reactive variable so that they
@@ -98,43 +99,36 @@ const tabs = reactive({ ...rawTabs });
 
 const effect = props.context.document;
 
-function getChanges(effect) {
-  let changes = [];
-  let modes = [
-    'question',
-    'times',
-    'plus',
-    "minus",
-    'angle-double-down',
-    'angle-double-up',
-    'undo'
-  ]
-  effect.changes.forEach(c => {
-    if (c.key && c.value) {
-      const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
-      let change = {
-        name: label,
-        img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-        mode: modes[c.mode],
-        value: c.value
-      };
-      if (change.mode === "plus" && change.value < 0) {
-        change.mode = "minus";
-        change.value = Math.abs(change.value);
-      }
-      changes.push(change);
+const changes = [];
+const modes = [
+  'question',
+  'times',
+  'plus',
+  "minus",
+  'angle-double-down',
+  'angle-double-up',
+  'undo'
+]
+effect.changes.forEach(c => {
+  if (c.key && c.value) {
+    const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
+    let change = {
+      name: label,
+      img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
+      mode: modes[c.mode],
+      value: c.value
+    };
+    if (change.mode === "plus" && change.value < 0) {
+      change.mode = "minus";
+      change.value = Math.abs(change.value);
     }
-  })
-  return changes;
-}
+    changes.push(change);
+  }
+})
 
-function getDuration(effect) {
-  return game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration]);
-}
+const duration = computed(() => game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration]));
 
-function getOngoingDamage(effect) {
-  return `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
-}
+const ongoingDamage = computed(() => `${effect.flags.archmage.ongoingDamage || 0} ongoing ${effect.flags.archmage.ongoingDamageType || ''} damage`);
 
 </script>
 
