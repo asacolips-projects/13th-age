@@ -1263,6 +1263,7 @@ async function _applyAE(actor, data) {
     }
     // Check for existing statuses.
     let statusEffect = CONFIG.statusEffects.find(x => x.id === data.id || x.id === data.name?.toLowerCase());
+    const ends = data.ends ?? "Unknown";
     if ( statusEffect ) {
       statusEffect = foundry.utils.duplicate(statusEffect);
       statusEffect.label = game.i18n.localize(statusEffect.name);
@@ -1270,6 +1271,7 @@ async function _applyAE(actor, data) {
       statusEffect.origin = data.source;
       // Add it as a status so that it can be toggled on the token.
       statusEffect.statuses = [statusEffect.id];
+      statusEffect.duration = ends;
 
       return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
     }
@@ -1278,9 +1280,10 @@ async function _applyAE(actor, data) {
       let effectData = {
         name: data.name,
         img: 'icons/svg/aura.svg',
-        origin: data.source
+        origin: data.source,
+        duration: ends
       };
-      return await _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
+      return await _applyAEDurationDialog(actor, effectData, ends, data.source, data.type);
     }
   }
   else if ( data.type === "effect" || data.type === 'ActiveEffect' ) {
