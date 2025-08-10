@@ -10,40 +10,31 @@ const REGEX_ONGOING_DAMAGE = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i
 export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(uuid, $rows) {
-        // let conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
-        // const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.name)));
+        // TODO: initialize these once in ready hook?
         const conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
-        const regex_conditions_map = Object.fromEntries(
-            conditions.map( x => [x.name, x, new RegExp(`(\\*?dazed\\*?)(?:\\s*\\((\\w*) ?save ends(?:, \\d*\\+)?\\))?`, "ig")])
+        const regex_conditions_map = new Map(
+            conditions.map( x => {
+                const localizedName = game.i18n.localize(x.name);
+                return [
+                    localizedName,
+                    [x, new RegExp(`(\\*?${localizedName}\\*?)(?:\\s*\\((\\w*) ?save ends(?:, \\d*\\+)?\\))?`, "ig")]
+                ]
+            })
         );
 
-        function generateConditionLink(name) {
-            const condition = conditions.find(x => game.i18n.localize(x.name) === name);
-            const source = uuid;
-            return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="" 
-                    data-source="${source}">
-                    <img class="effects-icon" src="${condition.icon}" />
-                    ${name}</a>`;
-        }
-
         for (const row of $rows) {
-            // for (const name of conditionNames) {
-                // const link = generateConditionLink(name);
-                // const regex = new RegExp(`\\*${name}\\*`, "ig");
-                // row.innerHTML = row.innerHTML.replace(regex, link);
-            // }
-            for (const [name, condition, regex] of Object.entries(REGEX_CONDITIONS_MAP)) {
+            for (const [name, [condition, regex]] of regex_conditions_map) {
                 const conditionInstances = Array.from(row.innerHTML.matchAll(regex));
                 if (conditionInstances.length > 0) {
                     conditionInstances.forEach((inst) => {
-                        let condName = inst[1];
-                        let saveEndsValue = inst[2];
-                        let saveEnds = inst[3];
+                        const condName = inst[1];
+                        const saveEndsValue = inst[2];
+                        const saveEnds = inst[3];
                         let saveEndsConfigValue = saveEnds ? "NormalSaveEnds" : "Unknown";
                         if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
                         else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
-                        let source = uuid;
-                        let conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
+                        const source = uuid;
+                        const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
                                              data-source="${source}" data-ends="${saveEndsConfigValue}">
                                              <img class="effects-icon" src="${condition.icon}" />
                                              ${name}</a>`;
