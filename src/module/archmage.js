@@ -637,7 +637,10 @@ Hooks.on('ready', () => {
           const localizedName = game.i18n.localize(x.name);
           return [
               localizedName,
-              [x, new RegExp(`(\\*?${localizedName}\\*?)(?:\\s*\\((\\w*) ?save ends(?:, \\d*\\+)?\\))?`, "ig")]
+              [
+                x,
+                new RegExp(`\\*?(${localizedName})\\*?(?:\\s*\\(?(\\w*\\s?save ends|\\w*\\s?of next turn)(?:,\\s\\d*\\+)?\\)?)?`, "ig")
+              ]
           ]
       })
   );
@@ -1286,7 +1289,7 @@ async function _applyAE(actor, data) {
       statusEffect.statuses = [statusEffect.id];
       statusEffect.duration = ends;
 
-      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
+      return await _applyAEDurationDialog(actor, statusEffect, ends, data.source, data.type);
     }
     else {
       // Just a generic condition, transfer the name

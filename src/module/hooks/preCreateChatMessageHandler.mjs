@@ -15,14 +15,23 @@ export default class preCreateChatMessageHandler {
                 if (conditionInstances.length > 0) {
                     conditionInstances.forEach((inst) => {
                         const condName = inst[1];
-                        const saveEndsValue = inst[2];
-                        const saveEnds = inst[3];
-                        let saveEndsConfigValue = saveEnds ? "NormalSaveEnds" : "Unknown";
-                        if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
-                        else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
+                        const duration = ((val) => {
+                            if (!val) return "Unknown";
+                            switch(val.toLowerCase()){
+                                case "save ends":
+                                case "normal save ends":
+                                    return "NormalSaveEnds";
+                                case "hard save ends":
+                                    return "HardSaveEnds";
+                                case "easy save ends":
+                                    return "EasySaveEnds";
+                                default:
+                                    return "Unknown";
+                            }
+                        })(inst[2])
                         const source = uuid;
                         const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
-                                             data-source="${source}" data-ends="${saveEndsConfigValue}">
+                                             data-source="${source}" data-ends="${duration}">
                                              <img class="effects-icon" src="${condition.icon}" />
                                              ${name}</a>`;
                         row.innerHTML = row.innerHTML.replace(inst[0], conditionLink);
