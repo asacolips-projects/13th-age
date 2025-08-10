@@ -630,6 +630,19 @@ Hooks.once('init', async function() {
   ArchmageUtility.fixVuePopoutBug();
 });
 
+Hooks.on('ready', () => {
+  // Precompile regexps
+  CONFIG.ARCHMAGE.REGEXP.CONDITIONS = new Map(
+      CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal).map( x => {
+          const localizedName = game.i18n.localize(x.name);
+          return [
+              localizedName,
+              [x, new RegExp(`(\\*?${localizedName}\\*?)(?:\\s*\\((\\w*) ?save ends(?:, \\d*\\+)?\\))?`, "ig")]
+          ]
+      })
+  );
+});
+
 Hooks.on('setup', (data, options, id) => {
   // Configure autocomplete inline properties module.
   const aip = game.modules.get("autocomplete-inline-properties")?.API;

@@ -4,27 +4,14 @@ import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
 
-const REGEX_ONGOING_DAMAGE = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage(?:\s*\((\w*) ?save ends(?:, \d*\+)?\))?/ig;
-
-
 export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(uuid, $rows) {
-        // TODO: initialize these once in ready hook?
-        const conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
-        const regex_conditions_map = new Map(
-            conditions.map( x => {
-                const localizedName = game.i18n.localize(x.name);
-                return [
-                    localizedName,
-                    [x, new RegExp(`(\\*?${localizedName}\\*?)(?:\\s*\\((\\w*) ?save ends(?:, \\d*\\+)?\\))?`, "ig")]
-                ]
-            })
-        );
-
         for (const row of $rows) {
-            for (const [name, [condition, regex]] of regex_conditions_map) {
-                const conditionInstances = Array.from(row.innerHTML.matchAll(regex));
+            CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach((val, name, map) => {
+                const condition = val[0];
+                const regexp = val[1];
+                const conditionInstances = Array.from(row.innerHTML.matchAll(regexp));
                 if (conditionInstances.length > 0) {
                     conditionInstances.forEach((inst) => {
                         const condName = inst[1];
@@ -42,6 +29,7 @@ export default class preCreateChatMessageHandler {
                     });
                 }
             }
+            )
         }
     }
 
@@ -71,7 +59,7 @@ export default class preCreateChatMessageHandler {
         // If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
         for (const row of $rows) {
-            const ongoingEffects = Array.from(row.innerHTML.matchAll(REGEX_ONGOING_DAMAGE));
+            const ongoingEffects = Array.from(row.innerHTML.matchAll(CONFIG.ARCHMAGE.REGEXP.ONGOING_DAMAGE));
             if (ongoingEffects.length > 0) {
                 ongoingEffects.forEach((ongoingEffect) => {
                     let damageValue = Number(ongoingEffect[2]);
