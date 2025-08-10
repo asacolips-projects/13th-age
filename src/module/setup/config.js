@@ -1170,7 +1170,7 @@ ARCHMAGE.tokenHPColors = {
 
 ARCHMAGE.REGEXP = {
   ONGOING_DAMAGE: /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage(?:\s*\((\w*) ?save ends(?:, \d*\+)?\))?/ig,
-  CONDITIONS: new Map(),
+  CONDITIONS: new Map(), // Actually populated in ready hook, after localization has been loaded
 }
 
 FLAGS.characterFlags = {

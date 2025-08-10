@@ -632,6 +632,9 @@ Hooks.once('init', async function() {
 
 Hooks.on('ready', () => {
   // Precompile regexps
+  // Do it after ready to wait for localization to load
+  CONFIG.ARCHMAGE.REGEXP.ONGOING_DAMAGE = new RegExp(`(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\\/i>)*(-?\\d+)(<\\/a>)* ${game.i18n.localize("ARCHMAGE.ongoing")} ([a-zA-Z]*) ?${game.i18n.localize("ARCHMAGE.damage")}(?:\\s*\\((\\w*) ?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}(?:, \\d*\\+)?\\))?`, "ig");
+  // /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage(?:\s*\((\w*) ?save ends(?:, \d*\+)?\))?/ig
   CONFIG.ARCHMAGE.REGEXP.CONDITIONS = new Map(
       CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal).map( x => {
           const localizedName = game.i18n.localize(x.name);
@@ -639,7 +642,7 @@ Hooks.on('ready', () => {
               localizedName,
               [
                 x,
-                new RegExp(`\\*?(${localizedName})\\*?(?:\\s*\\(?(\\w*\\s?save ends|\\w*\\s?of next turn)(?:,\\s\\d*\\+)?\\)?)?`, "ig")
+                new RegExp(`\\*?(${localizedName})\\*?(?:\\s*\\(?(\\w*\\s?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}|${game.i18n.localize("ARCHMAGE.DURATION.NextTurnFilter")})(?:,\\s\\d*\\+)?\\)?)?`, "ig")
               ]
           ]
       })

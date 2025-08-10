@@ -15,13 +15,23 @@ export default class preCreateChatMessageHandler {
                         const duration = ((val) => {
                             if (!val) return "Unknown";
                             switch(val.toLowerCase()){
-                                case "save ends":
-                                case "normal save ends":
+                                case game.i18n.localize("ARCHMAGE.DURATION.SaveEnds"):
+                                case game.i18n.localize("ARCHMAGE.DURATION.NormalSaveEnds"):
                                     return "NormalSaveEnds";
-                                case "hard save ends":
+                                case game.i18n.localize("ARCHMAGE.DURATION.HardSaveEnds"):
                                     return "HardSaveEnds";
-                                case "easy save ends":
+                                case game.i18n.localize("ARCHMAGE.DURATION.EasySaveEnds"):
                                     return "EasySaveEnds";
+                                case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextTurnFull"):
+                                case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextTurnFull2"):
+                                    return "StartOfNextTurn";
+                                case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextTurnFull"):
+                                case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextTurnFull2"):
+                                    return "EndOfNextTurn";
+                                case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextSourceTurnFull"):
+                                    return "StartOfNextSourceTurn";
+                                case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextSourceTurnFull"):
+                                    return "EndOfNextSourceTurn";
                                 default:
                                     return "Unknown";
                             }
