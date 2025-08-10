@@ -8,13 +8,10 @@ export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(uuid, $rows) {
         for (const row of $rows) {
-            CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach((val, name, map) => {
-                const condition = val[0];
-                const regexp = val[1];
+            CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach(([condition, regexp], name, map) => {
                 const conditionInstances = Array.from(row.innerHTML.matchAll(regexp));
                 if (conditionInstances.length > 0) {
-                    conditionInstances.forEach((inst) => {
-                        const condName = inst[1];
+                    conditionInstances.forEach(([orig, condName, durationString]) => {
                         const duration = ((val) => {
                             if (!val) return "Unknown";
                             switch(val.toLowerCase()){
@@ -28,13 +25,13 @@ export default class preCreateChatMessageHandler {
                                 default:
                                     return "Unknown";
                             }
-                        })(inst[2])
+                        })(durationString)
                         const source = uuid;
                         const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
                                              data-source="${source}" data-ends="${duration}">
                                              <img class="effects-icon" src="${condition.icon}" />
-                                             ${name}</a>`;
-                        row.innerHTML = row.innerHTML.replace(inst[0], conditionLink);
+                                             ${orig}</a>`;
+                        row.innerHTML = row.innerHTML.replace(orig, conditionLink);
                     });
                 }
             }
