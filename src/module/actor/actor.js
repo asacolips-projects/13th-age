@@ -2548,7 +2548,8 @@ export class ActorArchmage extends Actor {
 
     // Fix attack and damage
     let atkFilter = /\+\s*(\d+)([\S\s]*)/;
-    let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
+    // let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
+    let inlineRollFilter = /\[\[(\d+)?d?\d+(?!\+)\]\]/g;
     let itemUpdates = [];
 
     // Iterate over attacks and actions.
