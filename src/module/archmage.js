@@ -279,7 +279,7 @@ Hooks.once('init', async function() {
     CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
 
     // Remove 1e hampered from context menu status effects
-    id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
+    let id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
     CONFIG.statusEffects.splice(id, 1);
 
     // Update class base stats
