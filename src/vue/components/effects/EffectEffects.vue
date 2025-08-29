@@ -84,54 +84,54 @@
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.acBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.ac.value']" />
+				<input type="number" v-model="viewModel.acBonus" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.mdBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.md.value']" />
+				<input type="number" v-model="viewModel.mdBonus" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.pdBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.pd.value']" />
+				<input type="number" v-model="viewModel.pdBonus" />
 			</div>
 		</div>
 
 		<div class="form-group" v-if="!isNpc">
 			<label> {{ localize('ARCHMAGE.ITEM.hpBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.hp.max']" />
+				<input type="number" v-model="viewModel.hpMax" />
 			</div>
 		</div>
 
 		<div class="form-group" v-if="!isNpc">
 			<label> {{ localize('ARCHMAGE.ITEM.recoveriesBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.recoveries.value']" />
+				<input type="number" v-model="viewModel.recoveries" />
 			</div>
 		</div>
 
 		<div class="form-group" v-if="!isNpc">
 			<label> {{ localize('ARCHMAGE.ITEM.saveBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.saves.bonus']" />
+				<input type="number" v-model="viewModel.saveBonus" />
 			</div>
 		</div>
 
 		<div class="form-group" v-if="!isNpc">
 			<label> {{ localize('ARCHMAGE.ITEM.disengageBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.disengageBonus']" />
+				<input type="number" v-model="viewModel.disengageBonus" />
 			</div>
 		</div>
 
 		<div class="form-group" v-if="!isNpc">
 			<label> {{ localize('ARCHMAGE.ITEM.initBonus') }} </label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.init.value']" />
+				<input type="number" v-model="viewModel.initBonus" />
 			</div>
 		</div>
 
@@ -141,7 +141,7 @@
 				<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.critDefBonusHint')" />
 			</label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.critMod.def.value']" />
+				<input type="number" v-model="viewModel.critDefBonus" />
 			</div>
 		</div>
 	</fieldset>
@@ -152,34 +152,40 @@
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.ongoingDamage') }} </label>
 			<div class="field">
-				<input type="number" v-model="viewModel.ongoingDamage" />
+				<input type="number" v-model="effect.flags.archmage.ongoingDamage" />
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.damageType') }} </label>
 			<div class="field">
-				<input type="text" v-model="viewModel.ongoingDamageType" />
+				<input type="text" v-model="effect.flags.archmage.ongoingDamageType" />
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.ongoingDamageCrit') }} </label>
 			<div class="field">
-				<input type="checkbox" v-model="viewModel.ongoingDamageCrit" />
+				<input type="checkbox" v-model="ongoingCrit.value" />
 			</div>
 		</div>
 	</fieldset>
 </template>
 
 <script setup>
-import { inject, reactive, watch } from 'vue';
+import { computed, inject, reactive, watch } from 'vue';
 import { localize } from '@/methods/Helpers';
 import { InfoBubble, } from '@/components';
 
 const props = defineProps(['effect', 'context']);
 const { effect } = props;
 const foundryEffect = inject('itemDocument')
+
+// Need to manage this manually because the default handling class doesn't do falsy values
+const ongoingCrit = reactive({ value: effect.flags.archmage?.ongoingDamageCrit || false });
+watch(() => ongoingCrit.value, (newValue) => {
+	foundryEffect.setFlag('archmage', 'ongoingDamageCrit', newValue);
+})
 
 const viewModel = reactive({ edBlocked: false });
 
@@ -194,24 +200,27 @@ const foundryToViewModel = {
 	'system.attributes.weapon.ranged.dice': 'rangedDice',
 	'system.attributes.critMod.atk.value': 'critMod',
 	// no system.attributes.escalation.value, it's handled separately
+	'system.attributes.ac.value': 'acBonus',
+	'system.attributes.md.value': 'mdBonus',
+	'system.attributes.pd.value': 'pdBonus',
+	'system.attributes.hp.max': 'hpMax',
+	'system.attributes.recoveries.value': 'recoveries',
+	'system.attributes.saves.bonus': 'saveBonus',
+	'system.attributes.disengageBonus': 'disengageBonus',
+	'system.attributes.init.value': 'initBonus',
+	'system.attributes.critMod.def.value': 'critDefBonus',
 };
 
 // Convert the AE effects into fields for the view model
 // This might be triggered by a UI change or a change from elsewhere in Foundry
 watch(effect, async (newEffect) => {
-	viewModel.duration = newEffect.flags.archmage?.duration;
-	viewModel.ongoingDamage = newEffect.flags.archmage?.ongoingDamage;
-	viewModel.ongoingDamageType = newEffect.flags.archmage?.ongoingDamageType;
-	viewModel.ongoingDamageCrit = newEffect.flags.archmage?.ongoingDamageCrit;
-
-	for (const change of effect.changes) {
+	for (const change of newEffect.changes) {
 		const viewModelKey = foundryToViewModel[change.key];
 		if (viewModelKey) {
 			viewModel[viewModelKey] = change.value;
 		}
 
 		if (change.key === 'system.attributes.escalation.value') {
-			console.log(change)
 			viewModel.edBlocked = change.value === '0';
 		}
 	}
@@ -220,16 +229,6 @@ watch(effect, async (newEffect) => {
 // Send changes to the view model out to Foundry
 watch(viewModel, async (newModel) => {
 	const ae = foundry.utils.duplicate(effect)
-
-	// Flags
-	ae.flags.archmage = {
-		duration: newModel.duration,
-		ongoingDamage: newModel.ongoingDamage,
-		ongoingDamageType: newModel.ongoingDamageType,
-		ongoingDamageCrit: newModel.ongoingDamageCrit,
-	}
-
-	// AE changes
 	const newChanges = []
 	for (const [fKey, vmKey] of Object.entries(foundryToViewModel)) {
 		let value = newModel[vmKey]
@@ -259,16 +258,9 @@ watch(viewModel, async (newModel) => {
 
 	ae.changes = newChanges.filter(c => c.value !== null)
 	effect.changes = ae.changes
-	console.log(ae)
 	return foundryEffect.update(ae)
 }, { deep: true });
 
-// Pull effects apart into something vue can model
-const effects = reactive({});
-for (const change of effect.changes) {
-	effects[change.key] = change.value;
-}
-
-const isNpc = foundryEffect?.parent?.type === 'npc'
+const isNpc = computed(() => foundryEffect?.parent?.type === 'npc')
 
 </script>
