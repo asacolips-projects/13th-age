@@ -152,21 +152,21 @@
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.ongoingDamage') }} </label>
 			<div class="field">
-				<input type="number" v-model="effect.flags.archmage.ongoingDamage" />
+				<input type="number" v-model="flags.ongoingDamage" />
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.damageType') }} </label>
 			<div class="field">
-				<input type="text" v-model="effect.flags.archmage.ongoingDamageType" />
+				<input type="text" v-model="flags.ongoingDamageType" />
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label> {{ localize('ARCHMAGE.ITEM.ongoingDamageCrit') }} </label>
 			<div class="field">
-				<input type="checkbox" v-model="ongoingCrit.value" />
+				<input type="checkbox" v-model="flags.ongoingDamageCrit" />
 			</div>
 		</div>
 	</fieldset>
@@ -181,11 +181,12 @@ const props = defineProps(['effect', 'context']);
 const { effect } = props;
 const foundryEffect = inject('itemDocument')
 
-// Need to manage this manually because the default handling class doesn't do falsy values
-const ongoingCrit = reactive({ value: effect.flags.archmage?.ongoingDamageCrit || false });
-watch(() => ongoingCrit.value, (newValue) => {
-	foundryEffect.setFlag('archmage', 'ongoingDamageCrit', newValue);
-})
+const flags = reactive(effect.flags.archmage || {});
+watch(() => flags, (newValue) => {
+	foundryEffect.setFlag('archmage', 'ongoingDamage', newValue.ongoingDamage);
+	foundryEffect.setFlag('archmage', 'ongoingDamageType', newValue.ongoingDamageType);
+	foundryEffect.setFlag('archmage', 'ongoingDamageCrit', newValue.ongoingDamageCrit);
+}, { deep: true })
 
 const viewModel = reactive({ edBlocked: false });
 
