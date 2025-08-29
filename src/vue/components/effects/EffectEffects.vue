@@ -43,7 +43,7 @@
 				<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.diceExpressionHint')" />
 			</label>
 			<div class="field">
-				<input type="text" v-model="effects['system.attributes.weapon.melee.dice']" placeholder="+2d10" />
+				<input type="text" v-model="viewModel.meleeDice" placeholder="+2d10" />
 			</div>
 		</div>
 
@@ -53,7 +53,7 @@
 				<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.diceExpressionHint')" />
 			</label>
 			<div class="field">
-				<input type="text" v-model="effects['system.attributes.weapon.ranged.dice']" placeholder="+2d10" />
+				<input type="text" v-model="viewModel.rangedDice" placeholder="+2d10" />
 			</div>
 		</div>
 
@@ -63,7 +63,7 @@
 				<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.critModBonusHint')" />
 			</label>
 			<div class="field">
-				<input type="number" v-model="effects['system.attributes.critMod.atk.value']" placeholder="0" />
+				<input type="number" v-model="viewModel.critMod" placeholder="0" />
 			</div>
 		</div>
 
@@ -73,7 +73,7 @@
 				<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.escalationBlockedHint')" />
 			</label>
 			<div class="field">
-				<input type="checkbox" v-model="effects['system.attributes.escalation.value']" />
+				<input type="checkbox" v-model="viewModel.edBlocked" />
 			</div>
 		</div>
 	</fieldset>
@@ -181,7 +181,7 @@ const props = defineProps(['effect', 'context']);
 const { effect } = props;
 const foundryEffect = inject('itemDocument')
 
-const viewModel = reactive({});
+const viewModel = reactive({ edBlocked: false });
 
 // Maps view model keys to Foundry keys and vice versa
 const foundryToViewModel = {
@@ -190,6 +190,10 @@ const foundryToViewModel = {
 	'system.attributes.attack.ranged.bonus': 'rangedBonus',
 	'system.attributes.attack.divine.bonus': 'divineBonus',
 	'system.attributes.attack.arcane.bonus': 'arcaneBonus',
+	'system.attributes.weapon.melee.dice': 'meleeDice',
+	'system.attributes.weapon.ranged.dice': 'rangedDice',
+	'system.attributes.critMod.atk.value': 'critMod',
+	// no system.attributes.escalation.value, it's handled separately
 };
 
 // Convert the AE effects into fields for the view model
@@ -204,6 +208,11 @@ watch(effect, async (newEffect) => {
 		const viewModelKey = foundryToViewModel[change.key];
 		if (viewModelKey) {
 			viewModel[viewModelKey] = change.value;
+		}
+
+		if (change.key === 'system.attributes.escalation.value') {
+			console.log(change)
+			viewModel.edBlocked = change.value === '0';
 		}
 	}
 }, { immediate: true, deep: true })
@@ -228,7 +237,7 @@ watch(viewModel, async (newModel) => {
 			// TODO: this is a dice expression and needs a leading '+' or '-'
 		}
 
-		if (!value) return
+		if (!value) continue
 
 		newChanges.push({
 			key: fKey,
@@ -239,7 +248,14 @@ watch(viewModel, async (newModel) => {
 		// TODO: melee.dice applies to monk weapons
 	}
 
-	// TODO: block ED (line 178)
+	// Handle ED block
+	if (newModel.edBlocked) {
+		newChanges.push({
+			key: 'system.attributes.escalation.value',
+			mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+			value: '0'
+		});
+	}
 
 	ae.changes = newChanges.filter(c => c.value !== null)
 	effect.changes = ae.changes
