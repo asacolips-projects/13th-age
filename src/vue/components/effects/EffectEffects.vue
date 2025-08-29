@@ -235,7 +235,7 @@ watch(viewModel, async (newModel) => {
 		let value = newModel[vmKey]
 		if (fKey.includes('system.attributes.weapon')) {
 			// This is a dice expression and needs a leading '+' or '-'
-			value = String(value)
+			value = String(value).trim()
 			if (value.length > 0 && !value.startsWith('+') && !value.startsWith('-')) {
 				value = `${value[0] > 0 ? '+' : '-'} ${value}`;
 			}
@@ -250,7 +250,16 @@ watch(viewModel, async (newModel) => {
 			mode: CONST.ACTIVE_EFFECT_MODES.ADD
 		})
 
-		// TODO: melee.dice applies to monk weapons
+		// melee.dice also applies to monk weapons
+		if (fKey === 'system.attributes.weapon.melee.dice') {
+			["jab", "punch", "kick"].forEach(k => {
+				newChanges.push({
+					key: fKey.replace("melee", k),
+					value: value,
+					mode: CONST.ACTIVE_EFFECT_MODES.ADD
+				});
+			});
+		}
 	}
 
 	// Handle ED block
