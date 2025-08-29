@@ -99,7 +99,6 @@ const tabs = reactive({ ...rawTabs });
 
 const effect = props.context.document;
 
-const changes = [];
 const modes = [
   'question',
   'times',
@@ -109,22 +108,27 @@ const modes = [
   'angle-double-up',
   'undo'
 ]
-effect.changes.forEach(c => {
-  if (c.key && c.value) {
-    const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
-    let change = {
-      name: label,
-      img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-      mode: modes[c.mode],
-      value: c.value
-    };
-    if (change.mode === "plus" && change.value < 0) {
-      change.mode = "minus";
-      change.value = Math.abs(change.value);
+
+const changes = computed(() => {
+  const changesArray = [];
+  effect.changes.forEach(c => {
+    if (c.key && c.value) {
+      const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
+      let change = {
+        name: label,
+        img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
+        mode: modes[c.mode],
+        value: c.value
+      };
+      if (change.mode === "plus" && change.value < 0) {
+        change.mode = "minus";
+        change.value = Math.abs(change.value);
+      }
+      changesArray.push(change);
     }
-    changes.push(change);
-  }
-})
+  });
+  return changesArray;
+});
 
 const duration = computed(() => game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration]));
 
