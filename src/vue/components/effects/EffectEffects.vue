@@ -234,7 +234,12 @@ watch(viewModel, async (newModel) => {
 	for (const [fKey, vmKey] of Object.entries(foundryToViewModel)) {
 		let value = newModel[vmKey]
 		if (fKey.includes('system.attributes.weapon')) {
-			// TODO: this is a dice expression and needs a leading '+' or '-'
+			// This is a dice expression and needs a leading '+' or '-'
+			value = String(value)
+			if (value.length > 0 && !value.startsWith('+') && !value.startsWith('-')) {
+				value = `${value[0] > 0 ? '+' : '-'} ${value}`;
+			}
+			// TODO: warn if value is not a valid dice expression?
 		}
 
 		if (!value) continue
