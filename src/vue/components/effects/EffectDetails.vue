@@ -4,17 +4,16 @@
 		<Prosemirror :editable="context.editable" :field="context.editors['document.description.value']" />
 	</fieldset>
 
-
-	<div class="form-group">
-		<label>{{ localize("EFFECT.FIELDS.disabled.label") }}</label>
-		<input type="checkbox" v-model="viewModel.disabled" />
-	</div>
-
-	<div class="form-group" v-if="effect.isActorEffect">
+	<div class="form-group" v-if="foundryEffect.parent.documentName === 'Actor'">
 		<label>{{ localize("EFFECT.FIELDS.origin.label") }}</label>
 		<div class="form-fields">
 			<input type="text" name="origin" v-model="viewModel.origin" />
 		</div>
+	</div>
+
+	<div class="form-group">
+		<label>{{ localize("EFFECT.FIELDS.disabled.label") }}</label>
+		<input type="checkbox" v-model="viewModel.disabled" />
 	</div>
 
 	<div class="form-group">
