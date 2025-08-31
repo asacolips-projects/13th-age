@@ -15,7 +15,7 @@ export default {
     const button = Boolean(props.button);
     const editable = Boolean(props.editable);
     const canEdit = (button && editable);
-    const editor = await TextEditor.enrichHTML(props.content || '', {
+    const editor = await foundry.applications.ux.TextEditor.implementation.enrichHTML(props.content || '', {
       secrets: props.owner,
       documents: props.documents ?? true,
       links: props.links ?? true,

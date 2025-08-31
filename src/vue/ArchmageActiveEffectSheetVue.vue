@@ -39,14 +39,6 @@
                     <span class="bonus-label"><i class="fas fa-timer"></i> {{ duration }}</span>
                   </div>
                 </div>
-                <div class="item-controls effect-controls">
-                  <a class="effect-control" :title="localize('ARCHMAGE.context.document.AE.toggle')"><i
-                      :class="concat('fas fa-', context.document.disabled ? 'check' : 'times')"></i></a>
-                  <a class="effect-control" :title="localize('ARCHMAGE.context.document.AE.edit')"><i
-                      class="fas fa-edit"></i></a>
-                  <a class="effect-control" :title="localize('ARCHMAGE.context.document.AE.delete')"><i
-                      class="fas fa-trash"></i></a>
-                </div>
               </div>
               <div v-if="effect.description" class="effect-detail effect-detail--description">
                 <Transition name="slide-fade">

@@ -1049,7 +1049,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     // Add special template for the a11y section.
     if (settingsCount > 0) {
       if (group.label.includes('accessibility')) {
-        renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
+        foundry.applications.handlebars.renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
           details.append(tpl);
         });
       }
@@ -1389,7 +1389,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
     durations: durations
   };
 
-  renderTemplate(template, dialogData).then(dlg => {
+  foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
     new Dialog({
       title: game.i18n.localize("ARCHMAGE.CHAT.applyAETitle"),
       content: dlg,

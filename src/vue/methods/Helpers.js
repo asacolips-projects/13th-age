@@ -160,7 +160,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   }
 
   // Call TextEditor.enrichHTML to process remaining object links
-  clean = await TextEditor.enrichHTML(clean, { async: false });
+  clean = await foundry.applications.ux.TextEditor.implementation.enrichHTML(clean, { async: false });
 
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
