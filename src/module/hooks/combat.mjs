@@ -292,7 +292,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         unknown: effectData.unknown,
         hasUnknown: effectData.unknown.length > 0,
     };
-    const html = await renderTemplate(template, renderData);
+    const html = await foundry.applications.handlebars.renderTemplate(template, renderData);
 
     // Create a chat card
     const chatData = {
