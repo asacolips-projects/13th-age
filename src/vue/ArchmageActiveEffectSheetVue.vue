@@ -97,9 +97,8 @@ const tabs = reactive({ ...rawTabs });
 // Retrieve a copy of the full item document instance provided by
 // the VueApplicationMixin.
 
-const effect = props.context.document;
+const effect = computed(() => props.context.document);
 
-const changes = [];
 const modes = [
   'question',
   'times',
@@ -109,26 +108,38 @@ const modes = [
   'angle-double-up',
   'undo'
 ]
-effect.changes.forEach(c => {
-  if (c.key && c.value) {
-    const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
-    let change = {
-      name: label,
-      img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-      mode: modes[c.mode],
-      value: c.value
-    };
-    if (change.mode === "plus" && change.value < 0) {
-      change.mode = "minus";
-      change.value = Math.abs(change.value);
+
+const changes = computed(() => {
+  const changesArray = [];
+  effect.value.changes.forEach(c => {
+    if (c.key && c.value) {
+      const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
+      let change = {
+        name: label,
+        img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
+        mode: modes[c.mode],
+        value: c.value
+      };
+      if (change.mode === "plus" && change.value < 0) {
+        change.mode = "minus";
+        change.value = Math.abs(change.value);
+      }
+      changesArray.push(change);
     }
-    changes.push(change);
-  }
-})
+  });
+  return changesArray;
+});
 
-const duration = computed(() => game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration]));
+const duration = computed(() => {
+  const rawDuration = effect.value.flags.archmage.duration
+  return game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[rawDuration])
+});
 
-const ongoingDamage = computed(() => `${effect.flags.archmage.ongoingDamage || 0} ongoing ${effect.flags.archmage.ongoingDamageType || ''} damage`);
+const ongoingDamage = computed(() => {
+  const dmg = effect.value.flags.archmage.ongoingDamage || 0
+  const type = effect.value.flags.archmage.ongoingDamageType || ''
+  return `${dmg} ongoing ${type} damage`;
+});
 
 </script>
 

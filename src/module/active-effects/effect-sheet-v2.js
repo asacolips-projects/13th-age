@@ -23,7 +23,7 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
     actions: {},
     position: {
       width: 550,
-      height: 600
+      height: 700
     },
     window: {
       resizable: true
@@ -42,7 +42,7 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
         { id: 'details', icon: 'fa-solid fa-book' },
         { id: 'effects', icon: 'fa-solid fa-gears' }
       ],
-      initial: 'details',
+      initial: 'effects',
       labelPrefix: 'EFFECT.TABS'
     }
   }
@@ -81,7 +81,7 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
           effects: {
             key: 'effects',
             label: game.i18n.localize('ARCHMAGE.effects'),
-            active: false
+            active: true
           }
         }
       },
