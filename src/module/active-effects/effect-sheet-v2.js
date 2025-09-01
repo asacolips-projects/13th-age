@@ -23,7 +23,7 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
     actions: {},
     position: {
       width: 550,
-      height: 700
+      height: 760
     },
     window: {
       resizable: true
@@ -92,41 +92,6 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
       // @todo add this after switching to DataModel
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
-    }
-
-    // Handle enriched fields.
-    const enrichmentOptions = {
-      // Whether to show secret blocks in the finished html
-      secrets: this.document.isOwner,
-      // Data to fill in for inline rolls
-      rollData: this.item?.getRollData() ?? {},
-      // Relative UUID resolution
-      relativeTo: this.item
-    }
-
-    const editorOptions = {
-      toggled: true,
-      collaborate: true,
-      documentUUID: this.document.uuid,
-      height: 300
-    }
-
-    context.editors = {
-      'document.description.value': {
-        enriched: await wrapRolls(
-          this.document.description.value ?? '',
-          [],
-          'short',
-          {},
-          'description',
-          enrichmentOptions
-        ),
-        element: foundry.applications.elements.HTMLProseMirrorElement.create({
-          ...editorOptions,
-          name: 'document.description.value',
-          value: context.document.description?.value ?? ''
-        })
-      }
     }
 
     return context
