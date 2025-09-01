@@ -1,9 +1,4 @@
 <template>
-	<fieldset class="fieldset-description">
-		<legend>{{ game.i18n.localize('ARCHMAGE.description') }}</legend>
-		<Prosemirror :editable="context.editable" :field="context.editors['document.description.value']" />
-	</fieldset>
-
 	<div class="form-group" v-if="foundryEffect.parent.documentName === 'Actor'">
 		<label>{{ localize("EFFECT.FIELDS.origin.label") }}</label>
 		<div class="form-fields">
