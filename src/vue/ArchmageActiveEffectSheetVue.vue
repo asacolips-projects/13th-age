@@ -55,7 +55,7 @@
     <div class="section--main">
       <section class="section--fields">
         <!-- Tab links -->
-        <Tabs :tabs="tabs.primary" no-span="true" />
+        <Tabs :tabs="tabs.primary" no-span="true" style="margin-bottom: 0.5rem;" />
 
         <!-- Details fields -->
         <Tab group="primary" :tab="tabs.primary.details">
