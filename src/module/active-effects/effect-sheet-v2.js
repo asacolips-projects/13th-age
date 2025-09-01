@@ -39,10 +39,10 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
   static TABS = {
     sheet: {
       tabs: [
-        { id: 'details', icon: 'fa-solid fa-book' },
+        { id: 'general', icon: 'fa-solid fa-book' },
         { id: 'effects', icon: 'fa-solid fa-gears' }
       ],
-      initial: 'effects',
+      initial: 'general',
       labelPrefix: 'EFFECT.TABS'
     }
   }
@@ -68,19 +68,22 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
       // Add tabs:
       tabs: {
         primary: {
-          details: {
-            key: 'details',
-            label: game.i18n.localize('ARCHMAGE.details'),
-          },
-          // bonuses: {
-          //   key: 'bonuses',
-          //   label: game.i18n.localize('ARCHMAGE.bonuses'),
-          //   active: false
-          // },
-          effects: {
-            key: 'effects',
-            label: game.i18n.localize('ARCHMAGE.effects'),
+          general: {
+            key: 'general',
+            label: game.i18n.localize('ARCHMAGE.SETTINGS.groups.general'),
             active: true
+          },
+          attack: {
+            key: 'attack',
+            label: game.i18n.localize('ARCHMAGE.attack')
+          },
+          defense: {
+            key: 'defense',
+            label: game.i18n.localize('ARCHMAGE.defense')
+          },
+          ongoing: {
+            key: 'ongoing',
+            label: game.i18n.localize('ARCHMAGE.ongoing')
           }
         }
       },

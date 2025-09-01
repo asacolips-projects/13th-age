@@ -57,13 +57,20 @@
         <!-- Tab links -->
         <Tabs :tabs="tabs.primary" no-span="true" style="margin-bottom: 0.5rem;" />
 
-        <!-- Details fields -->
-        <Tab group="primary" :tab="tabs.primary.details">
+        <Tab group="primary" :tab="tabs.primary.general">
           <EffectDetails :effect="effect" :context="context" />
         </Tab>
 
-        <Tab group="primary" :tab="tabs.primary.effects">
-          <EffectEffects :effect="effect" :context="context" />
+        <Tab group="primary" :tab="tabs.primary.attack">
+          <EffectAttack :effect="effect" :context="context" />
+        </Tab>
+
+        <Tab group="primary" :tab="tabs.primary.defense">
+          <EffectDefense :effect="effect" :context="context" />
+        </Tab>
+
+        <Tab group="primary" :tab="tabs.primary.ongoing">
+          <EffectOngoing :effect="effect" :context="context" />
         </Tab>
       </section>
     </div>
@@ -76,12 +83,15 @@ import {
   Tabs,
   Tab,
   EffectDetails,
-  EffectEffects,
+  EffectAttack,
+  EffectDefense,
+  EffectOngoing,
 } from '@/components';
-import { computed, reactive, toRaw } from 'vue';
+import { computed, inject, reactive, toRaw, watch } from 'vue';
 import { concat, localize, numberFormat } from '@/methods/Helpers';
 
 const props = defineProps(['context']);
+const foundryEffect = inject('itemDocument')
 // Convert the tabs into a new reactive variable so that they
 // don't change every time the item is updated.
 const rawTabs = toRaw(props.context.tabs);
@@ -132,7 +142,6 @@ const ongoingDamage = computed(() => {
   const type = effect.value.flags.archmage.ongoingDamageType || ''
   return `${dmg} ongoing ${type} damage`;
 });
-
 </script>
 
 <style module>
