@@ -86,7 +86,7 @@ export class ActorHelpersV2 {
   }
 
   static _activatePortraitArtContextMenu(app, element) {
-    foundry.applications.ux.ContextMenu.implementation.create(app, element, '.profile-img', [
+    foundry.applications.ux.ContextMenu.implementation.create(app, element[0], '.profile-img', [
       {
         name: game.i18n.localize('ARCHMAGE.CHARACTER.showPortrait'),
         icon: '<i class="fa fa-image-portrait"></i>',
