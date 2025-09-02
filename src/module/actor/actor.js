@@ -629,7 +629,7 @@ export class ActorArchmage extends Actor {
     if (data.attributes.hp.automatic) {
       let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
       let level = data.attributes.level.value;
-      if (data.incrementals?.hp && !game.settings.get("archmage", "secondEdition")) level++;
+      if (data.incrementals?.hp) level++;
 
       data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0))
         * hpLevelModifier[level] + hpBonus + data.attributes.hp.extra);
