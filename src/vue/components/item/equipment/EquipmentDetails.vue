@@ -42,7 +42,7 @@
     <div class="form-group">
       <label>
         {{ game.i18n.localize('ARCHMAGE.ITEM.usesRemaining') }}
-        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.usesRemainingHint')" />
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')" />
       </label>
       <div class="field">
         <input type="number" name="system.quantity.value" v-model="item.system.quantity.value"
@@ -53,7 +53,7 @@
     <div class="form-group">
       <label>
         {{ game.i18n.localize('ARCHMAGE.ITEM.usesMax') }}
-        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.usesMaxHint')" />
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')" />
       </label>
       <div class="field">
         <input type="number" name="system.maxQuantity.value" v-model="item.system.maxQuantity.value"
