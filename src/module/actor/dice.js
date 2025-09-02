@@ -117,7 +117,7 @@ export class DiceArchmage {
       };
 
       // Render the template.
-      renderTemplate(template, templateData).then(content => {
+      foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
         chatData.content = content;
         game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode: rollMode });
       });
@@ -167,7 +167,7 @@ export class DiceArchmage {
       dialogData.defaultAbility = highestAbility;
     }
 
-    renderTemplate(template, dialogData).then(dlg => {
+    foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
         title: title,
         content: dlg,
@@ -331,7 +331,7 @@ export class DiceArchmage {
 
     // Render modal dialog
     return new Promise(resolve => {
-      renderTemplate(template, dialogData).then(dlg => {
+      foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
         new Dialog({
           title: title,
           content: dlg,

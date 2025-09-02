@@ -784,7 +784,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
       roll: roll,  // TODO: fix template to use rolls prop
       rolls: [roll],
       speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
-      content: await renderTemplate(template, templateData)
+      content: await foundry.applications.handlebars.renderTemplate(template, templateData)
     };
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
@@ -823,7 +823,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     };
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
@@ -882,7 +882,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     };
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 

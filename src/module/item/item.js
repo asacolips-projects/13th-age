@@ -196,11 +196,11 @@ export class ItemArchmage extends Item {
     };
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
     let rollData = this.itemActor?.getRollData(this) ?? {};
-    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
+    chatData.content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     // Perform updates.
     if (!foundry.utils.isEmpty(updateData)) this.update(updateData, {});
@@ -598,10 +598,10 @@ export class ItemArchmage extends Item {
     chatData = ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
-    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
+    chatData.content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     return chatData;
   }
@@ -932,7 +932,7 @@ export class ItemArchmage extends Item {
       };
 
       // Render the template
-      chatData["content"] = await renderTemplate(template, templateData);
+      chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
       await game.archmage.ArchmageUtility.createChatMessage(chatData);
     }
@@ -966,7 +966,7 @@ export class ItemArchmage extends Item {
     if (!skipInlineRolls) {
       htmlOptions = foundry.utils.mergeObject(htmlOptions ?? {}, { async: false});
       data.description.value = data.description.value !== undefined
-        ? (await TextEditor.enrichHTML(data.description.value, htmlOptions))
+        ? (await foundry.applications.ux.TextEditor.implementation.enrichHTML(data.description.value, htmlOptions))
         : '';
     }
     return data;

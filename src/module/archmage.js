@@ -231,6 +231,30 @@ Hooks.once('init', async function() {
   // Default the 2e constant to false, but the setting will be checked later in the 'ready' hook.
   CONFIG.ARCHMAGE.is2e = false;
 
+  // Override 2e conditions journals before copying them to CONFIG
+  // We do it here because we want to keep a copy of *all* conditions in ARCHMAGE.statusEffects
+  // in order to be able to e.g. recognize both hindered and hampered
+  if (game.settings.get("archmage", "secondEdition")) {
+
+    // Remove AE from and update vulnerable
+    let id = ARCHMAGE.statusEffects.findIndex(e => e.id == "vulnerable");
+    delete ARCHMAGE.statusEffects[id].changes;
+    ARCHMAGE.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
+
+    // Update grabbed.
+    id = ARCHMAGE.statusEffects.findIndex(e => e.id == "grabbed");
+    ARCHMAGE.statusEffects[id].journal = "e74tdY4XILWFW9VB";
+
+    // Update stunned
+    id = ARCHMAGE.statusEffects.findIndex(e => e.id == "stunned");
+    ARCHMAGE.statusEffects[id].journal = "2rxwthymp5rl1dqf";
+
+    // Update confused
+    id = ARCHMAGE.statusEffects.findIndex(e => e.id == "confused");
+    ARCHMAGE.statusEffects[id].journal = "21cEqzk92tflpW7O";
+
+  }
+
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
     if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
@@ -256,25 +280,8 @@ Hooks.once('init', async function() {
     // Update tier multiplier Array
     CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
 
-    // Remove AE from and update vulnerable
-    let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
-    delete CONFIG.statusEffects[id].changes;
-    CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
-
-    // Update grabbed.
-    id = CONFIG.statusEffects.findIndex(e => e.id == "grabbed");
-    CONFIG.statusEffects[id].journal = "e74tdY4XILWFW9VB";
-
-    // Update stunned
-    id = CONFIG.statusEffects.findIndex(e => e.id == "stunned");
-    CONFIG.statusEffects[id].journal = "2rxwthymp5rl1dqf";
-
-    // Update confused
-    id = CONFIG.statusEffects.findIndex(e => e.id == "confused");
-    CONFIG.statusEffects[id].journal = "21cEqzk92tflpW7O";
-
     // Remove 1e hampered from context menu status effects
-    id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
+    let id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
     CONFIG.statusEffects.splice(id, 1);
 
     // Update class base stats
@@ -314,11 +321,6 @@ Hooks.once('init', async function() {
     // Remove 2e charmed from context menu status effects
     id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
     CONFIG.statusEffects.splice(id, 1);
-
-    // This was a 2e playtest condition that didn't make the cut
-    // Remove 2e frenzied from context menu status effects
-    // id = CONFIG.statusEffects.findIndex(e => e.id == "frenzied");
-    // CONFIG.statusEffects.splice(id, 1);
   }
 
   // Assign the actor class to the CONFIG
@@ -628,6 +630,25 @@ Hooks.once('init', async function() {
   };
 
   ArchmageUtility.fixVuePopoutBug();
+});
+
+Hooks.on('ready', () => {
+  // Precompile regexps
+  // Do it after ready to wait for localization to load
+  CONFIG.ARCHMAGE.REGEXP.ONGOING_DAMAGE = new RegExp(`(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\\/i>)*(-?\\d+)(<\\/a>)* ${game.i18n.localize("ARCHMAGE.ongoing")} ([a-zA-Z]*) ?${game.i18n.localize("ARCHMAGE.damage")}(?:\\s*\\((\\w*) ?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}(?:, \\d*\\+)?\\))?`, "ig");
+  // /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage(?:\s*\((\w*) ?save ends(?:, \d*\+)?\))?/ig
+  CONFIG.ARCHMAGE.REGEXP.CONDITIONS = new Map(
+      CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal).map( x => {
+          const localizedName = game.i18n.localize(x.name);
+          return [
+              localizedName,
+              [
+                x,
+                new RegExp(`\\*?(${localizedName})\\*?(?:\\s*\\(?(\\w*\\s?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}|${game.i18n.localize("ARCHMAGE.DURATION.NextTurnFilter")})(?:,\\s\\d*\\+)?\\)?)?`, "ig")
+              ]
+          ]
+      })
+  );
 });
 
 Hooks.on('setup', (data, options, id) => {
@@ -1028,7 +1049,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     // Add special template for the a11y section.
     if (settingsCount > 0) {
       if (group.label.includes('accessibility')) {
-        renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
+        foundry.applications.handlebars.renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
           details.append(tpl);
         });
       }
@@ -1263,6 +1284,7 @@ async function _applyAE(actor, data) {
     }
     // Check for existing statuses.
     let statusEffect = CONFIG.statusEffects.find(x => x.id === data.id || x.id === data.name?.toLowerCase());
+    const ends = data.ends ?? "Unknown";
     if ( statusEffect ) {
       statusEffect = foundry.utils.duplicate(statusEffect);
       statusEffect.label = game.i18n.localize(statusEffect.name);
@@ -1270,17 +1292,19 @@ async function _applyAE(actor, data) {
       statusEffect.origin = data.source;
       // Add it as a status so that it can be toggled on the token.
       statusEffect.statuses = [statusEffect.id];
+      statusEffect.duration = ends;
 
-      return await _applyAEDurationDialog(actor, statusEffect, "Unknown", data.source, data.type);
+      return await _applyAEDurationDialog(actor, statusEffect, ends, data.source, data.type);
     }
     else {
       // Just a generic condition, transfer the name
       let effectData = {
         name: data.name,
         img: 'icons/svg/aura.svg',
-        origin: data.source
+        origin: data.source,
+        duration: ends
       };
-      return await _applyAEDurationDialog(actor, effectData, "Unknown", data.source, data.type);
+      return await _applyAEDurationDialog(actor, effectData, ends, data.source, data.type);
     }
   }
   else if ( data.type === "effect" || data.type === 'ActiveEffect' ) {
@@ -1365,7 +1389,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
     durations: durations
   };
 
-  renderTemplate(template, dialogData).then(dlg => {
+  foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
     new Dialog({
       title: game.i18n.localize("ARCHMAGE.CHAT.applyAETitle"),
       content: dlg,

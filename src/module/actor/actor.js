@@ -629,7 +629,7 @@ export class ActorArchmage extends Actor {
     if (data.attributes.hp.automatic) {
       let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
       let level = data.attributes.level.value;
-      if (data.incrementals?.hp && !game.settings.get("archmage", "secondEdition")) level++;
+      if (data.incrementals?.hp) level++;
 
       data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0))
         * hpLevelModifier[level] + hpBonus + data.attributes.hp.extra);
@@ -905,7 +905,7 @@ export class ActorArchmage extends Actor {
     };
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
     // Handle recoveries or failures on death saves.
@@ -1004,7 +1004,7 @@ export class ActorArchmage extends Actor {
       };
 
       // Render the template.
-      renderTemplate(template, templateData).then(content => {
+      foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
         chatData.content = content;
         game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode: rollMode });
       });
@@ -1023,7 +1023,7 @@ export class ActorArchmage extends Actor {
       rollModes: CONFIG.Dice.rollModes
     };
 
-    renderTemplate(template, dialogData).then(dlg => {
+    foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
         title: title,
         content: dlg,
@@ -1213,7 +1213,7 @@ export class ActorArchmage extends Actor {
         }
       }
     }
-    renderTemplate(template, dialogData).then(dlg => {
+    foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
       dialogStruct.content = dlg;
       new Dialog(dialogStruct).render(true);
     });
@@ -1286,8 +1286,8 @@ export class ActorArchmage extends Actor {
       };
 
       // Render the template
-      chatData.content = await renderTemplate(template, templateData);
-      chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData() });
+      chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
+      chatData.content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(chatData.content, { rollData: this.getRollData() });
       // Create the chat message
       msg = await game.archmage.ArchmageUtility.createChatMessage(chatData);
       // Get the roll from the chat message
@@ -1467,7 +1467,7 @@ export class ActorArchmage extends Actor {
       user: game.user.id,
       speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
     // If 3d dice are enabled, handle them
     if (game.dice3d) {
       for (let roll of rollsToAnimate) {
@@ -1631,7 +1631,7 @@ export class ActorArchmage extends Actor {
       user: game.user.id,
       speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
     game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
@@ -1679,7 +1679,7 @@ export class ActorArchmage extends Actor {
       };
       let rollMode = game.settings.get("core", "rollMode");
       ChatMessage.applyRollMode(chatData, rollMode);
-      chatData["content"] = await renderTemplate(template, templateData);
+      chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
       await game.archmage.ArchmageUtility.createChatMessage(chatData);
     } else {
       ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.infoDesperateTriggeredEmpty"));

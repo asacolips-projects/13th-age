@@ -54,7 +54,9 @@ ARCHMAGE:
   cyclic: Cyclic
   daily: Daily
   daily-desperate: Daily/Desperate
+  defense: Defense
   defenses: Defenses
+  damage: Damage
   description: Description
   details: Details
   disengage: Disengage
@@ -133,6 +135,7 @@ ARCHMAGE:
   normal: Normal
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
+  ongoing: Ongoing
   other: Other
   others: Other
   Positive: Positive
@@ -465,10 +468,17 @@ ARCHMAGE:
     Infinite: Infinite
     Unknown: Unknown
     StartOfNextTurn: Start of Next Turn
+    StartOfNextTurnFull: until the start of the target's next turn
+    StartOfNextTurnFull2: until the start of its next turn
     EndOfNextTurn: End of Next Turn
+    EndOfNextTurnFull: until the end of the target's next turn
+    EndOfNextTurnFull2: until the end of its next turn
     StartOfNextSourceTurn: Start of Next Source Turn
+    StartOfNextSourceTurnFull: until the start of your next turn
     EndOfNextSourceTurn: End of Next Source Turn
+    EndOfNextSourceTurnFull: until the end of your next turn
     EasySaveEnds: Easy Save Ends
+    SaveEnds: Save Ends
     NormalSaveEnds: Normal Save Ends
     HardSaveEnds: Hard Save Ends
     EndOfCombat: End of Battle
@@ -476,6 +486,7 @@ ARCHMAGE:
     StartOfEachTurn: Start of Each Turn
     EndOfRound: End of Current Round
     EndOfRoundWarning: No active combat, cannot determine end of round; assuming first round.
+    NextTurnFilter: until the \w* of \w* next turn
   INCREMENTALS:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
     abilityScoreBonus2eHint: +1 to 3/4/5 ability scores (3rd/6th/9th Level)
