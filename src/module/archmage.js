@@ -23,6 +23,7 @@ import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
+import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
 
 Hooks.once('init', async function() {
 
@@ -135,6 +136,7 @@ Hooks.once('init', async function() {
     ItemArchmage,
     ItemArchmageSheet,
     EffectArchmageSheet,
+    ArchmageActiveEffectSheetV2,
     ArchmageMacros,
     ArchmageUtility,
     MacroUtils,
@@ -198,29 +200,29 @@ Hooks.once('init', async function() {
   };
 
   // Replace sheets.
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("archmage", ItemArchmageSheet, {
+  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet("archmage", ItemArchmageSheet, {
     label: 'ARCHMAGE.sheetItem',
     makeDefault: true,
   });
   // AppV2 + Vue based sheets. These will eventually become the default.
-  Items.registerSheet("archmage", ArchmagePowerSheetV2, {
+  foundry.documents.collections.Items.registerSheet("archmage", ArchmagePowerSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["power"],
     makeDefault: true,
   });
-  Items.registerSheet("archmage", ArchmageEquipmentSheetV2, {
+  foundry.documents.collections.Items.registerSheet("archmage", ArchmageEquipmentSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["equipment"],
     makeDefault: true,
   });
-  Items.registerSheet("archmage", ArchmageActionSheetV2, {
+  foundry.documents.collections.Items.registerSheet("archmage", ArchmageActionSheetV2, {
     label: 'ARCHMAGE.sheetItemV2',
     types: ["action", "trait", "nastierSpecial"],
     makeDefault: true,
   })
 
-  DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", ArchmageActiveEffectSheetV2, {
     label: 'ARCHMAGE.sheetActiveEffect',
     makeDefault: true
   });
@@ -331,16 +333,16 @@ Hooks.once('init', async function() {
   // Override CONFIG
   CONFIG.Item.sheetClass = ItemArchmageSheet;
 
-  Actors.unregisterSheet('core', ActorSheet);
+  foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
 
-  Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
+  foundry.documents.collections.Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
     label: 'ARCHMAGE.sheetNPC',
     types: ["npc"],
     makeDefault: true
   });
 
   // V2 actor sheet (See issue #118).
-  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+  foundry.documents.collections.Actors.registerSheet("archmage", ActorArchmageSheetV2, {
     label: 'ARCHMAGE.sheetCharacter',
     types: ["character"],
     makeDefault: true
@@ -582,7 +584,9 @@ Hooks.once('init', async function() {
     default: true,
     type: Boolean,
     requiresReload: false,
-    onChange: newValue => $('#chat-log').toggleClass('show-natural-rolls', newValue)
+    onChange: newValue => {
+      $('#chat').toggleClass('show-natural-rolls', newValue)
+      $('#chat-notifications').toggleClass('show-natural-rolls', newValue);}
   });
 
   game.settings.register('archmage', 'colorBlindMode', {
@@ -706,25 +710,32 @@ Hooks.on('setup', (data, options, id) => {
 
 /* ---------------------------------------------- */
 
-function addEscalationDie() {
-  const escalation = ArchmageUtility.getEscalation();
-  const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
-  const hideIfNotGM = !game.user.isGM ? ' hide' : '';
-  const text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
-  $('.archmage-hotbar').prepend(
-    `<div class="archmage-escalation${hide}">
-       <div class="ed-number" data-esc-die-text="${text}">${escalation}</div>
-       <div class="ed-controls${hideIfNotGM}"">
-         <button class="ed-control ed-plus">+</button>
-         <button class="ed-control ed-minus">-</button>
-       </div>
-     </div>`);
+async function addEscalationDie() {
+  const render = () => {
+    const escalation = ArchmageUtility.getEscalation();
+    const hide = game.combats.contents.length < 1 ? ' hide' : '';
+    const hideIfNotGM = !game.user.isGM ? ' hide' : '';
+    const subtitle = game.i18n.localize("ARCHMAGE.escalationDieLabel");
+    return foundry.applications.handlebars.renderTemplate(
+      "systems/archmage/templates/sidebar/ed-display.html",
+      {
+        escalation,
+        hide,
+        hideIfNotGM,
+        subtitle,
+      }
+    );
+  };
+  const htmlContent = await render();
+  $('.archmage-hotbar').prepend(htmlContent);
 
   // Add click events for ed.
-  $('body').on('click', '.ed-control', (event) => {
+  $('body').on('click', '.ed-control', async (event) => {
     let $self = $(event.currentTarget);
     let isIncrease = $self.hasClass('ed-plus');
-    ArchmageUtility.setEscalationOffset(game.combat, isIncrease);
+    await ArchmageUtility.setEscalationOffset(game.combat, isIncrease);
+    const htmlContent = await render();
+    $('.archmage-hotbar').find('.archmage-escalation-display').replaceWith(htmlContent);
   });
 
   // Add click events for effect links
@@ -748,14 +759,15 @@ function addEscalationDie() {
     return doc.sheet.render(true);
   });
 
-  $('#chat-log').toggleClass('show-natural-rolls', game.settings.get('archmage', 'showNaturalRolls'));
+  $('#chat').toggleClass('show-natural-rolls', game.settings.get('archmage', 'showNaturalRolls'));
+  $('#chat-notifications').toggleClass('show-natural-rolls', game.settings.get('archmage', 'showNaturalRolls'));
 }
 
 /* -------------------------------------------- */
 
-Hooks.once('ready', () => {
-  $('#ui-bottom').prepend(`<div class="archmage-hotbar"></div>`);
-  addEscalationDie();
+Hooks.once('ready', async () => {
+  $('#players').prepend(`<div class="archmage-hotbar flexcol"></div>`);
+  await addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
 
@@ -867,22 +879,18 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderDocumentDirectory", (app, html, options) => {
-  if (["actors", "items"].includes(options.tabName) && !options.cssId.toLowerCase().includes('compendium')) {
-    const htmlElement = html[0];
-    let compendiumButton = '';
-
-    if (options.tabName == "items") {
-      compendiumButton = `
+  const htmlElement = $(html)[0];
+  if (options.documentCls === 'actor') {
+    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", `
+      <button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}</button>
+    `);
+  }
+  if (options.documentCls === 'item') {
+    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", `
       <div class="flexrow">
-        <button type="button" class="open-archmage-browser" data-tab="powers"><i class="fas fa-swords"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browsePowers')}</button>
-        <button type="button" class="open-archmage-browser" data-tab="items"><i class="fas fa-wand-magic-sparkles"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseItems')}</button>
-      </div>`;
-    }
-    else {
-      compendiumButton = `<button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}</button>`;
-    }
-    // Append button. Click handler added in 'ready' hook.
-    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", compendiumButton);
+        <button type="button" class="open-archmage-browser" data-tab="powers"><i class="fas fa-swords open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browsePowers')}</button>
+        <button type="button" class="open-archmage-browser" data-tab="items"><i class="fas fa-wand-magic-sparkles open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseItems')}</button>
+      </div>`);
   }
 });
 
@@ -901,8 +909,12 @@ function renderSceneTerrains() {
   if ( !terrains || (terrains.length === 0) ) return;
 
   const label = game.i18n.localize('ARCHMAGE.terrains');
-  const isGM = game.user.isGM ? ' gm' : '';
-  const aside = $(`<aside class="archmage-terrains${isGM}" data-terrains-text="${label}"></aside>`);
+  const isGM = game.user.isGM ? 'gm' : '';
+  const aside = $(`
+    <aside class="archmage-terrains flexcol ${isGM}">
+      <h4 class="archmage-terrains-header">${label}</h4>
+    </aside>
+  `);
   if ( terrains ) {
       terrains.forEach(t => {
         const terrain = game.archmage.terrains.find(x => x.id === t);
@@ -910,7 +922,6 @@ function renderSceneTerrains() {
       });
   }
   // Set height based on number of terrains
-  aside.css('height', `${18 * (terrains.length + 1)}px`);
   $('.archmage-hotbar').append(aside);
 }
 
@@ -921,6 +932,7 @@ Hooks.on('canvasReady', (canvas) => {
 });
 
 Hooks.on('renderSettingsConfig', (app, html, data) => {
+  html = $(html);
   // Define groups for organization.
   const groups = [
     {
@@ -985,8 +997,8 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
   ];
 
   // Find the parent category element.
-  const settingsElements = html.find('.form-group[data-setting-id*="archmage"]');
-  const parent = settingsElements.closest('.category');
+  const settingsElements = html.find('section[data-category="system"] .form-group');
+  const parent = settingsElements.closest('section');
   parent.addClass('archmage-settings');
 
   // Iterate through our groups and move all of their settings into the matching element.
@@ -995,7 +1007,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     let settingsCount = 0;
 
     for (let setting of group.settings) {
-      const element = html.find(`[data-setting-id="archmage.${setting}"]`);
+      const element = html.find(`label[for="settings-config-archmage.${setting}"]`).parent();
       if (element.length < 1) continue;
 
       // Add a highlight if necessary.
@@ -1018,7 +1030,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     // Add special template for the a11y section.
     if (settingsCount > 0) {
       if (group.label.includes('accessibility')) {
-        renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
+        foundry.applications.handlebars.renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
           details.append(tpl);
         });
       }
@@ -1068,7 +1080,7 @@ Hooks.on('renderSceneConfig', (app, html, data) => {
   const currentTerrains = data.document.getFlag('archmage', 'terrains') || [];
 
   // Create multiple select dom element
-  const htmlSelect = $(`<select multiple="multiple" name="flags.archmage.terrains" data-dtype="String"></select>`);
+  const htmlSelect = $(`<select style="height:125px;" multiple="multiple" name="flags.archmage.terrains" data-dtype="String"></select>`);
   terrainOptions.forEach(o => {
       const attrs = ["value='"+o.value+"'", currentTerrains.includes(o.value) ? "selected=" : ""];
       const option = $(`<option ${attrs.join(" ")}>${o.label}</option>`);
@@ -1081,11 +1093,12 @@ Hooks.on('renderSceneConfig', (app, html, data) => {
   htmlFormGroup.append(htmlSelect);
 
   // Attach the select after .initial-position
-  html.find('.initial-position').after(htmlFormGroup);
-  html.find('.initial-position').after('<hr>');
+  html = $(html);
+  const lastControl = html.find('div[data-tab=basics] .form-group').last();
+  lastControl.after(htmlFormGroup);
 
   // Update the height of the scene config by setting to auto
-  app._element.css('height', 'auto');
+  $(app.element).css('height', 'auto');
 });
 
 /* -------------------------------------------- */
@@ -1097,8 +1110,9 @@ Hooks.on("updateScene", (scene, data, options, userId) => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", async (app, html) => {
+  html = $(html);
   let button = $(`<button id="archmage-reference-btn" class="archmage-rolls-reference" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
-  html.find('button[data-action="controls"]').after(button);
+  html.find('button[data-app="controls"]').after(button);
 
   // Event trigger has been moved to the ready hook using the archmage-rolls-reference class.
   // button.on('click', ev => {
@@ -1107,7 +1121,7 @@ Hooks.on("renderSettings", async (app, html) => {
   // });
 
   let helpButton = $(`<button id="archmage-help-btn" type="button" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
-  html.find('button[data-action="controls"]').after(helpButton);
+  html.find('button[data-app="controls"]').after(helpButton);
 
   helpButton.on('click', ev => {
     ev.preventDefault();
@@ -1115,7 +1129,7 @@ Hooks.on("renderSettings", async (app, html) => {
   });
 
   let licenseButton = $(`<button id="archmage-license-btn" type="button" data-action="archmage-help"><i class="fas fa-book"></i> ${game.i18n.localize('ARCHMAGE.DIALOG.CUP.title')}</button>`);
-  html.find('button[data-action="controls"]').after(licenseButton);
+  html.find('button[data-app="controls"]').after(licenseButton);
 
   licenseButton.on('click', ev => {
     ev.preventDefault();
@@ -1353,7 +1367,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
     durations: durations
   };
 
-  renderTemplate(template, dialogData).then(dlg => {
+  foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
     new Dialog({
       title: game.i18n.localize("ARCHMAGE.CHAT.applyAETitle"),
       content: dlg,
@@ -1408,7 +1422,8 @@ function uuidv4() {
 }
 
 
-Hooks.on('renderChatMessage', (chatMessage, html, options) => {
+Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
+  const html = $(rawhtml);
 
   // Override the inline roll click behavior.
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
@@ -1488,13 +1503,13 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       menuItems.push({
         name: `
           <div class="damage-modifiers flex flexrow">
-            <button type="button" data-mod="0.25">&frac14;x</button>
-            <button type="button" data-mod="0.5">&frac12;x</button>
-            <button type="button" data-mod="1" class="active">1x</button>
-            <button type="button" data-mod="1.5">1.5x</button>
-            <button type="button" data-mod="2">2x</button>
-            <button type="button" data-mod="3">3x</button>
-            <button type="button" data-mod="4">4x</button>
+            <button class="damage-modifier" type="button" data-mod="0.25">&frac14;x</button>
+            <button class="damage-modifier" type="button" data-mod="0.5">&frac12;x</button>
+            <button class="damage-modifier active" type="button" data-mod="1" class="active">1x</button>
+            <button class="damage-modifier" type="button" data-mod="1.5">1.5x</button>
+            <button class="damage-modifier" type="button" data-mod="2">2x</button>
+            <button class="damage-modifier" type="button" data-mod="3">3x</button>
+            <button class="damage-modifier" type="button" data-mod="4">4x</button>
           </div>`,
         id: 'modifiers',
         icon: '',
@@ -1899,10 +1914,10 @@ Hooks.on('updateCombat', (async (combat, update) => {
     let escalation = ArchmageUtility.getEscalation(combat);
 
     // Update the escalation die tracker.
-    let $escalationDiv = $('.archmage-escalation');
+    let $escalationDiv = $('.archmage-escalation-display');
     $escalationDiv.attr('data-value', escalation);
     $escalationDiv.removeClass('hide');
-    $escalationDiv.find('.ed-number').text(escalation);
+    $escalationDiv.find('.ed-number h1').text(escalation);
 
     // Update open sheets.
     for (let app of Object.values(ui.windows)) {

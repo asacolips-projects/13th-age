@@ -1,4 +1,4 @@
-export class EffectArchmageSheet extends ActiveEffectConfig {
+export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffectConfig {
 
   /** @override */
   static get defaultOptions() {

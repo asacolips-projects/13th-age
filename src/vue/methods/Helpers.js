@@ -22,9 +22,10 @@ export function cssClass(string) {
 }
 
 export function numberFormat(value, dec = 0, sign = false) {
-  value = parseFloat(value).toFixed(dec);
-  if (sign ) return ( value >= 0 ) ? `+${value}` : value;
-  return value;
+  const parsedValue = parseFloat(value).toFixed(dec);
+  if (isNaN(parsedValue)) return value
+  if (sign ) return ( parsedValue >= 0 ) ? `+${parsedValue}` : parsedValue;
+  return parsedValue;
 }
 
 export function concat(...args) {
@@ -159,7 +160,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   }
 
   // Call TextEditor.enrichHTML to process remaining object links
-  clean = await TextEditor.enrichHTML(clean, { async: false });
+  clean = await foundry.applications.ux.TextEditor.implementation.enrichHTML(clean, { async: false });
 
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);

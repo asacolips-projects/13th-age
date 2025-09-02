@@ -325,7 +325,7 @@ export class ArchmagePrepopulate {
       class: classData.machineName,
       itemType: 'power'
     };
-    return await renderTemplate(template, templateData);
+    return await foundry.applications.handlebars.renderTemplate(template, templateData);
   }
 
   /**
@@ -365,7 +365,7 @@ export class ArchmagePrepopulate {
     templateData.showTabs = templateData.tabs.length > 1;
 
     let template = `systems/archmage/templates/prepopulate/tabs-content.html`;
-    let content = await renderTemplate(template, templateData);
+    let content = await foundry.applications.handlebars.renderTemplate(template, templateData);
     let options = {
       width: 1080,
       height: 1080,

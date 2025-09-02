@@ -4,7 +4,7 @@ import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
 import { ActorHelpersV2 } from './helpers/actor-helpers-v2.js';
 
-export class ActorArchmageSheetV2 extends ActorSheet {
+export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
   /** @override */
   constructor(...args) {
     super(...args);
@@ -784,7 +784,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       roll: roll,  // TODO: fix template to use rolls prop
       rolls: [roll],
       speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
-      content: await renderTemplate(template, templateData)
+      content: await foundry.applications.handlebars.renderTemplate(template, templateData)
     };
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
@@ -823,7 +823,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     };
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
@@ -882,7 +882,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     };
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
 
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 

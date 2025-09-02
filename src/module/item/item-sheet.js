@@ -1,7 +1,7 @@
 /**
  * Override and extend the basic :class:`ItemSheet` implementation
  */
-export class ItemArchmageSheet extends ItemSheet {
+export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 
   /**
    * Extend and override the default options used by the Actor Sheet

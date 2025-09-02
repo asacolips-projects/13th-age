@@ -150,7 +150,7 @@ export class ArchmageUtility {
    * @param {Boolean} isIncrease
    *   (Optional) If true, increase the esc. die, otherwise decrease it.
    */
-  static setEscalationOffset(combat = null, isIncrease = true) {
+  static async setEscalationOffset(combat = null, isIncrease = true) {
     // Get the current combat if one wasn't provided.
     if (!combat) {
       combat = game.combat;
@@ -187,7 +187,7 @@ export class ArchmageUtility {
       }
 
       // Update the escalation die offset flag.
-      combat.setFlag('archmage', 'edOffset', edOffset);
+      await combat.setFlag('archmage', 'edOffset', edOffset);
     }
   }
 
@@ -580,16 +580,16 @@ export class ArchmageUtility {
     });
     /**
      * Do a pass to turn likely dice rolls into inline rolls.
-     * 
+     *
      * This pattern basically tries to do (save rolls)* (Natural n+)* (+)* (dice formula) ( vs)*
-     * 
+     *
      * The reason that works is that if we detect either a save roll or no dice roll, we
      * just exit early and return the match. If we detect a natural trigger, we place it in its
      * own group so that the dice formula doesn't pick it up. If we detected a preceding + sign,
      * we note it so that we can avoid "++" when preprending a d20 later. If we detect a dice
      * formula, we wrap the whole thing in [[diceFormula]]. If we detect " vs", this is an attack
      * roll and we need to prepend a "d20" to the front.
-     * 
+     *
      * This will still have some funky aspects to it, like outputing "[[d20+9]] vs AC ( [[3]] attacks)".
      * To get around that, we'll have another pass later that tries to clean up unexpected spaces.
      */

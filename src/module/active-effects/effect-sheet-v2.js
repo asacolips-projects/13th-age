@@ -1,0 +1,99 @@
+import VueRenderingMixin from '../item/_vue-application-mixin.mjs'
+import { ArchmageActiveEffectSheetVue } from '../../vue/components.vue.es.js'
+import { wrapRolls } from '../item/_item-sheet-helpers.mjs'
+
+export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
+  foundry.applications.sheets.ActiveEffectConfig
+) {
+  vueParts = {
+    'archmage-active-effect-sheet-vue': {
+      component: ArchmageActiveEffectSheetVue,
+      template: `<archmage-active-effect-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-active-effect-sheet-vue>`
+    }
+  }
+
+  /** @override */
+  static DEFAULT_OPTIONS = {
+    classes: [
+      'archmage-appv2',
+      'active-effect-config',
+      'dialog-form',
+      'standard-form'
+    ],
+    actions: {},
+    position: {
+      width: 550,
+      height: 760
+    },
+    window: {
+      resizable: true
+    },
+    tag: 'form',
+    form: {
+      submitOnChange: true,
+      submitOnClose: true,
+      closeOnSubmit: false
+    }
+  }
+
+  static TABS = {
+    sheet: {
+      tabs: [
+        { id: 'general', icon: 'fa-solid fa-book' },
+        { id: 'effects', icon: 'fa-solid fa-gears' }
+      ],
+      initial: 'general',
+      labelPrefix: 'EFFECT.TABS'
+    }
+  }
+
+  /* -------------------------------------------- */
+
+  async _prepareContext (options) {
+    const context = {
+      // Validates both permissions and compendium status
+      editable: this.isEditable,
+      owner: this.isOwner,
+      limited: this.document.limited,
+      // Add the item document.
+      document: this.document.toObject(),
+      actor: this.actor?.toObject() ?? false,
+      // Adding system and flags for easier access
+      system: this.document.system,
+      flags: this.document.flags,
+      // Adding a pointer to CONFIG.ARCHMAGE
+      config: CONFIG.ARCHMAGE,
+      // Sequencer (module) support.
+      sequencerEnabled: game.modules.get('sequencer')?.active,
+      // Add tabs:
+      tabs: {
+        primary: {
+          general: {
+            key: 'general',
+            label: game.i18n.localize('ARCHMAGE.SETTINGS.groups.general'),
+            active: true
+          },
+          attack: {
+            key: 'attack',
+            label: game.i18n.localize('ARCHMAGE.attack')
+          },
+          defense: {
+            key: 'defense',
+            label: game.i18n.localize('ARCHMAGE.defense')
+          },
+          ongoing: {
+            key: 'ongoing',
+            label: game.i18n.localize('ARCHMAGE.ongoing')
+          }
+        }
+      },
+      // Force re-renders. Defined in the vue mixin.
+      _renderKey: this._renderKey ?? 0
+      // @todo add this after switching to DataModel
+      // fields: this.document.schema.fields,
+      // systemFields: this.document.system.schema.fields
+    }
+
+    return context
+  }
+}

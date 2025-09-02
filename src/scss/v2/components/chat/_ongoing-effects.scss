@@ -1,4 +1,4 @@
-#chat-log {
+#chat, #chat-notifications {
   .card-row {
     padding: 0 0 8px;
     margin: 0;
@@ -91,44 +91,6 @@
       span.grid-span-2 {
         justify-content: center;
         text-align: center;
-      }
-    }
-
-    button {
-      font-size: 18px;
-      line-height: 1;
-      padding: 4px 0;
-      background: $c-white;
-      box-shadow:
-        0 0 0 2px $c-white inset,
-        0 0 5px 0 $c-black--25 inset;
-      border: 1px solid var(--color-border-light-2);
-      border-radius: 3px;
-
-      &:hover,
-      &:focus {
-        box-shadow:
-          0 0 0 2px $c-white inset,
-          0 0 5px 0 $c-black--25 inset;
-        background-color: $c-blue;
-        color: $c-white;
-        border-color: $c-blue;
-
-        &[data-action="apply"] {
-          background-color: $c-red;
-        }
-
-        &[data-action="remove"] {
-          background-color: $c-progress-full;
-        }
-      }
-
-      &.grayed-out {
-        &:hover,
-        &:focus {
-          color: $c-white;
-          background-color: $c-blue-dark;
-        }
       }
     }
   }

@@ -43,7 +43,8 @@
       overflow-y: auto;
     }
 
-    &.equipment .form-group>label {
+    &.equipment .form-group>label,
+    &.effects .form-group>label {
       flex: 3;
     }
   }

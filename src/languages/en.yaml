@@ -54,6 +54,7 @@ ARCHMAGE:
   cyclic: Cyclic
   daily: Daily
   daily-desperate: Daily/Desperate
+  defense: Defense
   defenses: Defenses
   description: Description
   details: Details
@@ -133,6 +134,7 @@ ARCHMAGE:
   normal: Normal
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
+  ongoing: Ongoing
   other: Other
   others: Other
   Positive: Positive
@@ -635,9 +637,11 @@ ARCHMAGE:
     damageTypeHint: Poison
     defenseBonuses: Defense Bonuses
     dexBonus: Dexterity checks bonus
+    diceExpressionHint: A dice expression, e.g. +2d10
     disengageBonus: Disengage Bonus
     disengageInitBonus: Disengage and Initiative Bonus
     divineBonus: Divine Spell / Divine Attack Bonus
+    escalationBlocked: Block ED
     escalationBlockedHint: Denies usage of Escalation Die
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus

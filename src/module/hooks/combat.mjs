@@ -154,6 +154,8 @@ export async function combatRound(combat, context, options) {
 
 export async function preDeleteCombat(combat, context, options) {
     await cleanupStoke(combat, context, options);
+    $('.archmage-escalation-display').addClass('hide');
+
 
     // Exit early if the feature is disabled.
     if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
@@ -290,7 +292,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         unknown: effectData.unknown,
         hasUnknown: effectData.unknown.length > 0,
     };
-    const html = await renderTemplate(template, renderData);
+    const html = await foundry.applications.handlebars.renderTemplate(template, renderData);
 
     // Create a chat card
     const chatData = {
