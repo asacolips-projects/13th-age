@@ -4,30 +4,48 @@ import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
 
-const REGEX_ONGOING_DAMAGE = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
-
-
 export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(uuid, $rows) {
-        let conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
-        const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.name)));
-
-        function generateConditionLink(name) {
-            const condition = conditions.find(x => game.i18n.localize(x.name) === name);
-            const source = uuid;
-            return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="" 
-                    data-source="${source}">
-                    <img class="effects-icon" src="${condition.icon}" />
-                    ${name}</a>`;
-        }
-
         for (const row of $rows) {
-            for (const name of conditionNames) {
-                const link = generateConditionLink(name);
-                const regex = new RegExp(`\\*${name}\\*`, "ig");
-                row.innerHTML = row.innerHTML.replace(regex, link);
+            CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach(([condition, regexp], name, map) => {
+                const conditionInstances = Array.from(row.innerHTML.matchAll(regexp));
+                if (conditionInstances.length > 0) {
+                    conditionInstances.forEach(([orig, condName, durationString]) => {
+                        const duration = ((val) => {
+                            if (!val) return "Unknown";
+                            switch(val.toLowerCase()){
+                                case game.i18n.localize("ARCHMAGE.DURATION.SaveEnds"):
+                                case game.i18n.localize("ARCHMAGE.DURATION.NormalSaveEnds"):
+                                    return "NormalSaveEnds";
+                                case game.i18n.localize("ARCHMAGE.DURATION.HardSaveEnds"):
+                                    return "HardSaveEnds";
+                                case game.i18n.localize("ARCHMAGE.DURATION.EasySaveEnds"):
+                                    return "EasySaveEnds";
+                                case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextTurnFull"):
+                                case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextTurnFull2"):
+                                    return "StartOfNextTurn";
+                                case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextTurnFull"):
+                                case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextTurnFull2"):
+                                    return "EndOfNextTurn";
+                                case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextSourceTurnFull"):
+                                    return "StartOfNextSourceTurn";
+                                case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextSourceTurnFull"):
+                                    return "EndOfNextSourceTurn";
+                                default:
+                                    return "Unknown";
+                            }
+                        })(durationString)
+                        const source = uuid;
+                        const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
+                                             data-source="${source}" data-ends="${duration}">
+                                             <img class="effects-icon" src="${condition.icon}" />
+                                             ${orig}</a>`;
+                        row.innerHTML = row.innerHTML.replace(orig, conditionLink);
+                    });
+                }
             }
+            )
         }
     }
 
@@ -57,7 +75,7 @@ export default class preCreateChatMessageHandler {
         // If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
         for (const row of $rows) {
-            const ongoingEffects = Array.from(row.innerHTML.matchAll(REGEX_ONGOING_DAMAGE));
+            const ongoingEffects = Array.from(row.innerHTML.matchAll(CONFIG.ARCHMAGE.REGEXP.ONGOING_DAMAGE));
             if (ongoingEffects.length > 0) {
                 ongoingEffects.forEach((ongoingEffect) => {
                     let damageValue = Number(ongoingEffect[2]);
