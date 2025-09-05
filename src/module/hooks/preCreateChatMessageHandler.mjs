@@ -9,8 +9,8 @@ export default class preCreateChatMessageHandler {
     static replaceEffectAndConditionReferences(uuid, $rows) {
         for (const row of $rows) {
             CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach(([condition, regexp], name, map) => {
-                let conditionInstances = Array.from(row.innerHTML.matchAll(regexp));
-                // Order by largest index first, to stepping over our own toes during replacements
+                const conditionInstances = Array.from(row.innerHTML.matchAll(regexp));
+                // Order by largest index first, to avoid stepping over our own toes during replacements
                 for (const match of conditionInstances.sort((a,b) => b.index - a.index)) {
                     const duration = ((val) => {
                         if (!val) return "Unknown";
