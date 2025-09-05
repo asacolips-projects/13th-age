@@ -44,8 +44,8 @@ const foundryEffect = inject('itemDocument')
 const viewModel = reactive({
 	origin: effect.origin,
 	disabled: effect.disabled,
-	stacksAlways: effect.flags.archmage.stacksAlways,
-	duration: effect.flags.archmage.duration,
+	stacksAlways: effect.flags.archmage?.stacksAlways ?? false,
+	duration: effect.flags.archmage?.duration ?? null,
 });
 watch(viewModel, (newValue) => {
 	foundryEffect.update({
