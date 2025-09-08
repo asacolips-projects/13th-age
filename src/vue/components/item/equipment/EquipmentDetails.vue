@@ -121,10 +121,17 @@
       </div>
     </div>
   </fieldset>
+
+  <fieldset class="fieldset-macro">
+    <legend>{{ game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro') }}</legend>
+    <div class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.macroEditorHint')"></div>
+    <CodemirrorWrapper class="attribute-value" name="system.embeddedMacro.value" :value="item.system.embeddedMacro.value" />
+  </fieldset>
 </template>
 
 <script setup>
 import {
+  CodemirrorWrapper,
   Prosemirror,
   InfoBubble,
 } from '@/components';
