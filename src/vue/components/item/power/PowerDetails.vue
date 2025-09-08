@@ -173,12 +173,8 @@
     <div class="form-group stacked power-macro-editor">
       <label>{{game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro')}}</label>
       <div class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.macroEditorHint')"></div>
-      <div class="field">
-        <CodemirrorWrapper class="attribute-value"
-          name="system.embeddedMacro.value"
-          :value="item.system.embeddedMacro.value"
-        />
-      </div>
+        <CodemirrorWrapper class="attribute-value" name="system.embeddedMacro.value"
+          :value="item.system.embeddedMacro.value" />
     </div>
   </fieldset>
 
