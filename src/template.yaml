@@ -785,6 +785,7 @@ Item:
       - standard
       - spendable
       - usable
+      - supportsMacro
     properties: {}
     attributes:
       attack:
