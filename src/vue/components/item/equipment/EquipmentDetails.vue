@@ -125,15 +125,18 @@
   <fieldset class="fieldset-macro">
     <legend>{{ game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro') }}</legend>
     <div class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.macroEditorHint')"></div>
-    <CodemirrorWrapper class="attribute-value" name="system.embeddedMacro.value" :value="item.system.embeddedMacro.value" />
+    <CodemirrorWrapper class="attribute-value" name="system.embeddedMacro.value" :value="embeddedMacro" />
   </fieldset>
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import {
   CodemirrorWrapper,
   Prosemirror,
   InfoBubble,
 } from '@/components';
+
 const props = defineProps(['item', 'context']);
+const embeddedMacro = computed(() => props.item.system.embeddedMacro?.value ?? '');
 </script>
