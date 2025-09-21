@@ -1621,8 +1621,18 @@ option[selected] {
   }
 }
 
+.themed.theme-light .archmage-hotbar {
+  --background-color: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.8);
+}
+
+.themed.theme-dark .archmage-hotbar {
+  --background-color: var(--color-cool-5-75);
+  --border-color: var(--color-cool-4);
+}
+
 .archmage-hotbar {
-  justify-content: start !important; // Important needed to override Foundry's #ui-bottom
+  justify-content: start;
   margin: 0 4px 8px;
   position: relative;
 }
@@ -1630,12 +1640,12 @@ option[selected] {
 // Escalation die.
 .archmage-escalation-display {
   pointer-events: all;
-  color: var(--control-icon-color);
+  color: var(--color-text-secondary);
   position: relative;
   width: 100px;
 
   &.hide {
-    display: none !important; // Important needed to override Foundry's #ui-bottom
+    display: none;
   }
 
   .ed-number {
@@ -1680,7 +1690,7 @@ option[selected] {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   box-sizing: content-box;
-  color: var(--control-icon-color);
+  color: var(--color-text-secondary);
   font-family: $font-stack-secondary;
   font-size: 14px;
   line-height: 1.2;
