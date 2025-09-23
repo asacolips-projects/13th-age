@@ -785,7 +785,7 @@ async function addEscalationDie() {
 /* -------------------------------------------- */
 
 Hooks.once('ready', async () => {
-  $('#players').prepend(`<div class="archmage-hotbar flexcol"></div>`);
+  $(`<div class="archmage-hotbar faded-ui flexcol"></div>`).insertBefore('#players');
   await addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
@@ -1926,34 +1926,31 @@ Hooks.once('ready', async function () {
 
 // Update the escalation die tracker. Character values for the escalation die
 // are updated in their prepareData() and getRollData() functions.
-Hooks.on('updateCombat', (async (combat, update) => {
+Hooks.on('renderCombatTracker', async (_combatTracker, _html, {combat}) => {
+  // await new Promise(r => setTimeout(r, 250));
   // Handle non-gm users.
-  if (combat.current === undefined) {
+  if (combat?.current === undefined) {
     combat = game.combat;
   }
 
-  if (combat.current.round !== combat.previous.round) {
-    let escalation = ArchmageUtility.getEscalation(combat);
+  const escalation = ArchmageUtility.getEscalation(combat);
+  const $escalationDiv = $('.archmage-escalation-display');
+  $escalationDiv.attr('data-value', escalation);
+  $escalationDiv.toggleClass('hide', combat === null);
+  $escalationDiv.find('.ed-number h1').text(escalation);
 
-    // Update the escalation die tracker.
-    let $escalationDiv = $('.archmage-escalation-display');
-    $escalationDiv.attr('data-value', escalation);
-    $escalationDiv.removeClass('hide');
-    $escalationDiv.find('.ed-number h1').text(escalation);
+  // Update open sheets.
+  for (let app of Object.values(ui.windows)) {
+    const appType = app?.object?.type ?? null;
+    if (appType == 'character' || appType == 'npc') {
+      app.render();
+    }
 
-    // Update open sheets.
-    for (let app of Object.values(ui.windows)) {
-      const appType = app?.object?.type ?? null;
-      if (appType == 'character' || appType == 'npc') {
-        app.render();
-      }
-
-      if (app.constructor.name === 'ArchmageCompendiumBrowserApplication') {
-        app.render();
-      }
+    if (app.constructor.name === 'ArchmageCompendiumBrowserApplication') {
+      app.render();
     }
   }
-}));
+});
 
 /* -------------------------------------------- */
 

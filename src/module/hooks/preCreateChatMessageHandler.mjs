@@ -40,7 +40,7 @@ export default class preCreateChatMessageHandler {
                     const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
                                          data-source="${source}" data-ends="${duration}">
                                          <img class="effects-icon" src="${condition.icon}" />
-                                         ${match[1]}</a>`;
+                                         ${match[0].replace(/\*/g,'')}</a>`;
                     row.innerHTML = row.innerHTML.substring(0, match.index) + conditionLink + row.innerHTML.substring(match.index + match[0].length);
                 }
             }
