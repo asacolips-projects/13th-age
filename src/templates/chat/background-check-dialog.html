@@ -29,18 +29,22 @@
 </div>
 
 <fieldset class="flexcol">
-	<legend>{{localize 'ARCHMAGE.rollBonus'}}</legend>
-	<input type="text" name="bonus" value="" placeholder="{{localize 'ARCHMAGE.rollBonusPlaceholder'}}" />
+	<legend>Options</legend>
+
+	<div class="form-group">
+		<label>{{localize 'ARCHMAGE.rollBonus'}}</label>
+		<input type="text" name="bonus" value="" placeholder="{{localize 'ARCHMAGE.rollBonusPlaceholder'}}" />
+	</div>
+
+	<div class="form-group">
+    <label>{{localize 'ARCHMAGE.rollMode'}}</label>
+    <select name="rollMode">
+      {{#select defaultRollMode}}
+      {{#each rollModes as |mode|}}
+        <option value="{{@key}}">{{localize mode.label}}</option>
+      {{/each}}
+      {{/select}}
+    </select>
+	</div>
 </fieldset>
 
-<fieldset>
-	<legend>{{localize 'ARCHMAGE.rollMode'}}</legend>
-
-	<select name="rollMode">
-		{{#select defaultRollMode}}
-		{{#each rollModes as |mode|}}
-		<option value="{{@key}}">{{localize mode.label}}</option>
-		{{/each}}
-		{{/select}}
-	</select>
-</fieldset>
