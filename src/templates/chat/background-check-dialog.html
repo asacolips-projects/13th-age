@@ -2,6 +2,11 @@
 	<fieldset class="flexcol">
 		<legend>Ability</legend>
 
+		<label class="flexrow" style="align-items: center; gap: 0.5rem;">
+			<input style="flex-grow: 0;" type="radio" name="ability" value="">
+			<span>{{localize 'ARCHMAGE.noneOption'}}</span>
+		</label>
+
 		{{#each abilities as |ability|}}
 		<label class="flexrow" style="align-items: center; gap: 0.5rem;">
 			<input style="flex-grow: 0;" type="radio" name="ability" value="{{ability.key}}" {{#if ability.checked}}checked{{/if}}>
@@ -15,6 +20,11 @@
 
 	<fieldset class="flexcol" style="flex-grow: 2;">
 		<legend>Background</legend>
+
+		<label class="flexrow" style="align-items: center; gap: 0.5rem;">
+			<input style="flex-grow: 0;" type="radio" name="background" value="">
+			<span>{{localize 'ARCHMAGE.noneOption'}}</span>
+		</label>
 
 		{{#each backgrounds as |background|}}
 		<label class="flexrow" style="align-items: center; gap: 0.5rem;">
