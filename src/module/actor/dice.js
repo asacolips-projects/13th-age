@@ -488,13 +488,69 @@ export class DiceArchmage {
     backgroundKey,
     rollMode
   }) {
-    console.log({
-      actor,
-      selection,
-      situationalBonus,
-      abilityKey,
-      backgroundKey,
-      rollMode
-    })
+    // Construct the terms for the roll
+    // First: the d20
+    const terms = []
+    if (selection === 'advantage') {
+      terms.push('2d20kh')
+    } else if (selection === 'disadvantage') {
+      terms.push('2d20kl')
+    } else {
+      terms.push('1d20')
+    }
+
+    // Next: the ability modifier
+    const ability = actor.system.abilities[abilityKey]
+    if (ability) {
+      terms.push(`@${abilityKey}.mod`)
+    }
+
+    // Next: the background bonus
+    const background = actor.system.backgrounds[backgroundKey]
+    if (background) {
+      terms.push(`@backgrounds.${backgroundKey}.bonus.value`)
+    }
+
+    // Next: the situational bonus
+    if (situationalBonus) {
+      terms.push(`${situationalBonus}`)
+    }
+
+    // Finally: the button selection if it was a flat bonus/penalty
+    if (typeof selection === 'number' && selection !== 0) {
+      terms.push(`${selection}`)
+    }
+
+    // Roll the dice
+    const roll = new Roll(terms.join(' + '), actor.getRollData())
+    await roll.roll()
+
+    // Render the chat content template
+    const chatData = {
+      user: game.user.id,
+      roll: roll, // this is here for the content template, but deprecated
+      rolls: [roll],
+      speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
+    }
+
+    chatData.content = await foundry.applications.handlebars.renderTemplate(
+      'systems/archmage/templates/chat/skill-check-card.html',
+      {
+        actor: actor,
+        tokenId: actor.token?.id ?? null,
+        ability: {
+          name: ability?.label,
+          bonus: ability?.mod ?? 0
+        },
+        background: {
+          name: background?.name?.value,
+          bonus: background?.bonus?.value ?? 0
+        },
+        data: chatData
+      }
+    )
+
+    // Send it to chat
+    game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode })
   }
 }
