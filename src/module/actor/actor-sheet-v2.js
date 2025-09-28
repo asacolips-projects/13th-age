@@ -3,6 +3,7 @@ import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
 import { ActorHelpersV2 } from './helpers/actor-helpers-v2.js';
+import { DiceArchmage } from './dice.js';
 
 export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
   /** @override */
@@ -647,14 +648,14 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
    * Roll ability check for the actor.
    */
   _onAbilityRoll(ability) {
-    this.actor.rollAbility(ability);
+    DiceArchmage.BackgroundRoll(this.actor, {defaultAbility: ability});
   }
 
   /**
    * Roll background check for the actor.
    */
    _onBackgroundRoll(background) {
-    this.actor.rollAbility(null, background);
+    DiceArchmage.BackgroundRoll(this.actor, {defaultBackground: background});
   }
 
   /**

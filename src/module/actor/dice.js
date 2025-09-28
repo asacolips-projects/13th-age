@@ -359,4 +359,78 @@ export class DiceArchmage {
       });
     });
   }
+
+  static async BackgroundRoll (
+    actor,
+    { defaultBackground = null, defaultAbility = null }
+  ) {
+    const formatBonus = bonus => {
+      return bonus >= 0 ? `+${bonus}` : `${bonus}`
+    }
+
+    const content = await renderTemplate(
+      'systems/archmage/templates/chat/background-check-dialog.html',
+      {
+        abilities: Object.entries(actor.system.abilities).map(
+          ([key, ability]) => ({
+            key: key,
+            label: key.toUpperCase(),
+            bonus: formatBonus(ability.mod),
+            checked: key === defaultAbility
+          })
+        ),
+        backgrounds: Object.entries(actor.system.backgrounds)
+          .filter(([_, bg]) => bg.bonus.value || bg.name.value)
+          .map(([key, background]) => ({
+            key: key,
+            label: background.name.value,
+            bonus: formatBonus(background.bonus.value),
+            checked: background.name.value === defaultBackground
+          })),
+        rollModes: CONFIG.Dice.rollModes,
+        defaultRollMode: game.settings.get('core', 'rollMode')
+      }
+    )
+
+    new foundry.applications.api.DialogV2({
+      window: {
+        title: game.i18n.localize('ARCHMAGE.checkBackground'),
+        resizeable: true
+      },
+      content: content,
+      buttons: [
+        {
+          action: 'disadvantage',
+          label: game.i18n.localize('ARCHMAGE.rollDisadvantageShort')
+        },
+        {
+          action: 'minus4',
+          label: '-4'
+        },
+        {
+          action: 'minus2',
+          label: '-2'
+        },
+        {
+          action: 'normal',
+          label: game.i18n.localize('ARCHMAGE.rollNormal')
+        },
+        {
+          action: 'plus2',
+          label: '+2'
+        },
+        {
+          action: 'plus4',
+          label: '+4'
+        },
+        {
+          action: 'advantage',
+          label: game.i18n.localize('ARCHMAGE.rollAdvantageShort')
+        }
+      ],
+      submit: result => {
+        console.log(`User picked option: ${result}`)
+      }
+    }).render({ force: true })
+  }
 }

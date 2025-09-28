@@ -1,0 +1,46 @@
+<div class="flexrow" style="align-items: stretch;">
+	<fieldset class="flexcol">
+		<legend>Ability</legend>
+
+		{{#each abilities as |ability|}}
+		<label class="flexrow" style="align-items: center; gap: 0.5rem;">
+			<input style="flex-grow: 0;" type="radio" name="ability" value="{{ability.key}}" {{#if ability.checked}}checked{{/if}}>
+			<span>
+				{{ability.bonus}}
+				{{ability.label}}
+			</span>
+		</label>
+		{{/each}}
+	</fieldset>
+
+	<fieldset class="flexcol" style="flex-grow: 2;">
+		<legend>Background</legend>
+
+		{{#each backgrounds as |background|}}
+		<label class="flexrow" style="align-items: center; gap: 0.5rem;">
+			<input style="flex-grow: 0;" type="radio" name="background" value="{{background.key}}" {{#if background.checked}}checked{{/if}}>
+			<span>
+				{{background.bonus}}
+				{{background.label}}
+			</span>
+		</label>
+		{{/each}}
+	</fieldset>
+</div>
+
+<fieldset class="flexcol">
+	<legend>{{localize 'ARCHMAGE.rollBonus'}}</legend>
+	<input type="text" name="bonus" value="" placeholder="{{localize 'ARCHMAGE.rollBonusPlaceholder'}}" />
+</fieldset>
+
+<fieldset>
+	<legend>{{localize 'ARCHMAGE.rollMode'}}</legend>
+
+	<select name="rollMode">
+		{{#select defaultRollMode}}
+		{{#each rollModes as |mode|}}
+		<option value="{{@key}}">{{localize mode.label}}</option>
+		{{/each}}
+		{{/select}}
+	</select>
+</fieldset>
