@@ -374,7 +374,7 @@ export class DiceArchmage {
         abilities: Object.entries(actor.system.abilities).map(
           ([key, ability]) => ({
             key: key,
-            label: key.toUpperCase(),
+            label: ability.label,
             bonus: formatBonus(ability.mod),
             checked: key === defaultAbility
           })
@@ -392,7 +392,14 @@ export class DiceArchmage {
       }
     )
 
-    new foundry.applications.api.DialogV2({
+    const extractFormData = form => ({
+      situationalBonus: form.bonus.value,
+      abilityKey: form.ability.value,
+      backgroundKey: form.background.value,
+      rollMode: form.rollMode.value
+    })
+
+    return new foundry.applications.api.DialogV2({
       window: {
         title: game.i18n.localize('ARCHMAGE.checkBackground'),
         resizeable: true
@@ -401,36 +408,93 @@ export class DiceArchmage {
       buttons: [
         {
           action: 'disadvantage',
-          label: game.i18n.localize('ARCHMAGE.rollDisadvantageShort')
+          label: game.i18n.localize('ARCHMAGE.rollDisadvantageShort'),
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: 'disadvantage',
+              ...extractFormData(button.form)
+            })
         },
         {
           action: 'minus4',
-          label: '-4'
+          label: '-4',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: -4,
+              ...extractFormData(button.form)
+            })
         },
         {
           action: 'minus2',
-          label: '-2'
+          label: '-2',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: -2,
+              ...extractFormData(button.form)
+            })
         },
         {
           action: 'normal',
-          label: game.i18n.localize('ARCHMAGE.rollNormal')
+          label: game.i18n.localize('ARCHMAGE.rollNormal'),
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: 0,
+              ...extractFormData(button.form)
+            })
         },
         {
           action: 'plus2',
-          label: '+2'
+          label: '+2',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: +2,
+              ...extractFormData(button.form)
+            })
         },
         {
           action: 'plus4',
-          label: '+4'
+          label: '+4',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: +4,
+              ...extractFormData(button.form)
+            })
         },
         {
           action: 'advantage',
-          label: game.i18n.localize('ARCHMAGE.rollAdvantageShort')
+          label: game.i18n.localize('ARCHMAGE.rollAdvantageShort'),
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: 'advantage',
+              ...extractFormData(button.form)
+            })
         }
-      ],
-      submit: result => {
-        console.log(`User picked option: ${result}`)
-      }
+      ]
     }).render({ force: true })
+  }
+
+  static async _completeBackgroundRoll ({
+    actor,
+    selection,
+    situationalBonus,
+    abilityKey,
+    backgroundKey,
+    rollMode
+  }) {
+    console.log({
+      actor,
+      selection,
+      situationalBonus,
+      abilityKey,
+      backgroundKey,
+      rollMode
+    })
   }
 }
