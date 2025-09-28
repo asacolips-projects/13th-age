@@ -368,7 +368,7 @@ export class DiceArchmage {
       return bonus >= 0 ? `+${bonus}` : `${bonus}`
     }
 
-    const content = await renderTemplate(
+    const content = await foundry.applications.handlebars.renderTemplate(
       'systems/archmage/templates/chat/background-check-dialog.html',
       {
         abilities: Object.entries(actor.system.abilities).map(

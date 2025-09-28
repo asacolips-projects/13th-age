@@ -49,11 +49,7 @@
 	<div class="form-group">
     <label>{{localize 'ARCHMAGE.rollMode'}}</label>
     <select name="rollMode">
-      {{#select defaultRollMode}}
-      {{#each rollModes as |mode|}}
-        <option value="{{@key}}">{{localize mode.label}}</option>
-      {{/each}}
-      {{/select}}
+			{{selectOptions rollModes default=defaultRollMode localize=true}}
     </select>
 	</div>
 </fieldset>
