@@ -359,4 +359,198 @@ export class DiceArchmage {
       });
     });
   }
+
+  static async BackgroundRoll (
+    actor,
+    { defaultBackground = null, defaultAbility = null }
+  ) {
+    const formatBonus = bonus => {
+      return bonus >= 0 ? `+${bonus}` : `${bonus}`
+    }
+
+    const content = await foundry.applications.handlebars.renderTemplate(
+      'systems/archmage/templates/chat/background-check-dialog.html',
+      {
+        abilities: Object.entries(actor.system.abilities).map(
+          ([key, ability]) => ({
+            key: key,
+            label: ability.label,
+            bonus: formatBonus(ability.mod),
+            checked: key === defaultAbility
+          })
+        ),
+        backgrounds: Object.entries(actor.system.backgrounds)
+          .filter(([_, bg]) => bg.bonus.value || bg.name.value)
+          .map(([key, background]) => ({
+            key: key,
+            label: background.name.value,
+            bonus: formatBonus(background.bonus.value),
+            checked: background.name.value === defaultBackground
+          })),
+        rollModes: CONFIG.Dice.rollModes,
+        defaultRollMode: game.settings.get('core', 'rollMode')
+      }
+    )
+
+    const extractFormData = form => ({
+      situationalBonus: form.bonus.value,
+      abilityKey: form.ability.value,
+      backgroundKey: form.background.value,
+      rollMode: form.rollMode.value
+    })
+
+    return new foundry.applications.api.DialogV2({
+      window: {
+        title: game.i18n.localize('ARCHMAGE.checkBackground'),
+        resizeable: true
+      },
+      content: content,
+      buttons: [
+        {
+          action: 'disadvantage',
+          label: game.i18n.localize('ARCHMAGE.rollDisadvantageShort'),
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: 'disadvantage',
+              ...extractFormData(button.form)
+            })
+        },
+        {
+          action: 'minus4',
+          label: '-4',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: -4,
+              ...extractFormData(button.form)
+            })
+        },
+        {
+          action: 'minus2',
+          label: '-2',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: -2,
+              ...extractFormData(button.form)
+            })
+        },
+        {
+          action: 'normal',
+          label: game.i18n.localize('ARCHMAGE.rollNormal'),
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: 0,
+              ...extractFormData(button.form)
+            })
+        },
+        {
+          action: 'plus2',
+          label: '+2',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: +2,
+              ...extractFormData(button.form)
+            })
+        },
+        {
+          action: 'plus4',
+          label: '+4',
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: +4,
+              ...extractFormData(button.form)
+            })
+        },
+        {
+          action: 'advantage',
+          label: game.i18n.localize('ARCHMAGE.rollAdvantageShort'),
+          callback: (event, button, dialog) =>
+            this._completeBackgroundRoll({
+              actor,
+              selection: 'advantage',
+              ...extractFormData(button.form)
+            })
+        }
+      ]
+    }).render({ force: true })
+  }
+
+  static async _completeBackgroundRoll ({
+    actor,
+    selection,
+    situationalBonus,
+    abilityKey,
+    backgroundKey,
+    rollMode
+  }) {
+    // Construct the terms for the roll
+    // First: the d20
+    const terms = []
+    if (selection === 'advantage') {
+      terms.push('2d20kh')
+    } else if (selection === 'disadvantage') {
+      terms.push('2d20kl')
+    } else {
+      terms.push('1d20')
+    }
+
+    // Next: the ability modifier
+    const ability = actor.system.abilities[abilityKey]
+    if (ability) {
+      terms.push(`@${abilityKey}.mod`)
+    }
+
+    // Next: the background bonus
+    const background = actor.system.backgrounds[backgroundKey]
+    if (background) {
+      terms.push(`@backgrounds.${backgroundKey}.bonus.value`)
+    }
+
+    // Next: the situational bonus
+    if (situationalBonus) {
+      terms.push(`${situationalBonus}`)
+    }
+
+    // Finally: the button selection if it was a flat bonus/penalty
+    if (typeof selection === 'number' && selection !== 0) {
+      terms.push(`${selection}`)
+    }
+
+    // Roll the dice
+    const roll = new Roll(terms.join(' + '), actor.getRollData())
+    await roll.roll()
+
+    // Render the chat content template
+    const chatData = {
+      user: game.user.id,
+      roll: roll, // this is here for the content template, but deprecated
+      rolls: [roll],
+      speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
+    }
+
+    chatData.content = await foundry.applications.handlebars.renderTemplate(
+      'systems/archmage/templates/chat/skill-check-card.html',
+      {
+        actor: actor,
+        tokenId: actor.token?.id ?? null,
+        ability: {
+          name: ability?.label,
+          bonus: ability?.mod ?? 0
+        },
+        background: {
+          name: background?.name?.value,
+          bonus: background?.bonus?.value ?? 0
+        },
+        data: chatData
+      }
+    )
+
+    // Send it to chat
+    game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode })
+  }
 }
