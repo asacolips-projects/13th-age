@@ -505,6 +505,9 @@ export class DiceArchmage {
       terms.push(`@${abilityKey}.mod`)
     }
 
+    // Next: the actor's level
+    terms.push("@lvl")
+
     // Next: the background bonus
     const background = actor.system.backgrounds[backgroundKey]
     if (background) {
