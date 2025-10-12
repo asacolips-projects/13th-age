@@ -14,16 +14,6 @@ replacement: true
 results:
 - _id: NniTrYCFEwsdIshA
   _key: '!tables.results!xtyWhbxF5H2o3F26.NniTrYCFEwsdIshA'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Air: You gain flight until the end of your next turn.'
   drawn: false
   flags: {}
@@ -36,16 +26,6 @@ results:
   weight: 1
 - _id: s1IhK8XsDjlsmRRX
   _key: '!tables.results!xtyWhbxF5H2o3F26.s1IhK8XsDjlsmRRX'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Earth: Until the end of your next turn, each enemy that misses you
     with a melee attack is *stuck* until the end of its next turn.'
   drawn: false
@@ -59,16 +39,6 @@ results:
   weight: 1
 - _id: e3Nz9VBOmrlrPED7
   _key: '!tables.results!xtyWhbxF5H2o3F26.e3Nz9VBOmrlrPED7'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Fire: Until the end of your next turn, you can pop free from staggered
     enemies as a quick action.'
   drawn: false
@@ -82,16 +52,6 @@ results:
   weight: 1
 - _id: iJTdGfcZIJJsOWEM
   _key: '!tables.results!xtyWhbxF5H2o3F26.iJTdGfcZIJJsOWEM'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Water: You gain a [[@dex.mod]] bonus to disengage checks until the
     end of your next turn'
   drawn: false
@@ -105,16 +65,6 @@ results:
   weight: 1
 - _id: Sf27m1Fg1L8Kjjso
   _key: '!tables.results!xtyWhbxF5H2o3F26.Sf27m1Fg1L8Kjjso'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Metal: Until the end of your next turn, when an enemy disengages from
     you, it takes [[@dex.dmg]] damage.'
   drawn: false
@@ -128,16 +78,6 @@ results:
   weight: 1
 - _id: 1XbQGghqSzOnCkxC
   _key: '!tables.results!xtyWhbxF5H2o3F26.1XbQGghqSzOnCkxC'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Void: During your next turn, you can use a move action to teleport
     to a nearby location you can see.'
   drawn: false

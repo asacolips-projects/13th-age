@@ -3,16 +3,6 @@ _key: '!items!DCS1RdDAu6psuQA3'
 effects:
 - _id: CESUEgJMv5CwuRWH
   _key: '!items.effects!DCS1RdDAu6psuQA3.CESUEgJMv5CwuRWH'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.saves.disengageBonus
     mode: 2

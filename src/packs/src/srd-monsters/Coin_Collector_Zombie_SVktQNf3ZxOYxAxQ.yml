@@ -11,16 +11,6 @@ img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
 - _id: OtDoqlaHXFZEFpFf
   _key: '!actors.items!SVktQNf3ZxOYxAxQ.OtDoqlaHXFZEFpFf'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -90,16 +80,6 @@ items:
   type: action
 - _id: yRWIdVlK4dI9Uk0m
   _key: '!actors.items!SVktQNf3ZxOYxAxQ.yRWIdVlK4dI9Uk0m'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -173,16 +153,6 @@ items:
   type: action
 - _id: kZNVUCWVIqy2DJj8
   _key: '!actors.items!SVktQNf3ZxOYxAxQ.kZNVUCWVIqy2DJj8'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -213,16 +183,6 @@ items:
   type: trait
 - _id: QvPSfR3e4EMZRLnC
   _key: '!actors.items!SVktQNf3ZxOYxAxQ.QvPSfR3e4EMZRLnC'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.i3KF75smgbbfm5rt.Item.t7tAeLswpYFZpKwy
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}

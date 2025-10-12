@@ -3,16 +3,6 @@ _key: '!items!QZCHUeEYkkr48pyP'
 effects:
 - _id: enEqCVZQMJUc06dX
   _key: '!items.effects!QZCHUeEYkkr48pyP.enEqCVZQMJUc06dX'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2
@@ -44,16 +34,6 @@ effects:
   type: base
 - _id: S05dVICrz0ZtGCCI
   _key: '!items.effects!QZCHUeEYkkr48pyP.S05dVICrz0ZtGCCI'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2
@@ -89,16 +69,6 @@ effects:
   type: base
 - _id: lB6vPLCwTOCp7co9
   _key: '!items.effects!QZCHUeEYkkr48pyP.lB6vPLCwTOCp7co9'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2

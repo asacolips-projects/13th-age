@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
 - _id: vMojP912xP8ZZbZH
   _key: '!actors.items!8mPklaSoQPXtOI6g.vMojP912xP8ZZbZH'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -89,16 +79,6 @@ items:
   type: action
 - _id: PEJ6PRSfZ7VK6T6Y
   _key: '!actors.items!8mPklaSoQPXtOI6g.PEJ6PRSfZ7VK6T6Y'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -167,16 +147,6 @@ items:
   type: action
 - _id: 2QQs77qcHv1RpmjI
   _key: '!actors.items!8mPklaSoQPXtOI6g.2QQs77qcHv1RpmjI'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -205,16 +175,6 @@ items:
   type: trait
 - _id: uKEue8wEkf0OQj15
   _key: '!actors.items!8mPklaSoQPXtOI6g.uKEue8wEkf0OQj15'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.TjQLDeO52fYaZ4hP
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -244,16 +204,6 @@ items:
   type: trait
 - _id: 0eH1fYWMD1StO4fC
   _key: '!actors.items!8mPklaSoQPXtOI6g.0eH1fYWMD1StO4fC'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.q6D3Ml0NO5Kw5nLv
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -284,16 +234,6 @@ items:
   type: trait
 - _id: iQa1d2GugGUMOzgt
   _key: '!actors.items!8mPklaSoQPXtOI6g.iQa1d2GugGUMOzgt'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.WLVqaKLXJqR6daoV
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -326,16 +266,6 @@ items:
   type: trait
 - _id: vj8sk9Rl9GCmOzNX
   _key: '!actors.items!8mPklaSoQPXtOI6g.vj8sk9Rl9GCmOzNX'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.iRpogwvTnxm3Viw8
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -367,16 +297,6 @@ items:
   type: trait
 - _id: whiOCDuGHiIGsjt0
   _key: '!actors.items!8mPklaSoQPXtOI6g.whiOCDuGHiIGsjt0'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.MakJV6Gb9TGBrkTW
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}

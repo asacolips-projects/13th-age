@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
 items:
 - _id: 3SM2Tu9OWJNhSmG4
   _key: '!actors.items!bRqy1o6Qnj2E9aWM.3SM2Tu9OWJNhSmG4'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -88,16 +78,6 @@ items:
   type: action
 - _id: ULOy7IxJIpWB6tU4
   _key: '!actors.items!bRqy1o6Qnj2E9aWM.ULOy7IxJIpWB6tU4'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -129,16 +109,6 @@ items:
   type: trait
 - _id: B1JnbkCF0dg6WN9T
   _key: '!actors.items!bRqy1o6Qnj2E9aWM.B1JnbkCF0dg6WN9T'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -173,16 +143,6 @@ items:
   type: trait
 - _id: GEooGtBkQ8jNAPDg
   _key: '!actors.items!bRqy1o6Qnj2E9aWM.GEooGtBkQ8jNAPDg'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -218,16 +178,6 @@ items:
   type: nastierSpecial
 - _id: 7dLeRtdYIMAcweci
   _key: '!actors.items!bRqy1o6Qnj2E9aWM.7dLeRtdYIMAcweci'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -259,16 +209,6 @@ items:
   type: nastierSpecial
 - _id: P6qxXkbAfJxUrrqd
   _key: '!actors.items!bRqy1o6Qnj2E9aWM.P6qxXkbAfJxUrrqd'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}

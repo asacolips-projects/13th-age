@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
 - _id: f7yIMSjBxq0o78nr
   _key: '!actors.items!ZHSUc1eSQuETrz8f.f7yIMSjBxq0o78nr'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -88,16 +78,6 @@ items:
   type: action
 - _id: 5mKu31HMvXjAgxOr
   _key: '!actors.items!ZHSUc1eSQuETrz8f.5mKu31HMvXjAgxOr'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

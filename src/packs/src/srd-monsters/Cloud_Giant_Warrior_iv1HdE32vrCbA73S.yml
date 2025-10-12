@@ -8,23 +8,12 @@ img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 items:
 - _id: e6B7ZDmem64p1Xb0
   _key: '!actors.items!iv1HdE32vrCbA73S.e6B7ZDmem64p1Xb0'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: Sword or spear
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -87,23 +76,12 @@ items:
   type: action
 - _id: vcdIB8HmFVmNYjmc
   _key: '!actors.items!iv1HdE32vrCbA73S.vcdIB8HmFVmNYjmc'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: 'R: Hurled spear'
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -166,23 +144,12 @@ items:
   type: action
 - _id: T4Ra5LjJu3Rjn616
   _key: '!actors.items!iv1HdE32vrCbA73S.T4Ra5LjJu3Rjn616'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Strike with advantage
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:

@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 items:
 - _id: YSBmQaB6HYPIghY5
   _key: '!actors.items!S1qG5cq6aUA5ugif.YSBmQaB6HYPIghY5'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -88,16 +78,6 @@ items:
   type: action
 - _id: zHVyLDpGRPlA0qdM
   _key: '!actors.items!S1qG5cq6aUA5ugif.zHVyLDpGRPlA0qdM'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -126,16 +106,6 @@ items:
   type: trait
 - _id: C7tudPJEObWASJoX
   _key: '!actors.items!S1qG5cq6aUA5ugif.C7tudPJEObWASJoX'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -164,16 +134,6 @@ items:
   type: trait
 - _id: 2luiEpf3OyidXARy
   _key: '!actors.items!S1qG5cq6aUA5ugif.2luiEpf3OyidXARy'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.uzvwbl0AuBWlujZE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -249,16 +209,6 @@ items:
   type: action
 - _id: xakbUxRP99B9TbRi
   _key: '!actors.items!S1qG5cq6aUA5ugif.xakbUxRP99B9TbRi'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.RPSHPuDxI8xAbkrx
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -337,16 +287,6 @@ items:
   type: nastierSpecial
 - _id: BBTCNbhyaMdRfqld
   _key: '!actors.items!S1qG5cq6aUA5ugif.BBTCNbhyaMdRfqld'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.7gNbOjGT0ObwY5io
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -376,16 +316,6 @@ items:
   type: nastierSpecial
 - _id: 83dusH80i0QxbQzk
   _key: '!actors.items!S1qG5cq6aUA5ugif.83dusH80i0QxbQzk'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.eaGDoO0uXwXEMCi4
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -417,16 +347,6 @@ items:
   type: nastierSpecial
 - _id: 0RC3wbWwp7QUZBfr
   _key: '!actors.items!S1qG5cq6aUA5ugif.0RC3wbWwp7QUZBfr'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.dVpx0j28FHVjSHyS
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -456,16 +376,6 @@ items:
   type: nastierSpecial
 - _id: kseCYL60EkzYIfqD
   _key: '!actors.items!S1qG5cq6aUA5ugif.kseCYL60EkzYIfqD'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.0yLDKkZjdbi5lirC
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}

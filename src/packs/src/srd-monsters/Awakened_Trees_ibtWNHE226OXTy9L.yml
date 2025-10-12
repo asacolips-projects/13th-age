@@ -8,16 +8,6 @@ img: systems/archmage/assets/icons/tokens/monsters/plant.webp
 items:
 - _id: c0cmRTsfr7mBSJxx
   _key: '!actors.items!ibtWNHE226OXTy9L.c0cmRTsfr7mBSJxx'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -79,16 +69,6 @@ items:
   type: action
 - _id: 26pmKE6iPGnHOljB
   _key: '!actors.items!ibtWNHE226OXTy9L.26pmKE6iPGnHOljB'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

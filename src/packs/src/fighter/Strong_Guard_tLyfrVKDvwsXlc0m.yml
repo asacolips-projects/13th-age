@@ -3,16 +3,6 @@ _key: '!items!tLyfrVKDvwsXlc0m'
 effects:
 - _id: RchFg2itUVx2jKfF
   _key: '!items.effects!tLyfrVKDvwsXlc0m.RchFg2itUVx2jKfF'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2

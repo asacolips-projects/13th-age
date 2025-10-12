@@ -11,16 +11,6 @@ img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
 - _id: yKdoqYGACARKmuzS
   _key: '!actors.items!FwVWLmUQAGzVMBYQ.yKdoqYGACARKmuzS'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -90,16 +80,6 @@ items:
   type: action
 - _id: R9YTOtSl2BSKDMq7
   _key: '!actors.items!FwVWLmUQAGzVMBYQ.R9YTOtSl2BSKDMq7'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -128,16 +108,6 @@ items:
   type: trait
 - _id: IAtR7nwDPTL3T1JW
   _key: '!actors.items!FwVWLmUQAGzVMBYQ.IAtR7nwDPTL3T1JW'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -166,16 +136,6 @@ items:
   type: trait
 - _id: WMWISVaITulHM9K2
   _key: '!actors.items!FwVWLmUQAGzVMBYQ.WMWISVaITulHM9K2'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -205,16 +165,6 @@ items:
   type: nastierSpecial
 - _id: Ji26EI2qnkVXW2NY
   _key: '!actors.items!FwVWLmUQAGzVMBYQ.Ji26EI2qnkVXW2NY'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

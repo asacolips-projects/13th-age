@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 items:
 - _id: rXWTcWcVrTSRuaem
   _key: '!actors.items!93lxGAhiJJswYgpt.rXWTcWcVrTSRuaem'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -88,16 +78,6 @@ items:
   type: action
 - _id: 68PCsQfdx0xranhS
   _key: '!actors.items!93lxGAhiJJswYgpt.68PCsQfdx0xranhS'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -126,16 +106,6 @@ items:
   type: trait
 - _id: 5wLGkbFVGTvAmd0X
   _key: '!actors.items!93lxGAhiJJswYgpt.5wLGkbFVGTvAmd0X'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -165,16 +135,6 @@ items:
   type: nastierSpecial
 - _id: iSF24eG1WPkLMwk7
   _key: '!actors.items!93lxGAhiJJswYgpt.iSF24eG1WPkLMwk7'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.uzvwbl0AuBWlujZE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -250,16 +210,6 @@ items:
   type: action
 - _id: hOt22ErlQxSOJZHC
   _key: '!actors.items!93lxGAhiJJswYgpt.hOt22ErlQxSOJZHC'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.RPSHPuDxI8xAbkrx
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -338,16 +288,6 @@ items:
   type: nastierSpecial
 - _id: YjQGD5yWA9UUXBgF
   _key: '!actors.items!93lxGAhiJJswYgpt.YjQGD5yWA9UUXBgF'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.7gNbOjGT0ObwY5io
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -377,16 +317,6 @@ items:
   type: nastierSpecial
 - _id: JQsWwdsIES4fBJG4
   _key: '!actors.items!93lxGAhiJJswYgpt.JQsWwdsIES4fBJG4'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.eaGDoO0uXwXEMCi4
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -418,16 +348,6 @@ items:
   type: nastierSpecial
 - _id: 10SdbVfzwe1uET0n
   _key: '!actors.items!93lxGAhiJJswYgpt.10SdbVfzwe1uET0n'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.dVpx0j28FHVjSHyS
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -457,16 +377,6 @@ items:
   type: nastierSpecial
 - _id: WRHNvsASSxldAHaz
   _key: '!actors.items!93lxGAhiJJswYgpt.WRHNvsASSxldAHaz'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.0yLDKkZjdbi5lirC
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}

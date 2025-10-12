@@ -8,23 +8,12 @@ img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 items:
 - _id: ofMDR0oMKXiaibcR
   _key: '!actors.items!w8BypgDqfYlY2qb3.ofMDR0oMKXiaibcR'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: Naginata
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -91,23 +80,12 @@ items:
   type: action
 - _id: 3lJ8CDph1me81jNg
   _key: '!actors.items!w8BypgDqfYlY2qb3.3lJ8CDph1me81jNg'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: 'R: Magi''s lightning chain'
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -172,23 +150,12 @@ items:
   type: action
 - _id: LYtCCTqF6NsOnwt9
   _key: '!actors.items!w8BypgDqfYlY2qb3.LYtCCTqF6NsOnwt9'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: 'C: Cone of Cold'
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -252,23 +219,12 @@ items:
   type: action
 - _id: yM3pJrwcwE3AiLvP
   _key: '!actors.items!w8BypgDqfYlY2qb3.yM3pJrwcwE3AiLvP'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: 'C: Lightning pulse'
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -331,23 +287,12 @@ items:
   type: action
 - _id: YfHdk7CPDThTH247
   _key: '!actors.items!w8BypgDqfYlY2qb3.YfHdk7CPDThTH247'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: Voice of thunder
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -410,23 +355,12 @@ items:
   type: action
 - _id: Rd2eWJBa7AXFWrwG
   _key: '!actors.items!w8BypgDqfYlY2qb3.Rd2eWJBa7AXFWrwG'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Resist exceptional attacks 16+
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -450,23 +384,12 @@ items:
   type: trait
 - _id: xArIwOvppJbItiOJ
   _key: '!actors.items!w8BypgDqfYlY2qb3.xArIwOvppJbItiOJ'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Trollish regeneration 15
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -495,23 +418,12 @@ items:
   type: trait
 - _id: otbZn08rb8s8wl73
   _key: '!actors.items!w8BypgDqfYlY2qb3.otbZn08rb8s8wl73'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/poison.svg
   name: Ki
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:

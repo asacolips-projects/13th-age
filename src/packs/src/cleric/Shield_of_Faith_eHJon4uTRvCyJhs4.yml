@@ -3,16 +3,6 @@ _key: '!items!eHJon4uTRvCyJhs4'
 effects:
 - _id: puV1sHLd45FW8GQ0
   _key: '!items.effects!eHJon4uTRvCyJhs4.puV1sHLd45FW8GQ0'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2
@@ -44,16 +34,6 @@ effects:
   type: base
 - _id: zj4C72OPqdJa9yxd
   _key: '!items.effects!eHJon4uTRvCyJhs4.zj4C72OPqdJa9yxd'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2

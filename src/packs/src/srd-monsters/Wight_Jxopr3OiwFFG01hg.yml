@@ -8,16 +8,6 @@ img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
 - _id: HEYAY13Gi5zlTJfI
   _key: '!actors.items!Jxopr3OiwFFG01hg.HEYAY13Gi5zlTJfI'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -82,16 +72,6 @@ items:
   type: action
 - _id: I5QMFJcjYEygvpBl
   _key: '!actors.items!Jxopr3OiwFFG01hg.I5QMFJcjYEygvpBl'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

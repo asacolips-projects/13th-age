@@ -8,23 +8,12 @@ img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 items:
 - _id: eL6jc8y5n1TT5cNr
   _key: '!actors.items!XBuW0KQtlgAKHj8b.eL6jc8y5n1TT5cNr'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: Dire Embrace
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -88,23 +77,12 @@ items:
   type: action
 - _id: 8p2GEstNK0cFyX4B
   _key: '!actors.items!XBuW0KQtlgAKHj8b.8p2GEstNK0cFyX4B'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Ember of hate
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -129,23 +107,12 @@ items:
   type: trait
 - _id: 9v3a7ttLA17Ux1W3
   _key: '!actors.items!XBuW0KQtlgAKHj8b.9v3a7ttLA17Ux1W3'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/target.svg
   name: Ember Burst
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -209,23 +176,12 @@ items:
   type: action
 - _id: STDcpH0hNVralJd3
   _key: '!actors.items!XBuW0KQtlgAKHj8b.STDcpH0hNVralJd3'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Devil's Due (Formless)
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -248,23 +204,12 @@ items:
   type: trait
 - _id: ZRINEuEqsRVZ9npm
   _key: '!actors.items!XBuW0KQtlgAKHj8b.ZRINEuEqsRVZ9npm'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Flight
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -286,23 +231,12 @@ items:
   type: trait
 - _id: zTzOiDMv4lVsaMjm
   _key: '!actors.items!XBuW0KQtlgAKHj8b.zTzOiDMv4lVsaMjm'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Resist fire 13+
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -325,23 +259,12 @@ items:
   type: trait
 - _id: eslYXfRVSSyymLaJ
   _key: '!actors.items!XBuW0KQtlgAKHj8b.eslYXfRVSSyymLaJ'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/regen.svg
   name: Free-form covert ability - Insinuate
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:
@@ -364,23 +287,12 @@ items:
   type: trait
 - _id: XKectQK1c9W3hKZ5
   _key: '!actors.items!XBuW0KQtlgAKHj8b.XKectQK1c9W3hKZ5'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
   img: icons/svg/poison.svg
   name: Smokey Retreat
   ownership:
-    WYU73coo5rYxuFle: 3
     default: 0
   sort: 0
   system:

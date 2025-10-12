@@ -3,16 +3,6 @@ _key: '!items!mtHqtsRO54qE3v0p'
 effects:
 - _id: jnS8iXTk9vLhlph2
   _key: '!items.effects!mtHqtsRO54qE3v0p.jnS8iXTk9vLhlph2'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2
@@ -45,16 +35,6 @@ effects:
   type: base
 - _id: lqlDR6BC1sdep7Nj
   _key: '!items.effects!mtHqtsRO54qE3v0p.lqlDR6BC1sdep7Nj'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.attack.melee.bonus
     mode: 2
@@ -87,16 +67,6 @@ effects:
   type: base
 - _id: VJZXQ5BBR9RHwuyF
   _key: '!items.effects!mtHqtsRO54qE3v0p.VJZXQ5BBR9RHwuyF'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.attack.ranged.bonus
     mode: 2
@@ -129,16 +99,6 @@ effects:
   type: base
 - _id: y4BSKRb2cFd6oQHJ
   _key: '!items.effects!mtHqtsRO54qE3v0p.y4BSKRb2cFd6oQHJ'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.attack.divine.bonus
     mode: 2

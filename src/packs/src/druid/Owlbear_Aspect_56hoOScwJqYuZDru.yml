@@ -3,16 +3,6 @@ _key: '!items!56hoOScwJqYuZDru'
 effects:
 - _id: CESUEgJMv5CwuRW5
   _key: '!items.effects!56hoOScwJqYuZDru.CESUEgJMv5CwuRW5'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.critMod.atk
     mode: 2
@@ -44,16 +34,6 @@ effects:
   type: base
 - _id: CESUEgJMv5CwuRW6
   _key: '!items.effects!56hoOScwJqYuZDru.CESUEgJMv5CwuRW6'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.critMod.atk.value
     mode: 2

@@ -3,16 +3,6 @@ _key: '!items!M35FiVCHwDChzUHm'
 effects:
 - _id: CESUEgJMv5CwuRW2
   _key: '!items.effects!M35FiVCHwDChzUHm.CESUEgJMv5CwuRW2'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.ac.value
     mode: 2

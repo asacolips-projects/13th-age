@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
 - _id: bymLmyOwy97aOGIr
   _key: '!actors.items!Z6TbbOfECn03DkW7.bymLmyOwy97aOGIr'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -49,16 +39,6 @@ items:
   type: trait
 - _id: FgXaLjz2s57Iic8A
   _key: '!actors.items!Z6TbbOfECn03DkW7.FgXaLjz2s57Iic8A'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

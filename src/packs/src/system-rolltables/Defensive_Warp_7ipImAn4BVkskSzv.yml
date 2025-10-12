@@ -14,16 +14,6 @@ replacement: true
 results:
 - _id: N8qTjWfc2ydN4JTE
   _key: '!tables.results!7ipImAn4BVkskSzv.N8qTjWfc2ydN4JTE'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Air: Once before the end of your next turn, you can heal using a recovery
     as a quick action.'
   drawn: false
@@ -37,16 +27,6 @@ results:
   weight: 1
 - _id: jNZz3gEO1GRfiYLm
   _key: '!tables.results!7ipImAn4BVkskSzv.jNZz3gEO1GRfiYLm'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Earth: You gain [[@wis.dmg]] temporary hit points.'
   drawn: false
   flags: {}
@@ -59,16 +39,6 @@ results:
   weight: 1
 - _id: KRm3f2zhWFZKaY80
   _key: '!tables.results!7ipImAn4BVkskSzv.KRm3f2zhWFZKaY80'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Fire: Until the end of your next turn, when an enemy moves to engage
     you, it takes [[@wis.dmg]] fire damage.'
   drawn: false
@@ -82,16 +52,6 @@ results:
   weight: 1
 - _id: pYhC1c0fgROdmwZU
   _key: '!tables.results!7ipImAn4BVkskSzv.pYhC1c0fgROdmwZU'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Water: Until the end of your next turn, when you heal using a recovery,
     add [[@wis.dmg]] hit points.'
   drawn: false
@@ -105,16 +65,6 @@ results:
   weight: 1
 - _id: RYPLhh2FxMwQ6xB1
   _key: '!tables.results!7ipImAn4BVkskSzv.RYPLhh2FxMwQ6xB1'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Metal: Until the end of your next turn, you gain a +2 bonus to AC.'
   drawn: false
   flags: {}
@@ -127,16 +77,6 @@ results:
   weight: 1
 - _id: VnTkgoo8HCXwiBfH
   _key: '!tables.results!7ipImAn4BVkskSzv.VnTkgoo8HCXwiBfH'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Void: Until the end of your next turn, the first time an attack hits
     you, as a free action you can choose to lose [[@lvl]] hit points to force the
     attacker to reroll the attack.'

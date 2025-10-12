@@ -14,16 +14,6 @@ replacement: true
 results:
 - _id: konpLeWi2u5hMrXL
   _key: '!tables.results!2DvJKCyFrQip1tdi.konpLeWi2u5hMrXL'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: "Air: Randomly determine two icon associations for the spell you\u2019\
     ll cast instead of one. Choose one of those associations to use for that spell."
   drawn: false
@@ -37,16 +27,6 @@ results:
   weight: 1
 - _id: 47Kq4tWrqfepjnoF
   _key: '!tables.results!2DvJKCyFrQip1tdi.47Kq4tWrqfepjnoF'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Earth: Until the end of your next turn, you gain a [[@int.mod]] bonus
     to PD and MD.'
   drawn: false
@@ -60,16 +40,6 @@ results:
   weight: 1
 - _id: Y3n75dmx5Xg5tWeW
   _key: '!tables.results!2DvJKCyFrQip1tdi.Y3n75dmx5Xg5tWeW'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: "Fire: Until the end of your next turn, you gain the once-per-battle\
     \ racial power of a random nearby ally; ignore this benefit if it duplicates your\
     \ own racial power or if it doesn\u2019t make sense during the battle (human,\
@@ -85,16 +55,6 @@ results:
   weight: 1
 - _id: ljeu9ygGtCjhwvbM
   _key: '!tables.results!2DvJKCyFrQip1tdi.ljeu9ygGtCjhwvbM'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Water: Until the end of your next turn, you gain a [[@int.mod]] bonus
     to saves.'
   drawn: false
@@ -108,16 +68,6 @@ results:
   weight: 1
 - _id: raBhRQctTOKbo0T1
   _key: '!tables.results!2DvJKCyFrQip1tdi.raBhRQctTOKbo0T1'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Metal: Until the end of your next turn, critical hits scored against
     you only count as normal hits.'
   drawn: false
@@ -131,16 +81,6 @@ results:
   weight: 1
 - _id: xVMFUwoYmpLCbCrB
   _key: '!tables.results!2DvJKCyFrQip1tdi.xVMFUwoYmpLCbCrB'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: 'Void: When you roll a natural 20 with an attack, the critical hit
     range of your attacks expands by 2 until the end of the battle (cumulative).'
   drawn: false

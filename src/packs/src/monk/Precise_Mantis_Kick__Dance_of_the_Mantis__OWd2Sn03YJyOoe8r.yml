@@ -3,16 +3,6 @@ _key: '!items!OWd2Sn03YJyOoe8r'
 effects:
 - _id: CESUEgJMv5CwuRWF
   _key: '!items.effects!OWd2Sn03YJyOoe8r.CESUEgJMv5CwuRWF'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   changes:
   - key: system.attributes.critMod.atk.value
     mode: 2

@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 items:
 - _id: 6sZg4dXk6py4mWCO
   _key: '!actors.items!JZyoMoybXedBdJMT.6sZg4dXk6py4mWCO'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -88,16 +78,6 @@ items:
   type: action
 - _id: 68wNO5tZpdpOWBjN
   _key: '!actors.items!JZyoMoybXedBdJMT.68wNO5tZpdpOWBjN'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

@@ -8,16 +8,6 @@ img: systems/archmage/assets/icons/tokens/monsters/ooze.webp
 items:
 - _id: HWG0YmzpZPVzaSZx
   _key: '!actors.items!0XDHDaPnpfAy9icO.HWG0YmzpZPVzaSZx'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -81,16 +71,6 @@ items:
   type: action
 - _id: VAOjtsnMzW6kS8Fy
   _key: '!actors.items!0XDHDaPnpfAy9icO.VAOjtsnMzW6kS8Fy'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

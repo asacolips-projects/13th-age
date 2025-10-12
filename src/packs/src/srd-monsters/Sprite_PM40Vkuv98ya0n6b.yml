@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
 - _id: 9CslzPFfbpG263W4
   _key: '!actors.items!PM40Vkuv98ya0n6b.9CslzPFfbpG263W4'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -88,16 +78,6 @@ items:
   type: action
 - _id: GQJQ7GJHllsUlgWL
   _key: '!actors.items!PM40Vkuv98ya0n6b.GQJQ7GJHllsUlgWL'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -166,16 +146,6 @@ items:
   type: action
 - _id: GQUfDaTKd0J3HNAM
   _key: '!actors.items!PM40Vkuv98ya0n6b.GQUfDaTKd0J3HNAM'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -203,16 +173,6 @@ items:
   type: trait
 - _id: 9B3MZtuSqNBzR5pd
   _key: '!actors.items!PM40Vkuv98ya0n6b.9B3MZtuSqNBzR5pd'
-  _stats:
-    compendiumSource: Compendium.archmage.srd-Monsters.Actor.bGCMwbeU7CeMjInE.Item.K3BWgRJHz9NgFipv
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -242,16 +202,6 @@ items:
   type: trait
 - _id: hFSzD1Xz6gAc1gjH
   _key: '!actors.items!PM40Vkuv98ya0n6b.hFSzD1Xz6gAc1gjH'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -280,16 +230,6 @@ items:
   type: trait
 - _id: XNrIUUVHnuVlKi1m
   _key: '!actors.items!PM40Vkuv98ya0n6b.XNrIUUVHnuVlKi1m'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

@@ -11,16 +11,6 @@ img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
 - _id: pUpspyq6ghGJQycG
   _key: '!actors.items!1F9umoT78QHO2idd.pUpspyq6ghGJQycG'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.i3KF75smgbbfm5rt.Item.naff54OH7LXKr4jI
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -52,16 +42,6 @@ items:
   type: nastierSpecial
 - _id: TKT2bq6N3mqtzu9Q
   _key: '!actors.items!1F9umoT78QHO2idd.TKT2bq6N3mqtzu9Q'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.i3KF75smgbbfm5rt.Item.t7tAeLswpYFZpKwy
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -93,16 +73,6 @@ items:
   type: trait
 - _id: 0ulkWJ8cqrTK4HT0
   _key: '!actors.items!1F9umoT78QHO2idd.0ulkWJ8cqrTK4HT0'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -172,16 +142,6 @@ items:
   type: action
 - _id: KHdm9bjbVB8lUKmb
   _key: '!actors.items!1F9umoT78QHO2idd.KHdm9bjbVB8lUKmb'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}

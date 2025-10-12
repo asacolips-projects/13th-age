@@ -13,16 +13,6 @@ replacement: true
 results:
 - _id: J3b3nfkIx5VVDdlY
   _key: '!tables.results!jcbFdEkR9g1isX0S.J3b3nfkIx5VVDdlY'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: You gain a +1 bonus to AC until the start of your next turn.
   drawn: false
   flags: {}
@@ -35,16 +25,6 @@ results:
   weight: 2
 - _id: UXhDiu0OqmmWDyuE
   _key: '!tables.results!jcbFdEkR9g1isX0S.UXhDiu0OqmmWDyuE'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: Deal [[@lvl]] damage to all nearby staggered enemies.
   drawn: false
   flags: {}
@@ -57,16 +37,6 @@ results:
   weight: 2
 - _id: keCG3oBCGlYwrE3D
   _key: '!tables.results!jcbFdEkR9g1isX0S.keCG3oBCGlYwrE3D'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: Deal [[@lvl]] damage to one nearby enemy.
   drawn: false
   flags: {}

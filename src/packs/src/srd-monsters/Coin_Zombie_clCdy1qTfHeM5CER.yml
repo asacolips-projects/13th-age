@@ -11,16 +11,6 @@ img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
 - _id: t7tAeLswpYFZpKwy
   _key: '!actors.items!clCdy1qTfHeM5CER.t7tAeLswpYFZpKwy'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -52,16 +42,6 @@ items:
   type: trait
 - _id: naff54OH7LXKr4jI
   _key: '!actors.items!clCdy1qTfHeM5CER.naff54OH7LXKr4jI'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -92,16 +72,6 @@ items:
   type: nastierSpecial
 - _id: nSfO66W72sMoLwQr
   _key: '!actors.items!clCdy1qTfHeM5CER.nSfO66W72sMoLwQr'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}
@@ -171,16 +141,6 @@ items:
   type: action
 - _id: iixKsOSUEjD6WVUd
   _key: '!actors.items!clCdy1qTfHeM5CER.iixKsOSUEjD6WVUd'
-  _stats:
-    compendiumSource: Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags:
     core: {}

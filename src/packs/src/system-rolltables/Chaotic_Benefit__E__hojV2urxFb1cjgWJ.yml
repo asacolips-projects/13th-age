@@ -13,16 +13,6 @@ replacement: true
 results:
 - _id: zRUVOBQt3zOd63zy
   _key: '!tables.results!hojV2urxFb1cjgWJ.zRUVOBQt3zOd63zy'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: You gain a +1 bonus to all defenses until the start of your next turn.
   drawn: false
   flags: {}
@@ -35,16 +25,6 @@ results:
   weight: 2
 - _id: G80jfQRER4qJ3LUQ
   _key: '!tables.results!hojV2urxFb1cjgWJ.G80jfQRER4qJ3LUQ'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: Deal [[@lvl + 2 * @cha.mod]] damage to all nearby staggered enemies.
   drawn: false
   flags: {}
@@ -57,16 +37,6 @@ results:
   weight: 2
 - _id: pUiLydoJceGpNFp9
   _key: '!tables.results!hojV2urxFb1cjgWJ.pUiLydoJceGpNFp9'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: Deal [[@lvl + 2 * @cha.mod]] damage to one nearby enemy
   drawn: false
   flags: {}

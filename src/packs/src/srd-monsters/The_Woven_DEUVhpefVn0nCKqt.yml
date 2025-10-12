@@ -8,16 +8,6 @@ img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
 - _id: pRM0QfS76PSGnzF1
   _key: '!actors.items!DEUVhpefVn0nCKqt.pRM0QfS76PSGnzF1'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -79,16 +69,6 @@ items:
   type: action
 - _id: 8rmrzoWuMj8tHFav
   _key: '!actors.items!DEUVhpefVn0nCKqt.8rmrzoWuMj8tHFav'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null

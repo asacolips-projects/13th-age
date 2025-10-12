@@ -13,16 +13,6 @@ replacement: true
 results:
 - _id: aaNoCcJ3xhjSY1r3
   _key: '!tables.results!DsZC28QGCvhy8LyE.aaNoCcJ3xhjSY1r3'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: You gain a +1 bonus to AC and Physical Defense until the start of your
     next turn.
   drawn: false
@@ -36,16 +26,6 @@ results:
   weight: 2
 - _id: 7qoqpWoWy1B7kLqz
   _key: '!tables.results!DsZC28QGCvhy8LyE.7qoqpWoWy1B7kLqz'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: Deal [[@lvl + @cha.mod]] damage to all nearby staggered enemies.
   drawn: false
   flags: {}
@@ -58,16 +38,6 @@ results:
   weight: 2
 - _id: XGKC3oNJeqevN2zo
   _key: '!tables.results!DsZC28QGCvhy8LyE.XGKC3oNJeqevN2zo'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   description: Deal [[@lvl + @cha.mod]] damage to one nearby enemy
   drawn: false
   flags: {}

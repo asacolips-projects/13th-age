@@ -10,16 +10,6 @@ img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 items:
 - _id: AbLW27Ha9nwiUT26
   _key: '!actors.items!nUiSIBtiWNYETpcD.AbLW27Ha9nwiUT26'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
@@ -89,16 +79,6 @@ items:
   type: action
 - _id: C4cZX9ykFgVdyCwA
   _key: '!actors.items!nUiSIBtiWNYETpcD.C4cZX9ykFgVdyCwA'
-  _stats:
-    compendiumSource: null
-    coreVersion: '13.350'
-    createdTime: null
-    duplicateSource: null
-    exportSource: null
-    lastModifiedBy: null
-    modifiedTime: null
-    systemId: null
-    systemVersion: null
   effects: []
   flags: {}
   folder: null
