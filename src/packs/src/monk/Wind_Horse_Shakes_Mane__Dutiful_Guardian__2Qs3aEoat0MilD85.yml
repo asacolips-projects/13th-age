@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,13 +85,17 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[@wpn.p.dice + @str.dmg + @atk.m.bonus]] damage, and you choose one of the
-      following benefits: you can take a move action as a free action; OR you
-      gain a +4 bonus to PD until the start of your next turn.
+      [[@wpn.p.dice + @str.dmg + @atk.m.bonus]] damage, and you choose one of
+      the following benefits: you can take a move action as a free action; OR
+      you gain a +4 bonus to PD until the start of your next turn.
   hitEven:
     type: String
     label: Natural Even Hit

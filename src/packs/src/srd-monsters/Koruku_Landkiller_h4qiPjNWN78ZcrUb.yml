@@ -3,7 +3,6 @@ type: npc
 _id: h4qiPjNWN78ZcrUb
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: leader
+    roleB:
+      value: ''
     size:
       value: huge
+    sizeB:
+      value: ''
     strength:
       value: triple
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Koruku Landkiller
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Thrashing tail
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. AC (one nearby enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -311,6 +331,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -319,6 +344,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. PD (2 attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -367,8 +395,8 @@ items:
         type: String
         label: Description
         value: >-
-          <p>The koruku landkiller adds twice the escalation die ([[2 * @ed]]) to
-          its saves.</p>
+          <p>The koruku landkiller adds twice the escalation die ([[2 * @ed]])
+          to its saves.</p>
       embeddedMacro:
         type: String
         label: Embedded Macro
@@ -400,6 +428,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -407,6 +440,9 @@ items:
       attack:
         type: String
         label: Attack Roll
+        value: ''
+      critMod:
+        type: String
         value: ''
       hit:
         type: String
@@ -460,6 +496,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -468,6 +509,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -522,6 +566,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -530,6 +579,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. PD ([[1d3]] nearby enemies in a group)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -584,6 +636,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -592,6 +649,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. MD ([[1d4]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -646,6 +706,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -654,6 +719,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. MD ([[1d3]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -708,6 +776,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -716,6 +789,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. AC ([[1d3]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -770,6 +846,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -778,6 +859,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. PD (all nearby enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit

@@ -40,6 +40,7 @@ system:
       temp: 0
       tempmax: 0
       base: 6
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -59,11 +60,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -143,6 +146,10 @@ system:
         enabled: false
         current: none
         default: none
+        secondEdition: true
+      bravado:
+        enabled: false
+        current: 0
         secondEdition: true
     spendable:
       custom1:
@@ -424,6 +431,9 @@ system:
       value: null
     copper:
       value: null
+  lifecycleHooks:
+    startOfTurn: ''
+    endOfTurn: ''
 prototypeToken:
   name: Assassin Rogue 2
   displayName: 0
@@ -488,7 +498,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -500,6 +509,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Heritage of the Sword
     type: power
@@ -535,6 +550,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -580,6 +600,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -773,6 +797,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -818,6 +847,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -1014,6 +1047,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1062,6 +1100,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1185,11 +1227,6 @@ items:
         label: Roll Table
         value: Improved Sneak Attack Damage
       feats: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/weapons/daggers/dagger-curved-gold.webp
     _id: sKyhv0JCIiaJzZ1i
@@ -1233,6 +1270,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1281,6 +1323,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1458,6 +1504,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1506,6 +1557,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1629,11 +1684,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/skills/ranged/daggers-thrown-salvo-orange.webp
     _id: MaVKJv9w1afzJyE2
@@ -1677,6 +1727,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1725,6 +1780,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1959,6 +2018,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2007,6 +2071,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2236,6 +2304,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2284,6 +2357,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @cha.mod + @std + @atk.m.bonus]] vs. MD'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2516,6 +2593,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2564,6 +2646,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2800,6 +2886,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2848,6 +2939,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -3082,6 +3177,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -3130,6 +3230,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @str.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -3296,8 +3400,8 @@ items:
             type: String
             value: >-
               <p>If you don't add your Sneak Attack damage to the attack, you
-              also deal [[5 * @str.mod]] damage to your deadly thrust target when
-              you hit.</p>
+              also deal [[5 * @str.mod]] damage to your deadly thrust target
+              when you hit.</p>
           isActive:
             type: Boolean
             value: false
@@ -3313,11 +3417,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/skills/melee/strike-sword-stabbed-brown.webp
     _id: ToStjL1qfP6td9v4
@@ -3361,6 +3460,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -3409,6 +3513,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -3599,11 +3707,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/skills/movement/arrow-upward-yellow.webp
     _id: VDNyqm60AVSNw3gk
@@ -3647,6 +3750,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -3695,6 +3803,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -3927,6 +4039,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -3975,6 +4092,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -4121,11 +4242,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/skills/melee/strike-blade-knife-blue-red.webp
     _id: pIBaHlroRWC4rghC
@@ -4169,6 +4285,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -4217,6 +4338,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit

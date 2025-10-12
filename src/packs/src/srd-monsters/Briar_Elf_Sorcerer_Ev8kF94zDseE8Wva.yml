@@ -3,7 +3,6 @@ type: npc
 _id: Ev8kF94zDseE8Wva
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: caster
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Briar Elf Sorcerer
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Fear Aura
     type: nastierSpecial
@@ -261,9 +273,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
+      core: {}
     _key: '!actors.items!Ev8kF94zDseE8Wva.Uyo4O6WT7pe8H2Z4'
   - name: Dark Escalator
     type: nastierSpecial
@@ -294,9 +304,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.4XWng8pvkzI4tHWH
+      core: {}
     _key: '!actors.items!Ev8kF94zDseE8Wva.o5RouID4HVURbRrk'
   - name: Blood to sap
     type: action
@@ -313,6 +321,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -321,6 +334,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. PD'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -375,6 +391,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -383,6 +404,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 16]] vs. PD'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -437,6 +461,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -445,6 +474,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 16]] vs. PD ([[d3]] enemies in a group)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -540,9 +572,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
+      core: {}
     _key: '!actors.items!Ev8kF94zDseE8Wva.PfrhuG3q1rSH4ikI'
   - name: Humanoid
     type: trait
@@ -572,9 +602,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
+      core: {}
     _key: '!actors.items!Ev8kF94zDseE8Wva.CqJjtdXZ4iQWv892'
   - name: Plant
     type: trait
@@ -605,9 +633,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
+      core: {}
     _key: '!actors.items!Ev8kF94zDseE8Wva.QoCSYZYeMzOeUYtR'
   - name: Undead
     type: trait
@@ -640,9 +666,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
+      core: {}
     _key: '!actors.items!Ev8kF94zDseE8Wva.iJc8ofaQYkdnxfbL'
 effects: []
 folder: null

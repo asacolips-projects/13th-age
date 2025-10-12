@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -82,12 +87,16 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[3d6 + @wis.dmg + @atk.d.bonus]] fire damage, and [[10]] ongoing fire damage
-      and *dazed* (save ends both).
+      [[3d6 + @wis.dmg + @atk.d.bonus]] fire damage, and [[10]] ongoing fire
+      damage and *dazed* (save ends both).
   hitEven:
     type: String
     label: Natural Even Hit
@@ -150,8 +159,8 @@ system:
     type: String
     label: 3rd Level Spell
     value: >-
-      [[5d6 + @wis.dmg + @atk.d.bonus]] damage, and [[15]] ongoing damage (hit and
-      miss).
+      [[5d6 + @wis.dmg + @atk.d.bonus]] damage, and [[15]] ongoing damage (hit
+      and miss).
   spellLevel4:
     hide: true
     type: String
@@ -172,8 +181,8 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[9d10 + @wis.dmg + @atk.d.bonus]] damage, and [[40]] ongoing damage (hit and
-      miss).
+      [[9d10 + @wis.dmg + @atk.d.bonus]] damage, and [[40]] ongoing damage (hit
+      and miss).
   spellLevel8:
     hide: true
     type: String
@@ -184,8 +193,8 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[10d12 + @wis.dmg + @atk.d.bonus]] damage, and [[50]] ongoing damage (hit and
-      miss).
+      [[10d12 + @wis.dmg + @atk.d.bonus]] damage, and [[50]] ongoing damage (hit
+      and miss).
   spellLevel10:
     hide: true
     type: String

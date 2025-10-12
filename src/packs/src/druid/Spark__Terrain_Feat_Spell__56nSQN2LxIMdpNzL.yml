@@ -33,6 +33,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -81,13 +86,16 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[1d8 + @wis.dmg + @atk.d.bonus]] lightning damage, or
-      [[2d8 + @wis.dmg + @atk.d.bonus]] lightning damage against a creature that is
-      flying.
+      [[1d8 + @wis.dmg + @atk.d.bonus]] lightning damage, or [[2d8 + @wis.dmg +
+      @atk.d.bonus]] lightning damage against a creature that is flying.
   hitEven:
     type: String
     label: Natural Even Hit
@@ -150,8 +158,8 @@ system:
     type: String
     label: 3rd Level Spell
     value: >-
-      [[3d6 + @wis.dmg + @atk.d.bonus]] damage, or [[6d6 + @wis.dmg + @atk.d.bonus]]
-      against a flying creature.
+      [[3d6 + @wis.dmg + @atk.d.bonus]] damage, or [[6d6 + @wis.dmg +
+      @atk.d.bonus]] against a flying creature.
   spellLevel4:
     hide: true
     type: String
@@ -162,8 +170,8 @@ system:
     type: String
     label: 5th Level Spell
     value: >-
-      [[5d6 + @wis.dmg + @atk.d.bonus]] damage, or [[6d10 + @wis.dmg + @atk.d.bonus]]
-      against a flying creature.
+      [[5d6 + @wis.dmg + @atk.d.bonus]] damage, or [[6d10 + @wis.dmg +
+      @atk.d.bonus]] against a flying creature.
   spellLevel6:
     hide: true
     type: String
@@ -174,8 +182,8 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[5d8 + @wis.dmg + @atk.d.bonus]] damage, or [[10d8 + @wis.dmg + @atk.d.bonus]]
-      against a flying creature.
+      [[5d8 + @wis.dmg + @atk.d.bonus]] damage, or [[10d8 + @wis.dmg +
+      @atk.d.bonus]] against a flying creature.
   spellLevel8:
     hide: true
     type: String
@@ -186,8 +194,8 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[8d10 + @wis.dmg + @atk.d.bonus]] damage, or [[3d6 * 10 + @wis.dmg + @atk.d.bonus]]
-      against a flying creature.
+      [[8d10 + @wis.dmg + @atk.d.bonus]] damage, or [[3d6 * 10 + @wis.dmg +
+      @atk.d.bonus]] against a flying creature.
   spellLevel10:
     hide: true
     type: String

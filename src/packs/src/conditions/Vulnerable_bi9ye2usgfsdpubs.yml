@@ -14,7 +14,7 @@ pages:
         <p>Attacks against you have their crit range expanded by 2 (normally
         18+).</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -22,6 +22,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: rmlC1X5ek1lGrsNj
     system: {}
     image: {}
@@ -33,9 +34,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!bi9ye2usgfsdpubs.rmlC1X5ek1lGrsNj'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -43,8 +45,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!bi9ye2usgfsdpubs'
 

@@ -15,7 +15,7 @@ pages:
         next attack action will be a basic or at-will attack against any nearby
         ally, determined randomly.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -23,6 +23,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: b8qErHdtnyvrMKGP
     system: {}
     image: {}
@@ -34,9 +35,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!21cEqzk92tflpW7N.b8qErHdtnyvrMKGP'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -44,8 +46,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!21cEqzk92tflpW7N'
 

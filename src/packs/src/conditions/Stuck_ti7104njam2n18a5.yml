@@ -18,7 +18,7 @@ pages:
         also substitute a quick action for your move action; it’s not that the
         move action itself is lost, it’s that you can’t move.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -26,6 +26,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: 9LUeP1u5QfbsG9G1
     system: {}
     image: {}
@@ -37,9 +38,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!ti7104njam2n18a5.9LUeP1u5QfbsG9G1'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -47,8 +49,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!ti7104njam2n18a5'
 

@@ -1,4 +1,4 @@
-name: Rush Attack (2e) Damage
+name: Rush Attack Damage (2e)
 img: icons/svg/d20-grey.svg
 description: ''
 results:
@@ -8,11 +8,8 @@ results:
       - 1
       - 1
     drawn: false
-    documentCollection: ''
     _id: 9i7Fw131LG66pcw5
-    text: +[[1d4]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.9i7Fw131LG66pcw5'
   - type: text
@@ -21,11 +18,8 @@ results:
       - 2
       - 2
     drawn: false
-    documentCollection: ''
     _id: NOtpaCU1b0GbGW1T
-    text: +[[1d6]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.NOtpaCU1b0GbGW1T'
   - type: text
@@ -34,11 +28,8 @@ results:
       - 3
       - 3
     drawn: false
-    documentCollection: ''
     _id: qo16CSmUTBmgCezX
-    text: +[[1d8]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.qo16CSmUTBmgCezX'
   - type: text
@@ -47,11 +38,8 @@ results:
       - 4
       - 4
     drawn: false
-    documentCollection: ''
     _id: EVE6YA96WghhR6Qa
-    text: +[[2d6]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.EVE6YA96WghhR6Qa'
   - type: text
@@ -60,11 +48,8 @@ results:
       - 5
       - 5
     drawn: false
-    documentCollection: ''
     _id: 9Q69k3xWJhv9sc47
-    text: +[[2d8]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.9Q69k3xWJhv9sc47'
   - type: text
@@ -73,11 +58,8 @@ results:
       - 6
       - 6
     drawn: false
-    documentCollection: ''
     _id: YkVE7LF8EFZOL0nd
-    text: +[[3d6]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.YkVE7LF8EFZOL0nd'
   - type: text
@@ -86,11 +68,8 @@ results:
       - 7
       - 7
     drawn: false
-    documentCollection: ''
     _id: JQwplMCdh5pv3WdL
-    text: +[[4d6]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.JQwplMCdh5pv3WdL'
   - type: text
@@ -99,11 +78,8 @@ results:
       - 8
       - 8
     drawn: false
-    documentCollection: ''
     _id: dFfXaM6DiV5UXJ1D
-    text: +[[20]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.dFfXaM6DiV5UXJ1D'
   - type: text
@@ -112,11 +88,8 @@ results:
       - 9
       - 9
     drawn: false
-    documentCollection: ''
     _id: 9Cc3qzN9yU06kh19
-    text: +[[25]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.9Cc3qzN9yU06kh19'
   - type: text
@@ -125,52 +98,20 @@ results:
       - 10
       - 10
     drawn: false
-    documentCollection: ''
     _id: DYHcnD9z5JoxKJcC
-    text: +[[30]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!U7n3T3SKBk51EGgo.DYHcnD9z5JoxKJcC'
   - type: text
-    documentCollection: ''
     weight: 1
     range:
       - 11
       - 11
     drawn: false
     _id: GuIusscTzZV1trsw
-    text: +[[40]] damage.
-    documentId: null
     flags: {}
     img: icons/svg/d20-black.svg
     _key: '!tables.results!U7n3T3SKBk51EGgo.GuIusscTzZV1trsw'
-  - type: text
-    documentCollection: ''
-    weight: 1
-    range:
-      - 12
-      - 12
-    drawn: false
-    _id: yLI9v2bmYvygmEAA
-    text: +[[50]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!U7n3T3SKBk51EGgo.yLI9v2bmYvygmEAA'
-  - type: text
-    documentCollection: ''
-    weight: 1
-    range:
-      - 13
-      - 13
-    drawn: false
-    _id: c4B86cXybCHenwez
-    text: +[[60]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!U7n3T3SKBk51EGgo.c4B86cXybCHenwez'
 formula: '@lvl'
 replacement: true
 displayRoll: false

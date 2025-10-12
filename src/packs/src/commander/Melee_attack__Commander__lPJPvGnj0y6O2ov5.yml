@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,12 +85,16 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage, and gain command points from
-      your Fight from the Front class feature.
+      [[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage, and gain command points
+      from your Fight from the Front class feature.
   hitEven:
     type: String
     label: Natural Even Hit

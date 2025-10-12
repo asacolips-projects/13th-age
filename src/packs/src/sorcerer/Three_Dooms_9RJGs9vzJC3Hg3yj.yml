@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,12 +85,16 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[2d4 * 10 + @atk.a.bonus]] random energy damage, and you take damage of the
-      same type equal to the unmodified dice roll (2d4, 2d8, or 2d12). (Note
+      [[2d4 * 10 + @atk.a.bonus]] random energy damage, and you take damage of
+      the same type equal to the unmodified dice roll (2d4, 2d8, or 2d12). (Note
       that there’s no Charisma bonus to damage.)
   hitEven:
     type: String

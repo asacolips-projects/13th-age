@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -137,8 +146,8 @@ system:
     label: Effect
     value: >-
       <p>Until the end of the battle, when an enemy engaged with you attacks you
-      with a natural odd attack roll, it takes
-      [[6d6 + @int.dmg + @atk.a.bonus]]&nbsp;negative energy damage.</p>
+      with a natural odd attack roll, it takes [[6d6 + @int.dmg +
+      @atk.a.bonus]]&nbsp;negative energy damage.</p>
   spellLevel2:
     hide: true
     type: String

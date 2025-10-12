@@ -40,6 +40,7 @@ system:
       temp: 0
       tempmax: 0
       base: 8
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -59,11 +60,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -146,6 +149,10 @@ system:
         enabled: false
         current: none
         default: none
+        secondEdition: true
+      bravado:
+        enabled: false
+        current: 0
         secondEdition: true
     spendable:
       custom1:
@@ -427,6 +434,9 @@ system:
       value: null
     copper:
       value: null
+  lifecycleHooks:
+    startOfTurn: ''
+    endOfTurn: ''
 prototypeToken:
   name: Divine Paladin 2
   displayName: 0
@@ -491,7 +501,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -503,6 +512,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Halo
     type: power
@@ -545,6 +560,11 @@ items:
 
           game.archmage.ArchmageMacros.aasimarHalo(speaker, actor, token,
           character, archmage);
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -590,6 +610,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -739,11 +763,6 @@ items:
           maxQuantity:
             type: Number
             value: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/svg/d20.svg
     _id: bR5V5eQy2pge4r0o
@@ -787,6 +806,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -835,6 +859,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @str.mod + @std + @atk.m.bonus + 4]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -958,11 +986,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/magic/light/beam-rays-yellow-blue-large.webp
     _id: QWDRnMwZjRtJJk3W
@@ -1006,6 +1029,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1054,6 +1082,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @str.mod + @std + @atk.m.bonus + 4]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1177,11 +1209,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/magic/light/beam-rays-yellow-blue.webp
     _id: I7MOn5fStDUsS84Q
@@ -1225,6 +1252,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1273,6 +1305,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1396,11 +1432,6 @@ items:
         label: Roll Table
         value: ''
       feats: null
-      sequencer:
-        self: ''
-        ray: ''
-        target: ''
-        reversed: false
     flags: {}
     img: icons/weapons/maces/mace-flanged-steel.webp
     _id: HOsiw60ALtCBKWQ5
@@ -1444,6 +1475,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1492,6 +1528,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1658,6 +1698,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1706,6 +1751,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1934,6 +1983,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1982,6 +2036,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2209,6 +2267,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2257,6 +2320,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2423,6 +2490,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2471,6 +2543,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2600,7 +2676,9 @@ items:
         '0':
           description:
             type: String
-            value: <p>Add [[2 * @cha.mod]] to the healing provided by Lay on Hands.</p>
+            value: >-
+              <p>Add [[2 * @cha.mod]] to the healing provided by Lay on
+              Hands.</p>
           isActive:
             type: Boolean
             value: false
@@ -2701,6 +2779,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2746,6 +2829,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -2938,6 +3025,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2983,6 +3075,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -3173,8 +3269,7 @@ items:
             type: Number
             value: null
     flags:
-      core:
-        sourceId: Compendium.archmage.cleric.Item.U5FBNFuKuAp3O5Ev
+      core: {}
     img: systems/archmage/assets/icons/spells/light-air-fire-3.jpg
     effects: []
     _id: olfGHxmTCHf8IyYx
@@ -3218,6 +3313,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -3263,6 +3363,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -3399,8 +3503,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: Compendium.archmage.cleric.Item.DXKDjQ7EFNBvdi5A
+      core: {}
     _key: '!actors.items!MkI3kAJUS7uwczhF.U8g1bJJTtmtr2QtJ'
 effects: []
 folder: null

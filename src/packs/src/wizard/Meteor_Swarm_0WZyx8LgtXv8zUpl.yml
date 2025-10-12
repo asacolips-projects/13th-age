@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -83,13 +88,17 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. PD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[4d4 * 10 + @atk.a.bonus]] damage of the energy type of your choice (cold,
-      fire, lightning).  Any allies engaged with the enemies you are targeting
-      take one fourth damage from each meteor that impacts the area.
+      [[4d4 * 10 + @atk.a.bonus]] damage of the energy type of your choice
+      (cold, fire, lightning).  Any allies engaged with the enemies you are
+      targeting take one fourth damage from each meteor that impacts the area.
   hitEven:
     type: String
     label: Natural Even Hit

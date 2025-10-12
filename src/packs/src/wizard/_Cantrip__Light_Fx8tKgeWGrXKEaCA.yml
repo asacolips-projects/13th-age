@@ -39,6 +39,11 @@ system:
 
       game.archmage.ArchmageMacros.wizardLight(speaker, actor, token, character,
       archmage);
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -84,6 +89,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''

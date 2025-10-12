@@ -3,7 +3,6 @@ type: npc
 _id: 3Hy9FJ1iym1SKrXM
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: archer
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Briar Elf Stalker
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Whip of Thorns
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -291,9 +311,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.1mZmMIDaa4Yp14AV
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.9Yhz2HAWdwDro7FK'
   - name: Barbed arrows
     type: action
@@ -310,6 +328,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -318,6 +341,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 14]] vs. AC '
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -356,9 +382,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.0EzLqYE23l2nyP0a
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.MF33oSDntnZeWa0x'
   - name: Green Walk
     type: trait
@@ -391,9 +415,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.QiESpgLQ7WUsrIs3
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.eg81qvGTDB5Ir3w8'
   - name: 'Choose one:'
     type: trait
@@ -421,9 +443,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.QJYdYczSydPQQdI0'
   - name: Humanoid
     type: trait
@@ -453,9 +473,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.8Dyov51PlsM2zAuX'
   - name: Plant
     type: trait
@@ -486,9 +504,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.VRfphwgwTs8waYsJ'
   - name: Undead
     type: trait
@@ -519,9 +535,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.qTTNDDjITQ3R1MPX'
   - name: Strength of the Forest
     type: nastierSpecial
@@ -582,9 +596,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
+      core: {}
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.ygQRftqriZEnJTve'
 effects: []
 folder: null

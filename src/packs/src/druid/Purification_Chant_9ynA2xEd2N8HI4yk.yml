@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,13 +85,17 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. MD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[2d6 * 10 + @wis.dmg + @atk.d.bonus]] psychic damage, and you and each of your
-      nearby allies can roll a save with a +5 bonus against any save ends effect
-      created by the target.
+      [[2d6 * 10 + @wis.dmg + @atk.d.bonus]] psychic damage, and you and each of
+      your nearby allies can roll a save with a +5 bonus against any save ends
+      effect created by the target.
   hitEven:
     type: String
     label: Natural Even Hit

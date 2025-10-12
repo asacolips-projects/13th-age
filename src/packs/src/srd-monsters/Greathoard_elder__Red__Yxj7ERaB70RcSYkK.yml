@@ -3,7 +3,6 @@ name: Greathoard elder (Red)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
 system:
-  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -62,11 +62,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -92,10 +94,14 @@ system:
       value: wrecker
       type: String
       label: Role
+    roleB:
+      value: ''
     size:
       value: huge
       type: String
       label: Size
+    sizeB:
+      value: ''
     strength:
       value: triple
     type:
@@ -176,6 +182,7 @@ system:
       stoke:
         enabled: true
         current: 0
+  publicationSource: B1
 items:
   - _id: SUqrHWPY9kuxRoOQ
     flags: {}
@@ -219,6 +226,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -227,6 +239,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 16]] vs. AC ([[2]] attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -277,6 +292,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -287,6 +307,9 @@ items:
         value: >-
           [[d20 + 16]] vs. MD (the nearby non-*confused* enemy with de most true
           magic items)
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -337,6 +360,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -345,6 +373,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 16]] vs. PD ([[1d4 + 1]] nearby enemies, or [[1]] enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -538,7 +569,6 @@ prototypeToken:
   appendNumber: false
   prependAdjective: false
   detectionModes: []
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -550,5 +580,11 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _key: '!actors!Yxj7ERaB70RcSYkK'
 

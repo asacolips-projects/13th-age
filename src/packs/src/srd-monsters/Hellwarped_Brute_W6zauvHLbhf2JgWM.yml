@@ -3,7 +3,6 @@ type: npc
 _id: W6zauvHLbhf2JgWM
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: <p>Add 1d4 to initiative.</p>
     role:
       value: wrecker
+    roleB:
+      value: ''
     size:
       value: huge
+    sizeB:
+      value: ''
     strength:
       value: triple
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Hellwarped Brute
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Piercing claws
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -309,6 +329,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -316,6 +341,9 @@ items:
       attack:
         type: String
         label: Attack Roll
+        value: ''
+      critMod:
+        type: String
         value: ''
       hit:
         type: String
@@ -353,9 +381,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.ONEm1HKMzU590qNA
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.cySBzE7z5aqxXrQ1'
   - name: Biting mandibles
     type: action
@@ -372,6 +398,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -380,6 +411,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -420,9 +454,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.KEjdMw1kOd5BqPyC
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.RXzljgsoCNbnfCTz'
   - name: Extra claw
     type: action
@@ -439,6 +471,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -447,6 +484,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -483,9 +523,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.ZOfpkNlEpkFcinsC
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.1QTollkqLNE7hpV7'
   - name: Lashing tentacle
     type: action
@@ -502,6 +540,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -510,6 +553,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. PD'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -549,9 +595,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.KgqSzRYkG1HdaC3g
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.IehWGRYqop7F8bfr'
   - name: 'C: Antennae waveburst'
     type: action
@@ -568,6 +612,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -576,6 +625,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. MD (one nearby enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -614,9 +666,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.1Y8HzRGTa5JbWHwH
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.mKNNAx0Dvfz0tPGo'
   - name: 'R: Shooting quills'
     type: action
@@ -633,6 +683,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -641,6 +696,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. AC (one nearby enemy not engaged with it)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -679,9 +737,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.h74OxExuT0qBDSOG
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.EBaNBBbXaTsp1LSY'
   - name: '[use only when triggered as an aberrant attack] Charging horn slam'
     type: action
@@ -698,6 +754,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -706,6 +767,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. PD'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -745,9 +809,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.7kwCVfBktj8PvFkE
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.HtVymbGAAQoSDbPU'
   - name: Aberrant attacks
     type: trait
@@ -844,9 +906,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.oV0f8XbVmyt4vVO5
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.Nn0O1KrxPg7R51KS'
   - name: Infected by hell
     type: trait
@@ -879,9 +939,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.UzT4u2wuM2x8jIJg
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.hqTeIE7TdRIWn0nf'
   - name: Mutated form
     type: trait
@@ -985,9 +1043,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.jrfzmttzSRRizG9e
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.Lg8tcSFBTVJzeSD0'
   - name: Special movement
     type: nastierSpecial
@@ -1019,9 +1075,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.0KSb9Qw38BldTs7K
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.PHVL9U6ZbPiMcar5'
   - name: Tough for its kind
     type: nastierSpecial
@@ -1049,9 +1103,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.tDCpNUQq5MKOFaN6
+      core: {}
     _key: '!actors.items!W6zauvHLbhf2JgWM.ovdPpFjyb7U48YZD'
 effects: []
 folder: null

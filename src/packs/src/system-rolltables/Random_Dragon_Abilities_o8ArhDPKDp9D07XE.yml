@@ -2,185 +2,143 @@ name: Random Dragon Abilities
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 1
       - 1
     drawn: false
-    text: True seeing
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: q0vVL4L1yf5QMonV
     _id: Yt1YaotDRTgcIhTf
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.Yt1YaotDRTgcIhTf'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 2
       - 2
     drawn: false
-    text: Whipping tail
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: b5NvAlr1RF4FaBdZ
     _id: atnNGvwtnEIkN6V4
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.atnNGvwtnEIkN6V4'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 3
       - 3
     drawn: false
-    text: Tough Hide
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: w9b3AO4Y1eed8pYJ
     _id: uIya88iWRqqmy0zE
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.uIya88iWRqqmy0zE'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 4
       - 4
     drawn: false
-    text: Twisted Mind
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: c3vvMeN1h5O9PqHK
     _id: vsf2HuPFWUaBaTlX
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.vsf2HuPFWUaBaTlX'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 5
       - 5
     drawn: false
-    text: Nimble
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: fLYv6QLIXjtoXqiX
     _id: Qy2LeaMhNzstMHfE
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.Qy2LeaMhNzstMHfE'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 6
       - 6
     drawn: false
-    text: No vulnerability
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: RD2slHPyCjf3oyHe
     _id: 1UqvJFtg69Li2BKM
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.1UqvJFtg69Li2BKM'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 7
       - 7
     drawn: false
-    text: Now I’m mad!
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: lDLx2UPGSxgaovef
     _id: Trp6drU624ANxNlI
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.Trp6drU624ANxNlI'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 8
       - 8
     drawn: false
-    text: Serious threat
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: Rd1NQjMS0mPYB8Ae
     _id: shGsMGIIwv1wQFps
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.shGsMGIIwv1wQFps'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 9
       - 9
     drawn: false
-    text: PC-style racial power
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: 91Sdk8JCusE4B6JT
     _id: VPHBBJmKhaJHjD7b
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.VPHBBJmKhaJHjD7b'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 10
       - 10
     drawn: false
-    text: Raw power
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: 1s4LzeTEJIHPDnlm
     _id: M9Wu8pammDbqY0VU
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.M9Wu8pammDbqY0VU'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 11
       - 11
     drawn: false
-    text: Damage aura
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: yG1UvxBhKUbgXuKp
     _id: xfOzLw9bXECLDp9t
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.xfOzLw9bXECLDp9t'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 12
       - 12
     drawn: false
-    text: More breath
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: bdFiBnH0rau7GRPJ
     _id: OGBrJBjs3C2TW5v8
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.OGBrJBjs3C2TW5v8'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 13
       - 13
     drawn: false
-    text: Humanoid form
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: KIrw0FoaIjyz0N5d
     _id: tMbAgIZOuh70QpvE
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.tMbAgIZOuh70QpvE'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 14
       - 14
     drawn: false
-    text: Some Unique Thing
     img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: 0rqVrV3xubwboh88
     _id: JXBeyZSoLVUcn0VR
     flags: {}
     _key: '!tables.results!o8ArhDPKDp9D07XE.JXBeyZSoLVUcn0VR'

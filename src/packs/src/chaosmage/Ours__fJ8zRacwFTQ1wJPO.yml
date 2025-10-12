@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -137,9 +146,9 @@ system:
     label: Effect
     value: >-
       <p>The target can heal using a free recovery, adding hit points equal to
-      [[d6 * @ed]] to that healing. Unless you or the target is a dwarf, randomly
-      choose one of the target&rsquo;s true magic items. You actively gain that
-      item&rsquo;s quirk until the end of the day.</p>
+      [[d6 * @ed]] to that healing. Unless you or the target is a dwarf,
+      randomly choose one of the target&rsquo;s true magic items. You actively
+      gain that item&rsquo;s quirk until the end of the day.</p>
   spellLevel2:
     hide: true
     type: String

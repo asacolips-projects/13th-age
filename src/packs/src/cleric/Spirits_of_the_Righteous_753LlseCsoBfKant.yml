@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,12 +85,17 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. MD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[4d6 + @wis.dmg + @atk.d.bonus]] holy damage, and your nearby ally with the
-      fewest hit points gains a +4 bonus to AC until the end of your next turn.
+      [[4d6 + @wis.dmg + @atk.d.bonus]] holy damage, and your nearby ally with
+      the fewest hit points gains a +4 bonus to AC until the end of your next
+      turn.
   hitEven:
     type: String
     label: Natural Even Hit

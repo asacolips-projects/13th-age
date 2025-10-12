@@ -18,7 +18,7 @@ pages:
         V</p><p><em>Exception</em>: Mooks and weaklings only deal damage equal
         to their level, not twice their level.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -26,6 +26,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: DSm7r73qk49CXuBZ
     system: {}
     image: {}
@@ -37,9 +38,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!uHqgXlfj0rkf0XRE.DSm7r73qk49CXuBZ'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -47,8 +49,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!uHqgXlfj0rkf0XRE'
 

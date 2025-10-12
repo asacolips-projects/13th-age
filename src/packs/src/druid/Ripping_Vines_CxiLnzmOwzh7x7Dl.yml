@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,6 +85,10 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
@@ -159,8 +168,8 @@ system:
     type: String
     label: 5th Level Spell
     value: >-
-      [[5d6 + @wis.dmg + @atk.d.bonus]] damage, ongoing damage equal to
-      [[2 * @str.mod]] or [[2 * @dex.mod]] on a natural odd hit.
+      [[5d6 + @wis.dmg + @atk.d.bonus]] damage, ongoing damage equal to [[2 *
+      @str.mod]] or [[2 * @dex.mod]] on a natural odd hit.
   spellLevel6:
     hide: true
     type: String
@@ -181,8 +190,8 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[7d10 + @wis.dmg + @atk.d.bonus]] damage, ongoing damage equal to
-      [[3 * @str.mod]] or [[3 * @dex.mod]] on a natural odd hit.
+      [[7d10 + @wis.dmg + @atk.d.bonus]] damage, ongoing damage equal to [[3 *
+      @str.mod]] or [[3 * @dex.mod]] on a natural odd hit.
   spellLevel10:
     hide: true
     type: String

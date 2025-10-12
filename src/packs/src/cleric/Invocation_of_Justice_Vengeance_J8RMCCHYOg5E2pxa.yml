@@ -33,6 +33,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -78,6 +83,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -137,9 +146,9 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>This battle, add [[2 * @lvl]] to the miss damage of your attacks and the
-      attacks of your nearby allies. (For example, your basic melee attack as a
-      cleric will deal [[3 * @lvl]] as miss damage while this invocation is
+      <p>This battle, add [[2 * @lvl]] to the miss damage of your attacks and
+      the attacks of your nearby allies. (For example, your basic melee attack
+      as a cleric will deal [[3 * @lvl]] as miss damage while this invocation is
       active.)</p>
   spellLevel2:
     hide: true

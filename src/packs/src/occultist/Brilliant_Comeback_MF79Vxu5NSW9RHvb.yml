@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: 'Retain Focus: 1–15'
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''

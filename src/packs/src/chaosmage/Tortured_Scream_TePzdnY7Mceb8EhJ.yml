@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,6 +85,10 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. MD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
@@ -160,8 +169,8 @@ system:
     type: String
     label: 5th Level Spell
     value: >-
-      [[6d10 + @cha.dmg + @atk.a.bonus]] damage, and you or ally loses [[4d6]] hit
-      points.
+      [[6d10 + @cha.dmg + @atk.a.bonus]] damage, and you or ally loses [[4d6]]
+      hit points.
   spellLevel6:
     hide: true
     type: String
@@ -172,8 +181,8 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      [[10d10 + @cha.dmg + @atk.a.bonus]] damage and you or ally loses [[6d6]] hit
-      points.
+      [[10d10 + @cha.dmg + @atk.a.bonus]] damage and you or ally loses [[6d6]]
+      hit points.
   spellLevel8:
     hide: true
     type: String
@@ -184,8 +193,8 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d8 * 10 + @cha.dmg + @atk.a.bonus]] damage and you or ally loses [[8d6]] hit
-      points.
+      [[2d8 * 10 + @cha.dmg + @atk.a.bonus]] damage and you or ally loses
+      [[8d6]] hit points.
   spellLevel10:
     hide: true
     type: String

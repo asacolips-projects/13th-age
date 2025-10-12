@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,6 +85,10 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @wis.mod + @std + @atk.m.bonus]] vs. AC'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
@@ -88,14 +97,14 @@ system:
     type: String
     label: Natural Even Hit
     value: >-
-      [[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and you or an ally gains a
-      +2 bonus to saves until the end of the battle.
+      [[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and you or an ally gains
+      a +2 bonus to saves until the end of the battle.
   hitOdd:
     type: String
     label: Natural Odd Hit
     value: >-
-      [[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and the target takes a –2
-      penalty to saves until the end of the battle.
+      [[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and the target takes a
+      –2 penalty to saves until the end of the battle.
   crit:
     type: String
     label: Crit

@@ -3,7 +3,6 @@ type: npc
 _id: 5VQSAHGtcSZsXxU9
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: blocker
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Most Hungry Ghost
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Fearsome jaws
     type: nastierSpecial
@@ -307,6 +319,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -315,6 +332,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -367,6 +387,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -375,6 +400,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. PD (stuck target)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -427,6 +455,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -435,6 +468,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 15]] vs. PD (2 random nearby enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -498,9 +534,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.D7Rfwqnis7wIMhb7
+      core: {}
     _key: '!actors.items!5VQSAHGtcSZsXxU9.w7HjaVNCtQc2ReJb'
   - name: Bound hauntings
     type: trait
@@ -541,9 +575,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.Hx2P7xMeCNEwpewo
+      core: {}
     _key: '!actors.items!5VQSAHGtcSZsXxU9.vflQTZziVaeQLq7W'
   - name: Flight
     type: trait
@@ -578,9 +610,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.wX9g5ojc4D0faie0
+      core: {}
     _key: '!actors.items!5VQSAHGtcSZsXxU9.OjrGHWBVvVW6kN1u'
   - name: Unnatural touch
     type: trait
@@ -618,9 +648,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.1gphpVgsE4AJt6cT
+      core: {}
     _key: '!actors.items!5VQSAHGtcSZsXxU9.OgyOGX5KxghRVbtS'
 effects: []
 folder: null

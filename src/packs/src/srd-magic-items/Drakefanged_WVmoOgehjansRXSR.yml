@@ -19,7 +19,14 @@ system:
 
       <p>Quirk: Compares everything to dragons or to draconic things, and judges
       actions by how they stack up to draconic expectations.</p>
-  publicationSource: 13TW
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  price:
+    type: Number
+    label: Price
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -32,14 +39,14 @@ system:
     type: Number
     label: Number of Recharges Attempted
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
   maxQuantity:
     type: Number
     label: Max Uses
     value: '1'
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   properties: {}
   attributes:
     attack:
@@ -85,10 +92,9 @@ system:
     cha:
       bonus: 0
   icons: ''
-  tier: 'adventurer'
+  tier: adventurer
   isActive: true
-  price:
-    value: ''
+  publicationSource: 13TW
   chackra: shield
 effects: []
 folder: o41SESZhM8MCicod

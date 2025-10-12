@@ -15,7 +15,7 @@ pages:
         *helpless*, you take a –4 penalty to all defenses and you can be the
         target of a <em>coup de grace</em>.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -23,6 +23,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: 8cwYRWwmhE6IBYYU
     system: {}
     image: {}
@@ -34,9 +35,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!g20s05odo7v5mw2q.8cwYRWwmhE6IBYYU'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -44,8 +46,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!g20s05odo7v5mw2q'
 

@@ -11,7 +11,14 @@ system:
     value: |-
       <p>You gain a +4 bonus to all defenses against opportunity attacks.</p>
       <p>Quirk: Likes to dance little jigs.</p>
-  publicationSource: 13TW
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  price:
+    type: Number
+    label: Price
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -24,14 +31,14 @@ system:
     type: Number
     label: Number of Recharges Attempted
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
   maxQuantity:
     type: Number
     label: Max Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   properties: {}
   attributes:
     attack:
@@ -77,10 +84,9 @@ system:
     cha:
       bonus: 0
   icons: ''
-  tier: 'adventurer'
+  tier: adventurer
   isActive: true
-  price:
-    value: ''
+  publicationSource: 13TW
   chackra: armor
 effects: []
 folder: xyEGAhEbvQAYa3A6

@@ -2,42 +2,33 @@ name: Chaotic Benefit
 img: icons/svg/d20-grey.svg
 description: ''
 results:
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 1
       - 1
     drawn: false
-    text: Chaotic Benefit (A)
     img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: jcbFdEkR9g1isX0S
     _id: oxsAg9eafCaXA6yU
     flags: {}
     _key: '!tables.results!PQbtKGZVFy83A85d.oxsAg9eafCaXA6yU'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 2
       - 2
     drawn: false
-    text: Chaotic Benefit (C)
     img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: DsZC28QGCvhy8LyE
     _id: MxloVN4q71UE1ZeS
     flags: {}
     _key: '!tables.results!PQbtKGZVFy83A85d.MxloVN4q71UE1ZeS'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 3
       - 3
     drawn: false
-    text: Chaotic Benefit (E)
     img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: hojV2urxFb1cjgWJ
     _id: pkIOIFFKtZB9DwYQ
     flags: {}
     _key: '!tables.results!PQbtKGZVFy83A85d.pkIOIFFKtZB9DwYQ'

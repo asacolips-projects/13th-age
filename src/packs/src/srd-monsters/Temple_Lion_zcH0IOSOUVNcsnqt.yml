@@ -3,7 +3,6 @@ type: npc
 _id: zcH0IOSOUVNcsnqt
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: wrecker
+    roleB:
+      value: ''
     size:
       value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Temple Lion
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 1
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Stone claws
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 12]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -313,6 +333,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -320,6 +345,9 @@ items:
       attack:
         type: String
         label: Attack Roll
+        value: ''
+      critMod:
+        type: String
         value: ''
       hit:
         type: String
@@ -373,6 +401,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -381,6 +414,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 12]] vs. PD ([[1d4]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -433,6 +469,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -441,6 +482,9 @@ items:
         type: String
         label: Attack Roll
         value: ([[1d4]] nearby enemies)
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -553,6 +597,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -561,6 +610,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 12]] vs. MD ([[1d3]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -631,9 +683,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.tLHf2HblAFUJNrWI
+      core: {}
     _key: '!actors.items!zcH0IOSOUVNcsnqt.E0IMBe58ma0jEHbv'
   - name: Statues, statues, everywhere
     type: nastierSpecial
@@ -668,9 +718,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.kKLndh5ZO3uD0yxF
+      core: {}
     _key: '!actors.items!zcH0IOSOUVNcsnqt.DP5vUUVPNhBHadTB'
 effects: []
 folder: null

@@ -13,7 +13,14 @@ system:
       the elements, barring full immersion in water or other liquid.</p>
 
       <p>Quirk: Prefers the outdoors.</p>
-  publicationSource: 13TW
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  price:
+    type: Number
+    label: Price
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -26,14 +33,14 @@ system:
     type: Number
     label: Number of Recharges Attempted
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
   maxQuantity:
     type: Number
     label: Max Uses
     value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   properties: {}
   attributes:
     attack:
@@ -79,10 +86,9 @@ system:
     cha:
       bonus: 0
   icons: ''
-  tier: 'adventurer'
+  tier: adventurer
   isActive: true
-  price:
-    value: ''
+  publicationSource: 13TW
   chackra: cloak
 effects: []
 folder: UKimwtJmosvf4V1p

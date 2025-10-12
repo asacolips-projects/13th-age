@@ -10,9 +10,7 @@ results:
       - 1
     drawn: false
     _id: 0DdomT27hhDCoCvG
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.0DdomT27hhDCoCvG'
   - type: text
@@ -22,9 +20,7 @@ results:
       - 2
     drawn: false
     _id: uniKy2ovpIgV89eF
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.uniKy2ovpIgV89eF'
   - type: text
@@ -34,9 +30,7 @@ results:
       - 3
     drawn: false
     _id: lJmEGd03dDeE7xYl
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.lJmEGd03dDeE7xYl'
   - type: text
@@ -46,9 +40,7 @@ results:
       - 4
     drawn: false
     _id: CfAyvqT9q4sOuL2d
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.CfAyvqT9q4sOuL2d'
   - type: text
@@ -58,9 +50,7 @@ results:
       - 5
     drawn: false
     _id: IU3KS3icKP22Wtaj
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.IU3KS3icKP22Wtaj'
   - type: text
@@ -70,9 +60,7 @@ results:
       - 6
     drawn: false
     _id: Y0ayczvA1xnG2CNy
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.Y0ayczvA1xnG2CNy'
   - type: text
@@ -82,9 +70,7 @@ results:
       - 7
     drawn: false
     _id: J34fDDNx7gsVK5Rn
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.J34fDDNx7gsVK5Rn'
   - type: text
@@ -94,9 +80,7 @@ results:
       - 8
     drawn: false
     _id: k4xJm4PK0Jc2TsMe
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.k4xJm4PK0Jc2TsMe'
   - type: text
@@ -106,9 +90,7 @@ results:
       - 9
     drawn: false
     _id: vYnPTH5Mf0AE2ZIh
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.vYnPTH5Mf0AE2ZIh'
   - type: text
@@ -118,11 +100,21 @@ results:
       - 10
     drawn: false
     _id: dZXJx8PCkOLa0CHR
-    text: ''
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!T8UXLe2cui7dDgLY.dZXJx8PCkOLa0CHR'
+  - type: text
+    weight: 1
+    range:
+      - 11
+      - 11
+    _id: dtZon0AJuks2xx0p
+    name: ''
+    img: icons/svg/d20-black.svg
+    description: <p>+[[44]] damage on a natural even hit.</p>
+    drawn: false
+    flags: {}
+    _key: '!tables.results!T8UXLe2cui7dDgLY.dtZon0AJuks2xx0p'
 replacement: true
 displayRoll: false
 folder: null

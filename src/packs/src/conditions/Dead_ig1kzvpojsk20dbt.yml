@@ -14,7 +14,7 @@ pages:
         <p>You are dead and must be resurrected. If your GM allows it, you may
         be able to Fight in Spirit.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -22,6 +22,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: zMm8NkEewH2YuxRD
     system: {}
     image: {}
@@ -33,9 +34,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!ig1kzvpojsk20dbt.zMm8NkEewH2YuxRD'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -43,8 +45,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!ig1kzvpojsk20dbt'
 

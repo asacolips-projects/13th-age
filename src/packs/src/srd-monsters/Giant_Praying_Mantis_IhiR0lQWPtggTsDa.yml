@@ -3,7 +3,6 @@ name: Giant Praying Mantis
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
-  publicationSource: 13TW
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 10
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -62,11 +62,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -90,10 +92,14 @@ system:
       value: blocker
       type: String
       label: Role
+    roleB:
+      value: ''
     size:
       value: large
       type: String
       label: Size
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
@@ -174,6 +180,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: 13TW
 items:
   - _id: wN07PzBkltYSXn7i
     flags: {}
@@ -192,6 +199,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -200,6 +212,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 13]] vs. AC ([[2]] attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -246,6 +261,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -254,6 +274,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 15]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -457,7 +480,6 @@ prototypeToken:
   appendNumber: false
   prependAdjective: false
   detectionModes: []
-  hexagonalShape: 1
   occludable:
     radius: 0
   ring:
@@ -469,5 +491,11 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _key: '!actors!IhiR0lQWPtggTsDa'
 

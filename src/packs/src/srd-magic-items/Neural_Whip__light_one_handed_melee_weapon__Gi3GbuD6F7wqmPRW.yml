@@ -20,7 +20,14 @@ system:
       page 44), and the attack deals psychic damage.</p>
 
       <p>Quirk: Grows eyes in unusual places.</p>
-  publicationSource: B1
+  quantity:
+    type: Number
+    label: Uses
+    value: '2'
+  price:
+    type: Number
+    label: Price
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -33,14 +40,14 @@ system:
     type: Number
     label: Number of Recharges Attempted
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '2'
   maxQuantity:
     type: Number
     label: Max Uses
     value: '2'
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   properties: {}
   attributes:
     attack:
@@ -86,10 +93,9 @@ system:
     cha:
       bonus: 0
   icons: ''
-  tier: 'adventurer'
+  tier: adventurer
   isActive: true
-  price:
-    value: ''
+  publicationSource: B1
   chackra: melee
 effects: []
 folder: uGMLSN6ivBLGtUfv

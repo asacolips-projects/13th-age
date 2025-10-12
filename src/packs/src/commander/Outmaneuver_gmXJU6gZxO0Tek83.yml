@@ -39,6 +39,11 @@ system:
 
       game.archmage.ArchmageMacros.commanderOutmaneuver(speaker, actor, token,
       character, archmage);
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -87,6 +92,10 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @cha.mod + @std + @atk.m.bonus]] vs. MD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit

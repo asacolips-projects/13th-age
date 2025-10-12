@@ -6,78 +6,60 @@ results:
   - _id: B4eZF9b2pezTNcLF
     flags: {}
     type: text
-    text: Attack
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 1
       - 1
     drawn: false
-    documentId: null
-    documentCollection: ''
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.B4eZF9b2pezTNcLF'
   - _id: oEMdEueTvulCJ1Va
     flags: {}
     type: text
-    text: Attack
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 2
       - 2
     drawn: false
-    documentId: null
-    documentCollection: ''
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.oEMdEueTvulCJ1Va'
   - _id: JZI8hogxBdutPmtG
     flags: {}
     type: text
-    text: Defense
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 3
       - 3
     drawn: false
-    documentId: null
-    documentCollection: ''
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.JZI8hogxBdutPmtG'
   - _id: hlqkTbwXOLLyMbL5
     flags: {}
     type: text
-    text: Defense
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 4
       - 4
     drawn: false
-    documentId: null
-    documentCollection: ''
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.hlqkTbwXOLLyMbL5'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 5
       - 5
     drawn: false
-    text: Iconic Spells
     img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: NFXhok8zAhpKKS35
     _id: RxLNj2AnRi9MVymp
     flags: {}
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.RxLNj2AnRi9MVymp'
-  - type: pack
+  - type: document
     weight: 1
     range:
       - 6
       - 6
     drawn: false
-    text: Iconic Spells
     img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: NFXhok8zAhpKKS35
     _id: BkrMeh9TGAp3IyHJ
     flags: {}
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.BkrMeh9TGAp3IyHJ'
@@ -87,11 +69,8 @@ results:
       - 7
       - 7
     drawn: false
-    documentCollection: ''
     _id: zasK423MEhAuq1sD
-    text: Multiclass
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.zasK423MEhAuq1sD'
   - type: text
@@ -100,11 +79,8 @@ results:
       - 8
       - 8
     drawn: false
-    documentCollection: ''
     _id: SsvG0lb0iLw9Xrpt
-    text: Multiclass
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.SsvG0lb0iLw9Xrpt'
   - type: text
@@ -113,11 +89,8 @@ results:
       - 9
       - 9
     drawn: false
-    documentCollection: ''
     _id: m98CBgPDTk6X1X5B
-    text: Multiclass
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!Dj9K1hDrAOfcmE2f.m98CBgPDTk6X1X5B'
 formula: 1d9

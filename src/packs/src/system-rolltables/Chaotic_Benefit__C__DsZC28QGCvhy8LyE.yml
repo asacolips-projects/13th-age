@@ -6,40 +6,32 @@ results:
   - _id: aaNoCcJ3xhjSY1r3
     flags: {}
     type: text
-    text: >-
-      You gain a +1 bonus to AC and Physical Defense until the start of your
-      next turn.
     img: icons/svg/d20-black.svg
     weight: 2
     range:
       - 1
       - 2
     drawn: false
-    documentId: null
     _key: '!tables.results!DsZC28QGCvhy8LyE.aaNoCcJ3xhjSY1r3'
   - _id: 7qoqpWoWy1B7kLqz
     flags: {}
     type: text
-    text: Deal [[@lvl + @cha.mod]] damage to all nearby staggered enemies.
     img: icons/svg/d20-black.svg
     weight: 2
     range:
       - 3
       - 4
     drawn: false
-    documentId: null
     _key: '!tables.results!DsZC28QGCvhy8LyE.7qoqpWoWy1B7kLqz'
   - _id: XGKC3oNJeqevN2zo
     flags: {}
     type: text
-    text: Deal [[@lvl + @cha.mod]] damage to one nearby enemy
     img: icons/svg/d20-black.svg
     weight: 2
     range:
       - 5
       - 6
     drawn: false
-    documentId: null
     _key: '!tables.results!DsZC28QGCvhy8LyE.XGKC3oNJeqevN2zo'
 formula: 1d6
 replacement: true

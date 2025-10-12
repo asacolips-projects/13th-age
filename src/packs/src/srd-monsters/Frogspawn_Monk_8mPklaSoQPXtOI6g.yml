@@ -3,7 +3,6 @@ type: npc
 _id: 8mPklaSoQPXtOI6g
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: spoiler
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Frogspawn Monk
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Flailing frog fists
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 8]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -309,6 +329,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -317,6 +342,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 8]] vs. PD (all enemies engaged with the monk)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -412,9 +440,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.TjQLDeO52fYaZ4hP
+      core: {}
     _key: '!actors.items!8mPklaSoQPXtOI6g.uKEue8wEkf0OQj15'
   - name: Disgusting tongue
     type: trait
@@ -445,9 +471,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.q6D3Ml0NO5Kw5nLv
+      core: {}
     _key: '!actors.items!8mPklaSoQPXtOI6g.0eH1fYWMD1StO4fC'
   - name: Dunk and cover
     type: trait
@@ -480,9 +504,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.WLVqaKLXJqR6daoV
+      core: {}
     _key: '!actors.items!8mPklaSoQPXtOI6g.iQa1d2GugGUMOzgt'
   - name: Erratic leap (move action)
     type: trait
@@ -514,9 +536,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.iRpogwvTnxm3Viw8
+      core: {}
     _key: '!actors.items!8mPklaSoQPXtOI6g.vj8sk9Rl9GCmOzNX'
   - name: Paranoid destroyer
     type: trait
@@ -551,9 +571,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.MakJV6Gb9TGBrkTW
+      core: {}
     _key: '!actors.items!8mPklaSoQPXtOI6g.whiOCDuGHiIGsjt0'
 effects: []
 folder: null

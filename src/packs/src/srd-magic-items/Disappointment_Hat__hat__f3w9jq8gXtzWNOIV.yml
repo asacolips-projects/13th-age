@@ -17,7 +17,14 @@ system:
       [[d6]] to see what you get: 1&ndash;2: You get a useless or disgusting
       item. 3&ndash;6: You pull a useful non-magical item that grants a +d6
       bonus to your next skill check until the end of your next turn.</p>
-  publicationSource: B1
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  price:
+    type: Number
+    label: Price
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -30,14 +37,14 @@ system:
     type: Number
     label: Number of Recharges Attempted
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
   maxQuantity:
     type: Number
     label: Max Uses
     value: '1'
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   properties: {}
   attributes:
     attack:
@@ -83,10 +90,9 @@ system:
     cha:
       bonus: 0
   icons: ''
-  tier: 'adventurer'
+  tier: adventurer
   isActive: true
-  price:
-    value: ''
+  publicationSource: B1
   chackra: helmet
 effects: []
 folder: 4kES6iUsw34OPUMb

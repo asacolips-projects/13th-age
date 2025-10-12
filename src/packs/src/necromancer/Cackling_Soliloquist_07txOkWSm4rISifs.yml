@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -215,9 +224,8 @@ system:
       description:
         type: String
         value: >-
-          <p>The sound of your own voice invigorates you—you gain
-          [[d6 + @lvl + @cha.dmg]] temporary hit points when you use Cackling
-          Soliloquist.</p>
+          <p>The sound of your own voice invigorates you—you gain [[d6 + @lvl +
+          @cha.dmg]] temporary hit points when you use Cackling Soliloquist.</p>
       isActive:
         type: Boolean
         value: false

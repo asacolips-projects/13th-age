@@ -3,7 +3,6 @@ type: npc
 _id: khOUqTjHj7al85zc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: caster
+    roleB:
+      value: ''
     size:
       value: huge
+    sizeB:
+      value: ''
     strength:
       value: triple
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: true
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: The Purple Dragon (Champion)
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Bladed fan
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 14]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -311,6 +331,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -319,6 +344,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. MD ([[1d4]] nearby or faraway enemies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -373,6 +401,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -381,6 +414,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 13]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -433,6 +469,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -441,8 +482,11 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          [[d20 + 13]] vs. MD ([[1d4]] nearby enemies, or [[1d3]] faraway enemies
-          in a group)
+          [[d20 + 13]] vs. MD ([[1d4]] nearby enemies, or [[1d3]] faraway
+          enemies in a group)
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -608,9 +652,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.6FIQ6Cpm36gjiAk2
+      core: {}
     _key: '!actors.items!khOUqTjHj7al85zc.d2M7uzrZ4rQ9HJBn'
   - name: Cunning escapes
     type: trait
@@ -645,9 +687,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.cHYObdpv2qnaMxNS
+      core: {}
     _key: '!actors.items!khOUqTjHj7al85zc.d4QUp3NlkYF8m7ya'
   - name: '[Once per battle] “No, they’re the real Purple Dragon, shoot them”'
     type: trait
@@ -678,9 +718,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.heMK08L3sB4VBPGz
+      core: {}
     _key: '!actors.items!khOUqTjHj7al85zc.9l3bMpNt5UemzOI0'
   - name: Flight
     type: trait
@@ -711,9 +749,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.cA1Kbd7l1SBlMhVN
+      core: {}
     _key: '!actors.items!khOUqTjHj7al85zc.UAYiPLFrd8bxbmxz'
   - name: Illusionary soiree
     type: trait
@@ -756,9 +792,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.3R3df3IVw2AqTPKh.Item.64kKfZlY5Qj4wyvh
+      core: {}
     _key: '!actors.items!khOUqTjHj7al85zc.RFEWqkm615It6Rhy'
 effects: []
 folder: null

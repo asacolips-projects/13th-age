@@ -39,6 +39,11 @@ system:
 
       game.archmage.ArchmageMacros.fighterCarveAnOpening(speaker, actor, token,
       character, archmage);
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -87,6 +92,10 @@ system:
     type: String
     label: Attack
     value: null
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit

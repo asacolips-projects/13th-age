@@ -1,4 +1,4 @@
-name: Improved Rush Attack (2e) Damage
+name: Sneak Attack Damage (2e) +1
 img: icons/svg/d20-grey.svg
 description: ''
 results:
@@ -8,139 +8,122 @@ results:
       - 1
       - 1
     drawn: false
-    documentCollection: ''
     _id: NOtpaCU1b0GbGW1T
-    text: +[[1d10]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.NOtpaCU1b0GbGW1T'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.NOtpaCU1b0GbGW1T'
   - type: text
     weight: 1
     range:
       - 2
       - 2
     drawn: false
-    documentCollection: ''
     _id: qo16CSmUTBmgCezX
-    text: +[[2d6]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.qo16CSmUTBmgCezX'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.qo16CSmUTBmgCezX'
   - type: text
     weight: 1
     range:
       - 3
       - 3
     drawn: false
-    documentCollection: ''
     _id: EVE6YA96WghhR6Qa
-    text: +[[2d8]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.EVE6YA96WghhR6Qa'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.EVE6YA96WghhR6Qa'
   - type: text
     weight: 1
     range:
       - 4
       - 4
     drawn: false
-    documentCollection: ''
     _id: 9Q69k3xWJhv9sc47
-    text: +[[2d10]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.9Q69k3xWJhv9sc47'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.9Q69k3xWJhv9sc47'
   - type: text
     weight: 1
     range:
       - 5
       - 5
     drawn: false
-    documentCollection: ''
     _id: YkVE7LF8EFZOL0nd
-    text: +[[4d6]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.YkVE7LF8EFZOL0nd'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.YkVE7LF8EFZOL0nd'
   - type: text
     weight: 1
     range:
       - 6
       - 6
     drawn: false
-    documentCollection: ''
     _id: JQwplMCdh5pv3WdL
-    text: +[[4d8]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.JQwplMCdh5pv3WdL'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.JQwplMCdh5pv3WdL'
   - type: text
     weight: 1
     range:
       - 7
       - 7
     drawn: false
-    documentCollection: ''
     _id: dFfXaM6DiV5UXJ1D
-    text: +[[22]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.dFfXaM6DiV5UXJ1D'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.dFfXaM6DiV5UXJ1D'
   - type: text
     weight: 1
     range:
       - 8
       - 8
     drawn: false
-    documentCollection: ''
     _id: 9Cc3qzN9yU06kh19
-    text: +[[30]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.9Cc3qzN9yU06kh19'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.9Cc3qzN9yU06kh19'
   - type: text
     weight: 1
     range:
       - 9
       - 9
     drawn: false
-    documentCollection: ''
     _id: DYHcnD9z5JoxKJcC
-    text: +[[40]] damage.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
-    _key: '!tables.results!4445EmHdqtCy5jfc.DYHcnD9z5JoxKJcC'
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.DYHcnD9z5JoxKJcC'
   - type: text
-    documentCollection: ''
     weight: 1
     range:
       - 10
       - 10
     drawn: false
-    _id: GuIusscTzZV1trsw
-    text: +[[50]] damage.
-    documentId: null
-    flags: {}
+    _id: Frr2x5Do5GYYo5X2
     img: icons/svg/d20-black.svg
-    _key: '!tables.results!4445EmHdqtCy5jfc.GuIusscTzZV1trsw'
+    flags: {}
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.Frr2x5Do5GYYo5X2'
+  - type: text
+    weight: 1
+    range:
+      - 11
+      - 11
+    _id: JtdmFwzv4VO0dVoo
+    name: ''
+    img: icons/svg/d20-black.svg
+    description: <p>+[[50]] damage.</p>
+    drawn: false
+    flags: {}
+    _key: '!tables.results!qBUZ50ztAmmYnP6I.JtdmFwzv4VO0dVoo'
 formula: '@lvl'
 replacement: true
 displayRoll: false
 flags:
   core: {}
 folder: null
-_id: 4445EmHdqtCy5jfc
-sort: 400000
 ownership:
   default: 0
-_key: '!tables!4445EmHdqtCy5jfc'
+  nPjNg32wEG3J72a7: 3
+_id: qBUZ50ztAmmYnP6I
+sort: 200000
+_key: '!tables!qBUZ50ztAmmYnP6I'
 

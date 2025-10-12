@@ -3,7 +3,6 @@ name: Lich Prince
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
-  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 10
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -62,11 +62,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -90,10 +92,14 @@ system:
       value: spoiler
       type: String
       label: Role
+    roleB:
+      value: ''
     size:
       value: normal
       type: String
       label: Size
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
@@ -174,6 +180,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B1
 items:
   - _id: 3lvmRdlHfxvuzFIg
     flags: {}
@@ -192,6 +199,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -200,6 +212,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 17]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -249,6 +264,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -257,6 +277,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 16]] vs. PD (up to 3 nearby or far away enemies in a group)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -306,6 +329,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -314,6 +342,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 17]] vs. PD (each nearby enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -360,6 +391,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -368,6 +404,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 17]] vs. MD (each enemy engaged with the lich’s allies)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -614,7 +653,6 @@ prototypeToken:
     contrast: 0
   appendNumber: false
   prependAdjective: false
-  hexagonalShape: 0
   detectionModes: []
   occludable:
     radius: 0
@@ -627,5 +665,11 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _key: '!actors!eOzmybMMK6tezfyO'
 

@@ -13,7 +13,14 @@ system:
       allies, the spell affects one additional ally.</p>
 
       <p>Quirk: Keeps the relic meticulously clean, rests it on velvet, etc.</p>
-  publicationSource: 13TW
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  price:
+    type: Number
+    label: Price
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -26,14 +33,14 @@ system:
     type: Number
     label: Number of Recharges Attempted
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
   maxQuantity:
     type: Number
     label: Max Uses
     value: '1'
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   properties: {}
   attributes:
     attack:
@@ -79,10 +86,9 @@ system:
     cha:
       bonus: 0
   icons: ''
-  tier: 'adventurer'
+  tier: adventurer
   isActive: true
-  price:
-    value: ''
+  publicationSource: 13TW
   chackra: symbol
 effects: []
 folder: g4tr4OTbLzXhctY5

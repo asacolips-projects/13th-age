@@ -3,7 +3,6 @@ name: Volcano Dragon (Red)
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
 system:
-  publicationSource: B1
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 10
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -62,11 +62,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -90,10 +92,14 @@ system:
       value: wrecker
       type: String
       label: Role
+    roleB:
+      value: ''
     size:
       value: large
       type: String
       label: Size
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
@@ -174,6 +180,7 @@ system:
       stoke:
         enabled: true
         current: 0
+  publicationSource: B1
 items:
   - _id: 050saFMaT2YuRraM
     flags: {}
@@ -192,6 +199,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -200,6 +212,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 12]] vs. AC ([[2]] attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -250,6 +265,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -258,6 +278,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 12]] vs. PD ([[1]] nearby enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -303,6 +326,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -311,6 +339,9 @@ items:
         type: ''
         label: Attack Roll
         value: '[[d20 + 12]] vs. PD (each nearby enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: ''
         label: Hit
@@ -492,7 +523,6 @@ prototypeToken:
   appendNumber: false
   prependAdjective: false
   detectionModes: []
-  hexagonalShape: 1
   occludable:
     radius: 0
   ring:
@@ -504,5 +534,11 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _key: '!actors!GyXxuQTzrOygYw12'
 

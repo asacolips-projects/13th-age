@@ -1,57 +1,48 @@
 name: Random Energy
 flags:
-  core:
-    sourceId: RollTable.Hnm7wSqY3FMTwXtw
+  core: {}
 img: icons/svg/d20-grey.svg
 description: ''
 results:
   - _id: bWWh5IN7CrKxYypX
     flags: {}
     type: text
-    text: Cold
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 1
       - 1
     drawn: false
-    documentId: null
     _key: '!tables.results!DvSTFFWi24BeGhWy.bWWh5IN7CrKxYypX'
   - _id: GCRjbjoPD7IW922C
     flags: {}
     type: text
-    text: Fire
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 2
       - 2
     drawn: false
-    documentId: null
     _key: '!tables.results!DvSTFFWi24BeGhWy.GCRjbjoPD7IW922C'
   - _id: sP3X8nl0bQ4fkEZt
     flags: {}
     type: text
-    text: Lightning
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 3
       - 3
     drawn: false
-    documentId: null
     _key: '!tables.results!DvSTFFWi24BeGhWy.sP3X8nl0bQ4fkEZt'
   - _id: W1Nkj2oENC2lBnEK
     flags: {}
     type: text
-    text: Thunder
     img: icons/svg/d20-black.svg
     weight: 1
     range:
       - 4
       - 4
     drawn: false
-    documentId: null
     _key: '!tables.results!DvSTFFWi24BeGhWy.W1Nkj2oENC2lBnEK'
 formula: 1d4
 replacement: true

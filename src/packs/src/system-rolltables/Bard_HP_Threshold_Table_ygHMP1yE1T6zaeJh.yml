@@ -8,11 +8,8 @@ results:
       - 1
       - 1
     drawn: false
-    documentCollection: ''
     _id: 9i7Fw131LG66pcw5
-    text: Target with 40 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.9i7Fw131LG66pcw5'
   - type: text
@@ -21,11 +18,8 @@ results:
       - 2
       - 2
     drawn: false
-    documentCollection: ''
     _id: NOtpaCU1b0GbGW1T
-    text: Target with 40 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.NOtpaCU1b0GbGW1T'
   - type: text
@@ -34,11 +28,8 @@ results:
       - 3
       - 3
     drawn: false
-    documentCollection: ''
     _id: qo16CSmUTBmgCezX
-    text: Target with 68 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.qo16CSmUTBmgCezX'
   - type: text
@@ -47,11 +38,8 @@ results:
       - 4
       - 4
     drawn: false
-    documentCollection: ''
     _id: EVE6YA96WghhR6Qa
-    text: Target with 80 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.EVE6YA96WghhR6Qa'
   - type: text
@@ -60,11 +48,8 @@ results:
       - 5
       - 5
     drawn: false
-    documentCollection: ''
     _id: 9Q69k3xWJhv9sc47
-    text: Target with 104 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.9Q69k3xWJhv9sc47'
   - type: text
@@ -73,11 +58,8 @@ results:
       - 6
       - 6
     drawn: false
-    documentCollection: ''
     _id: YkVE7LF8EFZOL0nd
-    text: Target with 132 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.YkVE7LF8EFZOL0nd'
   - type: text
@@ -86,11 +68,8 @@ results:
       - 7
       - 7
     drawn: false
-    documentCollection: ''
     _id: JQwplMCdh5pv3WdL
-    text: Target with 160 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.JQwplMCdh5pv3WdL'
   - type: text
@@ -99,11 +78,8 @@ results:
       - 8
       - 8
     drawn: false
-    documentCollection: ''
     _id: dFfXaM6DiV5UXJ1D
-    text: Target with 208 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.dFfXaM6DiV5UXJ1D'
   - type: text
@@ -112,11 +88,8 @@ results:
       - 9
       - 9
     drawn: false
-    documentCollection: ''
     _id: 9Cc3qzN9yU06kh19
-    text: Target with 268 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.9Cc3qzN9yU06kh19'
   - type: text
@@ -125,23 +98,17 @@ results:
       - 10
       - 10
     drawn: false
-    documentCollection: ''
     _id: DYHcnD9z5JoxKJcC
-    text: Target with 320 hp or fewer.
     img: icons/svg/d20-black.svg
-    documentId: null
     flags: {}
     _key: '!tables.results!ygHMP1yE1T6zaeJh.DYHcnD9z5JoxKJcC'
   - type: text
-    documentCollection: ''
     weight: 1
     range:
       - 11
       - 11
     drawn: false
     _id: pFDRe8ODyrx4xSiZ
-    text: Target with 416 hp or fewer.
-    documentId: null
     flags: {}
     img: icons/svg/d20-black.svg
     _key: '!tables.results!ygHMP1yE1T6zaeJh.pFDRe8ODyrx4xSiZ'

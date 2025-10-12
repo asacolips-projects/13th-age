@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,6 +85,10 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
@@ -88,8 +97,8 @@ system:
     type: String
     label: Natural Even Hit
     value: >-
-      [[1d6 + @cha.dmg + @atk.a.bonus]] force damage and you can roll a hard save
-      (16+). If you succeed, you get an extra standard action this turn.
+      [[1d6 + @cha.dmg + @atk.a.bonus]] force damage and you can roll a hard
+      save (16+). If you succeed, you get an extra standard action this turn.
   hitOdd:
     type: String
     label: Natural Odd Hit
@@ -148,8 +157,8 @@ system:
     type: String
     label: 3rd Level Spell
     value: >-
-      Even hit: [[3d6 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[10]] ongoing
-      damage.
+      Even hit: [[3d6 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[10]]
+      ongoing damage.
   spellLevel4:
     hide: true
     type: String
@@ -160,8 +169,8 @@ system:
     type: String
     label: 5th Level Spell
     value: >-
-      Even hit: [[5d6 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[18]] ongoing
-      damage.
+      Even hit: [[5d6 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[18]]
+      ongoing damage.
   spellLevel6:
     hide: true
     type: String
@@ -172,8 +181,8 @@ system:
     type: String
     label: 7th Level Spell
     value: >-
-      Even hit: [[5d8 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[28]] ongoing
-      damage.
+      Even hit: [[5d8 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[28]]
+      ongoing damage.
   spellLevel8:
     hide: true
     type: String
@@ -184,8 +193,8 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      Even hit: [[7d10 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[40]] ongoing
-      damage.
+      Even hit: [[7d10 + @cha.dmg + @atk.a.bonus]] damage; Odd hit: [[40]]
+      ongoing damage.
   spellLevel10:
     hide: true
     type: String

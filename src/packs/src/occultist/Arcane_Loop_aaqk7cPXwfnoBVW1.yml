@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -207,10 +216,10 @@ system:
       description:
         type: String
         value: >-
-          <p>The triggering ally also gains temporary hit points equal to
-          [[2 * @wis.mod]] + the level of the triggering spell. In addition, that
-          ally gains the temporary hit points again when they cast that spell
-          this battle.</p>
+          <p>The triggering ally also gains temporary hit points equal to [[2 *
+          @wis.mod]] + the level of the triggering spell. In addition, that ally
+          gains the temporary hit points again when they cast that spell this
+          battle.</p>
       isActive:
         type: Boolean
         value: false

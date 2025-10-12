@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -138,8 +147,8 @@ system:
     value: >-
       <p><strong>Initiate Effect</strong>: Until the end of the battle, while in
       beast form you gain a +[[2]] bonus to attacks and damage against lower
-      level enemies and mooks of any level (damage bonus increases to
-      [[2 + @str.dmg]] or [[2 + @dex.dmg]] at 5th level).</p><p><strong>Adept
+      level enemies and mooks of any level (damage bonus increases to [[2 +
+      @str.dmg]] or [[2 + @dex.dmg]] at 5th level).</p><p><strong>Adept
       Effect</strong>: As the initiate effect, and when you first shift into
       this aspect, roll your recovery dice as if you were healing, but you
       instead gain that many temporary hit points. You don&rsquo;t spend a

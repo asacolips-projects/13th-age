@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -82,6 +87,10 @@ system:
     value: >-
       [[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC (+4 if you target an enemy
       taking ongoing damage)
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit

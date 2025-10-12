@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,12 +85,16 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[3d12 + @wis.dmg + @atk.d.bonus]] fire damage, and [[5]] ongoing fire damage
-      (hard save ends, 16+).
+      [[3d12 + @wis.dmg + @atk.d.bonus]] fire damage, and [[5]] ongoing fire
+      damage (hard save ends, 16+).
   hitEven:
     type: String
     label: Natural Even Hit

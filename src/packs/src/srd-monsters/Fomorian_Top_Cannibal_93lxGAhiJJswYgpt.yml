@@ -3,7 +3,6 @@ type: npc
 _id: 93lxGAhiJJswYgpt
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: wrecker
+    roleB:
+      value: ''
     size:
       value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Fomorian Top-Cannibal
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 1
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Big spiked club
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 12]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -366,6 +386,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -376,6 +401,9 @@ items:
         value: >-
           [[d20 + 11]] vs. PD (one nearby or faraway enemy, but not one that has
           been targeted by this attack since the start of the last round)
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -419,9 +447,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.uzvwbl0AuBWlujZE
+      core: {}
     _key: '!actors.items!93lxGAhiJJswYgpt.iSF24eG1WPkLMwk7'
   - name: Fomorian Mutation Nastier Specials
     type: nastierSpecial
@@ -500,9 +526,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.RPSHPuDxI8xAbkrx
+      core: {}
     _key: '!actors.items!93lxGAhiJJswYgpt.hOt22ErlQxSOJZHC'
   - name: Extra arm
     type: nastierSpecial
@@ -532,9 +556,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.7gNbOjGT0ObwY5io
+      core: {}
     _key: '!actors.items!93lxGAhiJJswYgpt.YjQGD5yWA9UUXBgF'
   - name: Extra eyes
     type: nastierSpecial
@@ -566,9 +588,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.eaGDoO0uXwXEMCi4
+      core: {}
     _key: '!actors.items!93lxGAhiJJswYgpt.JQsWwdsIES4fBJG4'
   - name: Fair is foul
     type: nastierSpecial
@@ -598,9 +618,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.dVpx0j28FHVjSHyS
+      core: {}
     _key: '!actors.items!93lxGAhiJJswYgpt.10SdbVfzwe1uET0n'
   - name: Thick skin
     type: nastierSpecial
@@ -628,9 +646,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.0yLDKkZjdbi5lirC
+      core: {}
     _key: '!actors.items!93lxGAhiJJswYgpt.WRHNvsASSxldAHaz'
 effects: []
 folder: null

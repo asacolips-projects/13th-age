@@ -15,7 +15,14 @@ system:
 
       <p>Quirk: Constantly attempts to refill everyone else&rsquo;s drinks. Or
       potions. Or ration bags.</p>
-  publicationSource: 1e
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  price:
+    type: Number
+    label: Price
+    value: ''
   powerUsage:
     type: String
     label: Power Usage
@@ -28,14 +35,14 @@ system:
     type: Number
     label: Number of Recharges Attempted
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
   maxQuantity:
     type: Number
     label: Max Uses
     value: '1'
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: ''
   properties: {}
   attributes:
     attack:
@@ -81,10 +88,9 @@ system:
     cha:
       bonus: 0
   icons: ''
-  tier: 'adventurer'
+  tier: adventurer
   isActive: true
-  price:
-    value: ''
+  publicationSource: 1e
   chackra: belt
 effects: []
 folder: yyTzewZiGJj1uSbs

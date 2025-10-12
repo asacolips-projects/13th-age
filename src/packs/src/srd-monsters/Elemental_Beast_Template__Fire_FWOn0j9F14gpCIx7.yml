@@ -3,7 +3,6 @@ type: npc
 _id: FWOn0j9F14gpCIx7
 img: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -106,7 +108,11 @@ system:
         change its type to ELEMENTAL.)</p>
     role:
       value: ''
+    roleB:
+      value: ''
     size:
+      value: ''
+    sizeB:
       value: ''
     strength:
       value: ''
@@ -176,6 +182,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: 'Elemental Beast Template: Fire'
   displayName: 0
@@ -240,7 +247,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -252,6 +258,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Resist fire 16+
     type: trait
@@ -279,9 +291,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.oOtiidLYq6FTEI6W
+      core: {}
     _key: '!actors.items!FWOn0j9F14gpCIx7.oOtiidLYq6FTEI6W'
   - name: Resist lightning 16+
     type: trait
@@ -309,9 +319,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.L7yKyY7hgut2ffmP
+      core: {}
     _key: '!actors.items!FWOn0j9F14gpCIx7.L7yKyY7hgut2ffmP'
   - name: 'C: Burning breath'
     type: action
@@ -328,6 +336,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -336,6 +349,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 5 + @lvl]] vs. PD ([[1d3]] nearby enemies in a group)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -516,9 +532,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.on0tD6JEDRgJR78z
+      core: {}
     _key: '!actors.items!FWOn0j9F14gpCIx7.on0tD6JEDRgJR78z'
   - name: 'Vulnerability: cold'
     type: trait
@@ -546,9 +560,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
+      core: {}
     _key: '!actors.items!FWOn0j9F14gpCIx7.qzyEoFZ8qlbsgFGN'
   - name: Blazing brighter
     type: trait

@@ -3,7 +3,6 @@ type: npc
 _id: 06cof8vebYAe2YRf
 img: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -106,7 +108,11 @@ system:
         change its type to ELEMENTAL.)</p>
     role:
       value: ''
+    roleB:
+      value: ''
     size:
+      value: ''
+    sizeB:
       value: ''
     strength:
       value: ''
@@ -176,6 +182,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: 'Elemental Beast Template: Earth'
   displayName: 0
@@ -240,7 +247,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -252,6 +258,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Roots of earth
     type: trait
@@ -534,9 +546,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
+      core: {}
     _key: '!actors.items!06cof8vebYAe2YRf.P1wqvM0FfYX4lLTh'
 effects: []
 folder: null

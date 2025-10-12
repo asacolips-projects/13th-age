@@ -3,7 +3,6 @@ type: npc
 _id: 5TdeF9aaOt6uB5K7
 img: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -106,7 +108,11 @@ system:
         change its type to ELEMENTAL.)</p>
     role:
       value: ''
+    roleB:
+      value: ''
     size:
+      value: ''
+    sizeB:
       value: ''
     strength:
       value: ''
@@ -176,6 +182,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: 'Elemental Beast Template: Water'
   displayName: 0
@@ -240,7 +247,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -252,6 +258,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Fluid motion
     type: trait
@@ -279,9 +291,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.mwerhcLmaKCzPx6r
+      core: {}
     _key: '!actors.items!5TdeF9aaOt6uB5K7.mwerhcLmaKCzPx6r'
   - name: Resist cold 16+
     type: trait
@@ -309,9 +319,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.oOtiidLYq6FTEI6W
+      core: {}
     _key: '!actors.items!5TdeF9aaOt6uB5K7.oOtiidLYq6FTEI6W'
   - name: Resist acid 16+
     type: trait
@@ -339,9 +347,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.L7yKyY7hgut2ffmP
+      core: {}
     _key: '!actors.items!5TdeF9aaOt6uB5K7.L7yKyY7hgut2ffmP'
   - name: Torrent
     type: trait
@@ -484,9 +490,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.on0tD6JEDRgJR78z
+      core: {}
     _key: '!actors.items!5TdeF9aaOt6uB5K7.on0tD6JEDRgJR78z'
   - name: 'Vulnerability: fire'
     type: trait
@@ -514,9 +518,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
+      core: {}
     _key: '!actors.items!5TdeF9aaOt6uB5K7.qzyEoFZ8qlbsgFGN'
   - name: Splashback
     type: trait
@@ -546,8 +548,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: Actor.jlrVFj5NCOuw90xj.Item.P9XJLsZlbNADpDJP
+      core: {}
     _key: '!actors.items!5TdeF9aaOt6uB5K7.P9XJLsZlbNADpDJP'
 effects: []
 folder: null

@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -79,6 +84,10 @@ system:
     label: Always
     value: 'Retain Focus: 1–5.'
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -235,8 +244,8 @@ system:
         value: >-
           <p>When this spell makes the triggering enemy miss with an attack,
           that enemy takes psychic damage equal to ([[1d8]] x the spell level) +
-          [[@wis.mod * 3]]. For example, casting at 7th level with a Wisdom of 20,
-          and rolling<br />a 4 on the d8, you&rsquo;d deal 43 damage (28 +
+          [[@wis.mod * 3]]. For example, casting at 7th level with a Wisdom of
+          20, and rolling<br />a 4 on the d8, you&rsquo;d deal 43 damage (28 +
           15).</p>
       isActive:
         type: Boolean

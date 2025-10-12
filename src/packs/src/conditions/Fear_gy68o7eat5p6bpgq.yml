@@ -14,7 +14,7 @@ pages:
         <p>Fear makes you *dazed* you and prevents you from using the escalation
         die.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -22,6 +22,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: 8bj6rym7VzQdANGd
     system: {}
     image: {}
@@ -33,9 +34,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!gy68o7eat5p6bpgq.8bj6rym7VzQdANGd'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -43,8 +45,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!gy68o7eat5p6bpgq'
 

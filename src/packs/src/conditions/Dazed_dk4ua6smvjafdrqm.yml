@@ -12,7 +12,7 @@ pages:
       format: 1
       content: <p>You take a –4 penalty to attacks.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -20,6 +20,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: X9aGdSzX93xk8fSb
     system: {}
     image: {}
@@ -31,9 +32,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!dk4ua6smvjafdrqm.X9aGdSzX93xk8fSb'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -41,8 +43,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!dk4ua6smvjafdrqm'
 

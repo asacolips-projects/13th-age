@@ -40,6 +40,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -59,11 +60,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -143,6 +146,10 @@ system:
         enabled: false
         current: none
         default: none
+        secondEdition: true
+      bravado:
+        enabled: false
+        current: 0
         secondEdition: true
     spendable:
       custom1:
@@ -424,6 +431,9 @@ system:
       value: null
     copper:
       value: null
+  lifecycleHooks:
+    startOfTurn: ''
+    endOfTurn: ''
 prototypeToken:
   name: Unstoppable Barbarian 5
   displayName: 0
@@ -488,7 +498,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -500,6 +509,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: That’s Your Best Shot?
     type: power
@@ -535,6 +550,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -580,6 +600,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -772,6 +796,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -820,6 +849,10 @@ items:
         type: String
         label: Attack
         value: '[[2d20kh + @str.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -986,6 +1019,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1034,6 +1072,10 @@ items:
         type: String
         label: Attack
         value: '[[2d20kh + @dex.mod + @std + @atk.r.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1200,6 +1242,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1248,6 +1295,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1479,6 +1530,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1527,6 +1583,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1693,6 +1753,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1741,6 +1806,10 @@ items:
         type: String
         label: Attack
         value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -1907,6 +1976,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -1955,6 +2029,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2186,6 +2264,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2234,6 +2317,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2461,6 +2548,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2509,6 +2601,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit
@@ -2735,6 +2831,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -2780,6 +2881,10 @@ items:
         label: Always
         value: ''
       attack:
+        type: String
+        label: Attack
+        value: ''
+      critMod:
         type: String
         label: Attack
         value: ''
@@ -2972,6 +3077,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -3020,6 +3130,10 @@ items:
         type: String
         label: Attack
         value: null
+      critMod:
+        type: String
+        label: Attack
+        value: ''
       hit:
         type: String
         label: Hit

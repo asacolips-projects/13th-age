@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,14 +85,18 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[2d6 * 10 + @atk.a.bonus]] psychic damage, and you can transfer one condition
-      caused by your enemies from you or the ally you are next to over to the
-      target. If timing is required, interpret the transferred condition as if
-      you had caused it with this spell.
+      [[2d6 * 10 + @atk.a.bonus]] psychic damage, and you can transfer one
+      condition caused by your enemies from you or the ally you are next to over
+      to the target. If timing is required, interpret the transferred condition
+      as if you had caused it with this spell.
   hitEven:
     type: String
     label: Natural Even Hit
@@ -182,8 +191,8 @@ system:
     type: String
     label: 9th Level Spell
     value: >-
-      [[2d10 * 10 + @atk.a.bonus]] damage; if the spell misses, you regain it during
-      your next quick rest.
+      [[2d10 * 10 + @atk.a.bonus]] damage; if the spell misses, you regain it
+      during your next quick rest.
   spellLevel10:
     hide: true
     type: String

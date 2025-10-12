@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -211,8 +220,8 @@ system:
         type: String
         value: >-
           <p>When you score a critical hit, you heal [[@lvl + @wis.mod]] hit
-          points ([[@lvl + 2 * @wis.mod]] at 5th level; [[@lvl + 3 * @wis.mod]] at 8th
-          level).</p>
+          points ([[@lvl + 2 * @wis.mod]] at 5th level; [[@lvl + 3 * @wis.mod]]
+          at 8th level).</p>
       isActive:
         type: Boolean
         value: false

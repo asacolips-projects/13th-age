@@ -3,7 +3,6 @@ type: npc
 _id: 4pL6dxCToYXWG5eo
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: spoiler
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Fomori Torturer
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Irradiant touch
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 17]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -309,6 +329,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -317,6 +342,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 17]] vs. MD (one nearby or faraway enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -478,6 +506,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -486,6 +519,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 5 + @lvl]] vs. PD'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -524,9 +560,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.IibDY22I36W2wX8U
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.tLhaGCGifi4bWCi9'
   - name: Draining bite
     type: action
@@ -543,6 +577,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -551,6 +590,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 5 + @lvl]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -589,9 +631,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.eswlNTs98Y6wiZJV
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.IxGJqjVOzPqM3UwK'
   - name: —House of Songs—
     type: nastierSpecial
@@ -619,9 +659,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.dN6joTRlDFDYMgtC
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.fUAjJafs6OOwMEbM'
   - name: Song of the House
     type: nastierSpecial
@@ -654,9 +692,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.lwMsAjpoVncFYAgg
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.oTXBPcRKCTVoFOxU'
   - name: Ear-bleed
     type: nastierSpecial
@@ -688,9 +724,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.4NLrMUdw30hYLVs9
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.EwXbZeYdFwiyceHM'
   - name: Discordancy
     type: nastierSpecial
@@ -721,9 +755,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.NJICCbfIt5VApMJ4
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.NIMPoQbKOF9OmDhS'
   - name: —House of Eyes—
     type: nastierSpecial
@@ -753,9 +785,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.sXBuEqKc3ekPlfdk
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.Ky1OPxHaFYvuShII'
   - name: Hovering flight
     type: nastierSpecial
@@ -785,9 +815,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.xXoWOfvLbPysEIrw
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.YUuGfrjZkASTtHqy'
   - name: Eye beam
     type: nastierSpecial
@@ -817,9 +845,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.NWpJfT8hRTMHF03A
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.fOGUcBNFbzuij4Pd'
   - name: Eye theft
     type: nastierSpecial
@@ -852,9 +878,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.eOT4VnuAvr3f8INX
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.Xg5PoohZDa6QAiBO'
   - name: —House of Nightmares—
     type: nastierSpecial
@@ -884,9 +908,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.HPxXB7cJx3xXqgV2
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.hAuZjD17typKsRxu'
   - name: Shifting from Nightmares
     type: nastierSpecial
@@ -917,9 +939,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.bFvzaY4bI6Za4D1W
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.usGbsbLeanAbmn9Z'
   - name: Nightmares
     type: nastierSpecial
@@ -951,9 +971,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.LzayEDAGBYlxSzBk
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.GJ4EE6uXeAH8EgUr'
   - name: Skin theft
     type: nastierSpecial
@@ -986,9 +1004,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.oE8Nsyn0FrIZeNjB
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.4HjcN5tu1o43L6q4'
   - name: —House of Spiders—
     type: nastierSpecial
@@ -1018,9 +1034,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.MSSKcOq4lt4PDTuW
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.qj0cjnomZGhHePm6'
   - name: Scuttle
     type: nastierSpecial
@@ -1050,9 +1064,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.ktGG8Tsg4CyoUQw7
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.C43Co64dS9xDJBEx'
   - name: Bite
     type: nastierSpecial
@@ -1083,9 +1095,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.g0j1S6Pf89WJJtfY
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.G8mSY3V3uJhNH6rW'
   - name: Sun-eating
     type: nastierSpecial
@@ -1120,9 +1130,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.fWS8WcIc5nAvprxA
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.vtlNBZC6MHI3ry9e'
   - name: —House of Colors—
     type: nastierSpecial
@@ -1152,9 +1160,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.9IdRAVz2G0BbZW75
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.WmVnyGMo1t2wZDCe'
   - name: Color out of time
     type: nastierSpecial
@@ -1185,9 +1191,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.OyptndEigSBlbvui
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.jzonh2dGOe21pK86'
   - name: Color drain
     type: nastierSpecial
@@ -1221,9 +1225,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.3AKolXVUg2okfjyG
+      core: {}
     _key: '!actors.items!4pL6dxCToYXWG5eo.sXXG2HnTpswGsRnC'
 effects: []
 folder: null

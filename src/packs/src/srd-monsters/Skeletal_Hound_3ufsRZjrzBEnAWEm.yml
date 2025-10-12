@@ -3,7 +3,6 @@ name: Skeletal Hound
 type: npc
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
-  publicationSource: 1e
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -62,11 +62,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -92,10 +94,14 @@ system:
       value: blocker
       type: String
       label: Role
+    roleB:
+      value: ''
     size:
       value: normal
       type: String
       label: Size
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
@@ -176,6 +182,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: 1e
 items:
   - _id: OmsZyRXdje1paMNK
     flags: {}
@@ -194,6 +201,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -202,6 +214,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 6]]'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -363,7 +378,6 @@ prototypeToken:
   appendNumber: false
   prependAdjective: false
   detectionModes: []
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -375,5 +389,11 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _key: '!actors!3ufsRZjrzBEnAWEm'
 

@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -82,6 +87,10 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. MD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
@@ -141,10 +150,10 @@ system:
       <p>Before the target drops, it can make a basic attack against the
       attacking enemy as a free action (if possible), but uses your attack roll
       instead. On a hit, the attack deals normal damage, and the target (your
-      ally) takes less damage from the triggering attack equal to
-      [[3d6 + @wis.dmg + @atk.a.bonus]] modifier. If the target can&rsquo;t make a
-      basic attack against the enemy making the triggering attack, this spell
-      has no effect.</p>
+      ally) takes less damage from the triggering attack equal to [[3d6 +
+      @wis.dmg + @atk.a.bonus]] modifier. If the target can&rsquo;t make a basic
+      attack against the enemy making the triggering attack, this spell has no
+      effect.</p>
   spellLevel2:
     hide: true
     type: String

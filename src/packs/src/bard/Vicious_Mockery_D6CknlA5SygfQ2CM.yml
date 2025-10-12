@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -80,13 +85,17 @@ system:
     type: String
     label: Attack
     value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. MD'
+  critMod:
+    type: String
+    label: Attack
+    value: ''
   hit:
     type: String
     label: Hit
     value: >-
-      [[6d6 + @cha.dmg + @atk.a.bonus]] psychic damage, and until the end of your
-      next turn, when the target misses with one of its attacks, it takes half
-      the damage its attack would have dealt.
+      [[6d6 + @cha.dmg + @atk.a.bonus]] psychic damage, and until the end of
+      your next turn, when the target misses with one of its attacks, it takes
+      half the damage its attack would have dealt.
   hitEven:
     type: String
     label: Natural Even Hit

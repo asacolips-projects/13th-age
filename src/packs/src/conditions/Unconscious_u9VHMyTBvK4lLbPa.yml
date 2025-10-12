@@ -24,7 +24,7 @@ pages:
         current negative hit points. Start from 0 and add the hit points you’ve
         regained.</p>
     _stats:
-      coreVersion: '12.331'
+      coreVersion: '13.348'
       systemId: null
       systemVersion: null
       createdTime: null
@@ -32,6 +32,7 @@ pages:
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
+      exportSource: null
     _id: kWUh1Pp8caFeuyi6
     system: {}
     image: {}
@@ -43,9 +44,10 @@ pages:
     ownership:
       default: -1
     flags: {}
+    category: null
     _key: '!journal.pages!u9VHMyTBvK4lLbPa.kWUh1Pp8caFeuyi6'
 _stats:
-  coreVersion: '12.331'
+  coreVersion: '13.348'
   systemId: null
   systemVersion: null
   createdTime: null
@@ -53,8 +55,10 @@ _stats:
   lastModifiedBy: null
   compendiumSource: null
   duplicateSource: null
+  exportSource: null
 ownership:
   default: 0
 sort: 0
+categories: []
 _key: '!journal!u9VHMyTBvK4lLbPa'
 

@@ -3,7 +3,6 @@ type: npc
 _id: JtzTaTZD1dGKWWiN
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 system:
-  publicationSource: B2
   attributes:
     attackMod:
       type: Number
@@ -42,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +61,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -85,8 +87,12 @@ system:
       value: ''
     role:
       value: leader
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
@@ -155,6 +161,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: B2
 prototypeToken:
   name: Briar Elf Sovereign
   displayName: 0
@@ -219,7 +226,6 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
-  hexagonalShape: 0
   occludable:
     radius: 0
   ring:
@@ -231,6 +237,12 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 items:
   - name: Thorny scepter
     type: action
@@ -247,6 +259,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -255,6 +272,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 17]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -294,9 +314,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.BvLJNL0NwFdcRjjL
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.c0llzSPnYqfAvYPW'
   - name: 'C: Verdant evolution'
     type: action
@@ -313,6 +331,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -321,6 +344,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 18]] vs. PD (one nearby enemy)'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -362,9 +388,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.1s38Tmee9NHmKFTE
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.vNnYnyWtYnyTzr7m'
   - name: The sovereign´s orders
     type: action
@@ -386,6 +410,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -393,6 +422,9 @@ items:
       attack:
         type: String
         label: Attack Roll
+        value: ''
+      critMod:
+        type: String
         value: ''
       hit:
         type: String
@@ -430,9 +462,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.eT6ZEHlcG4hTK1R9.Item.zAQho2qb2R8Ur83x
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.cpnmOdbZ957ogNSA'
   - name: 'Choose one:'
     type: trait
@@ -460,9 +490,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.g9WFu70MPvy7Edct'
   - name: Humanoid
     type: trait
@@ -498,9 +526,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.r3H66KMdQEzae6yl'
   - name: Plant
     type: trait
@@ -531,9 +557,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.AaFMVCbl2yTnhtwZ'
   - name: Undead
     type: trait
@@ -565,9 +589,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.5Q8rJmJ8eCiBchFS'
   - name: Royal command
     type: nastierSpecial
@@ -632,9 +654,7 @@ items:
     ownership:
       default: 0
     flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
+      core: {}
     _key: '!actors.items!JtzTaTZD1dGKWWiN.4pLgb2qnEz4NVaIo'
   - name: Dark escalator
     type: nastierSpecial

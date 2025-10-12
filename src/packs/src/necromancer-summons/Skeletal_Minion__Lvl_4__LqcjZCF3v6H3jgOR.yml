@@ -41,6 +41,7 @@ system:
       temp: 0
       tempmax: 0
       base: 7
+      extra: 0
       automatic: true
     init:
       type: Number
@@ -61,11 +62,13 @@ system:
       deathFails:
         value: 0
         max: 4
+        maxOverride: 0
         steps:
           - false
           - false
           - false
           - false
+      desperateTriggered: false
       lastGaspFails:
         value: 0
         max: 4
@@ -95,10 +98,14 @@ system:
       value: ''
       type: String
       label: Role
+    roleB:
+      value: ''
     size:
       value: Normal
       type: String
       label: Size
+    sizeB:
+      value: ''
     strength:
       value: ''
     type:
@@ -189,6 +196,7 @@ system:
       stoke:
         enabled: false
         current: 0
+  publicationSource: ''
   abilities:
     str:
       type: Number
@@ -397,6 +405,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
       group:
         type: String
         label: Group
@@ -405,6 +418,9 @@ items:
         type: String
         label: Attack Roll
         value: '[[d20 + 10]] vs. AC'
+      critMod:
+        type: String
+        value: ''
       hit:
         type: String
         label: Hit
@@ -507,7 +523,6 @@ prototypeToken:
     contrast: 0
   appendNumber: false
   prependAdjective: false
-  hexagonalShape: 0
   detectionModes: []
   occludable:
     radius: 0
@@ -520,5 +535,11 @@ prototypeToken:
     subject:
       scale: 1
       texture: null
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
 _key: '!actors!LqcjZCF3v6H3jgOR'
 

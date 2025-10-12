@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -251,8 +260,8 @@ system:
       description:
         type: String
         value: >-
-          <p>Increase the additional hit points the target heals to
-          [[3 * @lvl]].</p>
+          <p>Increase the additional hit points the target heals to [[3 *
+          @lvl]].</p>
       isActive:
         type: Boolean
         value: false

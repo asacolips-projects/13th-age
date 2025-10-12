@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -136,8 +145,8 @@ system:
     type: String
     label: Effect
     value: >-
-      <p>Deal [[5 * @lvl]] ongoing damage to the target. A normal save (11+) ends
-      the damage. A critical hit doesn’t double this ongoing damage.</p>
+      <p>Deal [[5 * @lvl]] ongoing damage to the target. A normal save (11+)
+      ends the damage. A critical hit doesn’t double this ongoing damage.</p>
   spellLevel2:
     hide: true
     type: String
@@ -209,9 +218,9 @@ system:
       description:
         type: String
         value: >-
-          <p>Once per day, you can instead use cruel to deal [[5 * @lvl]] ongoing
-          damage against an enemy you miss or that you roll a natural odd attack
-          against, even on a natural 1.</p>
+          <p>Once per day, you can instead use cruel to deal [[5 * @lvl]]
+          ongoing damage against an enemy you miss or that you roll a natural
+          odd attack against, even on a natural 1.</p>
       isActive:
         type: Boolean
         value: false

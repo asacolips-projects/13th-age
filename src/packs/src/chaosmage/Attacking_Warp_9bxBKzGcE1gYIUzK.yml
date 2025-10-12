@@ -32,6 +32,11 @@ system:
     type: String
     label: Embedded Macro
     value: ''
+  sequencer:
+    ray: ''
+    self: ''
+    target: ''
+    reversed: false
   group:
     type: String
     label: Group
@@ -77,6 +82,10 @@ system:
     label: Always
     value: ''
   attack:
+    type: String
+    label: Attack
+    value: ''
+  critMod:
     type: String
     label: Attack
     value: ''
@@ -216,8 +225,8 @@ system:
         type: String
         value: >-
           <p>When you roll a successful disengage check, you gain [[@dex.mod]]
-          temporary hit points([[2 * @dex.mod]] at 5th level; [[3 * @dex.mod]] at
-          8th level).</p>
+          temporary hit points([[2 * @dex.mod]] at 5th level; [[3 * @dex.mod]]
+          at 8th level).</p>
       isActive:
         type: Boolean
         value: false
