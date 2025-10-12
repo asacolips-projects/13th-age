@@ -1,9 +1,520 @@
 _id: 5PJeAZ421xz26Dft
-name: Lammasu Priest
-type: npc
+_key: '!actors!5PJeAZ421xz26Dft'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: IWPMo4RccPSUthck
+  _key: '!actors.items!5PJeAZ421xz26Dft.IWPMo4RccPSUthck'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Hooves of command
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. AC ([[2]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: "[[40]] damage, and the target can\u2019t attack the lammasu priest until\
+        \ the end of its next turn"
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: HOPrka7rS17nLWVT
+  _key: '!actors.items!5PJeAZ421xz26Dft.HOPrka7rS17nLWVT'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'R: Righteous ray of faith'
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 13]] vs. PD ([[1]] nearby or far away enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[80]] holy damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: ''
+      value: The lammasu priest can make a righteous ray of faith attack against a
+        different target.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: P0ForrVsb0FTWTUJ
+  _key: '!actors.items!5PJeAZ421xz26Dft.P0ForrVsb0FTWTUJ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'C: Judgment of the lammasu'
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: "[[d20 + 14]] vs. MD (each nearby conscious enemy that\u2019s staggered)"
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: 'Limited use: 2/battle.'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[50]] holy damage'
+    hit1:
+      label: Hit
+      name: Natural even miss
+      type: ''
+      value: Half damage.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: tdHQ5CaKEJhDbMOj
+  _key: '!actors.items!5PJeAZ421xz26Dft.tdHQ5CaKEJhDbMOj'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: "[Special trigger] C: Overworld\u2019s rebuke"
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 13]] vs. PD ([[1]] nearby enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: "[[25]] holy or lightning damage, and the target can\u2019t move to engage\
+        \ an enemy until the end of its next turn (it can move if it doesn\u2019t\
+        \ engage)"
+    hit1:
+      label: Hit
+      name: Natural even miss
+      type: ''
+      value: Half damage.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: ZQ9hMWXWQkm5gkgB
+  _key: '!actors.items!5PJeAZ421xz26Dft.ZQ9hMWXWQkm5gkgB'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Invocation of the world unseen
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Once per battle, the lammasu priest can make this invocation as a quick\
+        \ action. At the start of each of the lammasu priest\u2019s turns until the\
+        \ roll succeeds, roll a [[d4]]. If the roll is less than or equal to the escalation\
+        \ die, each nearby enemy is *hampered* (easy save ends, 6+)."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 5gM1X1tFcqeu4zHD
+  _key: '!actors.items!5PJeAZ421xz26Dft.5gM1X1tFcqeu4zHD'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Invocation of the highest court
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Once per battle, the lammasu priest can make this invocation as a quick\
+        \ action if it has used invocation of the world unseen. At the start of each\
+        \ of the lammasu priest\u2019s turns, roll a [[d8]]. If the roll is less than\
+        \ or equal to the escalation die, the lammasu can make an overworld\u2019\
+        s rebuke attack as a free action that turn."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: kT6FL2aVLdyq4URj
+  _key: '!actors.items!5PJeAZ421xz26Dft.kT6FL2aVLdyq4URj'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Refuge of stone
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "When the lammasu fails a save, it becomes a creature of living stone\
+        \ until the end of its next turn. While made of living stone, the lammasu\
+        \ wizard gains resist damage 16+ to all attacks against AC and PD. If it\u2019\
+        s flying when it becomes living stone, its magic allows it to remain in the\
+        \ air if it wishes."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Lammasu Priest
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Lammasu Priest
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 25
     attackMod:
       type: Number
       value: 0
@@ -14,599 +525,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 25
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 17
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 23
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 330
-      min: 0
-      max: 330
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 13
-      mod: 13
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 330
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 330
+    init:
+      label: Initiative Modifier
+      mod: 13
+      type: Number
+      value: 13
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 23
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 17
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: caster
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: caster
     roleB:
       value: ''
     size:
-      value: large
-      type: String
       label: Size
+      type: String
+      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
-      value: beast
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: beast
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B1
-items:
-  - _id: IWPMo4RccPSUthck
-    flags: {}
-    name: Hooves of command
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. AC ([[2]] attacks)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          [[40]] damage, and the target can’t attack the lammasu priest until
-          the end of its next turn
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!5PJeAZ421xz26Dft.IWPMo4RccPSUthck'
-  - _id: HOPrka7rS17nLWVT
-    flags: {}
-    name: 'R: Righteous ray of faith'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. PD ([[1]] nearby or far away enemy)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[80]] holy damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The lammasu priest can make a righteous ray of faith attack against a
-          different target.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!5PJeAZ421xz26Dft.HOPrka7rS17nLWVT'
-  - _id: P0ForrVsb0FTWTUJ
-    flags: {}
-    name: 'C: Judgment of the lammasu'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: 'Limited use: 2/battle.'
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. MD (each nearby conscious enemy that’s staggered)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[50]] holy damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even miss
-        value: Half damage.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!5PJeAZ421xz26Dft.P0ForrVsb0FTWTUJ'
-  - _id: tdHQ5CaKEJhDbMOj
-    flags: {}
-    name: '[Special trigger] C: Overworld’s rebuke'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. PD ([[1]] nearby enemy)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          [[25]] holy or lightning damage, and the target can’t move to engage
-          an enemy until the end of its next turn (it can move if it doesn’t
-          engage)
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even miss
-        value: Half damage.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!5PJeAZ421xz26Dft.tdHQ5CaKEJhDbMOj'
-  - _id: ZQ9hMWXWQkm5gkgB
-    flags: {}
-    name: Invocation of the world unseen
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Once per battle, the lammasu priest can make this invocation as a
-          quick action. At the start of each of the lammasu priest’s turns until
-          the roll succeeds, roll a [[d4]]. If the roll is less than or equal to
-          the escalation die, each nearby enemy is *hampered* (easy save ends,
-          6+).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!5PJeAZ421xz26Dft.ZQ9hMWXWQkm5gkgB'
-  - _id: 5gM1X1tFcqeu4zHD
-    flags: {}
-    name: Invocation of the highest court
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Once per battle, the lammasu priest can make this invocation as a
-          quick action if it has used invocation of the world unseen. At the
-          start of each of the lammasu priest’s turns, roll a [[d8]]. If the
-          roll is less than or equal to the escalation die, the lammasu can make
-          an overworld’s rebuke attack as a free action that turn.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!5PJeAZ421xz26Dft.5gM1X1tFcqeu4zHD'
-  - _id: kT6FL2aVLdyq4URj
-    flags: {}
-    name: Refuge of stone
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the lammasu fails a save, it becomes a creature of living stone
-          until the end of its next turn. While made of living stone, the
-          lammasu wizard gains resist damage 16+ to all attacks against AC and
-          PD. If it’s flying when it becomes living stone, its magic allows it
-          to remain in the air if it wishes.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!5PJeAZ421xz26Dft.kT6FL2aVLdyq4URj'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Lammasu Priest
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!5PJeAZ421xz26Dft'
+        enabled: false
+type: npc

@@ -1,9 +1,374 @@
 _id: ZEpelUvJiCTTrnau
-name: Five-Headed Hydra
-type: npc
+_key: '!actors!ZEpelUvJiCTTrnau'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: DtEADxe15QjVwjil
+  _key: '!actors.items!ZEpelUvJiCTTrnau.DtEADxe15QjVwjil'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Gnashing teeth
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 10]] vs. AC ([[5]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[10]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit or miss
+      type: ''
+      value: "The hydra\u2019s next gnashing teeth attack, if it has an attack left\
+        \ this turn, can be against any nearby enemy instead of against a creature\
+        \ engaged with it."
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: '[[5]] damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: ubSb0GQ4CaN5jBP4
+  _key: '!actors.items!ZEpelUvJiCTTrnau.ubSb0GQ4CaN5jBP4'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Too tough to trick
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: '*confused*, *dazed*, *hampered*, *stunned*, or *weakened*.'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: iDAQIa5xTiHQlVY3
+  _key: '!actors.items!ZEpelUvJiCTTrnau.iDAQIa5xTiHQlVY3'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Roiling swirl
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: If the hydra has at least two gnashing teeth attacks left during a turn,
+        it can expend one of those attacks to move to engage a nearby enemy as a free
+        action (but it will take opportunity attacks for doing so).
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 8CbrbfhJtzIIZTdb
+  _key: '!actors.items!ZEpelUvJiCTTrnau.8CbrbfhJtzIIZTdb'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Sprout sixth head
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The first time the hydra is staggered, as a free action it gains 40\
+        \ hit points and a sixth gnashing teeth attack, and is considered undamaged\
+        \ at its new hit point total. Using the hydra\u2019s current hit points as\
+        \ a new baseline, the hydra will be staggered again when it drops below 50%\
+        \ of that total."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: qu9NhKORpBy7KjJ5
+  _key: '!actors.items!ZEpelUvJiCTTrnau.qu9NhKORpBy7KjJ5'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Sprout seventh head
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The second time the hydra is staggered, as a free action it gains 40
+        hit points and a seventh gnashing teeth attack, etc. Use a new hit point baseline
+        as before, but there is no eighth head waiting to sprout.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: mafofVA7oaWboqi8
+  _key: '!actors.items!ZEpelUvJiCTTrnau.mafofVA7oaWboqi8'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Sprout eighth head
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: You know the drill.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Five-Headed Hydra
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Five-Headed Hydra
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 20
     attackMod:
       type: Number
       value: 0
@@ -14,464 +379,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 15
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 150
-      min: 0
-      max: 150
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 9
-      mod: 9
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 150
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 150
+    init:
+      label: Initiative Modifier
+      mod: 9
+      type: Number
+      value: 9
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 15
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 19
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: wrecker
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 5
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: wrecker
     roleB:
       value: ''
     size:
-      value: huge
-      type: String
       label: Size
+      type: String
+      value: huge
     sizeB:
       value: ''
     strength:
       value: triple
     type:
-      value: beast
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: beast
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: 1e
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: 1e
-items:
-  - _id: DtEADxe15QjVwjil
-    flags: {}
-    name: Gnashing teeth
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. AC ([[5]] attacks)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[10]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit or miss
-        value: >-
-          The hydra’s next gnashing teeth attack, if it has an attack left this
-          turn, can be against any nearby enemy instead of against a creature
-          engaged with it.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: '[[5]] damage.'
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!ZEpelUvJiCTTrnau.DtEADxe15QjVwjil'
-  - _id: ubSb0GQ4CaN5jBP4
-    flags: {}
-    name: Too tough to trick
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: '*confused*, *dazed*, *hampered*, *stunned*, or *weakened*.'
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!ZEpelUvJiCTTrnau.ubSb0GQ4CaN5jBP4'
-  - _id: iDAQIa5xTiHQlVY3
-    flags: {}
-    name: Roiling swirl
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          If the hydra has at least two gnashing teeth attacks left during a
-          turn, it can expend one of those attacks to move to engage a nearby
-          enemy as a free action (but it will take opportunity attacks for doing
-          so).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!ZEpelUvJiCTTrnau.iDAQIa5xTiHQlVY3'
-  - _id: 8CbrbfhJtzIIZTdb
-    flags: {}
-    name: Sprout sixth head
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The first time the hydra is staggered, as a free action it gains 40
-          hit points and a sixth gnashing teeth attack, and is considered
-          undamaged at its new hit point total. Using the hydra’s current hit
-          points as a new baseline, the hydra will be staggered again when it
-          drops below 50% of that total.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!ZEpelUvJiCTTrnau.8CbrbfhJtzIIZTdb'
-  - _id: qu9NhKORpBy7KjJ5
-    flags: {}
-    name: Sprout seventh head
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The second time the hydra is staggered, as a free action it gains 40
-          hit points and a seventh gnashing teeth attack, etc. Use a new hit
-          point baseline as before, but there is no eighth head waiting to
-          sprout.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!ZEpelUvJiCTTrnau.qu9NhKORpBy7KjJ5'
-  - _id: mafofVA7oaWboqi8
-    flags: {}
-    name: Sprout eighth head
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: You know the drill.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!ZEpelUvJiCTTrnau.mafofVA7oaWboqi8'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Five-Headed Hydra
-  displayName: 0
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!ZEpelUvJiCTTrnau'
+        enabled: false
+type: npc

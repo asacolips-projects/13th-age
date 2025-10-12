@@ -1,30 +1,43 @@
-name: Confused
-folder: null
-flags: {}
 _id: 21cEqzk92tflpW7N
-pages:
-  - name: Confused
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>You can’t make opportunity attacks or use your limited powers. Your
-        next attack action will be a basic or at-will attack against any nearby
-        ally, determined randomly.</p>
-    _id: b8qErHdtnyvrMKGP
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!21cEqzk92tflpW7N.b8qErHdtnyvrMKGP'
 _key: '!journal!21cEqzk92tflpW7N'
+categories: []
+flags: {}
+folder: null
+name: Confused
+ownership:
+  default: 0
+pages:
+- _id: b8qErHdtnyvrMKGP
+  _key: '!journal.pages!21cEqzk92tflpW7N.b8qErHdtnyvrMKGP'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Confused
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<p>You can\u2019t make opportunity attacks or use your limited powers.\
+      \ Your next attack action will be a basic or at-will attack against any nearby\
+      \ ally, determined randomly.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

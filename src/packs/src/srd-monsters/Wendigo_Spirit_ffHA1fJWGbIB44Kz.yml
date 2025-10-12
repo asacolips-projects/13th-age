@@ -1,9 +1,558 @@
 _id: ffHA1fJWGbIB44Kz
-name: Wendigo Spirit
-type: npc
+_key: '!actors!ffHA1fJWGbIB44Kz'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+items:
+- _id: rFMViy8N6UaidC4V
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.rFMViy8N6UaidC4V'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Soul bite
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 10]] vs. MD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: "[[36]] psychic damage, and the target is affected by wendigo\u2019s\
+        \ hunger (save ends)"
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: awl9lIHrZJ5z4aQ7
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.awl9lIHrZJ5z4aQ7'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Wind claw
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 10]] vs. PD ([[2]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[15]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: ''
+      value: After the attack the wendigo can teleport somewhere nearby as a free
+        action.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: YG9wLm0HA5aRlxqi
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.YG9wLm0HA5aRlxqi'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: "Wendigo\u2019s hunger"
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 2DOm6VRjSXQxc6SA
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.2DOm6VRjSXQxc6SA'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 1-2
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target takes [[10]] damage as it bites itself.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: aqss1zFshW9MAe6T
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.aqss1zFshW9MAe6T'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 3-4
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target makes a basic attack against its nearest or most *vulnerable*
+        ally (moving to that target if necessary).
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: sf30onW4s9FqTqCy
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.sf30onW4s9FqTqCy'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 5-6
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target attacks the wendigo if it can; otherwise, it does nothing.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: ERD1uCyvWhxkKKn2
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.ERD1uCyvWhxkKKn2'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The wendigo can walk on the wind. It is not a graceful flyer, but it
+        moves as fast as the wind that carries it. Nearby creatures can see its feet
+        blazing with fire as it runs.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: WUevVUN1SDqOSgl5
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.WUevVUN1SDqOSgl5'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Spirit form
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The wendigo has resist damage 16+ to all damage except thunder damage.\
+        \ A wendigo spirit can move through solid objects but it can\u2019t end its\
+        \ movement inside them."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: pJXpPBCjq3qHl7jM
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.pJXpPBCjq3qHl7jM'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Unseen horror
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The wendigo is invisible to far away creatures. When the wendigo attacks,\
+        \ if its target couldn\u2019t see it at the start of its turn, the wendigo\
+        \ gains a +2 attack bonus that turn."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: w4EihLlQsad0M7nX
+  _key: '!actors.items!ffHA1fJWGbIB44Kz.w4EihLlQsad0M7nX'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Curse of the wendigo
+  ownership:
+    default: 0
+  sort: 900000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "If a creature subject to wendigo\u2019s hunger drops itself (through\
+        \ biting) or an ally (with a basic attack) to 0 hp or lower, that creature\
+        \ also begins making last gasp saves. Failing the fourth last gasp save turns\
+        \ the creature into a raving cannibal; it loses all its normal abilities and\
+        \ becomes an NPC until the PCs find a way to restore their ally (at GM\u2019\
+        s discretion)."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Wendigo Spirit
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Wendigo Spirit
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 20
     attackMod:
       type: Number
       value: 0
@@ -14,601 +563,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 15
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 100
-      min: 0
-      max: 100
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 12
-      mod: 12
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 100
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 100
+    init:
+      label: Initiative Modifier
+      mod: 12
+      type: Number
+      value: 12
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 19
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 15
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: wrecker
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 5
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: wrecker
     roleB:
       value: ''
     size:
-      value: large
-      type: String
       label: Size
+      type: String
+      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
-      value: undead
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: undead
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B1
-items:
-  - _id: rFMViy8N6UaidC4V
-    flags: {}
-    name: Soul bite
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. MD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          [[36]] psychic damage, and the target is affected by wendigo’s hunger
-          (save ends)
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.rFMViy8N6UaidC4V'
-  - _id: awl9lIHrZJ5z4aQ7
-    flags: {}
-    name: Wind claw
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. PD ([[2]] attacks)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[15]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit
-        value: >-
-          After the attack the wendigo can teleport somewhere nearby as a free
-          action.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.awl9lIHrZJ5z4aQ7'
-  - _id: YG9wLm0HA5aRlxqi
-    flags: {}
-    name: Wendigo’s hunger
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.YG9wLm0HA5aRlxqi'
-  - _id: 2DOm6VRjSXQxc6SA
-    flags: {}
-    name: 1-2
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The target takes [[10]] damage as it bites itself.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.2DOm6VRjSXQxc6SA'
-  - _id: aqss1zFshW9MAe6T
-    flags: {}
-    name: 3-4
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The target makes a basic attack against its nearest or most
-          *vulnerable* ally (moving to that target if necessary).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.aqss1zFshW9MAe6T'
-  - _id: sf30onW4s9FqTqCy
-    flags: {}
-    name: 5-6
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The target attacks the wendigo if it can; otherwise, it does nothing.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.sf30onW4s9FqTqCy'
-  - _id: ERD1uCyvWhxkKKn2
-    flags: {}
-    name: Flight
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The wendigo can walk on the wind. It is not a graceful flyer, but it
-          moves as fast as the wind that carries it. Nearby creatures can see
-          its feet blazing with fire as it runs.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.ERD1uCyvWhxkKKn2'
-  - _id: WUevVUN1SDqOSgl5
-    flags: {}
-    name: Spirit form
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The wendigo has resist damage 16+ to all damage except thunder damage.
-          A wendigo spirit can move through solid objects but it can’t end its
-          movement inside them.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.WUevVUN1SDqOSgl5'
-  - _id: pJXpPBCjq3qHl7jM
-    flags: {}
-    name: Unseen horror
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The wendigo is invisible to far away creatures. When the wendigo
-          attacks, if its target couldn’t see it at the start of its turn, the
-          wendigo gains a +2 attack bonus that turn.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 800000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.pJXpPBCjq3qHl7jM'
-  - _id: w4EihLlQsad0M7nX
-    flags: {}
-    name: Curse of the wendigo
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          If a creature subject to wendigo’s hunger drops itself (through
-          biting) or an ally (with a basic attack) to 0 hp or lower, that
-          creature also begins making last gasp saves. Failing the fourth last
-          gasp save turns the creature into a raving cannibal; it loses all its
-          normal abilities and becomes an NPC until the PCs find a way to
-          restore their ally (at GM’s discretion).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 900000
-    effects: []
-    folder: null
-    _key: '!actors.items!ffHA1fJWGbIB44Kz.w4EihLlQsad0M7nX'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Wendigo Spirit
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!ffHA1fJWGbIB44Kz'
+        enabled: false
+type: npc

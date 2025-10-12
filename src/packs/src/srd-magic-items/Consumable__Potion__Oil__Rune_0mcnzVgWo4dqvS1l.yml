@@ -1,9 +1,9 @@
-name: Consumable, Potion, Oil, Rune
-sorting: a
-folder: null
-type: Item
 _id: 0mcnzVgWo4dqvS1l
-sort: 0
+_key: '!folders!0mcnzVgWo4dqvS1l'
 color: null
 flags: {}
-_key: '!folders!0mcnzVgWo4dqvS1l'
+folder: null
+name: Consumable, Potion, Oil, Rune
+sort: 0
+sorting: a
+type: Item

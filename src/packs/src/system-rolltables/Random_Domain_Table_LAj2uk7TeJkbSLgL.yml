@@ -1,135 +1,278 @@
-name: Random Domain Table
 _id: LAj2uk7TeJkbSLgL
-img: icons/svg/d20-grey.svg
+_key: '!tables!LAj2uk7TeJkbSLgL'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    _id: lsqepusZ8qVeTxWw
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.lsqepusZ8qVeTxWw'
-  - type: text
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    _id: V1jP2aiMkKyrJloQ
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.V1jP2aiMkKyrJloQ'
-  - type: text
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    _id: iDeBnabFFaXiLY2y
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.iDeBnabFFaXiLY2y'
-  - type: text
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    _id: Nm8U800px0aFDlLj
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.Nm8U800px0aFDlLj'
-  - type: text
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    _id: 1G2Eb3QB6os8Xx4A
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.1G2Eb3QB6os8Xx4A'
-  - type: text
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    _id: W01qIWYc24gkBTVH
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.W01qIWYc24gkBTVH'
-  - type: text
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    _id: 7Q71cd9fTBhtFtOz
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.7Q71cd9fTBhtFtOz'
-  - type: text
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    _id: SkVI8h69tIU6aQAe
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.SkVI8h69tIU6aQAe'
-  - type: text
-    weight: 1
-    range:
-      - 9
-      - 9
-    drawn: false
-    _id: b6ik9u3byC97nCHp
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.b6ik9u3byC97nCHp'
-  - type: text
-    weight: 1
-    range:
-      - 10
-      - 10
-    drawn: false
-    _id: apR245gdoXXq1x1y
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.apR245gdoXXq1x1y'
-  - type: text
-    weight: 1
-    range:
-      - 11
-      - 11
-    drawn: false
-    _id: CJnL9uhjIA0uXnWD
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.CJnL9uhjIA0uXnWD'
-  - type: text
-    weight: 1
-    range:
-      - 12
-      - 12
-    drawn: false
-    _id: 7eVwctgXMXYxsm0P
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!LAj2uk7TeJkbSLgL.7eVwctgXMXYxsm0P'
-replacement: true
 displayRoll: true
+flags: {}
 folder: null
-sort: 1500000
+formula: d12
+img: icons/svg/d20-grey.svg
+name: Random Domain Table
 ownership:
   default: 0
-  PeSJZogEJiZrBhBB: 3
-flags: {}
-formula: d12
-_key: '!tables!LAj2uk7TeJkbSLgL'
+replacement: true
+results:
+- _id: lsqepusZ8qVeTxWw
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.lsqepusZ8qVeTxWw'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Friendship or love
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: V1jP2aiMkKyrJloQ
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.V1jP2aiMkKyrJloQ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Healing
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: iDeBnabFFaXiLY2y
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.iDeBnabFFaXiLY2y'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Justice or Vengeance
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: Nm8U800px0aFDlLj
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.Nm8U800px0aFDlLj'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Knowledge or lore
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: 1G2Eb3QB6os8Xx4A
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.1G2Eb3QB6os8Xx4A'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Life or Death
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: W01qIWYc24gkBTVH
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.W01qIWYc24gkBTVH'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Perfection or Beauty
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: 7Q71cd9fTBhtFtOz
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.7Q71cd9fTBhtFtOz'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Protection or community
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: SkVI8h69tIU6aQAe
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.SkVI8h69tIU6aQAe'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Storm
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: b6ik9u3byC97nCHp
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.b6ik9u3byC97nCHp'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Strength
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: apR245gdoXXq1x1y
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.apR245gdoXXq1x1y'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Sun or Anti-Undead
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+- _id: CJnL9uhjIA0uXnWD
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.CJnL9uhjIA0uXnWD'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Trickery or cunning or Illusion
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
+- _id: 7eVwctgXMXYxsm0P
+  _key: '!tables.results!LAj2uk7TeJkbSLgL.7eVwctgXMXYxsm0P'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Trickery or cunning or Illusion
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 12
+  - 12
+  type: text
+  weight: 1
+sort: 1500000

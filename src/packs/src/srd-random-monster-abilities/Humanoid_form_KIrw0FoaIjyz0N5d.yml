@@ -1,35 +1,33 @@
-name: Humanoid form
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The dragon is capable of shapechanging into a humanoid form, usually of
-      a warrior or spellcaster appropriate to its nature and usually not
-      obviously draconic, registering as a normal human or elf or whatever. This
-      ability is best used for long-term dragon characters that make it worth
-      the GM&rsquo;s time to create a double- or triple-strength humanoid
-      monster to represent the shapechanged form. The dragon has the PC-style
-      racial power of their humanoid form, but only while in shapechanged
-      form.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: KIrw0FoaIjyz0N5d
+_key: '!items!KIrw0FoaIjyz0N5d'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Humanoid form
 ownership:
   default: 0
-_id: KIrw0FoaIjyz0N5d
-_key: '!items!KIrw0FoaIjyz0N5d'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>The dragon is capable of shapechanging into a humanoid form, usually
+      of a warrior or spellcaster appropriate to its nature and usually not obviously
+      draconic, registering as a normal human or elf or whatever. This ability is
+      best used for long-term dragon characters that make it worth the GM&rsquo;s
+      time to create a double- or triple-strength humanoid monster to represent the
+      shapechanged form. The dragon has the PC-style racial power of their humanoid
+      form, but only while in shapechanged form.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

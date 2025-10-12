@@ -1,71 +1,44 @@
-name: Staff of Dark Karma
-type: equipment
+_id: sx6utMwTQ3cxqaZS
+_key: '!items!sx6utMwTQ3cxqaZS'
+effects: []
+flags:
+  core: {}
+folder: 4kES6iUsw34OPUMb
 img: icons/svg/item-bag.svg
+name: Staff of Dark Karma
+ownership:
+  default: 0
+sort: 300000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(3/day) When you hit with a spell attack, deal extra damage to one
-      target. If the spell targets one enemy, deal +[[4d10]] damage. Otherwise,
-      deal +[[2d10]] damage. In addition, the first time you take damage each
-      battle, you lose [[20]] hp.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '3'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '3'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 4
+      divine:
+        bonus: 4
       melee:
         bonus: 4
       ranged:
         bonus: 0
-      divine:
-        bonus: 4
-      arcane:
-        bonus: 4
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -73,29 +46,55 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: epic
-  isActive: true
-  publicationSource: 1e
   chackra: staff
-effects: []
-folder: 4kES6iUsw34OPUMb
-flags:
-  core: {}
-_id: sx6utMwTQ3cxqaZS
-sort: 300000
-ownership:
-  default: 0
-_key: '!items!sx6utMwTQ3cxqaZS'
+  description:
+    label: Description
+    type: String
+    value: <p>(3/day) When you hit with a spell attack, deal extra damage to one target.
+      If the spell targets one enemy, deal +[[4d10]] damage. Otherwise, deal +[[2d10]]
+      damage. In addition, the first time you take damage each battle, you lose [[20]]
+      hp.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '3'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '3'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: epic
+type: equipment

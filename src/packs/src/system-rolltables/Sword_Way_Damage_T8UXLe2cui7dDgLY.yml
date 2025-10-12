@@ -1,127 +1,267 @@
-name: Sword Way Damage
 _id: T8UXLe2cui7dDgLY
-img: icons/svg/d20-grey.svg
+_key: '!tables!T8UXLe2cui7dDgLY'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    _id: 0DdomT27hhDCoCvG
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.0DdomT27hhDCoCvG'
-  - type: text
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    _id: uniKy2ovpIgV89eF
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.uniKy2ovpIgV89eF'
-  - type: text
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    _id: lJmEGd03dDeE7xYl
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.lJmEGd03dDeE7xYl'
-  - type: text
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    _id: CfAyvqT9q4sOuL2d
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.CfAyvqT9q4sOuL2d'
-  - type: text
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    _id: IU3KS3icKP22Wtaj
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.IU3KS3icKP22Wtaj'
-  - type: text
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    _id: Y0ayczvA1xnG2CNy
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.Y0ayczvA1xnG2CNy'
-  - type: text
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    _id: J34fDDNx7gsVK5Rn
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.J34fDDNx7gsVK5Rn'
-  - type: text
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    _id: k4xJm4PK0Jc2TsMe
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.k4xJm4PK0Jc2TsMe'
-  - type: text
-    weight: 1
-    range:
-      - 9
-      - 9
-    drawn: false
-    _id: vYnPTH5Mf0AE2ZIh
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.vYnPTH5Mf0AE2ZIh'
-  - type: text
-    weight: 1
-    range:
-      - 10
-      - 10
-    drawn: false
-    _id: dZXJx8PCkOLa0CHR
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.dZXJx8PCkOLa0CHR'
-  - type: text
-    weight: 1
-    range:
-      - 11
-      - 11
-    _id: dtZon0AJuks2xx0p
-    name: ''
-    img: icons/svg/d20-black.svg
-    description: <p>+[[44]] damage on a natural even hit.</p>
-    drawn: false
-    flags: {}
-    _key: '!tables.results!T8UXLe2cui7dDgLY.dtZon0AJuks2xx0p'
-replacement: true
 displayRoll: false
+flags: {}
 folder: null
-sort: 1900000
+formula: ''
+img: icons/svg/d20-grey.svg
+name: Sword Way Damage
 ownership:
   default: 0
-  nPjNg32wEG3J72a7: 3
-flags: {}
-formula: ''
-_key: '!tables!T8UXLe2cui7dDgLY'
+replacement: true
+results:
+- _id: 0DdomT27hhDCoCvG
+  _key: '!tables.results!T8UXLe2cui7dDgLY.0DdomT27hhDCoCvG'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257155886
+    systemId: null
+    systemVersion: null
+  description: <p>+[[1d4]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: uniKy2ovpIgV89eF
+  _key: '!tables.results!T8UXLe2cui7dDgLY.uniKy2ovpIgV89eF'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257161255
+    systemId: null
+    systemVersion: null
+  description: <p>+[[1d6]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: lJmEGd03dDeE7xYl
+  _key: '!tables.results!T8UXLe2cui7dDgLY.lJmEGd03dDeE7xYl'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257166062
+    systemId: null
+    systemVersion: null
+  description: <p>+[[1d8]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: CfAyvqT9q4sOuL2d
+  _key: '!tables.results!T8UXLe2cui7dDgLY.CfAyvqT9q4sOuL2d'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257173511
+    systemId: null
+    systemVersion: null
+  description: <p>+[[2d6]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: IU3KS3icKP22Wtaj
+  _key: '!tables.results!T8UXLe2cui7dDgLY.IU3KS3icKP22Wtaj'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257184846
+    systemId: null
+    systemVersion: null
+  description: <p>+[[2d10]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: Y0ayczvA1xnG2CNy
+  _key: '!tables.results!T8UXLe2cui7dDgLY.Y0ayczvA1xnG2CNy'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257191663
+    systemId: null
+    systemVersion: null
+  description: <p>+[[4d6]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: J34fDDNx7gsVK5Rn
+  _key: '!tables.results!T8UXLe2cui7dDgLY.J34fDDNx7gsVK5Rn'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257197063
+    systemId: null
+    systemVersion: null
+  description: <p>+[[4d8]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: k4xJm4PK0Jc2TsMe
+  _key: '!tables.results!T8UXLe2cui7dDgLY.k4xJm4PK0Jc2TsMe'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257206655
+    systemId: null
+    systemVersion: null
+  description: <p>+[[22]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: vYnPTH5Mf0AE2ZIh
+  _key: '!tables.results!T8UXLe2cui7dDgLY.vYnPTH5Mf0AE2ZIh'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257213423
+    systemId: null
+    systemVersion: null
+  description: <p>+[[28]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: dZXJx8PCkOLa0CHR
+  _key: '!tables.results!T8UXLe2cui7dDgLY.dZXJx8PCkOLa0CHR'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257219494
+    systemId: null
+    systemVersion: null
+  description: <p>+[[36]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+- _id: dtZon0AJuks2xx0p
+  _key: '!tables.results!T8UXLe2cui7dDgLY.dtZon0AJuks2xx0p'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: 1760257225481
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760257232390
+    systemId: archmage
+    systemVersion: 1.37.0
+  description: <p>+[[44]] damage on a natural even hit.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
+sort: 1900000

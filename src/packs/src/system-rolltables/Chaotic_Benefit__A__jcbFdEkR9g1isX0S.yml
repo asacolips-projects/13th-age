@@ -1,44 +1,80 @@
-name: Chaotic Benefit (A)
-flags: {}
-img: icons/svg/d20-grey.svg
-description: ''
-results:
-  - _id: J3b3nfkIx5VVDdlY
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 1
-      - 2
-    drawn: false
-    _key: '!tables.results!jcbFdEkR9g1isX0S.J3b3nfkIx5VVDdlY'
-  - _id: UXhDiu0OqmmWDyuE
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 3
-      - 4
-    drawn: false
-    _key: '!tables.results!jcbFdEkR9g1isX0S.UXhDiu0OqmmWDyuE'
-  - _id: keCG3oBCGlYwrE3D
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 5
-      - 6
-    drawn: false
-    _key: '!tables.results!jcbFdEkR9g1isX0S.keCG3oBCGlYwrE3D'
-formula: 1d6
-replacement: true
-displayRoll: false
 _id: jcbFdEkR9g1isX0S
+_key: '!tables!jcbFdEkR9g1isX0S'
+description: ''
+displayRoll: false
+flags: {}
+folder: null
+formula: 1d6
+img: icons/svg/d20-grey.svg
+name: Chaotic Benefit (A)
 ownership:
   default: 0
-folder: null
+replacement: true
+results:
+- _id: J3b3nfkIx5VVDdlY
+  _key: '!tables.results!jcbFdEkR9g1isX0S.J3b3nfkIx5VVDdlY'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: You gain a +1 bonus to AC until the start of your next turn.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 2
+  type: text
+  weight: 2
+- _id: UXhDiu0OqmmWDyuE
+  _key: '!tables.results!jcbFdEkR9g1isX0S.UXhDiu0OqmmWDyuE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Deal [[@lvl]] damage to all nearby staggered enemies.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 4
+  type: text
+  weight: 2
+- _id: keCG3oBCGlYwrE3D
+  _key: '!tables.results!jcbFdEkR9g1isX0S.keCG3oBCGlYwrE3D'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Deal [[@lvl]] damage to one nearby enemy.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 6
+  type: text
+  weight: 2
 sort: 2500000
-_key: '!tables!jcbFdEkR9g1isX0S'

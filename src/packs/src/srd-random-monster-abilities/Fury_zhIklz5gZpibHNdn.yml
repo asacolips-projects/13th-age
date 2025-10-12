@@ -1,29 +1,28 @@
-name: Fury
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>While staggered, the dire animal gains a +2 attack bonus and deals +4
-      damage, but at the end of each of its turns it takes 2d6 damage.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: zhIklz5gZpibHNdn
+_key: '!items!zhIklz5gZpibHNdn'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Fury
 ownership:
   default: 0
-_id: zhIklz5gZpibHNdn
-_key: '!items!zhIklz5gZpibHNdn'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>While staggered, the dire animal gains a +2 attack bonus and deals +4
+      damage, but at the end of each of its turns it takes 2d6 damage.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

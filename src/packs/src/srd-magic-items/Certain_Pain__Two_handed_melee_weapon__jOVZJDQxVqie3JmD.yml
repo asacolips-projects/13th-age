@@ -1,73 +1,44 @@
-name: Certain Pain (Two-handed melee weapon)
-type: equipment
+_id: jOVZJDQxVqie3JmD
+_key: '!items!jOVZJDQxVqie3JmD'
+effects: []
+flags:
+  core: {}
+folder: gFuuXf8MeSSiobPC
 img: icons/svg/item-bag.svg
+name: Certain Pain (Two-handed melee weapon)
+ownership:
+  default: 0
+sort: 2100000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 11+) Before making an attack with this weapon, designate it
-      as a &ldquo;pain&rdquo; attack. On a hit with that attack, one target
-      takes [[10]] extra damage. On a miss, you take [[10]] damage (champion:
-      [[25]] damage; epic: [[60]] damage).</p>
-
-      <p>Quirk: Fond of gambling.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '11'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 1
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -75,29 +46,57 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: 13TW
   chackra: melee
-effects: []
-folder: gFuuXf8MeSSiobPC
-flags:
-  core: {}
-_id: jOVZJDQxVqie3JmD
-sort: 2100000
-ownership:
-  default: 0
-_key: '!items!jOVZJDQxVqie3JmD'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 11+) Before making an attack with this weapon, designate
+      it as a &ldquo;pain&rdquo; attack. On a hit with that attack, one target takes
+      [[10]] extra damage. On a miss, you take [[10]] damage (champion: [[25]] damage;
+      epic: [[60]] damage).</p>
+
+      <p>Quirk: Fond of gambling.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 13TW
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '11'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

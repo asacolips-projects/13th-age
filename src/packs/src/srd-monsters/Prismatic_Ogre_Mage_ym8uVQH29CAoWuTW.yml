@@ -1,9 +1,708 @@
 _id: ym8uVQH29CAoWuTW
-name: Prismatic Ogre Mage
-type: npc
+_key: '!actors!ym8uVQH29CAoWuTW'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+items:
+- _id: uVgGdROvJbKyizIh
+  _key: '!actors.items!ym8uVQH29CAoWuTW.uVgGdROvJbKyizIh'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Horns and claws
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 15]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[75]] damage'
+    hit1:
+      label: Hit
+      name: Natural 2-5
+      type: ''
+      value: The prismatic ogre mage can use prismatic blast as a free action without
+        provoking an opportunity attack.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: veic8cbKSCqiSrZG
+  _key: '!actors.items!ym8uVQH29CAoWuTW.veic8cbKSCqiSrZG'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Force shove
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 15]] vs. PD (each enemy engaged with ogre)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[10]] force damage, and the target pops free from the ogre mage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: NJOrGS30zjTBB2Ce
+  _key: '!actors.items!ym8uVQH29CAoWuTW.NJOrGS30zjTBB2Ce'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'R: Prismatic blast'
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 15]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: Roll a [[d8]] against each hit target to determine the type of ray and
+        effect
+    hit1:
+      label: Hit
+      name: 1. Red
+      type: ''
+      value: '[[40]] fire damage.'
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: hB7EUBiZIVj00RfE
+  _key: '!actors.items!ym8uVQH29CAoWuTW.hB7EUBiZIVj00RfE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Quick use
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: This power only requires a quick action (once per round) instead of a
+        standard action when the escalation die is odd.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: aOFedScK5pqsVnUj
+  _key: '!actors.items!ym8uVQH29CAoWuTW.aOFedScK5pqsVnUj'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 2. Orange
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: '[[50]] damage, and the target is *confused* (save ends).'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: NvlQNOQeSQARtMZ9
+  _key: '!actors.items!ym8uVQH29CAoWuTW.NvlQNOQeSQARtMZ9'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 3. Yellow
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: '[[40]] ongoing poison damage.'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: XGbkfnDsvdQUKaUp
+  _key: '!actors.items!ym8uVQH29CAoWuTW.XGbkfnDsvdQUKaUp'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 4. Green
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target loses a recovery, and the prismatic ogre mage heals 70 hp.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: N2P2wNSie6ZbMKNP
+  _key: '!actors.items!ym8uVQH29CAoWuTW.N2P2wNSie6ZbMKNP'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 5. Blue
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: KhqyiS5Oy2SA58tc
+  _key: '!actors.items!ym8uVQH29CAoWuTW.KhqyiS5Oy2SA58tc'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 6. Cyan
+  ownership:
+    default: 0
+  sort: 900000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target is *stunned* (save ends).
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: wgMQOItvSbPMOKnV
+  _key: '!actors.items!ym8uVQH29CAoWuTW.wgMQOItvSbPMOKnV'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 7. Purple
+  ownership:
+    default: 0
+  sort: 1000000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target is *dazed* and *confused* (save ends both). When the target
+        saves, it takes [[40]] psychic damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 1Vf6mYwQVlQ4KWD4
+  _key: '!actors.items!ym8uVQH29CAoWuTW.1Vf6mYwQVlQ4KWD4'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 8. Magenta
+  ownership:
+    default: 0
+  sort: 1100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The target is transported into the future. Remove that creature from\
+        \ play, returning it to the battle in (or near) its previous location at the\
+        \ end of its next turn. No time seems to pass for the target while it\u2019\
+        s gone."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: OLQZUpTdz0L6cbCl
+  _key: '!actors.items!ym8uVQH29CAoWuTW.OLQZUpTdz0L6cbCl'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Resist exceptional attacks 16+
+  ownership:
+    default: 0
+  sort: 1200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When a limited attack (not an at-will attack) targets this creature,
+        the attacker must roll a natural 16+ on the attack roll or it only deals half
+        damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: sE67A3PnIeNVaIHo
+  _key: '!actors.items!ym8uVQH29CAoWuTW.sE67A3PnIeNVaIHo'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Warp
+  ownership:
+    default: 0
+  sort: 1300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "\u201CYellow hair,\u201D \u201CAfraid of spiders,\u201D \u201CPrefers\
+        \ white wine to red,\u201D or \u201CTattoo of a halfling on left bicep.\u201D\
+        \ These personal traits are shuffled and randomly distributed equally by the\
+        \ GM after the battle is over. Whichever trait each player receives is now\
+        \ true for their character as well as for the character of the player who\
+        \ wrote it down (unless there has somehow turned out to be a swap\u2026).\
+        \ These traits don\u2019t alter game mechanics (feats, powers, backgrounds,\
+        \ icon relationships, attributes, bonuses, etc.). They are personal details\
+        \ that have been warped and scrambled by the prismatic ogre mage\u2019s magic."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Prismatic Ogre Mage
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Prismatic Ogre Mage
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/giant.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 25
     attackMod:
       type: Number
       value: 0
@@ -14,716 +713,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 25
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 22
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 18
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 360
-      min: 0
-      max: 360
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 16
-      mod: 16
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 360
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 360
+    init:
+      label: Initiative Modifier
+      mod: 16
+      type: Number
+      value: 16
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 18
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 22
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: caster
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: caster
     roleB:
       value: ''
     size:
-      value: large
-      type: String
       label: Size
+      type: String
+      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
-      value: giant
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: giant
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B1
-items:
-  - _id: uVgGdROvJbKyizIh
-    flags: {}
-    name: Horns and claws
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 15]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[75]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 2-5
-        value: >-
-          The prismatic ogre mage can use prismatic blast as a free action
-          without provoking an opportunity attack.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.uVgGdROvJbKyizIh'
-  - _id: veic8cbKSCqiSrZG
-    flags: {}
-    name: Force shove
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 15]] vs. PD (each enemy engaged with ogre)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[10]] force damage, and the target pops free from the ogre mage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.veic8cbKSCqiSrZG'
-  - _id: NJOrGS30zjTBB2Ce
-    flags: {}
-    name: 'R: Prismatic blast'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 15]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          Roll a [[d8]] against each hit target to determine the type of ray and
-          effect
-      hit1:
-        type: ''
-        label: Hit
-        name: 1. Red
-        value: '[[40]] fire damage.'
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.NJOrGS30zjTBB2Ce'
-  - _id: hB7EUBiZIVj00RfE
-    flags: {}
-    name: Quick use
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          This power only requires a quick action (once per round) instead of a
-          standard action when the escalation die is odd.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.hB7EUBiZIVj00RfE'
-  - _id: aOFedScK5pqsVnUj
-    flags: {}
-    name: 2. Orange
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: '[[50]] damage, and the target is *confused* (save ends).'
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.aOFedScK5pqsVnUj'
-  - _id: NvlQNOQeSQARtMZ9
-    flags: {}
-    name: 3. Yellow
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: '[[40]] ongoing poison damage.'
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.NvlQNOQeSQARtMZ9'
-  - _id: XGbkfnDsvdQUKaUp
-    flags: {}
-    name: 4. Green
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The target loses a recovery, and the prismatic ogre mage heals 70 hp.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.XGbkfnDsvdQUKaUp'
-  - _id: N2P2wNSie6ZbMKNP
-    flags: {}
-    name: 5. Blue
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 800000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.N2P2wNSie6ZbMKNP'
-  - _id: KhqyiS5Oy2SA58tc
-    flags: {}
-    name: 6. Cyan
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The target is *stunned* (save ends).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 900000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.KhqyiS5Oy2SA58tc'
-  - _id: wgMQOItvSbPMOKnV
-    flags: {}
-    name: 7. Purple
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The target is *dazed* and *confused* (save ends both). When the target
-          saves, it takes [[40]] psychic damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1000000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.wgMQOItvSbPMOKnV'
-  - _id: 1Vf6mYwQVlQ4KWD4
-    flags: {}
-    name: 8. Magenta
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The target is transported into the future. Remove that creature from
-          play, returning it to the battle in (or near) its previous location at
-          the end of its next turn. No time seems to pass for the target while
-          it’s gone.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1100000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.1Vf6mYwQVlQ4KWD4'
-  - _id: OLQZUpTdz0L6cbCl
-    flags: {}
-    name: Resist exceptional attacks 16+
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When a limited attack (not an at-will attack) targets this creature,
-          the attacker must roll a natural 16+ on the attack roll or it only
-          deals half damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1200000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.OLQZUpTdz0L6cbCl'
-  - _id: sE67A3PnIeNVaIHo
-    flags: {}
-    name: Warp
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          “Yellow hair,” “Afraid of spiders,” “Prefers white wine to red,” or
-          “Tattoo of a halfling on left bicep.” These personal traits are
-          shuffled and randomly distributed equally by the GM after the battle
-          is over. Whichever trait each player receives is now true for their
-          character as well as for the character of the player who wrote it down
-          (unless there has somehow turned out to be a swap…). These traits
-          don’t alter game mechanics (feats, powers, backgrounds, icon
-          relationships, attributes, bonuses, etc.). They are personal details
-          that have been warped and scrambled by the prismatic ogre mage’s
-          magic.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1300000
-    effects: []
-    folder: null
-    _key: '!actors.items!ym8uVQH29CAoWuTW.sE67A3PnIeNVaIHo'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Prismatic Ogre Mage
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/giant.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!ym8uVQH29CAoWuTW'
+        enabled: false
+type: npc

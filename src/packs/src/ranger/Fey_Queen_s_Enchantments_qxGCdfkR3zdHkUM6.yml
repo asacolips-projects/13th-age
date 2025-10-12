@@ -1,241 +1,81 @@
+_id: qxGCdfkR3zdHkUM6
+_key: '!items!qxGCdfkR3zdHkUM6'
+effects: []
+flags: {}
+folder: null
+img: icons/magic/light/explosion-star-small-pink.webp
 name: Fey Queen's Enchantments
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: ''
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Ranger
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Fey Queen's Enchantments
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: '1'
   actionType:
-    type: String
     label: Action
+    type: String
     value: ''
-  range:
-    type: String
-    label: Range
-    value: null
-  trigger:
-    type: String
-    label: Trigger
-    value: null
-  target:
-    type: String
-    label: Target
-    value: null
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: null
-  critMod:
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: null
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: null
-  missEven:
-    type: String
-    label: Even Miss
-    value: null
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: null
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: null
-  castPower:
-    type: String
-    label: Cast for Power
-    value: null
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: null
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: null
-  special:
-    type: String
-    label: Special
-    value: ''
-  effect:
-    type: String
-    label: Effect
-    value: >-
-      <p>Choose one daily or recharge spell of your level or lower from the
-      sorcerer class. You can cast this spell as if you were a sorcerer (though
-      you can't gather power).</p>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: null
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: null
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: null
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: null
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
     value: null
   breathWeapon:
-    type: String
     label: Breath Weapon
-    value: null
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
     type: String
-    label: Roll Table
+    value: null
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: null
+  castPower:
+    label: Cast for Power
+    type: String
+    value: null
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: <p>Choose one daily or recharge spell of your level or lower from the sorcerer
+      class. You can cast this spell as if you were a sorcerer (though you can't gather
+      power).</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>You can choose which ability score you want to use as the attack
+        value: <p>You can choose which ability score you want to use as the attack
           ability for sorcerer spells you can cast.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: adventurer
     '1':
       description:
         type: String
@@ -243,45 +83,202 @@ system:
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: champion
     '2':
       description:
         type: String
-        value: >-
-          <p>You gain an additional sorcerer spell of your choice that is your
+        value: <p>You gain an additional sorcerer spell of your choice that is your
           level or lower; a total of two from this talent.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: icons/magic/light/explosion-star-small-pink.webp
-_id: qxGCdfkR3zdHkUM6
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!qxGCdfkR3zdHkUM6'
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: null
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: null
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: null
+  missEven:
+    label: Even Miss
+    type: String
+    value: null
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: null
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: '1'
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Fey Queen's Enchantments
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Ranger
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: ''
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: null
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: null
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: null
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: null
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: null
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: null
+  target:
+    label: Target
+    type: String
+    value: null
+  trigger:
+    label: Trigger
+    type: String
+    value: null
+type: power

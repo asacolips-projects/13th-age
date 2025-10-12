@@ -1,34 +1,47 @@
-name: Charmed
-folder: null
-flags: {}
 _id: 21cEqzk92tflpW7P
-pages:
-  - name: Charmed
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>You can’t attack. This condition ends if you are attacked by an
-        enemy. You can use your actions to do anything other than attack or
-        delay, since for the moment it feels to you like there’s some sort of
-        terrible misunderstanding between friends. You know who your true allies
-        are and can take actions to help them. But you also suspect that
-        everyone else might be friends, though not to the point that you need to
-        heal them or count them as allies.</p>
-    _id: Kk6dnVOgfepO4MgE
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!21cEqzk92tflpW7P.Kk6dnVOgfepO4MgE'
 _key: '!journal!21cEqzk92tflpW7P'
+categories: []
+flags: {}
+folder: null
+name: Charmed
+ownership:
+  default: 0
+pages:
+- _id: Kk6dnVOgfepO4MgE
+  _key: '!journal.pages!21cEqzk92tflpW7P.Kk6dnVOgfepO4MgE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Charmed
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<p>You can\u2019t attack. This condition ends if you are attacked by\
+      \ an enemy. You can use your actions to do anything other than attack or delay,\
+      \ since for the moment it feels to you like there\u2019s some sort of terrible\
+      \ misunderstanding between friends. You know who your true allies are and can\
+      \ take actions to help them. But you also suspect that everyone else might be\
+      \ friends, though not to the point that you need to heal them or count them\
+      \ as allies.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

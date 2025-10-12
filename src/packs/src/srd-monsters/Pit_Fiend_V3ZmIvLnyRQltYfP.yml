@@ -1,9 +1,625 @@
 _id: V3ZmIvLnyRQltYfP
-name: Pit Fiend
-type: npc
+_key: '!actors!V3ZmIvLnyRQltYfP'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+items:
+- _id: xjs3piA9DTM4qT0T
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.xjs3piA9DTM4qT0T'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Fiendish weapon
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 19]] vs. AC ([[2]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: "[[140]] damage, and until the end of the battle the target takes a -2\
+        \ penalty to attacks, defenses, and level-based [[d20]] rolls. Hit points,\
+        \ feats, weapon damage, and other level-based benefits don\u2019t change.\
+        \ (The penalty isn\u2019t cumulative.)"
+    hit1:
+      label: Hit
+      name: Natural 11+
+      type: ''
+      value: The pit fiend can make an entangling tail attack against a different
+        target as a free action.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: A5vvnqDvbnDt14cJ
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.A5vvnqDvbnDt14cJ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Entangling tail
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 19]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[40]] damage, and the target is *hampered* until the end of its next
+        turn or until the pit fiend makes another entangling tail attack.'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: pIpyl3NcNYvLnO3W
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.pIpyl3NcNYvLnO3W'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'R: Burst of hellfire'
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 19]] vs. PD (up to 3 nearby or far away enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[120]] fire damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: Half damage.
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 0EdWrJj6XAYU0Tfq
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.0EdWrJj6XAYU0Tfq'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'C: Black utterance of denial'
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 19]] vs. MD (each enemy engaged with the pit fiend)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: 'Limited use: 1/battle, as a quick action.'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: The target is *hampered* until the end of its next turn
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 6wf0RFCkUUs0wmwy
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.6wf0RFCkUUs0wmwy'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Both attacks hit
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The pit fiend can use fiendish vigor as a free action.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: LQUp42BYOrZAsmuY
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.LQUp42BYOrZAsmuY'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: "Devil\u2019s due (Menace)"
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When you choose to add the escalation die to an attack against a pit
+        fiend, the escalation die does not increase at the start of the next round.
+        Special circumstances and PC powers can still increase it.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 63T17VRU3p2bO8qC
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.63T17VRU3p2bO8qC'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Fiendish vigor
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: As a standard action, the pit fiend can heal 300 hp and roll a save against
+        each ongoing effect on it. It can use fiendish vigor up to five times per
+        battle.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: CuLlndFQCsl5LIpH
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.CuLlndFQCsl5LIpH'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Amidst wind and flames, a pit fiend can fly with surprising agility.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Ns2n1U5AbLuTUJQX
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.Ns2n1U5AbLuTUJQX'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Resist fire 13+
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When a fire attack targets this creature, the attacker must roll a natural
+        13+ on the attack roll or it only deals half damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: KyIUVZMvcyXF6f1n
+  _key: '!actors.items!V3ZmIvLnyRQltYfP.KyIUVZMvcyXF6f1n'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Cloak of fire
+  ownership:
+    default: 0
+  sort: 900000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When a creature is engaged with the pit fiend at the start of its turn,
+        that creature takes [[20]] fire damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Pit Fiend
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Pit Fiend
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 29
     attackMod:
       type: Number
       value: 0
@@ -14,668 +630,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 29
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 27
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 27
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 1600
-      min: 0
-      max: 1600
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 19
-      mod: 19
-    level:
-      type: Number
-      label: Level
-      value: 14
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 1600
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 1600
+    init:
+      label: Initiative Modifier
+      mod: 19
+      type: Number
+      value: 19
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 14
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 27
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 27
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: wrecker
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 14
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: wrecker
     roleB:
       value: ''
     size:
-      value: huge
-      type: String
       label: Size
+      type: String
+      value: huge
     sizeB:
       value: ''
     strength:
       value: triple
     type:
-      value: devil
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: devil
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 14
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: 13TW
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: 13TW
-items:
-  - _id: xjs3piA9DTM4qT0T
-    flags: {}
-    name: Fiendish weapon
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 19]] vs. AC ([[2]] attacks)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          [[140]] damage, and until the end of the battle the target takes a -2
-          penalty to attacks, defenses, and level-based [[d20]] rolls. Hit
-          points, feats, weapon damage, and other level-based benefits don’t
-          change. (The penalty isn’t cumulative.)
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 11+
-        value: >-
-          The pit fiend can make an entangling tail attack against a different
-          target as a free action.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.xjs3piA9DTM4qT0T'
-  - _id: A5vvnqDvbnDt14cJ
-    flags: {}
-    name: Entangling tail
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 19]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          [[40]] damage, and the target is *hampered* until the end of its next
-          turn or until the pit fiend makes another entangling tail attack.
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.A5vvnqDvbnDt14cJ'
-  - _id: pIpyl3NcNYvLnO3W
-    flags: {}
-    name: 'R: Burst of hellfire'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 19]] vs. PD (up to 3 nearby or far away enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[120]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: Half damage.
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.pIpyl3NcNYvLnO3W'
-  - _id: 0EdWrJj6XAYU0Tfq
-    flags: {}
-    name: 'C: Black utterance of denial'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: 'Limited use: 1/battle, as a quick action.'
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 19]] vs. MD (each enemy engaged with the pit fiend)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: The target is *hampered* until the end of its next turn
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.0EdWrJj6XAYU0Tfq'
-  - _id: 6wf0RFCkUUs0wmwy
-    flags: {}
-    name: Both attacks hit
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The pit fiend can use fiendish vigor as a free action.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.6wf0RFCkUUs0wmwy'
-  - _id: LQUp42BYOrZAsmuY
-    flags: {}
-    name: Devil’s due (Menace)
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When you choose to add the escalation die to an attack against a pit
-          fiend, the escalation die does not increase at the start of the next
-          round. Special circumstances and PC powers can still increase it.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.LQUp42BYOrZAsmuY'
-  - _id: 63T17VRU3p2bO8qC
-    flags: {}
-    name: Fiendish vigor
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          As a standard action, the pit fiend can heal 300 hp and roll a save
-          against each ongoing effect on it. It can use fiendish vigor up to
-          five times per battle.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.63T17VRU3p2bO8qC'
-  - _id: CuLlndFQCsl5LIpH
-    flags: {}
-    name: Flight
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: Amidst wind and flames, a pit fiend can fly with surprising agility.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.CuLlndFQCsl5LIpH'
-  - _id: Ns2n1U5AbLuTUJQX
-    flags: {}
-    name: Resist fire 13+
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When a fire attack targets this creature, the attacker must roll a
-          natural 13+ on the attack roll or it only deals half damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 800000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.Ns2n1U5AbLuTUJQX'
-  - _id: KyIUVZMvcyXF6f1n
-    flags: {}
-    name: Cloak of fire
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When a creature is engaged with the pit fiend at the start of its
-          turn, that creature takes [[20]] fire damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 900000
-    effects: []
-    folder: null
-    _key: '!actors.items!V3ZmIvLnyRQltYfP.KyIUVZMvcyXF6f1n'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Pit Fiend
-  displayName: 0
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!V3ZmIvLnyRQltYfP'
+        enabled: false
+type: npc

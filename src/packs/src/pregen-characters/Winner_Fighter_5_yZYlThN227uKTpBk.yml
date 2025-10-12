@@ -1,8 +1,3846 @@
-name: Winner Fighter 5
-type: character
+_id: yZYlThN227uKTpBk
+_key: '!actors!yZYlThN227uKTpBk'
+effects: []
+flags:
+  archmage:
+    averageRecoveries: false
+    diceFormulaMode: ''
+    hideCurrency: false
+    hideEmptyPowerGroups: false
+    hideImportPowers: false
+    hideIncrementals: false
+    hideOneUniqueThing: false
+    hideSettingsTab: false
+    initiativeAdv: false
+    portraitFrame: false
+    portraitRound: false
+    sheetDisplay:
+      inventory:
+        sortBy:
+          value: custom
+      powers:
+        groupBy:
+          value: powerType
+        sortBy:
+          value: custom
+      tabs:
+        primary:
+          value: powers
+    strongRecovery: false
+    toughness: true
+  core: {}
+folder: null
 img: icons/weapons/swords/greatsword-crossguard-blue.webp
+items:
+- _id: EZ8KgIFJUjzhEXuQ
+  _key: '!actors.items!yZYlThN227uKTpBk.EZ8KgIFJUjzhEXuQ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/d20.svg
+  name: Surprising
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: ''
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: ''
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: ''
+    castPower:
+      label: Cast for Power
+      type: String
+      value: ''
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>Subtract one from the natural result of one of your own d20 rolls.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: "<p>You gain an additional use of surprising each battle, but you\
+            \ can only use it to affect a nearby ally\u2019s d20 roll.</p>"
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: ''
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: 1
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    missEven:
+      label: Even Miss
+      type: String
+      value: ''
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Surprising
+    powerSource:
+      label: Power Source
+      type: String
+      value: race
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Half-Elf
+    powerType:
+      label: Power Type
+      type: String
+      value: power
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: once-per-battle
+    quantity:
+      label: Uses
+      type: Number
+      value: 1
+    range:
+      label: Range
+      type: String
+      value: ''
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: ''
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: ''
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: ''
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: ''
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: ''
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: ''
+    target:
+      label: Target
+      type: String
+      value: ''
+    trigger:
+      label: Trigger
+      type: String
+      value: ''
+  type: power
+- _id: QIvdDRwHGJpf1i8X
+  _key: '!actors.items!yZYlThN227uKTpBk.QIvdDRwHGJpf1i8X'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/magic/control/buff-strength-muscle-damage-orange.webp
+  name: Extra Tough
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>You start with nine recoveries instead of the usual eight.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: <p>Increase your total recoveries by 1.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: adventurer
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Extra Tough
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: feature
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: ''
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: null
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: null
+  type: power
+- _id: zVZmur3CsLe52JgR
+  _key: '!actors.items!yZYlThN227uKTpBk.zVZmur3CsLe52JgR'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/weapons/swords/greatsword-crossguard-engraved-green.webp
+  name: Melee attack (Fighter)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: standard
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: ''
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: ''
+    castPower:
+      label: Cast for Power
+      type: String
+      value: ''
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats: null
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: '[[@lvl]] damage'
+    missEven:
+      label: Even Miss
+      type: String
+      value: ''
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: 1
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Melee attack (Fighter)
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: feature
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: at-will
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: ''
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: ''
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: ''
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: ''
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: ''
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: ''
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: null
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: ''
+    target:
+      label: Target
+      type: String
+      value: One enemy
+    trigger:
+      label: Trigger
+      type: String
+      value: ''
+  type: power
+- _id: AwvyH8uKtECmxMUl
+  _key: '!actors.items!yZYlThN227uKTpBk.AwvyH8uKtECmxMUl'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/weapons/bows/bow-recurve-black.webp
+  name: Ranged Attack (Fighter)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: standard
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats: null
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: "\u2014"
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Ranged Attack (Fighter)
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: feature
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: at-will
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: null
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: One enemy
+    trigger:
+      label: Trigger
+      type: String
+      value: null
+  type: power
+- _id: UfPPJrISgdreUsbV
+  _key: '!actors.items!yZYlThN227uKTpBk.UfPPJrISgdreUsbV'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/environment/traps/spike-skull-white-brown.webp
+  name: Threatening
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: ''
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: ''
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: ''
+    castPower:
+      label: Cast for Power
+      type: String
+      value: ''
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: '<p>Whenever an enemy attempts to disengage from you, it takes a penalty
+        to its check equal to your Dexterity ([[@dex.mod]]) or Constitution ([[@con.mod]])
+        modifier, whichever is higher.</p>
+
+        <p>The penalty doesn''t apply if you are *stunned*, grabbed, or otherwise
+        incapable of making an opportunity attack.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: "<p>Whenever an enemy fails to disengage from you, you also deal\
+            \ damage to that enemy equal to your Dexterity or Constitution modifier.\
+            \ At 5th\_level, damage is double the modifier. At 8th\_level, it's triple.</p>"
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: adventurer
+      '1':
+        description:
+          type: String
+          value: <p>Whenever a non-mook enemy fails to disengage from you, it's *vulnerable*
+            to your attacks for the rest of the battle.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: ''
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    missEven:
+      label: Even Miss
+      type: String
+      value: ''
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: 1
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Threatening
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: feature
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: ''
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: ''
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: ''
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: ''
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: ''
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: ''
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: ''
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: null
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: ''
+    target:
+      label: Target
+      type: String
+      value: ''
+    trigger:
+      label: Trigger
+      type: String
+      value: ''
+  type: power
+- _id: Kik9iwsHF4NAaLt1
+  _key: '!actors.items!yZYlThN227uKTpBk.Kik9iwsHF4NAaLt1'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/skills/melee/shield-block-gray-yellow.webp
+  name: Brace for it
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>Until the end of your next turn, the first critical hit you take from
+        a melee attack becomes a normal hit instead.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: "<p><em>Brace for it</em>\_now works against a critical hit from\
+            \ any type of attack.</p>"
+        isActive:
+          type: Boolean
+          value: true
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: adventurer
+      '1':
+        description:
+          type: String
+          value: "<p><em>Brace for it</em>\_works against any number of critical hits\
+            \ before your next turn.</p>"
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Brace for it
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: flexible
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: at-will
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: Flexible melee attack
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: Any miss
+  type: power
+- _id: mdVSD3L8SSpvz2qu
+  _key: '!actors.items!yZYlThN227uKTpBk.mdVSD3L8SSpvz2qu'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/skills/melee/strike-dagger-skull-white.webp
+  name: Grim Intent
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: "<p>The next time you would deal miss damage with a melee attack, add\
+        \ a WEAPON die to that damage. At 5th\_level, instead add 2 total WEAPON dice;\
+        \ at 8th\_level, instead add 3 total WEAPON dice.</p>"
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats: null
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Grim Intent
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: flexible
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: at-will
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: Flexible melee attack
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: Any natural even miss
+  type: power
+- _id: ZlsGqhDSyyFDkuNR
+  _key: '!actors.items!yZYlThN227uKTpBk.ZlsGqhDSyyFDkuNR'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/skills/melee/strike-hammer-destructive-blue.webp
+  name: Heavy Blows
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>You gain a bonus to your miss damage with that attack equal to the
+        escalation die.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: "<p>If you attacked with a two-handed weapon,\_<em>heavy blows</em>\_\
+            can trigger on any miss, odd or even.</p>"
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+      '1':
+        description:
+          type: String
+          value: <p>The bonus instead equals double the escalation die with a one-handed
+            weapon, or triple it with a two-handed weapon.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: epic
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Heavy Blows
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: flexible
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: at-will
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: Flexible melee attack
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: Any natural even miss
+  type: power
+- _id: e0lWiZrnwWMIPl40
+  _key: '!actors.items!yZYlThN227uKTpBk.e0lWiZrnwWMIPl40'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/magic/light/beam-impact-deflect-teal.webp
+  name: Comeback Strike
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: free
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: ''
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: ''
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: ''
+    castPower:
+      label: Cast for Power
+      type: String
+      value: ''
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: "<p>Once per battle as a free action, make another attack with a \u2013\
+        2 penalty after your first fighter attack during your turn misses.</p>"
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: "<p>You no longer take the \u20132 penalty to your Comeback Strike\
+            \ attacks.</p>"
+        isActive:
+          type: Boolean
+          value: true
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: adventurer
+      '1':
+        description:
+          type: String
+          value: <p>Once per day, you can use Comeback Strike twice in a battle.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: 1
+        powerUsage:
+          type: String
+          value: daily
+        quantity:
+          type: Number
+          value: 1
+        tier:
+          type: String
+          value: champion
+      '2':
+        description:
+          type: String
+          value: <p>You gain a +4 attack bonus with your Comeback Strike attacks.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: epic
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: ''
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: 1
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    missEven:
+      label: Even Miss
+      type: String
+      value: ''
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: 1
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Comeback Strike
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: talent
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: once-per-battle
+    quantity:
+      label: Uses
+      type: Number
+      value: 1
+    range:
+      label: Range
+      type: String
+      value: ''
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: ''
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: ''
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: ''
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: ''
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: ''
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: null
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: ''
+    target:
+      label: Target
+      type: String
+      value: ''
+    trigger:
+      label: Trigger
+      type: String
+      value: ''
+  type: power
+- _id: 21EjK3AlcA4yeAlk
+  _key: '!actors.items!yZYlThN227uKTpBk.21EjK3AlcA4yeAlk'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/skills/melee/maneuver-daggers-paired-orange.webp
+  name: Counter-Attack
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: free
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>Once per round when the escalation die is even and an enemy misses
+        you with a natural odd melee attack roll, you can make a basic melee attack
+        dealing half damage against that enemy as a free action. (The attack can't
+        use any limited abilities or flexible attack maneuvers.)</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: <p>Your Counter-Attack attack now deals full damage.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: adventurer
+      '1':
+        description:
+          type: String
+          value: <p>You can use Counter-Attack once per turn instead of once per round
+            (in effect, you're free to Counter-Attack once per enemy turn).</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+      '2':
+        description:
+          type: String
+          value: <p>You can now use Counter-Attack when the escalation die is 3+.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: epic
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Counter-Attack
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: talent
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: other
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: null
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: null
+  type: power
+- _id: 63c0LJV27DfQkyct
+  _key: '!actors.items!yZYlThN227uKTpBk.63c0LJV27DfQkyct'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/skills/melee/strike-slashes-orange.webp
+  name: Cleave
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: free
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>Once per battle, make a fighter melee attack as a free action after
+        one of your melee attacks drops an enemy to 0 hp.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: <p>If you have your move action available, you can use it before
+            making your Cleave attack to reach an enemy you are not already engaged
+            with.</p>
+        isActive:
+          type: Boolean
+          value: true
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: adventurer
+      '1':
+        description:
+          type: String
+          value: <p>You can use Cleave twice each battle, but only once a round.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+      '2':
+        description:
+          type: String
+          value: <p>You gain a +4 attack bonus with your Cleave attacks.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: epic
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: 1
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Cleave
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: talent
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: once-per-battle
+    quantity:
+      label: Uses
+      type: Number
+      value: 1
+    range:
+      label: Range
+      type: String
+      value: null
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: null
+  type: power
+- _id: AhMcphDa0hLoGNBQ
+  _key: '!actors.items!yZYlThN227uKTpBk.AhMcphDa0hLoGNBQ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/weapons/swords/swords-short.webp
+  name: Two-Weapon Pressure
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>Until the end of your next turn, you gain a +2 melee attack bonus
+        against the target.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: <p>The bonus increases to +4.</p>
+        isActive:
+          type: Boolean
+          value: true
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Two-Weapon Pressure
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: flexible
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: at-will
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: Flexible melee attack
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: <p>You must be using a weapon in each hand.</p>
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: Any miss
+  type: power
+- _id: 2ryKIV2CuwxuxIsL
+  _key: '!actors.items!yZYlThN227uKTpBk.2ryKIV2CuwxuxIsL'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/skills/melee/strike-sword-stabbed-brown.webp
+  name: Carve an Opening
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: null
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: null
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: null
+    castPower:
+      label: Cast for Power
+      type: String
+      value: null
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: <p>Your crit range with melee attacks expands by a cumulative +1 this
+        battle until you score a melee critical hit. When you score a melee critical
+        hit, your crit range drops back to normal.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: '// For the code executed in this macro, see
+
+        // https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+        game.archmage.ArchmageMacros.fighterCarveAnOpening(speaker, actor, token,
+        character, archmage);'
+    feats:
+      '0':
+        description:
+          type: String
+          value: <p>The crit range bonus from carve an opening is +2 instead of +1.</p>
+        isActive:
+          type: Boolean
+          value: false
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: champion
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: null
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: null
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: null
+    missEven:
+      label: Even Miss
+      type: String
+      value: null
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: null
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Carve an Opening
+    powerSource:
+      label: Power Source
+      type: String
+      value: class
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: Fighter
+    powerType:
+      label: Power Type
+      type: String
+      value: flexible
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: at-will
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: Flexible melee attack
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: null
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: null
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: null
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: null
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: null
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: null
+    target:
+      label: Target
+      type: String
+      value: null
+    trigger:
+      label: Trigger
+      type: String
+      value: Any natural odd roll
+  type: power
+- _id: S5eeIq9AYhDGutQO
+  _key: '!actors.items!yZYlThN227uKTpBk.S5eeIq9AYhDGutQO'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/d20.svg
+  name: Toughness
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    actionType:
+      label: Action
+      type: String
+      value: ''
+    always:
+      label: Always
+      type: String
+      value: ''
+    attack:
+      label: Attack
+      type: String
+      value: ''
+    breathWeapon:
+      label: Breath Weapon
+      type: String
+      value: ''
+    castBroadEffect:
+      label: Cast for Broad Effect
+      type: String
+      value: ''
+    castPower:
+      label: Cast for Power
+      type: String
+      value: ''
+    crit:
+      label: Crit
+      type: String
+      value: ''
+    critMod:
+      label: Attack
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    effect:
+      label: Effect
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    feats:
+      '0':
+        description:
+          type: String
+          value: <p>You get additional hit points equal to half your baseline class
+            hit points (rounded down). At 5th&nbsp;level, the total hp bonus increases
+            to your baseline hp value. At 8th&nbsp;level, the total hp bonus increases
+            to double your baseline hp value.</p>
+        isActive:
+          type: Boolean
+          value: true
+        maxQuantity:
+          type: Number
+          value: null
+        powerUsage:
+          type: String
+          value: ''
+        quantity:
+          type: Number
+          value: null
+        tier:
+          type: String
+          value: adventurer
+    finalVerse:
+      label: Final Verse
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: ''
+    hitEven:
+      label: Natural Even Hit
+      type: String
+      value: ''
+    hitOdd:
+      label: Natural Odd Hit
+      type: String
+      value: ''
+    maxQuantity:
+      label: Uses
+      type: Number
+      value: null
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    missEven:
+      label: Even Miss
+      type: String
+      value: ''
+    missOdd:
+      label: Odd Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    powerLevel:
+      label: Level
+      type: Number
+      value: '1'
+    powerOriginName:
+      label: Power Original Name
+      type: String
+      value: Toughness
+    powerSource:
+      label: Power Source
+      type: String
+      value: other
+    powerSourceName:
+      label: Power Source
+      type: String
+      value: General
+    powerType:
+      label: Power Type
+      type: String
+      value: feature
+    powerUsage:
+      label: Power Usage
+      type: String
+      value: ''
+    quantity:
+      label: Uses
+      type: Number
+      value: null
+    range:
+      label: Range
+      type: String
+      value: ''
+    recharge:
+      label: Recharge
+      type: Number
+      value: 0
+    rechargeAttempts:
+      label: Number of Recharges Attempted
+      type: Number
+      value: 0
+    resources:
+      label: Resources
+      type: String
+      value: ''
+    rollTable:
+      label: Roll Table
+      type: String
+      value: ''
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+    special:
+      label: Special
+      type: String
+      value: ''
+    spellChain:
+      label: Chain Spell
+      type: String
+      value: ''
+    spellLevel10:
+      hide: true
+      label: 10th Level Spell
+      type: String
+      value: ''
+    spellLevel11:
+      hide: true
+      label: 11th Level Spell
+      type: String
+      value: ''
+    spellLevel2:
+      hide: true
+      label: 2nd Level Spell
+      type: String
+      value: ''
+    spellLevel3:
+      hide: true
+      label: 3rd Level Spell
+      type: String
+      value: ''
+    spellLevel4:
+      hide: true
+      label: 4th Level Spell
+      type: String
+      value: ''
+    spellLevel5:
+      hide: true
+      label: 5th Level Spell
+      type: String
+      value: ''
+    spellLevel6:
+      hide: true
+      label: 6th Level Spell
+      type: String
+      value: ''
+    spellLevel7:
+      hide: true
+      label: 7th Level Spell
+      type: String
+      value: ''
+    spellLevel8:
+      hide: true
+      label: 8th Level Spell
+      type: String
+      value: ''
+    spellLevel9:
+      hide: true
+      label: 9th Level Spell
+      type: String
+      value: ''
+    sustainOn:
+      label: Sustain On
+      type: Number
+      value: ''
+    sustainedEffect:
+      label: Opening and Sustained Effect
+      type: String
+      value: ''
+    target:
+      label: Target
+      type: String
+      value: ''
+    trigger:
+      label: Trigger
+      type: String
+      value: ''
+  type: power
+name: Winner Fighter 5
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: true
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Winner Fighter 5
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: icons/weapons/swords/greatsword-crossguard-blue.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
+  abilities:
+    cha:
+      label: Charisma
+      min: 3
+      mod: 0
+      type: Number
+      value: 8
+    con:
+      label: Constitution
+      min: 3
+      mod: 0
+      type: Number
+      value: 18
+    dex:
+      label: Dexterity
+      min: 3
+      mod: 0
+      type: Number
+      value: 16
+    int:
+      label: Intelligence
+      min: 3
+      mod: 0
+      type: Number
+      value: 10
+    str:
+      label: Strength
+      min: 3
+      mod: 0
+      type: Number
+      value: 18
+    wis:
+      label: Wisdom
+      min: 3
+      mod: 0
+      type: Number
+      value: 8
   attributes:
+    ac:
+      base: 15
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 10
     attackMod:
       type: Number
       value: 0
@@ -13,4104 +3851,382 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 10
-      base: 15
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 10
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 10
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 104
-      min: 0
-      max: 10
-      temp: 0
-      tempmax: 0
-      base: 8
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 0
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        maxOverride: 0
-        steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
+    hp:
+      automatic: true
+      base: 8
+      extra: 0
+      label: Hit Points
+      max: 10
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 104
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 0
     keyModifier:
       mod1: str
       mod2: str
-    recoveries:
+    level:
+      label: Level
+      max: 10
+      min: 0
       type: Number
-      label: Recoveries
-      value: 9
-      max: 8
-      dice: d10
-      base: 9
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 10
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 10
+    recoveries:
       automatic: true
+      base: 9
+      dice: d10
+      label: Recoveries
+      max: 8
+      type: Number
+      value: 9
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
     weapon:
-      melee:
-        type: String
-        label: Melee weapon dice
-        dice: d8
-        shield: false
-        dualwield: true
-        twohanded: false
-      ranged:
-        type: String
-        label: Ranged weapon dice
-        dice: d8
       jab:
-        type: String
-        label: JAB dice
         dice: d6
-      punch:
+        label: JAB dice
         type: String
-        label: PUNCH dice
-        dice: d8
       kick:
-        type: String
-        label: KICK dice
         dice: d10
+        label: KICK dice
+        type: String
+      melee:
+        dice: d8
+        dualwield: true
+        label: Melee weapon dice
+        shield: false
+        twohanded: false
+        type: String
+      punch:
+        dice: d8
+        label: PUNCH dice
+        type: String
+      ranged:
+        dice: d8
+        label: Ranged weapon dice
+        type: String
+  backgrounds:
+    bg1:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+      name:
+        type: String
+        value: ''
+    bg2:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+      name:
+        type: String
+        value: ''
+    bg3:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+      name:
+        type: String
+        value: ''
+    bg4:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+      name:
+        type: String
+        value: ''
+    bg5:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+      name:
+        type: String
+        value: ''
+    bg6:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+      name:
+        type: String
+        value: ''
+    bg7:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+      name:
+        type: String
+        value: ''
+    bg8:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+      name:
+        type: String
+        value: ''
+  coins:
+    copper:
+      value: null
+    gold:
+      value: null
+    platinum:
+      value: null
+    silver:
+      value: null
   details:
     alignment:
-      type: String
       label: Alignment
+      type: String
     biography:
-      type: String
       label: Biography
+      type: String
     class:
-      type: String
       label: Class
-      value: Fighter
-    race:
       type: String
-      label: Race
-      value: Half-Elf
+      value: Fighter
+    detectedClasses:
+    - fighter
     out:
       label: One Unique Thing
       type: String
       value: ''
-    detectedClasses:
-      - fighter
-  resources:
-    perCombat:
-      momentum:
-        enabled: false
-        current: false
-      commandPoints:
-        enabled: false
-        current: 0
-      focus:
-        enabled: false
-        current: false
-      rhythm:
-        enabled: false
-        current: none
-        default: none
-        secondEdition: true
-      bravado:
-        enabled: false
-        current: 0
-        secondEdition: true
-    spendable:
-      custom1:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom2:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom3:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom4:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom5:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom6:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom7:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom8:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      custom9:
-        label: ''
-        current: 0
-        max: 0
-        enabled: false
-        rest: none
-      ki:
-        enabled: false
-        current: 0
-        max: 0
-      rerolls:
-        enabled: false
-        AC:
-          current: 0
-          max: 0
-        save:
-          current: 0
-          max: 0
-  abilities:
-    str:
-      type: Number
-      label: Strength
-      value: 18
-      min: 3
-      mod: 0
-    dex:
-      type: Number
-      label: Dexterity
-      value: 16
-      min: 3
-      mod: 0
-    con:
-      type: Number
-      label: Constitution
-      value: 18
-      min: 3
-      mod: 0
-    int:
-      type: Number
-      label: Intelligence
-      value: 10
-      min: 3
-      mod: 0
-    wis:
-      type: Number
-      label: Wisdom
-      value: 8
-      min: 3
-      mod: 0
-    cha:
-      type: Number
-      label: Charisma
-      value: 8
-      min: 3
-      mod: 0
-  backgrounds:
-    bg1:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: true
-    bg2:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: true
-    bg3:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: true
-    bg4:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: false
-    bg5:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: false
-    bg6:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: false
-    bg7:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: false
-    bg8:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: false
+    race:
+      label: Race
+      type: String
+      value: Half-Elf
   icons:
     i1:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
       bonus:
         type: Number
         value: 0
       isActive:
         type: Boolean
         value: true
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
       results: []
     i2:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
       bonus:
         type: Number
         value: 0
       isActive:
         type: Boolean
         value: true
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
       results: []
     i3:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
       bonus:
         type: Number
         value: 0
       isActive:
         type: Boolean
         value: true
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
       results: []
     i4:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
       bonus:
         type: Number
         value: 0
       isActive:
         type: Boolean
         value: false
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
       results: []
     i5:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
       bonus:
         type: Number
         value: 0
       isActive:
         type: Boolean
         value: false
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
       results: []
   incrementals:
+    abilMultiplier: false
     abilityScoreBonus: false
     extraMagicItem: false
     feat: false
-    talent: false
     hp: false
     iconRelationshipPoint: false
     powerSpell1: false
     powerSpell2: false
     powerSpell3: false
     powerSpell4: false
-    skills: false
     recovery: false
     skillInitiative: false
-    abilMultiplier: false
-  coins:
-    platinum:
-      value: null
-    gold:
-      value: null
-    silver:
-      value: null
-    copper:
-      value: null
+    skills: false
+    talent: false
   lifecycleHooks:
-    startOfTurn: ''
     endOfTurn: ''
-prototypeToken:
-  name: Winner Fighter 5
-  displayName: 0
-  actorLink: true
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: icons/weapons/swords/greatsword-crossguard-blue.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-items:
-  - name: Surprising
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: once-per-battle
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: 1
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: 1
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: race
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Half-Elf
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Surprising
-      powerType:
-        type: String
-        label: Power Type
-        value: power
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: ''
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: ''
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: ''
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: ''
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Subtract one from the natural result of one of your own d20
-          rolls.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: >-
-              <p>You gain an additional use of surprising each battle, but you
-              can only use it to affect a nearby ally’s d20 roll.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/svg/d20.svg
-    _id: EZ8KgIFJUjzhEXuQ
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.EZ8KgIFJUjzhEXuQ'
-  - name: Extra Tough
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: ''
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Extra Tough
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: null
-      trigger:
-        type: String
-        label: Trigger
-        value: null
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: <p>You start with nine recoveries instead of the usual eight.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: <p>Increase your total recoveries by 1.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/magic/control/buff-strength-muscle-damage-orange.webp
-    _id: QIvdDRwHGJpf1i8X
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.QIvdDRwHGJpf1i8X'
-  - name: Melee attack (Fighter)
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: at-will
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Melee attack (Fighter)
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: 1
-      actionType:
-        type: String
-        label: Action
-        value: standard
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: One enemy
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[@wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: '[[@lvl]] damage'
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: ''
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: null
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats: null
-    flags: {}
-    img: icons/weapons/swords/greatsword-crossguard-engraved-green.webp
-    _id: zVZmur3CsLe52JgR
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.zVZmur3CsLe52JgR'
-  - name: Ranged Attack (Fighter)
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: at-will
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Ranged Attack (Fighter)
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: standard
-      range:
-        type: String
-        label: Range
-        value: null
-      trigger:
-        type: String
-        label: Trigger
-        value: null
-      target:
-        type: String
-        label: Target
-        value: One enemy
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: '[[d20 + @dex.mod + @std + @atk.r.bonus]] vs. AC'
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[@wpn.r.dice + @dex.dmg + @atk.r.bonus]] damage'
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: —
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: ''
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats: null
-    flags: {}
-    img: icons/weapons/bows/bow-recurve-black.webp
-    _id: AwvyH8uKtECmxMUl
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.AwvyH8uKtECmxMUl'
-  - name: Threatening
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: ''
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Threatening
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: 1
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: ''
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: ''
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: ''
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: ''
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Whenever an enemy attempts to disengage from you, it takes a
-          penalty to its check equal to your Dexterity ([[@dex.mod]]) or
-          Constitution ([[@con.mod]]) modifier, whichever is higher.</p>
-
-          <p>The penalty doesn't apply if you are *stunned*, grabbed, or
-          otherwise incapable of making an opportunity attack.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: null
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: "<p>Whenever an enemy fails to disengage from you, you also deal damage to that enemy equal to your Dexterity or Constitution modifier. At 5th\_level, damage is double the modifier. At 8th\_level, it's triple.</p>"
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '1':
-          description:
-            type: String
-            value: >-
-              <p>Whenever a non-mook enemy fails to disengage from you, it's
-              *vulnerable* to your attacks for the rest of the battle.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/environment/traps/spike-skull-white-brown.webp
-    _id: UfPPJrISgdreUsbV
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.UfPPJrISgdreUsbV'
-  - name: Brace for it
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: at-will
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Brace for it
-      powerType:
-        type: String
-        label: Power Type
-        value: flexible
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: Flexible melee attack
-      trigger:
-        type: String
-        label: Trigger
-        value: Any miss
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Until the end of your next turn, the first critical hit you take
-          from a melee attack becomes a normal hit instead.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: "<p><em>Brace for it</em>\_now works against a critical hit from any type of attack.</p>"
-          isActive:
-            type: Boolean
-            value: true
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '1':
-          description:
-            type: String
-            value: "<p><em>Brace for it</em>\_works against any number of critical hits before your next turn.</p>"
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/skills/melee/shield-block-gray-yellow.webp
-    _id: Kik9iwsHF4NAaLt1
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.Kik9iwsHF4NAaLt1'
-  - name: Grim Intent
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: at-will
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Grim Intent
-      powerType:
-        type: String
-        label: Power Type
-        value: flexible
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: Flexible melee attack
-      trigger:
-        type: String
-        label: Trigger
-        value: Any natural even miss
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: "<p>The next time you would deal miss damage with a melee attack, add a WEAPON die to that damage. At 5th\_level, instead add 2 total WEAPON dice; at 8th\_level, instead add 3 total WEAPON dice.</p>"
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats: null
-    flags: {}
-    img: icons/skills/melee/strike-dagger-skull-white.webp
-    _id: mdVSD3L8SSpvz2qu
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.mdVSD3L8SSpvz2qu'
-  - name: Heavy Blows
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: at-will
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Heavy Blows
-      powerType:
-        type: String
-        label: Power Type
-        value: flexible
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: Flexible melee attack
-      trigger:
-        type: String
-        label: Trigger
-        value: Any natural even miss
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>You gain a bonus to your miss damage with that attack equal to the
-          escalation die.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: "<p>If you attacked with a two-handed weapon,\_<em>heavy blows</em>\_can trigger on any miss, odd or even.</p>"
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '1':
-          description:
-            type: String
-            value: >-
-              <p>The bonus instead equals double the escalation die with a
-              one-handed weapon, or triple it with a two-handed weapon.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: epic
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/skills/melee/strike-hammer-destructive-blue.webp
-    _id: ZlsGqhDSyyFDkuNR
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.ZlsGqhDSyyFDkuNR'
-  - name: Comeback Strike
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: once-per-battle
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: 1
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: 1
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Comeback Strike
-      powerType:
-        type: String
-        label: Power Type
-        value: talent
-      powerLevel:
-        type: Number
-        label: Level
-        value: 1
-      actionType:
-        type: String
-        label: Action
-        value: free
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: ''
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: ''
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: ''
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: ''
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Once per battle as a free action, make another attack with a –2
-          penalty after your first fighter attack during your turn misses.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: null
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: >-
-              <p>You no longer take the –2 penalty to your Comeback Strike
-              attacks.</p>
-          isActive:
-            type: Boolean
-            value: true
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '1':
-          description:
-            type: String
-            value: >-
-              <p>Once per day, you can use Comeback Strike twice in a
-              battle.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: daily
-          quantity:
-            type: Number
-            value: 1
-          maxQuantity:
-            type: Number
-            value: 1
-        '2':
-          description:
-            type: String
-            value: >-
-              <p>You gain a +4 attack bonus with your Comeback Strike
-              attacks.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: epic
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/magic/light/beam-impact-deflect-teal.webp
-    _id: e0lWiZrnwWMIPl40
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.e0lWiZrnwWMIPl40'
-  - name: Counter-Attack
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: other
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Counter-Attack
-      powerType:
-        type: String
-        label: Power Type
-        value: talent
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: free
-      range:
-        type: String
-        label: Range
-        value: null
-      trigger:
-        type: String
-        label: Trigger
-        value: null
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Once per round when the escalation die is even and an enemy misses
-          you with a natural odd melee attack roll, you can make a basic melee
-          attack dealing half damage against that enemy as a free action. (The
-          attack can't use any limited abilities or flexible attack
-          maneuvers.)</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: <p>Your Counter-Attack attack now deals full damage.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '1':
-          description:
-            type: String
-            value: >-
-              <p>You can use Counter-Attack once per turn instead of once per
-              round (in effect, you're free to Counter-Attack once per enemy
-              turn).</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '2':
-          description:
-            type: String
-            value: >-
-              <p>You can now use Counter-Attack when the escalation die is
-              3+.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: epic
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/skills/melee/maneuver-daggers-paired-orange.webp
-    _id: 21EjK3AlcA4yeAlk
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.21EjK3AlcA4yeAlk'
-  - name: Cleave
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: once-per-battle
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: 1
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: 1
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Cleave
-      powerType:
-        type: String
-        label: Power Type
-        value: talent
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: free
-      range:
-        type: String
-        label: Range
-        value: null
-      trigger:
-        type: String
-        label: Trigger
-        value: null
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Once per battle, make a fighter melee attack as a free action after
-          one of your melee attacks drops an enemy to 0 hp.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: >-
-              <p>If you have your move action available, you can use it before
-              making your Cleave attack to reach an enemy you are not already
-              engaged with.</p>
-          isActive:
-            type: Boolean
-            value: true
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '1':
-          description:
-            type: String
-            value: >-
-              <p>You can use Cleave twice each battle, but only once a
-              round.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-        '2':
-          description:
-            type: String
-            value: <p>You gain a +4 attack bonus with your Cleave attacks.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: epic
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/skills/melee/strike-slashes-orange.webp
-    _id: 63c0LJV27DfQkyct
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.63c0LJV27DfQkyct'
-  - name: Two-Weapon Pressure
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: at-will
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Two-Weapon Pressure
-      powerType:
-        type: String
-        label: Power Type
-        value: flexible
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: Flexible melee attack
-      trigger:
-        type: String
-        label: Trigger
-        value: Any miss
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: <p>You must be using a weapon in each hand.</p>
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Until the end of your next turn, you gain a +2 melee attack bonus
-          against the target.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: <p>The bonus increases to +4.</p>
-          isActive:
-            type: Boolean
-            value: true
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/weapons/swords/swords-short.webp
-    _id: AhMcphDa0hLoGNBQ
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.AhMcphDa0hLoGNBQ'
-  - name: Carve an Opening
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: at-will
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: >-
-          // For the code executed in this macro, see
-
-          //
-          https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
-
-          game.archmage.ArchmageMacros.fighterCarveAnOpening(speaker, actor,
-          token, character, archmage);
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Fighter
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Carve an Opening
-      powerType:
-        type: String
-        label: Power Type
-        value: flexible
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: Flexible melee attack
-      trigger:
-        type: String
-        label: Trigger
-        value: Any natural odd roll
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>Your crit range with melee attacks expands by a cumulative +1 this
-          battle until you score a melee critical hit. When you score a melee
-          critical hit, your crit range drops back to normal.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: >-
-              <p>The crit range bonus from carve an opening is +2 instead of
-              +1.</p>
-          isActive:
-            type: Boolean
-            value: false
-          tier:
-            type: String
-            value: champion
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/skills/melee/strike-sword-stabbed-brown.webp
-    _id: 2ryKIV2CuwxuxIsL
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.2ryKIV2CuwxuxIsL'
-  - name: Toughness
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: ''
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: other
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: General
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Toughness
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: ''
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: ''
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: ''
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: ''
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: ''
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: >-
-              <p>You get additional hit points equal to half your baseline class
-              hit points (rounded down). At 5th&nbsp;level, the total hp bonus
-              increases to your baseline hp value. At 8th&nbsp;level, the total
-              hp bonus increases to double your baseline hp value.</p>
-          isActive:
-            type: Boolean
-            value: true
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-    flags: {}
-    img: icons/svg/d20.svg
-    _id: S5eeIq9AYhDGutQO
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 0
-    _key: '!actors.items!yZYlThN227uKTpBk.S5eeIq9AYhDGutQO'
-effects: []
-folder: null
-ownership:
-  default: 0
-flags:
-  archmage:
-    sheetDisplay:
-      tabs:
-        primary:
-          value: powers
-      powers:
-        groupBy:
-          value: powerType
-        sortBy:
-          value: custom
-      inventory:
-        sortBy:
-          value: custom
-    initiativeAdv: false
-    strongRecovery: false
-    toughness: true
-    averageRecoveries: false
-    portraitRound: false
-    portraitFrame: false
-    hideCurrency: false
-    hideEmptyPowerGroups: false
-    hideImportPowers: false
-    hideIncrementals: false
-    hideOneUniqueThing: false
-    hideSettingsTab: false
-    diceFormulaMode: ''
-  core: {}
-_id: yZYlThN227uKTpBk
-sort: 0
-_key: '!actors!yZYlThN227uKTpBk'
+    startOfTurn: ''
+  resources:
+    perCombat:
+      bravado:
+        current: 0
+        enabled: false
+        secondEdition: true
+      commandPoints:
+        current: 0
+        enabled: false
+      focus:
+        current: false
+        enabled: false
+      momentum:
+        current: false
+        enabled: false
+      rhythm:
+        current: none
+        default: none
+        enabled: false
+        secondEdition: true
+    spendable:
+      custom1:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom2:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom3:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom4:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom5:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom6:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom7:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom8:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      custom9:
+        current: 0
+        enabled: false
+        label: ''
+        max: 0
+        rest: none
+      ki:
+        current: 0
+        enabled: false
+        max: 0
+      rerolls:
+        AC:
+          current: 0
+          max: 0
+        enabled: false
+        save:
+          current: 0
+          max: 0
+type: character

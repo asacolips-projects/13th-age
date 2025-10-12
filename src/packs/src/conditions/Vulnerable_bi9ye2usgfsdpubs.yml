@@ -1,29 +1,42 @@
-name: Vulnerable
-folder: null
-flags: {}
 _id: bi9ye2usgfsdpubs
-pages:
-  - name: Vulnerable
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>Attacks against you have their crit range expanded by 2 (normally
-        18+).</p>
-    _id: rmlC1X5ek1lGrsNj
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!bi9ye2usgfsdpubs.rmlC1X5ek1lGrsNj'
 _key: '!journal!bi9ye2usgfsdpubs'
+categories: []
+flags: {}
+folder: null
+name: Vulnerable
+ownership:
+  default: 0
+pages:
+- _id: rmlC1X5ek1lGrsNj
+  _key: '!journal.pages!bi9ye2usgfsdpubs.rmlC1X5ek1lGrsNj'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Vulnerable
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: <p>Attacks against you have their crit range expanded by 2 (normally
+      18+).</p>
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

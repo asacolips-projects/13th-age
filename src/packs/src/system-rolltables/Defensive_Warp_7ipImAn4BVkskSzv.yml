@@ -1,75 +1,152 @@
-name: Defensive Warp
+_id: 7ipImAn4BVkskSzv
+_key: '!tables!7ipImAn4BVkskSzv'
+description: ''
+displayRoll: false
 flags:
   core: {}
-img: icons/svg/d20-grey.svg
-description: ''
-results:
-  - _id: N8qTjWfc2ydN4JTE
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    _key: '!tables.results!7ipImAn4BVkskSzv.N8qTjWfc2ydN4JTE'
-  - _id: jNZz3gEO1GRfiYLm
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    _key: '!tables.results!7ipImAn4BVkskSzv.jNZz3gEO1GRfiYLm'
-  - _id: KRm3f2zhWFZKaY80
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    _key: '!tables.results!7ipImAn4BVkskSzv.KRm3f2zhWFZKaY80'
-  - _id: pYhC1c0fgROdmwZU
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    _key: '!tables.results!7ipImAn4BVkskSzv.pYhC1c0fgROdmwZU'
-  - _id: RYPLhh2FxMwQ6xB1
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    _key: '!tables.results!7ipImAn4BVkskSzv.RYPLhh2FxMwQ6xB1'
-  - _id: VnTkgoo8HCXwiBfH
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    _key: '!tables.results!7ipImAn4BVkskSzv.VnTkgoo8HCXwiBfH'
+folder: null
 formula: 1d6
-replacement: true
-displayRoll: false
-_id: 7ipImAn4BVkskSzv
+img: icons/svg/d20-grey.svg
+name: Defensive Warp
 ownership:
   default: 0
-folder: null
+replacement: true
+results:
+- _id: N8qTjWfc2ydN4JTE
+  _key: '!tables.results!7ipImAn4BVkskSzv.N8qTjWfc2ydN4JTE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Air: Once before the end of your next turn, you can heal using a recovery
+    as a quick action.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: jNZz3gEO1GRfiYLm
+  _key: '!tables.results!7ipImAn4BVkskSzv.jNZz3gEO1GRfiYLm'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Earth: You gain [[@wis.dmg]] temporary hit points.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: KRm3f2zhWFZKaY80
+  _key: '!tables.results!7ipImAn4BVkskSzv.KRm3f2zhWFZKaY80'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Fire: Until the end of your next turn, when an enemy moves to engage
+    you, it takes [[@wis.dmg]] fire damage.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: pYhC1c0fgROdmwZU
+  _key: '!tables.results!7ipImAn4BVkskSzv.pYhC1c0fgROdmwZU'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Water: Until the end of your next turn, when you heal using a recovery,
+    add [[@wis.dmg]] hit points.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: RYPLhh2FxMwQ6xB1
+  _key: '!tables.results!7ipImAn4BVkskSzv.RYPLhh2FxMwQ6xB1'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Metal: Until the end of your next turn, you gain a +2 bonus to AC.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: VnTkgoo8HCXwiBfH
+  _key: '!tables.results!7ipImAn4BVkskSzv.VnTkgoo8HCXwiBfH'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Void: Until the end of your next turn, the first time an attack hits
+    you, as a free action you can choose to lose [[@lvl]] hit points to force the
+    attacker to reroll the attack.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
 sort: 600000
-_key: '!tables!7ipImAn4BVkskSzv'

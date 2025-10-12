@@ -1,311 +1,327 @@
+_id: 753LlseCsoBfKant
+_key: '!items!753LlseCsoBfKant'
+effects:
+- _id: 8W2C23zZkIWLt77C
+  _key: '!items.effects!753LlseCsoBfKant.8W2C23zZkIWLt77C'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '4'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfNextSourceTurn
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
+  name: Spirits of the Righteous (Hit)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: UtHylz4juOVCLYPE
+  _key: '!items.effects!753LlseCsoBfKant.UtHylz4juOVCLYPE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '2'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfNextSourceTurn
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
+  name: Spirits of the Righteous (Miss)
+  origin: mull
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
 name: Spirits of the Righteous
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: once-per-battle
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: null
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Cleric
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Spirits of the Righteous
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: One nearby enemy
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. MD'
-  critMod:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: >-
-      [[4d6 + @wis.dmg + @atk.d.bonus]] holy damage, and your nearby ally with
-      the fewest hit points gains a +4 bonus to AC until the end of your next
-      turn.
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: >-
-      Your nearby ally with the fewest hit points gains a +2 bonus to AC until
-      the end of your next turn.
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: ''
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: '[[7d6 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: '[[7d10 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: '[[10d10 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: '[[2d8 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
-    value: ''
-  breathWeapon:
-    type: String
-    label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
-    type: String
-    label: Roll Table
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p><span>You also gain the bonus to AC until the end of your next turn
+        value: <p><span>You also gain the bonus to AC until the end of your next turn
           on a hit.</span></p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
-effects:
-  - origin: null
-    disabled: false
-    name: Spirits of the Righteous (Hit)
-    img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
-    _id: 8W2C23zZkIWLt77C
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '4'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfNextSourceTurn
-        ongoingDamage: 0
-        ongoingDamageType: ''
-    _key: '!items.effects!753LlseCsoBfKant.8W2C23zZkIWLt77C'
-  - origin: mull
-    disabled: false
-    name: Spirits of the Righteous (Miss)
-    img: systems/archmage/assets/icons/spells/evil-eye-red-3.jpg
-    _id: UtHylz4juOVCLYPE
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '2'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfNextSourceTurn
-        ongoingDamage: 0
-        ongoingDamageType: ''
-    _key: '!items.effects!753LlseCsoBfKant.UtHylz4juOVCLYPE'
-_id: 753LlseCsoBfKant
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!753LlseCsoBfKant'
+      tier:
+        type: String
+        value: champion
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: null
+  hit:
+    label: Hit
+    type: String
+    value: '[[4d6 + @wis.dmg + @atk.d.bonus]] holy damage, and your nearby ally with
+      the fewest hit points gains a +4 bonus to AC until the end of your next turn.'
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: Your nearby ally with the fewest hit points gains a +2 bonus to AC until
+      the end of your next turn.
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Spirits of the Righteous
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Cleric
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: once-per-battle
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: '[[7d6 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: '[[7d10 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: '[[10d10 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: '[[2d8 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: One nearby enemy
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

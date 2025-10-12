@@ -1,34 +1,47 @@
-name: Frenzied
-folder: null
-flags: {}
 _id: gy68o7eat5p6bpgr
-pages:
-  - name: Frenzied
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>You take no actions when it isn’t your turn. On your turn, your only
-        actions are as follows: choose which of your melee attacks you want to
-        use to attack. Then randomly select a nearby creature. You’ll do what
-        you can to attack that creature, ally or enemy, with your chosen attack.
-        If you need to move to attack your target, you can attempt to disengage
-        instead of taking opportunity attacks, even twice if your first attempt
-        fails. If a disengage check succeeds you move to engage your target.</p>
-    _id: 8ERmPowR0wsjsx87
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!gy68o7eat5p6bpgr.8ERmPowR0wsjsx87'
 _key: '!journal!gy68o7eat5p6bpgr'
+categories: []
+flags: {}
+folder: null
+name: Frenzied
+ownership:
+  default: 0
+pages:
+- _id: 8ERmPowR0wsjsx87
+  _key: '!journal.pages!gy68o7eat5p6bpgr.8ERmPowR0wsjsx87'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Frenzied
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<p>You take no actions when it isn\u2019t your turn. On your turn, your\
+      \ only actions are as follows: choose which of your melee attacks you want to\
+      \ use to attack. Then randomly select a nearby creature. You\u2019ll do what\
+      \ you can to attack that creature, ally or enemy, with your chosen attack. If\
+      \ you need to move to attack your target, you can attempt to disengage instead\
+      \ of taking opportunity attacks, even twice if your first attempt fails. If\
+      \ a disengage check succeeds you move to engage your target.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

@@ -1,9 +1,542 @@
-name: Briar Elf Stalker
-type: npc
 _id: 3Hy9FJ1iym1SKrXM
+_key: '!actors!3Hy9FJ1iym1SKrXM'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+  core: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: 9Yhz2HAWdwDro7FK
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.9Yhz2HAWdwDro7FK'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.1mZmMIDaa4Yp14AV
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Whip of Thorns
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 13]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[20]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+ hit
+      type: String
+      value: 5 ongoing damage
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[10]] damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: MF33oSDntnZeWa0x
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.MF33oSDntnZeWa0x'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.0EzLqYE23l2nyP0a
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Barbed arrows
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 14]] vs. AC '
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[25]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit or miss
+      type: String
+      value: The briar elf can green walk as a move action instead of a standard action
+        this turn.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[10]] damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: eg81qvGTDB5Ir3w8
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.eg81qvGTDB5Ir3w8'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.QiESpgLQ7WUsrIs3
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Green Walk
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">Provided the briar elf stalker is next to
+        a tree, as a standard action they can step into the tree and disappear. At
+        the start of their next turn they reappear next to another nearby tree, and
+        hit or miss their attack does double damage.</span></p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: QJYdYczSydPQQdI0
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.QJYdYczSydPQQdI0'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: 'Choose one:'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 8Dyov51PlsM2zAuX
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.8Dyov51PlsM2zAuX'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Humanoid
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">Twice per battle, make a barbed arrows attack
+        as a quick action.</span> </p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: VRfphwgwTs8waYsJ
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.VRfphwgwTs8waYsJ'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Plant
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">This monster&rsquo;s type is [plant]. Once
+        per battle when this monster reappears after its green walk it does triple
+        damage instead of double damage.</span></p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: qTTNDDjITQ3R1MPX
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.qTTNDDjITQ3R1MPX'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Undead
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">This monster&rsquo;s type is [undead]. Once
+        per battle when the escalation die is 4+, this monster green walks it immediately
+        gets another turn.</span> </p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: nUc5YmuuwHEfLAa5
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.nUc5YmuuwHEfLAa5'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Strength of the Forest
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">When this monster </span><span class="fontstyle2">green
+        walks </span><span class="fontstyle0">it heals 1d4 x 10 hit points.</span></p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: ygQRftqriZEnJTve
+  _key: '!actors.items!3Hy9FJ1iym1SKrXM.ygQRftqriZEnJTve'
+  _stats:
+    compendiumSource: Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Fear Aura
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">Enemies engaged with this briar elf who have
+        fewer than 48 hp are dazed (-4 attack) and can&rsquo;t use the escalation
+        die.</span></p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Briar Elf Stalker
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Briar Elf Stalker
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 24
     attackMod:
       type: Number
       value: 0
@@ -14,76 +547,72 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 24
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 21
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 20
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 140
-      min: 0
-      max: 140
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 16
-    level:
-      type: Number
-      label: Level
-      value: 8
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 140
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 140
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 16
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 8
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 20
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 21
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: archer
@@ -97,515 +626,67 @@ system:
       value: normal
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
-prototypeToken:
-  name: Briar Elf Stalker
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-items:
-  - name: Whip of Thorns
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[20]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+ hit
-        value: 5 ongoing damage
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[10]] damage'
-    _id: 9Yhz2HAWdwDro7FK
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.9Yhz2HAWdwDro7FK'
-  - name: Barbed arrows
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. AC '
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[25]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit or miss
-        value: >-
-          The briar elf can green walk as a move action instead of a standard
-          action this turn.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[10]] damage'
-    _id: MF33oSDntnZeWa0x
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.MF33oSDntnZeWa0x'
-  - name: Green Walk
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">Provided the briar elf stalker is next to
-          a tree, as a standard action they can step into the tree and
-          disappear. At the start of their next turn they reappear next to
-          another nearby tree, and hit or miss their attack does double
-          damage.</span></p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: eg81qvGTDB5Ir3w8
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.eg81qvGTDB5Ir3w8'
-  - name: 'Choose one:'
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: QJYdYczSydPQQdI0
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.QJYdYczSydPQQdI0'
-  - name: Humanoid
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">Twice per battle, make a barbed arrows
-          attack as a quick action.</span> </p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 8Dyov51PlsM2zAuX
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.8Dyov51PlsM2zAuX'
-  - name: Plant
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">This monster&rsquo;s type is [plant]. Once
-          per battle when this monster reappears after its green walk it does
-          triple damage instead of double damage.</span></p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: VRfphwgwTs8waYsJ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.VRfphwgwTs8waYsJ'
-  - name: Undead
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
-          Once per battle when the escalation die is 4+, this monster green
-          walks it immediately gets another turn.</span> </p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qTTNDDjITQ3R1MPX
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.qTTNDDjITQ3R1MPX'
-  - name: Strength of the Forest
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">When this monster </span><span
-          class="fontstyle2">green walks </span><span class="fontstyle0">it
-          heals 1d4 x 10 hit points.</span></p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: nUc5YmuuwHEfLAa5
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.nUc5YmuuwHEfLAa5'
-  - name: Fear Aura
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">Enemies engaged with this briar elf who
-          have fewer than 48 hp are dazed (-4 attack) and can&rsquo;t use the
-          escalation die.</span></p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: ygQRftqriZEnJTve
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!3Hy9FJ1iym1SKrXM.ygQRftqriZEnJTve'
-effects: []
-folder: null
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-  core: {}
-sort: 0
-_key: '!actors!3Hy9FJ1iym1SKrXM'
+        enabled: false
+type: npc

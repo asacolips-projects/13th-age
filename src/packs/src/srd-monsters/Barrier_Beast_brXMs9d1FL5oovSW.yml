@@ -1,9 +1,826 @@
-name: Barrier Beast
-type: npc
 _id: brXMs9d1FL5oovSW
+_key: '!actors!brXMs9d1FL5oovSW'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: BOCukC80GxN4vcHH
+  _key: '!actors.items!brXMs9d1FL5oovSW.BOCukC80GxN4vcHH'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Barrier breaker (1 target, or adjusted targets equal to the escalation die;
+    see melee breaker ability below)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 16]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: '<p><em>Natural even hit or miss</em>: One normal structure of house
+        or ship size that the barrier beast is next to is destroyed.</p>
+
+        <p><em>Natural even hit</em>: [[20]] extra damage and the target *stuck* and
+        *weakened* until the start of the barrier beast&rsquo;s next turn, until the
+        beast moves, or until it uses beast surge.</p>
+
+        <p><em>Natural 16+</em>: A non-druidic spell cast on the barrier beast ends.
+        If there are none, a non-druidic spell cast on the target ends.</p>
+
+        <p><em>Natural 20</em>: All non-druidic spells cast on the barrier beast or
+        the target end.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[125]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[50]] damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: grxsDVMXJos4pnT7
+  _key: '!actors.items!brXMs9d1FL5oovSW.grxsDVMXJos4pnT7'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Breath weapon'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 16]] vs. PD ([[1d4]] nearby or faraway enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[40]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: '[[20]] ongoing damage'
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[20]] damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: lCiQTrrPc20QGJkf
+  _key: '!actors.items!brXMs9d1FL5oovSW.lCiQTrrPc20QGJkf'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Melee breaker
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The barrier beast&rsquo;s barrier breaker attack can target 1 engaged
+        enemy, or engaged enemies equal to the escalation die ([[@ed]]); or the attack
+        can target a nearby enemy for a &lsquo;cost&rsquo; of two points on the escalation
+        die. For example, if the escalation die is 6, the attack could target two
+        engaged enemies and two nearby enemies.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: JsrMWIR1vxorhusr
+  _key: '!actors.items!brXMs9d1FL5oovSW.JsrMWIR1vxorhusr'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Wild Ability
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Each barrier beasts has one of the following wild abilities.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: KYbjWrxJAIzKDPCO
+  _key: '!actors.items!brXMs9d1FL5oovSW.KYbjWrxJAIzKDPCO'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Amphibious
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The barrier beast can swim underwater swiftly and indefinitely.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: SaIZzHCK7OBWElcr
+  _key: '!actors.items!brXMs9d1FL5oovSW.SaIZzHCK7OBWElcr'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Burrowing
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>As amphibious, but instead of travelling underwater the barrier beast
+        can &ldquo;swim&rdquo; through the earth.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: yRr3TBulMFKjTBPo
+  _key: '!actors.items!brXMs9d1FL5oovSW.yRr3TBulMFKjTBPo'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The barrier beast can fly very quickly, if not very gracefully.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Al0lwr8YvLCiWd8Y
+  _key: '!actors.items!brXMs9d1FL5oovSW.Al0lwr8YvLCiWd8Y'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Mountain Shell
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Twice per battle as a standard action, the barrier beast can gain
+        a +4 to all defenses until it makes an attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: R9AzNEg2gjCrqp5j
+  _key: '!actors.items!brXMs9d1FL5oovSW.R9AzNEg2gjCrqp5j'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Regrowth
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Twice per battle as a standard action, the barrier beast can regain
+        [[100]] hit points.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: JsEarRnZozlbAOZt
+  _key: '!actors.items!brXMs9d1FL5oovSW.JsEarRnZozlbAOZt'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: If it bleeds
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Each barrier beast is vulnerable to one damage type (chosen by the
+        GM or determined randomly). When a barrier beast is hit by an attack it is
+        vulnerable to, it cannot use <em>beast surge</em> until the end of its next
+        turn.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 0CMWbOf8XzPVytRW
+  _key: '!actors.items!brXMs9d1FL5oovSW.0CMWbOf8XzPVytRW'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Big enough
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>A barrier beast is immune to opportunity attacks from any creature
+        that is not huge size or larger (like a barrier beast). Normal sized enemies
+        can disengage from a barrier beast by rolling 6+ instead of the normal 11+.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: ZPfOH0DFrt9PV8to
+  _key: '!actors.items!brXMs9d1FL5oovSW.ZPfOH0DFrt9PV8to'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Beast surge
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Once per round when a barrier beast takes more than 100 damage from
+        an attack, all enemy-caused conditions affecting the barrier beast end. Then
+        the barrier beast rolls a normal save; if the save succeeds, the barrier beast
+        gets an additional free action that depends on its wild ability (see below):</p>
+
+        <p>If the barrier beast has <em>amphibious</em>, <em>burrowing</em>, or <em>flight</em>,
+        it can choose to swim/burrow/ or fly someplace faraway without taking opportunity
+        attacks as a free action. At the start of its next turn, the barrier beast
+        gains a free move action.</p>
+
+        <p>If the barrier beasts has <em>mountain shell</em>, it uses it as a free
+        action that does not count against its uses of the ability.</p>
+
+        <p>If the barrier beast has <em>regrowth</em>, it can use that ability as
+        a free action that does not count against its uses of the ability.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: SnzDTVQggve8PJM2
+  _key: '!actors.items!brXMs9d1FL5oovSW.SnzDTVQggve8PJM2'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Beast resilience
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>At-will and basic attacks do not deal miss damage to a barrier beast,
+        and when an attack against AC or PD targets this creature it deals half damage
+        unless the natural attack roll is 16+. This ability does not work against
+        attacks it is vulnerable to, and ends when the escalation die is 6+.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: WJfSr1fjQWP3Cfz1
+  _key: '!actors.items!brXMs9d1FL5oovSW.WJfSr1fjQWP3Cfz1'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Shrug
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The barrier beast ignores damage that&rsquo;s less than 10.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: qfQJfIBGqHn7Wa9I
+  _key: '!actors.items!brXMs9d1FL5oovSW.qfQJfIBGqHn7Wa9I'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Wilder beast
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The barrier beast has two (or even three!) wild abilities instead
+        of one. Choose which additional effect is used each time beast surge is triggered.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: WR2Lczbzcc1ihN1u
+  _key: '!actors.items!brXMs9d1FL5oovSW.WR2Lczbzcc1ihN1u'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Breath weapon
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the escalation die is even the barrier beast can make a breath
+        weapon attack as a quick action once per round, or use it as the additional
+        effect when beast surge is triggered. Pick or roll a random energy type that
+        is different from the vulnerability of the barrier beast. Breath weapon does
+        that type of damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Barrier Beast
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Barrier Beast
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 26
     attackMod:
       type: Number
       value: 0
@@ -14,76 +831,72 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 26
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 24
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 20
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 700
-      min: 0
-      max: 700
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 14
-    level:
-      type: Number
-      label: Level
-      value: 11
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 700
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 700
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 14
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 11
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 20
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 24
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: spoiler
@@ -97,740 +910,67 @@ system:
       value: triple
     type:
       value: beast
-    resistance:
-      value: ''
     vulnerability:
       value: (varies)
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
-prototypeToken:
-  name: Barrier Beast
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    tint: '#ffffff'
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-items:
-  - name: >-
-      Barrier breaker (1 target, or adjusted targets equal to the escalation
-      die; see melee breaker ability below)
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><em>Natural even hit or miss</em>: One normal structure of house or
-          ship size that the barrier beast is next to is destroyed.</p>
-
-          <p><em>Natural even hit</em>: [[20]] extra damage and the target
-          *stuck* and *weakened* until the start of the barrier beast&rsquo;s
-          next turn, until the beast moves, or until it uses beast surge.</p>
-
-          <p><em>Natural 16+</em>: A non-druidic spell cast on the barrier beast
-          ends. If there are none, a non-druidic spell cast on the target
-          ends.</p>
-
-          <p><em>Natural 20</em>: All non-druidic spells cast on the barrier
-          beast or the target end.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 16]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[125]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[50]] damage'
-    _id: BOCukC80GxN4vcHH
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.BOCukC80GxN4vcHH'
-  - name: 'C: Breath weapon'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 16]] vs. PD ([[1d4]] nearby or faraway enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[40]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: '[[20]] ongoing damage'
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[20]] damage'
-    _id: grxsDVMXJos4pnT7
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.grxsDVMXJos4pnT7'
-  - name: Melee breaker
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The barrier beast&rsquo;s barrier breaker attack can target 1
-          engaged enemy, or engaged enemies equal to the escalation die
-          ([[@ed]]); or the attack can target a nearby enemy for a
-          &lsquo;cost&rsquo; of two points on the escalation die. For example,
-          if the escalation die is 6, the attack could target two engaged
-          enemies and two nearby enemies.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: lCiQTrrPc20QGJkf
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.lCiQTrrPc20QGJkf'
-  - name: Wild Ability
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>Each barrier beasts has one of the following wild abilities.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: JsrMWIR1vxorhusr
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.JsrMWIR1vxorhusr'
-  - name: Amphibious
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>The barrier beast can swim underwater swiftly and indefinitely.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: KYbjWrxJAIzKDPCO
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.KYbjWrxJAIzKDPCO'
-  - name: Burrowing
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>As amphibious, but instead of travelling underwater the barrier
-          beast can &ldquo;swim&rdquo; through the earth.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: SaIZzHCK7OBWElcr
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.SaIZzHCK7OBWElcr'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>The barrier beast can fly very quickly, if not very gracefully.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: yRr3TBulMFKjTBPo
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.yRr3TBulMFKjTBPo'
-  - name: Mountain Shell
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Twice per battle as a standard action, the barrier beast can gain a
-          +4 to all defenses until it makes an attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Al0lwr8YvLCiWd8Y
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.Al0lwr8YvLCiWd8Y'
-  - name: Regrowth
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Twice per battle as a standard action, the barrier beast can regain
-          [[100]] hit points.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: R9AzNEg2gjCrqp5j
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.R9AzNEg2gjCrqp5j'
-  - name: If it bleeds
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each barrier beast is vulnerable to one damage type (chosen by the
-          GM or determined randomly). When a barrier beast is hit by an attack
-          it is vulnerable to, it cannot use <em>beast surge</em> until the end
-          of its next turn.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: JsEarRnZozlbAOZt
-    effects: []
-    folder: null
-    sort: 100000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.JsEarRnZozlbAOZt'
-  - name: Big enough
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>A barrier beast is immune to opportunity attacks from any creature
-          that is not huge size or larger (like a barrier beast). Normal sized
-          enemies can disengage from a barrier beast by rolling 6+ instead of
-          the normal 11+.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 0CMWbOf8XzPVytRW
-    effects: []
-    folder: null
-    sort: 100000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.0CMWbOf8XzPVytRW'
-  - name: Beast surge
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per round when a barrier beast takes more than 100 damage from
-          an attack, all enemy-caused conditions affecting the barrier beast
-          end. Then the barrier beast rolls a normal save; if the save succeeds,
-          the barrier beast gets an additional free action that depends on its
-          wild ability (see below):</p>
-
-          <p>If the barrier beast has <em>amphibious</em>, <em>burrowing</em>,
-          or <em>flight</em>, it can choose to swim/burrow/ or fly someplace
-          faraway without taking opportunity attacks as a free action. At the
-          start of its next turn, the barrier beast gains a free move
-          action.</p>
-
-          <p>If the barrier beasts has <em>mountain shell</em>, it uses it as a
-          free action that does not count against its uses of the ability.</p>
-
-          <p>If the barrier beast has <em>regrowth</em>, it can use that ability
-          as a free action that does not count against its uses of the
-          ability.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: ZPfOH0DFrt9PV8to
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.ZPfOH0DFrt9PV8to'
-  - name: Beast resilience
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At-will and basic attacks do not deal miss damage to a barrier
-          beast, and when an attack against AC or PD targets this creature it
-          deals half damage unless the natural attack roll is 16+. This ability
-          does not work against attacks it is vulnerable to, and ends when the
-          escalation die is 6+.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: SnzDTVQggve8PJM2
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.SnzDTVQggve8PJM2'
-  - name: Shrug
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>The barrier beast ignores damage that&rsquo;s less than 10.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: WJfSr1fjQWP3Cfz1
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.WJfSr1fjQWP3Cfz1'
-  - name: Wilder beast
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The barrier beast has two (or even three!) wild abilities instead
-          of one. Choose which additional effect is used each time beast surge
-          is triggered.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qfQJfIBGqHn7Wa9I
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.qfQJfIBGqHn7Wa9I'
-  - name: Breath weapon
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the escalation die is even the barrier beast can make a breath
-          weapon attack as a quick action once per round, or use it as the
-          additional effect when beast surge is triggered. Pick or roll a random
-          energy type that is different from the vulnerability of the barrier
-          beast. Breath weapon does that type of damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: WR2Lczbzcc1ihN1u
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!brXMs9d1FL5oovSW.WR2Lczbzcc1ihN1u'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!brXMs9d1FL5oovSW'
+        enabled: false
+type: npc

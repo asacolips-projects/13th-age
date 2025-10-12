@@ -1,64 +1,126 @@
-name: Random Rune Effect on Weapon
-img: icons/svg/d20-grey.svg
+_id: HlqbChfomypWhoL2
+_key: '!tables!HlqbChfomypWhoL2'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 20
-    drawn: false
-    _id: bJuCbDtePhhsemCO
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!HlqbChfomypWhoL2.bJuCbDtePhhsemCO'
-  - type: text
-    weight: 1
-    range:
-      - 21
-      - 40
-    drawn: false
-    _id: 7ICQCROIg0U569Rz
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!HlqbChfomypWhoL2.7ICQCROIg0U569Rz'
-  - type: text
-    weight: 1
-    range:
-      - 41
-      - 60
-    drawn: false
-    _id: ebU7OtOZYwshHd0b
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!HlqbChfomypWhoL2.ebU7OtOZYwshHd0b'
-  - type: text
-    weight: 1
-    range:
-      - 61
-      - 80
-    drawn: false
-    _id: c7wJevTMdk3tJ89m
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!HlqbChfomypWhoL2.c7wJevTMdk3tJ89m'
-  - type: text
-    weight: 1
-    range:
-      - 81
-      - 100
-    drawn: false
-    _id: Rfxt0e9NXnWZSSHH
-    img: null
-    flags: {}
-    _key: '!tables.results!HlqbChfomypWhoL2.Rfxt0e9NXnWZSSHH'
-formula: 1d100
-replacement: true
 displayRoll: true
 flags: {}
-sort: 1400000
+folder: null
+formula: 1d100
+img: icons/svg/d20-grey.svg
+name: Random Rune Effect on Weapon
 ownership:
   default: 0
-_id: HlqbChfomypWhoL2
-folder: null
-_key: '!tables!HlqbChfomypWhoL2'
+replacement: true
+results:
+- _id: bJuCbDtePhhsemCO
+  _key: '!tables.results!HlqbChfomypWhoL2.bJuCbDtePhhsemCO'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +4 bonus to opportunity attacks
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 20
+  type: text
+  weight: 1
+- _id: 7ICQCROIg0U569Rz
+  _key: '!tables.results!HlqbChfomypWhoL2.7ICQCROIg0U569Rz'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Weapon gains an energy damage type such as fire, cold, etc., and deals
+    +1d4 damage (champion: +2d6; epic: +5d6)'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 21
+  - 40
+  type: text
+  weight: 1
+- _id: ebU7OtOZYwshHd0b
+  _key: '!tables.results!HlqbChfomypWhoL2.ebU7OtOZYwshHd0b'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +4 attack bonus on first round of combat
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 41
+  - 60
+  type: text
+  weight: 1
+- _id: c7wJevTMdk3tJ89m
+  _key: '!tables.results!HlqbChfomypWhoL2.c7wJevTMdk3tJ89m'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Weapon deals +1d10 damage while escalation die is 3+ (champion: +4d6;
+    epic: +3d20)'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 61
+  - 80
+  type: text
+  weight: 1
+- _id: Rfxt0e9NXnWZSSHH
+  _key: '!tables.results!HlqbChfomypWhoL2.Rfxt0e9NXnWZSSHH'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Reroll one missed attack roll with weapon
+  drawn: false
+  flags: {}
+  img: null
+  name: ''
+  range:
+  - 81
+  - 100
+  type: text
+  weight: 1
+sort: 1400000

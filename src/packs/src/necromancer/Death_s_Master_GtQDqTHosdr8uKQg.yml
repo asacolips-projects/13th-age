@@ -1,227 +1,226 @@
+_id: GtQDqTHosdr8uKQg
+_key: '!items!GtQDqTHosdr8uKQg'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/green_03.jpg
 name: Death's Master
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
+  actionType:
+    label: Action
     type: String
-    label: Name
-  description:
-    type: String
-    label: Description
     value: ''
-  powerUsage:
+  always:
+    label: Always
     type: String
+    value: ''
+  attack:
+    label: Attack
+    type: String
+    value: ''
+  breathWeapon:
+    label: Breath Weapon
+    type: String
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: <p>All necromancers must spend at least one relationship point with any
+      necromantic icon. (This might be conflicted or negative.) If you're one unique
+      thing somehow suggests that you might be free of this requirement, make a case
+      to your GM that this is a way in which you are unique.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  feats: null
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Death's Master
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Necromancer
+  powerType:
+    label: Power Type
+    type: String
+    value: feature
+  powerUsage:
     label: Power Usage
+    type: String
+    value: ''
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
     value: ''
   recharge:
-    type: Number
     label: Recharge
+    type: Number
     value: 0
   rechargeAttempts:
-    type: Number
     label: Number of Recharges Attempted
+    type: Number
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
+  resources:
+    label: Resources
     type: String
-    label: Embedded Macro
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
     value: ''
   sequencer:
     ray: ''
+    reversed: false
     self: ''
     target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Necromancer
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Death's Master
-  powerType:
-    type: String
-    label: Power Type
-    value: feature
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
-  actionType:
-    type: String
-    label: Action
-    value: ''
-  range:
-    type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: ''
-  always:
-    type: String
-    label: Always
-    value: ''
-  attack:
-    type: String
-    label: Attack
-    value: ''
-  critMod:
-    type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
   special:
-    type: String
     label: Special
+    type: String
     value: ''
-  effect:
+  spellChain:
+    label: Chain Spell
     type: String
-    label: Effect
-    value: >-
-      <p>All necromancers must spend at least one relationship point with any
-      necromantic icon. (This might be conflicted or negative.) If you're one
-      unique thing somehow suggests that you might be free of this requirement,
-      make a case to your GM that this is a way in which you are unique.</p>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
     value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
     value: ''
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: systems/archmage/assets/icons/skills/green_03.jpg
-_id: GtQDqTHosdr8uKQg
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!GtQDqTHosdr8uKQg'
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

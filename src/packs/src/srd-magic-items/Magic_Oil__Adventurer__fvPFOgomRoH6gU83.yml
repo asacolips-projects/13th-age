@@ -1,170 +1,208 @@
-name: Magic Oil (Adventurer)
-type: loot
-img: systems/archmage/assets/icons/items/potions/minor-green.jpg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>As a quick action, pour this oil on a weapon, armor, or
-      spellcasters&rsquo; implement to grant it a temporary magical bonus of
-      +1.</p>
-
-      <p>The effect lasts until the end of a battle or for five minutes before
-      fading. Used on a weapon or a spellcasting implement, the bonus applies to
-      attack and damage rolls. Used on armor, the bonus applies to AC.</p>
-
-      <p>Bonuses from oils don&rsquo;t stack with magic items&rsquo; inherent
-      bonuses. Use the higher bonus.</p>
-  quantity:
-    type: Number
-    label: Quantity
-    value: 1
-  price:
-    type: Number
-    label: Price
-    value: 100
+_id: fvPFOgomRoH6gU83
+_key: '!items!fvPFOgomRoH6gU83'
 effects:
-  - origin: null
-    disabled: false
-    name: Magic Oil (Adventurer, Armor)
-    img: systems/archmage/assets/icons/items/potions/minor-green.jpg
-    _id: jnS8iXTk9vLhlph1
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!fvPFOgomRoH6gU83.jnS8iXTk9vLhlph1'
-  - origin: null
-    disabled: false
-    name: Magic Oil (Adventurer, Melee Weapon)
-    img: systems/archmage/assets/icons/items/potions/minor-green.jpg
-    _id: lqlDR6BC1sdep7Ni
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.melee.bonus
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!fvPFOgomRoH6gU83.lqlDR6BC1sdep7Ni'
-  - origin: null
-    disabled: false
-    name: Magic Oil (Adventurer, Ranged Weapon)
-    img: systems/archmage/assets/icons/items/potions/minor-green.jpg
-    _id: VJZXQ5BBR9RHwuyE
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.ranged.bonus
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!fvPFOgomRoH6gU83.VJZXQ5BBR9RHwuyE'
-  - origin: null
-    disabled: false
-    name: Magic Oil (Adventurer, Implement)
-    img: systems/archmage/assets/icons/items/potions/minor-green.jpg
-    _id: y4BSKRb2cFd6oQHI
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.divine.bonus
-        value: '1'
-        mode: 2
-        priority: null
-      - key: system.attributes.attack.arcane.bonus
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!fvPFOgomRoH6gU83.y4BSKRb2cFd6oQHI'
+- _id: jnS8iXTk9vLhlph1
+  _key: '!items.effects!fvPFOgomRoH6gU83.jnS8iXTk9vLhlph1'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/minor-green.jpg
+  name: Magic Oil (Adventurer, Armor)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: lqlDR6BC1sdep7Ni
+  _key: '!items.effects!fvPFOgomRoH6gU83.lqlDR6BC1sdep7Ni'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.attack.melee.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/minor-green.jpg
+  name: Magic Oil (Adventurer, Melee Weapon)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: VJZXQ5BBR9RHwuyE
+  _key: '!items.effects!fvPFOgomRoH6gU83.VJZXQ5BBR9RHwuyE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.attack.ranged.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/minor-green.jpg
+  name: Magic Oil (Adventurer, Ranged Weapon)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: y4BSKRb2cFd6oQHI
+  _key: '!items.effects!fvPFOgomRoH6gU83.y4BSKRb2cFd6oQHI'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.attack.divine.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  - key: system.attributes.attack.arcane.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/minor-green.jpg
+  name: Magic Oil (Adventurer, Implement)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
 flags:
   core: {}
 folder: 0mcnzVgWo4dqvS1l
-_id: fvPFOgomRoH6gU83
-sort: 700000
+img: systems/archmage/assets/icons/items/potions/minor-green.jpg
+name: Magic Oil (Adventurer)
 ownership:
   default: 0
-_key: '!items!fvPFOgomRoH6gU83'
+sort: 700000
+system:
+  description:
+    label: Description
+    type: String
+    value: '<p>As a quick action, pour this oil on a weapon, armor, or spellcasters&rsquo;
+      implement to grant it a temporary magical bonus of +1.</p>
+
+      <p>The effect lasts until the end of a battle or for five minutes before fading.
+      Used on a weapon or a spellcasting implement, the bonus applies to attack and
+      damage rolls. Used on armor, the bonus applies to AC.</p>
+
+      <p>Bonuses from oils don&rsquo;t stack with magic items&rsquo; inherent bonuses.
+      Use the higher bonus.</p>'
+  name:
+    label: Name
+    type: String
+  price:
+    label: Price
+    type: Number
+    value: 100
+  quantity:
+    label: Quantity
+    type: Number
+    value: 1
+type: loot

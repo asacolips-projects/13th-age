@@ -1,9 +1,459 @@
 _id: 7aZQJ3hIvQT276zZ
-name: Soul Flenser
-type: npc
+_key: '!actors!7aZQJ3hIvQT276zZ'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+items:
+- _id: 5Vp6dMSsHITkWs1a
+  _key: '!actors.items!7aZQJ3hIvQT276zZ.5Vp6dMSsHITkWs1a'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Soul flensing tentacles
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[30]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit, or any hit against a *weakened*, *stunned*, or *confused*
+        target
+      type: ''
+      value: "Randomly select one of the target\u2019s limited-use powers or spells.\
+        \ The soul flenser flenses it away, removing it from the target until that\
+        \ creature regains it via a successful connection to the oversoul (see below)."
+    hit2:
+      label: Hit
+      name: Natural 3, 6, or 9
+      type: ''
+      value: The target is *confused* (save ends).
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: h3ee7KdPAxfhFvA2
+  _key: '!actors.items!7aZQJ3hIvQT276zZ.h3ee7KdPAxfhFvA2'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'C: Soul blast'
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. MD ([[1d4]] nearby enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[35]] psychic damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: ''
+      value: The target is *weakened* (save ends).
+    hit2:
+      label: Hit
+      name: Natural odd hit
+      type: ''
+      value: "If the target is already *weakened*, it\u2019s also *stunned* until\
+        \ end of its next turn."
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    hitt3:
+      label: Hit
+      name: Natural 3, 6, or 9
+      type: ''
+      value: The target is *confused* (save ends).
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: lZvRafmYhc3db0sT
+  _key: '!actors.items!7aZQJ3hIvQT276zZ.lZvRafmYhc3db0sT'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Connection to the Oversoul
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When a creature slays a soul flenser, it can roll a hard save (16+).
+        If it succeeds, the creature regains one power it has had flensed away.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: tS9bOfjmizjct98O
+  _key: '!actors.items!7aZQJ3hIvQT276zZ.tS9bOfjmizjct98O'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Intellect fortress
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When an enemy misses the soul flenser with an attack against MD, that
+        attacker takes half the miss damage, if any.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: VUj4Y9GjzQYW2Ki6
+  _key: '!actors.items!7aZQJ3hIvQT276zZ.VUj4Y9GjzQYW2Ki6'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Underkraken teleport
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "A soul flenser that has successfully flensed at least once can (and\
+        \ usually will, provided some of its enemies are *confused*, *weakened*, or\
+        \ *stunned*) use a standard action to prepare itself to teleport. Once it\
+        \ does this, during its next turn it can use a move action to teleport back\
+        \ to its home underkraken, no matter how distant, leaving the battle behind.\
+        \ Soul flensers fighting beside or within their underkraken can\u2019t use\
+        \ this ability; they\u2019re already home."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: ae6HPcVT132DqyJh
+  _key: '!actors.items!7aZQJ3hIvQT276zZ.ae6HPcVT132DqyJh'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Flensing escalator
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The soul flenser gains an attack bonus equal to the escalation die against
+        creatures that have had one or more powers flensed away.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: NmMiaXwyreVka1bI
+  _key: '!actors.items!7aZQJ3hIvQT276zZ.NmMiaXwyreVka1bI'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Oversoul control
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "While *confused* by a soul flenser\u2019s effect, a creature that has\
+        \ had a power flensed away can use and re-use that limited power against their\
+        \ erstwhile allies, if the GM sees how to use the power in a useful way."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Soul Flenser
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Soul Flenser
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 25
     attackMod:
       type: Number
       value: 0
@@ -14,541 +464,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 25
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 21
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 23
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 180
-      min: 0
-      max: 180
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 15
-      mod: 15
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 180
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 180
+    init:
+      label: Initiative Modifier
+      mod: 15
+      type: Number
+      value: 15
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 23
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 21
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: spoiler
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: spoiler
     roleB:
       value: ''
     size:
-      value: normal
-      type: String
       label: Size
+      type: String
+      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
-      value: aberration
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: aberration
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: 13TW
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: 13TW
-items:
-  - _id: 5Vp6dMSsHITkWs1a
-    flags: {}
-    name: Soul flensing tentacles
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[30]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: >-
-          Natural even hit, or any hit against a *weakened*, *stunned*, or
-          *confused* target
-        value: >-
-          Randomly select one of the target’s limited-use powers or spells. The
-          soul flenser flenses it away, removing it from the target until that
-          creature regains it via a successful connection to the oversoul (see
-          below).
-      hit2:
-        type: ''
-        label: Hit
-        name: Natural 3, 6, or 9
-        value: The target is *confused* (save ends).
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!7aZQJ3hIvQT276zZ.5Vp6dMSsHITkWs1a'
-  - _id: h3ee7KdPAxfhFvA2
-    flags: {}
-    name: 'C: Soul blast'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. MD ([[1d4]] nearby enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[35]] psychic damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit
-        value: The target is *weakened* (save ends).
-      hit2:
-        type: ''
-        label: Hit
-        name: Natural odd hit
-        value: >-
-          If the target is already *weakened*, it’s also *stunned* until end of
-          its next turn.
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-      hitt3:
-        type: ''
-        label: Hit
-        name: Natural 3, 6, or 9
-        value: The target is *confused* (save ends).
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!7aZQJ3hIvQT276zZ.h3ee7KdPAxfhFvA2'
-  - _id: lZvRafmYhc3db0sT
-    flags: {}
-    name: Connection to the Oversoul
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When a creature slays a soul flenser, it can roll a hard save (16+).
-          If it succeeds, the creature regains one power it has had flensed
-          away.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!7aZQJ3hIvQT276zZ.lZvRafmYhc3db0sT'
-  - _id: tS9bOfjmizjct98O
-    flags: {}
-    name: Intellect fortress
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When an enemy misses the soul flenser with an attack against MD, that
-          attacker takes half the miss damage, if any.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!7aZQJ3hIvQT276zZ.tS9bOfjmizjct98O'
-  - _id: VUj4Y9GjzQYW2Ki6
-    flags: {}
-    name: Underkraken teleport
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          A soul flenser that has successfully flensed at least once can (and
-          usually will, provided some of its enemies are *confused*, *weakened*,
-          or *stunned*) use a standard action to prepare itself to teleport.
-          Once it does this, during its next turn it can use a move action to
-          teleport back to its home underkraken, no matter how distant, leaving
-          the battle behind. Soul flensers fighting beside or within their
-          underkraken can’t use this ability; they’re already home.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!7aZQJ3hIvQT276zZ.VUj4Y9GjzQYW2Ki6'
-  - _id: ae6HPcVT132DqyJh
-    flags: {}
-    name: Flensing escalator
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The soul flenser gains an attack bonus equal to the escalation die
-          against creatures that have had one or more powers flensed away.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!7aZQJ3hIvQT276zZ.ae6HPcVT132DqyJh'
-  - _id: NmMiaXwyreVka1bI
-    flags: {}
-    name: Oversoul control
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          While *confused* by a soul flenser’s effect, a creature that has had a
-          power flensed away can use and re-use that limited power against their
-          erstwhile allies, if the GM sees how to use the power in a useful way.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!7aZQJ3hIvQT276zZ.NmMiaXwyreVka1bI'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Soul Flenser
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!7aZQJ3hIvQT276zZ'
+        enabled: false
+type: npc

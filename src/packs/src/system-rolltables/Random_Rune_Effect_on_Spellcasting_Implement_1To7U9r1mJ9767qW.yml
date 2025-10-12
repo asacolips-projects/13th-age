@@ -1,64 +1,125 @@
-name: Random Rune Effect on Spellcasting Implement
-img: icons/svg/d20-grey.svg
+_id: 1To7U9r1mJ9767qW
+_key: '!tables!1To7U9r1mJ9767qW'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 20
-    drawn: false
-    _id: upVZOJ6pLmITG2op
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!1To7U9r1mJ9767qW.upVZOJ6pLmITG2op'
-  - type: text
-    weight: 1
-    range:
-      - 21
-      - 40
-    drawn: false
-    _id: xahuFiM047u0WYtP
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!1To7U9r1mJ9767qW.xahuFiM047u0WYtP'
-  - type: text
-    weight: 1
-    range:
-      - 41
-      - 60
-    drawn: false
-    _id: 3KbFH2hTwfIt4bq9
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!1To7U9r1mJ9767qW.3KbFH2hTwfIt4bq9'
-  - type: text
-    weight: 1
-    range:
-      - 61
-      - 80
-    drawn: false
-    _id: sQv25ZzyQmhenFKv
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!1To7U9r1mJ9767qW.sQv25ZzyQmhenFKv'
-  - type: text
-    weight: 1
-    range:
-      - 81
-      - 100
-    drawn: false
-    _id: SfOnpXx8p5EWeA45
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!1To7U9r1mJ9767qW.SfOnpXx8p5EWeA45'
-formula: 1d100
-replacement: true
 displayRoll: true
 flags: {}
 folder: null
-sort: 100000
+formula: 1d100
+img: icons/svg/d20-grey.svg
+name: Random Rune Effect on Spellcasting Implement
 ownership:
   default: 0
-_id: 1To7U9r1mJ9767qW
-_key: '!tables!1To7U9r1mJ9767qW'
+replacement: true
+results:
+- _id: upVZOJ6pLmITG2op
+  _key: '!tables.results!1To7U9r1mJ9767qW.upVZOJ6pLmITG2op'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +1 additional attack bonus if spell has only one target
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 20
+  type: text
+  weight: 1
+- _id: xahuFiM047u0WYtP
+  _key: '!tables.results!1To7U9r1mJ9767qW.xahuFiM047u0WYtP'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Implement gains an energy damage type such as fire, negative energy,
+    etc., and deals +1d4 damage (champion: +2d6; epic: +5d6)'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 21
+  - 40
+  type: text
+  weight: 1
+- _id: 3KbFH2hTwfIt4bq9
+  _key: '!tables.results!1To7U9r1mJ9767qW.3KbFH2hTwfIt4bq9'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +1 additional attack bonus with daily spells
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 41
+  - 60
+  type: text
+  weight: 1
+- _id: sQv25ZzyQmhenFKv
+  _key: '!tables.results!1To7U9r1mJ9767qW.sQv25ZzyQmhenFKv'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 1 additional attack bonus if spell has more than one target
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 61
+  - 80
+  type: text
+  weight: 1
+- _id: SfOnpXx8p5EWeA45
+  _key: '!tables.results!1To7U9r1mJ9767qW.SfOnpXx8p5EWeA45'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Reroll one missed attack roll with implement
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 81
+  - 100
+  type: text
+  weight: 1
+sort: 100000

@@ -1,95 +1,199 @@
-name: Random Demon Abilities
-img: icons/svg/d20-grey.svg
+_id: fnh84WoLu1gwdosl
+_key: '!tables!fnh84WoLu1gwdosl'
 description: ''
-results:
-  - type: document
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: MEVDyPLFvTc13W0n
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.MEVDyPLFvTc13W0n'
-  - type: document
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: VVljIJNSbquO25vm
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.VVljIJNSbquO25vm'
-  - type: document
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: c6L2jYZ4AXFaJn9z
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.c6L2jYZ4AXFaJn9z'
-  - type: document
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: abU60RmfxzOT8iYc
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.abU60RmfxzOT8iYc'
-  - type: document
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: t50alDgyctQJQkPa
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.t50alDgyctQJQkPa'
-  - type: document
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: Xd595FgKrWRuLCov
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.Xd595FgKrWRuLCov'
-  - type: document
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: tmf0Mff8X6vIvF9q
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.tmf0Mff8X6vIvF9q'
-  - type: document
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    img: icons/svg/item-bag.svg
-    _id: 7l8pYTJFbspTR9NV
-    flags: {}
-    _key: '!tables.results!fnh84WoLu1gwdosl.7l8pYTJFbspTR9NV'
-formula: 1d8
-replacement: true
 displayRoll: false
 flags:
   archmage: {}
 folder: null
-sort: 2300000
+formula: 1d8
+img: icons/svg/d20-grey.svg
+name: Random Demon Abilities
 ownership:
   default: 0
-_id: fnh84WoLu1gwdosl
-_key: '!tables!fnh84WoLu1gwdosl'
+replacement: true
+results:
+- _id: MEVDyPLFvTc13W0n
+  _key: '!tables.results!fnh84WoLu1gwdosl.MEVDyPLFvTc13W0n'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.q0vVL4L1yf5QMonV
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: True seeing
+  range:
+  - 1
+  - 1
+  type: document
+  weight: 1
+- _id: VVljIJNSbquO25vm
+  _key: '!tables.results!fnh84WoLu1gwdosl.VVljIJNSbquO25vm'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.2PwoIGDEI0Vla9GG
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Resist fire 18+
+  range:
+  - 2
+  - 2
+  type: document
+  weight: 1
+- _id: c6L2jYZ4AXFaJn9z
+  _key: '!tables.results!fnh84WoLu1gwdosl.c6L2jYZ4AXFaJn9z'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.i0xyt4xwBObvBDnO
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Invisibility
+  range:
+  - 3
+  - 3
+  type: document
+  weight: 1
+- _id: abU60RmfxzOT8iYc
+  _key: '!tables.results!fnh84WoLu1gwdosl.abU60RmfxzOT8iYc'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.YhARzcfkSGgNqO9B
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Resist energy 12+
+  range:
+  - 4
+  - 4
+  type: document
+  weight: 1
+- _id: t50alDgyctQJQkPa
+  _key: '!tables.results!fnh84WoLu1gwdosl.t50alDgyctQJQkPa'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.b57i28kZTNUC7IHA
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Fear aura
+  range:
+  - 5
+  - 5
+  type: document
+  weight: 1
+- _id: Xd595FgKrWRuLCov
+  _key: '!tables.results!fnh84WoLu1gwdosl.Xd595FgKrWRuLCov'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.0KY6GWNAlL2Bp8MY
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Teleport 1d3 times each battle
+  range:
+  - 6
+  - 6
+  type: document
+  weight: 1
+- _id: tmf0Mff8X6vIvF9q
+  _key: '!tables.results!fnh84WoLu1gwdosl.tmf0Mff8X6vIvF9q'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.z6lUYL09Ar5IYGu3
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Demonic speed
+  range:
+  - 7
+  - 7
+  type: document
+  weight: 1
+- _id: 7l8pYTJFbspTR9NV
+  _key: '!tables.results!fnh84WoLu1gwdosl.7l8pYTJFbspTR9NV'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.6QirduZForphIdI1
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Gate
+  range:
+  - 8
+  - 8
+  type: document
+  weight: 1
+sort: 2300000

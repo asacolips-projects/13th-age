@@ -1,9 +1,706 @@
-name: Fallen Icon – Nature
-type: npc
 _id: pV32DIGlGJHcZWrg
+_key: '!actors!pV32DIGlGJHcZWrg'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: Xj9GxIgqjtGivdyV
+  _key: '!actors.items!pV32DIGlGJHcZWrg.Xj9GxIgqjtGivdyV'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Wrathful Earth
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 19]] vs. AC (3 attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[60]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: "The target is *stuck* and takes *60* ongoing damage (hard save ends\
+        \ both). Until the target saves it remains engaged with the Fallen Icon, though\
+        \ it cannot be otherwise targeted or damaged by the Fallen Icon (which does\
+        \ nothing to prevent the Fallen Icon\u2019s allies from piling on!). If the\
+        \ target attacks and hits the Fallen Icon for more than 100 damage, their\
+        \ next save against the wrathful earth effect is an easy one (6+)."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 103PI49CKow91xl3
+  _key: '!actors.items!pV32DIGlGJHcZWrg.103PI49CKow91xl3'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Angry Sky'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 19]] vs. PD (all nearby flying enemies, and a number of random
+        nearby enemies equal to the escalation die ([[@ed]]), one attack per target,
+        or all nearby enemies when the escalation die is 6 or higher)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[50]] lightning damage and target loses the flight ability (save ends)'
+    hit1:
+      label: Hit
+      name: Natural even miss
+      type: String
+      value: '[[30]] thunder damage'
+    hit2:
+      label: Hit
+      name: Natural odd miss
+      type: String
+      value: '[[15]] cold damage'
+    hit3:
+      label: Hit
+      name: Special trigger
+      type: String
+      value: "Use as a free action once per turn at the start of the Fallen Icon\u2019\
+        s turn."
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: HrsETQ9jClByhcc0
+  _key: '!actors.items!pV32DIGlGJHcZWrg.HrsETQ9jClByhcc0'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '[Special trigger] Collapse'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 16]] vs. PD (each creature in/on structure)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[90]] damage and the target is *stuck* and takes [[20]] ongoing damage
+        (hard save ends both, 16+)'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: oL0vkaRzlMj2RhVv
+  _key: '!actors.items!pV32DIGlGJHcZWrg.oL0vkaRzlMj2RhVv'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Ambulatory landscape
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the Fallen Icon uses its first move action each turn, each creature
+        of less than huge size that is engaged with or next to it before or after
+        the movement takes [[60]] damage. In addition, the Fallen Icon is immune to
+        opportunity attacks. Enemies of less than huge size can disengage from it
+        with an easy save (6+).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 0eUuwsCiNDNDPtza
+  _key: '!actors.items!pV32DIGlGJHcZWrg.0eUuwsCiNDNDPtza'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Wildest shape
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>At the start of its turn, the Fallen Icon can change its creature
+        type to beast, elemental, or plant. This ends all conditions affecting it.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: VJ97c47Ovlt8Nu4C
+  _key: '!actors.items!pV32DIGlGJHcZWrg.VJ97c47Ovlt8Nu4C'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Natural resistance
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The Fallen Icon has resist poison 16+. In addition, as a beast it
+        has resist cold 16+. As a plant it has resist lightning 16+. As an elemental
+        it has resist fire 16+.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 13KL8qBsXTkeaCfI
+  _key: '!actors.items!pV32DIGlGJHcZWrg.13KL8qBsXTkeaCfI'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Earth and sea and sky
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The Fallen Icon can sprout wings to clumsily fly, and can swim indefinitely
+        at any depth.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: MqdZQVMpeYnxg4V4
+  _key: '!actors.items!pV32DIGlGJHcZWrg.MqdZQVMpeYnxg4V4'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Natural supremacy
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>The Fallen Icon&rsquo;s existence disrupts arcane magic and divine
+        magic (but not druidic magic): natural odd hits by arcane and divine spells
+        miss the Fallen Icon, while odd misses are rerolled against an enemy engaged
+        with the Fallen Icon. Natural 1s target the caster.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Jl7I49rs6ZHNQbKv
+  _key: '!actors.items!pV32DIGlGJHcZWrg.Jl7I49rs6ZHNQbKv'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Enemy of civilization
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>As a move action, the Fallen Icon can destroy one ordinary structure
+        it can reach, such as a house, castle wall, temple, or ship. The structure
+        is automatically rendered useless, and each creature inside or on the structure
+        is subject to a <em>collapse</em> attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: cpkPrNF88CS8FDxN
+  _key: '!actors.items!pV32DIGlGJHcZWrg.cpkPrNF88CS8FDxN'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Those that walk the forest
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Whenever the Fallen Icon becomes staggered, suffers more than 120
+        damage from a single attack, or is critically hit, a mob of Fallen Icon mooks
+        will join the battle nearby the triggering enemy. While these creatures are
+        in play, the Fallen Icon has a bonus to all defenses equal to the number of
+        Fallen Icon mobs in the battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 08e1QnKYdyTQAnek
+  _key: '!actors.items!pV32DIGlGJHcZWrg.08e1QnKYdyTQAnek'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Seeds on the wind
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>If the Fallen Icon is slain, the GM secretly rolls a normal save (11+)
+        at the end of each session, including this one. If the save succeeds, the
+        Fallen Icon returns to life near where it fell or in some distant wilderness.
+        If the campaign somehow ends while the Fallen Icon is still dead, it&rsquo;s
+        the GM&rsquo;s call whether the Fallen Icon stays dead or rises after the
+        events of the campaign.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: RAR4rBogmL2xsxOr
+  _key: '!actors.items!pV32DIGlGJHcZWrg.RAR4rBogmL2xsxOr'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Omnivorous
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a creature engaged with or next to the Fallen Icon dies (including
+        the last mook of a mob), the Fallen Icon consumes it and regains [[100]] HP.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: "Fallen Icon \u2013 Nature"
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: "Fallen Icon \u2013 Nature"
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 28
     attackMod:
       type: Number
       value: 0
@@ -14,87 +711,82 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 28
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 24
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 24
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 1400
-      min: 0
-      max: 1400
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 17
-    level:
-      type: Number
-      label: Level
-      value: 14
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 1400
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 1400
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 17
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 14
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 24
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 24
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
-      value: >-
-        <p>First PC campaign victory: Remove the Fallen Icon&rsquo;s natural
+      value: '<p>First PC campaign victory: Remove the Fallen Icon&rsquo;s natural
         supremacy ability.</p>
 
-        <p>Second PC campaign victory: Angry sky only triggers when the
-        escalation die is even.</p>
+        <p>Second PC campaign victory: Angry sky only triggers when the escalation
+        die is even.</p>
 
         <p>Third PC campaign victory: Remove the seeds on the wind ability.</p>
 
-        <p>Fourth PC campaign victory: Remove the 60 damage dealt by the
-        ambulatory landscape ability.</p>
+        <p>Fourth PC campaign victory: Remove the 60 damage dealt by the ambulatory
+        landscape ability.</p>'
+    resistance:
+      value: ''
     role:
       value: spoiler
     roleB:
@@ -107,659 +799,67 @@ system:
       value: triple
     type:
       value: beast
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
-prototypeToken:
-  name: Fallen Icon – Nature
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    tint: '#ffffff'
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-items:
-  - name: Wrathful Earth
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 19]] vs. AC (3 attacks)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[60]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The target is *stuck* and takes *60* ongoing damage (hard save ends
-          both). Until the target saves it remains engaged with the Fallen Icon,
-          though it cannot be otherwise targeted or damaged by the Fallen Icon
-          (which does nothing to prevent the Fallen Icon’s allies from piling
-          on!). If the target attacks and hits the Fallen Icon for more than 100
-          damage, their next save against the wrathful earth effect is an easy
-          one (6+).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: Xj9GxIgqjtGivdyV
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.Xj9GxIgqjtGivdyV'
-  - name: 'C: Angry Sky'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: >-
-          [[d20 + 19]] vs. PD (all nearby flying enemies, and a number of random
-          nearby enemies equal to the escalation die ([[@ed]]), one attack per
-          target, or all nearby enemies when the escalation die is 6 or higher)
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[50]] lightning damage and target loses the flight ability (save
-          ends)
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even miss
-        value: '[[30]] thunder damage'
-      hit2:
-        type: String
-        label: Hit
-        name: Natural odd miss
-        value: '[[15]] cold damage'
-      hit3:
-        type: String
-        label: Hit
-        name: Special trigger
-        value: >-
-          Use as a free action once per turn at the start of the Fallen Icon’s
-          turn.
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: 103PI49CKow91xl3
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.103PI49CKow91xl3'
-  - name: '[Special trigger] Collapse'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 16]] vs. PD (each creature in/on structure)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[90]] damage and the target is *stuck* and takes [[20]] ongoing
-          damage (hard save ends both, 16+)
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: HrsETQ9jClByhcc0
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.HrsETQ9jClByhcc0'
-  - name: Ambulatory landscape
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the Fallen Icon uses its first move action each turn, each
-          creature of less than huge size that is engaged with or next to it
-          before or after the movement takes [[60]] damage. In addition, the
-          Fallen Icon is immune to opportunity attacks. Enemies of less than
-          huge size can disengage from it with an easy save (6+).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: oL0vkaRzlMj2RhVv
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.oL0vkaRzlMj2RhVv'
-  - name: Wildest shape
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At the start of its turn, the Fallen Icon can change its creature
-          type to beast, elemental, or plant. This ends all conditions affecting
-          it.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 0eUuwsCiNDNDPtza
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.0eUuwsCiNDNDPtza'
-  - name: Natural resistance
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The Fallen Icon has resist poison 16+. In addition, as a beast it
-          has resist cold 16+. As a plant it has resist lightning 16+. As an
-          elemental it has resist fire 16+.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: VJ97c47Ovlt8Nu4C
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.VJ97c47Ovlt8Nu4C'
-  - name: Earth and sea and sky
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The Fallen Icon can sprout wings to clumsily fly, and can swim
-          indefinitely at any depth.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 13KL8qBsXTkeaCfI
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.13KL8qBsXTkeaCfI'
-  - name: Natural supremacy
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The Fallen Icon&rsquo;s existence disrupts arcane magic and divine
-          magic (but not druidic magic): natural odd hits by arcane and divine
-          spells miss the Fallen Icon, while odd misses are rerolled against an
-          enemy engaged with the Fallen Icon. Natural 1s target the caster.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: MqdZQVMpeYnxg4V4
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.MqdZQVMpeYnxg4V4'
-  - name: Enemy of civilization
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>As a move action, the Fallen Icon can destroy one ordinary
-          structure it can reach, such as a house, castle wall, temple, or ship.
-          The structure is automatically rendered useless, and each creature
-          inside or on the structure is subject to a <em>collapse</em>
-          attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Jl7I49rs6ZHNQbKv
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.Jl7I49rs6ZHNQbKv'
-  - name: Those that walk the forest
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Whenever the Fallen Icon becomes staggered, suffers more than 120
-          damage from a single attack, or is critically hit, a mob of Fallen
-          Icon mooks will join the battle nearby the triggering enemy. While
-          these creatures are in play, the Fallen Icon has a bonus to all
-          defenses equal to the number of Fallen Icon mobs in the battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: cpkPrNF88CS8FDxN
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.cpkPrNF88CS8FDxN'
-  - name: Seeds on the wind
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>If the Fallen Icon is slain, the GM secretly rolls a normal save
-          (11+) at the end of each session, including this one. If the save
-          succeeds, the Fallen Icon returns to life near where it fell or in
-          some distant wilderness. If the campaign somehow ends while the Fallen
-          Icon is still dead, it&rsquo;s the GM&rsquo;s call whether the Fallen
-          Icon stays dead or rises after the events of the campaign.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 08e1QnKYdyTQAnek
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.08e1QnKYdyTQAnek'
-  - name: Omnivorous
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a creature engaged with or next to the Fallen Icon dies
-          (including the last mook of a mob), the Fallen Icon consumes it and
-          regains [[100]] HP.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: RAR4rBogmL2xsxOr
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!pV32DIGlGJHcZWrg.RAR4rBogmL2xsxOr'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!pV32DIGlGJHcZWrg'
+        enabled: false
+type: npc

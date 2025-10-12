@@ -1,9 +1,757 @@
-name: The Purple Dragon (Adventurer)
-type: npc
 _id: 3R3df3IVw2AqTPKh
+_key: '!actors!3R3df3IVw2AqTPKh'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp
+items:
+- _id: 2eIXwBVEt0ysJXS5
+  _key: '!actors.items!3R3df3IVw2AqTPKh.2eIXwBVEt0ysJXS5'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Bladed fan
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Human Form
+    hit:
+      label: Hit
+      type: String
+      value: '[[25]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit or miss
+      type: String
+      value: Make a second bladed fan attack, and if that is a natural even roll make
+        a third bladed fan attack.
+    hit2:
+      label: Hit
+      name: Natural odd hit
+      type: String
+      value: The target is blown back from the Purple Dragon.
+    hit3:
+      label: Hit
+      name: Natural odd miss
+      type: String
+      value: The Purple Dragon pops free and moves away from the target (blown by
+        the wind of the fan).
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: O0MPd0LbvQywSwkx
+  _key: '!actors.items!3R3df3IVw2AqTPKh.O0MPd0LbvQywSwkx'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Bedazzling deceptions'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. MD ([[1d3]] nearby enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Human Form
+    hit:
+      label: Hit
+      type: String
+      value: '[[10]] psychic damage and [[10]] ongoing psychic damage'
+    hit1:
+      label: Hit
+      name: Crit against a target already taking ongoing psychic damage
+      type: String
+      value: "The target must start making last gasp saves, if they fail they believe\
+        \ that they are the Purple Dragon. Removing this delusion from the target\u2019\
+        s mind is as difficult as turning a petrified character back from stone (hard,\
+        \ but not impossible)."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[7]] psychic damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: heMK08L3sB4VBPGz
+  _key: '!actors.items!3R3df3IVw2AqTPKh.heMK08L3sB4VBPGz'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: "[Once per battle] \u201CNo, they\u2019re the real Purple Dragon, shoot them\u201D"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The Purple Dragon uses their powers of illusion and mind-control to
+        make one of their attackers look and sound like them; the next attack has
+        a 50% chance of being targeted against the wrong target.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Human Form
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: U6LUXpyXjw2On3Z7
+  _key: '!actors.items!3R3df3IVw2AqTPKh.U6LUXpyXjw2On3Z7'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Painted claws
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Dragon Form
+    hit:
+      label: Hit
+      type: String
+      value: '[[40]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[14]] damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: gww5UgcSNrHlsDVH
+  _key: '!actors.items!3R3df3IVw2AqTPKh.gww5UgcSNrHlsDVH'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Psychoactive breath'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 +9]] vs. MD ([[1d4]] nearby enemies, or [[1d3]] faraway enemies
+        in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Dragon Form
+    hit:
+      label: Hit
+      type: String
+      value: '[[25]] psychic damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: The target is also *dazed* (save ends).
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: lCDAGde5F0aUrSCB
+  _key: '!actors.items!3R3df3IVw2AqTPKh.lCDAGde5F0aUrSCB'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Intermittent breath
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The Purple Dragon can use their psychoactive breath [[2d4]] times
+        each combat but never two turns in a row. They can also choose to make their
+        targets *confused* (save ends) on a hit or miss with their psychoactive breath,
+        but that uses up their breath for the rest of the battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Dragon Form
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: jf3Cib7Gapl86XB6
+  _key: '!actors.items!3R3df3IVw2AqTPKh.jf3Cib7Gapl86XB6'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Wing buffet
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>That bladed fan attack? Yeah, that was the Purple Dragon&rsquo;s wings
+        hidden by an illusion. The Purple Dragon can use the bladed fan attack in
+        this form, but now it is clear that they are using their wings so it is only
+        +9 to attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Dragon Form
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: qWZEWRyqZkVvdjna
+  _key: '!actors.items!3R3df3IVw2AqTPKh.qWZEWRyqZkVvdjna'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: '[Once per battle] Cloak of illusion'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>As a quick action the Purple Dragon fills the battlefield with illusions
+        that give enemies attacking them a -2 penalty to their attacks. This lasts
+        until they next attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 6FIQ6Cpm36gjiAk2
+  _key: '!actors.items!3R3df3IVw2AqTPKh.6FIQ6Cpm36gjiAk2'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Shape-shifter supreme
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The Purple Dragon can choose to be in its human form or its dragon
+        form. Switching forms is a move action. Though their dragon form is huge,
+        their human form is regular size, and other forms are whatever size is appropriate
+        to that form. By epic tier the Purple Dragon can conceivably take any form,
+        but regardless of tier their vanity limits her to forms that feature purple
+        and magenta (purple clothes and magenta hair, purple scales and magenta wing
+        membranes, etc.).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: cHYObdpv2qnaMxNS
+  _key: '!actors.items!3R3df3IVw2AqTPKh.cHYObdpv2qnaMxNS'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Cunning escapes
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the Purple Dragon drops to 0 hp or fewer (or would otherwise
+        die) they are not slain, but instead escape leaving an illusion in their place.
+        When they escape it is a campaign win for the party, as though they had been
+        killed, and their plans crumble. The Purple Dragon cannot return until the
+        next tier (if defeated at adventurer tier they cannot return until champion
+        tier, if defeated at champion tier they return at epic tier).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: cA1Kbd7l1SBlMhVN
+  _key: '!actors.items!3R3df3IVw2AqTPKh.cA1Kbd7l1SBlMhVN'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>In their dragon form the Purple Dragon can fly. The Purple Dragon
+        can also fly using magic, but prefers to not do so unless they need to fight
+        a flying enemy.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 64kKfZlY5Qj4wyvh
+  _key: '!actors.items!3R3df3IVw2AqTPKh.64kKfZlY5Qj4wyvh'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Illusionary soiree
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Each round roll a [[/r d6]] (or a [[/r d4]] if the fight is at a
+        party or a luxurious lair), if it is equal to or less than the escalation
+        die it has the following effect.</p>
+
+        <p><strong>1</strong>: Sparkling lights&mdash;Ranged attacks against the Purple
+        Dragon or their allies have a -2 penalty.</p>
+
+        <p><strong>2-3</strong>: Kaleidoscopic kinescope&mdash;Any attacks against
+        the Purple Dragon this round that are natural 1s are rerolled against the
+        nearest ally of the attacker (or against the attacker themselves if there
+        is no other possible target).</p>
+
+        <p><strong>4+</strong>: Illusionary terrain&mdash;Any of the Purple Dragon&rsquo;s
+        enemies that move this round must roll a save, on a failure they end up in
+        a place they did not intend.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: The Purple Dragon (Adventurer)
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: The Purple Dragon (Adventurer)
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 20
     attackMod:
       type: Number
       value: 0
@@ -14,76 +762,72 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 18
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 20
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 170
-      min: 0
-      max: 170
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 12
-    level:
-      type: Number
-      label: Level
-      value: 4
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 170
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 170
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 12
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 4
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 20
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 18
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: caster
@@ -97,705 +841,67 @@ system:
       value: triple
     type:
       value: dragon
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: true
         current: 0
-  publicationSource: B2
-prototypeToken:
-  name: The Purple Dragon (Adventurer)
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    tint: '#ffffff'
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-items:
-  - name: Bladed fan
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: Human Form
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[25]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit or miss
-        value: >-
-          Make a second bladed fan attack, and if that is a natural even roll
-          make a third bladed fan attack.
-      hit2:
-        type: String
-        label: Hit
-        name: Natural odd hit
-        value: The target is blown back from the Purple Dragon.
-      hit3:
-        type: String
-        label: Hit
-        name: Natural odd miss
-        value: >-
-          The Purple Dragon pops free and moves away from the target (blown by
-          the wind of the fan).
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: 2eIXwBVEt0ysJXS5
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.2eIXwBVEt0ysJXS5'
-  - name: 'R: Bedazzling deceptions'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: Human Form
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. MD ([[1d3]] nearby enemies)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[10]] psychic damage and [[10]] ongoing psychic damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Crit against a target already taking ongoing psychic damage
-        value: >-
-          The target must start making last gasp saves, if they fail they
-          believe that they are the Purple Dragon. Removing this delusion from
-          the target’s mind is as difficult as turning a petrified character
-          back from stone (hard, but not impossible).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[7]] psychic damage.'
-    _id: O0MPd0LbvQywSwkx
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.O0MPd0LbvQywSwkx'
-  - name: '[Once per battle] “No, they’re the real Purple Dragon, shoot them”'
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The Purple Dragon uses their powers of illusion and mind-control to
-          make one of their attackers look and sound like them; the next attack
-          has a 50% chance of being targeted against the wrong target.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: Human Form
-    _id: heMK08L3sB4VBPGz
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.heMK08L3sB4VBPGz'
-  - name: Painted claws
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: Dragon Form
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[40]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[14]] damage'
-    _id: U6LUXpyXjw2On3Z7
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.U6LUXpyXjw2On3Z7'
-  - name: 'C: Psychoactive breath'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: Dragon Form
-      attack:
-        type: String
-        label: Attack Roll
-        value: >-
-          [[d20 +9]] vs. MD ([[1d4]] nearby enemies, or [[1d3]] faraway enemies
-          in a group)
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[25]] psychic damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: The target is also *dazed* (save ends).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: gww5UgcSNrHlsDVH
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.gww5UgcSNrHlsDVH'
-  - name: Intermittent breath
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The Purple Dragon can use their psychoactive breath [[2d4]] times
-          each combat but never two turns in a row. They can also choose to make
-          their targets *confused* (save ends) on a hit or miss with their
-          psychoactive breath, but that uses up their breath for the rest of the
-          battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: Dragon Form
-    _id: lCDAGde5F0aUrSCB
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.lCDAGde5F0aUrSCB'
-  - name: Wing buffet
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>That bladed fan attack? Yeah, that was the Purple Dragon&rsquo;s
-          wings hidden by an illusion. The Purple Dragon can use the bladed fan
-          attack in this form, but now it is clear that they are using their
-          wings so it is only +9 to attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: Dragon Form
-    _id: jf3Cib7Gapl86XB6
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.jf3Cib7Gapl86XB6'
-  - name: '[Once per battle] Cloak of illusion'
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>As a quick action the Purple Dragon fills the battlefield with
-          illusions that give enemies attacking them a -2 penalty to their
-          attacks. This lasts until they next attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qWZEWRyqZkVvdjna
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.qWZEWRyqZkVvdjna'
-  - name: Shape-shifter supreme
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The Purple Dragon can choose to be in its human form or its dragon
-          form. Switching forms is a move action. Though their dragon form is
-          huge, their human form is regular size, and other forms are whatever
-          size is appropriate to that form. By epic tier the Purple Dragon can
-          conceivably take any form, but regardless of tier their vanity limits
-          her to forms that feature purple and magenta (purple clothes and
-          magenta hair, purple scales and magenta wing membranes, etc.).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 6FIQ6Cpm36gjiAk2
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.6FIQ6Cpm36gjiAk2'
-  - name: Cunning escapes
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the Purple Dragon drops to 0 hp or fewer (or would otherwise
-          die) they are not slain, but instead escape leaving an illusion in
-          their place. When they escape it is a campaign win for the party, as
-          though they had been killed, and their plans crumble. The Purple
-          Dragon cannot return until the next tier (if defeated at adventurer
-          tier they cannot return until champion tier, if defeated at champion
-          tier they return at epic tier).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: cHYObdpv2qnaMxNS
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.cHYObdpv2qnaMxNS'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>In their dragon form the Purple Dragon can fly. The Purple Dragon
-          can also fly using magic, but prefers to not do so unless they need to
-          fight a flying enemy.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: cA1Kbd7l1SBlMhVN
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.cA1Kbd7l1SBlMhVN'
-  - name: Illusionary soiree
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each round roll a [[/r d6]] (or a [[/r d4]] if the fight is at a
-          party or a luxurious lair), if it is equal to or less than the
-          escalation die it has the following effect.</p>
-
-          <p><strong>1</strong>: Sparkling lights&mdash;Ranged attacks against
-          the Purple Dragon or their allies have a -2 penalty.</p>
-
-          <p><strong>2-3</strong>: Kaleidoscopic kinescope&mdash;Any attacks
-          against the Purple Dragon this round that are natural 1s are rerolled
-          against the nearest ally of the attacker (or against the attacker
-          themselves if there is no other possible target).</p>
-
-          <p><strong>4+</strong>: Illusionary terrain&mdash;Any of the Purple
-          Dragon&rsquo;s enemies that move this round must roll a save, on a
-          failure they end up in a place they did not intend.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 64kKfZlY5Qj4wyvh
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!3R3df3IVw2AqTPKh.64kKfZlY5Qj4wyvh'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!3R3df3IVw2AqTPKh'
+        enabled: true
+type: npc

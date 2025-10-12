@@ -1,9 +1,508 @@
 _id: 6t1WceFl0n8rOgYp
-name: Hoardsong Dragon (Red)
-type: npc
+_key: '!actors!6t1WceFl0n8rOgYp'
+effects: []
+flags: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
+items:
+- _id: 3tExos08lleUG9Nh
+  _key: '!actors.items!6t1WceFl0n8rOgYp.3tExos08lleUG9Nh'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Fangs and claws
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 14]] vs. AC ([[3]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[30]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: The target takes [[15]] extra damage from a precise strike.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: isQZ3YM08Sy0ZQCU
+  _key: '!actors.items!6t1WceFl0n8rOgYp.isQZ3YM08Sy0ZQCU'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Hoardsong'
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20+14) vs. MD (on nearby enemy in the dragon''s lair)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: <p>Limited use:&nbsp;2/battle, as a quick action (once per round).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[10]] psychic damage, and the target is *confused* (save ends)'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 60zA9an1tJHDCr9C
+  _key: '!actors.items!6t1WceFl0n8rOgYp.60zA9an1tJHDCr9C'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Precise breath'
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 14]] vs. PD ([[1d4 + 1]] nearby enemies, or [[1]] enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: '<p>Intermittent breath: A hoardsong dragon can use precise breath [[1d4]]
+        times per battle, but never two turns in a row.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[20]] fire damage, and [[10]] ongoing fire damage; OR [[80]] fire damage,
+        and [[20]] ongoing fire damage if used against a single enemy'
+    hit1:
+      label: Hit
+      name: Natural 18+
+      type: String
+      value: If the breath targeted multiple enemies, the target takes [[20]] ongoing
+        fire damage instead of [[10]]. If the breath targeted a single enemy, the
+        target takes [[40]] ongoing fire damage instead of [[20]].
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: GXAS23NzUEg0jOED
+  _key: '!actors.items!6t1WceFl0n8rOgYp.GXAS23NzUEg0jOED'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Known to an ounce
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The dragon knows where every treasure in its hoard is located, allowing
+        it to detect any movement or shifting of the coins and valuables. While in
+        its lair with its hoard, the hoardsong dragon is immune to invisibility and
+        ignores illusions, and creatures attempting to hide from it take a -5 penalty
+        to their checks.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 0gb3G2FIoPJRhLcA
+  _key: '!actors.items!6t1WceFl0n8rOgYp.0gb3G2FIoPJRhLcA'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Lair
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>If the dragon is in his lair, it has +1 to AC.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: CdCIbqatGzCBK6e0
+  _key: '!actors.items!6t1WceFl0n8rOgYp.CdCIbqatGzCBK6e0'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Hoard minions
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The dragon&rsquo;s connection to its hoard is so strong that it has
+        some control over the souls of those it previously killed who owned the treasures.
+        Once per round as a quick action, the hoardsong dragon can summon [[1d4]]
+        hoard spirits that take form by surrounding themselves in coins, wear empty
+        suits of armor, etc., and defend the dragon&rsquo;s hoard. Roll initiative
+        for the minions once and use that count for all additional minions.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: CCcS0rebhTcInK5z
+  _key: '!actors.items!6t1WceFl0n8rOgYp.CCcS0rebhTcInK5z'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: The call of the hoard
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The connection of a hoardsong dragon to its hoard imparts the dragon&rsquo;s
+        magic upon the hoard. Before battle, if the PCs are able to see the hoard
+        while the dragon speaks to them, each PC that can hear the dragon must roll
+        a Wisdom check. On a result of 24 or less, that PC is charmed as per the charm
+        person spell and considers the dragon a friend. On a result of 25&ndash;29,
+        the PC is lulled by the dragon&rsquo;s words and the sight of the hoard; if
+        combat occurs, the PC will be *stunned* during their first round. The dragon
+        will make a suggestion to charmed PCs to leave and bring it more treasure
+        for its hoard (while it prepares surprises for their return). Charmed PCs
+        won&rsquo;t attack the dragon, but can make a normal save each round in battle
+        to break the charm effect (or every day outside of combat).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Hoardsong Dragon (Red)
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Hoardsong Dragon
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 25
     attackMod:
       type: Number
       value: 0
@@ -14,591 +513,167 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 25
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 24
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 18
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 360
-      min: 0
-      max: 360
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 13
-      mod: 13
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 360
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 360
+    init:
+      label: Initiative Modifier
+      mod: 13
+      type: Number
+      value: 13
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 9
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 18
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 24
     saves:
+      automatic: true
+      base: 8
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-      base: 8
-      automatic: true
-    escalation:
-      value: 0
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: spoiler
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 9
+    resistance:
+      label: Resistance
       type: String
+      value: Fire 16+
+    role:
       label: Role
+      type: String
+      value: spoiler
     roleB:
       value: ''
     size:
-      value: large
-      type: String
       label: Size
+      type: String
+      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
-      value: dragon
-      type: String
       label: Type
-    resistance:
-      value: Fire 16+
       type: String
-      label: Resistance
+      value: dragon
     vulnerability:
-      value: Cold
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 10
+      type: String
+      value: Cold
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: true
         current: 0
-  publicationSource: B1
-items:
-  - _id: 3tExos08lleUG9Nh
-    flags: {}
-    name: Fangs and claws
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. AC ([[3]] attacks)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[30]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: The target takes [[15]] extra damage from a precise strike.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!6t1WceFl0n8rOgYp.3tExos08lleUG9Nh'
-  - _id: isQZ3YM08Sy0ZQCU
-    flags: {}
-    name: 'C: Hoardsong'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>Limited use:&nbsp;2/battle, as a quick action (once per round).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20+14) vs. MD (on nearby enemy in the dragon''s lair)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[10]] psychic damage, and the target is *confused* (save ends)'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!6t1WceFl0n8rOgYp.isQZ3YM08Sy0ZQCU'
-  - _id: 60zA9an1tJHDCr9C
-    flags: {}
-    name: 'C: Precise breath'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Intermittent breath: A hoardsong dragon can use precise breath
-          [[1d4]] times per battle, but never two turns in a row.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. PD ([[1d4 + 1]] nearby enemies, or [[1]] enemy)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[20]] fire damage, and [[10]] ongoing fire damage; OR [[80]] fire
-          damage, and [[20]] ongoing fire damage if used against a single enemy
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 18+
-        value: >-
-          If the breath targeted multiple enemies, the target takes [[20]]
-          ongoing fire damage instead of [[10]]. If the breath targeted a single
-          enemy, the target takes [[40]] ongoing fire damage instead of [[20]].
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!6t1WceFl0n8rOgYp.60zA9an1tJHDCr9C'
-  - _id: GXAS23NzUEg0jOED
-    flags: {}
-    name: Known to an ounce
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The dragon knows where every treasure in its hoard is located,
-          allowing it to detect any movement or shifting of the coins and
-          valuables. While in its lair with its hoard, the hoardsong dragon is
-          immune to invisibility and ignores illusions, and creatures attempting
-          to hide from it take a -5 penalty to their checks.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!6t1WceFl0n8rOgYp.GXAS23NzUEg0jOED'
-  - _id: 0gb3G2FIoPJRhLcA
-    flags: {}
-    name: Lair
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>If the dragon is in his lair, it has +1 to AC.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!6t1WceFl0n8rOgYp.0gb3G2FIoPJRhLcA'
-  - _id: CdCIbqatGzCBK6e0
-    flags: {}
-    name: Hoard minions
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The dragon&rsquo;s connection to its hoard is so strong that it has
-          some control over the souls of those it previously killed who owned
-          the treasures. Once per round as a quick action, the hoardsong dragon
-          can summon [[1d4]] hoard spirits that take form by surrounding
-          themselves in coins, wear empty suits of armor, etc., and defend the
-          dragon&rsquo;s hoard. Roll initiative for the minions once and use
-          that count for all additional minions.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!6t1WceFl0n8rOgYp.CdCIbqatGzCBK6e0'
-  - _id: CCcS0rebhTcInK5z
-    flags: {}
-    name: The call of the hoard
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The connection of a hoardsong dragon to its hoard imparts the
-          dragon&rsquo;s magic upon the hoard. Before battle, if the PCs are
-          able to see the hoard while the dragon speaks to them, each PC that
-          can hear the dragon must roll a Wisdom check. On a result of 24 or
-          less, that PC is charmed as per the charm person spell and considers
-          the dragon a friend. On a result of 25&ndash;29, the PC is lulled by
-          the dragon&rsquo;s words and the sight of the hoard; if combat occurs,
-          the PC will be *stunned* during their first round. The dragon will
-          make a suggestion to charmed PCs to leave and bring it more treasure
-          for its hoard (while it prepares surprises for their return). Charmed
-          PCs won&rsquo;t attack the dragon, but can make a normal save each
-          round in battle to break the charm effect (or every day outside of
-          combat).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!6t1WceFl0n8rOgYp.CCcS0rebhTcInK5z'
-effects: []
-folder: null
-sort: 100001
-flags: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Hoardsong Dragon
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!6t1WceFl0n8rOgYp'
+        enabled: true
+type: npc

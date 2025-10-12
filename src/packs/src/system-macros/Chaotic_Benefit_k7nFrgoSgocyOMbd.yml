@@ -1,28 +1,18 @@
-name: Chaotic Benefit
-type: script
-author: nPjNg32wEG3J72a7
-img: icons/svg/dice-target.svg
-scope: global
-command: |-
-  let name = "";
-  let sourcePack = "archmage.system-rolltables";
-
-  const pc = actor ? actor : game.user.character;
-  const lvl = pc.data.data.attributes.level.value;
-  if (lvl <= 4) name = "Chaotic Benefit (A)";
-  else if (lvl <= 7) name = "Chaotic Benefit (C)";
-  else name = "Chaotic Benefit (E)";
-
-  let table = game.tables.find(t => t.name === name);
-  if (!table) {
-      let pack = await game.packs.get(sourcePack).getDocuments();
-      table = pack.find(t => t.name === name);
-  }
-  if (table) table.draw();
-folder: null
-sort: 0
-flags: {}
 _id: k7nFrgoSgocyOMbd
+_key: '!macros!k7nFrgoSgocyOMbd'
+author: nPjNg32wEG3J72a7
+command: "let name = \"\";\nlet sourcePack = \"archmage.system-rolltables\";\n\nconst\
+  \ pc = actor ? actor : game.user.character;\nconst lvl = pc.data.data.attributes.level.value;\n\
+  if (lvl <= 4) name = \"Chaotic Benefit (A)\";\nelse if (lvl <= 7) name = \"Chaotic\
+  \ Benefit (C)\";\nelse name = \"Chaotic Benefit (E)\";\n\nlet table = game.tables.find(t\
+  \ => t.name === name);\nif (!table) {\n    let pack = await game.packs.get(sourcePack).getDocuments();\n\
+  \    table = pack.find(t => t.name === name);\n}\nif (table) table.draw();"
+flags: {}
+folder: null
+img: icons/svg/dice-target.svg
+name: Chaotic Benefit
 ownership:
   default: 0
-_key: '!macros!k7nFrgoSgocyOMbd'
+scope: global
+sort: 0
+type: script

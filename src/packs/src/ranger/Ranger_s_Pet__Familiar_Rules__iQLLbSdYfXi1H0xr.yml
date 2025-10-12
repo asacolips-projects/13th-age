@@ -1,223 +1,248 @@
+_id: iQLLbSdYfXi1H0xr
+_key: '!items!iQLLbSdYfXi1H0xr'
+effects: []
+flags: {}
+folder: null
+img: icons/magic/nature/stealth-hide-eyes-green.webp
 name: Ranger's Pet (Familiar Rules)
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
+  actionType:
+    label: Action
     type: String
-    label: Name
-  description:
-    type: String
-    label: Description
     value: ''
-  powerUsage:
+  always:
+    label: Always
     type: String
-    label: Power Usage
-    value: other
-  recharge:
+    value: ''
+  attack:
+    label: Attack
+    type: String
+    value: null
+  breathWeapon:
+    label: Breath Weapon
+    type: String
+    value: null
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: null
+  castPower:
+    label: Cast for Power
+    type: String
+    value: null
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: "<p>Your ranger's pet is a tiny or small animal or creature that aids you\_\
+      and provides companionship. It also provides opportunities for improvisation\
+      \ between you and the GM.</p><p>Your pet is as intelligent as a normal person.\
+      \ It can communicate with you and will stay close you unless you've chosen abilities\
+      \ that let it roam. Your pet is on your side but it's not perfectly in your\
+      \ control.</p><p>If your pet dies, it can come back to you the next time you\
+      \ get a full heal-up. (The method or story used is between you and the GM.)\
+      \ Alternatively, you can get a new pet.</p><p>Pets are useless in combat, except\
+      \ as indicated by their abilities. Ordinarily they aren't damaged by enemy attacks\
+      \ and spells unless the story calls for it.</p><h2>Pet Abilities</h2><p>Choose\
+      \ two of the following abilities for your pet.</p><h3>Agile</h3><p>You gain\
+      \ a +2 bonus to Dexterity skill checks.</p><h3>Alert, Maybe Even Insightful</h3><p>You\
+      \ gain a +2 bonus to Wisdom skill checks.</p><h3>Counter-bite</h3><p>Each battle,\
+      \ if your pet is close to you, it bites the first enemy that hits you with a\
+      \ melee attack after that attack, dealing [[(@lvl)d4]] damage (no attack roll)\
+      \ to that enemy.</p><h3>Flight</h3><p>Your pet flies as well as a hawk. It doesn't\
+      \ fly that often and usually sticks with you, but it can do so when its other\
+      \ abilities allow.</p><h3>Mimic</h3><p>One battle per day, you gain the use\
+      \ of the racial power (without feats) of one nearby ally.</p><h3>Poisonous</h3><p>Once\
+      \ per battle, when you hit an enemy engaged with you, you can add [[5]] ongoing\
+      \ poison damage per tier to the damage roll.</p><h3>Scout</h3><p>Once per day,\
+      \ your pet can separate itself from you and make a reconnaissance run of an\
+      \ area or location. Roll an easy skill check for the environment to get your\
+      \ pet\_to scout unseen.</p><h3>Tough</h3><p>You gain a +1 save bonus. Tough\
+      \ counts as two pet\_abilities.</p><h3>Talkative</h3><p>Your pet\_can talk like\
+      \ a person (but the GM speaks for the pet\_more than you do).</p>"
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  feats: null
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: null
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: null
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
     type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: null
+  missEven:
+    label: Even Miss
+    type: String
+    value: null
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: null
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: '1'
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Ranger's Pet (Familiar Rules)
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Ranger
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: null
+  recharge:
     label: Recharge
+    type: Number
     value: 0
   rechargeAttempts:
-    type: Number
     label: Number of Recharges Attempted
+    type: Number
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
+  resources:
+    label: Resources
     type: String
-    label: Embedded Macro
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
     value: ''
   sequencer:
     ray: ''
+    reversed: false
     self: ''
     target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Ranger
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Ranger's Pet (Familiar Rules)
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: '1'
-  actionType:
-    type: String
-    label: Action
-    value: ''
-  range:
-    type: String
-    label: Range
-    value: null
-  trigger:
-    type: String
-    label: Trigger
-    value: null
-  target:
-    type: String
-    label: Target
-    value: null
-  always:
-    type: String
-    label: Always
-    value: ''
-  attack:
-    type: String
-    label: Attack
-    value: null
-  critMod:
-    type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: null
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: null
-  missEven:
-    type: String
-    label: Even Miss
-    value: null
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: null
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: null
-  castPower:
-    type: String
-    label: Cast for Power
-    value: null
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: null
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: null
   special:
-    type: String
     label: Special
+    type: String
     value: ''
-  effect:
+  spellChain:
+    label: Chain Spell
     type: String
-    label: Effect
-    value: "<p>Your ranger's pet is a tiny or small animal or creature that aids you\_and provides companionship. It also provides opportunities for improvisation between you and the GM.</p><p>Your pet is as intelligent as a normal person. It can communicate with you and will stay close you unless you've chosen abilities that let it roam. Your pet is on your side but it's not perfectly in your control.</p><p>If your pet dies, it can come back to you the next time you get a full heal-up. (The method or story used is between you and the GM.) Alternatively, you can get a new pet.</p><p>Pets are useless in combat, except as indicated by their abilities. Ordinarily they aren't damaged by enemy attacks and spells unless the story calls for it.</p><h2>Pet Abilities</h2><p>Choose two of the following abilities for your pet.</p><h3>Agile</h3><p>You gain a +2 bonus to Dexterity skill checks.</p><h3>Alert, Maybe Even Insightful</h3><p>You gain a +2 bonus to Wisdom skill checks.</p><h3>Counter-bite</h3><p>Each battle, if your pet is close to you, it bites the first enemy that hits you with a melee attack after that attack, dealing [[(@lvl)d4]] damage (no attack roll) to that enemy.</p><h3>Flight</h3><p>Your pet flies as well as a hawk. It doesn't fly that often and usually sticks with you, but it can do so when its other abilities allow.</p><h3>Mimic</h3><p>One battle per day, you gain the use of the racial power (without feats) of one nearby ally.</p><h3>Poisonous</h3><p>Once per battle, when you hit an enemy engaged with you, you can add [[5]] ongoing poison damage per tier to the damage roll.</p><h3>Scout</h3><p>Once per day, your pet can separate itself from you and make a reconnaissance run of an area or location. Roll an easy skill check for the environment to get your pet\_to scout unseen.</p><h3>Tough</h3><p>You gain a +1 save bonus. Tough counts as two pet\_abilities.</p><h3>Talkative</h3><p>Your pet\_can talk like a person (but the GM speaks for the pet\_more than you do).</p>"
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: null
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: null
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: null
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
     value: null
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
+    type: String
     value: ''
-  spellChain:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Chain Spell
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
     value: null
-  breathWeapon:
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
     type: String
-    label: Breath Weapon
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: null
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: null
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
     value: null
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
-    value: ''
-  feats: null
-flags: {}
-img: icons/magic/nature/stealth-hide-eyes-green.webp
-_id: iQLLbSdYfXi1H0xr
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!iQLLbSdYfXi1H0xr'
+    value: null
+  target:
+    label: Target
+    type: String
+    value: null
+  trigger:
+    label: Trigger
+    type: String
+    value: null
+type: power

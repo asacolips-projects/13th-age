@@ -1,29 +1,42 @@
-name: Dead
-folder: null
-flags: {}
 _id: ig1kzvpojsk20dbt
-pages:
-  - name: Dead
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>You are dead and must be resurrected. If your GM allows it, you may
-        be able to Fight in Spirit.</p>
-    _id: zMm8NkEewH2YuxRD
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!ig1kzvpojsk20dbt.zMm8NkEewH2YuxRD'
 _key: '!journal!ig1kzvpojsk20dbt'
+categories: []
+flags: {}
+folder: null
+name: Dead
+ownership:
+  default: 0
+pages:
+- _id: zMm8NkEewH2YuxRD
+  _key: '!journal.pages!ig1kzvpojsk20dbt.zMm8NkEewH2YuxRD'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Dead
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: <p>You are dead and must be resurrected. If your GM allows it, you may
+      be able to Fight in Spirit.</p>
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

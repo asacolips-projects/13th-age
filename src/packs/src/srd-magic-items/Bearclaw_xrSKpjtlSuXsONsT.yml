@@ -1,72 +1,44 @@
-name: Bearclaw
-type: equipment
+_id: xrSKpjtlSuXsONsT
+_key: '!items!xrSKpjtlSuXsONsT'
+effects: []
+flags:
+  core: {}
+folder: IBGzYvealgID1OwQ
 img: icons/svg/item-bag.svg
+name: Bearclaw
+ownership:
+  default: 0
+sort: 600000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 11+) When you hit with a melee attack while you&rsquo;re
-      staggered, gain [[10]] temporary hit points (champion: [[25]] temporary
-      hp; epic: [[50]] temporary hp).</p>
-
-      <p>Quirk: Swaggers even when overmatched.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '11'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 1
-      threshold: 10
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -74,29 +46,56 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 1
+      threshold: 10
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: 1e
   chackra: necklace
-effects: []
-folder: IBGzYvealgID1OwQ
-flags:
-  core: {}
-_id: xrSKpjtlSuXsONsT
-sort: 600000
-ownership:
-  default: 0
-_key: '!items!xrSKpjtlSuXsONsT'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 11+) When you hit with a melee attack while you&rsquo;re
+      staggered, gain [[10]] temporary hit points (champion: [[25]] temporary hp;
+      epic: [[50]] temporary hp).</p>
+
+      <p>Quirk: Swaggers even when overmatched.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '11'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

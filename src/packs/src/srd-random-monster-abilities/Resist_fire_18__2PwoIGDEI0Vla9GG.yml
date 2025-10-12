@@ -1,29 +1,28 @@
-name: Resist fire 18+
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>You&rsquo;ll see that the demon resists fire the first time you use
-      fire against it.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: 2PwoIGDEI0Vla9GG
+_key: '!items!2PwoIGDEI0Vla9GG'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Resist fire 18+
 ownership:
   default: 0
-_id: 2PwoIGDEI0Vla9GG
-_key: '!items!2PwoIGDEI0Vla9GG'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>You&rsquo;ll see that the demon resists fire the first time you use
+      fire against it.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

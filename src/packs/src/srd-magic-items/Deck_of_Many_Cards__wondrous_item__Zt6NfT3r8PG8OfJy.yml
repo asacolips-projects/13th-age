@@ -1,73 +1,44 @@
-name: Deck of Many Cards (wondrous item)
-type: equipment
+_id: Zt6NfT3r8PG8OfJy
+_key: '!items!Zt6NfT3r8PG8OfJy'
+effects: []
+flags:
+  core: {}
+folder: 4kES6iUsw34OPUMb
 img: icons/svg/item-bag.svg
+name: Deck of Many Cards (wondrous item)
+ownership:
+  default: 0
+sort: 1000000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>A divination deck.</p>
-
-      <p>Always: The deck of cards continually grows, and you find your pockets
-      and pouches filling with cards that spill out leaving a trail for anyone
-      to follow. Occasionally, the cards spill out in a prophetic pattern that
-      might have meaning to the owner or an ally.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -75,29 +46,57 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: B1
   chackra: wondrous
-effects: []
-folder: 4kES6iUsw34OPUMb
-flags:
-  core: {}
-_id: Zt6NfT3r8PG8OfJy
-sort: 1000000
-ownership:
-  default: 0
-_key: '!items!Zt6NfT3r8PG8OfJy'
+  description:
+    label: Description
+    type: String
+    value: '<p>A divination deck.</p>
+
+      <p>Always: The deck of cards continually grows, and you find your pockets and
+      pouches filling with cards that spill out leaving a trail for anyone to follow.
+      Occasionally, the cards spill out in a prophetic pattern that might have meaning
+      to the owner or an ally.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

@@ -1,134 +1,278 @@
-name: Iconic Spells
-img: icons/svg/d20-grey.svg
+_id: NFXhok8zAhpKKS35
+_key: '!tables!NFXhok8zAhpKKS35'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    _id: OmBzEOY5ynq5q91K
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.OmBzEOY5ynq5q91K'
-  - type: text
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    _id: T7SGRzrYR3qbghLs
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.T7SGRzrYR3qbghLs'
-  - type: text
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    _id: pTXrMznGqlOG6KSY
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.pTXrMznGqlOG6KSY'
-  - type: text
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    _id: kwRQDBSNvsGxbZ2x
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.kwRQDBSNvsGxbZ2x'
-  - type: text
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    _id: ffPpnOJ6hJE4awDu
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.ffPpnOJ6hJE4awDu'
-  - type: text
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    _id: 015Vl8SvFxTg4iog
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.015Vl8SvFxTg4iog'
-  - type: text
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    _id: hxWlc34Vd2D6e2Bw
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.hxWlc34Vd2D6e2Bw'
-  - type: text
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    _id: PWHtoEU8zyPDjpIU
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.PWHtoEU8zyPDjpIU'
-  - type: text
-    weight: 1
-    range:
-      - 9
-      - 9
-    drawn: false
-    _id: f7kQ0My6cmLnHO2F
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.f7kQ0My6cmLnHO2F'
-  - type: text
-    weight: 1
-    range:
-      - 10
-      - 10
-    drawn: false
-    _id: SYs09JLbB9AdaQcm
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.SYs09JLbB9AdaQcm'
-  - type: text
-    weight: 1
-    range:
-      - 11
-      - 11
-    drawn: false
-    _id: bgEndo733aFK4Lbc
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.bgEndo733aFK4Lbc'
-  - type: text
-    weight: 1
-    range:
-      - 12
-      - 12
-    drawn: false
-    _id: j5LSahiccBOa48Tn
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!NFXhok8zAhpKKS35.j5LSahiccBOa48Tn'
-formula: 1d12
-replacement: true
 displayRoll: false
 flags: {}
 folder: null
-sort: 1600000
+formula: 1d12
+img: icons/svg/d20-grey.svg
+name: Iconic Spells
 ownership:
   default: 0
-_id: NFXhok8zAhpKKS35
-_key: '!tables!NFXhok8zAhpKKS35'
+replacement: true
+results:
+- _id: OmBzEOY5ynq5q91K
+  _key: '!tables.results!NFXhok8zAhpKKS35.OmBzEOY5ynq5q91K'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Archmage'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: T7SGRzrYR3qbghLs
+  _key: '!tables.results!NFXhok8zAhpKKS35.T7SGRzrYR3qbghLs'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Crusader'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: pTXrMznGqlOG6KSY
+  _key: '!tables.results!NFXhok8zAhpKKS35.pTXrMznGqlOG6KSY'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Diabolist'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: kwRQDBSNvsGxbZ2x
+  _key: '!tables.results!NFXhok8zAhpKKS35.kwRQDBSNvsGxbZ2x'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Dwarf King'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: ffPpnOJ6hJE4awDu
+  _key: '!tables.results!NFXhok8zAhpKKS35.ffPpnOJ6hJE4awDu'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Elf Queen'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: 015Vl8SvFxTg4iog
+  _key: '!tables.results!NFXhok8zAhpKKS35.015Vl8SvFxTg4iog'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Great Gold Wyrm'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: hxWlc34Vd2D6e2Bw
+  _key: '!tables.results!NFXhok8zAhpKKS35.hxWlc34Vd2D6e2Bw'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: High Druid'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: PWHtoEU8zyPDjpIU
+  _key: '!tables.results!NFXhok8zAhpKKS35.PWHtoEU8zyPDjpIU'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Lich King'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: f7kQ0My6cmLnHO2F
+  _key: '!tables.results!NFXhok8zAhpKKS35.f7kQ0My6cmLnHO2F'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Orc Lord'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: SYs09JLbB9AdaQcm
+  _key: '!tables.results!NFXhok8zAhpKKS35.SYs09JLbB9AdaQcm'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Priestess'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+- _id: bgEndo733aFK4Lbc
+  _key: '!tables.results!NFXhok8zAhpKKS35.bgEndo733aFK4Lbc'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: Prince of Shadows'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
+- _id: j5LSahiccBOa48Tn
+  _key: '!tables.results!NFXhok8zAhpKKS35.j5LSahiccBOa48Tn'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: 'Iconic: The Three'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 12
+  - 12
+  type: text
+  weight: 1
+sort: 1600000

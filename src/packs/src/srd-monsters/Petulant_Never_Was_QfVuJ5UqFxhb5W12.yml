@@ -1,9 +1,598 @@
-name: Petulant Never-Was
-type: npc
 _id: QfVuJ5UqFxhb5W12
+_key: '!actors!QfVuJ5UqFxhb5W12'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+items:
+- _id: GgU7XOI6jnENKBsW
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.GgU7XOI6jnENKBsW'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Ghostly staff
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[26]] negative energy damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: Petulant never-was can make a *disparaging rummage* attack as a free
+        action
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 17YI1m67y0Sc5qHF
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.17YI1m67y0Sc5qHF'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Flashy zaps'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs. PD (1 or 2 nearby targets)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[28]] energy damage (damage is either force OR a type of energy most
+        recently used by an enemy spellcaster, as the petulant never- was demonstrates
+        that they also control that energy type)'
+    hit1:
+      label: Hit
+      name: Natural odd miss
+      type: String
+      value: Petulant never-was takes [[3d6]] damage that ignores its ghostly resistance.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: A8LSEYyE7K2Uuuj8
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.A8LSEYyE7K2Uuuj8'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Disparaging rummage'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs. MD (nearby enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[10]] ongoing psychic damage and *hampered* (save ends both); hampered
+        part of the effect only affects spellcasters!'
+    hit1:
+      label: Hit
+      name: Quick use
+      type: String
+      value: 1/round, as a quick action
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 69xlG8YGgCm7X8Mz
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.69xlG8YGgCm7X8Mz'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Ghostly
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This creature has resist damage 16+ to all damage except holy damage
+        AND force damage. A ghost can move through solid objects, but can&rsquo;t
+        end its turn inside them.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: F89aTM014o4N4QPv
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.F89aTM014o4N4QPv'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Iconic sadsack
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Each enemy that has one or more icon relationship points with the
+        Magic Icon that misses an attack with a natural odd roll takes a -2 penalty
+        to all its defenses until the end of the battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: TyzNm1FpKRt0NgRA
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.TyzNm1FpKRt0NgRA'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.D7Rfwqnis7wIMhb7
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: General Ghost Abilities
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: lzclsXfXBmEjM4HT
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.lzclsXfXBmEjM4HT'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.Hx2P7xMeCNEwpewo
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Bound hauntings
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Most ghosts are bound to an area, usually the area of their death.
+        This ability won&rsquo;t come up much in play, but it does make it seem likely
+        that ghosts can be easier to get away from than other monsters. Move far enough
+        fast enough and the ghost returns to the area it&rsquo;s bound to. Occasionally
+        festivals for the dead or other rituals can call bound ghosts from their hauntings,
+        but those are unusual and temporary circumstances.</p>
+
+        <p><strong>Exceptions</strong>: There may be ghosts that are bound to people,
+        or events, or phenomena that travel. There might even be ghosts that aren&rsquo;t
+        bound to anything, but at that stage there are several other questions that
+        surface and odd magical, iconic, or unique intervention seems likely.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 8rLshzZhcVcrJ0s5
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.8rLshzZhcVcrJ0s5'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.wX9g5ojc4D0faie0
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Most ghosts fly, though some may be quite slow, seeming to drift
+        or walking on air. Ghosts that fly in unusual ways will be flagged with their
+        own abilities.</p>
+
+        <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem constrained
+        to act much like they acted when they were alive, and flying wasn&rsquo;t
+        part of their life package.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: B5tBDmyiUOeydZPj
+  _key: '!actors.items!QfVuJ5UqFxhb5W12.B5tBDmyiUOeydZPj'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.1gphpVgsE4AJt6cT
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unnatural touch
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Many ghosts can alter the temperature of their environment to more
+        closely match the underworld or afterlife that they&rsquo;ve so far evaded.
+        Sometimes that&rsquo;s icy cold, sometimes that&rsquo;s burning hot, and sometimes
+        it&rsquo;s just kind of normal, which would go unnoticed unless the ghost
+        is somewhere abnormal!</p>
+
+        <p><strong>Exceptions</strong>: This is more of a special effect of ghost
+        stories than part of a creature&rsquo;s combat abilities, and you can safely
+        ignore it unless you find telling moments when it adds to the game.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Petulant Never-Was
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Petulant Never-Was
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 19
     attackMod:
       type: Number
       value: 0
@@ -14,76 +603,72 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 19
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 15
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 18
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 123
-      min: 0
-      max: 123
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 9
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 123
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 123
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 9
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 18
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 15
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: caster
@@ -97,575 +682,67 @@ system:
       value: double
     type:
       value: undead
-    resistance:
-      value: ''
     vulnerability:
       value: holy
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
-prototypeToken:
-  name: Petulant Never-Was
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-items:
-  - name: Ghostly staff
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[26]] negative energy damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: >-
-          Petulant never-was can make a *disparaging rummage* attack as a free
-          action
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: GgU7XOI6jnENKBsW
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.GgU7XOI6jnENKBsW'
-  - name: 'R: Flashy zaps'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. PD (1 or 2 nearby targets)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[28]] energy damage (damage is either force OR a type of energy most
-          recently used by an enemy spellcaster, as the petulant never- was
-          demonstrates that they also control that energy type)
-      hit1:
-        type: String
-        label: Hit
-        name: Natural odd miss
-        value: >-
-          Petulant never-was takes [[3d6]] damage that ignores its ghostly
-          resistance.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: 17YI1m67y0Sc5qHF
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.17YI1m67y0Sc5qHF'
-  - name: 'C: Disparaging rummage'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. MD (nearby enemy)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[10]] ongoing psychic damage and *hampered* (save ends both);
-          hampered part of the effect only affects spellcasters!
-      hit1:
-        type: String
-        label: Hit
-        name: Quick use
-        value: 1/round, as a quick action
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: A8LSEYyE7K2Uuuj8
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.A8LSEYyE7K2Uuuj8'
-  - name: Ghostly
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This creature has resist damage 16+ to all damage except holy
-          damage AND force damage. A ghost can move through solid objects, but
-          can&rsquo;t end its turn inside them.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 69xlG8YGgCm7X8Mz
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.69xlG8YGgCm7X8Mz'
-  - name: Iconic sadsack
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each enemy that has one or more icon relationship points with the
-          Magic Icon that misses an attack with a natural odd roll takes a -2
-          penalty to all its defenses until the end of the battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: F89aTM014o4N4QPv
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.F89aTM014o4N4QPv'
-  - name: General Ghost Abilities
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: TyzNm1FpKRt0NgRA
-    effects: []
-    folder: null
-    sort: 100000
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.TyzNm1FpKRt0NgRA'
-  - name: Bound hauntings
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Most ghosts are bound to an area, usually the area of their death.
-          This ability won&rsquo;t come up much in play, but it does make it
-          seem likely that ghosts can be easier to get away from than other
-          monsters. Move far enough fast enough and the ghost returns to the
-          area it&rsquo;s bound to. Occasionally festivals for the dead or other
-          rituals can call bound ghosts from their hauntings, but those are
-          unusual and temporary circumstances.</p>
-
-          <p><strong>Exceptions</strong>: There may be ghosts that are bound to
-          people, or events, or phenomena that travel. There might even be
-          ghosts that aren&rsquo;t bound to anything, but at that stage there
-          are several other questions that surface and odd magical, iconic, or
-          unique intervention seems likely.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: lzclsXfXBmEjM4HT
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.lzclsXfXBmEjM4HT'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Most ghosts fly, though some may be quite slow, seeming to drift or
-          walking on air. Ghosts that fly in unusual ways will be flagged with
-          their own abilities.</p>
-
-          <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
-          constrained to act much like they acted when they were alive, and
-          flying wasn&rsquo;t part of their life package.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 8rLshzZhcVcrJ0s5
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.8rLshzZhcVcrJ0s5'
-  - name: Unnatural touch
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Many ghosts can alter the temperature of their environment to more
-          closely match the underworld or afterlife that they&rsquo;ve so far
-          evaded. Sometimes that&rsquo;s icy cold, sometimes that&rsquo;s
-          burning hot, and sometimes it&rsquo;s just kind of normal, which would
-          go unnoticed unless the ghost is somewhere abnormal!</p>
-
-          <p><strong>Exceptions</strong>: This is more of a special effect of
-          ghost stories than part of a creature&rsquo;s combat abilities, and
-          you can safely ignore it unless you find telling moments when it adds
-          to the game.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: B5tBDmyiUOeydZPj
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!QfVuJ5UqFxhb5W12.B5tBDmyiUOeydZPj'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!QfVuJ5UqFxhb5W12'
+        enabled: false
+type: npc

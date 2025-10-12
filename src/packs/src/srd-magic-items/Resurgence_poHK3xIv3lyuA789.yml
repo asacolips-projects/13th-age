@@ -1,102 +1,100 @@
-name: Resurgence
-type: equipment
+_id: poHK3xIv3lyuA789
+_key: '!items!poHK3xIv3lyuA789'
+effects: []
+flags:
+  core: {}
+folder: yyTzewZiGJj1uSbs
 img: icons/svg/item-bag.svg
+name: Resurgence
+ownership:
+  default: 0
+sort: 200000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 16+) When you drop to 0 hit points or lower, heal using a
-      recovery before falling *unconscious*.</p>
-
-      <p>Quirk: Bursts forth with wildly optimistic comments from time to
-      time.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '16'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
       bonus: 2
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
-      bonus: 0
     rerollAc:
       bonus: 0
       current: 0
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: champion
-  isActive: true
-  publicationSource: 1e
   chackra: belt
-effects: []
-folder: yyTzewZiGJj1uSbs
-flags:
-  core: {}
-_id: poHK3xIv3lyuA789
-sort: 200000
-ownership:
-  default: 0
-_key: '!items!poHK3xIv3lyuA789'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 16+) When you drop to 0 hit points or lower, heal using a
+      recovery before falling *unconscious*.</p>
+
+      <p>Quirk: Bursts forth with wildly optimistic comments from time to time.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '16'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: champion
+type: equipment

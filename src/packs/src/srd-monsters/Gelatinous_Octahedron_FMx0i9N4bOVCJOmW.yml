@@ -1,9 +1,758 @@
 _id: FMx0i9N4bOVCJOmW
-name: Gelatinous Octahedron
-type: npc
+_key: '!actors!FMx0i9N4bOVCJOmW'
+effects: []
+flags: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/ooze.webp
+items:
+- _id: UzpIUyquPSE9Opvp
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.UzpIUyquPSE9Opvp'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Shlup'n'shlorp
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[38]] acid damage, and the cube engulfs the target (functions like
+        a grabb, see below) if it''s smaller than the cube'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: The cube can make a spasms attack as a free action.
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: t125vKMD33hRZ2bP
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.t125vKMD33hRZ2bP'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '(Special trigger) C: Spasms'
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. AC (up to [[2]] attacks, each against a different nearby
+        enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[19]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: BNnojc6cITZsS0UP
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.BNnojc6cITZsS0UP'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Engulf and dissolve.
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Targets engulfed/grabbed by the cube take [[38]] acid damage at the
+        start of the cube&rsquo;s turn but are not viable targets for additional attacks
+        by the cube. Multiple targets can be held within the cube simultaneously.</p><p>Any
+        engulfed creature that is also staggered must begin making last gasp saves
+        or become paralyzed as the cube&rsquo;s toxins overwhelm it.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: DYMLfSO76xrdLcD9
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.DYMLfSO76xrdLcD9'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Instictive actions
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Gelatinous creatures have no brains, sometimes they just&nbsp;do
+        things. When the escalation die is odd, instead of making an attack or moving,
+        roll a [[1d8]] to see what the octahedron does. If an option is not viable
+        (you roll a 3 but there are no nearby targets), reroll until you get a valid
+        option.</p><ol><li>C: Acid splash</li><li>The octahedron grows an orifice
+        that gushes out a liquid glue that floods the area. Each enemy engaged with
+        the octahedron is *stuck* (hard save ends, 16+). Each nearby enemy not engaged
+        with the octahedron is stuck (save ends). Each far away enemy is stuck (easy
+        save ends, 6+). The glue has no effect on creatures who are flying or that
+        have some way of avoiding it.</li><li>The octahedron squirts a slick slime
+        that targets [[1d3]] nearby enemies. Until the end of the battle, each target
+        must roll an easy save each time it moves; on a failure, it&rsquo;s *hampered*
+        until the end of its next turn.</li><li>The octahedron makes a fire gout attack
+        as it splashes out a gel that ignites in the air and sticks to skin and clothing.
+        - Fire gout.</li><li>&nbsp;The octahedron sweats acid. Each enemy engaged
+        with the octahedron must roll a normal save; on a failure, it takes [[40]]
+        acid damage. On a success it takes [[20[[ acid damage.</li><li>C: Acid jet</li><li>C:
+        Acid geyser</li><li>The octahedron splits into two tetrahedrons, and each
+        one can act this turn (roll a [[1d4]] for the instinctive actions of each
+        one). Divide the octahedron&rsquo;s current hit points equally between the
+        two new creatures.</li></ol>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: rUw9Ey0D50CvGeK9
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.rUw9Ey0D50CvGeK9'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '1. C: Acid splash'
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: <p>Each failed save:&nbsp;Acid destroys one of the target&rsquo;s non-magical
+        items. The target takes a cumulative &ndash;1 attack penalty until the end
+        of the battle (boots fall apart, shield straps snap, etc.).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[8]] ongoing acid damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[5]] ongoing acid damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: uWkvFoKIO3bF9Jnu
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.uWkvFoKIO3bF9Jnu'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 4. FIRED gout
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: "<p>Each failed save:&nbsp;Acid destroys one of the target\u2019s non-magical\
+        \ items. The target takes a cumulative -1 attack penalty until the end of\
+        \ the battle (boots fall apart, shield straps snap, etc.).</p>"
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[8]] ongoing fire damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[5]] ongoing acid damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: VUzgHDqR5N6zGxJZ
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.VUzgHDqR5N6zGxJZ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '6. C: Acid Jet'
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. PD ([[1]] nearby or far away enemy'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[45]] acid damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[8]] ongoing acid damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Dh9cXbmkbbKn4qAh
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.Dh9cXbmkbbKn4qAh'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '7. C: Acid geyser'
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. PD ([[1d3]] nearby or far away enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[30]] acid damage, and the octahedron is propelled uncontrollably about
+        the area, passing next to each of its enemies. Unlike normal, each enemy can
+        make an opportunity attack against the ooze as it moves this way, but the
+        ooze can make a glomp attack against those who do as a free action as it passes.
+        (Tell the PCs that the ooze will get a counter-attack.)'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: HyuudrUzF7AopdAZ
+  _key: '!actors.items!FMx0i9N4bOVCJOmW.HyuudrUzF7AopdAZ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 7. Glomp
+  ownership:
+    default: 0
+  sort: 900000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[10]] acid damage, and the cube engulfs the target if it''s smaller
+        than the cube'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+name: Gelatinous Octahedron
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Gelatinous Octahedron
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/ooze.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 21
     attackMod:
       type: Number
       value: 0
@@ -14,823 +763,167 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 21
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 16
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 280
-      min: 0
-      max: 280
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 5
-      mod: 5
-    level:
-      type: Number
-      label: Level
-      value: 6
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 280
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 280
+    init:
+      label: Initiative Modifier
+      mod: 5
+      type: Number
+      value: 5
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 6
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 16
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 19
     saves:
+      automatic: true
+      base: 8
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-      base: 8
-      automatic: true
-    escalation:
-      value: 0
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: blocker
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 6
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: blocker
     roleB:
       value: ''
     size:
-      value: huge
-      type: String
       label: Size
+      type: String
+      value: huge
     sizeB:
       value: ''
     strength:
       value: triple
     type:
-      value: ooze
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: ooze
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 6
-      min: 0
-      max: 10
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B1
-items:
-  - _id: UzpIUyquPSE9Opvp
-    flags: {}
-    name: Shlup'n'shlorp
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[38]] acid damage, and the cube engulfs the target (functions like a
-          grabb, see below) if it's smaller than the cube
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: The cube can make a spasms attack as a free action.
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.UzpIUyquPSE9Opvp'
-  - _id: t125vKMD33hRZ2bP
-    flags: {}
-    name: '(Special trigger) C: Spasms'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: >-
-          [[d20 + 11]] vs. AC (up to [[2]] attacks, each against a different
-          nearby enemy)
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[19]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.t125vKMD33hRZ2bP'
-  - _id: BNnojc6cITZsS0UP
-    flags: {}
-    name: Engulf and dissolve.
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Targets engulfed/grabbed by the cube take [[38]] acid damage at the
-          start of the cube&rsquo;s turn but are not viable targets for
-          additional attacks by the cube. Multiple targets can be held within
-          the cube simultaneously.</p><p>Any engulfed creature that is also
-          staggered must begin making last gasp saves or become paralyzed as the
-          cube&rsquo;s toxins overwhelm it.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.BNnojc6cITZsS0UP'
-  - _id: DYMLfSO76xrdLcD9
-    flags: {}
-    name: Instictive actions
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Gelatinous creatures have no brains, sometimes they just&nbsp;do
-          things. When the escalation die is odd, instead of making an attack or
-          moving, roll a [[1d8]] to see what the octahedron does. If an option
-          is not viable (you roll a 3 but there are no nearby targets), reroll
-          until you get a valid option.</p><ol><li>C: Acid splash</li><li>The
-          octahedron grows an orifice that gushes out a liquid glue that floods
-          the area. Each enemy engaged with the octahedron is *stuck* (hard save
-          ends, 16+). Each nearby enemy not engaged with the octahedron is stuck
-          (save ends). Each far away enemy is stuck (easy save ends, 6+). The
-          glue has no effect on creatures who are flying or that have some way
-          of avoiding it.</li><li>The octahedron squirts a slick slime that
-          targets [[1d3]] nearby enemies. Until the end of the battle, each
-          target must roll an easy save each time it moves; on a failure,
-          it&rsquo;s *hampered* until the end of its next turn.</li><li>The
-          octahedron makes a fire gout attack as it splashes out a gel that
-          ignites in the air and sticks to skin and clothing. - Fire
-          gout.</li><li>&nbsp;The octahedron sweats acid. Each enemy engaged
-          with the octahedron must roll a normal save; on a failure, it takes
-          [[40]] acid damage. On a success it takes [[20[[ acid
-          damage.</li><li>C: Acid jet</li><li>C: Acid geyser</li><li>The
-          octahedron splits into two tetrahedrons, and each one can act this
-          turn (roll a [[1d4]] for the instinctive actions of each one). Divide
-          the octahedron&rsquo;s current hit points equally between the two new
-          creatures.</li></ol>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.DYMLfSO76xrdLcD9'
-  - _id: rUw9Ey0D50CvGeK9
-    flags: {}
-    name: '1. C: Acid splash'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each failed save:&nbsp;Acid destroys one of the target&rsquo;s
-          non-magical items. The target takes a cumulative &ndash;1 attack
-          penalty until the end of the battle (boots fall apart, shield straps
-          snap, etc.).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[8]] ongoing acid damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[5]] ongoing acid damage'
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.rUw9Ey0D50CvGeK9'
-  - _id: uWkvFoKIO3bF9Jnu
-    flags: {}
-    name: 4. FIRED gout
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each failed save:&nbsp;Acid destroys one of the target’s
-          non-magical items. The target takes a cumulative -1 attack penalty
-          until the end of the battle (boots fall apart, shield straps snap,
-          etc.).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[8]] ongoing fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[5]] ongoing acid damage'
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.uWkvFoKIO3bF9Jnu'
-  - _id: VUzgHDqR5N6zGxJZ
-    flags: {}
-    name: '6. C: Acid Jet'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. PD ([[1]] nearby or far away enemy'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[45]] acid damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[8]] ongoing acid damage'
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.VUzgHDqR5N6zGxJZ'
-  - _id: Dh9cXbmkbbKn4qAh
-    flags: {}
-    name: '7. C: Acid geyser'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. PD ([[1d3]] nearby or far away enemies)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[30]] acid damage, and the octahedron is propelled uncontrollably
-          about the area, passing next to each of its enemies. Unlike normal,
-          each enemy can make an opportunity attack against the ooze as it moves
-          this way, but the ooze can make a glomp attack against those who do as
-          a free action as it passes. (Tell the PCs that the ooze will get a
-          counter-attack.)
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 800000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.Dh9cXbmkbbKn4qAh'
-  - _id: HyuudrUzF7AopdAZ
-    flags: {}
-    name: 7. Glomp
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[10]] acid damage, and the cube engulfs the target if it's smaller
-          than the cube
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 900000
-    effects: []
-    folder: null
-    _key: '!actors.items!FMx0i9N4bOVCJOmW.HyuudrUzF7AopdAZ'
-effects: []
-folder: null
-sort: 100001
-flags: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Gelatinous Octahedron
-  displayName: 0
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/ooze.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!FMx0i9N4bOVCJOmW'
+        enabled: false
+type: npc

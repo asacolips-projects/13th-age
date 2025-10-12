@@ -1,27 +1,27 @@
-name: True seeing
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: <p>The monster is immune to invisibility and ignores any illusions.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: q0vVL4L1yf5QMonV
+_key: '!items!q0vVL4L1yf5QMonV'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: True seeing
 ownership:
   default: 0
-_id: q0vVL4L1yf5QMonV
-_key: '!items!q0vVL4L1yf5QMonV'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>The monster is immune to invisibility and ignores any illusions.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

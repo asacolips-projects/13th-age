@@ -1,8 +1,451 @@
-name: Animal Companion (5)
-type: npc
+_id: ZXATsaLAT66zG4Fr
+_key: '!actors!ZXATsaLAT66zG4Fr'
+effects: []
+flags: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: TCIVILZbOuwOklGC
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.TCIVILZbOuwOklGC'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Fangs or Claws or...
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[5d6]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 7pmHgwNxyyzCci80
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.7pmHgwNxyyzCci80'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: 'Companion Bonuses, pick one:'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: null
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: vrjrLULDu2i1XDCl
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.vrjrLULDu2i1XDCl'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Bear (also Giant Badger, Wolverine)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Acts: After ranger</p><p>Advantage: The bear gains temporary hit
+        points equal to its level ([[@lvl]]) each time it hits with an attack.</p><p>Champion
+        Feat: The temporary hit points increase to double its level ([[2 * @lvl]]).</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 4Km3ZAYWmAxf5IZF
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.4Km3ZAYWmAxf5IZF'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Boar (also Spiky Lizard)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Acts: Before ranger</p><p>Advantage: The boar gains a +1 attack bonus
+        when it moves before its attack during the same turn.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: SXkq5fAuPCRlR5xW
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.SXkq5fAuPCRlR5xW'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Eagle (also Falcon, Hawk, Owl, Vulture)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Acts: Before ranger</p><p>Advantage: It flies! Its melee damage die
+        is dropped by one size (d6 at level 0).</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: CUhyT4wIKHoxFXDO
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.CUhyT4wIKHoxFXDO'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Panther (also Lion, Tiger)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Acts: Before ranger</p><p>Advantage: The panther&rsquo;s crit range
+        expands by 2 against enemies with lower initiative.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: XdYGBJhh7URJLdIx
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.XdYGBJhh7URJLdIx'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Snake (also Giant Spider, Poison Toad)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Acts: After ranger</p><p>Advantage: The snake also deals ongoing
+        poison damage equal to twice your level ([[2 * @lvl]]) on a natural attack
+        roll of 18+.</p><p>Champion Feat: The ongoing damage is three times your level
+        ([[3 * @lvl]]) instead.</p><p>Epic Feat: The ongoing damage is four times
+        your level ([[4 * @lvl]]) instead.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Z0zlVZDWBgz8FdU6
+  _key: '!actors.items!ZXATsaLAT66zG4Fr.Z0zlVZDWBgz8FdU6'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Wolf (also Big Dog, Coyote, Hyena, Jackal)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Acts: After ranger</p><p>Advantage: The wolf gains a +1 attack bonus
+        against enemies its master attacked the same turn, or against enemies engaged
+        with its master.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Animal Companion (5)
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: true
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.25
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Animal Companion (5)
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 22
     attackMod:
       type: Number
       value: 0
@@ -13,523 +456,169 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 22
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 20
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 16
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 72
-      min: 0
-      max: 72
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 0
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 72
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 72
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 0
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 16
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 20
+    recoveries:
+      automatic: true
+      base: 8
+      dice: d8
+      label: Recoveries
+      max: 8
+      type: Number
+      value: 8
     saves:
       bonus: 0
-      disengageBonus: 0
+      death: 16
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      easy: 6
+      hard: 16
+      lastGasp: 16
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-      easy: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
       normal: 11
-      hard: 16
-      death: 16
-      lastGasp: 16
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
-      base: 8
-      automatic: true
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: ''
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: ''
     roleB:
       value: ''
     size:
-      value: ''
-      type: String
       label: Size
+      type: String
+      value: ''
     sizeB:
       value: ''
     strength:
       value: ''
     type:
-      value: ''
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: ''
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
+      type: String
+      value: ''
+  publicationSource: ''
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: ''
-items:
-  - _id: TCIVILZbOuwOklGC
-    name: Fangs or Claws or...
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[5d6]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.TCIVILZbOuwOklGC'
-  - _id: 7pmHgwNxyyzCci80
-    name: 'Companion Bonuses, pick one:'
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.7pmHgwNxyyzCci80'
-  - _id: vrjrLULDu2i1XDCl
-    name: Bear (also Giant Badger, Wolverine)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Acts: After ranger</p><p>Advantage: The bear gains temporary hit
-          points equal to its level ([[@lvl]]) each time it hits with an
-          attack.</p><p>Champion Feat: The temporary hit points increase to
-          double its level ([[2 * @lvl]]).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.vrjrLULDu2i1XDCl'
-  - _id: 4Km3ZAYWmAxf5IZF
-    name: Boar (also Spiky Lizard)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Acts: Before ranger</p><p>Advantage: The boar gains a +1 attack
-          bonus when it moves before its attack during the same turn.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.4Km3ZAYWmAxf5IZF'
-  - _id: SXkq5fAuPCRlR5xW
-    name: Eagle (also Falcon, Hawk, Owl, Vulture)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Acts: Before ranger</p><p>Advantage: It flies! Its melee damage die
-          is dropped by one size (d6 at level 0).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.SXkq5fAuPCRlR5xW'
-  - _id: CUhyT4wIKHoxFXDO
-    name: Panther (also Lion, Tiger)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Acts: Before ranger</p><p>Advantage: The panther&rsquo;s crit range
-          expands by 2 against enemies with lower initiative.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.CUhyT4wIKHoxFXDO'
-  - _id: XdYGBJhh7URJLdIx
-    name: Snake (also Giant Spider, Poison Toad)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Acts: After ranger</p><p>Advantage: The snake also deals ongoing
-          poison damage equal to twice your level ([[2 * @lvl]]) on a natural
-          attack roll of 18+.</p><p>Champion Feat: The ongoing damage is three
-          times your level ([[3 * @lvl]]) instead.</p><p>Epic Feat: The ongoing
-          damage is four times your level ([[4 * @lvl]]) instead.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.XdYGBJhh7URJLdIx'
-  - _id: Z0zlVZDWBgz8FdU6
-    name: Wolf (also Big Dog, Coyote, Hyena, Jackal)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Acts: After ranger</p><p>Advantage: The wolf gains a +1 attack
-          bonus against enemies its master attacked the same turn, or against
-          enemies engaged with its master.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    effects: []
-    folder: null
-    sort: 0
-    flags: {}
-    _key: '!actors.items!ZXATsaLAT66zG4Fr.Z0zlVZDWBgz8FdU6'
-effects: []
-folder: null
-sort: 0
-flags: {}
-_id: ZXATsaLAT66zG4Fr
-ownership:
-  default: 0
-prototypeToken:
-  name: Animal Companion (5)
-  displayName: 0
-  actorLink: true
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  flags: {}
-  randomImg: false
-  light:
-    dim: 0
-    bright: 0
-    angle: 360
-    color: null
-    alpha: 0.25
-    animation:
-      speed: 5
-      intensity: 5
-      type: null
-      reverse: false
-    negative: false
-    priority: 0
-    coloration: 1
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    darkness:
-      min: 0
-      max: 1
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    anchorX: 0.5
-    anchorY: 0.5
-    offsetX: 0
-    offsetY: 0
-    fit: contain
-    rotation: 0
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    color: null
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!ZXATsaLAT66zG4Fr'
+        enabled: false
+type: npc

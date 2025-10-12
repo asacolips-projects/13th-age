@@ -1,430 +1,452 @@
-name: Gather Power
-type: power
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Sorcerer
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Gather Power
-  powerType:
-    type: String
-    label: Power Type
-    value: feature
-  powerLevel:
-    type: Number
-    label: Level
+_id: QZCHUeEYkkr48pyP
+_key: '!items!QZCHUeEYkkr48pyP'
+effects:
+- _id: enEqCVZQMJUc06dX
+  _key: '!items.effects!QZCHUeEYkkr48pyP.enEqCVZQMJUc06dX'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
     value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfNextTurn
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+  name: Chaotic Defense Bonus (Adventurer)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: S05dVICrz0ZtGCCI
+  _key: '!items.effects!QZCHUeEYkkr48pyP.S05dVICrz0ZtGCCI'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '1'
+  - key: system.attributes.pd.value
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfNextTurn
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+  name: Chaotic Defense Bonus (Champion)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: lB6vPLCwTOCp7co9
+  _key: '!items.effects!QZCHUeEYkkr48pyP.lB6vPLCwTOCp7co9'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '1'
+  - key: system.attributes.md.value
+    mode: 2
+    priority: null
+    value: '1'
+  - key: system.attributes.pd.value
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfNextTurn
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+  name: Chaotic Defense Bonus (Epic)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+flags: {}
+folder: null
+img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+name: Gather Power
+ownership:
+  default: 0
+sort: 0
+system:
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: null
-  trigger:
-    type: String
-    label: Trigger
-    value: null
-  target:
-    type: String
-    label: Target
-    value: null
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: null
-  critMod:
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: null
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: null
-  missEven:
-    type: String
-    label: Even Miss
-    value: null
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: null
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: null
-  castPower:
-    type: String
-    label: Cast for Power
-    value: null
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: null
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: null
-  special:
-    type: String
-    label: Special
-    value: ''
-  effect:
-    type: String
-    label: Effect
-    value: >-
-      <p>Once initiative has been rolled and a battle is underway, a sorcerer
-      can spend a standard action to gather magical power, preparing themselves
-      for casting a double-strength spell with their next standard action.
-      Gathering power is loud and very noticeable.</p><p>Sorcerers who want to
-      gather power before initiative has been rolled can go through the motions
-      but won't get any benefit from the act.</p><p>When a sorcerer gathers
-      power, it does not count as casting a spell; you can gather power without
-      taking opportunity attacks.</p><p>In addition, because you spend your
-      standard action to gather power, you generate a small magical benefit.
-      Like many of your powers, this benefit is chaotic rather than perfectly
-      reliable, so you must make a random check to see what benefit you get.
-      Roll a d6 and consult the appropriate table below.</p><p>If you get a
-      benefit that deals damage to enemies, you can choose the type of damage
-      (cold, fire, lightning, or thunder).</p><p>After you have gathered power,
-      you can use your next standard action to cast an empowered sorcerer spell.
-      Empowered sorcerer spells deal double the damage of a normal sorcerer
-      spell. This means that you double the damage results of the hit or a miss
-      from the single spell. Non-attack spells generally don't improve when cast
-      empowered; use empowered casting for attacks.</p><p>If you do not or are
-      not able to use your next standard action to cast a sorcerer attack spell,
-      you lose the power you've gathered. You can use another standard action to
-      gather power again, but the spell you eventually cast will still only do
-      double damage.</p><p>You can spend your move actions and quick actions any
-      way you like after you gather power and before casting your next empowered
-      spell. Yes, once a battle has started it's possible to perform the magical
-      firefight trick of gathering power while hiding to the side of the cave
-      entrance, then jumping into the cave opening on your next turn and
-      blasting with the empowered
-      spell.</p><p>@UUID[Compendium.archmage.system-rolltables.PQbtKGZVFy83A85d]{Chaotic
-      Benefits Table} (rolled below)</p><p>Breath weapon spells add an extra
-      wrinkle. Of course you can gather power the first time you cast a breath
-      weapon spell in a battle. Later in the fight it's a question of whether
-      you gathered power the turn before a breath weapon spell roll goes your
-      way. You can be all ready with gathered power but roll too low to use the
-      breath weapon spell, forcing you to cast a different spell with the
-      gathered power.</p><p>If you've gathered power for a spell that deals
-      ongoing damage, the ongoing damage is doubled the first time it is dealt,
-      but not on subsequent rounds, if any.</p>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: null
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: null
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: null
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: null
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
     value: null
   breathWeapon:
-    type: String
     label: Breath Weapon
-    value: null
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
     type: String
-    label: Roll Table
-    value: Chaotic Benefit
+    value: null
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: null
+  castPower:
+    label: Cast for Power
+    type: String
+    value: null
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: <p>Once initiative has been rolled and a battle is underway, a sorcerer
+      can spend a standard action to gather magical power, preparing themselves for
+      casting a double-strength spell with their next standard action. Gathering power
+      is loud and very noticeable.</p><p>Sorcerers who want to gather power before
+      initiative has been rolled can go through the motions but won't get any benefit
+      from the act.</p><p>When a sorcerer gathers power, it does not count as casting
+      a spell; you can gather power without taking opportunity attacks.</p><p>In addition,
+      because you spend your standard action to gather power, you generate a small
+      magical benefit. Like many of your powers, this benefit is chaotic rather than
+      perfectly reliable, so you must make a random check to see what benefit you
+      get. Roll a d6 and consult the appropriate table below.</p><p>If you get a benefit
+      that deals damage to enemies, you can choose the type of damage (cold, fire,
+      lightning, or thunder).</p><p>After you have gathered power, you can use your
+      next standard action to cast an empowered sorcerer spell. Empowered sorcerer
+      spells deal double the damage of a normal sorcerer spell. This means that you
+      double the damage results of the hit or a miss from the single spell. Non-attack
+      spells generally don't improve when cast empowered; use empowered casting for
+      attacks.</p><p>If you do not or are not able to use your next standard action
+      to cast a sorcerer attack spell, you lose the power you've gathered. You can
+      use another standard action to gather power again, but the spell you eventually
+      cast will still only do double damage.</p><p>You can spend your move actions
+      and quick actions any way you like after you gather power and before casting
+      your next empowered spell. Yes, once a battle has started it's possible to perform
+      the magical firefight trick of gathering power while hiding to the side of the
+      cave entrance, then jumping into the cave opening on your next turn and blasting
+      with the empowered spell.</p><p>@UUID[Compendium.archmage.system-rolltables.PQbtKGZVFy83A85d]{Chaotic
+      Benefits Table} (rolled below)</p><p>Breath weapon spells add an extra wrinkle.
+      Of course you can gather power the first time you cast a breath weapon spell
+      in a battle. Later in the fight it's a question of whether you gathered power
+      the turn before a breath weapon spell roll goes your way. You can be all ready
+      with gathered power but roll too low to use the breath weapon spell, forcing
+      you to cast a different spell with the gathered power.</p><p>If you've gathered
+      power for a spell that deals ongoing damage, the ongoing damage is doubled the
+      first time it is dealt, but not on subsequent rounds, if any.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>Once per battle, you can choose the chaotic benefit you want
-          instead of rolling for it.</p>
+        value: <p>Once per battle, you can choose the chaotic benefit you want instead
+          of rolling for it.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: once-per-battle
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
+      tier:
+        type: String
+        value: adventurer
     '1':
       description:
         type: String
-        value: >-
-          <p>Once per battle when the escalation die is 4+, you can gather power
+        value: <p>Once per battle when the escalation die is 4+, you can gather power
           as a quick action.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: once-per-battle
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
+      tier:
+        type: String
+        value: champion
     '2':
       description:
         type: String
-        value: >-
-          <p>When you gather power, if the escalation die is 2+, you can roll
-          two chaotic benefits. Unlike most effects, the benefits stack if you
-          roll the same result twice.</p>
+        value: <p>When you gather power, if the escalation die is 2+, you can roll
+          two chaotic benefits. Unlike most effects, the benefits stack if you roll
+          the same result twice.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
-_id: QZCHUeEYkkr48pyP
-effects:
-  - origin: null
-    disabled: false
-    name: Chaotic Defense Bonus (Adventurer)
-    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
-    _id: enEqCVZQMJUc06dX
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfNextTurn
-        ongoingDamage: 0
-        ongoingDamageType: ''
-    _key: '!items.effects!QZCHUeEYkkr48pyP.enEqCVZQMJUc06dX'
-  - origin: null
-    disabled: false
-    name: Chaotic Defense Bonus (Champion)
-    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
-    _id: S05dVICrz0ZtGCCI
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '1'
-        mode: 2
-        priority: null
-      - key: system.attributes.pd.value
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfNextTurn
-        ongoingDamage: 0
-        ongoingDamageType: ''
-    _key: '!items.effects!QZCHUeEYkkr48pyP.S05dVICrz0ZtGCCI'
-  - origin: null
-    disabled: false
-    name: Chaotic Defense Bonus (Epic)
-    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
-    _id: lB6vPLCwTOCp7co9
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '1'
-        mode: 2
-        priority: null
-      - key: system.attributes.md.value
-        value: '1'
-        mode: 2
-        priority: null
-      - key: system.attributes.pd.value
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfNextTurn
-        ongoingDamage: 0
-        ongoingDamageType: ''
-    _key: '!items.effects!QZCHUeEYkkr48pyP.lB6vPLCwTOCp7co9'
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!QZCHUeEYkkr48pyP'
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: null
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: null
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: null
+  missEven:
+    label: Even Miss
+    type: String
+    value: null
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: null
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: '1'
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Gather Power
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Sorcerer
+  powerType:
+    label: Power Type
+    type: String
+    value: feature
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: at-will
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: Chaotic Benefit
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: null
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: null
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: null
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: null
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: null
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: null
+  target:
+    label: Target
+    type: String
+    value: null
+  trigger:
+    label: Trigger
+    type: String
+    value: null
+type: power

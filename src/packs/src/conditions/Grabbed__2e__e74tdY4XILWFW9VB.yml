@@ -1,41 +1,50 @@
-name: Grabbed (2e)
 _id: e74tdY4XILWFW9VB
-pages:
-  - sort: 100000
-    name: Grabbed (2e)
-    type: text
-    _id: bfHdjOkHZLVGbwtr
-    system: {}
-    title:
-      show: false
-      level: 1
-    image: {}
-    text:
-      format: 1
-      content: >-
-        <p>When a monster that is grabbing you starts its turn, it deals
-        automatic damage to you as a free action usable once on its turn. This
-        automatic damage is in addition to the monster’s normal actions and
-        attacks.</p><p>Wherever the amount isn't specified, use half the damage
-        the monster deals with its typical melee attack.</p><p>You are engaged
-        with the creature grabbing you, and you can't move away unless you
-        teleport, pop free, or successfully disengage. You can't make
-        opportunity attacks, but you can make normal attacks on your
-        turn.</p><p>If you are smaller than the creature that is grabbing you,
-        it can move and carry you along no problem. If you are the same size or
-        larger, the creature grabbing you has to let go of you if it wants to
-        move.</p>
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    ownership:
-      default: -1
-    flags: {}
-    _key: '!journal.pages!e74tdY4XILWFW9VB.bfHdjOkHZLVGbwtr'
+_key: '!journal!e74tdY4XILWFW9VB'
+categories: []
+flags: {}
 folder: null
-sort: 0
+name: Grabbed (2e)
 ownership:
   default: 0
-flags: {}
-_key: '!journal!e74tdY4XILWFW9VB'
+pages:
+- _id: bfHdjOkHZLVGbwtr
+  _key: '!journal.pages!e74tdY4XILWFW9VB.bfHdjOkHZLVGbwtr'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Grabbed (2e)
+  ownership:
+    default: -1
+  sort: 100000
+  src: null
+  system: {}
+  text:
+    content: "<p>When a monster that is grabbing you starts its turn, it deals automatic\
+      \ damage to you as a free action usable once on its turn. This automatic damage\
+      \ is in addition to the monster\u2019s normal actions and attacks.</p><p>Wherever\
+      \ the amount isn't specified, use half the damage the monster deals with its\
+      \ typical melee attack.</p><p>You are engaged with the creature grabbing you,\
+      \ and you can't move away unless you teleport, pop free, or successfully disengage.\
+      \ You can't make opportunity attacks, but you can make normal attacks on your\
+      \ turn.</p><p>If you are smaller than the creature that is grabbing you, it\
+      \ can move and carry you along no problem. If you are the same size or larger,\
+      \ the creature grabbing you has to let go of you if it wants to move.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

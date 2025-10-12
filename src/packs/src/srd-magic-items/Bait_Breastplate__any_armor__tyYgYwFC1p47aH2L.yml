@@ -1,72 +1,44 @@
-name: Bait Breastplate (any armor)
-type: equipment
+_id: tyYgYwFC1p47aH2L
+_key: '!items!tyYgYwFC1p47aH2L'
+effects: []
+flags:
+  core: {}
+folder: 4kES6iUsw34OPUMb
 img: icons/svg/item-bag.svg
+name: Bait Breastplate (any armor)
+ownership:
+  default: 0
+sort: 1600000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>Thick metal plate cuirass that attracts ranged attacks and spells even
-      as it deflects melee attacks.</p>
-
-      <p>Always: +3 AC (champion) against melee attacks, but &ndash;1 AC against
-      ranged attacks.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 3
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
-      bonus: 3
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
+      bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -74,29 +46,56 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: champion
-  isActive: true
-  publicationSource: B1
   chackra: armor
-effects: []
-folder: 4kES6iUsw34OPUMb
-flags:
-  core: {}
-_id: tyYgYwFC1p47aH2L
-sort: 1600000
-ownership:
-  default: 0
-_key: '!items!tyYgYwFC1p47aH2L'
+  description:
+    label: Description
+    type: String
+    value: '<p>Thick metal plate cuirass that attracts ranged attacks and spells even
+      as it deflects melee attacks.</p>
+
+      <p>Always: +3 AC (champion) against melee attacks, but &ndash;1 AC against ranged
+      attacks.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: champion
+type: equipment

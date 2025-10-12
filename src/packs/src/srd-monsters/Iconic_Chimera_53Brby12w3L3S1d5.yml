@@ -1,9 +1,1361 @@
 _id: 53Brby12w3L3S1d5
-name: Iconic Chimera
-type: npc
+_key: '!actors!53Brby12w3L3S1d5'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: skx5i1mo7OKFH147
+  _key: '!actors.items!53Brby12w3L3S1d5.skx5i1mo7OKFH147'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Fangs, claws, and horns
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. AC ([[3]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[25]] damage'
+    hit1:
+      label: Hit
+      name: Natural 14-15
+      type: ''
+      value: "The target is *dazed* until the end of the chimera\u2019s next turn\
+        \ from a headbutt."
+    hit2:
+      label: Hit
+      name: Natural 16-17
+      type: ''
+      value: The target takes [[20]] ongoing damage from raking claws.
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    hitt3:
+      label: Hit
+      name: Natural 18-20
+      type: ''
+      value: The chimera can make a fiery breath attack as a free action.
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: CfgabSuiffmnNNQS
+  _key: '!actors.items!53Brby12w3L3S1d5.CfgabSuiffmnNNQS'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: '[Special trigger] Fiery breath'
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. PD (up to [[3]] nearby enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[3d10]] fire damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: K5hrzuQddo0Hjl2D
+  _key: '!actors.items!53Brby12w3L3S1d5.K5hrzuQddo0Hjl2D'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Tusk charge
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 20]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: "Limited use: Once the chimera has damaged an enemy with this attack,\
+        \ it can\u2019t use tusk charge again until it drops an enemy to 0 hp or lower."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[100]] damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: KZb3Uy7C5wHDzbNz
+  _key: '!actors.items!53Brby12w3L3S1d5.KZb3Uy7C5wHDzbNz'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Chimerical change
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "At the start of battle each PC rolls one icon relationship die of their\
+        \ choice and one die chosen from their relationships by the GM. A roll of\
+        \ 6 means the chimera has shifted in a manner that gives it a chimerical flaw\
+        \ (F) that the adventurers can exploit. A roll of a 5 indicates that the chimera\
+        \ gains both a flaw and a benefit associated with that icon. A result of 1\
+        \ or 2 means that the chimera gains the icon\u2019s chimerical benefit (B)\
+        \ without the flaw. Actual benefits and flaws are up to the GM, and should\
+        \ reflect the icons with which the players have relationships."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: HndvWwv2TERazKuR
+  _key: '!actors.items!53Brby12w3L3S1d5.HndvWwv2TERazKuR'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Bearded spell-eating head
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When a spell attack misses the chimera, it has no miss effect and the
+        chimera heals 40 hp.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: V1taQqSsAoImkAQs
+  _key: '!actors.items!53Brby12w3L3S1d5.V1taQqSsAoImkAQs'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Vulnerability, melee
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The crit range of melee attacks against the chimera expands by 2.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: yMpL30G12MZ8HEHJ
+  _key: '!actors.items!53Brby12w3L3S1d5.yMpL30G12MZ8HEHJ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Skin of indomitable faces
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the chimera saves against a condition, it becomes immune to that
+        condition until the end of the battle.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: lfK5s94KCzUGwwSm
+  _key: '!actors.items!53Brby12w3L3S1d5.lfK5s94KCzUGwwSm'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Vulnerability, spells
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The crit range of spell attacks against the chimera expands by 2.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: A3wVzIBroAeyqLE7
+  _key: '!actors.items!53Brby12w3L3S1d5.A3wVzIBroAeyqLE7'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Flaming oil glands
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When a creature is engaged with the chimera at the start of its turn,
+        it takes [[20]] fire damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: wCDPmpDnrWriCq2H
+  _key: '!actors.items!53Brby12w3L3S1d5.wCDPmpDnrWriCq2H'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Overconfident predator
+  ownership:
+    default: 0
+  sort: 900000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Each time the chimera scores a critical hit, it takes a cumulative -2
+        penalty to all defenses.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: gwqdAI6qE2hqkYbM
+  _key: '!actors.items!53Brby12w3L3S1d5.gwqdAI6qE2hqkYbM'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Stone-studded dermis
+  ownership:
+    default: 0
+  sort: 1000000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Any damage dice that roll maximum damage against the chimera count as
+        1s.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Cxb71zuHtQywtcAA
+  _key: '!actors.items!53Brby12w3L3S1d5.Cxb71zuHtQywtcAA'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Stubborn beast
+  ownership:
+    default: 0
+  sort: 1100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The chimera won\u2019t willingly disengage from a creature engaged with\
+        \ it."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: QxZ2UNC7oX5LTY9y
+  _key: '!actors.items!53Brby12w3L3S1d5.QxZ2UNC7oX5LTY9y'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Springing stag legs
+  ownership:
+    default: 0
+  sort: 1200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the escalation die is odd, the chimera gains an additional standard
+        action that turn.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: dgDj7OxFXWoCbDbA
+  _key: '!actors.items!53Brby12w3L3S1d5.dgDj7OxFXWoCbDbA'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Overly gracile
+  ownership:
+    default: 0
+  sort: 1300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The chimera\u2019s form is unusually frail, and any damage dice that\
+        \ roll 1s against the chimera count as 2s."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: RL9bIYRZ3KYCccOC
+  _key: '!actors.items!53Brby12w3L3S1d5.RL9bIYRZ3KYCccOC'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Mane of scorpion tails
+  ownership:
+    default: 0
+  sort: 1400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Enemies engaged with the chimera who are below 48 hit points are *dazed*\
+        \ and can\u2019t use the escalation die."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 37ynlZlE3GHW49lt
+  _key: '!actors.items!53Brby12w3L3S1d5.37ynlZlE3GHW49lt'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Golden fleece
+  ownership:
+    default: 0
+  sort: 1500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The chimera has transformed itself into a form that\u2019s gem encrusted\
+        \ with golden fur. When slain it will yield [[1d6]] x 100 gp per adventurer\
+        \ in gems and precious metals. At the GM\u2019s say-so, knowledge of this\
+        \ bounty may grant particularly mercenary characters a +1 attack bonus against\
+        \ the chimera once it\u2019s staggered."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 1lD1atHjaA8wrh4p
+  _key: '!actors.items!53Brby12w3L3S1d5.1lD1atHjaA8wrh4p'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Inferno belly
+  ownership:
+    default: 0
+  sort: 1600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the chimera makes a fiery breath attack, it can make another fiery
+        breath attack that turn as a quick action.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: N9or0sPwDsa4DkNj
+  _key: '!actors.items!53Brby12w3L3S1d5.N9or0sPwDsa4DkNj'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Flammable blood
+  ownership:
+    default: 0
+  sort: 1700000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the chimera rolls a natural odd miss with fiery breath, it takes
+        [[20]] fire damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: axzfFZraVXalUDE1
+  _key: '!actors.items!53Brby12w3L3S1d5.axzfFZraVXalUDE1'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Wild heart
+  ownership:
+    default: 0
+  sort: 1800000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The chimera is constantly evolving and changing. When an enemy rolls
+        a natural 1-5 on an attack roll against it, the chimera adds the escalation
+        die to its attack rolls until the end of its next turn.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 2ZfZXzBkOKpYE5oZ
+  _key: '!actors.items!53Brby12w3L3S1d5.2ZfZXzBkOKpYE5oZ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Vulnerability, poison
+  ownership:
+    default: 0
+  sort: 1900000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The crit range of poison attacks against the chimera expands by 2.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: FLSWrybzZvvmi2HX
+  _key: '!actors.items!53Brby12w3L3S1d5.FLSWrybzZvvmi2HX'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Bone plates
+  ownership:
+    default: 0
+  sort: 2000000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When an enemy rolls a natural even miss with a melee attack against the
+        chimera, the weapon temporarily loses all its bonuses and powers and the wielder
+        is *weakened* (save ends both).
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: R4EtK1OBUQvXpRL2
+  _key: '!actors.items!53Brby12w3L3S1d5.R4EtK1OBUQvXpRL2'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Vulnerability, holy
+  ownership:
+    default: 0
+  sort: 2100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The crit range of holy attacks against the chimera expands by 2.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: fUWMG276MZ77afyc
+  _key: '!actors.items!53Brby12w3L3S1d5.fUWMG276MZ77afyc'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Mighty tusks
+  ownership:
+    default: 0
+  sort: 2200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "As a standard action, the chimera can make a tusk charge attack. It\
+        \ can\u2019t make any other attacks the same turn."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: sHQ7US1GMVZe9snR
+  _key: '!actors.items!53Brby12w3L3S1d5.sHQ7US1GMVZe9snR'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Too many horns
+  ownership:
+    default: 0
+  sort: 2300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The horns and tusks of the chimera lock together at inopportune moments.
+        When it rolls a natural 1-5 with an attack against multiple targets, it loses
+        any further attacks that turn.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: SmwIJJaY9Vpj2G8x
+  _key: '!actors.items!53Brby12w3L3S1d5.SmwIJJaY9Vpj2G8x'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Eagle wings
+  ownership:
+    default: 0
+  sort: 2400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The chimera can fly like an eagle, swooping in and out of the battle.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: D8BL4DU7w1Pfic8f
+  _key: '!actors.items!53Brby12w3L3S1d5.D8BL4DU7w1Pfic8f'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Vulnerability, negative energy
+  ownership:
+    default: 0
+  sort: 2500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The crit range of negative energy attacks against the chimera expands
+        by 2.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: UijhoKIpvpWwqmfQ
+  _key: '!actors.items!53Brby12w3L3S1d5.UijhoKIpvpWwqmfQ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Poison fangs
+  ownership:
+    default: 0
+  sort: 2600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the chimera rolls a natural 1-5 with an attack and misses, the target
+        takes [[20]] ongoing poison damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: IJ4gXDyoYikEqDM8
+  _key: '!actors.items!53Brby12w3L3S1d5.IJ4gXDyoYikEqDM8'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Bickering heads
+  ownership:
+    default: 0
+  sort: 2700000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The first time each turn the chimera hits with an attack, it rerolls
+        the attack and takes the lower roll.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 67qknGx19cTunQZF
+  _key: '!actors.items!53Brby12w3L3S1d5.67qknGx19cTunQZF'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (B) Draconic sinews
+  ownership:
+    default: 0
+  sort: 2800000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: While not staggered, the chimera rolls [[2d20]] with its melee attacks
+        and uses the higher roll.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Ts7lIB1DpmiKH22G
+  _key: '!actors.items!53Brby12w3L3S1d5.Ts7lIB1DpmiKH22G'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: (F) Too many wings
+  ownership:
+    default: 0
+  sort: 2900000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Whenever the chimera moves, it rolls an easy save (6+). On a failure,
+        it provokes opportunity attacks from each nearby enemy.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Iconic Chimera
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Iconic Chimera
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 24
     attackMod:
       type: Number
       value: 0
@@ -14,1181 +1366,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 24
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 20
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 17
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 320
-      min: 0
-      max: 320
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 15
-      mod: 15
-    level:
-      type: Number
-      label: Level
-      value: 8
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 320
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 320
+    init:
+      label: Initiative Modifier
+      mod: 15
+      type: Number
+      value: 15
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 8
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 17
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 20
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: wrecker
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 8
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: wrecker
     roleB:
       value: ''
     size:
-      value: large
-      type: String
       label: Size
+      type: String
+      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
-      value: beast
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: beast
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 8
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B1
-items:
-  - _id: skx5i1mo7OKFH147
-    flags: {}
-    name: Fangs, claws, and horns
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. AC ([[3]] attacks)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[25]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 14-15
-        value: >-
-          The target is *dazed* until the end of the chimera’s next turn from a
-          headbutt.
-      hit2:
-        type: ''
-        label: Hit
-        name: Natural 16-17
-        value: The target takes [[20]] ongoing damage from raking claws.
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-      hitt3:
-        type: ''
-        label: Hit
-        name: Natural 18-20
-        value: The chimera can make a fiery breath attack as a free action.
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.skx5i1mo7OKFH147'
-  - _id: CfgabSuiffmnNNQS
-    flags: {}
-    name: '[Special trigger] Fiery breath'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. PD (up to [[3]] nearby enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[3d10]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.CfgabSuiffmnNNQS'
-  - _id: K5hrzuQddo0Hjl2D
-    flags: {}
-    name: Tusk charge
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Limited use: Once the chimera has damaged an enemy with this attack,
-          it can’t use tusk charge again until it drops an enemy to 0 hp or
-          lower.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 20]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[100]] damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.K5hrzuQddo0Hjl2D'
-  - _id: KZb3Uy7C5wHDzbNz
-    flags: {}
-    name: Chimerical change
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          At the start of battle each PC rolls one icon relationship die of
-          their choice and one die chosen from their relationships by the GM. A
-          roll of 6 means the chimera has shifted in a manner that gives it a
-          chimerical flaw (F) that the adventurers can exploit. A roll of a 5
-          indicates that the chimera gains both a flaw and a benefit associated
-          with that icon. A result of 1 or 2 means that the chimera gains the
-          icon’s chimerical benefit (B) without the flaw. Actual benefits and
-          flaws are up to the GM, and should reflect the icons with which the
-          players have relationships.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.KZb3Uy7C5wHDzbNz'
-  - _id: HndvWwv2TERazKuR
-    flags: {}
-    name: (B) Bearded spell-eating head
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When a spell attack misses the chimera, it has no miss effect and the
-          chimera heals 40 hp.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.HndvWwv2TERazKuR'
-  - _id: V1taQqSsAoImkAQs
-    flags: {}
-    name: (F) Vulnerability, melee
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The crit range of melee attacks against the chimera expands by 2.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.V1taQqSsAoImkAQs'
-  - _id: yMpL30G12MZ8HEHJ
-    flags: {}
-    name: (B) Skin of indomitable faces
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the chimera saves against a condition, it becomes immune to that
-          condition until the end of the battle.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.yMpL30G12MZ8HEHJ'
-  - _id: lfK5s94KCzUGwwSm
-    flags: {}
-    name: (F) Vulnerability, spells
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The crit range of spell attacks against the chimera expands by 2.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.lfK5s94KCzUGwwSm'
-  - _id: A3wVzIBroAeyqLE7
-    flags: {}
-    name: (B) Flaming oil glands
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When a creature is engaged with the chimera at the start of its turn,
-          it takes [[20]] fire damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 800000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.A3wVzIBroAeyqLE7'
-  - _id: wCDPmpDnrWriCq2H
-    flags: {}
-    name: (F) Overconfident predator
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Each time the chimera scores a critical hit, it takes a cumulative -2
-          penalty to all defenses.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 900000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.wCDPmpDnrWriCq2H'
-  - _id: gwqdAI6qE2hqkYbM
-    flags: {}
-    name: (B) Stone-studded dermis
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Any damage dice that roll maximum damage against the chimera count as
-          1s.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1000000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.gwqdAI6qE2hqkYbM'
-  - _id: Cxb71zuHtQywtcAA
-    flags: {}
-    name: (F) Stubborn beast
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The chimera won’t willingly disengage from a creature engaged with it.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1100000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.Cxb71zuHtQywtcAA'
-  - _id: QxZ2UNC7oX5LTY9y
-    flags: {}
-    name: (B) Springing stag legs
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the escalation die is odd, the chimera gains an additional
-          standard action that turn.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1200000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.QxZ2UNC7oX5LTY9y'
-  - _id: dgDj7OxFXWoCbDbA
-    flags: {}
-    name: (F) Overly gracile
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The chimera’s form is unusually frail, and any damage dice that roll
-          1s against the chimera count as 2s.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1300000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.dgDj7OxFXWoCbDbA'
-  - _id: RL9bIYRZ3KYCccOC
-    flags: {}
-    name: (B) Mane of scorpion tails
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Enemies engaged with the chimera who are below 48 hit points are
-          *dazed* and can’t use the escalation die.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1400000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.RL9bIYRZ3KYCccOC'
-  - _id: 37ynlZlE3GHW49lt
-    flags: {}
-    name: (F) Golden fleece
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The chimera has transformed itself into a form that’s gem encrusted
-          with golden fur. When slain it will yield [[1d6]] x 100 gp per
-          adventurer in gems and precious metals. At the GM’s say-so, knowledge
-          of this bounty may grant particularly mercenary characters a +1 attack
-          bonus against the chimera once it’s staggered.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1500000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.37ynlZlE3GHW49lt'
-  - _id: 1lD1atHjaA8wrh4p
-    flags: {}
-    name: (B) Inferno belly
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the chimera makes a fiery breath attack, it can make another
-          fiery breath attack that turn as a quick action.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1600000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.1lD1atHjaA8wrh4p'
-  - _id: N9or0sPwDsa4DkNj
-    flags: {}
-    name: (F) Flammable blood
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the chimera rolls a natural odd miss with fiery breath, it takes
-          [[20]] fire damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1700000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.N9or0sPwDsa4DkNj'
-  - _id: axzfFZraVXalUDE1
-    flags: {}
-    name: (B) Wild heart
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The chimera is constantly evolving and changing. When an enemy rolls a
-          natural 1-5 on an attack roll against it, the chimera adds the
-          escalation die to its attack rolls until the end of its next turn.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1800000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.axzfFZraVXalUDE1'
-  - _id: 2ZfZXzBkOKpYE5oZ
-    flags: {}
-    name: (F) Vulnerability, poison
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The crit range of poison attacks against the chimera expands by 2.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 1900000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.2ZfZXzBkOKpYE5oZ'
-  - _id: FLSWrybzZvvmi2HX
-    flags: {}
-    name: (B) Bone plates
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When an enemy rolls a natural even miss with a melee attack against
-          the chimera, the weapon temporarily loses all its bonuses and powers
-          and the wielder is *weakened* (save ends both).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2000000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.FLSWrybzZvvmi2HX'
-  - _id: R4EtK1OBUQvXpRL2
-    flags: {}
-    name: (F) Vulnerability, holy
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The crit range of holy attacks against the chimera expands by 2.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2100000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.R4EtK1OBUQvXpRL2'
-  - _id: fUWMG276MZ77afyc
-    flags: {}
-    name: (B) Mighty tusks
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          As a standard action, the chimera can make a tusk charge attack. It
-          can’t make any other attacks the same turn.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2200000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.fUWMG276MZ77afyc'
-  - _id: sHQ7US1GMVZe9snR
-    flags: {}
-    name: (F) Too many horns
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The horns and tusks of the chimera lock together at inopportune
-          moments. When it rolls a natural 1-5 with an attack against multiple
-          targets, it loses any further attacks that turn.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2300000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.sHQ7US1GMVZe9snR'
-  - _id: SmwIJJaY9Vpj2G8x
-    flags: {}
-    name: (B) Eagle wings
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The chimera can fly like an eagle, swooping in and out of the battle.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2400000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.SmwIJJaY9Vpj2G8x'
-  - _id: D8BL4DU7w1Pfic8f
-    flags: {}
-    name: (F) Vulnerability, negative energy
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The crit range of negative energy attacks against the chimera expands
-          by 2.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2500000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.D8BL4DU7w1Pfic8f'
-  - _id: UijhoKIpvpWwqmfQ
-    flags: {}
-    name: (B) Poison fangs
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the chimera rolls a natural 1-5 with an attack and misses, the
-          target takes [[20]] ongoing poison damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2600000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.UijhoKIpvpWwqmfQ'
-  - _id: IJ4gXDyoYikEqDM8
-    flags: {}
-    name: (F) Bickering heads
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The first time each turn the chimera hits with an attack, it rerolls
-          the attack and takes the lower roll.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2700000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.IJ4gXDyoYikEqDM8'
-  - _id: 67qknGx19cTunQZF
-    flags: {}
-    name: (B) Draconic sinews
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          While not staggered, the chimera rolls [[2d20]] with its melee attacks
-          and uses the higher roll.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2800000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.67qknGx19cTunQZF'
-  - _id: Ts7lIB1DpmiKH22G
-    flags: {}
-    name: (F) Too many wings
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Whenever the chimera moves, it rolls an easy save (6+). On a failure,
-          it provokes opportunity attacks from each nearby enemy.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 2900000
-    effects: []
-    folder: null
-    _key: '!actors.items!53Brby12w3L3S1d5.Ts7lIB1DpmiKH22G'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Iconic Chimera
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!53Brby12w3L3S1d5'
+        enabled: false
+type: npc

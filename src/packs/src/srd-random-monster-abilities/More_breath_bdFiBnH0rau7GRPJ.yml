@@ -1,31 +1,30 @@
-name: More breath
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The dragon can use its intermittent breath 1d4 more times each battle.
-      If its breath weapon isn&rsquo;t intermittent (white and green dragons),
-      the dragon gains the extra uses anyway, making it more dangerous than
-      lesser specimens of its color.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: bdFiBnH0rau7GRPJ
+_key: '!items!bdFiBnH0rau7GRPJ'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: More breath
 ownership:
   default: 0
-_id: bdFiBnH0rau7GRPJ
-_key: '!items!bdFiBnH0rau7GRPJ'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>The dragon can use its intermittent breath 1d4 more times each battle.
+      If its breath weapon isn&rsquo;t intermittent (white and green dragons), the
+      dragon gains the extra uses anyway, making it more dangerous than lesser specimens
+      of its color.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

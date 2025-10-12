@@ -1,55 +1,103 @@
-name: Random Energy
+_id: DvSTFFWi24BeGhWy
+_key: '!tables!DvSTFFWi24BeGhWy'
+description: ''
+displayRoll: false
 flags:
   core: {}
-img: icons/svg/d20-grey.svg
-description: ''
-results:
-  - _id: bWWh5IN7CrKxYypX
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    _key: '!tables.results!DvSTFFWi24BeGhWy.bWWh5IN7CrKxYypX'
-  - _id: GCRjbjoPD7IW922C
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    _key: '!tables.results!DvSTFFWi24BeGhWy.GCRjbjoPD7IW922C'
-  - _id: sP3X8nl0bQ4fkEZt
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    _key: '!tables.results!DvSTFFWi24BeGhWy.sP3X8nl0bQ4fkEZt'
-  - _id: W1Nkj2oENC2lBnEK
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    _key: '!tables.results!DvSTFFWi24BeGhWy.W1Nkj2oENC2lBnEK'
+folder: null
 formula: 1d4
-replacement: true
-displayRoll: false
-_id: DvSTFFWi24BeGhWy
+img: icons/svg/d20-grey.svg
+name: Random Energy
 ownership:
   default: 0
-folder: null
+replacement: true
+results:
+- _id: bWWh5IN7CrKxYypX
+  _key: '!tables.results!DvSTFFWi24BeGhWy.bWWh5IN7CrKxYypX'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Cold
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: GCRjbjoPD7IW922C
+  _key: '!tables.results!DvSTFFWi24BeGhWy.GCRjbjoPD7IW922C'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Fire
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: sP3X8nl0bQ4fkEZt
+  _key: '!tables.results!DvSTFFWi24BeGhWy.sP3X8nl0bQ4fkEZt'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Lightning
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: W1Nkj2oENC2lBnEK
+  _key: '!tables.results!DvSTFFWi24BeGhWy.W1Nkj2oENC2lBnEK'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Thunder
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
 sort: 1000000
-_key: '!tables!DvSTFFWi24BeGhWy'

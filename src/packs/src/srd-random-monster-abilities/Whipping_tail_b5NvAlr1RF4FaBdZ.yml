@@ -1,31 +1,30 @@
-name: Whipping tail
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>When an enemy engaged with the dragon rolls a natural 1 or 2 with an
-      attack roll, the dragon can make an opportunity attack against that
-      creature as a free action. The attack is set up by the dragon&rsquo;s
-      whipping tail but delivered by the dragon&rsquo;s usual melee attack.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: b5NvAlr1RF4FaBdZ
+_key: '!items!b5NvAlr1RF4FaBdZ'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Whipping tail
 ownership:
   default: 0
-_id: b5NvAlr1RF4FaBdZ
-_key: '!items!b5NvAlr1RF4FaBdZ'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>When an enemy engaged with the dragon rolls a natural 1 or 2 with an
+      attack roll, the dragon can make an opportunity attack against that creature
+      as a free action. The attack is set up by the dragon&rsquo;s whipping tail but
+      delivered by the dragon&rsquo;s usual melee attack.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

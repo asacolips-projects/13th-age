@@ -1,27 +1,41 @@
-name: Weakened
-folder: null
-flags: {}
 _id: 3r2jt3c6skn7gw7d
-pages:
-  - name: Weakened
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: <p>You take a –4 penalty to attacks and to defenses.</p>
-    _id: cTS9TvoRPNpuheBF
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!3r2jt3c6skn7gw7d.cTS9TvoRPNpuheBF'
 _key: '!journal!3r2jt3c6skn7gw7d'
+categories: []
+flags: {}
+folder: null
+name: Weakened
+ownership:
+  default: 0
+pages:
+- _id: cTS9TvoRPNpuheBF
+  _key: '!journal.pages!3r2jt3c6skn7gw7d.cTS9TvoRPNpuheBF'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Weakened
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<p>You take a \u20134 penalty to attacks and to defenses.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

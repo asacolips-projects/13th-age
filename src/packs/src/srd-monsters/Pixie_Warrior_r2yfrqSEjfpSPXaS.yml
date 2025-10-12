@@ -1,9 +1,515 @@
 _id: r2yfrqSEjfpSPXaS
-name: Pixie Warrior
-type: npc
+_key: '!actors!r2yfrqSEjfpSPXaS'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: ni2EXhoLW4wU7F6n
+  _key: '!actors.items!r2yfrqSEjfpSPXaS.ni2EXhoLW4wU7F6n'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Diminutive sparkly sword
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[5]] psychic damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: The pixie warrior can make a madness attack against the target as a free
+        action.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: jcnMYu7nzl6zJnJh
+  _key: '!actors.items!r2yfrqSEjfpSPXaS.jcnMYu7nzl6zJnJh'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Enchanted boswhot
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[4]] psychic damage, and the pixie warrior can make a madness attack
+        against the target as a free action.'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 5ucPWaHhnpaj6Zol
+  _key: '!actors.items!r2yfrqSEjfpSPXaS.5ucPWaHhnpaj6Zol'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Madness
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. MD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Special trigger
+    hit:
+      label: Hit
+      type: String
+      value: The target is maddened until the end of the pixie's next turn.
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: ISBrB5j8MNX3ZnRT
+  _key: '!actors.items!r2yfrqSEjfpSPXaS.ISBrB5j8MNX3ZnRT'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Maddened
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>The first thing the creature does on its turn is use a standard action
+        to make a display of power that has no practical benefit. The GM chooses the
+        attack, spell, or other power, which should be the most powerful one the character
+        has, preferably a daily. The target expends the power in a great show of prowess,
+        aimed for display rather than effect. Wizards cast their fireballs into the
+        sky, monks demonstrate flawless form while shadow-boxing, and clerics bless
+        the very stones underfoot instead of allies.</p><p>When the madness effect
+        gets old, substitute any of the following effects, by choice or at random:</p><ol><li>You
+        love pixies and hate those who threaten them. The target is *confused* until
+        the end of the pixie&rsquo;s next turn.</li><li>Brains knocked loose. The
+        target takes [[4 ]]psychic damage each time it takes an action (save ends;
+        yes that could be 3 times per round or more).</li><li>&nbsp;Reality bender.
+        The target takes [[5]] ongoing psychic damage. Each time the target fails
+        the save, the ongoing damage increases by [[5]], cumulative.</li><li>Massive
+        attack on the *unconscious* mind. The target chooses one: either let the onslaught
+        slam its mind (take [[15]] psychic damage), or steel its mind against the
+        onslaught (*stunned* until the end of the pixie&rsquo;s next turn).</li><li>Compulsion
+        to dance. The target takes [[5]] ongoing psychic damage (no save) until it
+        spends a standard action to dance maniacally. Dancing ends all such ongoing
+        damage, even if the target has been hit multiple times with this effect.</li><li>Pacifism.
+        The target can&rsquo;t attack until the end of the pixie&rsquo;s next turn.</li></ol>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: SNWmQEaiNYpxHrv2
+  _key: '!actors.items!r2yfrqSEjfpSPXaS.SNWmQEaiNYpxHrv2'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Dazzling lights
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>During battle, pixies fill the air with the light and sound of countless
+        flashy illusions. The effects are disorienting enough that the PCs don&rsquo;t
+        get to add the escalation die to their attacks.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Rve62i6ohoHFGhWR
+  _key: '!actors.items!r2yfrqSEjfpSPXaS.Rve62i6ohoHFGhWR'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Pixies make flying look like a lot of fun.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: OFgUMmeqe5JtzZOs
+  _key: '!actors.items!r2yfrqSEjfpSPXaS.OFgUMmeqe5JtzZOs'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Invisibility
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When an enemy attacks a pixie and misses, the pixie turns invisible
+        until the start of its next turn (even if it makes opportunity attacks). A
+        pixie can also turn invisible as a standard action, in which case the invisibility
+        still lasts until the start of its next turn.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Pixie Warrior
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Pixie Warrior
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 20
     attackMod:
       type: Number
       value: 0
@@ -14,601 +520,167 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 13
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 17
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 24
-      min: 0
-      max: 24
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 12
-      mod: 12
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 24
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 24
+    init:
+      label: Initiative Modifier
+      mod: 12
+      type: Number
+      value: 12
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 17
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 13
     saves:
+      automatic: true
+      base: 8
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-      base: 8
-      automatic: true
-    escalation:
-      value: 0
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
-    role:
-      value: spoiler
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    resistance:
+      label: Resistance
       type: String
+      value: ''
+    role:
       label: Role
+      type: String
+      value: spoiler
     roleB:
       value: ''
     size:
-      value: normal
-      type: String
       label: Size
+      type: String
+      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
-      value: humanoid
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: humanoid
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
+      type: String
+      value: ''
+  publicationSource: 13TW
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: 13TW
-items:
-  - _id: ni2EXhoLW4wU7F6n
-    flags: {}
-    name: Diminutive sparkly sword
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[5]] psychic damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The pixie warrior can make a madness attack against the target as a
-          free action.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!r2yfrqSEjfpSPXaS.ni2EXhoLW4wU7F6n'
-  - _id: jcnMYu7nzl6zJnJh
-    flags: {}
-    name: Enchanted boswhot
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[4]] psychic damage, and the pixie warrior can make a madness attack
-          against the target as a free action.
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!r2yfrqSEjfpSPXaS.jcnMYu7nzl6zJnJh'
-  - _id: 5ucPWaHhnpaj6Zol
-    flags: {}
-    name: Madness
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: Special trigger
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. MD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: The target is maddened until the end of the pixie's next turn.
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!r2yfrqSEjfpSPXaS.5ucPWaHhnpaj6Zol'
-  - _id: ISBrB5j8MNX3ZnRT
-    flags: {}
-    name: Maddened
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The first thing the creature does on its turn is use a standard
-          action to make a display of power that has no practical benefit. The
-          GM chooses the attack, spell, or other power, which should be the most
-          powerful one the character has, preferably a daily. The target expends
-          the power in a great show of prowess, aimed for display rather than
-          effect. Wizards cast their fireballs into the sky, monks demonstrate
-          flawless form while shadow-boxing, and clerics bless the very stones
-          underfoot instead of allies.</p><p>When the madness effect gets old,
-          substitute any of the following effects, by choice or at
-          random:</p><ol><li>You love pixies and hate those who threaten them.
-          The target is *confused* until the end of the pixie&rsquo;s next
-          turn.</li><li>Brains knocked loose. The target takes [[4 ]]psychic
-          damage each time it takes an action (save ends; yes that could be 3
-          times per round or more).</li><li>&nbsp;Reality bender. The target
-          takes [[5]] ongoing psychic damage. Each time the target fails the
-          save, the ongoing damage increases by [[5]],
-          cumulative.</li><li>Massive attack on the *unconscious* mind. The
-          target chooses one: either let the onslaught slam its mind (take
-          [[15]] psychic damage), or steel its mind against the onslaught
-          (*stunned* until the end of the pixie&rsquo;s next
-          turn).</li><li>Compulsion to dance. The target takes [[5]] ongoing
-          psychic damage (no save) until it spends a standard action to dance
-          maniacally. Dancing ends all such ongoing damage, even if the target
-          has been hit multiple times with this effect.</li><li>Pacifism. The
-          target can&rsquo;t attack until the end of the pixie&rsquo;s next
-          turn.</li></ol>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!r2yfrqSEjfpSPXaS.ISBrB5j8MNX3ZnRT'
-  - _id: SNWmQEaiNYpxHrv2
-    flags: {}
-    name: Dazzling lights
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>During battle, pixies fill the air with the light and sound of
-          countless flashy illusions. The effects are disorienting enough that
-          the PCs don&rsquo;t get to add the escalation die to their
-          attacks.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!r2yfrqSEjfpSPXaS.SNWmQEaiNYpxHrv2'
-  - _id: Rve62i6ohoHFGhWR
-    flags: {}
-    name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>Pixies make flying look like a lot of fun.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!r2yfrqSEjfpSPXaS.Rve62i6ohoHFGhWR'
-  - _id: OFgUMmeqe5JtzZOs
-    flags: {}
-    name: Invisibility
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When an enemy attacks a pixie and misses, the pixie turns invisible
-          until the start of its next turn (even if it makes opportunity
-          attacks). A pixie can also turn invisible as a standard action, in
-          which case the invisibility still lasts until the start of its next
-          turn.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!r2yfrqSEjfpSPXaS.OFgUMmeqe5JtzZOs'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Pixie Warrior
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-_key: '!actors!r2yfrqSEjfpSPXaS'
+        enabled: false
+type: npc

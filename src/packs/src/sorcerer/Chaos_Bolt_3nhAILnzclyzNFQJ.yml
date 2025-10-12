@@ -1,275 +1,269 @@
+_id: 3nhAILnzclyzNFQJ
+_key: '!items!3nhAILnzclyzNFQJ'
+effects: []
+flags: {}
+folder: null
+img: icons/magic/light/projectiles-star-purple.webp
 name: Chaos Bolt
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Sorcerer
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Chaos Bolt
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: '1'
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: null
-  target:
-    type: String
-    label: Target
-    value: >-
-      Either a single nearby enemy or a single far away enemy with a -2 attack
-      penalty.
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. PD'
-  critMod:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: '[[1d8 + @cha.dmg + @atk.a.bonus]] random energy damage.'
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: >-
-      You gain a @Compendium[archmage.system-macros.k7nFrgoSgocyOMbd]{chaotic
-      benefit} as if you had gathered power
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: '[[@lvl]] damage.'
-  missEven:
-    type: String
-    label: Even Miss
     value: null
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: null
-  resources:
-    type: String
-    label: Resources
-    value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: null
   castPower:
-    type: String
     label: Cast for Power
-    value: null
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: null
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
-    value: null
-  special:
+    value: ''
+  critMod:
+    label: Attack
     type: String
-    label: Special
-    value: >-
-      <p>The first time you use <em>chaos bolt</em> each battle, determine a
-      <em>random energy</em> type. The spell deals that type of damage each time
-      you use it that battle.</p>
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: ''
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: '[[3d8 + @cha.dmg + @atk.a.bonus]] damage.'
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage.'
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: '[[7d8 + @cha.dmg + @atk.a.bonus]] damage.'
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: '[[9d8 + @cha.dmg + @atk.a.bonus]] damage.'
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
-    value: null
-  breathWeapon:
-    type: String
-    label: Breath Weapon
-    value: null
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
-    type: String
-    label: Roll Table
-    value: Random Energy
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>You don't take the –2 penalty for attacking a far away enemy with
-          the spell.</p>
+        value: "<p>You don't take the \u20132 penalty for attacking a far away enemy\
+          \ with the spell.</p>"
       isActive:
         type: Boolean
         value: false
+      maxQuantity:
+        type: Number
+        value: null
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
       tier:
         type: String
         value: adventurer
-      powerUsage:
-        type: String
-        value: ''
-      quantity:
-        type: Number
-        value: null
-      maxQuantity:
-        type: Number
-        value: null
     '1':
       description:
         type: String
-        value: >-
-          <p>If you are a champion-tier sorcerer, roll any chaotic benefit
-          gained with this spell on the
-          @UUID[Compendium.archmage.system-rolltables.hojV2urxFb1cjgWJ]{epic
-          chaotic benefits table}. If you are an epic-tier sorcerer, choose the
-          epic chaotic benefit you want instead of rolling.</p>
+        value: <p>If you are a champion-tier sorcerer, roll any chaotic benefit gained
+          with this spell on the @UUID[Compendium.archmage.system-rolltables.hojV2urxFb1cjgWJ]{epic
+          chaotic benefits table}. If you are an epic-tier sorcerer, choose the epic
+          chaotic benefit you want instead of rolling.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: icons/magic/light/projectiles-star-purple.webp
-_id: 3nhAILnzclyzNFQJ
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!3nhAILnzclyzNFQJ'
+      tier:
+        type: String
+        value: champion
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: null
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: '[[1d8 + @cha.dmg + @atk.a.bonus]] random energy damage.'
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: You gain a @Compendium[archmage.system-macros.k7nFrgoSgocyOMbd]{chaotic
+      benefit} as if you had gathered power
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: '[[@lvl]] damage.'
+  missEven:
+    label: Even Miss
+    type: String
+    value: null
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: null
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: '1'
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Chaos Bolt
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Sorcerer
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: at-will
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: Random Energy
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: <p>The first time you use <em>chaos bolt</em> each battle, determine a
+      <em>random energy</em> type. The spell deals that type of damage each time you
+      use it that battle.</p>
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: null
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: '[[3d8 + @cha.dmg + @atk.a.bonus]] damage.'
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage.'
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: '[[7d8 + @cha.dmg + @atk.a.bonus]] damage.'
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: '[[9d8 + @cha.dmg + @atk.a.bonus]] damage.'
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: null
+  target:
+    label: Target
+    type: String
+    value: Either a single nearby enemy or a single far away enemy with a -2 attack
+      penalty.
+  trigger:
+    label: Trigger
+    type: String
+    value: null
+type: power

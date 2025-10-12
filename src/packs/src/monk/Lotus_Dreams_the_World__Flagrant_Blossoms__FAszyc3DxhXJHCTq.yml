@@ -1,250 +1,246 @@
+_id: FAszyc3DxhXJHCTq
+_key: '!items!FAszyc3DxhXJHCTq'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/nature_03.jpg
 name: Lotus Dreams the World (Flagrant Blossoms)
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: Finishing
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Monk
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Lotus Dreams the World (Flagrant Blossoms)
-  powerType:
-    type: String
-    label: Power Type
-    value: power
-  powerLevel:
-    type: Number
-    label: Level
-    value: 8
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Melee
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: One enemy
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @wis.mod + @std + @atk.m.bonus]] vs. AC'
-  critMod:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: >-
-      [[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and you or an ally gains
-      a +2 bonus to saves until the end of the battle.
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: >-
-      [[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and the target takes a
-      –2 penalty to saves until the end of the battle.
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: Half damage
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
-    value: ''
-  spellLevel2:
-    hide: true
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: ''
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
-    value: ''
-  breathWeapon:
-    type: String
-    label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
-    type: String
-    label: Roll Table
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>Once per day when you use the <em>Lo</em><em>tus Dreams the
-          </em><em>World</em> finishing attack, a nearby ally can heal using a
-          free recovery and can roll a save against each save ends effect
-          affecting it.</p>
+        value: <p>Once per day when you use the <em>Lo</em><em>tus Dreams the </em><em>World</em>
+          finishing attack, a nearby ally can heal using a free recovery and can roll
+          a save against each save ends effect affecting it.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: daily
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
-flags: {}
-img: systems/archmage/assets/icons/skills/nature_03.jpg
-effects: []
-_id: FAszyc3DxhXJHCTq
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!FAszyc3DxhXJHCTq'
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: Finishing
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: '[[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and you or an ally gains
+      a +2 bonus to saves until the end of the battle.'
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: "[[@wpn.k.dice + @wis.dmg + @atk.m.bonus]] damage, and the target takes\
+      \ a \u20132 penalty to saves until the end of the battle."
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: Half damage
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 8
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Lotus Dreams the World (Flagrant Blossoms)
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Monk
+  powerType:
+    label: Power Type
+    type: String
+    value: power
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: at-will
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: Melee
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: ''
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: One enemy
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

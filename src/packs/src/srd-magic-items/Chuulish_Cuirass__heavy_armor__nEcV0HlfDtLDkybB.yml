@@ -1,76 +1,44 @@
-name: Chuulish Cuirass (heavy armor)
-type: equipment
+_id: nEcV0HlfDtLDkybB
+_key: '!items!nEcV0HlfDtLDkybB'
+effects: []
+flags:
+  core: {}
+folder: uGMLSN6ivBLGtUfv
 img: icons/svg/item-bag.svg
+name: Chuulish Cuirass (heavy armor)
+ownership:
+  default: 0
+sort: 1000000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The many eyes and symbiotic nervous system in this torso armor give you
-      warning of danger.</p>
-
-      <p>Always: +1 AC (adventurer); +2 AC (champion); +3 AC (epic).</p>
-
-      <p>Chuulish recharge: You gain a +4 bonus to all defenses against ranged
-      attacks until the end of the battle.</p>
-
-      <p>Quirk: Over-large protruding ribs.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '16'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 1
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
-      bonus: 1
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
+      bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -78,29 +46,60 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: B1
   chackra: armor
-effects: []
-folder: uGMLSN6ivBLGtUfv
-flags:
-  core: {}
-_id: nEcV0HlfDtLDkybB
-sort: 1000000
-ownership:
-  default: 0
-_key: '!items!nEcV0HlfDtLDkybB'
+  description:
+    label: Description
+    type: String
+    value: '<p>The many eyes and symbiotic nervous system in this torso armor give
+      you warning of danger.</p>
+
+      <p>Always: +1 AC (adventurer); +2 AC (champion); +3 AC (epic).</p>
+
+      <p>Chuulish recharge: You gain a +4 bonus to all defenses against ranged attacks
+      until the end of the battle.</p>
+
+      <p>Quirk: Over-large protruding ribs.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '16'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

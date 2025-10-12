@@ -1,356 +1,191 @@
+_id: MjWQdpVr504NQAf2
+_key: '!items!MjWQdpVr504NQAf2'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/water_03.jpg
 name: Skeletal Minion
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: ''
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Necromancer
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Skeletal Minion
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
-    value: ''
-  range:
     type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
     value: ''
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  critMod:
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
-  special:
-    type: String
-    label: Special
-    value: ''
-  effect:
-    type: String
-    label: Effect
-    value: >-
-      <p>You have a skeleton minion the same level as you that acts as a
-      servant, fights alongside you in battle, and is replaced by a new skeletal
-      minion when it inevitably collapses or is destroyed. It is not a summoned
-      creature; summoning rules don’t apply.</p><p>Your skeletal minion fights
-      alongside you, taking a standard action, a move action, and (if possible)
-      a quick action each turn. Your minion acts on your initiative; you decide
-      whether it takes its turn before or after you.</p><p>The listed attack and
-      damage values are for melee attacks. The listed attack and damage values
-      are for melee attacks. Your skeletal minion can’t heal. When it drops to 0
-      hp, it’s destroyed for that battle. When you take a quick rest, a new (or
-      patched up) skeletal minion will take its place.</p>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: ''
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
     value: ''
   breathWeapon:
-    type: String
     label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
     type: String
-    label: Roll Table
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: "<p>You have a skeleton minion the same level as you that acts as a servant,\
+      \ fights alongside you in battle, and is replaced by a new skeletal minion when\
+      \ it inevitably collapses or is destroyed. It is not a summoned creature; summoning\
+      \ rules don\u2019t apply.</p><p>Your skeletal minion fights alongside you, taking\
+      \ a standard action, a move action, and (if possible) a quick action each turn.\
+      \ Your minion acts on your initiative; you decide whether it takes its turn\
+      \ before or after you.</p><p>The listed attack and damage values are for melee\
+      \ attacks. The listed attack and damage values are for melee attacks. Your skeletal\
+      \ minion can\u2019t heal. When it drops to 0 hp, it\u2019s destroyed for that\
+      \ battle. When you take a quick rest, a new (or patched up) skeletal minion\
+      \ will take its place.</p>"
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>Your skeletal minion now adds the escalation die to its attack
-          rolls.</p>
+        value: <p>Your skeletal minion now adds the escalation die to its attack rolls.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: adventurer
     '1':
       description:
         type: String
-        value: >-
-          <p>When an enemy attempts to disengage from the skeletal minion, it
+        value: <p>When an enemy attempts to disengage from the skeletal minion, it
           takes a penalty to the check equal to the escalation die.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: adventurer
     '2':
       description:
         type: String
-        value: >-
-          <p>As a quick action, you can set your skeletal minion ablaze, or
-          extinguish the blaze. While it’s flaming, your skeleton minion’s
-          damage dice increase by one size, and it deals fire damage with its
-          melee attacks, but it takes damage equal to your level each time its
-          natural attack roll is odd.</p>
+        value: "<p>As a quick action, you can set your skeletal minion ablaze, or\
+          \ extinguish the blaze. While it\u2019s flaming, your skeleton minion\u2019\
+          s damage dice increase by one size, and it deals fire damage with its melee\
+          \ attacks, but it takes damage equal to your level each time its natural\
+          \ attack roll is odd.</p>"
       isActive:
         type: Boolean
         value: false
+      maxQuantity:
+        type: Number
+        value: null
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
       tier:
         type: String
         value: adventurer
-      powerUsage:
-        type: String
-        value: ''
-      quantity:
-        type: Number
-        value: null
-      maxQuantity:
-        type: Number
-        value: null
     '3':
       description:
         type: String
-        value: >-
-          <p>Add a damage die of the same size to your skeletal minion’s damage
-          rolls (for example, 3d6 becomes 4d6).</p>
+        value: "<p>Add a damage die of the same size to your skeletal minion\u2019\
+          s damage rolls (for example, 3d6 becomes 4d6).</p>"
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: champion
     '4':
       description:
         type: String
-        value: <p>Add [[@cha.dmg]] to your skeletal minion’s hit points.</p>
+        value: "<p>Add [[@cha.dmg]] to your skeletal minion\u2019s hit points.</p>"
       isActive:
         type: Boolean
         value: false
+      maxQuantity:
+        type: Number
+        value: null
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
       tier:
         type: String
         value: champion
-      powerUsage:
-        type: String
-        value: ''
-      quantity:
-        type: Number
-        value: null
-      maxQuantity:
-        type: Number
-        value: null
     '5':
       description:
         type: String
-        value: >-
-          <p>Add a damage die of the same size to your skeletal minion’s damage
-          rolls (for example, 4d6 becomes 5d6, and this is cumulative with the
-          champion feat).</p>
+        value: "<p>Add a damage die of the same size to your skeletal minion\u2019\
+          s damage rolls (for example, 4d6 becomes 5d6, and this is cumulative with\
+          \ the champion feat).</p>"
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: epic
     '6':
       description:
         type: String
@@ -358,24 +193,182 @@ system:
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: systems/archmage/assets/icons/skills/water_03.jpg
-_id: MjWQdpVr504NQAf2
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!MjWQdpVr504NQAf2'
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Skeletal Minion
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Necromancer
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: ''
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: ''
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: ''
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

@@ -1,30 +1,29 @@
-name: Now I’m mad!
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The first time the dragon is staggered each battle, it uses its breath
-      weapon attack as a free action that does not count against the normal uses
-      of its breath.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: lDLx2UPGSxgaovef
+_key: '!items!lDLx2UPGSxgaovef'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: "Now I\u2019m mad!"
 ownership:
   default: 0
-_id: lDLx2UPGSxgaovef
-_key: '!items!lDLx2UPGSxgaovef'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>The first time the dragon is staggered each battle, it uses its breath
+      weapon attack as a free action that does not count against the normal uses of
+      its breath.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

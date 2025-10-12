@@ -1,235 +1,232 @@
+_id: qhKOMgSBfO2vVLgf
+_key: '!items!qhKOMgSBfO2vVLgf'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/red_28.jpg
 name: The Bones Beneath
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
+  actionType:
+    label: Action
     type: String
-    label: Name
-  description:
+    value: standard
+  always:
+    label: Always
     type: String
-    label: Description
     value: ''
-  powerUsage:
+  attack:
+    label: Attack
     type: String
-    label: Power Usage
-    value: daily
-  recharge:
+    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. PD'
+  breathWeapon:
+    label: Breath Weapon
+    type: String
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: ''
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  feats: null
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: '[[4d12 + @int.dmg + @atk.a.bonus]] negative energy damage, and each mook
+      in the mob that drops becomes a skeleton mook under your control until the end
+      of the battle. '
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
     type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: Half damage, and each mook in the mob that drops becomes a skeleton mook
+      under your control until the end of the battle.
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 3
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: The Bones Beneath
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Necromancer
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Ranged
+  recharge:
     label: Recharge
+    type: Number
     value: 0
   rechargeAttempts:
-    type: Number
     label: Number of Recharges Attempted
+    type: Number
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
+  resources:
+    label: Resources
     type: String
-    label: Embedded Macro
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
     value: ''
   sequencer:
     ray: ''
+    reversed: false
     self: ''
     target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Necromancer
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: The Bones Beneath
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 3
-  actionType:
-    type: String
-    label: Action
-    value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: One nearby mook (and hence, its mob)
-  always:
-    type: String
-    label: Always
-    value: ''
-  attack:
-    type: String
-    label: Attack
-    value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. PD'
-  critMod:
-    type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: >-
-      [[4d12 + @int.dmg + @atk.a.bonus]] negative energy damage, and each mook
-      in the mob that drops becomes a skeleton mook under your control until the
-      end of the battle. 
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: >-
-      Half damage, and each mook in the mob that drops becomes a skeleton mook
-      under your control until the end of the battle.
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
   special:
-    type: String
     label: Special
-    value: >-
-      <p>The mooks created by each level of the bones beneath appear in the
-      Summoned Creatures compendium. The level or physical nature of the mooks
-      is irrelevant; the magic of the spell turns whatever creatures it’s forced
-      to work with into skeletal mook allies with the listed stats.</p><p>The
-      new mooks take their turn immediately after your turn.</p><p>It’s worth
-      mentioning that the mooks created by this spell don’t count as summoned
-      mooks. This isn’t a summoning spell.</p>
-  effect:
     type: String
-    label: Effect
+    value: "<p>The mooks created by each level of the bones beneath appear in the\
+      \ Summoned Creatures compendium. The level or physical nature of the mooks is\
+      \ irrelevant; the magic of the spell turns whatever creatures it\u2019s forced\
+      \ to work with into skeletal mook allies with the listed stats.</p><p>The new\
+      \ mooks take their turn immediately after your turn.</p><p>It\u2019s worth mentioning\
+      \ that the mooks created by this spell don\u2019t count as summoned mooks. This\
+      \ isn\u2019t a summoning spell.</p>"
+  spellChain:
+    label: Chain Spell
+    type: String
     value: ''
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: '[[7d12 + @int.dmg + @atk.a.bonus]] negative energy damage.'
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: '[[(2d6) * 10 + @int.dmg + @atk.a.bonus]] negative energy damage.'
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: '[[(2d10) * 10 + @int.dmg + @atk.a.bonus]] negative energy damage.'
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
     value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: '[[7d12 + @int.dmg + @atk.a.bonus]] negative energy damage.'
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: '[[(2d6) * 10 + @int.dmg + @atk.a.bonus]] negative energy damage.'
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: '[[(2d10) * 10 + @int.dmg + @atk.a.bonus]] negative energy damage.'
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: systems/archmage/assets/icons/skills/red_28.jpg
-_id: qhKOMgSBfO2vVLgf
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!qhKOMgSBfO2vVLgf'
+  target:
+    label: Target
+    type: String
+    value: One nearby mook (and hence, its mob)
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

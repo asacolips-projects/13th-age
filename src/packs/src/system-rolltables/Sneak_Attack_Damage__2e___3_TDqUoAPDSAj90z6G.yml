@@ -1,128 +1,258 @@
-name: Sneak Attack Damage (2e) +3
-img: icons/svg/d20-grey.svg
+_id: TDqUoAPDSAj90z6G
+_key: '!tables!TDqUoAPDSAj90z6G'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    _id: EVE6YA96WghhR6Qa
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.EVE6YA96WghhR6Qa'
-  - type: text
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    _id: 9Q69k3xWJhv9sc47
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.9Q69k3xWJhv9sc47'
-  - type: text
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    _id: YkVE7LF8EFZOL0nd
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.YkVE7LF8EFZOL0nd'
-  - type: text
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    _id: JQwplMCdh5pv3WdL
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.JQwplMCdh5pv3WdL'
-  - type: text
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    _id: dFfXaM6DiV5UXJ1D
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.dFfXaM6DiV5UXJ1D'
-  - type: text
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    _id: 9Cc3qzN9yU06kh19
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.9Cc3qzN9yU06kh19'
-  - type: text
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    _id: DYHcnD9z5JoxKJcC
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.DYHcnD9z5JoxKJcC'
-  - type: text
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    _id: Frr2x5Do5GYYo5X2
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.Frr2x5Do5GYYo5X2'
-  - type: text
-    weight: 1
-    range:
-      - 9
-      - 9
-    drawn: false
-    _id: IslWjqYuP9M5Z6rk
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.IslWjqYuP9M5Z6rk'
-  - type: text
-    weight: 1
-    range:
-      - 10
-      - 10
-    drawn: false
-    _id: yPQAkmz1YpZLaLG9
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.yPQAkmz1YpZLaLG9'
-  - type: text
-    weight: 1
-    range:
-      - 11
-      - 11
-    _id: NQmVcApyAD4M5KCc
-    name: ''
-    img: icons/svg/d20-black.svg
-    description: <p>+[[80]] damage.</p>
-    drawn: false
-    flags: {}
-    _key: '!tables.results!TDqUoAPDSAj90z6G.NQmVcApyAD4M5KCc'
-formula: '@lvl'
-replacement: true
 displayRoll: false
 flags:
   core: {}
 folder: null
+formula: '@lvl'
+img: icons/svg/d20-grey.svg
+name: Sneak Attack Damage (2e) +3
 ownership:
   default: 0
-  nPjNg32wEG3J72a7: 3
-_id: TDqUoAPDSAj90z6G
+replacement: true
+results:
+- _id: EVE6YA96WghhR6Qa
+  _key: '!tables.results!TDqUoAPDSAj90z6G.EVE6YA96WghhR6Qa'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[2d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: 9Q69k3xWJhv9sc47
+  _key: '!tables.results!TDqUoAPDSAj90z6G.9Q69k3xWJhv9sc47'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[2d8]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: YkVE7LF8EFZOL0nd
+  _key: '!tables.results!TDqUoAPDSAj90z6G.YkVE7LF8EFZOL0nd'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[3d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: JQwplMCdh5pv3WdL
+  _key: '!tables.results!TDqUoAPDSAj90z6G.JQwplMCdh5pv3WdL'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[4d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: dFfXaM6DiV5UXJ1D
+  _key: '!tables.results!TDqUoAPDSAj90z6G.dFfXaM6DiV5UXJ1D'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[20]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: 9Cc3qzN9yU06kh19
+  _key: '!tables.results!TDqUoAPDSAj90z6G.9Cc3qzN9yU06kh19'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[25]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: DYHcnD9z5JoxKJcC
+  _key: '!tables.results!TDqUoAPDSAj90z6G.DYHcnD9z5JoxKJcC'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[30]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: Frr2x5Do5GYYo5X2
+  _key: '!tables.results!TDqUoAPDSAj90z6G.Frr2x5Do5GYYo5X2'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[40]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: IslWjqYuP9M5Z6rk
+  _key: '!tables.results!TDqUoAPDSAj90z6G.IslWjqYuP9M5Z6rk'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[50]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: yPQAkmz1YpZLaLG9
+  _key: '!tables.results!TDqUoAPDSAj90z6G.yPQAkmz1YpZLaLG9'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: +[[60]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+- _id: NQmVcApyAD4M5KCc
+  _key: '!tables.results!TDqUoAPDSAj90z6G.NQmVcApyAD4M5KCc'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: 1760256823959
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: rlBaxenpnvhz49vu
+    modifiedTime: 1760256832489
+    systemId: archmage
+    systemVersion: 1.37.0
+  description: <p>+[[80]] damage.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
 sort: 0
-_key: '!tables!TDqUoAPDSAj90z6G'

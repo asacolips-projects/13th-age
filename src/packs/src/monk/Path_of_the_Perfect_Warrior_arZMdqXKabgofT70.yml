@@ -1,267 +1,275 @@
+_id: arZMdqXKabgofT70
+_key: '!items!arZMdqXKabgofT70'
+effects:
+- _id: CESUEgJMv5CwuRWE
+  _key: '!items.effects!arZMdqXKabgofT70.CESUEgJMv5CwuRWE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  changes:
+  - key: system.attributes.weapon.jab.dice
+    mode: 5
+    priority: null
+    value: d8
+  - key: system.attributes.weapon.punck.dice
+    mode: 5
+    priority: null
+    value: d10
+  - key: system.attributes.weapon.kick.dice
+    mode: 5
+    priority: null
+    value: d12
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/skills/violet_15.jpg
+  name: Path of the Perfect Warrior Bonus
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/violet_15.jpg
 name: Path of the Perfect Warrior
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
+  actionType:
+    label: Action
     type: String
-    label: Name
-  description:
-    type: String
-    label: Description
     value: ''
-  powerUsage:
+  always:
+    label: Always
     type: String
-    label: Power Usage
-    value: daily
-  recharge:
+    value: ''
+  attack:
+    label: Attack
+    type: String
+    value: ''
+  breathWeapon:
+    label: Breath Weapon
+    type: String
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: <p>One battle per day, you can increase your JAB damage dice to d8s, your
+      PUNCH damage dice to d10s, and your KICK damage dice to d12s.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  feats: null
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
     type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 6
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Path of the Perfect Warrior
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Monk
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: ''
+  recharge:
     label: Recharge
+    type: Number
     value: 0
   rechargeAttempts:
-    type: Number
     label: Number of Recharges Attempted
+    type: Number
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
+  resources:
+    label: Resources
     type: String
-    label: Embedded Macro
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
     value: ''
   sequencer:
     ray: ''
+    reversed: false
     self: ''
     target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Monk
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Path of the Perfect Warrior
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: 6
-  actionType:
-    type: String
-    label: Action
-    value: ''
-  range:
-    type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: ''
-  always:
-    type: String
-    label: Always
-    value: ''
-  attack:
-    type: String
-    label: Attack
-    value: ''
-  critMod:
-    type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
   special:
-    type: String
     label: Special
-    value: >-
-      <p><strong>Ki Power </strong>(<em>Perfect Breath</em>): Once per day when
-      you are healing using a recovery, you can spend 1 point of ki to heal
-      using a second recovery as well. The second recovery is a free.</p>
-  effect:
     type: String
-    label: Effect
-    value: >-
-      <p>One battle per day, you can increase your JAB damage dice to d8s, your
-      PUNCH damage dice to d10s, and your KICK damage dice to d12s.</p>
-  spellLevel2:
-    hide: true
+    value: '<p><strong>Ki Power </strong>(<em>Perfect Breath</em>): Once per day when
+      you are healing using a recovery, you can spend 1 point of ki to heal using
+      a second recovery as well. The second recovery is a free.</p>'
+  spellChain:
+    label: Chain Spell
     type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
     value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
     value: ''
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: systems/archmage/assets/icons/skills/violet_15.jpg
-effects:
-  - origin: null
-    disabled: false
-    name: Path of the Perfect Warrior Bonus
-    img: systems/archmage/assets/icons/skills/violet_15.jpg
-    _id: CESUEgJMv5CwuRWE
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.weapon.jab.dice
-        value: d8
-        mode: 5
-        priority: null
-      - key: system.attributes.weapon.punck.dice
-        value: d10
-        mode: 5
-        priority: null
-      - key: system.attributes.weapon.kick.dice
-        value: d12
-        mode: 5
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        duration: EndOfCombat
-    _key: '!items.effects!arZMdqXKabgofT70.CESUEgJMv5CwuRWE'
-_id: arZMdqXKabgofT70
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!arZMdqXKabgofT70'
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

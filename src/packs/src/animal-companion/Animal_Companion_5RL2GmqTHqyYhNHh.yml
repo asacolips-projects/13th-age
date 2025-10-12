@@ -1,305 +1,140 @@
+_id: 5RL2GmqTHqyYhNHh
+_key: '!items!5RL2GmqTHqyYhNHh'
+effects: []
+flags: {}
+folder: null
+img: icons/creatures/mammals/wolf-shadow-black.webp
 name: Animal Companion
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: ''
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: Animal Companion
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Ranger/Druid
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Animal Companion
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
-    value: ''
-  range:
     type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
     value: ''
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  critMod:
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
-  special:
-    type: String
-    label: Special
-    value: ''
-  effect:
-    type: String
-    label: Effect
-    value: >-
-      <p>You have a devoted animal companion who fights alongside you like a
-      member of your adventuring party.</p><p>If you have a single talent
-      invested into Animal Companion, you are an Animal Companion initiate. If
-      you invested two talents into Animal Companion, you are an Animal
-      Companion adept.</p><p>When you roll initiative, you may choose whether
-      you want your animal companion to take part in the battle. You may also
-      call your animal companion during the battle with a quick
-      action.</p><p>Animal Companion initiates may only call their animal
-      companion once every other battle. The animal companion may not fight in
-      two battles in a row&mdash;even between full heal-ups, adventures, or
-      gaining new levels. Animal Companion adepts don&rsquo;t have this
-      limitation; their animal companion can fight in every battle if the adept
-      so chooses.</p> <h3><b>Animal Companion Adept Level Progression</b></h2>
-      <table> <thead> <tr> <th>Druid Level</th> <th>Daily Spells</th> <th>Level
-      the Spells are Cast At</th> </tr> </thead> <tbody> <tr> <td>Level 1
-      Multiclass</td> <td>1</td> <td>1st level</td> </tr> <tr> <td>Level 1</td>
-      <td>1</td> <td>1st level</td> </tr> <tr> <td>Level 2</td> <td>2</td>
-      <td>1st level</td> </tr> <tr> <td>Level 3</td> <td>2</td> <td>3rd
-      level</td> </tr> <tr> <td>Level 4</td> <td>2</td> <td>3rd level</td> </tr>
-      <tr> <td>Level 5</td> <td>3</td> <td>5th level</td> </tr> <tr> <td>Level
-      6</td> <td>3</td> <td>5th level</td> </tr> <tr> <td>Level 7</td>
-      <td>3</td> <td>7th level</td> </tr> <tr> <td>Level 8</td> <td>4</td>
-      <td>7th level</td> </tr> <tr> <td>Level 9</td> <td>4</td> <td>9th
-      level</td> </tr> <tr> <td>Level 10</td> <td>4</td> <td>9th level</td>
-      </tr> </tbody> </table>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: ''
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
     value: ''
   breathWeapon:
-    type: String
     label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
     type: String
-    label: Roll Table
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: <p>You have a devoted animal companion who fights alongside you like a
+      member of your adventuring party.</p><p>If you have a single talent invested
+      into Animal Companion, you are an Animal Companion initiate. If you invested
+      two talents into Animal Companion, you are an Animal Companion adept.</p><p>When
+      you roll initiative, you may choose whether you want your animal companion to
+      take part in the battle. You may also call your animal companion during the
+      battle with a quick action.</p><p>Animal Companion initiates may only call their
+      animal companion once every other battle. The animal companion may not fight
+      in two battles in a row&mdash;even between full heal-ups, adventures, or gaining
+      new levels. Animal Companion adepts don&rsquo;t have this limitation; their
+      animal companion can fight in every battle if the adept so chooses.</p> <h3><b>Animal
+      Companion Adept Level Progression</b></h2> <table> <thead> <tr> <th>Druid Level</th>
+      <th>Daily Spells</th> <th>Level the Spells are Cast At</th> </tr> </thead> <tbody>
+      <tr> <td>Level 1 Multiclass</td> <td>1</td> <td>1st level</td> </tr> <tr> <td>Level
+      1</td> <td>1</td> <td>1st level</td> </tr> <tr> <td>Level 2</td> <td>2</td>
+      <td>1st level</td> </tr> <tr> <td>Level 3</td> <td>2</td> <td>3rd level</td>
+      </tr> <tr> <td>Level 4</td> <td>2</td> <td>3rd level</td> </tr> <tr> <td>Level
+      5</td> <td>3</td> <td>5th level</td> </tr> <tr> <td>Level 6</td> <td>3</td>
+      <td>5th level</td> </tr> <tr> <td>Level 7</td> <td>3</td> <td>7th level</td>
+      </tr> <tr> <td>Level 8</td> <td>4</td> <td>7th level</td> </tr> <tr> <td>Level
+      9</td> <td>4</td> <td>9th level</td> </tr> <tr> <td>Level 10</td> <td>4</td>
+      <td>9th level</td> </tr> </tbody> </table>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>Once per day, your animal companion can attack twice in a round
+        value: <p>Once per day, your animal companion can attack twice in a round
           with a standard action.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: daily
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
+      tier:
+        type: String
+        value: adventurer
     '1':
       description:
         type: String
-        value: >-
-          <p>Once per battle, your animal companion can turn a disengage success
+        value: <p>Once per battle, your animal companion can turn a disengage success
           by an enemy it is engaged with into a failure.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: once-per-battle
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
+      tier:
+        type: String
+        value: adventurer
     '2':
       description:
         type: String
-        value: >-
-          <p>Once per day, reroll one of your animal companion&rsquo;s missed
+        value: <p>Once per day, reroll one of your animal companion&rsquo;s missed
           attack rolls.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: daily
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
+      tier:
+        type: String
+        value: adventurer
     '3':
       description:
         type: String
@@ -307,102 +142,97 @@ system:
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: adventurer
     '4':
       description:
         type: String
-        value: >-
-          <p>Once per day, your animal companion can force an enemy to reroll an
-          attack that hit it.</p>
+        value: <p>Once per day, your animal companion can force an enemy to reroll
+          an attack that hit it.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: daily
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
-    '5':
-      description:
-        type: String
-        value: >-
-          <p>Your Lethal Hunter talent also applies to your animal
-          companion.</p>
-      isActive:
-        type: Boolean
-        value: false
       tier:
         type: String
         value: champion
+    '5':
+      description:
+        type: String
+        value: <p>Your Lethal Hunter talent also applies to your animal companion.</p>
+      isActive:
+        type: Boolean
+        value: false
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: champion
     '6':
       description:
         type: String
-        value: >-
-          <p>Increase your animal companion&rsquo;s Physical Defense and Mental
+        value: <p>Increase your animal companion&rsquo;s Physical Defense and Mental
           Defense by +1.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: champion
     '7':
       description:
         type: String
-        value: >-
-          <p>Increase your animal companion&rsquo;s damage die by one size (for
+        value: <p>Increase your animal companion&rsquo;s damage die by one size (for
           example, from d6s to d8s, or d8s to d10s).</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: epic
     '8':
       description:
         type: String
@@ -410,24 +240,182 @@ system:
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: icons/creatures/mammals/wolf-shadow-black.webp
-_id: 5RL2GmqTHqyYhNHh
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!5RL2GmqTHqyYhNHh'
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: Animal Companion
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Animal Companion
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Ranger/Druid
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: ''
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: ''
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: ''
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

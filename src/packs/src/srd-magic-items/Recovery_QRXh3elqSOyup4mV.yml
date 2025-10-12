@@ -1,72 +1,44 @@
-name: Recovery
-type: equipment
+_id: QRXh3elqSOyup4mV
+_key: '!items!QRXh3elqSOyup4mV'
+effects: []
+flags:
+  core: {}
+folder: UKimwtJmosvf4V1p
 img: icons/svg/item-bag.svg
+name: Recovery
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Quick action &ndash; recharge 16+) You heal using a recovery and add
-      +[[4]] hp to the total (champion: +[[10]] hp; epic: +[[25]] hp).</p>
-
-      <p>Quirk: You grow small extra appendages that slowly wither away over
-      days or weeks.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '16'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 1
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -74,29 +46,56 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: 1e
   chackra: cloak
-effects: []
-folder: UKimwtJmosvf4V1p
-flags:
-  core: {}
-_id: QRXh3elqSOyup4mV
-sort: 0
-ownership:
-  default: 0
-_key: '!items!QRXh3elqSOyup4mV'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Quick action &ndash; recharge 16+) You heal using a recovery and add
+      +[[4]] hp to the total (champion: +[[10]] hp; epic: +[[25]] hp).</p>
+
+      <p>Quirk: You grow small extra appendages that slowly wither away over days
+      or weeks.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '16'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

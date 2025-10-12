@@ -1,72 +1,44 @@
-name: Vanity (Melee weapon)
-type: equipment
+_id: HPK6UneNjBeMr2vn
+_key: '!items!HPK6UneNjBeMr2vn'
+effects: []
+flags:
+  core: {}
+folder: gFuuXf8MeSSiobPC
 img: icons/svg/item-bag.svg
+name: Vanity (Melee weapon)
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>When you hit with this weapon, deal +[[1d6]] damage to that enemy if
-      you are the only one engaged with it (champion: +[[2d6]]; epic:
-      +[[4d6]]).</p>
-
-      <p>Quirk: Tells their name (their real one) to everyone.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 1
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -74,29 +46,55 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: 1e
   chackra: melee
-effects: []
-folder: gFuuXf8MeSSiobPC
-flags:
-  core: {}
-_id: HPK6UneNjBeMr2vn
-sort: 0
-ownership:
-  default: 0
-_key: '!items!HPK6UneNjBeMr2vn'
+  description:
+    label: Description
+    type: String
+    value: '<p>When you hit with this weapon, deal +[[1d6]] damage to that enemy if
+      you are the only one engaged with it (champion: +[[2d6]]; epic: +[[4d6]]).</p>
+
+      <p>Quirk: Tells their name (their real one) to everyone.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

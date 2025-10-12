@@ -1,104 +1,214 @@
-name: Chaos Mage Spell Determination (Multiclass)
-flags: {}
-img: icons/svg/d20-grey.svg
-description: ''
-results:
-  - _id: B4eZF9b2pezTNcLF
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.B4eZF9b2pezTNcLF'
-  - _id: oEMdEueTvulCJ1Va
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.oEMdEueTvulCJ1Va'
-  - _id: JZI8hogxBdutPmtG
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.JZI8hogxBdutPmtG'
-  - _id: hlqkTbwXOLLyMbL5
-    flags: {}
-    type: text
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.hlqkTbwXOLLyMbL5'
-  - type: document
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    img: icons/svg/d20-grey.svg
-    _id: RxLNj2AnRi9MVymp
-    flags: {}
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.RxLNj2AnRi9MVymp'
-  - type: document
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    img: icons/svg/d20-grey.svg
-    _id: BkrMeh9TGAp3IyHJ
-    flags: {}
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.BkrMeh9TGAp3IyHJ'
-  - type: text
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    _id: zasK423MEhAuq1sD
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.zasK423MEhAuq1sD'
-  - type: text
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    _id: SsvG0lb0iLw9Xrpt
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.SsvG0lb0iLw9Xrpt'
-  - type: text
-    weight: 1
-    range:
-      - 9
-      - 9
-    drawn: false
-    _id: m98CBgPDTk6X1X5B
-    img: icons/svg/d20-black.svg
-    flags: {}
-    _key: '!tables.results!Dj9K1hDrAOfcmE2f.m98CBgPDTk6X1X5B'
-formula: 1d9
-replacement: false
-displayRoll: false
 _id: Dj9K1hDrAOfcmE2f
+_key: '!tables!Dj9K1hDrAOfcmE2f'
+description: ''
+displayRoll: false
+flags: {}
+folder: null
+formula: 1d9
+img: icons/svg/d20-grey.svg
+name: Chaos Mage Spell Determination (Multiclass)
 ownership:
   default: 0
-folder: null
+replacement: false
+results:
+- _id: B4eZF9b2pezTNcLF
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.B4eZF9b2pezTNcLF'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Attack
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: oEMdEueTvulCJ1Va
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.oEMdEueTvulCJ1Va'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Attack
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: JZI8hogxBdutPmtG
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.JZI8hogxBdutPmtG'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Defense
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: hlqkTbwXOLLyMbL5
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.hlqkTbwXOLLyMbL5'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Defense
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: RxLNj2AnRi9MVymp
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.RxLNj2AnRi9MVymp'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.system-rolltables.RollTable.NFXhok8zAhpKKS35
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-grey.svg
+  name: Iconic Spells
+  range:
+  - 5
+  - 5
+  type: document
+  weight: 1
+- _id: BkrMeh9TGAp3IyHJ
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.BkrMeh9TGAp3IyHJ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: ''
+  documentUuid: Compendium.archmage.system-rolltables.RollTable.NFXhok8zAhpKKS35
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-grey.svg
+  name: Iconic Spells
+  range:
+  - 6
+  - 6
+  type: document
+  weight: 1
+- _id: zasK423MEhAuq1sD
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.zasK423MEhAuq1sD'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Multiclass
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: SsvG0lb0iLw9Xrpt
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.SsvG0lb0iLw9Xrpt'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Multiclass
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: m98CBgPDTk6X1X5B
+  _key: '!tables.results!Dj9K1hDrAOfcmE2f.m98CBgPDTk6X1X5B'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  description: Multiclass
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
 sort: 800000
-_key: '!tables!Dj9K1hDrAOfcmE2f'

@@ -1,27 +1,27 @@
-name: Nimble
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: <p>The dragon has a +2 bonus to PD.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: fLYv6QLIXjtoXqiX
+_key: '!items!fLYv6QLIXjtoXqiX'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Nimble
 ownership:
   default: 0
-_id: fLYv6QLIXjtoXqiX
-_key: '!items!fLYv6QLIXjtoXqiX'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>The dragon has a +2 bonus to PD.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

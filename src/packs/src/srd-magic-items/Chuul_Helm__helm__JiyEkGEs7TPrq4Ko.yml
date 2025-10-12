@@ -1,76 +1,44 @@
-name: Chuul Helm (helm)
-type: equipment
+_id: JiyEkGEs7TPrq4Ko
+_key: '!items!JiyEkGEs7TPrq4Ko'
+effects: []
+flags:
+  core: {}
+folder: uGMLSN6ivBLGtUfv
 img: icons/svg/item-bag.svg
+name: Chuul Helm (helm)
+ownership:
+  default: 0
+sort: 900000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>This insectile segmented helm is lined with ganglia that link with your
-      brain.</p>
-
-      <p>Always: +1 MD (adventurer); +2 MD (champion); +MD (epic).</p>
-
-      <p>Chuulish recharge: You gain resist psychic 12+ until the end of the
-      battle (champion: resist psychic 16+; epic: resist psychic 18+).</p>
-
-      <p>Quirk: Bone-ridged holes in skull.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '16'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 1
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -78,29 +46,60 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: B1
   chackra: helmet
-effects: []
-folder: uGMLSN6ivBLGtUfv
-flags:
-  core: {}
-_id: JiyEkGEs7TPrq4Ko
-sort: 900000
-ownership:
-  default: 0
-_key: '!items!JiyEkGEs7TPrq4Ko'
+  description:
+    label: Description
+    type: String
+    value: '<p>This insectile segmented helm is lined with ganglia that link with
+      your brain.</p>
+
+      <p>Always: +1 MD (adventurer); +2 MD (champion); +MD (epic).</p>
+
+      <p>Chuulish recharge: You gain resist psychic 12+ until the end of the battle
+      (champion: resist psychic 16+; epic: resist psychic 18+).</p>
+
+      <p>Quirk: Bone-ridged holes in skull.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '16'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

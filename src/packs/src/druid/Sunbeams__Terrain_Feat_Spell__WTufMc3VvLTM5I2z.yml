@@ -1,224 +1,224 @@
+_id: WTufMc3VvLTM5I2z
+_key: '!items!WTufMc3VvLTM5I2z'
+effects: []
+flags: {}
+folder: null
+img: icons/magic/light/explosion-star-glow-orange.webp
 name: Sunbeams (Terrain Feat Spell)
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
+  actionType:
+    label: Action
     type: String
-    label: Name
+    value: standard
+  always:
+    label: Always
+    type: String
+    value: ''
+  attack:
+    label: Attack
+    type: String
+    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
+  breathWeapon:
+    label: Breath Weapon
+    type: String
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
     value: ''
   description:
-    type: String
     label: Description
-    value: ''
-  powerUsage:
     type: String
-    label: Power Usage
-    value: at-will
-  recharge:
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: ''
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  feats: null
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: 'Terrain Caster: Plains, Overworld'
+  hit:
+    label: Hit
+    type: String
+    value: '[[1d4 + @wis.dmg + @atk.d.bonus]] fire damage.'
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
     type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+    value: ''
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Sunbeams (Terrain Feat Spell)
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Druid
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: at-will
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
     label: Recharge
+    type: Number
     value: 0
   rechargeAttempts:
-    type: Number
     label: Number of Recharges Attempted
+    type: Number
     value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
+  resources:
+    label: Resources
     type: String
-    label: Embedded Macro
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
     value: ''
   sequencer:
     ray: ''
+    reversed: false
     self: ''
     target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: 'Terrain Caster: Plains, Overworld'
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Druid
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Sunbeams (Terrain Feat Spell)
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
-  actionType:
-    type: String
-    label: Action
-    value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: Up to two nearby or far away enemies
-  always:
-    type: String
-    label: Always
-    value: ''
-  attack:
-    type: String
-    label: Attack
-    value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. PD'
-  critMod:
-    type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: '[[1d4 + @wis.dmg + @atk.d.bonus]] fire damage.'
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
   special:
-    type: String
     label: Special
+    type: String
     value: ''
-  effect:
+  spellChain:
+    label: Chain Spell
     type: String
-    label: Effect
     value: ''
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: '[[3d4 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: '[[2d8 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: '[[4d6 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: '[[4d12 + @wis.dmg + @atk.d.bonus]] damage.'
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
     value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: '[[3d4 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: '[[2d8 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: '[[4d6 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: '[[4d12 + @wis.dmg + @atk.d.bonus]] damage.'
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: icons/magic/light/explosion-star-glow-orange.webp
-_id: WTufMc3VvLTM5I2z
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!WTufMc3VvLTM5I2z'
+  target:
+    label: Target
+    type: String
+    value: Up to two nearby or far away enemies
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

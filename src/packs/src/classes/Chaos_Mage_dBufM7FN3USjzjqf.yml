@@ -1,47 +1,179 @@
-name: Chaos Mage
-folder: null
-flags: {}
 _id: dBufM7FN3USjzjqf
-pages:
-  - name: 'Figure: Chaos Mage'
-    type: image
-    src: systems/archmage/assets/icons/skills/violet_26.jpg
-    title:
-      show: false
-      level: 1
-    _id: B9g9zudgLnmkVx7P
-    system: {}
-    image: {}
-    text:
-      format: 1
-    video:
-      controls: true
-      volume: 0.5
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!dBufM7FN3USjzjqf.B9g9zudgLnmkVx7P'
-  - name: Chaos Mage
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: "<div class=\"l-center\">\n  <h1 class=\"archmage-class-title\">Chaos Mage</h1>\n  <div class=\"grid grid-2col\">\n    <div class=\"details\">\n      <h2 class=\"archmage-class-heading\">Ability Scores</h2>\n      <p>Chaos Mages gain a +2 class bonus to Intelligence or Charisma, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>\n      <h2 class=\"archmage-class-heading\">Backgrounds</h2>\n      <p>Possible backgrounds include: blossoming witch, jester, fireworks exhibitionist, no-longer-frustrated librarian, stirge wrangler, living spell, living dungeon denizen, wandering musician, hero from another world.</p>\n      <h2 class=\"archmage-class-heading\">Gear</h2>\n      <p>At 1st level, chaos mages start with adventuring clothes, a simple dagger (or a uniquely weird but similarly powerful weapon befitting to their background), and any other minor (and unusual) elements of gear their backgrounds suggest.</p>\n      <h3 class=\"archmage-class-subheading\">Gold Pieces</h3>\n      <p>Chaos Mages may start with either 25 gp or 1d6 x 10 gp.</p>\n    </div>\n    <div class=\"armor\">\n      <h2 class=\"archmage-class-heading\">Armor</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>Armor Type</th>\n            <th>Base AC</th>\n            <th>Atk Penalty</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>None</th>\n            <td>10</td>\n            <td>—</td>\n          </tr>\n          <tr>\n            <th>Light</th>\n            <td>10</td>\n            <td>—</td>\n          </tr>\n          <tr>\n            <th>Heavy</th>\n            <td>11</td>\n            <td>–2</td>\n          </tr>\n          <tr>\n            <th>Shield</th>\n            <td>+1</td>\n            <td>–2</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"grid grid-2col\">\n    <div class=\"melee-weapons\">\n      <h2 class=\"archmage-class-heading\">Melee Weapons</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>\_</th>\n            <th>One-Handed</th>\n            <th>Two-Handed</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>Small</th>\n            <td>1d4 dagger, pronged fork</td>\n            <td>1d6 club, staff</td>\n          </tr>\n          <tr>\n            <th>Light or Simple</th>\n            <td>1d6 (-2 atk) mace, shortsword</td>\n            <td>1d8 (-4 atk) spear</td>\n          </tr>\n          <tr>\n            <th>Heavy or Martial</th>\n            <td>1d8 (-5 atk) scimitar, warhammer</td>\n            <td>1d10 (–6 atk) greatsword</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <div class=\"ranged-weapons\">\n      <h2 class=\"archmage-class-heading\">Ranged Weapons</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>\_</th>\n            <th>Thrown</th>\n            <th>Crossbow</th>\n            <th>Bow</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>Small</th>\n            <td>1d4 dagger, star</td>\n            <td>1d4 hand crossbow</td>\n            <td>—</td>\n          </tr>\n          <tr>\n            <th>Light or Simple</th>\n            <td>1d6 (-2 atk) javelin</td>\n            <td>1d6 (-1 atk) light crossbow</td>\n            <td>1d6 (-2 atk) shortbow</td>\n          </tr>\n          <tr>\n            <th>Heavy or Martial</th>\n            <td>—</td>\n            <td>1d8 (–4 atk) heavy crossbow</td>\n            <td>1d8 (–5 atk) longbow</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n<h2 class=\"archmage-class-heading\">Level Progression</h2>\n<table>\n  <thead>\n    <tr>\n      <th>Chaos Mage Level</th>\n      <th>Total Hit Points</th>\n      <th>Total Feats</th>\n      <th>Daily Spells (M)</th>\n      <th>Once-per-Battle Spells (M)</th>\n      <th>Spell Level (M)</th>\n      <th>Level-up Ability Bonuses</th>\n      <th>Damage Bonus From Ability Score</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Level 1 Multiclass</th>\n      <td>(Avg. of both classes) x 3</td>\n      <td>As 1st level PC</td>\n      <td>1</td>\n      <td>1</td>\n      <td>1st level</td>\n      <td>Not affected</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 1</th>\n      <td>(6 + CON mod) x 3</td>\n      <td>1 adventurer</td>\n      <td>2</td>\n      <td>1</td>\n      <td>1st level</td>\n      <td>—</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 2</th>\n      <td>(6 + CON mod) x 4</td>\n      <td>2 adventurer</td>\n      <td>3</td>\n      <td>1</td>\n      <td>1st level</td>\n      <td>—</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 3</th>\n      <td>(6 + CON mod) x 5</td>\n      <td>3 adventurer</td>\n      <td>3</td>\n      <td>1</td>\n      <td>3rd level</td>\n      <td>—</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 4</th>\n      <td>(6 + CON mod) x 6</td>\n      <td>4 adventurer</td>\n      <td>4</td>\n      <td>1</td>\n      <td>3rd level</td>\n      <td>+1 to 3 abilities</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 5</th>\n      <td>(6 + CON mod) x 8</td>\n      <td>4 adventurer; 1 champion</td>\n      <td>4</td>\n      <td>1</td>\n      <td>5th level</td>\n      <td>—</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 6</th>\n      <td>(6 + CON mod) x 10</td>\n      <td>4 adventurer; 2 champion</td>\n      <td>4</td>\n      <td>2</td>\n      <td>5th level</td>\n      <td>—</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 7</th>\n      <td>(6 + CON mod) x 12</td>\n      <td>4 adventurer; 3 champion</td>\n      <td>4</td>\n      <td>2</td>\n      <td>7th level</td>\n      <td>+1 to 3 abilities</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 8</th>\n      <td>(6 + CON mod) x 16</td>\n      <td>4 adventurer; 3 champion; 1 epic</td>\n      <td>5</td>\n      <td>2</td>\n      <td>7th level</td>\n      <td>—</td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 9</th>\n      <td>(6 + CON mod) x 20</td>\n      <td>4 adventurer; 3 champion; 2 epic</td>\n      <td>5</td>\n      <td>2</td>\n      <td>9th level</td>\n      <td>—</td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level 10</th>\n      <td>(6 + CON mod) x 24</td>\n      <td>4 adventurer; 3 champion; 3 epic</td>\n      <td>6</td>\n      <td>2</td>\n      <td>9th level</td>\n      <td>+1 to 3 abilities</td>\n      <td>3 x ability modifier</td>\n    </tr>\n  </tbody>\n</table>\n<div class=\"l-center\">\n  <p>(M): Indicates columns in which multiclass characters lag one level behind.</p>\n  <p>Note: Although not listed on the table, this class gets three talents. It does not get more at higher levels.</p>\n  <h2 class=\"archmage-class-heading\">Stats</h2>\n  <table>\n    <tbody>\n      <tr>\n        <th>Ability Bonus</th>\n        <td>+2 Intelligence or Charisma (different from racial bonus)</td>\n      </tr>\n      <tr>\n        <th>Initiative</th>\n        <td>Dex mod + Level</td>\n      </tr>\n      <tr>\n        <th>Armor Class (light armor)</th>\n        <td>10 + middle mod of Con/Dex/Wis + Level</td>\n      </tr>\n      <tr>\n        <th>Physical Defense</th>\n        <td>10 + middle mod of Str/Con/Dex + Level</td>\n      </tr>\n      <tr>\n        <th>Mental Defense</th>\n        <td>11 + middle mod of Int/Wis/Cha + Level</td>\n      </tr>\n      <tr>\n        <th>Hit Points</th>\n        <td>(6 + Con mod) x Level modifier (see level progression chart)</td>\n      </tr>\n      <tr>\n        <th>Recoveries</th>\n        <td>(probably) 8</td>\n      </tr>\n      <tr>\n        <th>Recovery Dice</th>\n        <td>(1d6 x level) + Con mod</td>\n      </tr>\n      <tr>\n        <th>Backgrounds</th>\n        <td>8 points, max 5 in any one background</td>\n      </tr>\n      <tr>\n        <th>Icon Relationships</th>\n        <td>3 points (4 at 5th level; 5 at 8th level)</td>\n      </tr>\n      <tr>\n        <th>Talents</th>\n        <td>3</td>\n      </tr>\n      <tr>\n        <th>Feats</th>\n        <td>1 per level</td>\n      </tr>\n    </tbody>\n  </table>\n</div>"
-    _id: HaLbDrc9ZQ1ercUZ
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!dBufM7FN3USjzjqf.HaLbDrc9ZQ1ercUZ'
 _key: '!journal!dBufM7FN3USjzjqf'
+categories: []
+flags: {}
+folder: null
+name: Chaos Mage
+ownership:
+  default: 0
+pages:
+- _id: B9g9zudgLnmkVx7P
+  _key: '!journal.pages!dBufM7FN3USjzjqf.B9g9zudgLnmkVx7P'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: 'Figure: Chaos Mage'
+  ownership:
+    default: -1
+  sort: 0
+  src: systems/archmage/assets/icons/skills/violet_26.jpg
+  system: {}
+  text:
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: image
+  video:
+    controls: true
+    volume: 0.5
+- _id: HaLbDrc9ZQ1ercUZ
+  _key: '!journal.pages!dBufM7FN3USjzjqf.HaLbDrc9ZQ1ercUZ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Chaos Mage
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<div class=\"l-center\">\n  <h1 class=\"archmage-class-title\">Chaos\
+      \ Mage</h1>\n  <div class=\"grid grid-2col\">\n    <div class=\"details\">\n\
+      \      <h2 class=\"archmage-class-heading\">Ability Scores</h2>\n      <p>Chaos\
+      \ Mages gain a +2 class bonus to Intelligence or Charisma, as long as it isn\u2019\
+      t the same ability you increase with your +2 racial bonus.</p>\n      <h2 class=\"\
+      archmage-class-heading\">Backgrounds</h2>\n      <p>Possible backgrounds include:\
+      \ blossoming witch, jester, fireworks exhibitionist, no-longer-frustrated librarian,\
+      \ stirge wrangler, living spell, living dungeon denizen, wandering musician,\
+      \ hero from another world.</p>\n      <h2 class=\"archmage-class-heading\">Gear</h2>\n\
+      \      <p>At 1st level, chaos mages start with adventuring clothes, a simple\
+      \ dagger (or a uniquely weird but similarly powerful weapon befitting to their\
+      \ background), and any other minor (and unusual) elements of gear their backgrounds\
+      \ suggest.</p>\n      <h3 class=\"archmage-class-subheading\">Gold Pieces</h3>\n\
+      \      <p>Chaos Mages may start with either 25 gp or 1d6 x 10 gp.</p>\n    </div>\n\
+      \    <div class=\"armor\">\n      <h2 class=\"archmage-class-heading\">Armor</h2>\n\
+      \      <table>\n        <thead>\n          <tr>\n            <th>Armor Type</th>\n\
+      \            <th>Base AC</th>\n            <th>Atk Penalty</th>\n          </tr>\n\
+      \        </thead>\n        <tbody>\n          <tr>\n            <th>None</th>\n\
+      \            <td>10</td>\n            <td>\u2014</td>\n          </tr>\n   \
+      \       <tr>\n            <th>Light</th>\n            <td>10</td>\n        \
+      \    <td>\u2014</td>\n          </tr>\n          <tr>\n            <th>Heavy</th>\n\
+      \            <td>11</td>\n            <td>\u20132</td>\n          </tr>\n  \
+      \        <tr>\n            <th>Shield</th>\n            <td>+1</td>\n      \
+      \      <td>\u20132</td>\n          </tr>\n        </tbody>\n      </table>\n\
+      \    </div>\n  </div>\n  <div class=\"grid grid-2col\">\n    <div class=\"melee-weapons\"\
+      >\n      <h2 class=\"archmage-class-heading\">Melee Weapons</h2>\n      <table>\n\
+      \        <thead>\n          <tr>\n            <th>\_</th>\n            <th>One-Handed</th>\n\
+      \            <th>Two-Handed</th>\n          </tr>\n        </thead>\n      \
+      \  <tbody>\n          <tr>\n            <th>Small</th>\n            <td>1d4\
+      \ dagger, pronged fork</td>\n            <td>1d6 club, staff</td>\n        \
+      \  </tr>\n          <tr>\n            <th>Light or Simple</th>\n           \
+      \ <td>1d6 (-2 atk) mace, shortsword</td>\n            <td>1d8 (-4 atk) spear</td>\n\
+      \          </tr>\n          <tr>\n            <th>Heavy or Martial</th>\n  \
+      \          <td>1d8 (-5 atk) scimitar, warhammer</td>\n            <td>1d10 (\u2013\
+      6 atk) greatsword</td>\n          </tr>\n        </tbody>\n      </table>\n\
+      \    </div>\n    <div class=\"ranged-weapons\">\n      <h2 class=\"archmage-class-heading\"\
+      >Ranged Weapons</h2>\n      <table>\n        <thead>\n          <tr>\n     \
+      \       <th>\_</th>\n            <th>Thrown</th>\n            <th>Crossbow</th>\n\
+      \            <th>Bow</th>\n          </tr>\n        </thead>\n        <tbody>\n\
+      \          <tr>\n            <th>Small</th>\n            <td>1d4 dagger, star</td>\n\
+      \            <td>1d4 hand crossbow</td>\n            <td>\u2014</td>\n     \
+      \     </tr>\n          <tr>\n            <th>Light or Simple</th>\n        \
+      \    <td>1d6 (-2 atk) javelin</td>\n            <td>1d6 (-1 atk) light crossbow</td>\n\
+      \            <td>1d6 (-2 atk) shortbow</td>\n          </tr>\n          <tr>\n\
+      \            <th>Heavy or Martial</th>\n            <td>\u2014</td>\n      \
+      \      <td>1d8 (\u20134 atk) heavy crossbow</td>\n            <td>1d8 (\u2013\
+      5 atk) longbow</td>\n          </tr>\n        </tbody>\n      </table>\n   \
+      \ </div>\n  </div>\n</div>\n<h2 class=\"archmage-class-heading\">Level Progression</h2>\n\
+      <table>\n  <thead>\n    <tr>\n      <th>Chaos Mage Level</th>\n      <th>Total\
+      \ Hit Points</th>\n      <th>Total Feats</th>\n      <th>Daily Spells (M)</th>\n\
+      \      <th>Once-per-Battle Spells (M)</th>\n      <th>Spell Level (M)</th>\n\
+      \      <th>Level-up Ability Bonuses</th>\n      <th>Damage Bonus From Ability\
+      \ Score</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Level 1\
+      \ Multiclass</th>\n      <td>(Avg. of both classes) x 3</td>\n      <td>As 1st\
+      \ level PC</td>\n      <td>1</td>\n      <td>1</td>\n      <td>1st level</td>\n\
+      \      <td>Not affected</td>\n      <td>ability modifier</td>\n    </tr>\n \
+      \   <tr>\n      <th>Level 1</th>\n      <td>(6 + CON mod) x 3</td>\n      <td>1\
+      \ adventurer</td>\n      <td>2</td>\n      <td>1</td>\n      <td>1st level</td>\n\
+      \      <td>\u2014</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n\
+      \      <th>Level 2</th>\n      <td>(6 + CON mod) x 4</td>\n      <td>2 adventurer</td>\n\
+      \      <td>3</td>\n      <td>1</td>\n      <td>1st level</td>\n      <td>\u2014\
+      </td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level\
+      \ 3</th>\n      <td>(6 + CON mod) x 5</td>\n      <td>3 adventurer</td>\n  \
+      \    <td>3</td>\n      <td>1</td>\n      <td>3rd level</td>\n      <td>\u2014\
+      </td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level\
+      \ 4</th>\n      <td>(6 + CON mod) x 6</td>\n      <td>4 adventurer</td>\n  \
+      \    <td>4</td>\n      <td>1</td>\n      <td>3rd level</td>\n      <td>+1 to\
+      \ 3 abilities</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n \
+      \     <th>Level 5</th>\n      <td>(6 + CON mod) x 8</td>\n      <td>4 adventurer;\
+      \ 1 champion</td>\n      <td>4</td>\n      <td>1</td>\n      <td>5th level</td>\n\
+      \      <td>\u2014</td>\n      <td>2 x ability modifier</td>\n    </tr>\n   \
+      \ <tr>\n      <th>Level 6</th>\n      <td>(6 + CON mod) x 10</td>\n      <td>4\
+      \ adventurer; 2 champion</td>\n      <td>4</td>\n      <td>2</td>\n      <td>5th\
+      \ level</td>\n      <td>\u2014</td>\n      <td>2 x ability modifier</td>\n \
+      \   </tr>\n    <tr>\n      <th>Level 7</th>\n      <td>(6 + CON mod) x 12</td>\n\
+      \      <td>4 adventurer; 3 champion</td>\n      <td>4</td>\n      <td>2</td>\n\
+      \      <td>7th level</td>\n      <td>+1 to 3 abilities</td>\n      <td>2 x ability\
+      \ modifier</td>\n    </tr>\n    <tr>\n      <th>Level 8</th>\n      <td>(6 +\
+      \ CON mod) x 16</td>\n      <td>4 adventurer; 3 champion; 1 epic</td>\n    \
+      \  <td>5</td>\n      <td>2</td>\n      <td>7th level</td>\n      <td>\u2014\
+      </td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n      <th>Level\
+      \ 9</th>\n      <td>(6 + CON mod) x 20</td>\n      <td>4 adventurer; 3 champion;\
+      \ 2 epic</td>\n      <td>5</td>\n      <td>2</td>\n      <td>9th level</td>\n\
+      \      <td>\u2014</td>\n      <td>3 x ability modifier</td>\n    </tr>\n   \
+      \ <tr>\n      <th>Level 10</th>\n      <td>(6 + CON mod) x 24</td>\n      <td>4\
+      \ adventurer; 3 champion; 3 epic</td>\n      <td>6</td>\n      <td>2</td>\n\
+      \      <td>9th level</td>\n      <td>+1 to 3 abilities</td>\n      <td>3 x ability\
+      \ modifier</td>\n    </tr>\n  </tbody>\n</table>\n<div class=\"l-center\">\n\
+      \  <p>(M): Indicates columns in which multiclass characters lag one level behind.</p>\n\
+      \  <p>Note: Although not listed on the table, this class gets three talents.\
+      \ It does not get more at higher levels.</p>\n  <h2 class=\"archmage-class-heading\"\
+      >Stats</h2>\n  <table>\n    <tbody>\n      <tr>\n        <th>Ability Bonus</th>\n\
+      \        <td>+2 Intelligence or Charisma (different from racial bonus)</td>\n\
+      \      </tr>\n      <tr>\n        <th>Initiative</th>\n        <td>Dex mod +\
+      \ Level</td>\n      </tr>\n      <tr>\n        <th>Armor Class (light armor)</th>\n\
+      \        <td>10 + middle mod of Con/Dex/Wis + Level</td>\n      </tr>\n    \
+      \  <tr>\n        <th>Physical Defense</th>\n        <td>10 + middle mod of Str/Con/Dex\
+      \ + Level</td>\n      </tr>\n      <tr>\n        <th>Mental Defense</th>\n \
+      \       <td>11 + middle mod of Int/Wis/Cha + Level</td>\n      </tr>\n     \
+      \ <tr>\n        <th>Hit Points</th>\n        <td>(6 + Con mod) x Level modifier\
+      \ (see level progression chart)</td>\n      </tr>\n      <tr>\n        <th>Recoveries</th>\n\
+      \        <td>(probably) 8</td>\n      </tr>\n      <tr>\n        <th>Recovery\
+      \ Dice</th>\n        <td>(1d6 x level) + Con mod</td>\n      </tr>\n      <tr>\n\
+      \        <th>Backgrounds</th>\n        <td>8 points, max 5 in any one background</td>\n\
+      \      </tr>\n      <tr>\n        <th>Icon Relationships</th>\n        <td>3\
+      \ points (4 at 5th level; 5 at 8th level)</td>\n      </tr>\n      <tr>\n  \
+      \      <th>Talents</th>\n        <td>3</td>\n      </tr>\n      <tr>\n     \
+      \   <th>Feats</th>\n        <td>1 per level</td>\n      </tr>\n    </tbody>\n\
+      \  </table>\n</div>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

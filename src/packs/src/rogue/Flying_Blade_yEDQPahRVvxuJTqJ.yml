@@ -1,263 +1,100 @@
+_id: yEDQPahRVvxuJTqJ
+_key: '!items!yEDQPahRVvxuJTqJ'
+effects: []
+flags: {}
+folder: null
+img: icons/skills/ranged/dagger-thrown-jeweled-purple.webp
 name: Flying Blade
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  sequencer:
-    ray: ''
-    self: ''
-    target: ''
-    reversed: false
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Rogue
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Flying Blade
-  powerType:
-    type: String
-    label: Power Type
-    value: power
-  powerLevel:
-    type: Number
-    label: Level
-    value: '1'
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged attack
-  trigger:
-    type: String
-    label: Trigger
-    value: null
-  target:
-    type: String
-    label: Target
-    value: One nearby creature
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @dex.mod + @std + @atk.m.bonus]] vs. AC'
-  critMod:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Attack
-    value: ''
-  hit:
-    type: String
-    label: Hit
-    value: >-
-      [[(@lvldice)d4 + @dex.dmg + @atk.m.bonus]] damage, and if your natural
-      attack roll is even and one of your allies is engaged with the target, you
-      can use your Sneak Attack damage for the round.
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: '[[@lvl]] damage.'
-  missEven:
-    type: String
-    label: Even Miss
     value: null
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: null
-  resources:
-    type: String
-    label: Resources
-    value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: null
   castPower:
-    type: String
     label: Cast for Power
-    value: null
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: null
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
-    value: null
-  special:
+    value: ''
+  critMod:
+    label: Attack
     type: String
-    label: Special
-    value: <p>You must use a small bladed weapon with this attack.</p>
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: ''
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: null
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: null
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: null
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: null
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
-    value: null
-  breathWeapon:
-    type: String
-    label: Breath Weapon
-    value: null
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
-    type: String
-    label: Roll Table
-    value: Sneak Attack Damage
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>If you score a critical hit with <em>flying blade</em>, the target
-          is also *dazed* (–4 attack) until the end of your next turn.</p>
+        value: "<p>If you score a critical hit with <em>flying blade</em>, the target\
+          \ is also *dazed* (\u20134 attack) until the end of your next turn.</p>"
       isActive:
         type: Boolean
         value: false
+      maxQuantity:
+        type: Number
+        value: null
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
       tier:
         type: String
         value: adventurer
-      powerUsage:
-        type: String
-        value: ''
-      quantity:
-        type: Number
-        value: null
-      maxQuantity:
-        type: Number
-        value: null
     '1':
       description:
         type: String
-        value: >-
-          <p>As long as one of your allies is engaged with the target, your
-          <em>flying blade</em> attack rolls no longer need to be even to add
-          your Sneak Attack damage.</p>
+        value: <p>As long as one of your allies is engaged with the target, your <em>flying
+          blade</em> attack rolls no longer need to be even to add your Sneak Attack
+          damage.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: champion
     '2':
       description:
         type: String
@@ -265,24 +102,184 @@ system:
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: icons/skills/ranged/dagger-thrown-jeweled-purple.webp
-_id: yEDQPahRVvxuJTqJ
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!yEDQPahRVvxuJTqJ'
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: null
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: '[[(@lvldice)d4 + @dex.dmg + @atk.m.bonus]] damage, and if your natural
+      attack roll is even and one of your allies is engaged with the target, you can
+      use your Sneak Attack damage for the round.'
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: '[[@lvl]] damage.'
+  missEven:
+    label: Even Miss
+    type: String
+    value: null
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: null
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: '1'
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Flying Blade
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Rogue
+  powerType:
+    label: Power Type
+    type: String
+    value: power
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: at-will
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: Ranged attack
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: Sneak Attack Damage
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: <p>You must use a small bladed weapon with this attack.</p>
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: null
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: null
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: null
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: null
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: null
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: null
+  target:
+    label: Target
+    type: String
+    value: One nearby creature
+  trigger:
+    label: Trigger
+    type: String
+    value: null
+type: power

@@ -1,75 +1,44 @@
-name: Momentous Harmony
-type: equipment
+_id: eCRxf6CzDnyl3Erh
+_key: '!items!eCRxf6CzDnyl3Erh'
+effects: []
+flags:
+  core: {}
+folder: IBGzYvealgID1OwQ
 img: icons/svg/item-bag.svg
+name: Momentous Harmony
+ownership:
+  default: 0
+sort: 300000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The pendant brings out the best in other magic items you carry, so that
-      their quirks turn more positive, or at least become weaker if they cause
-      trouble. If you go over your magic item limit, the pendant ceases to
-      function (including the default bonus) and the formerly subdued magic
-      items express themselves with renewed fervor.</p>
-
-      <p>Quirk: Treats all their magic items well&mdash;talks to them as if
-      they&rsquo;re alive, refers to them as &ldquo;children,&rdquo; etc.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 1
-      threshold: 10
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -77,29 +46,59 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 1
+      threshold: 10
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: 13TW
   chackra: necklace
-effects: []
-folder: IBGzYvealgID1OwQ
-flags:
-  core: {}
-_id: eCRxf6CzDnyl3Erh
-sort: 300000
-ownership:
-  default: 0
-_key: '!items!eCRxf6CzDnyl3Erh'
+  description:
+    label: Description
+    type: String
+    value: '<p>The pendant brings out the best in other magic items you carry, so
+      that their quirks turn more positive, or at least become weaker if they cause
+      trouble. If you go over your magic item limit, the pendant ceases to function
+      (including the default bonus) and the formerly subdued magic items express themselves
+      with renewed fervor.</p>
+
+      <p>Quirk: Treats all their magic items well&mdash;talks to them as if they&rsquo;re
+      alive, refers to them as &ldquo;children,&rdquo; etc.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 13TW
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

@@ -1,27 +1,42 @@
-name: Stunned
-folder: null
-flags: {}
 _id: 2rxwthymp5rl1dqe
-pages:
-  - name: Stunned
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: <p>You suffer a –4 penalty to defenses and can’t take any actions.</p>
-    _id: j0tgtZaEzQmBEzKt
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!2rxwthymp5rl1dqe.j0tgtZaEzQmBEzKt'
 _key: '!journal!2rxwthymp5rl1dqe'
+categories: []
+flags: {}
+folder: null
+name: Stunned
+ownership:
+  default: 0
+pages:
+- _id: j0tgtZaEzQmBEzKt
+  _key: '!journal.pages!2rxwthymp5rl1dqe.j0tgtZaEzQmBEzKt'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Stunned
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<p>You suffer a \u20134 penalty to defenses and can\u2019t take any\
+      \ actions.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

@@ -1,29 +1,28 @@
-name: Invisibility
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The first time the demon is staggered each battle it becomes invisible
-      until the end of its next turn.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: i0xyt4xwBObvBDnO
+_key: '!items!i0xyt4xwBObvBDnO'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Invisibility
 ownership:
   default: 0
-_id: i0xyt4xwBObvBDnO
-_key: '!items!i0xyt4xwBObvBDnO'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>The first time the demon is staggered each battle it becomes invisible
+      until the end of its next turn.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

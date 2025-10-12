@@ -1,47 +1,166 @@
-name: Druid
-folder: null
-flags: {}
 _id: dI2C2zZfbnUHziOF
-pages:
-  - name: 'Figure: Druid'
-    type: image
-    src: systems/archmage/assets/icons/items/inventory/monster-antler.jpg
-    title:
-      show: false
-      level: 1
-    _id: dU1FgJ50EFLDyxwx
-    system: {}
-    image: {}
-    text:
-      format: 1
-    video:
-      controls: true
-      volume: 0.5
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!dI2C2zZfbnUHziOF.dU1FgJ50EFLDyxwx'
-  - name: Druid
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: "<div class=\"l-center\">\n  <h1 class=\"archmage-class-title\">Druid</h1>\n  <div class=\"grid grid-2col\">\n    <div class=\"details\">\n      <h2 class=\"archmage-class-heading\">Ability Scores</h2>\n      <p>Druids gain a +2 class bonus to Strength, Dexterity, or Wisdom, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>\n      <h2 class=\"archmage-class-heading\">Backgrounds</h2>\n      <p>Possible backgrounds include: orc-tribe hunter/gatherer, avalanche prophet, cult zealot, river guide, tribe healer, failed shaman, wild temple priest, mystic waterfall guardian, and raised by wolverines.</p>\n      <h2 class=\"archmage-class-heading\">Gear</h2>\n      <p>At 1st level, druids start with a melee weapon, light armor, possibly a staff, perhaps a bow or other ranged weapon, and other minor possessions suggested by their backgrounds.</p>\n      <h3 class=\"archmage-class-subheading\">Gold Pieces</h3>\n      <p>Druids may start with either 25 gp or 1d6 x 10 gp.</p>\n    </div>\n    <div class=\"armor\">\n      <h2 class=\"archmage-class-heading\">Armor</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>Armor Type</th>\n            <th>Base AC</th>\n            <th>Atk Penalty</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td>None</td>\n            <td>10</td>\n            <td>—</td>\n          </tr>\n          <tr>\n            <td>Light</td>\n            <td>10*</td>\n            <td>—</td>\n          </tr>\n          <tr>\n            <td>Heavy</td>\n            <td>14</td>\n            <td>-2</td>\n          </tr>\n          <tr>\n            <td>Shield</td>\n            <td>+1</td>\n            <td>-2*</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"grid grid-2col\">\n    <div class=\"melee-weapons\">\n      <h2 class=\"archmage-class-heading\">Melee Weapons</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>\_</th>\n            <th>One-Handed</th>\n            <th>Two-Handed</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td>Small</td>\n            <td>1d4 dagger</td>\n            <td>1d6 club</td>\n          </tr>\n          <tr>\n            <td>Light or Simple</td>\n            <td>1d6 mace, shortsword</td>\n            <td>1d8 spear</td>\n          </tr>\n          <tr>\n            <td>Heavy or Martial</td>\n            <td>1d8 (-2 atk)* longsword, warhammer</td>\n            <td>1d10 (–2 atk) greatsword, dire flail</td>\n          </tr>\n        </tbody>\n      </table>\n      <p>*Warrior druid talent choices can change shield and one-handed weapon stats.</p>\n    </div>\n    <div class=\"ranged-weapons\">\n      <h2 class=\"archmage-class-heading\">Ranged Weapons</h2>\n      <table>\n        <thead>\n          <tr>\n            <th>\_</th>\n            <th>Thrown</th>\n            <th>Crossbow</th>\n            <th>Bow</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td>Small</td>\n            <td>1d4 dagger</td>\n            <td>1d4 (-2 atk) hand crossbow</td>\n            <td>—</td>\n          </tr>\n          <tr>\n            <td>Light or Simple</td>\n            <td>1d6 javelin, axe</td>\n            <td>1d6 (-2 atk) light crossbow</td>\n            <td>1d6 shortbow</td>\n          </tr>\n          <tr>\n            <td>Heavy or Martial</td>\n            <td>—</td>\n            <td>1d8 (–5 atk) heavy crossbow</td>\n            <td>1d8 (–2 atk) longbow</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n<h2 class=\"archmage-class-heading\">Level Progression</h2>\n<table>\n  <thead>\n    <tr>\n      <th>Druid Level</th>\n      <th>Total Hit Points</th>\n      <th>Total Feats</th>\n      <th>Level-up Ability Bonuses</th>\n      <th>Damage Bonus From Ability Score</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Level 1 Multiclass</td>\n      <td>(Avg. of both classes) x 3</td>\n      <td>As 1st level PC</td>\n      <td>Not affected</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 1</td>\n      <td>(6 + CON mod) x 3</td>\n      <td>1 adventurer</td>\n      <td>—</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 2</td>\n      <td>(6 + CON mod) x 4</td>\n      <td>2 adventurer</td>\n      <td>—</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 3</td>\n      <td>(6 + CON mod) x 5</td>\n      <td>3 adventurer</td>\n      <td>—</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 4</td>\n      <td>(6 + CON mod) x 6</td>\n      <td>4 adventurer</td>\n      <td>+1 to 3 abilities</td>\n      <td>ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 5</td>\n      <td>(6 + CON mod) x 8</td>\n      <td>4 adventurer<br />\n      1 champion</td>\n      <td>—</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 6</td>\n      <td>(6 + CON mod) x 10</td>\n      <td>4 adventurer<br />\n      2 champion</td>\n      <td>—</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 7</td>\n      <td>(6 + CON mod) x 12</td>\n      <td>4 adventurer<br />\n      3 champion</td>\n      <td>+1 to 3 abilities</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 8</td>\n      <td>(6 + CON mod) x 16</td>\n      <td>4 adventurer<br />\n      3 champion<br />\n      1 epic</td>\n      <td>—</td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 9</td>\n      <td>(6 + CON mod) x 20</td>\n      <td>4 adventurer<br />\n      3 champion<br />\n      2 epic</td>\n      <td>—</td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n      <td><strong><strong>Level 10</strong></strong></td>\n      <td>(6 + CON mod) x 24</td>\n      <td>4 adventurer<br />\n      3 champion<br />\n      3 epic</td>\n      <td>+1 to 3 abilities</td>\n      <td>3 x ability modifier</td>\n    </tr>\n  </tbody>\n</table>\n<div class=\"l-center\">\n  <h2 class=\"archmage-class-heading\">Stats</h2>\n  <table>\n    <tbody>\n      <tr>\n        <td>Ability Bonus</td>\n        <td>+2 Strength, Dexterity, or Wisdom (different from racial bonus)</td>\n      </tr>\n      <tr>\n        <td>Initiative</td>\n        <td>Dex mod + Level</td>\n      </tr>\n      <tr>\n        <td>Armor Class (heavy armor)</td>\n        <td>10 + middle mod of Con/Dex/Wis + Level</td>\n      </tr>\n      <tr>\n        <td>Armor Class (shield and heavy armor)</td>\n        <td>11 + middle mod of Con/Dex/Wis + Level</td>\n      </tr>\n      <tr>\n        <td>Physical Defense</td>\n        <td>11 + middle mod of Str/Con/Dex + Level</td>\n      </tr>\n      <tr>\n        <td>Mental Defense</td>\n        <td>11 + middle mod of Int/Wis/Cha + Level</td>\n      </tr>\n      <tr>\n        <td>Hit Points</td>\n        <td>(6 + Con mod) x Level modifier (see level progression chart)</td>\n      </tr>\n      <tr>\n        <td>Recoveries</td>\n        <td>8</td>\n      </tr>\n      <tr>\n        <td>Recovery Dice</td>\n        <td>(1d6 x Level) + Con mod</td>\n      </tr>\n      <tr>\n        <td>Backgrounds</td>\n        <td>8 points, max 5 in any one background</td>\n      </tr>\n      <tr>\n        <td>Icon Relationships</td>\n        <td>3 points</td>\n      </tr>\n      <tr>\n        <td>Talents</td>\n        <td>3</td>\n      </tr>\n    </tbody>\n  </table>\n</div>"
-    _id: ecLHU9xF3wGpSYfZ
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    category: null
-    _key: '!journal.pages!dI2C2zZfbnUHziOF.ecLHU9xF3wGpSYfZ'
 _key: '!journal!dI2C2zZfbnUHziOF'
+categories: []
+flags: {}
+folder: null
+name: Druid
+ownership:
+  default: 0
+pages:
+- _id: dU1FgJ50EFLDyxwx
+  _key: '!journal.pages!dI2C2zZfbnUHziOF.dU1FgJ50EFLDyxwx'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: 'Figure: Druid'
+  ownership:
+    default: -1
+  sort: 0
+  src: systems/archmage/assets/icons/items/inventory/monster-antler.jpg
+  system: {}
+  text:
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: image
+  video:
+    controls: true
+    volume: 0.5
+- _id: ecLHU9xF3wGpSYfZ
+  _key: '!journal.pages!dI2C2zZfbnUHziOF.ecLHU9xF3wGpSYfZ'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  category: null
+  flags: {}
+  image: {}
+  name: Druid
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<div class=\"l-center\">\n  <h1 class=\"archmage-class-title\">Druid</h1>\n\
+      \  <div class=\"grid grid-2col\">\n    <div class=\"details\">\n      <h2 class=\"\
+      archmage-class-heading\">Ability Scores</h2>\n      <p>Druids gain a +2 class\
+      \ bonus to Strength, Dexterity, or Wisdom, as long as it isn\u2019t the same\
+      \ ability you increase with your +2 racial bonus.</p>\n      <h2 class=\"archmage-class-heading\"\
+      >Backgrounds</h2>\n      <p>Possible backgrounds include: orc-tribe hunter/gatherer,\
+      \ avalanche prophet, cult zealot, river guide, tribe healer, failed shaman,\
+      \ wild temple priest, mystic waterfall guardian, and raised by wolverines.</p>\n\
+      \      <h2 class=\"archmage-class-heading\">Gear</h2>\n      <p>At 1st level,\
+      \ druids start with a melee weapon, light armor, possibly a staff, perhaps a\
+      \ bow or other ranged weapon, and other minor possessions suggested by their\
+      \ backgrounds.</p>\n      <h3 class=\"archmage-class-subheading\">Gold Pieces</h3>\n\
+      \      <p>Druids may start with either 25 gp or 1d6 x 10 gp.</p>\n    </div>\n\
+      \    <div class=\"armor\">\n      <h2 class=\"archmage-class-heading\">Armor</h2>\n\
+      \      <table>\n        <thead>\n          <tr>\n            <th>Armor Type</th>\n\
+      \            <th>Base AC</th>\n            <th>Atk Penalty</th>\n          </tr>\n\
+      \        </thead>\n        <tbody>\n          <tr>\n            <td>None</td>\n\
+      \            <td>10</td>\n            <td>\u2014</td>\n          </tr>\n   \
+      \       <tr>\n            <td>Light</td>\n            <td>10*</td>\n       \
+      \     <td>\u2014</td>\n          </tr>\n          <tr>\n            <td>Heavy</td>\n\
+      \            <td>14</td>\n            <td>-2</td>\n          </tr>\n       \
+      \   <tr>\n            <td>Shield</td>\n            <td>+1</td>\n           \
+      \ <td>-2*</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n\
+      \  </div>\n  <div class=\"grid grid-2col\">\n    <div class=\"melee-weapons\"\
+      >\n      <h2 class=\"archmage-class-heading\">Melee Weapons</h2>\n      <table>\n\
+      \        <thead>\n          <tr>\n            <th>\_</th>\n            <th>One-Handed</th>\n\
+      \            <th>Two-Handed</th>\n          </tr>\n        </thead>\n      \
+      \  <tbody>\n          <tr>\n            <td>Small</td>\n            <td>1d4\
+      \ dagger</td>\n            <td>1d6 club</td>\n          </tr>\n          <tr>\n\
+      \            <td>Light or Simple</td>\n            <td>1d6 mace, shortsword</td>\n\
+      \            <td>1d8 spear</td>\n          </tr>\n          <tr>\n         \
+      \   <td>Heavy or Martial</td>\n            <td>1d8 (-2 atk)* longsword, warhammer</td>\n\
+      \            <td>1d10 (\u20132 atk) greatsword, dire flail</td>\n          </tr>\n\
+      \        </tbody>\n      </table>\n      <p>*Warrior druid talent choices can\
+      \ change shield and one-handed weapon stats.</p>\n    </div>\n    <div class=\"\
+      ranged-weapons\">\n      <h2 class=\"archmage-class-heading\">Ranged Weapons</h2>\n\
+      \      <table>\n        <thead>\n          <tr>\n            <th>\_</th>\n \
+      \           <th>Thrown</th>\n            <th>Crossbow</th>\n            <th>Bow</th>\n\
+      \          </tr>\n        </thead>\n        <tbody>\n          <tr>\n      \
+      \      <td>Small</td>\n            <td>1d4 dagger</td>\n            <td>1d4\
+      \ (-2 atk) hand crossbow</td>\n            <td>\u2014</td>\n          </tr>\n\
+      \          <tr>\n            <td>Light or Simple</td>\n            <td>1d6 javelin,\
+      \ axe</td>\n            <td>1d6 (-2 atk) light crossbow</td>\n            <td>1d6\
+      \ shortbow</td>\n          </tr>\n          <tr>\n            <td>Heavy or Martial</td>\n\
+      \            <td>\u2014</td>\n            <td>1d8 (\u20135 atk) heavy crossbow</td>\n\
+      \            <td>1d8 (\u20132 atk) longbow</td>\n          </tr>\n        </tbody>\n\
+      \      </table>\n    </div>\n  </div>\n</div>\n<h2 class=\"archmage-class-heading\"\
+      >Level Progression</h2>\n<table>\n  <thead>\n    <tr>\n      <th>Druid Level</th>\n\
+      \      <th>Total Hit Points</th>\n      <th>Total Feats</th>\n      <th>Level-up\
+      \ Ability Bonuses</th>\n      <th>Damage Bonus From Ability Score</th>\n   \
+      \ </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Level 1 Multiclass</td>\n\
+      \      <td>(Avg. of both classes) x 3</td>\n      <td>As 1st level PC</td>\n\
+      \      <td>Not affected</td>\n      <td>ability modifier</td>\n    </tr>\n \
+      \   <tr>\n      <td>Level 1</td>\n      <td>(6 + CON mod) x 3</td>\n      <td>1\
+      \ adventurer</td>\n      <td>\u2014</td>\n      <td>ability modifier</td>\n\
+      \    </tr>\n    <tr>\n      <td>Level 2</td>\n      <td>(6 + CON mod) x 4</td>\n\
+      \      <td>2 adventurer</td>\n      <td>\u2014</td>\n      <td>ability modifier</td>\n\
+      \    </tr>\n    <tr>\n      <td>Level 3</td>\n      <td>(6 + CON mod) x 5</td>\n\
+      \      <td>3 adventurer</td>\n      <td>\u2014</td>\n      <td>ability modifier</td>\n\
+      \    </tr>\n    <tr>\n      <td>Level 4</td>\n      <td>(6 + CON mod) x 6</td>\n\
+      \      <td>4 adventurer</td>\n      <td>+1 to 3 abilities</td>\n      <td>ability\
+      \ modifier</td>\n    </tr>\n    <tr>\n      <td>Level 5</td>\n      <td>(6 +\
+      \ CON mod) x 8</td>\n      <td>4 adventurer<br />\n      1 champion</td>\n \
+      \     <td>\u2014</td>\n      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n\
+      \      <td>Level 6</td>\n      <td>(6 + CON mod) x 10</td>\n      <td>4 adventurer<br\
+      \ />\n      2 champion</td>\n      <td>\u2014</td>\n      <td>2 x ability modifier</td>\n\
+      \    </tr>\n    <tr>\n      <td>Level 7</td>\n      <td>(6 + CON mod) x 12</td>\n\
+      \      <td>4 adventurer<br />\n      3 champion</td>\n      <td>+1 to 3 abilities</td>\n\
+      \      <td>2 x ability modifier</td>\n    </tr>\n    <tr>\n      <td>Level 8</td>\n\
+      \      <td>(6 + CON mod) x 16</td>\n      <td>4 adventurer<br />\n      3 champion<br\
+      \ />\n      1 epic</td>\n      <td>\u2014</td>\n      <td>3 x ability modifier</td>\n\
+      \    </tr>\n    <tr>\n      <td>Level 9</td>\n      <td>(6 + CON mod) x 20</td>\n\
+      \      <td>4 adventurer<br />\n      3 champion<br />\n      2 epic</td>\n \
+      \     <td>\u2014</td>\n      <td>3 x ability modifier</td>\n    </tr>\n    <tr>\n\
+      \      <td><strong><strong>Level 10</strong></strong></td>\n      <td>(6 + CON\
+      \ mod) x 24</td>\n      <td>4 adventurer<br />\n      3 champion<br />\n   \
+      \   3 epic</td>\n      <td>+1 to 3 abilities</td>\n      <td>3 x ability modifier</td>\n\
+      \    </tr>\n  </tbody>\n</table>\n<div class=\"l-center\">\n  <h2 class=\"archmage-class-heading\"\
+      >Stats</h2>\n  <table>\n    <tbody>\n      <tr>\n        <td>Ability Bonus</td>\n\
+      \        <td>+2 Strength, Dexterity, or Wisdom (different from racial bonus)</td>\n\
+      \      </tr>\n      <tr>\n        <td>Initiative</td>\n        <td>Dex mod +\
+      \ Level</td>\n      </tr>\n      <tr>\n        <td>Armor Class (heavy armor)</td>\n\
+      \        <td>10 + middle mod of Con/Dex/Wis + Level</td>\n      </tr>\n    \
+      \  <tr>\n        <td>Armor Class (shield and heavy armor)</td>\n        <td>11\
+      \ + middle mod of Con/Dex/Wis + Level</td>\n      </tr>\n      <tr>\n      \
+      \  <td>Physical Defense</td>\n        <td>11 + middle mod of Str/Con/Dex + Level</td>\n\
+      \      </tr>\n      <tr>\n        <td>Mental Defense</td>\n        <td>11 +\
+      \ middle mod of Int/Wis/Cha + Level</td>\n      </tr>\n      <tr>\n        <td>Hit\
+      \ Points</td>\n        <td>(6 + Con mod) x Level modifier (see level progression\
+      \ chart)</td>\n      </tr>\n      <tr>\n        <td>Recoveries</td>\n      \
+      \  <td>8</td>\n      </tr>\n      <tr>\n        <td>Recovery Dice</td>\n   \
+      \     <td>(1d6 x Level) + Con mod</td>\n      </tr>\n      <tr>\n        <td>Backgrounds</td>\n\
+      \        <td>8 points, max 5 in any one background</td>\n      </tr>\n     \
+      \ <tr>\n        <td>Icon Relationships</td>\n        <td>3 points</td>\n   \
+      \   </tr>\n      <tr>\n        <td>Talents</td>\n        <td>3</td>\n      </tr>\n\
+      \    </tbody>\n  </table>\n</div>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 0

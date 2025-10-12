@@ -1,9 +1,569 @@
-name: 'Elemental Beast Template: Fire'
-type: npc
 _id: FWOn0j9F14gpCIx7
+_key: '!actors!FWOn0j9F14gpCIx7'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+    sheetDisplay:
+      tabs:
+        primary:
+          value: actions
+  core: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
+items:
+- _id: oOtiidLYq6FTEI6W
+  _key: '!actors.items!FWOn0j9F14gpCIx7.oOtiidLYq6FTEI6W'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.oOtiidLYq6FTEI6W
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist fire 16+
+  ownership:
+    default: 0
+  sort: -200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: L7yKyY7hgut2ffmP
+  _key: '!actors.items!FWOn0j9F14gpCIx7.L7yKyY7hgut2ffmP'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.L7yKyY7hgut2ffmP
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist lightning 16+
+  ownership:
+    default: 0
+  sort: -200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Ekv9Hll2kNtbWTXl
+  _key: '!actors.items!FWOn0j9F14gpCIx7.Ekv9Hll2kNtbWTXl'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Burning breath'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 5 + @lvl]] vs. PD ([[1d3]] nearby enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[(@lvl)d6]] fire damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: BJgSAItIlxRVq1kE
+  _key: '!actors.items!FWOn0j9F14gpCIx7.BJgSAItIlxRVq1kE'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Ashen earth
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Each enemy engaged with this creature at the start of its turn takes
+        ongoing fire damage equal to this [[@lvl * 2]].</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: NTW89gXBDcqgijDW
+  _key: '!actors.items!FWOn0j9F14gpCIx7.NTW89gXBDcqgijDW'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Magma skin
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When an enemy hits this creature with a melee attack, it takes damage
+        equal to [[@lvl * 3]].</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 98qBzazCC9SYOItI
+  _key: '!actors.items!FWOn0j9F14gpCIx7.98qBzazCC9SYOItI'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Burning breath
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Each enemy engaged with this creature at the start of its turn takes
+        lightning damage equal to this creature&rsquo;s level &times; 3.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 6rx0QHVsfCDItU5t
+  _key: '!actors.items!FWOn0j9F14gpCIx7.6rx0QHVsfCDItU5t'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Obsidian shards
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When this creature is hit with cold damage, it gains temporary hit
+        points equal to [[@lvl * 4]].</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: on0tD6JEDRgJR78z
+  _key: '!actors.items!FWOn0j9F14gpCIx7.on0tD6JEDRgJR78z'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.on0tD6JEDRgJR78z
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: (Choose 1-3 of these and the burning breath attack)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: qzyEoFZ8qlbsgFGN
+  _key: '!actors.items!FWOn0j9F14gpCIx7.qzyEoFZ8qlbsgFGN'
+  _stats:
+    compendiumSource: Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: 'Vulnerability: cold'
+  ownership:
+    default: 0
+  sort: -100000
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: mieQLiI99cJqu2tX
+  _key: '!actors.items!FWOn0j9F14gpCIx7.mieQLiI99cJqu2tX'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Blazing brighter
+  ownership:
+    default: 0
+  sort: -300000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>When this creature is targeted by fire or lightning attacks, it gains
+        a cumulative +1 bonus to attack rolls until the end of the battle (max: +4)</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: I1c57iOkZSEEkXuu
+  _key: '!actors.items!FWOn0j9F14gpCIx7.I1c57iOkZSEEkXuu'
+  _stats:
+    compendiumSource: null
+    coreVersion: '13.350'
+    createdTime: null
+    duplicateSource: null
+    exportSource: null
+    lastModifiedBy: null
+    modifiedTime: null
+    systemId: null
+    systemVersion: null
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Heat exhaustion
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When an enemy engaged with this creature heals using a recovery, it
+        gains only half the normal healing.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: 'Elemental Beast Template: Fire'
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: 'Elemental Beast Template: Fire'
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 0
     attackMod:
       type: Number
       value: 0
@@ -14,98 +574,91 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 0
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 0
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 0
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 0
-      min: 0
-      max: 0
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 0
-    level:
-      type: Number
-      label: Level
-      value: 0
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 0
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 0
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 0
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 0
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 0
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 0
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
-      value: >-
-        <p>Any creature with the [BEAST] type can become an elemental beast,
+      value: '<p>Any creature with the [BEAST] type can become an elemental beast,
         just follow these guidelines.</p>
 
-        <p>The base creature loses whatever resistances and vulnerabilities it
-        had and gains those listed for its elemental affinity. It also gains
-        between one and three elemental abilities for that affinity from the
-        options below.</p>
+        <p>The base creature loses whatever resistances and vulnerabilities it had
+        and gains those listed for its elemental affinity. It also gains between one
+        and three elemental abilities for that affinity from the options below.</p>
 
-        <p>With just one ability, as well as a new vulnerability and resistance,
-        creatures that become elemental beasts aren&rsquo;t powerful or changed
-        enough to warrant adjusting their level for purposes of creating
-        encounters. However, you may want to up-level beasts with two or three
-        abilities depending on those abilities and your desired level of
-        difficulty, especially if you&rsquo;re creating a battle with several
-        elemental beasts.</p>
+        <p>With just one ability, as well as a new vulnerability and resistance, creatures
+        that become elemental beasts aren&rsquo;t powerful or changed enough to warrant
+        adjusting their level for purposes of creating encounters. However, you may
+        want to up-level beasts with two or three abilities depending on those abilities
+        and your desired level of difficulty, especially if you&rsquo;re creating
+        a battle with several elemental beasts.</p>
 
-        <p>For balance, simplicity, pacing, and playability, don&rsquo;t use
-        more than three abilities for an elemental beast.</p>
+        <p>For balance, simplicity, pacing, and playability, don&rsquo;t use more
+        than three abilities for an elemental beast.</p>
 
-        <p>(Drag items from this actor onto the actor you're augmenting, and
-        change its type to ELEMENTAL.)</p>
+        <p>(Drag items from this actor onto the actor you''re augmenting, and change
+        its type to ELEMENTAL.)</p>'
+    resistance:
+      value: ''
     role:
       value: ''
     roleB:
@@ -118,521 +671,67 @@ system:
       value: ''
     type:
       value: ''
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
-prototypeToken:
-  name: 'Elemental Beast Template: Fire'
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-  turnMarker:
-    mode: 1
-    animation: null
-    src: null
-    disposition: false
-  movementAction: null
-items:
-  - name: Resist fire 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: oOtiidLYq6FTEI6W
-    effects: []
-    folder: null
-    sort: -200000
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.oOtiidLYq6FTEI6W'
-  - name: Resist lightning 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: L7yKyY7hgut2ffmP
-    effects: []
-    folder: null
-    sort: -200000
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.L7yKyY7hgut2ffmP'
-  - name: 'C: Burning breath'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 5 + @lvl]] vs. PD ([[1d3]] nearby enemies in a group)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[(@lvl)d6]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: Ekv9Hll2kNtbWTXl
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.Ekv9Hll2kNtbWTXl'
-  - name: Ashen earth
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each enemy engaged with this creature at the start of its turn
-          takes ongoing fire damage equal to this [[@lvl * 2]].</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: BJgSAItIlxRVq1kE
-    effects: []
-    folder: null
-    sort: 200000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.BJgSAItIlxRVq1kE'
-  - name: Magma skin
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When an enemy hits this creature with a melee attack, it takes
-          damage equal to [[@lvl * 3]].</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: NTW89gXBDcqgijDW
-    effects: []
-    folder: null
-    sort: 500000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.NTW89gXBDcqgijDW'
-  - name: Burning breath
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each enemy engaged with this creature at the start of its turn
-          takes lightning damage equal to this creature&rsquo;s level &times;
-          3.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 98qBzazCC9SYOItI
-    effects: []
-    folder: null
-    sort: 600000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.98qBzazCC9SYOItI'
-  - name: Obsidian shards
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When this creature is hit with cold damage, it gains temporary hit
-          points equal to [[@lvl * 4]].</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 6rx0QHVsfCDItU5t
-    effects: []
-    folder: null
-    sort: 700000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.6rx0QHVsfCDItU5t'
-  - name: (Choose 1-3 of these and the burning breath attack)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: on0tD6JEDRgJR78z
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.on0tD6JEDRgJR78z'
-  - name: 'Vulnerability: cold'
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qzyEoFZ8qlbsgFGN
-    effects: []
-    folder: null
-    sort: -100000
-    ownership:
-      default: 0
-    flags:
-      core: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.qzyEoFZ8qlbsgFGN'
-  - name: Blazing brighter
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When this creature is targeted by fire or lightning attacks, it
-          gains a cumulative +1 bonus to attack rolls until the end of the
-          battle (max: +4)</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: mieQLiI99cJqu2tX
-    effects: []
-    folder: null
-    sort: -300000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.mieQLiI99cJqu2tX'
-  - name: Heat exhaustion
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When an enemy engaged with this creature heals using a recovery, it
-          gains only half the normal healing.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: I1c57iOkZSEEkXuu
-    effects: []
-    folder: null
-    sort: 800000
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!FWOn0j9F14gpCIx7.I1c57iOkZSEEkXuu'
-effects: []
-folder: null
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-    sheetDisplay:
-      tabs:
-        primary:
-          value: actions
-  core: {}
-sort: 0
-_key: '!actors!FWOn0j9F14gpCIx7'
+        enabled: false
+type: npc

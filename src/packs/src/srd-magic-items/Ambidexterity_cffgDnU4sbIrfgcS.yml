@@ -1,74 +1,44 @@
-name: Ambidexterity
-type: equipment
+_id: cffgDnU4sbIrfgcS
+_key: '!items!cffgDnU4sbIrfgcS'
+effects: []
+flags:
+  core: {}
+folder: V4jpkv4ODPXfk5Vg
 img: icons/svg/item-bag.svg
+name: Ambidexterity
+ownership:
+  default: 0
+sort: 700000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 11+) When you roll a natural 16+ with your first melee attack
-      during your turn while wielding a weapon in your off-hand, make a melee
-      attack with the weapon in your off-hand as a free action, using +10 as
-      your attack bonus (champion: +15; epic: +20).</p>
-
-      <p>Quirk: Writes with both hands at the same time on different parts of
-      the page. It freaks people out.</p>
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  price:
-    type: Number
-    label: Price
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '11'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -76,29 +46,58 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: adventurer
-  isActive: true
-  publicationSource: 1e
   chackra: glove
-effects: []
-folder: V4jpkv4ODPXfk5Vg
-flags:
-  core: {}
-_id: cffgDnU4sbIrfgcS
-sort: 700000
-ownership:
-  default: 0
-_key: '!items!cffgDnU4sbIrfgcS'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 11+) When you roll a natural 16+ with your first melee attack
+      during your turn while wielding a weapon in your off-hand, make a melee attack
+      with the weapon in your off-hand as a free action, using +10 as your attack
+      bonus (champion: +15; epic: +20).</p>
+
+      <p>Quirk: Writes with both hands at the same time on different parts of the
+      page. It freaks people out.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '11'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment
