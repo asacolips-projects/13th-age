@@ -107,15 +107,25 @@ export default class preCreateChatMessageHandler {
             return
         }
 
-        let conditions = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? '' : x).join(", ");
+        // Damage: 1x level for mooks or weaklings, 2x level for others
+        let damageAmount = 2*actor.system.attributes.level.value
+        let tooltip = '2*@lvl';
+        const isMook = actor.system?.details?.role?.value === "mook";
+        const isWeakling = actor.system?.details?.strength?.value === "weakling";
+        if (isMook || isWeakling) {
+            damageAmount = damageAmount / 2
+            tooltip = "@lvl";
+        }
+
+        let vulns = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? '' : x).join(", ");
         const damage = `
-            <a class="inline-result inline-roll--archmage" data-tooltip-text="2*@lvl">
+            <a class="inline-result inline-roll--archmage" data-tooltip-text="${tooltip}">
                 <i class="fa-solid fa-dice-d20" inert=""></i>
-                ${2*actor.system.attributes.level.value}
+                ${damageAmount}
             </a>`
         const vulnRow = `
             <div class="card-prop">
-                <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {conditions})}:</strong>
+                <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {vulns})}:</strong>
                 ${game.i18n.format("ARCHMAGE.CHAT.vulnerableText", {damage})}
             </div>`.replace(' ()', '');
         $content.find('.card-prop').last().after(vulnRow);
