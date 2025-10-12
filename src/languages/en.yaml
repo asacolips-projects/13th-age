@@ -916,6 +916,8 @@ ARCHMAGE:
     triggerVsRegex: "(\\[\\[.+?\\]\\]).*(vs.*)"
     unambiguousAdvantages: Unambiguous Advantages
     Use: Use
+    vulnerable: Vulnerable
+    vulnerableCondition: condition
   TERRAINS:
     label: Terrains Present
     none: None

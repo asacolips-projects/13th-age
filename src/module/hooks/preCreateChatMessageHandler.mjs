@@ -1,6 +1,5 @@
 import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from "../rolls/Targeting.mjs";
-import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
 
@@ -344,6 +343,23 @@ export default class preCreateChatMessageHandler {
 
             // Update the content
             $content.find('.card-prop').replaceWith($rows);
+
+            // Add a row for vulnerabilities if any
+            if (hitEvaluationResults?.vulnerabilities?.length > 0) {
+                let vulnText = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? game.i18n.localize("ARCHMAGE.CHAT.vulnerableCondition") : x).join(", ");
+                let vulnRow = `
+                    <div class="card-prop">
+                        <strong>${game.i18n.localize("ARCHMAGE.CHAT.vulnerable")}:</strong>
+                        Maybe apply
+                        <a class="inline-result inline-roll--archmage" data-tooltip-text="@lvl">
+                            <i class="fa-solid fa-dice-d20" inert=""></i>
+                            ${actor.system.attributes.level.value}
+                        </a>
+                        damage
+                        (${vulnText})
+                    </div>`;
+                $content.find('.card-prop').last().after(vulnRow);
+            }
         }
 
         updated_content = $content.html();
