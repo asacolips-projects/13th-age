@@ -102,6 +102,25 @@ export default class preCreateChatMessageHandler {
         }
     }
 
+    static handle2eVulnerabilities($content, hitEvaluationResults, actor) {
+        if (!CONFIG.ARCHMAGE.is2e || hitEvaluationResults?.vulnerabilities?.length <= 0) {
+            return
+        }
+
+        let conditions = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? '' : x).join(", ");
+        const damage = `
+            <a class="inline-result inline-roll--archmage" data-tooltip-text="2*@lvl">
+                <i class="fa-solid fa-dice-d20" inert=""></i>
+                ${2*actor.system.attributes.level.value}
+            </a>`
+        const vulnRow = `
+            <div class="card-prop">
+                <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {conditions})}:</strong>
+                ${game.i18n.format("ARCHMAGE.CHAT.vulnerableText", {damage})}
+            </div>`.replace(' ()', '');
+        $content.find('.card-prop').last().after(vulnRow);
+    }
+
     static handle(data, options, userId) {
         let $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rolls = $content.find('.inline-result');
@@ -345,20 +364,7 @@ export default class preCreateChatMessageHandler {
             $content.find('.card-prop').replaceWith($rows);
 
             // Add a row for vulnerabilities if any (2e only)
-            if (CONFIG.ARCHMAGE.is2e && hitEvaluationResults?.vulnerabilities?.length > 0) {
-                let conditions = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? game.i18n.localize("ARCHMAGE.CHAT.vulnerableCondition") : x).join(", ");
-                const damage = `
-                    <a class="inline-result inline-roll--archmage" data-tooltip-text="2*@lvl">
-                        <i class="fa-solid fa-dice-d20" inert=""></i>
-                        ${2*actor.system.attributes.level.value}
-                    </a>`
-                const vulnRow = `
-                    <div class="card-prop">
-                        <strong>${game.i18n.localize("ARCHMAGE.CHAT.vulnerable")}:</strong>
-                        ${game.i18n.format("ARCHMAGE.CHAT.vulnerableText", {damage, conditions})}
-                    </div>`;
-                $content.find('.card-prop').last().after(vulnRow);
-            }
+            preCreateChatMessageHandler.handle2eVulnerabilities($content, hitEvaluationResults, actor);
         }
 
         updated_content = $content.html();
