@@ -344,16 +344,16 @@ export default class preCreateChatMessageHandler {
             // Update the content
             $content.find('.card-prop').replaceWith($rows);
 
-            // Add a row for vulnerabilities if any
-            if (hitEvaluationResults?.vulnerabilities?.length > 0) {
+            // Add a row for vulnerabilities if any (2e only)
+            if (CONFIG.ARCHMAGE.is2e && hitEvaluationResults?.vulnerabilities?.length > 0) {
                 let vulnText = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? game.i18n.localize("ARCHMAGE.CHAT.vulnerableCondition") : x).join(", ");
                 let vulnRow = `
                     <div class="card-prop">
                         <strong>${game.i18n.localize("ARCHMAGE.CHAT.vulnerable")}:</strong>
                         Maybe apply
-                        <a class="inline-result inline-roll--archmage" data-tooltip-text="@lvl">
+                        <a class="inline-result inline-roll--archmage" data-tooltip-text="2*@lvl">
                             <i class="fa-solid fa-dice-d20" inert=""></i>
-                            ${actor.system.attributes.level.value}
+                            ${2*actor.system.attributes.level.value}
                         </a>
                         damage
                         (${vulnText})
