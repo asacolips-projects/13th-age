@@ -103,9 +103,9 @@ export default class preCreateChatMessageHandler {
     }
 
     static handle2eVulnerabilities($content, hitEvaluationResults, actor) {
-        if (!CONFIG.ARCHMAGE.is2e || hitEvaluationResults?.vulnerabilities?.length <= 0) {
-            return
-        }
+        if (!CONFIG.ARCHMAGE.is2e) return
+        if (!game.settings.get("archmage", "showVulnsInChat")) return
+        if (hitEvaluationResults?.vulnerabilities?.length <= 0) return
 
         // Damage: 1x level for mooks or weaklings, 2x level for others
         let damageAmount = 2*actor.system.attributes.level.value
