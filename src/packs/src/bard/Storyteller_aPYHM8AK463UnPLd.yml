@@ -1,219 +1,226 @@
+_id: aPYHM8AK463UnPLd
+_key: '!items!aPYHM8AK463UnPLd'
+effects: []
+flags: {}
+folder: null
+img: icons/sundries/books/book-purple-detail.webp
 name: Storyteller
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: once-per-battle
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Bard
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Storyteller
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: '1'
   actionType:
-    type: String
     label: Action
+    type: String
     value: ''
-  range:
-    type: String
-    label: Range
-    value: null
-  trigger:
-    type: String
-    label: Trigger
-    value: null
-  target:
-    type: String
-    label: Target
-    value: null
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: null
-  hit:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Hit
     value: null
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: null
-  missEven:
-    type: String
-    label: Even Miss
-    value: null
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: null
-  resources:
-    type: String
-    label: Resources
-    value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: null
   castPower:
-    type: String
     label: Cast for Power
-    value: null
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: null
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
-    value: null
-  special:
+    value: ''
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
-    value: >-
-      <p><span>Once per scene when one of your allies rolls relationship dice
-      for an icon, you can roleplay a one or two sentence story (usually related
-      to the icon, but perhaps otherwise pivotal) that allows them to reroll the
-      relationship check if they don't like the first result.</span></p>
-  spellLevel2:
-    hide: true
     type: String
-    label: 2nd Level Spell
+    value: <p><span>Once per scene when one of your allies rolls relationship dice
+      for an icon, you can roleplay a one or two sentence story (usually related to
+      the icon, but perhaps otherwise pivotal) that allows them to reroll the relationship
+      check if they don't like the first result.</span></p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
-  spellLevel3:
-    hide: true
+  feats: null
+  finalVerse:
+    label: Final Verse
     type: String
-    label: 3rd Level Spell
     value: null
-  spellLevel4:
-    hide: true
+  group:
+    label: Group
     type: String
-    label: 4th Level Spell
     value: ''
-  spellLevel5:
-    hide: true
+  hit:
+    label: Hit
     type: String
-    label: 5th Level Spell
     value: null
-  spellLevel6:
-    hide: true
+  hitEven:
+    label: Natural Even Hit
     type: String
-    label: 6th Level Spell
     value: ''
-  spellLevel7:
-    hide: true
+  hitOdd:
+    label: Natural Odd Hit
     type: String
-    label: 7th Level Spell
+    value: ''
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
     value: null
-  spellLevel8:
-    hide: true
+  missEven:
+    label: Even Miss
     type: String
-    label: 8th Level Spell
+    value: null
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: null
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: '1'
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Storyteller
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Bard
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: once-per-battle
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
     value: ''
-  spellLevel9:
-    hide: true
+  rollTable:
+    label: Roll Table
     type: String
-    label: 9th Level Spell
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
     value: null
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
+    type: String
     value: ''
-  spellChain:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Chain Spell
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
     value: null
-  breathWeapon:
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
     type: String
-    label: Breath Weapon
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: null
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: null
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
     value: null
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
-    value: ''
-  feats: null
-flags: {}
-img: icons/sundries/books/book-purple-detail.webp
-_id: aPYHM8AK463UnPLd
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!aPYHM8AK463UnPLd'
-
+    value: null
+  target:
+    label: Target
+    type: String
+    value: null
+  trigger:
+    label: Trigger
+    type: String
+    value: null
+type: power

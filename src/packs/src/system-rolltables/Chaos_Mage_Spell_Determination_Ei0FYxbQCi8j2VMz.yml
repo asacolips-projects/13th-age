@@ -1,93 +1,88 @@
-name: Chaos Mage Spell Determination
-flags: {}
-img: icons/svg/d20-grey.svg
-description: ''
-results:
-  - _id: B4eZF9b2pezTNcLF
-    flags: {}
-    type: text
-    text: Attack
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    documentId: null
-    documentCollection: ''
-    _key: '!tables.results!Ei0FYxbQCi8j2VMz.B4eZF9b2pezTNcLF'
-  - _id: oEMdEueTvulCJ1Va
-    flags: {}
-    type: text
-    text: Attack
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    documentId: null
-    documentCollection: ''
-    _key: '!tables.results!Ei0FYxbQCi8j2VMz.oEMdEueTvulCJ1Va'
-  - _id: JZI8hogxBdutPmtG
-    flags: {}
-    type: text
-    text: Defense
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    documentId: null
-    documentCollection: ''
-    _key: '!tables.results!Ei0FYxbQCi8j2VMz.JZI8hogxBdutPmtG'
-  - _id: hlqkTbwXOLLyMbL5
-    flags: {}
-    type: text
-    text: Defense
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    documentId: null
-    documentCollection: ''
-    _key: '!tables.results!Ei0FYxbQCi8j2VMz.hlqkTbwXOLLyMbL5'
-  - type: pack
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    text: Iconic Spells
-    img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: NFXhok8zAhpKKS35
-    _id: 1qpXpB4pNWS5zTDh
-    flags: {}
-    _key: '!tables.results!Ei0FYxbQCi8j2VMz.1qpXpB4pNWS5zTDh'
-  - type: pack
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    text: Iconic Spells
-    img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: NFXhok8zAhpKKS35
-    _id: IhrIiMt0SrpPiKtQ
-    flags: {}
-    _key: '!tables.results!Ei0FYxbQCi8j2VMz.IhrIiMt0SrpPiKtQ'
-formula: 1d6
-replacement: false
-displayRoll: false
 _id: Ei0FYxbQCi8j2VMz
+_key: '!tables!Ei0FYxbQCi8j2VMz'
+description: ''
+displayRoll: false
+flags: {}
+folder: null
+formula: 1d6
+img: icons/svg/d20-grey.svg
+name: Chaos Mage Spell Determination
 ownership:
   default: 0
-folder: null
+replacement: false
+results:
+- _id: B4eZF9b2pezTNcLF
+  _key: '!tables.results!Ei0FYxbQCi8j2VMz.B4eZF9b2pezTNcLF'
+  description: Attack
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: oEMdEueTvulCJ1Va
+  _key: '!tables.results!Ei0FYxbQCi8j2VMz.oEMdEueTvulCJ1Va'
+  description: Attack
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: JZI8hogxBdutPmtG
+  _key: '!tables.results!Ei0FYxbQCi8j2VMz.JZI8hogxBdutPmtG'
+  description: Defense
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: hlqkTbwXOLLyMbL5
+  _key: '!tables.results!Ei0FYxbQCi8j2VMz.hlqkTbwXOLLyMbL5'
+  description: Defense
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: 1qpXpB4pNWS5zTDh
+  _key: '!tables.results!Ei0FYxbQCi8j2VMz.1qpXpB4pNWS5zTDh'
+  description: ''
+  documentUuid: Compendium.archmage.system-rolltables.RollTable.NFXhok8zAhpKKS35
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-grey.svg
+  name: Iconic Spells
+  range:
+  - 5
+  - 5
+  type: document
+  weight: 1
+- _id: IhrIiMt0SrpPiKtQ
+  _key: '!tables.results!Ei0FYxbQCi8j2VMz.IhrIiMt0SrpPiKtQ'
+  description: ''
+  documentUuid: Compendium.archmage.system-rolltables.RollTable.NFXhok8zAhpKKS35
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-grey.svg
+  name: Iconic Spells
+  range:
+  - 6
+  - 6
+  type: document
+  weight: 1
 sort: 1100000
-_key: '!tables!Ei0FYxbQCi8j2VMz'
-

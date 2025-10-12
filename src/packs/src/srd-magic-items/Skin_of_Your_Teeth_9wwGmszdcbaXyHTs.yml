@@ -1,65 +1,44 @@
-name: Skin of Your Teeth
-type: equipment
+_id: 9wwGmszdcbaXyHTs
+_key: '!items!9wwGmszdcbaXyHTs'
+effects: []
+flags:
+  core: {}
+folder: Fra2TRtKCXKmIFPo
 img: icons/svg/item-bag.svg
+name: Skin of Your Teeth
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 6+) When an enemy attacks you, subtract 1 from the natural
-      attack roll after seeing it.</p>
-
-      <p>Quirk: Regularly finds copper pieces and other minor valuables on the
-      ground.</p>
-  publicationSource: 13TW
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '6'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -67,31 +46,55 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: ring
-effects: []
-folder: Fra2TRtKCXKmIFPo
-flags:
-  core: {}
-_id: 9wwGmszdcbaXyHTs
-sort: 0
-ownership:
-  default: 0
-_key: '!items!9wwGmszdcbaXyHTs'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 6+) When an enemy attacks you, subtract 1 from the natural
+      attack roll after seeing it.</p>
 
+      <p>Quirk: Regularly finds copper pieces and other minor valuables on the ground.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 13TW
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '6'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

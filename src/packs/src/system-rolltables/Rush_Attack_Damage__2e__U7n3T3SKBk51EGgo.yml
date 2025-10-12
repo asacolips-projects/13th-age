@@ -1,0 +1,169 @@
+_id: U7n3T3SKBk51EGgo
+_key: '!tables!U7n3T3SKBk51EGgo'
+description: ''
+displayRoll: false
+flags:
+  core: {}
+folder: null
+formula: '@lvl'
+img: icons/svg/d20-grey.svg
+name: Rush Attack Damage (2e)
+ownership:
+  default: 0
+replacement: true
+results:
+- _id: 9i7Fw131LG66pcw5
+  _key: '!tables.results!U7n3T3SKBk51EGgo.9i7Fw131LG66pcw5'
+  description: <p>+[[/r 1d6]] damage, or +[[/r 2d6]] damage when the E.D. is 2+ and
+    you have the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: NOtpaCU1b0GbGW1T
+  _key: '!tables.results!U7n3T3SKBk51EGgo.NOtpaCU1b0GbGW1T'
+  description: <p>+[[/r 2d4]] damage, or +[[/r 2d8]] damage when the E.D. is 2+ and
+    you have the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: qo16CSmUTBmgCezX
+  _key: '!tables.results!U7n3T3SKBk51EGgo.qo16CSmUTBmgCezX'
+  description: <p>+[[/r 2d6]] damage, or +[[/r 2d10]] damage when the E.D. is 2+ and
+    you have the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: EVE6YA96WghhR6Qa
+  _key: '!tables.results!U7n3T3SKBk51EGgo.EVE6YA96WghhR6Qa'
+  description: <p>+[[/r 2d8]] damage, or +[[/r 4d6]] damage when the E.D. is 2+ and
+    you have the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: 9Q69k3xWJhv9sc47
+  _key: '!tables.results!U7n3T3SKBk51EGgo.9Q69k3xWJhv9sc47'
+  description: <p>+[[/r 2d10]] damage, or +[[/r 4d8]] damage when the E.D. is 2+ and
+    you have the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: YkVE7LF8EFZOL0nd
+  _key: '!tables.results!U7n3T3SKBk51EGgo.YkVE7LF8EFZOL0nd'
+  description: <p>+[[/r 4d6]] damage, or +[[22]] damage when the E.D. is 2+ and you
+    have the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: JQwplMCdh5pv3WdL
+  _key: '!tables.results!U7n3T3SKBk51EGgo.JQwplMCdh5pv3WdL'
+  description: <p>+[[/r 4d8]] damage, or +[[30]] damage when the E.D. is 2+ and you
+    have the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: dFfXaM6DiV5UXJ1D
+  _key: '!tables.results!U7n3T3SKBk51EGgo.dFfXaM6DiV5UXJ1D'
+  description: <p>+[[22]] damage, or +[[40]] damage when the E.D. is 2+ and you have
+    the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: 9Cc3qzN9yU06kh19
+  _key: '!tables.results!U7n3T3SKBk51EGgo.9Cc3qzN9yU06kh19'
+  description: <p>+[[30]] damage, or +[[50]] damage when the E.D. is 2+ and you have
+    the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: DYHcnD9z5JoxKJcC
+  _key: '!tables.results!U7n3T3SKBk51EGgo.DYHcnD9z5JoxKJcC'
+  description: <p>+[[40]] damage, or +[[60]] damage when the E.D. is 2+ and you have
+    the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+- _id: GuIusscTzZV1trsw
+  _key: '!tables.results!U7n3T3SKBk51EGgo.GuIusscTzZV1trsw'
+  description: <p>+[[50]] damage, or +[[80]] damage when the E.D. is 2+ and you have
+    the adventurer feat.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
+sort: 2000000

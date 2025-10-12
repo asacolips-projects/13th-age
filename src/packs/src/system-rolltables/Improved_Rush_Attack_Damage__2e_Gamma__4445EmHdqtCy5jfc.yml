@@ -1,0 +1,135 @@
+_id: 4445EmHdqtCy5jfc
+_key: '!tables!4445EmHdqtCy5jfc'
+description: ''
+displayRoll: false
+flags:
+  core: {}
+folder: null
+formula: '@lvl'
+img: icons/svg/d20-grey.svg
+name: Improved Rush Attack Damage (2e Gamma)
+ownership:
+  default: 0
+replacement: true
+results:
+- _id: NOtpaCU1b0GbGW1T
+  _key: '!tables.results!4445EmHdqtCy5jfc.NOtpaCU1b0GbGW1T'
+  description: +[[1d10]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: qo16CSmUTBmgCezX
+  _key: '!tables.results!4445EmHdqtCy5jfc.qo16CSmUTBmgCezX'
+  description: +[[2d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: EVE6YA96WghhR6Qa
+  _key: '!tables.results!4445EmHdqtCy5jfc.EVE6YA96WghhR6Qa'
+  description: +[[2d8]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: 9Q69k3xWJhv9sc47
+  _key: '!tables.results!4445EmHdqtCy5jfc.9Q69k3xWJhv9sc47'
+  description: +[[2d10]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: YkVE7LF8EFZOL0nd
+  _key: '!tables.results!4445EmHdqtCy5jfc.YkVE7LF8EFZOL0nd'
+  description: +[[4d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: JQwplMCdh5pv3WdL
+  _key: '!tables.results!4445EmHdqtCy5jfc.JQwplMCdh5pv3WdL'
+  description: +[[4d8]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: dFfXaM6DiV5UXJ1D
+  _key: '!tables.results!4445EmHdqtCy5jfc.dFfXaM6DiV5UXJ1D'
+  description: +[[22]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: 9Cc3qzN9yU06kh19
+  _key: '!tables.results!4445EmHdqtCy5jfc.9Cc3qzN9yU06kh19'
+  description: +[[30]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: DYHcnD9z5JoxKJcC
+  _key: '!tables.results!4445EmHdqtCy5jfc.DYHcnD9z5JoxKJcC'
+  description: +[[40]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: GuIusscTzZV1trsw
+  _key: '!tables.results!4445EmHdqtCy5jfc.GuIusscTzZV1trsw'
+  description: +[[50]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+sort: 400000

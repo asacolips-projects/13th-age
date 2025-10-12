@@ -1,10 +1,437 @@
-name: Rakshasa Saint
-type: npc
 _id: 34UHLo4WfqXWPkOk
+_key: '!actors!34UHLo4WfqXWPkOk'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: ukRYWy98sZg41kxb
+  _key: '!actors.items!34UHLo4WfqXWPkOk.ukRYWy98sZg41kxb'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Dreadful claws
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 15]] vs. AC ([[1d3]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[40]] damage and [[40]] ongoing damage'
+    hit1:
+      label: Hit
+      name: Two attacks hit the same target on the same turn
+      type: String
+      value: "The target\u2019s saves against ongoing damage become hard (16+) until\
+        \ the end of the battle."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Qaf6BFnAuGtc4KGA
+  _key: '!actors.items!34UHLo4WfqXWPkOk.Qaf6BFnAuGtc4KGA'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Arrows of radiance'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 15]] vs. MD ([[1d3]] nearby enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[40]] force damage, and target is *stuck*'
+    hit1:
+      label: Hit
+      name: Aftereffect
+      type: String
+      value: Enemies who are no longer stuck take [[40]] ongoing force damage.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: gnCPMHbB9hFrnMi8
+  _key: '!actors.items!34UHLo4WfqXWPkOk.gnCPMHbB9hFrnMi8'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Faked miracle, real magic
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Once per battle the rakshasa does something miraculous. Of course
+        the &lsquo;miracle&rsquo; is artful illusion together with some cleverly used
+        basic spells, but all who witness it must save (11+) or become *confused*
+        until the end of the rakshasa&rsquo;s next turn.</p>
+
+        <p><em>Aftereffect</em>: Enemies who are no longer confused become *hampered*
+        (save ends).</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: vGILpDANSH0upz1W
+  _key: '!actors.items!34UHLo4WfqXWPkOk.vGILpDANSH0upz1W'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Commanding presence
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The rakshasa saint can use a quick action to command [[1d3]] confused
+        enemies to move as a free action, or take another non-attack action (drop
+        a weapon, destroy a potion, unlock a door) as a free action.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: fLPtH9ETff3cPEnN
+  _key: '!actors.items!34UHLo4WfqXWPkOk.fLPtH9ETff3cPEnN'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Shapechange
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>As a standard action, the rakshasa can change its form to that of
+        any humanoid, or back to its own shape. Seeing through the shapechange requires
+        a DC 25 skill check.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 9I0mlm6TQf9kOIfe
+  _key: '!actors.items!34UHLo4WfqXWPkOk.9I0mlm6TQf9kOIfe'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Real miracles?
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The rakshasa has a real link to the divine (or maybe it&rsquo;s actually
+        a link to the infernal realms, or a bargain with the chaos of the outer dark).
+        Twice per battle as a free action the rakshasa can cause itself or a nearby
+        ally to heal an amount equal to half that creature&rsquo;s maximum hit points.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: Ff5PKJZbGelDk8xm
+  _key: '!actors.items!34UHLo4WfqXWPkOk.Ff5PKJZbGelDk8xm'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Lockheart
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>The first time a rakshasa is dropped to 0 hit points, it dies but
+        will definitely be reborn, even if the PCs attempt to use an icon die result
+        to prevent the resurrection. A PC who scores a critical hit against the rakshasa
+        can attempt to nullify lockheart by choosing to ignore all other effects of
+        the critical hit (all damage, not just the doubling) and attempting a normal
+        save. If the save succeeds, lockheart is ignored this battle. If the save
+        fails, lockheart is still in effect. A rakshasa can only use lockheart once
+        in its lifetime.</p>
+
+        <p>Alternatively, instead of rolling saves, the PCs could go on a quest to
+        find the lockheart&rsquo;s key before confronting the rakshasa! That&rsquo;s
+        a story angle you get to manipulate as you choose.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: RYbnEJpxspVhN5Ve
+  _key: '!actors.items!34UHLo4WfqXWPkOk.RYbnEJpxspVhN5Ve'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Backwards palms
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>When staggered, the rakshasa&rsquo;s hands shapeshift so that its
+        palms trade places with the backs of its hands. It not only looks extremely
+        weird, it also presents the player characters with an odd choice: The next
+        time the escalation die would advance, the PCs have to choose whether the
+        escalation die will decrease by 1 (minimum 0) or whether this rakshasa gets
+        to use the escalation die until the end of the battle. If the PC group is
+        split, the decision goes to the character with the highest initiative.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Rakshasa Saint
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Rakshasa Saint
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 25
     attackMod:
       type: Number
       value: 0
@@ -15,562 +442,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 25
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 22
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 24
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 480
-      min: 0
-      max: 480
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 16
-    level:
-      type: Number
-      label: Level
-      value: 10
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 480
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 480
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 16
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 10
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 24
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 22
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: caster
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: holy
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Rakshasa Saint
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Dreadful claws
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 15]] vs. AC ([[1d3]] attacks)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[40]] damage and [[40]] ongoing damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Two attacks hit the same target on the same turn
-        value: >-
-          The target’s saves against ongoing damage become hard (16+) until the
-          end of the battle.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: ukRYWy98sZg41kxb
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!34UHLo4WfqXWPkOk.ukRYWy98sZg41kxb'
-  - name: 'R: Arrows of radiance'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 15]] vs. MD ([[1d3]] nearby enemies)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[40]] force damage, and target is *stuck*'
-      hit1:
-        type: String
-        label: Hit
-        name: Aftereffect
-        value: Enemies who are no longer stuck take [[40]] ongoing force damage.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: Qaf6BFnAuGtc4KGA
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!34UHLo4WfqXWPkOk.Qaf6BFnAuGtc4KGA'
-  - name: Faked miracle, real magic
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per battle the rakshasa does something miraculous. Of course
-          the &lsquo;miracle&rsquo; is artful illusion together with some
-          cleverly used basic spells, but all who witness it must save (11+) or
-          become *confused* until the end of the rakshasa&rsquo;s next turn.</p>
-
-          <p><em>Aftereffect</em>: Enemies who are no longer confused become
-          *hampered* (save ends).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: gnCPMHbB9hFrnMi8
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!34UHLo4WfqXWPkOk.gnCPMHbB9hFrnMi8'
-  - name: Commanding presence
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The rakshasa saint can use a quick action to command [[1d3]]
-          confused enemies to move as a free action, or take another non-attack
-          action (drop a weapon, destroy a potion, unlock a door) as a free
-          action.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: vGILpDANSH0upz1W
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!34UHLo4WfqXWPkOk.vGILpDANSH0upz1W'
-  - name: Shapechange
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>As a standard action, the rakshasa can change its form to that of
-          any humanoid, or back to its own shape. Seeing through the shapechange
-          requires a DC 25 skill check.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: fLPtH9ETff3cPEnN
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!34UHLo4WfqXWPkOk.fLPtH9ETff3cPEnN'
-  - name: Real miracles?
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The rakshasa has a real link to the divine (or maybe it&rsquo;s
-          actually a link to the infernal realms, or a bargain with the chaos of
-          the outer dark). Twice per battle as a free action the rakshasa can
-          cause itself or a nearby ally to heal an amount equal to half that
-          creature&rsquo;s maximum hit points.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 9I0mlm6TQf9kOIfe
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!34UHLo4WfqXWPkOk.9I0mlm6TQf9kOIfe'
-  - name: Lockheart
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The first time a rakshasa is dropped to 0 hit points, it dies but
-          will definitely be reborn, even if the PCs attempt to use an icon die
-          result to prevent the resurrection. A PC who scores a critical hit
-          against the rakshasa can attempt to nullify lockheart by choosing to
-          ignore all other effects of the critical hit (all damage, not just the
-          doubling) and attempting a normal save. If the save succeeds,
-          lockheart is ignored this battle. If the save fails, lockheart is
-          still in effect. A rakshasa can only use lockheart once in its
-          lifetime.</p>
-
-          <p>Alternatively, instead of rolling saves, the PCs could go on a
-          quest to find the lockheart&rsquo;s key before confronting the
-          rakshasa! That&rsquo;s a story angle you get to manipulate as you
-          choose.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Ff5PKJZbGelDk8xm
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.wXl59oIutrrYcWP5
-    _key: '!actors.items!34UHLo4WfqXWPkOk.Ff5PKJZbGelDk8xm'
-  - name: Backwards palms
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When staggered, the rakshasa&rsquo;s hands shapeshift so that its
-          palms trade places with the backs of its hands. It not only looks
-          extremely weird, it also presents the player characters with an odd
-          choice: The next time the escalation die would advance, the PCs have
-          to choose whether the escalation die will decrease by 1 (minimum 0) or
-          whether this rakshasa gets to use the escalation die until the end of
-          the battle. If the PC group is split, the decision goes to the
-          character with the highest initiative.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: RYbnEJpxspVhN5Ve
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.ZmPEgSOjUDCmo9l7
-    _key: '!actors.items!34UHLo4WfqXWPkOk.RYbnEJpxspVhN5Ve'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!34UHLo4WfqXWPkOk'
-
+        enabled: false
+type: npc

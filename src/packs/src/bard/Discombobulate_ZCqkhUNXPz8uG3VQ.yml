@@ -1,215 +1,223 @@
+_id: ZCqkhUNXPz8uG3VQ
+_key: '!items!ZCqkhUNXPz8uG3VQ'
+effects: []
+flags: {}
+folder: null
+img: icons/magic/control/hypnosis-mesmerism-swirl.webp
 name: Discombobulate
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Bard
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Discombobulate
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: '5'
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: null
-  target:
-    type: String
-    label: Target
-    value: One nearby creature with 100 hp or fewer
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs. MD'
-  hit:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Hit
-    value: The target is *confused* until it rolls two successful saves.
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: The target is *dazed* until the end of your next turn.
-  missEven:
-    type: String
-    label: Even Miss
     value: null
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: null
-  resources:
-    type: String
-    label: Resources
-    value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: null
   castPower:
-    type: String
     label: Cast for Power
-    value: null
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: null
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
-    value: null
-  special:
+    value: ''
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
-    value: ''
-  spellLevel2:
-    hide: true
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 3rd Level Spell
+    value: ''
+  feats: null
+  finalVerse:
+    label: Final Verse
+    type: String
     value: null
-  spellLevel4:
-    hide: true
+  group:
+    label: Group
     type: String
-    label: 4th Level Spell
     value: ''
-  spellLevel5:
-    hide: true
+  hit:
+    label: Hit
     type: String
-    label: 5th Level Spell
+    value: The target is *confused* until it rolls two successful saves.
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: The target is *dazed* until the end of your next turn.
+  missEven:
+    label: Even Miss
+    type: String
     value: null
-  spellLevel6:
-    hide: true
+  missOdd:
+    label: Odd Miss
     type: String
-    label: 6th Level Spell
+    value: null
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: '5'
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Discombobulate
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Bard
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
     value: ''
-  spellLevel7:
-    hide: true
+  rollTable:
+    label: Roll Table
     type: String
-    label: 7th Level Spell
-    value: Target with 140 hp or fewer.
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
     value: ''
-  spellLevel9:
-    hide: true
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
     type: String
-    label: 9th Level Spell
-    value: Target with 240 hp or fewer.
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: null
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
+    type: String
     value: ''
-  spellChain:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Chain Spell
-    value: null
-  breathWeapon:
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
     type: String
-    label: Breath Weapon
     value: null
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: null
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: Target with 140 hp or fewer.
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: Target with 240 hp or fewer.
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
-    value: ''
-  feats: null
-flags: {}
-img: icons/magic/control/hypnosis-mesmerism-swirl.webp
-_id: ZCqkhUNXPz8uG3VQ
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!ZCqkhUNXPz8uG3VQ'
-
+    value: null
+  target:
+    label: Target
+    type: String
+    value: One nearby creature with 100 hp or fewer
+  trigger:
+    label: Trigger
+    type: String
+    value: null
+type: power

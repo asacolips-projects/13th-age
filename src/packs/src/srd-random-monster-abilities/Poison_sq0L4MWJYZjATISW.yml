@@ -1,31 +1,28 @@
-name: Poison
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The dire animal&rsquo;s main attack also deals 5 ongoing poison damage
-      per tier (5 ongoing poison at levels 1&ndash;4, 10 at 5&ndash;7,
-      etc.).</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: sq0L4MWJYZjATISW
+_key: '!items!sq0L4MWJYZjATISW'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Poison
 ownership:
   default: 0
-_id: sq0L4MWJYZjATISW
-_key: '!items!sq0L4MWJYZjATISW'
-
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>The dire animal&rsquo;s main attack also deals 5 ongoing poison damage
+      per tier (5 ongoing poison at levels 1&ndash;4, 10 at 5&ndash;7, etc.).</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

@@ -1,99 +1,92 @@
-name: Attacking Warp
-flags:
-  core:
-    sourceId: RollTable.AMxFCU82S7WGM44U
-img: icons/svg/d20-grey.svg
-description: ''
-results:
-  - _id: NniTrYCFEwsdIshA
-    flags: {}
-    type: text
-    text: 'Air: You gain flight until the end of your next turn.'
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    documentId: null
-    _key: '!tables.results!xtyWhbxF5H2o3F26.NniTrYCFEwsdIshA'
-  - _id: s1IhK8XsDjlsmRRX
-    flags: {}
-    type: text
-    text: >-
-      Earth: Until the end of your next turn, each enemy that misses you with a
-      melee attack is *stuck* until the end of its next turn.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    documentId: null
-    _key: '!tables.results!xtyWhbxF5H2o3F26.s1IhK8XsDjlsmRRX'
-  - _id: e3Nz9VBOmrlrPED7
-    flags: {}
-    type: text
-    text: >-
-      Fire: Until the end of your next turn, you can pop free from staggered
-      enemies as a quick action.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    documentId: null
-    _key: '!tables.results!xtyWhbxF5H2o3F26.e3Nz9VBOmrlrPED7'
-  - _id: iJTdGfcZIJJsOWEM
-    flags: {}
-    type: text
-    text: >-
-      Water: You gain a [[@dex.mod]] bonus to disengage checks until the end of
-      your next turn
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    documentId: null
-    _key: '!tables.results!xtyWhbxF5H2o3F26.iJTdGfcZIJJsOWEM'
-  - _id: Sf27m1Fg1L8Kjjso
-    flags: {}
-    type: text
-    text: >-
-      Metal: Until the end of your next turn, when an enemy disengages from you,
-      it takes [[@dex.dmg]] damage.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    documentId: null
-    _key: '!tables.results!xtyWhbxF5H2o3F26.Sf27m1Fg1L8Kjjso'
-  - _id: 1XbQGghqSzOnCkxC
-    flags: {}
-    type: text
-    text: >-
-      Void: During your next turn, you can use a move action to teleport to a
-      nearby location you can see.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    documentId: null
-    _key: '!tables.results!xtyWhbxF5H2o3F26.1XbQGghqSzOnCkxC'
-formula: 1d6
-replacement: true
-displayRoll: false
 _id: xtyWhbxF5H2o3F26
+_key: '!tables!xtyWhbxF5H2o3F26'
+description: ''
+displayRoll: false
+flags:
+  core: {}
+folder: null
+formula: 1d6
+img: icons/svg/d20-grey.svg
+name: Attacking Warp
 ownership:
   default: 0
-folder: null
+replacement: true
+results:
+- _id: NniTrYCFEwsdIshA
+  _key: '!tables.results!xtyWhbxF5H2o3F26.NniTrYCFEwsdIshA'
+  description: 'Air: You gain flight until the end of your next turn.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: s1IhK8XsDjlsmRRX
+  _key: '!tables.results!xtyWhbxF5H2o3F26.s1IhK8XsDjlsmRRX'
+  description: 'Earth: Until the end of your next turn, each enemy that misses you
+    with a melee attack is *stuck* until the end of its next turn.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: e3Nz9VBOmrlrPED7
+  _key: '!tables.results!xtyWhbxF5H2o3F26.e3Nz9VBOmrlrPED7'
+  description: 'Fire: Until the end of your next turn, you can pop free from staggered
+    enemies as a quick action.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: iJTdGfcZIJJsOWEM
+  _key: '!tables.results!xtyWhbxF5H2o3F26.iJTdGfcZIJJsOWEM'
+  description: 'Water: You gain a [[@dex.mod]] bonus to disengage checks until the
+    end of your next turn'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: Sf27m1Fg1L8Kjjso
+  _key: '!tables.results!xtyWhbxF5H2o3F26.Sf27m1Fg1L8Kjjso'
+  description: 'Metal: Until the end of your next turn, when an enemy disengages from
+    you, it takes [[@dex.dmg]] damage.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: 1XbQGghqSzOnCkxC
+  _key: '!tables.results!xtyWhbxF5H2o3F26.1XbQGghqSzOnCkxC'
+  description: 'Void: During your next turn, you can use a move action to teleport
+    to a nearby location you can see.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
 sort: 2800000
-_key: '!tables!xtyWhbxF5H2o3F26'
-

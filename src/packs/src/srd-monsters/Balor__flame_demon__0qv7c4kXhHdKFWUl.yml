@@ -1,10 +1,374 @@
 _id: 0qv7c4kXhHdKFWUl
-name: Balor (flame demon)
-type: npc
+_key: '!actors!0qv7c4kXhHdKFWUl'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
+items:
+- _id: iBzBX7aZPTYxJb4Y
+  _key: '!actors.items!0qv7c4kXhHdKFWUl.iBzBX7aZPTYxJb4Y'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Abyssal blade
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 18]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[160]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: ''
+      value: "The balor deals +[[1d20]] lightning damage to the target and to one\
+        \ other nearby enemy of balor\u2019s choice. Then repeat that damage roll\
+        \ against the targets once for each point on the escalation die (so if it\u2019\
+        s 4, that\u2019s four more [[d20]] rolls)"
+    hit2:
+      label: Hit
+      name: Natural even miss
+      type: ''
+      value: '[[80]] damage.'
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 97vHN5HPyK9Yz1p4
+  _key: '!actors.items!0qv7c4kXhHdKFWUl.97vHN5HPyK9Yz1p4'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'C: Flaming whip'
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 18]] vs. PD ([[1]] nearby enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: 'Limited use: 1/round, as a quick action.'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[50]] fire damage, and the target is pulled to the balor, who engages
+        it.'
+    hit1:
+      label: Hit
+      name: Natural even miss
+      type: ''
+      value: '[[25]] fire damage.'
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: t0Kujn8emq2zXXhK
+  _key: '!actors.items!0qv7c4kXhHdKFWUl.t0Kujn8emq2zXXhK'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Desperate escalator
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: While staggered, the balor adds the escalation die to its attack rolls.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: inAh5u3imo4DL5aH
+  _key: '!actors.items!0qv7c4kXhHdKFWUl.inAh5u3imo4DL5aH'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Fiery aura
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "At the start of the balor\u2019s turn, each enemy engaged with it takes\
+        \ [[4d10]] fire damage; any die result of 10 is kept and the die rerolled."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: VrpD9w5b3ZlxPsVM
+  _key: '!actors.items!0qv7c4kXhHdKFWUl.VrpD9w5b3ZlxPsVM'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Flight
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 2psRY6TEvvtCOI5W
+  _key: '!actors.items!0qv7c4kXhHdKFWUl.2psRY6TEvvtCOI5W'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Shadow and flame
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The balor gains a +5 bonus to all defenses against attacks by far away
+        enemies.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: TdmReDpo71gcyV0d
+  _key: '!actors.items!0qv7c4kXhHdKFWUl.TdmReDpo71gcyV0d'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Vorpal blade
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Critical hits with the abyssal blade deal triple damage instead of double
+        damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Balor (flame demon)
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Balor (flame demon)
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/demon.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
-  publicationSource: 1e
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 29
     attackMod:
       type: Number
       value: 0
@@ -15,496 +379,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 29
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 27
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 23
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 850
-      min: 0
-      max: 850
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 17
-      mod: 17
-    level:
-      type: Number
-      label: Level
-      value: 13
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 850
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 850
+    init:
+      label: Initiative Modifier
+      mod: 17
+      type: Number
+      value: 17
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 13
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 23
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 27
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 13
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: wrecker
-      type: String
       label: Role
-    size:
-      value: large
       type: String
+      value: wrecker
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
-      value: demon
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: demon
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 13
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: 1e
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: iBzBX7aZPTYxJb4Y
-    flags: {}
-    name: Abyssal blade
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 18]] vs. AC'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[160]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit
-        value: >-
-          The balor deals +[[1d20]] lightning damage to the target and to one
-          other nearby enemy of balor’s choice. Then repeat that damage roll
-          against the targets once for each point on the escalation die (so if
-          it’s 4, that’s four more [[d20]] rolls)
-      hit2:
-        type: ''
-        label: Hit
-        name: Natural even miss
-        value: '[[80]] damage.'
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!0qv7c4kXhHdKFWUl.iBzBX7aZPTYxJb4Y'
-  - _id: 97vHN5HPyK9Yz1p4
-    flags: {}
-    name: 'C: Flaming whip'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: 'Limited use: 1/round, as a quick action.'
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 18]] vs. PD ([[1]] nearby enemy)'
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          [[50]] fire damage, and the target is pulled to the balor, who engages
-          it.
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even miss
-        value: '[[25]] fire damage.'
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!0qv7c4kXhHdKFWUl.97vHN5HPyK9Yz1p4'
-  - _id: t0Kujn8emq2zXXhK
-    flags: {}
-    name: Desperate escalator
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          While staggered, the balor adds the escalation die to its attack
-          rolls.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!0qv7c4kXhHdKFWUl.t0Kujn8emq2zXXhK'
-  - _id: inAh5u3imo4DL5aH
-    flags: {}
-    name: Fiery aura
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          At the start of the balor’s turn, each enemy engaged with it takes
-          [[4d10]] fire damage; any die result of 10 is kept and the die
-          rerolled.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!0qv7c4kXhHdKFWUl.inAh5u3imo4DL5aH'
-  - _id: VrpD9w5b3ZlxPsVM
-    flags: {}
-    name: Flight
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: Flight
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!0qv7c4kXhHdKFWUl.VrpD9w5b3ZlxPsVM'
-  - _id: 2psRY6TEvvtCOI5W
-    flags: {}
-    name: Shadow and flame
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The balor gains a +5 bonus to all defenses against attacks by far away
-          enemies.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!0qv7c4kXhHdKFWUl.2psRY6TEvvtCOI5W'
-  - _id: TdmReDpo71gcyV0d
-    flags: {}
-    name: Vorpal blade
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Critical hits with the abyssal blade deal triple damage instead of
-          double damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!0qv7c4kXhHdKFWUl.TdmReDpo71gcyV0d'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Balor (flame demon)
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/demon.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 1
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!0qv7c4kXhHdKFWUl'
-
+        enabled: false
+type: npc

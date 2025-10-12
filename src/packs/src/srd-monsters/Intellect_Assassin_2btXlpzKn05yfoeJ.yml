@@ -1,10 +1,438 @@
 _id: 2btXlpzKn05yfoeJ
-name: Intellect Assassin
-type: npc
+_key: '!actors!2btXlpzKn05yfoeJ'
+effects: []
+flags: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+items:
+- _id: eZhkyxVtlC7LeYXi
+  _key: '!actors.items!2btXlpzKn05yfoeJ.eZhkyxVtlC7LeYXi'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Formless fist
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. PD ([[1]] enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: '<p>Quick use: The assassin can take [[15]] damage to make this attack
+        as a quick action (one per round).</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[25]] damage; OR if the target is fighting a psychic duel (see below),
+        it can choose to take a -4 to penalty to its next check instead.'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: W4rrmiFt6by0DrDq
+  _key: '!actors.items!2btXlpzKn05yfoeJ.W4rrmiFt6by0DrDq'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: insidious domination'
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. MD ([[1]] enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[14]] damage, and the opponent is locked in a psychic duel with the
+        assassin (see below)'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: B41vUj2ADQNbiAAG
+  _key: '!actors.items!2btXlpzKn05yfoeJ.B41vUj2ADQNbiAAG'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Mind thrust'
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs. MD ([[1]] *confused* enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[35]] damage (but onlye [[50]] damage on a crit)'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Pgn9cNT9iYvJ6jTn
+  _key: '!actors.items!2btXlpzKn05yfoeJ.Pgn9cNT9iYvJ6jTn'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Exploit trauma
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>An intellect assassin&rsquo;s crit range with attacks against MD expands
+        by 2.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 3BQDUSdUKY627Svi
+  _key: '!actors.items!2btXlpzKn05yfoeJ.3BQDUSdUKY627Svi'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Lost opportunity
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This creature can&rsquo;t make opportunity attacks.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: HLXaviAnRWkBhrgM
+  _key: '!actors.items!2btXlpzKn05yfoeJ.HLXaviAnRWkBhrgM'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Psychovore
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>An intellect devourer remembers the current escalation die value the
+        first time it becomes unhosted in a battle and gains a bonus equal to that
+        value to all attacks and defenses until the end of the battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: w5A9xKfp5LjvNTNe
+  _key: '!actors.items!2btXlpzKn05yfoeJ.w5A9xKfp5LjvNTNe'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Psychic duel
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>A psychic duel occurs when the intellect assassin hits with an&nbsp;insidious
+        domination&nbsp;attack against a creature. At the start of the creature&rsquo;s
+        next turn, it must make an Intelligence skill check and can use a background
+        that applies to psychic ability (if any). The result of this check determines
+        that creature&rsquo;s status until the start of its next turn. To maintain
+        the psychic duel, the assassin must spend a move action each turn.</p><p>Psychic
+        Duel Result: Status</p><ul><li>15 or less: The creature is *confused* until
+        the end of its turn. It also can&rsquo;t make opportunity attacks until the
+        start of its next turn and takes a &ndash;2 penalty to its next&nbsp;psychic
+        duel&nbsp;check.</li><li>16&ndash;22: The creature is pressured&mdash;it takes
+        a &ndash;2 penalty to attacks against any enemy except the assassin (dueling
+        opponent).</li><li>23&ndash;27: The creature steadies itself and can use a
+        move action this turn to escape the&nbsp;psychic duel. If the creature chooses
+        not to (or can&rsquo;t) escape the duel, it gains a +2 bonus to its next&nbsp;psychic
+        duel&nbsp;check.</li><li>28+: As 23&ndash;27, but the creature takes advantage
+        and gains a +4 bonus to its next&nbsp;psychic duel&nbsp;check instead of +2.
+        In addition, the assassin takes a &ndash;2 penalty to attack rolls that target
+        other creatures.</li></ul>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Intellect Assassin
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Intellect Assassin
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 22
     attackMod:
       type: Number
       value: 0
@@ -15,557 +443,167 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 22
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 16
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 20
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 90
-      min: 0
-      max: 90
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 9
-      mod: 9
-    level:
-      type: Number
-      label: Level
-      value: 6
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      base: 8
-      automatic: true
     escalation:
       value: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 90
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 90
+    init:
+      label: Initiative Modifier
+      mod: 9
+      type: Number
+      value: 9
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 6
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 20
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 16
+    saves:
+      automatic: true
+      base: 8
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 6
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: blocker
-      type: String
       label: Role
-    size:
-      value: normal
       type: String
+      value: blocker
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
-      value: aberration
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: aberration
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 6
-      min: 0
-      max: 10
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: eZhkyxVtlC7LeYXi
-    flags: {}
-    name: Formless fist
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Quick use: The assassin can take [[15]] damage to make this attack
-          as a quick action (one per round).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. PD ([[1]] enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[25]] damage; OR if the target is fighting a psychic duel (see
-          below), it can choose to take a -4 to penalty to its next check
-          instead.
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!2btXlpzKn05yfoeJ.eZhkyxVtlC7LeYXi'
-  - _id: W4rrmiFt6by0DrDq
-    flags: {}
-    name: 'C: insidious domination'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. MD ([[1]] enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[14]] damage, and the opponent is locked in a psychic duel with the
-          assassin (see below)
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!2btXlpzKn05yfoeJ.W4rrmiFt6by0DrDq'
-  - _id: B41vUj2ADQNbiAAG
-    flags: {}
-    name: 'C: Mind thrust'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. MD ([[1]] *confused* enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[35]] damage (but onlye [[50]] damage on a crit)'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!2btXlpzKn05yfoeJ.B41vUj2ADQNbiAAG'
-  - _id: Pgn9cNT9iYvJ6jTn
-    flags: {}
-    name: Exploit trauma
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>An intellect assassin&rsquo;s crit range with attacks against MD
-          expands by 2.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!2btXlpzKn05yfoeJ.Pgn9cNT9iYvJ6jTn'
-  - _id: 3BQDUSdUKY627Svi
-    flags: {}
-    name: Lost opportunity
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>This creature can&rsquo;t make opportunity attacks.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!2btXlpzKn05yfoeJ.3BQDUSdUKY627Svi'
-  - _id: HLXaviAnRWkBhrgM
-    flags: {}
-    name: Psychovore
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>An intellect devourer remembers the current escalation die value
-          the first time it becomes unhosted in a battle and gains a bonus equal
-          to that value to all attacks and defenses until the end of the
-          battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!2btXlpzKn05yfoeJ.HLXaviAnRWkBhrgM'
-  - _id: w5A9xKfp5LjvNTNe
-    flags: {}
-    name: Psychic duel
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>A psychic duel occurs when the intellect assassin hits with
-          an&nbsp;insidious domination&nbsp;attack against a creature. At the
-          start of the creature&rsquo;s next turn, it must make an Intelligence
-          skill check and can use a background that applies to psychic ability
-          (if any). The result of this check determines that creature&rsquo;s
-          status until the start of its next turn. To maintain the psychic duel,
-          the assassin must spend a move action each turn.</p><p>Psychic Duel
-          Result: Status</p><ul><li>15 or less: The creature is *confused* until
-          the end of its turn. It also can&rsquo;t make opportunity attacks
-          until the start of its next turn and takes a &ndash;2 penalty to its
-          next&nbsp;psychic duel&nbsp;check.</li><li>16&ndash;22: The creature
-          is pressured&mdash;it takes a &ndash;2 penalty to attacks against any
-          enemy except the assassin (dueling opponent).</li><li>23&ndash;27: The
-          creature steadies itself and can use a move action this turn to escape
-          the&nbsp;psychic duel. If the creature chooses not to (or can&rsquo;t)
-          escape the duel, it gains a +2 bonus to its next&nbsp;psychic
-          duel&nbsp;check.</li><li>28+: As 23&ndash;27, but the creature takes
-          advantage and gains a +4 bonus to its next&nbsp;psychic
-          duel&nbsp;check instead of +2. In addition, the assassin takes a
-          &ndash;2 penalty to attack rolls that target other
-          creatures.</li></ul>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!2btXlpzKn05yfoeJ.w5A9xKfp5LjvNTNe'
-effects: []
-folder: null
-sort: 100001
-flags: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Intellect Assassin
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!2btXlpzKn05yfoeJ'
-
+        enabled: false
+type: npc

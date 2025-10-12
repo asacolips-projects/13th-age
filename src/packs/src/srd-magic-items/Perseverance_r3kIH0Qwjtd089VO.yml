@@ -1,67 +1,44 @@
-name: Perseverance
-type: equipment
+_id: r3kIH0Qwjtd089VO
+_key: '!items!r3kIH0Qwjtd089VO'
+effects: []
+flags:
+  core: {}
+folder: xyEGAhEbvQAYa3A6
 img: icons/svg/item-bag.svg
+name: Perseverance
+ownership:
+  default: 0
+sort: 400000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Quick action &ndash; daily) If you are staggered, you regain an
-      expended power as if you had taken a quick rest. You automatically regain
-      a once-per-battle power, but a recharge power requires a successful
-      recharge roll. You can regain a racial power, class power, or magic item
-      power this way.</p>
-
-      <p>Quirk: Repeats stories over and over.</p>
-  publicationSource: 13TW
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 1
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
-      bonus: 1
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
+      bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -69,31 +46,57 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: armor
-effects: []
-folder: xyEGAhEbvQAYa3A6
-flags:
-  core: {}
-_id: r3kIH0Qwjtd089VO
-sort: 400000
-ownership:
-  default: 0
-_key: '!items!r3kIH0Qwjtd089VO'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Quick action &ndash; daily) If you are staggered, you regain an expended
+      power as if you had taken a quick rest. You automatically regain a once-per-battle
+      power, but a recharge power requires a successful recharge roll. You can regain
+      a racial power, class power, or magic item power this way.</p>
 
+      <p>Quirk: Repeats stories over and over.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 13TW
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

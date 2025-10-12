@@ -1,73 +1,44 @@
-name: Lore Bottle
-type: equipment
+_id: 6J5t2Kehv3gHDbZr
+_key: '!items!6J5t2Kehv3gHDbZr'
+effects: []
+flags:
+  core: {}
+folder: GoCSFhQquIjGx2h1
 img: icons/svg/item-bag.svg
+name: Lore Bottle
+ownership:
+  default: 0
+sort: 300000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>A bottle of translucent glass, sealed with lead, with a ghastly face
-      that peers out at you. When you ask it questions, it answers in the form
-      of vague hunches. For tough questions, the face might fade out for a
-      while, apparently searching somewhere for an answer. Owning the bottle
-      gives you +2 bonus to Intelligence-based skill checks, if you have the
-      time (and privacy) to consult the lore bottle. Chances are, your
-      particular lore bottle has some sort of specialty or bias, which you will
-      discover only through use. Unlike most magic items, lore bottles can often
-      be found for sale, but you probably don&rsquo;t want those.</p>
-
-      <p>Quirk: The connection formed with the face in the bottle can be
-      compelling and unsettling, as the spirit literally &ldquo;gets in your
-      head.&rdquo; Each bottle has a different effect on its owner.</p>
-  publicationSource: 1e
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -75,31 +46,63 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: wondrous
-effects: []
-folder: GoCSFhQquIjGx2h1
-flags:
-  core: {}
-_id: 6J5t2Kehv3gHDbZr
-sort: 300000
-ownership:
-  default: 0
-_key: '!items!6J5t2Kehv3gHDbZr'
+  description:
+    label: Description
+    type: String
+    value: '<p>A bottle of translucent glass, sealed with lead, with a ghastly face
+      that peers out at you. When you ask it questions, it answers in the form of
+      vague hunches. For tough questions, the face might fade out for a while, apparently
+      searching somewhere for an answer. Owning the bottle gives you +2 bonus to Intelligence-based
+      skill checks, if you have the time (and privacy) to consult the lore bottle.
+      Chances are, your particular lore bottle has some sort of specialty or bias,
+      which you will discover only through use. Unlike most magic items, lore bottles
+      can often be found for sale, but you probably don&rsquo;t want those.</p>
 
+      <p>Quirk: The connection formed with the face in the bottle can be compelling
+      and unsettling, as the spirit literally &ldquo;gets in your head.&rdquo; Each
+      bottle has a different effect on its owner.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

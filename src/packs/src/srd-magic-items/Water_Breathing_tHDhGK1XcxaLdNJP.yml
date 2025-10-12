@@ -1,65 +1,44 @@
-name: Water Breathing
-type: equipment
+_id: tHDhGK1XcxaLdNJP
+_key: '!items!tHDhGK1XcxaLdNJP'
+effects: []
+flags:
+  core: {}
+folder: IBGzYvealgID1OwQ
 img: icons/svg/item-bag.svg
+name: Water Breathing
+ownership:
+  default: 0
+sort: 100000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 6+) This band of aquamarine and pearls enables you to breathe
-      water for a short time, usually about five minutes. The effect wears off
-      slowly, so you&rsquo;ll have warning to get to the surface.</p>
-
-      <p>Quirk: Hiccups in stressful situations.</p>
-  publicationSource: 1e
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '6'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 1
-      threshold: 10
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -67,31 +46,56 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 1
+      threshold: 10
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: necklace
-effects: []
-folder: IBGzYvealgID1OwQ
-flags:
-  core: {}
-_id: tHDhGK1XcxaLdNJP
-sort: 100000
-ownership:
-  default: 0
-_key: '!items!tHDhGK1XcxaLdNJP'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 6+) This band of aquamarine and pearls enables you to breathe
+      water for a short time, usually about five minutes. The effect wears off slowly,
+      so you&rsquo;ll have warning to get to the surface.</p>
 
+      <p>Quirk: Hiccups in stressful situations.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '6'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

@@ -1,301 +1,300 @@
+_id: f9Oa0jooQRgk5gv1
+_key: '!items!f9Oa0jooQRgk5gv1'
+effects: []
+flags: {}
+folder: null
+img: icons/weapons/sickles/sickle-wrapped-engraved-green.webp
 name: Warrior Druid
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: ''
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: Warrior Druid
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Druid
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Warrior Druid
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
-    value: ''
-  range:
     type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
     value: ''
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  hit:
     type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
-  special:
-    type: String
-    label: Special
-    value: ''
-  effect:
-    type: String
-    label: Effect
-    value: >-
-      <p>Choose this talent if you want to fight well in melee with your normal
-      weapons and armor.</p><p>Spending a single talent on Warrior Druid lets
-      you choose <em>one</em> of the three following benefits:</p><ul><li>Your
-      AC in light armor is 12 instead of 10 like most other druids.</li><li>You
-      don&rsquo;t take opportunity attacks from enemies engaged with you when
-      you cast ranged druid spells.</li><li>Your base hit points are 7 + CON mod
-      instead of 6 + CON mod.</li></ul><p>If you use two talents to become a
-      Warrior Druid adept, choose <em>three</em> of the following
-      benefits:</p><ul><li>Your base hit points are 7 + CON mod instead of 6 +
-      CON mod.</li><li>Your AC in light armor is 12 instead of 10 like most
-      other druids.</li><li>You don&rsquo;t take opportunity attacks from
-      enemies engaged with you when you cast ranged druid spells.</li><li>You
-      can use one-handed 1d8 martial weapons without taking the &ndash;2 attack
-      penalty that other druids suffer.</li><li>You can use a shield (in human
-      form) without taking an attack penalty like other druids.</li></ul><p>Like
-      the fighter class, you gain access to flexible attacks when you make basic
-      melee attacks during your turn. Roll your attack, then choose one of the
-      flexible attacks you know that can be triggered by your natural attack
-      roll. Unlike the fighter, you can usually use each of your flexible
-      attacks only once per battle.</p><p>If you&rsquo;re also a Shifter
-      initiate, you can use your Warrior Druid flexible attacks while in beast
-      form, but only with your first beast form attack roll each turn. Adepts
-      can use them freely.</p> <h3><b>Warrior Druid Initiate Level
-      Progression</b></h2> <table> <thead> <tr> <th>Druid Level</th> <th>Daily
-      Spells</th> </tr> </thead> <tbody> <tr> <td>Level 1 Multiclass</td>
-      <td>1</td> </tr> <tr> <td>Level 1</td> <td>1</td> </tr> <tr> <td>Level
-      2</td> <td>2</td> </tr> <tr> <td>Level 3</td> <td>2</td> </tr> <tr>
-      <td>Level 4</td> <td>2</td> </tr> <tr> <td>Level 5</td> <td>3</td> </tr>
-      <tr> <td>Level 6</td> <td>3</td> </tr> <tr> <td>Level 7</td> <td>3</td>
-      </tr> <tr> <td>Level 8</td> <td>4</td> </tr> <tr> <td>Level 9</td>
-      <td>4</td> </tr> <tr> <td>Level 10</td> <td>4</td> </tr> </tbody> </table>
-      <h3><b>Warrior Druid Adept Level Progression</b></h2> <table> <thead> <tr>
-      <th>Druid Level</th> <th>Daily Spells</th> </tr> </thead> <tbody> <tr>
-      <td>Level 1 Multiclass</td> <td>1</td> </tr> <tr> <td>Level 1</td>
-      <td>2</td> </tr> <tr> <td>Level 2</td> <td>3</td> </tr> <tr> <td>Level
-      3</td> <td>4</td> </tr> <tr> <td>Level 4</td> <td>4</td> </tr> <tr>
-      <td>Level 5</td> <td>4</td> </tr> <tr> <td>Level 6</td> <td>5</td> </tr>
-      <tr> <td>Level 7</td> <td>5</td> </tr> <tr> <td>Level 8</td> <td>6</td>
-      </tr> <tr> <td>Level 9</td> <td>6</td> </tr> <tr> <td>Level 10</td>
-      <td>6</td> </tr> </tbody> </table>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: ''
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
     value: ''
   breathWeapon:
-    type: String
     label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
     type: String
-    label: Roll Table
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: <p>Choose this talent if you want to fight well in melee with your normal
+      weapons and armor.</p><p>Spending a single talent on Warrior Druid lets you
+      choose <em>one</em> of the three following benefits:</p><ul><li>Your AC in light
+      armor is 12 instead of 10 like most other druids.</li><li>You don&rsquo;t take
+      opportunity attacks from enemies engaged with you when you cast ranged druid
+      spells.</li><li>Your base hit points are 7 + CON mod instead of 6 + CON mod.</li></ul><p>If
+      you use two talents to become a Warrior Druid adept, choose <em>three</em> of
+      the following benefits:</p><ul><li>Your base hit points are 7 + CON mod instead
+      of 6 + CON mod.</li><li>Your AC in light armor is 12 instead of 10 like most
+      other druids.</li><li>You don&rsquo;t take opportunity attacks from enemies
+      engaged with you when you cast ranged druid spells.</li><li>You can use one-handed
+      1d8 martial weapons without taking the &ndash;2 attack penalty that other druids
+      suffer.</li><li>You can use a shield (in human form) without taking an attack
+      penalty like other druids.</li></ul><p>Like the fighter class, you gain access
+      to flexible attacks when you make basic melee attacks during your turn. Roll
+      your attack, then choose one of the flexible attacks you know that can be triggered
+      by your natural attack roll. Unlike the fighter, you can usually use each of
+      your flexible attacks only once per battle.</p><p>If you&rsquo;re also a Shifter
+      initiate, you can use your Warrior Druid flexible attacks while in beast form,
+      but only with your first beast form attack roll each turn. Adepts can use them
+      freely.</p> <h3><b>Warrior Druid Initiate Level Progression</b></h2> <table>
+      <thead> <tr> <th>Druid Level</th> <th>Daily Spells</th> </tr> </thead> <tbody>
+      <tr> <td>Level 1 Multiclass</td> <td>1</td> </tr> <tr> <td>Level 1</td> <td>1</td>
+      </tr> <tr> <td>Level 2</td> <td>2</td> </tr> <tr> <td>Level 3</td> <td>2</td>
+      </tr> <tr> <td>Level 4</td> <td>2</td> </tr> <tr> <td>Level 5</td> <td>3</td>
+      </tr> <tr> <td>Level 6</td> <td>3</td> </tr> <tr> <td>Level 7</td> <td>3</td>
+      </tr> <tr> <td>Level 8</td> <td>4</td> </tr> <tr> <td>Level 9</td> <td>4</td>
+      </tr> <tr> <td>Level 10</td> <td>4</td> </tr> </tbody> </table> <h3><b>Warrior
+      Druid Adept Level Progression</b></h2> <table> <thead> <tr> <th>Druid Level</th>
+      <th>Daily Spells</th> </tr> </thead> <tbody> <tr> <td>Level 1 Multiclass</td>
+      <td>1</td> </tr> <tr> <td>Level 1</td> <td>2</td> </tr> <tr> <td>Level 2</td>
+      <td>3</td> </tr> <tr> <td>Level 3</td> <td>4</td> </tr> <tr> <td>Level 4</td>
+      <td>4</td> </tr> <tr> <td>Level 5</td> <td>4</td> </tr> <tr> <td>Level 6</td>
+      <td>5</td> </tr> <tr> <td>Level 7</td> <td>5</td> </tr> <tr> <td>Level 8</td>
+      <td>6</td> </tr> <tr> <td>Level 9</td> <td>6</td> </tr> <tr> <td>Level 10</td>
+      <td>6</td> </tr> </tbody> </table>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>Choose another Warrior Druid benefit you weren&rsquo;t able to
-          start with. Whether you&rsquo;re an initiate or an adept, you can take
-          this feat twice to gain the two Warrior Druid benefits you are
-          missing.</p>
+        value: <p>Choose another Warrior Druid benefit you weren&rsquo;t able to start
+          with. Whether you&rsquo;re an initiate or an adept, you can take this feat
+          twice to gain the two Warrior Druid benefits you are missing.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: adventurer
     '1':
       description:
         type: String
-        value: >-
-          <p>Choose another Warrior Druid benefit you weren&rsquo;t able to
-          start with. Whether you&rsquo;re an initiate or an adept, you can take
-          this feat twice to gain the two Warrior Druid benefits you are
-          missing.</p>
+        value: <p>Choose another Warrior Druid benefit you weren&rsquo;t able to start
+          with. Whether you&rsquo;re an initiate or an adept, you can take this feat
+          twice to gain the two Warrior Druid benefits you are missing.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: icons/weapons/sickles/sickle-wrapped-engraved-green.webp
-_id: f9Oa0jooQRgk5gv1
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!f9Oa0jooQRgk5gv1'
-
+      tier:
+        type: String
+        value: adventurer
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: Warrior Druid
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Warrior Druid
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Druid
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: ''
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: ''
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: ''
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power
