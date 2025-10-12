@@ -2548,7 +2548,8 @@ export class ActorArchmage extends Actor {
 
     // Fix attack and damage
     let atkFilter = /\+\s*(\d+)([\S\s]*)/;
-    let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
+    // let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
+    let inlineRollFilter = /\[\[(\d+)?d?\d+(?!\+)\]\]/g;
     let itemUpdates = [];
 
     // Iterate over attacks and actions.
@@ -2571,13 +2572,13 @@ export class ActorArchmage extends Actor {
           if (rolls.length > 0) {
             let newValue = item.system[key].value;
             rolls.forEach(r => {
-              let orig = r[0];
+              let orig = r[0].slice(2, -2); // Strip leading and trailing double square brackets
               let newDmg = orig;
               let index = r.index + offset;
               if (orig.includes("d")) newDmg = _scaleDice(orig, mul);
               else newDmg = Math.round(parseInt(orig)*mul).toString();
               // Replace first instance at or around index, might be imprecise but good enough
-              newValue = newValue.slice(0, index)+newValue.slice(index).replace(orig, newDmg);
+              newValue = newValue.slice(0, index)+newValue.slice(index).replace(`[[${orig}]]`, `[[${newDmg}]]`);
               offset -= (newDmg.length - orig.length);
             });
             itemOverrideData[`system.${key}.value`] = newValue;
