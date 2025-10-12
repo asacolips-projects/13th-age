@@ -140,18 +140,17 @@ export default class HitEvaluation {
 
     // returns an array of either `true` (for the vulnerable condition) or strings (for actor vulnerabilities)
     static _getTargetVulnerabilities(target) {
-      const ret = []
-      // First check for the vulnerable condition
+      // Actor vulnerabilities
+      const vulnText = (target.actor?.system?.details?.vulnerability?.value ?? '').trim()
+      const ret = vulnText
+        .split(',')
+        .map(x => x.trim().toLowerCase())
+        .filter(x => x);
+
+      // the vulnerable condition
       const vulnerableCondition = target.actor?.effects?.find?.(x => x.statuses?.has('vulnerable'))
       if (vulnerableCondition !== undefined) {
         ret.push(true);
-      }
-
-      // Then check for actor vulnerabilities
-      const vulnText = target.actor?.system?.details?.vulnerability?.value ?? ''
-      if (vulnText !== '') {
-        const parts = vulnText.split(',').map(x => x.trim().toLowerCase()).filter(x => x);
-        ret.push(...parts);
       }
 
       return ret

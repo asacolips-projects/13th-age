@@ -918,7 +918,7 @@ ARCHMAGE:
     Use: Use
     vulnerable: Vulnerable
     vulnerableCondition: condition
-    vulnerableText: "maybe apply {damage} damage ({conditions})"
+    vulnerableText: "maybe {damage} damage ({conditions})"
   TERRAINS:
     label: Terrains Present
     none: None
