@@ -18,16 +18,6 @@ pages:
         If you need to move to attack your target, you can attempt to disengage
         instead of taking opportunity attacks, even twice if your first attempt
         fails. If a disengage check succeeds you move to engage your target.</p>
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
     _id: 8ERmPowR0wsjsx87
     system: {}
     image: {}
@@ -41,18 +31,4 @@ pages:
     flags: {}
     category: null
     _key: '!journal.pages!gy68o7eat5p6bpgr.8ERmPowR0wsjsx87'
-_stats:
-  coreVersion: '13.348'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-ownership:
-  default: 0
-sort: 0
-categories: []
 _key: '!journal!gy68o7eat5p6bpgr'

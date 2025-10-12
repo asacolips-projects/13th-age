@@ -14,16 +14,6 @@ pages:
         <p>You take no actions when it isn’t your turn. On your turn, you make a
         half-damage, no-trigger attack against a random nearby ally. If you
         don’t have a nearby ally, you don’t do anything on your turn.</p>
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
     _id: EruScePrOKYhtqzi
     system: {}
     image: {}
@@ -37,18 +27,4 @@ pages:
     flags: {}
     category: null
     _key: '!journal.pages!21cEqzk92tflpW7O.EruScePrOKYhtqzi'
-_stats:
-  coreVersion: '13.348'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-ownership:
-  default: 0
-sort: 0
-categories: []
 _key: '!journal!21cEqzk92tflpW7O'

@@ -23,16 +23,6 @@ pages:
         recoveries (or otherwise get healed) while you are dying, ignore your
         current negative hit points. Start from 0 and add the hit points you’ve
         regained.</p>
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
     _id: kWUh1Pp8caFeuyi6
     system: {}
     image: {}
@@ -46,18 +36,4 @@ pages:
     flags: {}
     category: null
     _key: '!journal.pages!u9VHMyTBvK4lLbPa.kWUh1Pp8caFeuyi6'
-_stats:
-  coreVersion: '13.348'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-ownership:
-  default: 0
-sort: 0
-categories: []
 _key: '!journal!u9VHMyTBvK4lLbPa'

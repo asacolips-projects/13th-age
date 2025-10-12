@@ -14,16 +14,6 @@ pages:
         <p>When you are reduced to half your hit points or fewer, you’re
         staggered. Some powers, spells, and monster interactions work
         differently when you are staggered.</p>
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
     _id: Vc7jjnY2dmkNv9Tm
     system: {}
     image: {}
@@ -37,18 +27,4 @@ pages:
     flags: {}
     category: null
     _key: '!journal.pages!oqkyq1xn6xi2ajmi.Vc7jjnY2dmkNv9Tm'
-_stats:
-  coreVersion: '13.348'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-ownership:
-  default: 0
-sort: 0
-categories: []
 _key: '!journal!oqkyq1xn6xi2ajmi'

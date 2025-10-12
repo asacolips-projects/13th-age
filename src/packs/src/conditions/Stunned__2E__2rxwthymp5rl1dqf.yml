@@ -15,16 +15,6 @@ pages:
         the start of your turn, roll a hard save (16+). If the save succeeds,
         you can take one action on your turn. (This save doesn’t solve the
         stunned condition, it just lets you take one action.)</p>
-    _stats:
-      coreVersion: '13.348'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
     _id: Vfh643rBHWbUcRmQ
     system: {}
     image: {}
@@ -38,18 +28,4 @@ pages:
     flags: {}
     category: null
     _key: '!journal.pages!2rxwthymp5rl1dqf.Vfh643rBHWbUcRmQ'
-_stats:
-  coreVersion: '13.348'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-ownership:
-  default: 0
-sort: 0
-categories: []
 _key: '!journal!2rxwthymp5rl1dqf'
