@@ -102,31 +102,35 @@ export default class preCreateChatMessageHandler {
         }
     }
 
-    static handle2eVulnerabilities($content, hitEvaluationResults, actor) {
-        if (!CONFIG.ARCHMAGE.is2e) return
+    static maybeMentionVulnerability($content, hitEvaluationResults, actor) {
         if (!game.settings.get("archmage", "showVulnsInChat")) return
         if (hitEvaluationResults?.vulnerabilities?.length <= 0) return
 
-        // Damage: 1x level for mooks or weaklings, 2x level for others
-        let damageAmount = 2*actor.system.attributes.level.value
-        let tooltip = '2*@lvl';
-        const isMook = actor.system?.details?.role?.value === "mook";
-        const isWeakling = actor.system?.details?.strength?.value === "weakling";
-        if (isMook || isWeakling) {
-            damageAmount = damageAmount / 2
-            tooltip = "@lvl";
+        const vulns = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? '' : x).join(", ");
+        let effectStr = game.i18n.localize("ARCHMAGE.CHAT.vulnerableText1e");
+        if (CONFIG.ARCHMAGE.is2e) {
+            // Damage: 1x level for mooks or weaklings, 2x level for others
+            let damageAmount = 2*actor.system.attributes.level.value
+            let tooltip = '2*@lvl';
+            const isMook = actor.system?.details?.role?.value === "mook";
+            const isWeakling = actor.system?.details?.strength?.value === "weakling";
+            if (isMook || isWeakling) {
+                damageAmount = damageAmount / 2
+                tooltip = "@lvl";
+            }
+
+            const damage = `
+                <a class="inline-result inline-roll--archmage" data-tooltip-text="${tooltip}">
+                    <i class="fa-solid fa-dice-d20" inert=""></i>
+                    ${damageAmount}
+                </a>`
+            effectStr = game.i18n.format("ARCHMAGE.CHAT.vulnerableText2e", {damage})
         }
 
-        let vulns = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? '' : x).join(", ");
-        const damage = `
-            <a class="inline-result inline-roll--archmage" data-tooltip-text="${tooltip}">
-                <i class="fa-solid fa-dice-d20" inert=""></i>
-                ${damageAmount}
-            </a>`
         const vulnRow = `
             <div class="card-prop">
                 <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {vulns})}:</strong>
-                ${game.i18n.format("ARCHMAGE.CHAT.vulnerableText", {damage})}
+                ${effectStr}
             </div>`.replace(' ()', '');
         $content.find('.card-prop').last().after(vulnRow);
     }
@@ -374,7 +378,7 @@ export default class preCreateChatMessageHandler {
             $content.find('.card-prop').replaceWith($rows);
 
             // Add a row for vulnerabilities if any (2e only)
-            preCreateChatMessageHandler.handle2eVulnerabilities($content, hitEvaluationResults, actor);
+            preCreateChatMessageHandler.maybeMentionVulnerability($content, hitEvaluationResults, actor);
         }
 
         updated_content = $content.html();

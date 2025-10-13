@@ -269,7 +269,7 @@ ARCHMAGE:
     showDefensesInChatName: Show target(s) defense(s) in chat
     showNaturalRollsHint: Enable this to display natural dice results for d20 rolls in chat power cards.
     showNaturalRollsName: Show natural d20 rolls in chat
-    showVulnsInChatHint: (2e only) When enabled, attacks will prompt when an attack target is vulnerable, so that applying the extra damage is easy.
+    showVulnsInChatHint: Detects when an attack target is vulnerable (and to what type of attacks). This will reveal monsters' vulnerabilities to players.
     showVulnsInChatName: Show target(s) vulnerabilities in chat
     staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
     staggeredOverlayName: Staggered as overlay
@@ -920,7 +920,8 @@ ARCHMAGE:
     Use: Use
     vulnerable: Vulnerable ({vulns})
     vulnerableCondition: condition
-    vulnerableText: "possibly {damage} damage"
+    vulnerableText2e: "possibly {damage} damage"
+    vulnerableText1e: "crit range may be expanded"
   TERRAINS:
     label: Terrains Present
     none: None
