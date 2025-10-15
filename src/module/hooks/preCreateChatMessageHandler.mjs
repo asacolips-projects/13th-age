@@ -104,6 +104,7 @@ export default class preCreateChatMessageHandler {
 
     static maybeMentionVulnerability($content, hitEvaluationResults, actor) {
         if (!game.settings.get("archmage", "showVulnsInChat")) return
+        if (hitEvaluationResults?.vulnerabilities === undefined) return
         if (hitEvaluationResults?.vulnerabilities?.length <= 0) return
 
         const vulns = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? '' : x).join(", ");
