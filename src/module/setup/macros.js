@@ -10,7 +10,7 @@ export class ArchmageMacros {
    * Halo.
    */
   static async aasimarHalo(speaker, actor, token, character, archmage) {
-    const label = archmage.item.name;
+    const name = archmage.item.name;
     const effects = [
       { key: "system.attributes.ac.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
       { key: "system.attributes.pd.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
@@ -18,7 +18,7 @@ export class ArchmageMacros {
     ];
 
     // Check for previous effects
-    const aes = actor.effects.filter(e => e.label == label);
+    const aes = actor.effects.filter(e => e.name == name);
     if (aes.length > 0) {
       archmage.suppressMessage = true;
       let effectsToDelete = [];
@@ -26,7 +26,11 @@ export class ArchmageMacros {
       await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
       // ui.notifications.info("Halo removed");
     } else {
-      const effectData = {label: label, changes: effects, icon: archmage.item.img};
+      const effectData = {
+        name: name,
+        changes: effects,
+        icon: archmage.item.img
+      };
       game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
       // ui.notifications.info("Halo applied");
@@ -54,7 +58,7 @@ export class ArchmageMacros {
     }
 
     let effectData = {
-      label: archmage.item.name,
+      name: archmage.item.name,
       icon: archmage.item.img,
       changes: [
         { key: "system.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
@@ -84,7 +88,7 @@ export class ArchmageMacros {
 
     // Prepare effect data
     let effectData = {
-      label: archmage.item.name,
+      name: archmage.item.name,
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.attackMod.value",
@@ -132,7 +136,7 @@ export class ArchmageMacros {
 
     // Prepare effect data
     let effectData = {
-      label: archmage.item.name,
+      name: archmage.item.name,
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.attackMod.value",
@@ -163,7 +167,7 @@ export class ArchmageMacros {
   static async clericHammerOfFaith(speaker, actor, token, character, archmage) {
     const bonus = actor.isMulticlass() ? "d10" : "d12";
     const effectData = {
-      label: archmage.item.name,
+      name: archmage.item.name,
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
@@ -181,7 +185,7 @@ export class ArchmageMacros {
       bonus = archmage.item.system[`spellLevel${archmage.item.system.powerLevel.value}`].value;
     }
     const effectData = {
-      label: archmage.item.name,
+      name: archmage.item.name,
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
@@ -226,7 +230,7 @@ export class ArchmageMacros {
   static async fighterCarveAnOpening(speaker, actor, token, character, archmage) {
     if (!actor) return;
 
-    const label = archmage.item.name;
+    const name = archmage.item.name;
 
     // Compute bonus amount
     const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value;
@@ -235,7 +239,7 @@ export class ArchmageMacros {
     // Check for previous effects
     let prev = 0;
     let effectsToDelete = [];
-    const aes = actor.effects.filter(e => e.label == label);
+    const aes = actor.effects.filter(e => e.name == name);
     aes.forEach(e => {
       effectsToDelete.push(e.id);
       if (e.disabled) return;
@@ -247,7 +251,7 @@ export class ArchmageMacros {
 
     // Make new effect
     let effectData = {
-      label: label,
+      name: name,
       icon: archmage.item.img,
       changes: [
         { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
@@ -303,7 +307,11 @@ export class ArchmageMacros {
       }
     }
 
-    let effectData = { label: archmage.item.name, img: archmage.item.img, changes: effects };
+    let effectData = {
+      name: archmage.item.name,
+      img: archmage.item.img,
+      changes: effects
+    };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
 
     const existingEffect = actor.effects.getName('Defensive Fighting');
@@ -316,6 +324,42 @@ export class ArchmageMacros {
   }
 
   //TODO: GritAndScrap2e
+
+  ////////////////////////////////////////////////
+  /**
+   * Paladin Macros.
+   */
+  ////////////////////////////////////////////////
+
+  static async paladinGreatDragonIncarnation(speaker, actor, token, character, archmage) {
+    function scaleDice(expr) {
+      switch(expr) {
+        case "d4": return "d6";
+        case "d6": return "d8";
+        case "d8": return "d10";
+        case "d10": return "d12";
+        case "d12": return "2d6";
+        case "2d6": return "d8";
+        default: return expr;
+      }
+    }
+
+    const effectData = {
+      name: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [{
+        key: "system.attributes.weapon.melee.dice",
+        value: scaleDice(actor.system.attributes.weapon.melee.dice),
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
+      }, {
+        key: "system.attributes.recoveries.dice",
+        value: scaleDice(actor.system.attributes.recoveries.dice),
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
+      }]
+    };
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
+    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
 
   ////////////////////////////////////////////////
   /**
@@ -354,7 +398,7 @@ export class ArchmageMacros {
   static async flamingWeapon(speaker, actor, token, character, archmage) {
     const rollData = actor.getRollData();
     const effectData = {
-      label: archmage.item.name,
+      name: archmage.item.name,
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
