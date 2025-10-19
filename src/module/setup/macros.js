@@ -331,29 +331,21 @@ export class ArchmageMacros {
    */
   ////////////////////////////////////////////////
 
-  static async paladinGreatDragonIncarnation(speaker, actor, token, character, archmage) {
-    function scaleDice(expr) {
-      switch(expr) {
-        case "d4": return "d6";
-        case "d6": return "d8";
-        case "d8": return "d10";
-        case "d10": return "d12";
-        case "d12": return "2d6";
-        case "2d6": return "d8";
-        default: return expr;
-      }
-    }
+  /**
+   * Great Dragon Incarnation.
+   */
 
+  static async paladinGreatDragonIncarnation(speaker, actor, token, character, archmage) {
     const effectData = {
       name: archmage.item.name,
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
-        value: scaleDice(actor.system.attributes.weapon.melee.dice),
+        value: game.archmage.MacroUtils.scaleDiceUp(actor.system.attributes.weapon.melee.dice),
         mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
       }, {
         key: "system.attributes.recoveries.dice",
-        value: scaleDice(actor.system.attributes.recoveries.dice),
+        value: game.archmage.MacroUtils.scaleDiceUp(actor.system.attributes.recoveries.dice),
         mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
       }]
     };
