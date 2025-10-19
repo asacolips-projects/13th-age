@@ -32,7 +32,7 @@ export class ArchmageMacros {
         icon: archmage.item.img
       };
       game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
-      actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
       // ui.notifications.info("Halo applied");
     }
   }
@@ -66,7 +66,7 @@ export class ArchmageMacros {
       ]
     }
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
-    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   ////////////////////////////////////////////////
@@ -176,7 +176,7 @@ export class ArchmageMacros {
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
-    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   static async clericHammerOfFaith2e(speaker, actor, token, character, archmage) {
@@ -194,7 +194,7 @@ export class ArchmageMacros {
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
-    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   //TODO: StrengthoftheGods
@@ -257,7 +257,7 @@ export class ArchmageMacros {
         { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
       ]};
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
-    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   /**
@@ -316,10 +316,10 @@ export class ArchmageMacros {
 
     const existingEffect = actor.effects.getName('Defensive Fighting');
     if (existingEffect) {
-      existingEffect.update(effectData);
+      await existingEffect.update(effectData);
     }
     else {
-      actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
     }
   }
 
@@ -358,7 +358,44 @@ export class ArchmageMacros {
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
-    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
+  ////////////////////////////////////////////////
+  /**
+   * Sorcerer Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * Golden Shield.
+   */
+  static async sorcererGoldenShield(speaker, actor, token, character, archmage) {
+    const filter = /\[\[(\d+)\]\]/
+
+    let bonus = archmage.item.system.effect.value.match(filter);
+    if (archmage.item.system.powerLevel.value > 3) {
+      const bonus2 = archmage.item.system[`spellLevel${archmage.item.system.powerLevel.value}`].value.match(filter);
+      // Double check as the paladin version has an empty 8th level value
+      if (bonus2) bonus = bonus2;
+    }
+    bonus = Number(bonus[1]);
+    const effectData = {
+      name: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [{
+        key: "system.attributes.hp.extra",
+        value: bonus,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
+    };
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+
+    // Also heal the extra amount
+    await actor.update({
+      'system.attributes.hp.value': actor.system.attributes.hp.value + bonus
+    });
   }
 
   ////////////////////////////////////////////////
@@ -407,6 +444,6 @@ export class ArchmageMacros {
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
-    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 }
