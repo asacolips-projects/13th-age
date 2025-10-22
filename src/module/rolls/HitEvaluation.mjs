@@ -138,7 +138,7 @@ export default class HitEvaluation {
         return target.actor?.system.attributes[defense]?.value;
     }
 
-    // returns an array of either `true` (for the vulnerable condition) or strings (for actor vulnerabilities)
+    // returns an array of strings for actor vulnerabilities. The name of a vulnerability condition is wrapped in quotes.
     static _getTargetVulnerabilities(target) {
       // Actor vulnerabilities
       const vulnText = (target.actor?.system?.details?.vulnerability?.value ?? '').trim()
@@ -150,7 +150,7 @@ export default class HitEvaluation {
       // the vulnerable condition
       const vulnerableCondition = target.actor?.effects?.find?.(x => x.statuses?.has('vulnerable'))
       if (vulnerableCondition !== undefined) {
-        ret.push(true);
+        ret.push(`"${vulnerableCondition.name}"`);
       }
 
       return ret

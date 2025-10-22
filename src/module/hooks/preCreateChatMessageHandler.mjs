@@ -107,16 +107,15 @@ export default class preCreateChatMessageHandler {
         if (hitEvaluationResults?.vulnerabilities === undefined) return
         if (hitEvaluationResults?.vulnerabilities?.length <= 0) return
 
-        const vulns = hitEvaluationResults.vulnerabilities.map(x => (x === true) ? '' : x).join(", ");
         let effectStr = game.i18n.localize("ARCHMAGE.CHAT.vulnerableText1e");
         if (CONFIG.ARCHMAGE.is2e) {
             // Damage: 1x level for mooks or weaklings, 2x level for others
             let damageAmount = 2*actor.system.attributes.level.value
             let tooltip = '2*@lvl';
-            const isMook = actor.system?.details?.role?.value === "mook";
-            const isWeakling = actor.system?.details?.strength?.value === "weakling";
-            if (isMook || isWeakling) {
-                damageAmount = damageAmount / 2
+            const attackerIsMook = actor.system?.details?.role?.value === "mook";
+            const attackerIsWeakling = actor.system?.details?.strength?.value === "weakling";
+            if (attackerIsMook || attackerIsWeakling) {
+                damageAmount /= 2;
                 tooltip = "@lvl";
             }
 
@@ -128,6 +127,7 @@ export default class preCreateChatMessageHandler {
             effectStr = game.i18n.format("ARCHMAGE.CHAT.vulnerableText2e", {damage})
         }
 
+        const vulns = hitEvaluationResults.vulnerabilities.join(", ");
         const vulnRow = `
             <div class="card-prop">
                 <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {vulns})}:</strong>
