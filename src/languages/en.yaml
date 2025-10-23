@@ -918,7 +918,8 @@ ARCHMAGE:
     triggerVsRegex: "(\\[\\[.+?\\]\\]).*(vs.*)"
     unambiguousAdvantages: Unambiguous Advantages
     Use: Use
-    vulnerable: Vulnerable ({vulns})
+    vulnerable: Vulnerability to {vulns}
+    vulnerableTooltip: The &ldquo;vulnerable&rdquo; condition is present but a type is not specified.
     vulnerableCondition: condition
     vulnerableText2e: "possibly {damage} damage"
     vulnerableText1e: "crit range may be expanded"

@@ -127,7 +127,10 @@ export default class preCreateChatMessageHandler {
             effectStr = game.i18n.format("ARCHMAGE.CHAT.vulnerableText2e", {damage})
         }
 
-        const vulns = hitEvaluationResults.vulnerabilities.join(", ");
+        const vulns = hitEvaluationResults.vulnerabilities.map(v => {
+            if (v === "vulnerable") return `<abbr data-tooltip="${game.i18n.localize("ARCHMAGE.CHAT.vulnerableTooltip")}">???</abbr>`
+            return v
+        }).join(", ");
         const vulnRow = `
             <div class="card-prop">
                 <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {vulns})}:</strong>
