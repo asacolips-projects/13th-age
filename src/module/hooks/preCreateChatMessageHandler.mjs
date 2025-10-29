@@ -1,6 +1,5 @@
 import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from "../rolls/Targeting.mjs";
-import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
 
@@ -101,6 +100,43 @@ export default class preCreateChatMessageHandler {
                 });
             }
         }
+    }
+
+    static maybeMentionVulnerability($content, hitEvaluationResults, actor) {
+        if (!game.settings.get("archmage", "showVulnsInChat")) return
+        if (hitEvaluationResults?.vulnerabilities === undefined) return
+        if (hitEvaluationResults?.vulnerabilities?.length <= 0) return
+
+        let effectStr = game.i18n.localize("ARCHMAGE.CHAT.vulnerableText1e");
+        if (CONFIG.ARCHMAGE.is2e) {
+            // Damage: 1x level for mooks or weaklings, 2x level for others
+            let damageAmount = 2*actor.system.attributes.level.value
+            let tooltip = '2*@lvl';
+            const attackerIsMook = actor.system?.details?.role?.value === "mook";
+            const attackerIsWeakling = actor.system?.details?.strength?.value === "weakling";
+            if (attackerIsMook || attackerIsWeakling) {
+                damageAmount /= 2;
+                tooltip = "@lvl";
+            }
+
+            const damage = `
+                <a class="inline-result inline-roll--archmage" data-tooltip-text="${tooltip}">
+                    <i class="fa-solid fa-dice-d20" inert=""></i>
+                    ${damageAmount}
+                </a>`
+            effectStr = game.i18n.format("ARCHMAGE.CHAT.vulnerableText2e", {damage})
+        }
+
+        const vulns = hitEvaluationResults.vulnerabilities.map(v => {
+            if (v === "vulnerable") return `<abbr data-tooltip="${game.i18n.localize("ARCHMAGE.CHAT.vulnerableTooltip")}">???</abbr>`
+            return v
+        }).join(", ");
+        const vulnRow = `
+            <div class="card-prop">
+                <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {vulns})}:</strong>
+                ${effectStr}
+            </div>`.replace(' ()', '');
+        $content.find('.card-prop').last().after(vulnRow);
     }
 
     static handle(data, options, userId) {
@@ -344,6 +380,9 @@ export default class preCreateChatMessageHandler {
 
             // Update the content
             $content.find('.card-prop').replaceWith($rows);
+
+            // Add a row for vulnerabilities if any (2e only)
+            preCreateChatMessageHandler.maybeMentionVulnerability($content, hitEvaluationResults, actor);
         }
 
         updated_content = $content.html();

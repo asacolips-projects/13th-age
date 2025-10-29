@@ -269,6 +269,8 @@ ARCHMAGE:
     showDefensesInChatName: Show target(s) defense(s) in chat
     showNaturalRollsHint: Enable this to display natural dice results for d20 rolls in chat power cards.
     showNaturalRollsName: Show natural d20 rolls in chat
+    showVulnsInChatHint: Detects when an attack target is vulnerable (and to what type of attacks). This will reveal monsters' vulnerabilities to players.
+    showVulnsInChatName: Show target(s) vulnerabilities in chat
     staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
     staggeredOverlayName: Staggered as overlay
     sheetTooltipsHint: Adds tooltips to sheets containing relevant SRD rules and tips. May be most useful when first learning the system or for the GM who only references player sheets occasionally. Client setting.
@@ -916,6 +918,11 @@ ARCHMAGE:
     triggerVsRegex: "(\\[\\[.+?\\]\\]).*(vs.*)"
     unambiguousAdvantages: Unambiguous Advantages
     Use: Use
+    vulnerable: Vulnerability to {vulns}
+    vulnerableTooltip: The &ldquo;vulnerable&rdquo; condition is present but a type is not specified.
+    vulnerableCondition: condition
+    vulnerableText2e: "possibly {damage} damage"
+    vulnerableText1e: "crit range may be expanded"
   TERRAINS:
     label: Terrains Present
     none: None

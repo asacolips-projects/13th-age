@@ -427,6 +427,15 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register("archmage", "showVulnsInChat", {
+    name: "ARCHMAGE.SETTINGS.showVulnsInChatName",
+    hint: "ARCHMAGE.SETTINGS.showVulnsInChatHint",
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true
+  });
+
   game.settings.register("archmage", "hideInsteadOfOpaque", {
     name: "ARCHMAGE.SETTINGS.hideInsteadOfOpaqueName",
     hint: "ARCHMAGE.SETTINGS.hideInsteadOfOpaqueHint",
@@ -971,6 +980,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'multiTargetAttackRolls',
         'hideExtraRolls',
         'showDefensesInChat',
+        'showVulnsInChat',
         'hideInsteadOfOpaque',
         'roundUpDamageApplication',
         'allowTargetDamageApplication',

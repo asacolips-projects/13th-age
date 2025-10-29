@@ -10,6 +10,7 @@ export default class HitEvaluation {
         let targetsMissed = [];
         let targetsFumbled = [];
         let defenses = [];
+        let vulnerabilities = new Set();
         let hasHit = undefined;
         let hasMissed = undefined;
 
@@ -109,6 +110,10 @@ export default class HitEvaluation {
               }
             }
             defenses.push(targetDefense);
+
+            for (let v of HitEvaluation._getTargetVulnerabilities(target)) {
+              vulnerabilities.add(v);
+            }
           });
         }
 
@@ -123,14 +128,39 @@ export default class HitEvaluation {
             hasHit: hasHit,
             hasMissed: hasMissed,
             defenses: defenses,
+            vulnerabilities: Array.from(vulnerabilities),
             $rolls: $rolls
         };
-
     }
 
     // Get either the Token overridden value or the base sheet value
     static _getTargetDefenseValue(target, defense) {
         return target.actor?.system.attributes[defense]?.value;
+    }
+
+    // Returns a list of vulnerabilities. If the "vulnerable" condition is present, it is included as "vulnerable".
+    static _getTargetVulnerabilities(target) {
+      // Actor vulnerabilities
+      const vulnText = (target.actor?.system?.details?.vulnerability?.value ?? '').trim()
+      const ret = vulnText
+        .split(',')
+        .map(x => x.trim().toLowerCase())
+        .filter(x => x);
+
+      // the vulnerable condition
+      const vulnerableCondition = target.actor?.effects?.find?.(x => x.statuses?.has('vulnerable'))
+      if (vulnerableCondition !== undefined) {
+        // If it matches "vulnerable to <type>", extract the type
+        const m = vulnerableCondition.name.match(/vulnerable\s+to\s+([a-zA-Z]+)/i);
+        if (m) {
+          ret.push(m[1].toLowerCase());
+        } else {
+          // Otherwise, just add "vulnerable"
+          ret.push('vulnerable');
+        }
+      }
+
+      return ret
     }
 
     static _getTargetCritDefenseValue(target) {
