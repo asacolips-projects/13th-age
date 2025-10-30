@@ -17,7 +17,11 @@
           data-document-class="ActiveEffect"
           data-drag="true"
           data-draggable="true"
-          draggable="true">
+          draggable="true"
+          data-type="condition"
+          :data-id="effect.name"
+          :data-ends="effect.flags.archmage.duration"
+          >
           <div class="effects-summary grid effects-grid effects">
             <div class="effects-icon">
               <img :src="effect.img ?? 'icons/svg/cowled.svg'" class="effects-image"/>
