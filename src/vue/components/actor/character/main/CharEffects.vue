@@ -20,7 +20,7 @@
           draggable="true"
           data-type="condition"
           :data-id="effect.name"
-          :data-ends="effect.flags.archmage.duration"
+          :data-ends="effect.flags.archmage?.duration"
           >
           <div class="effects-summary grid effects-grid effects">
             <div class="effects-icon">
