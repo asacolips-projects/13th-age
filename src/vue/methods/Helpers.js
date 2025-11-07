@@ -172,7 +172,7 @@ function replaceEffectAndConditionReferences(text) {
 
     function generateConditionLink(name) {
         const condition = conditions.find(x => game.i18n.localize(x.name) === name);
-        return `<a class="effect-link" data-type="condition" data-id="${condition.id}" title="">
+        return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="">
                 <img class="effects-icon" src="${condition.icon}" />
                 ${name}</a>`;
     }
@@ -190,8 +190,8 @@ function replaceActiveEffectLinkReferences(text) {
   return text.replaceAll(/@UUID\[(.*ActiveEffect.*)\]({.*})*/g, (all, uuid, name) => {
     const effect = fromUuidSync(uuid);
     const parent = effect?.parent?.uuid ? effect.parent : {};
-    // Not technically draggable due to the item itself being draggable.
-    return `<a class="effect-link" data-uuid="${uuid}" data-source="${parent?.uuid}" data-actor-id="${parent?.id}" data-type="ActiveEffect" data-tooltip="Base Active Effect">
+    return `<a class="effect-link" data-uuid="${uuid}" data-source="${parent?.uuid}" data-actor-id="${parent?.id}"
+            draggable="true" data-type="ActiveEffect" data-tooltip="Base Active Effect">
       <img class="effects-icon" src="${effect.img}"/>
       ${effect.name}
     </a>`;
