@@ -1,171 +1,168 @@
-name: Magic Oil (Epic)
-type: loot
-img: systems/archmage/assets/icons/items/potions/grand-green.jpg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>As a quick action, pour this oil on a weapon, armor, or
-      spellcasters&rsquo; implement to grant it a temporary magical bonus of
-      +3.</p>
-
-      <p>The effect lasts until the end of a battle or for five minutes before
-      fading. Used on a weapon or a spellcasting implement, the bonus applies to
-      attack and damage rolls. Used on armor, the bonus applies to AC.</p>
-
-      <p>Bonuses from oils don&rsquo;t stack with magic items&rsquo; inherent
-      bonuses. Use the higher bonus.</p>
-  quantity:
-    type: Number
-    label: Quantity
-    value: 1
-  price:
-    type: Number
-    label: Price
-    value: 200
+_id: e6y7NbwbpCkIHpjF
+_key: '!items!e6y7NbwbpCkIHpjF'
 effects:
-  - origin: null
-    disabled: false
-    name: Magic Oil (Epic, Armor)
-    img: systems/archmage/assets/icons/items/potions/grand-green.jpg
-    _id: jnS8iXTk9vLhlph2
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '3'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!e6y7NbwbpCkIHpjF.jnS8iXTk9vLhlph2'
-  - origin: null
-    disabled: false
-    name: Magic Oil (Epic, Melee Weapon)
-    img: systems/archmage/assets/icons/items/potions/grand-green.jpg
-    _id: lqlDR6BC1sdep7Nj
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.melee.bonus
-        value: '3'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!e6y7NbwbpCkIHpjF.lqlDR6BC1sdep7Nj'
-  - origin: null
-    disabled: false
-    name: Magic Oil (Epic, Ranged Weapon)
-    img: systems/archmage/assets/icons/items/potions/grand-green.jpg
-    _id: VJZXQ5BBR9RHwuyF
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.ranged.bonus
-        value: '3'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!e6y7NbwbpCkIHpjF.VJZXQ5BBR9RHwuyF'
-  - origin: null
-    disabled: false
-    name: Magic Oil (Epic, Implement)
-    img: systems/archmage/assets/icons/items/potions/grand-green.jpg
-    _id: y4BSKRb2cFd6oQHJ
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.divine.bonus
-        value: '3'
-        mode: 2
-        priority: null
-      - key: system.attributes.attack.arcane.bonus
-        value: '3'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!e6y7NbwbpCkIHpjF.y4BSKRb2cFd6oQHJ'
+- _id: jnS8iXTk9vLhlph2
+  _key: '!items.effects!e6y7NbwbpCkIHpjF.jnS8iXTk9vLhlph2'
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '3'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/grand-green.jpg
+  name: Magic Oil (Epic, Armor)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: lqlDR6BC1sdep7Nj
+  _key: '!items.effects!e6y7NbwbpCkIHpjF.lqlDR6BC1sdep7Nj'
+  changes:
+  - key: system.attributes.attack.melee.bonus
+    mode: 2
+    priority: null
+    value: '3'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/grand-green.jpg
+  name: Magic Oil (Epic, Melee Weapon)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: VJZXQ5BBR9RHwuyF
+  _key: '!items.effects!e6y7NbwbpCkIHpjF.VJZXQ5BBR9RHwuyF'
+  changes:
+  - key: system.attributes.attack.ranged.bonus
+    mode: 2
+    priority: null
+    value: '3'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/grand-green.jpg
+  name: Magic Oil (Epic, Ranged Weapon)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: y4BSKRb2cFd6oQHJ
+  _key: '!items.effects!e6y7NbwbpCkIHpjF.y4BSKRb2cFd6oQHJ'
+  changes:
+  - key: system.attributes.attack.divine.bonus
+    mode: 2
+    priority: null
+    value: '3'
+  - key: system.attributes.attack.arcane.bonus
+    mode: 2
+    priority: null
+    value: '3'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/items/potions/grand-green.jpg
+  name: Magic Oil (Epic, Implement)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
 flags:
   core: {}
 folder: 0mcnzVgWo4dqvS1l
-_id: e6y7NbwbpCkIHpjF
-sort: 200000
+img: systems/archmage/assets/icons/items/potions/grand-green.jpg
+name: Magic Oil (Epic)
 ownership:
   default: 0
-_key: '!items!e6y7NbwbpCkIHpjF'
+sort: 200000
+system:
+  description:
+    label: Description
+    type: String
+    value: '<p>As a quick action, pour this oil on a weapon, armor, or spellcasters&rsquo;
+      implement to grant it a temporary magical bonus of +3.</p>
 
+      <p>The effect lasts until the end of a battle or for five minutes before fading.
+      Used on a weapon or a spellcasting implement, the bonus applies to attack and
+      damage rolls. Used on armor, the bonus applies to AC.</p>
+
+      <p>Bonuses from oils don&rsquo;t stack with magic items&rsquo; inherent bonuses.
+      Use the higher bonus.</p>'
+  name:
+    label: Name
+    type: String
+  price:
+    label: Price
+    type: Number
+    value: 200
+  quantity:
+    label: Quantity
+    type: Number
+    value: 1
+type: loot

@@ -50,7 +50,7 @@
     "@babel/core": "^7.18.2",
     "@babel/eslint-parser": "^7.24.1",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
-    "@foundryvtt/foundryvtt-cli": "^1.0.2",
+    "@foundryvtt/foundryvtt-cli": "^3.0.0",
     "@stylistic/eslint-plugin-js": "^1.7.0",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "@vitejs/plugin-vue": "^5.0.4",

@@ -1,28 +1,27 @@
-name: Armor plates
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: <p>Add +2 to the dire animal&rsquo;s AC, and add +1 to its PD.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: vsLLuFnF1fQPUU7y
+_key: '!items!vsLLuFnF1fQPUU7y'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Armor plates
 ownership:
   default: 0
-_id: vsLLuFnF1fQPUU7y
-_key: '!items!vsLLuFnF1fQPUU7y'
-
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>Add +2 to the dire animal&rsquo;s AC, and add +1 to its PD.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

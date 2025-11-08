@@ -1,10 +1,403 @@
-name: Fomori Unclean-One Template
-type: npc
 _id: dx7sXYPwmOBoEZ2X
+_key: '!actors!dx7sXYPwmOBoEZ2X'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
+items:
+- _id: 9w6BotoYlEOBuJix
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.9w6BotoYlEOBuJix'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unreasonable master
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The true-fomori can reach into the unclean-one&rsquo;s mind to give
+        them visions and look through their memories. In this way the fomori keeps
+        an eye on its far-flung cults, and gives guidance to its heralds, even speaking
+        directly through them if it desires. Oh, and those visions can be instructive
+        religious apparitions, pleasing dreams sent as rewards, or terrifying and
+        painful hallucinations sent as punishment (or because the fomori felt like
+        inflicting suffering).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: qJXcI4QplV8RDHza
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.qJXcI4QplV8RDHza'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: (Choose one or two of the following)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: TqPJJlV4n5cNNxLV
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.TqPJJlV4n5cNNxLV'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Ugly physique
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The cultist is repulsive almost beyond comprehension, but its twisted
+        form grants it the ability to withstand blows. It gains +2 to AC and +1 to
+        PD.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: lW8OfVr4wCbcbvDJ
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.lW8OfVr4wCbcbvDJ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Uncanny speed
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The unclean-one gains a +1d10 bonus to its initiative. It has a +2
+        attack bonus against enemies that started the battle with lower initiative
+        scores.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: udMvzIx4g8E1OWbg
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.udMvzIx4g8E1OWbg'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unearthly beauty
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The cultist has a perfect and unaging physical body, a counterpoint
+        to its increasingly corrupted soul. It gains +2 to PD and MD.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: t1QzioXgLRnZXqqr
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.t1QzioXgLRnZXqqr'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unhealthy vigor
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>When a melee attack hits the unclean-one, sores and pustules on its
+        body burst, and the attacker takes [[5]] acid damage (champion: [[10]] damage;
+        epic [[15]] damage).</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: DiYbu4uPJfEq5Zy2
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.DiYbu4uPJfEq5Zy2'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unhinged joints
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The unclean-one cultist can move in strange ways, crawling up walls
+        like a giant bug, skittering along the ground, and so forth. It gains a +2
+        bonus to disengage checks.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: psPEZB6VyJ7YdojC
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.psPEZB6VyJ7YdojC'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unholy regeneration
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the escalation die is odd, the unclean-one heals hit points equal
+        to its level times the escalation die value ([[@lvl * @ed]]) at the start
+        of its turn.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: TGpOwogFBlsumjGz
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.TGpOwogFBlsumjGz'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unnatural strength
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Once per battle, when the unclean-one misses with an attack (but not
+        when it fumbles), it can change it to a hit and increase the damage by 2 for
+        every point in the difference between the missed result and what it needed
+        to hit as a free action. When it does, it takes 1d6 damage for every 2 extra
+        damage it deals this way. (It must deal the extra damage if it changes a miss
+        into a hit.)</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: GAbEAz3VnyYl4yMM
+  _key: '!actors.items!dx7sXYPwmOBoEZ2X.GAbEAz3VnyYl4yMM'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Unreal scent
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Humanoid enemies that move into engagement with the unclean-one must
+        immediately roll a save or take [[5]] poison damage (champion: [[10]] damage,
+        epic: [[15]] damage). Non-humanoid enemies (including druids in beast form,
+        those who have taken undead form with the aid of necromantic spells, construct
+        races, ooze races, etc.) might be more susceptible (hard save, 16+), or less
+        susceptible (easy save, 6+), GM&rsquo;s call.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Fomori Unclean-One Template
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Fomori Unclean-One Template
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 0
     attackMod:
       type: Number
       value: 0
@@ -15,543 +408,148 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 0
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 0
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 0
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 10
-      min: 0
-      max: 0
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 0
-    level:
-      type: Number
-      label: Level
-      value: 0
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 0
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 10
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 0
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 0
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 0
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 0
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
-      value: >-
-        <p>All unclean-ones get the <strong>unreasonable master </strong>trait.
-        Add one or two of the other abilities to humanoids to create cultists
-        who worship the true-fomori (or to beasts to create corrupted
-        animals).</p>
+      value: <p>All unclean-ones get the <strong>unreasonable master </strong>trait.
+        Add one or two of the other abilities to humanoids to create cultists who
+        worship the true-fomori (or to beasts to create corrupted animals).</p>
+    resistance:
+      value: ''
     role:
       value: ''
+    roleB:
+      value: ''
     size:
+      value: ''
+    sizeB:
       value: ''
     strength:
       value: ''
     type:
       value: ''
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Fomori Unclean-One Template
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Unreasonable master
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The true-fomori can reach into the unclean-one&rsquo;s mind to give
-          them visions and look through their memories. In this way the fomori
-          keeps an eye on its far-flung cults, and gives guidance to its
-          heralds, even speaking directly through them if it desires. Oh, and
-          those visions can be instructive religious apparitions, pleasing
-          dreams sent as rewards, or terrifying and painful hallucinations sent
-          as punishment (or because the fomori felt like inflicting
-          suffering).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 9w6BotoYlEOBuJix
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.9w6BotoYlEOBuJix'
-  - name: (Choose one or two of the following)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qJXcI4QplV8RDHza
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.qJXcI4QplV8RDHza'
-  - name: Ugly physique
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The cultist is repulsive almost beyond comprehension, but its
-          twisted form grants it the ability to withstand blows. It gains +2 to
-          AC and +1 to PD.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: TqPJJlV4n5cNNxLV
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.TqPJJlV4n5cNNxLV'
-  - name: Uncanny speed
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The unclean-one gains a +1d10 bonus to its initiative. It has a +2
-          attack bonus against enemies that started the battle with lower
-          initiative scores.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: lW8OfVr4wCbcbvDJ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.lW8OfVr4wCbcbvDJ'
-  - name: Unearthly beauty
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The cultist has a perfect and unaging physical body, a counterpoint
-          to its increasingly corrupted soul. It gains +2 to PD and MD.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: udMvzIx4g8E1OWbg
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.udMvzIx4g8E1OWbg'
-  - name: Unhealthy vigor
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a melee attack hits the unclean-one, sores and pustules on its
-          body burst, and the attacker takes [[5]] acid damage (champion: [[10]]
-          damage; epic [[15]] damage).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: t1QzioXgLRnZXqqr
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.t1QzioXgLRnZXqqr'
-  - name: Unhinged joints
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The unclean-one cultist can move in strange ways, crawling up walls
-          like a giant bug, skittering along the ground, and so forth. It gains
-          a +2 bonus to disengage checks.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: DiYbu4uPJfEq5Zy2
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.DiYbu4uPJfEq5Zy2'
-  - name: Unholy regeneration
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the escalation die is odd, the unclean-one heals hit points
-          equal to its level times the escalation die value ([[@lvl * @ed]]) at
-          the start of its turn.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: psPEZB6VyJ7YdojC
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.psPEZB6VyJ7YdojC'
-  - name: Unnatural strength
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per battle, when the unclean-one misses with an attack (but
-          not when it fumbles), it can change it to a hit and increase the
-          damage by 2 for every point in the difference between the missed
-          result and what it needed to hit as a free action. When it does, it
-          takes 1d6 damage for every 2 extra damage it deals this way. (It must
-          deal the extra damage if it changes a miss into a hit.)</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: TGpOwogFBlsumjGz
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.TGpOwogFBlsumjGz'
-  - name: Unreal scent
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Humanoid enemies that move into engagement with the unclean-one
-          must immediately roll a save or take [[5]] poison damage (champion:
-          [[10]] damage, epic: [[15]] damage). Non-humanoid enemies (including
-          druids in beast form, those who have taken undead form with the aid of
-          necromantic spells, construct races, ooze races, etc.) might be more
-          susceptible (hard save, 16+), or less susceptible (easy save, 6+),
-          GM&rsquo;s call.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: GAbEAz3VnyYl4yMM
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!dx7sXYPwmOBoEZ2X.GAbEAz3VnyYl4yMM'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!dx7sXYPwmOBoEZ2X'
-
+        enabled: false
+type: npc

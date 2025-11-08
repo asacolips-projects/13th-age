@@ -1,9 +1,215 @@
 _id: sP3ImvJe8bXsiOUg
-name: Summoned Wight
-type: npc
+_key: '!actors!sP3ImvJe8bXsiOUg'
+effects: []
+flags: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+items:
+- _id: BNdEljRoAUv0fJA9
+  _key: '!actors.items!sP3ImvJe8bXsiOUg.BNdEljRoAUv0fJA9'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Sword
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[14]] damage.'
+    hit1:
+      label: Hit
+      name: Natural even hit or miss
+      type: String
+      value: Unless the wight is staggered, the attack also deals 8 ongoing negative
+        energy damage.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+name: Summoned Wight
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Summoned Wight
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
+  abilities:
+    cha:
+      label: Charisma
+      lvl: 5
+      min: 3
+      mod: 0
+      type: Number
+      value: 10
+    con:
+      label: Constitution
+      lvl: 5
+      min: 3
+      mod: 0
+      type: Number
+      value: 10
+    dex:
+      label: Dexterity
+      lvl: 5
+      min: 3
+      mod: 0
+      type: Number
+      value: 10
+    int:
+      label: Intelligence
+      lvl: 5
+      min: 3
+      mod: 0
+      type: Number
+      value: 10
+    str:
+      label: Strength
+      lvl: 5
+      min: 3
+      mod: 0
+      type: Number
+      value: 10
+    wis:
+      label: Wisdom
+      lvl: 5
+      min: 3
+      mod: 0
+      type: Number
+      value: 10
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 22
     attackMod:
       type: Number
       value: 0
@@ -14,513 +220,328 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 22
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 18
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 14
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 32
-      min: 0
-      max: 32
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 8
-      mod: 8
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
     escalation:
       value: 2
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 32
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 32
+    init:
+      label: Initiative Modifier
+      mod: 8
+      type: Number
+      value: 8
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 14
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 18
+    recoveries:
+      dice: d8
+      label: Recoveries
+      max: 8
+      type: Number
+      value: 8
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+  backgrounds:
+    bg1:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 1
+      name:
+        type: String
+        value: ''
+    bg2:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 1
+      name:
+        type: String
+        value: ''
+    bg3:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 1
+      name:
+        type: String
+        value: ''
+    bg4:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 0
+      name:
+        type: String
+        value: ''
+    bg5:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 0
+      name:
+        type: String
+        value: ''
+    bg6:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 0
+      name:
+        type: String
+        value: ''
+    bg7:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 0
+      name:
+        type: String
+        value: ''
+    bg8:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 0
+      name:
+        type: String
+        value: ''
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
+    class:
+      label: Class
+      type: String
     flavor:
       value: ''
-    role:
-      value: spoiler
-      type: String
-      label: Role
-    size:
-      value: normal
-      type: String
-      label: Size
-    strength:
-      value: normal
-    type:
-      value: undead
-      type: String
-      label: Type
-    resistance:
-      value: ''
-      type: String
-      label: Resistance
-    vulnerability:
-      value: Holy
-      type: String
-      label: Vulnerability
-    class:
-      type: String
-      label: Class
-    race:
-      type: String
-      label: Race
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
     out:
       label: One Unique Thing
       type: String
       value: ''
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
+    race:
+      label: Race
+      type: String
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
+    role:
+      label: Role
+      type: String
+      value: spoiler
+    roleB:
+      value: ''
+    size:
+      label: Size
+      type: String
+      value: normal
+    sizeB:
+      value: ''
+    strength:
+      value: normal
+    type:
+      label: Type
+      type: String
+      value: undead
+    vulnerability:
+      label: Vulnerability
+      type: String
+      value: Holy
+  icons:
+    i1:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 1
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+    i2:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 1
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+    i3:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 1
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+    i4:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 0
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+    i5:
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: 0
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+  publicationSource: ''
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  abilities:
-    str:
-      type: Number
-      label: Strength
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    dex:
-      type: Number
-      label: Dexterity
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    con:
-      type: Number
-      label: Constitution
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    int:
-      type: Number
-      label: Intelligence
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    wis:
-      type: Number
-      label: Wisdom
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    cha:
-      type: Number
-      label: Charisma
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-  backgrounds:
-    bg1:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 1
-    bg2:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 1
-    bg3:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 1
-    bg4:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 0
-    bg5:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 0
-    bg6:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 0
-    bg7:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 0
-    bg8:
-      name:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 0
-  icons:
-    i1:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 1
-    i2:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 1
-    i3:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 1
-    i4:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 0
-    i5:
-      name:
-        type: String
-        value: ''
-      relationship:
-        type: String
-        value: ''
-      bonus:
-        type: Number
-        value: 0
-      isActive:
-        type: Boolean
-        value: 0
-items:
-  - _id: BNdEljRoAUv0fJA9
-    flags: {}
-    name: Sword
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[14]] damage.'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit or miss
-        value: >-
-          Unless the wight is staggered, the attack also deals 8 ongoing
-          negative energy damage.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!sP3ImvJe8bXsiOUg.BNdEljRoAUv0fJA9'
-effects: []
-folder: null
-sort: 100001
-flags: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Summoned Wight
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!sP3ImvJe8bXsiOUg'
-
+        enabled: false
+type: npc

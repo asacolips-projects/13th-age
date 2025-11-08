@@ -1,62 +1,44 @@
-name: Flaming (Champion)
-type: equipment
+_id: yNyhPEbdc4xt9qbn
+_key: '!items!yNyhPEbdc4xt9qbn'
+effects: []
+flags:
+  core: {}
+folder: eCDLouIDFlYBPsnQ
 img: icons/svg/item-bag.svg
+name: Flaming (Champion)
+ownership:
+  default: 0
+sort: 100000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>Bursts into fire as it flies. You deal [[8]] extra ongoing fire damage
-      on a hit (epic: [[20]] ongoing fire).</p>
-  publicationSource: 1e
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '20'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -64,31 +46,53 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'champion'
-  isActive: true
-  price:
-    value: ''
   chackra: arrow
-effects: []
-folder: eCDLouIDFlYBPsnQ
-flags:
-  core: {}
-_id: yNyhPEbdc4xt9qbn
-sort: 100000
-ownership:
-  default: 0
-_key: '!items!yNyhPEbdc4xt9qbn'
-
+  description:
+    label: Description
+    type: String
+    value: '<p>Bursts into fire as it flies. You deal [[8]] extra ongoing fire damage
+      on a hit (epic: [[20]] ongoing fire).</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '20'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: champion
+type: equipment

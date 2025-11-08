@@ -1,225 +1,228 @@
+_id: JWU6vmi4DPpqJZyn
+_key: '!items!JWU6vmi4DPpqJZyn'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/arrow_08.jpg
 name: Acid Arrow
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: null
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Wizard
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Acid Arrow
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: One nearby or far away creature
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @int.mod + @std + @atk.a.bonus]] vs. PD'
-  hit:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Hit
-    value: '[[4d10 + @atk.a.bonus]] acid damage, and [[5]] ongoing acid damage.'
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: >-
-      [[5]] ongoing acid damage, and you regain the spell during your next quick
-      rest.
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: ''
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
+  feats: null
+  finalVerse:
+    label: Final Verse
     type: String
-    label: 3rd Level Spell
-    value: >-
-      [[5d10 + @atk.a.bonus]] damage, and [[10]] ongoing damage; [[10]] ongoing on
-      a miss.
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
     value: ''
-  spellLevel5:
-    hide: true
+  group:
+    label: Group
     type: String
-    label: 5th Level Spell
-    value: >-
-      [[8d10 + @atk.a.bonus]] damage, and [[15]] ongoing damage; [[15]] ongoing on
-      a miss.
-  spellLevel6:
-    hide: true
+    value: null
+  hit:
+    label: Hit
     type: String
-    label: 6th Level Spell
+    value: '[[4d10 + @atk.a.bonus]] acid damage, and [[5]] ongoing acid damage.'
+  hitEven:
+    label: Natural Even Hit
+    type: String
     value: ''
-  spellLevel7:
-    hide: true
+  hitOdd:
+    label: Natural Odd Hit
     type: String
-    label: 7th Level Spell
-    value: >-
-      [[3d4 * 10 + @atk.a.bonus]] damage, and [[25]] ongoing damage; [[25]] ongoing
-      on a miss.
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
     value: ''
-  spellLevel9:
-    hide: true
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
     type: String
-    label: 9th Level Spell
-    value: >-
-      [[5d4 * 10 + @atk.a.bonus]] damage, and [[40]] ongoing damage; [[40]] ongoing
-      on a miss.
+    value: '[[5]] ongoing acid damage, and you regain the spell during your next quick
+      rest.'
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Acid Arrow
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Wizard
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
     value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: '[[5d10 + @atk.a.bonus]] damage, and [[10]] ongoing damage; [[10]] ongoing
+      on a miss.'
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: '[[8d10 + @atk.a.bonus]] damage, and [[15]] ongoing damage; [[15]] ongoing
+      on a miss.'
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: '[[3d4 * 10 + @atk.a.bonus]] damage, and [[25]] ongoing damage; [[25]]
+      ongoing on a miss.'
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: '[[5d4 * 10 + @atk.a.bonus]] damage, and [[40]] ongoing damage; [[40]]
+      ongoing on a miss.'
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: systems/archmage/assets/icons/skills/arrow_08.jpg
-effects: []
-_id: JWU6vmi4DPpqJZyn
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!JWU6vmi4DPpqJZyn'
-
+  target:
+    label: Target
+    type: String
+    value: One nearby or far away creature
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

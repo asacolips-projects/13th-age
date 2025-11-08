@@ -1,10 +1,544 @@
 _id: w8BypgDqfYlY2qb3
-name: Ogre Mage Knight
-type: npc
+_key: '!actors!w8BypgDqfYlY2qb3'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+items:
+- _id: ofMDR0oMKXiaibcR
+  _key: '!actors.items!w8BypgDqfYlY2qb3.ofMDR0oMKXiaibcR'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Naginata
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: The effect depends on the roll.
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: '[[25]] damage, and the ogre mage knight can use lightning pulse as a
+        free action.'
+    hit2:
+      label: Hit
+      name: Natural odd hit
+      type: String
+      value: '[[20]] damage, and the ogre mage knight can use voice of thunder as
+        a free action.'
+    hit3:
+      label: Hit
+      name: Natural even miss
+      type: String
+      value: '[[10]] damage, and the ogre mage knight can teleport to any nearby location
+        it can see before using magi''s lightning chain as a free action.'
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: 'Natural odd miss: The ogre mage knight can use cone of cold as a free
+        action.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 3lJ8CDph1me81jNg
+  _key: '!actors.items!w8BypgDqfYlY2qb3.3lJ8CDph1me81jNg'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Magi''s lightning chain'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[15]] lightning damage, and each time this attack has a natural even
+        attack roll, the ogre mage knight can target a different creature with the
+        ability.'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: LYtCCTqF6NsOnwt9
+  _key: '!actors.items!w8BypgDqfYlY2qb3.LYtCCTqF6NsOnwt9'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Cone of Cold'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs PD (up to [[3]] nearby enemies in a group, also targets
+        the ogre''s allies engaged with the targets)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[20]] cold damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[10]] cold damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: yM3pJrwcwE3AiLvP
+  _key: '!actors.items!w8BypgDqfYlY2qb3.yM3pJrwcwE3AiLvP'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Lightning pulse'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs PD (one random nearby or far away enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[20]] lightning damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: The target is *weakened* (save ends).
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: YfHdk7CPDThTH247
+  _key: '!actors.items!w8BypgDqfYlY2qb3.YfHdk7CPDThTH247'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Voice of thunder
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs PD ([[1d3]] nearby enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[15]] thunder damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Rd2eWJBa7AXFWrwG
+  _key: '!actors.items!w8BypgDqfYlY2qb3.Rd2eWJBa7AXFWrwG'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist exceptional attacks 16+
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a limited attack (not an at-will attack) targets this creature,
+        the attacker must roll a natural 16+ on the attack roll or it only deals half
+        damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: xArIwOvppJbItiOJ
+  _key: '!actors.items!w8BypgDqfYlY2qb3.xArIwOvppJbItiOJ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Trollish regeneration 15
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>While an ogre mage is damaged, its uncanny flesh heals 15 hit points
+        at the start of the ogre mage&rsquo;s turn. It can regenerate five times per
+        battle. If it heals to its maximum hit points, then that use of regeneration
+        doesn&rsquo;t count against the five-use limit.<br>&emsp;When the ogre mage
+        is hit by an attack that deals fire or acid damage, it loses one use of its
+        regeneration, and it can&rsquo;t regenerate during its next turn.<br>&emsp;Dropping
+        an ogre mage to 0 hp doesn&rsquo;t kill it if it has any uses of regeneration
+        left.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: otbZn08rb8s8wl73
+  _key: '!actors.items!w8BypgDqfYlY2qb3.otbZn08rb8s8wl73'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Ki
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Gain [[/gmr 1d4]] ki at the start of each battle. Spend a point of
+        ki as a free action, once per round, to change the ogre mage knight&rsquo;s
+        natural attack result by one; a natural 1 could become a 2, a natural 19 could
+        become a natural 20, and so on.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Ogre Mage Knight
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Ogre Mage Knight
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/giant.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 22
     attackMod:
       type: Number
       value: 0
@@ -15,648 +549,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 22
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 17
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 160
-      min: 0
-      max: 160
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 13
-    level:
-      type: Number
-      label: Level
-      value: 6
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 160
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 160
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 13
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 6
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 17
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 19
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    resistance:
+      value: Exceptional attacks 16+
     role:
       value: wrecker
+    roleB:
+      value: ''
     size:
       value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
       value: giant
-    resistance:
-      value: Exceptional attacks 16+
     vulnerability:
       value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Ogre Mage Knight
-  displayName: 0
-  actorLink: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/giant.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    tint: '#ffffff'
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    color: null
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    color: null
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  appendNumber: false
-  prependAdjective: false
-  hexagonalShape: 1
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Naginata
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs AC'
-      hit:
-        type: String
-        label: Hit
-        value: The effect depends on the roll.
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: >-
-          [[25]] damage, and the ogre mage knight can use lightning pulse as a
-          free action.
-      hit2:
-        type: String
-        label: Hit
-        name: Natural odd hit
-        value: >-
-          [[20]] damage, and the ogre mage knight can use voice of thunder as a
-          free action.
-      hit3:
-        type: String
-        label: Hit
-        name: Natural even miss
-        value: >-
-          [[10]] damage, and the ogre mage knight can teleport to any nearby
-          location it can see before using magi's lightning chain as a free
-          action.
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: >-
-          Natural odd miss: The ogre mage knight can use cone of cold as a free
-          action.
-    _id: ofMDR0oMKXiaibcR
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.ofMDR0oMKXiaibcR'
-  - name: 'R: Magi''s lightning chain'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs PD'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[15]] lightning damage, and each time this attack has a natural even
-          attack roll, the ogre mage knight can target a different creature with
-          the ability.
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: 3lJ8CDph1me81jNg
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.3lJ8CDph1me81jNg'
-  - name: 'C: Cone of Cold'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: >-
-          [[d20 + 11]] vs PD (up to [[3]] nearby enemies in a group, also targets
-          the ogre's allies engaged with the targets)
-      hit:
-        type: String
-        label: Hit
-        value: '[[20]] cold damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[10]] cold damage'
-    _id: LYtCCTqF6NsOnwt9
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.LYtCCTqF6NsOnwt9'
-  - name: 'C: Lightning pulse'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs PD (one random nearby or far away enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[20]] lightning damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: The target is *weakened* (save ends).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: yM3pJrwcwE3AiLvP
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.yM3pJrwcwE3AiLvP'
-  - name: Voice of thunder
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs PD ([[1d3]] nearby enemies)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[15]] thunder damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: YfHdk7CPDThTH247
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.YfHdk7CPDThTH247'
-  - name: Resist exceptional attacks 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a limited attack (not an at-will attack) targets this
-          creature, the attacker must roll a natural 16+ on the attack roll or
-          it only deals half damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Rd2eWJBa7AXFWrwG
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.Rd2eWJBa7AXFWrwG'
-  - name: Trollish regeneration 15
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>While an ogre mage is damaged, its uncanny flesh heals 15 hit
-          points at the start of the ogre mage&rsquo;s turn. It can regenerate
-          five times per battle. If it heals to its maximum hit points, then
-          that use of regeneration doesn&rsquo;t count against the five-use
-          limit.<br>&emsp;When the ogre mage is hit by an attack that deals fire
-          or acid damage, it loses one use of its regeneration, and it
-          can&rsquo;t regenerate during its next turn.<br>&emsp;Dropping an ogre
-          mage to 0 hp doesn&rsquo;t kill it if it has any uses of regeneration
-          left.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: xArIwOvppJbItiOJ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.xArIwOvppJbItiOJ'
-  - name: Ki
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Gain [[/gmr 1d4]] ki at the start of each battle. Spend a point of
-          ki as a free action, once per round, to change the ogre mage
-          knight&rsquo;s natural attack result by one; a natural 1 could become
-          a 2, a natural 19 could become a natural 20, and so on.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: otbZn08rb8s8wl73
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!w8BypgDqfYlY2qb3.otbZn08rb8s8wl73'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-_key: '!actors!w8BypgDqfYlY2qb3'
-
+        enabled: false
+type: npc

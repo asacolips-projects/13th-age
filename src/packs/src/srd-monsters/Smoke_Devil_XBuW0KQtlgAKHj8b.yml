@@ -1,10 +1,412 @@
 _id: XBuW0KQtlgAKHj8b
-name: Smoke Devil
-type: npc
+_key: '!actors!XBuW0KQtlgAKHj8b'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+items:
+- _id: eL6jc8y5n1TT5cNr
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.eL6jc8y5n1TT5cNr'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Dire Embrace
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[15]] poison damage'
+    hit1:
+      label: Hit
+      name: Full embrace
+      type: String
+      value: If the target is the only creature engaged with the smoke devil, the
+        attack deals 30 poison damage instead.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[7]] poison damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 8p2GEstNK0cFyX4B
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.8p2GEstNK0cFyX4B'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Ember of hate
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Each time the smoke devil hits an enemy, the embers floating in the
+        center of its body glow more brightly. Once per battle as a free action during
+        its turn, the devil can make an <em>ember burst</em> attack. It also makes
+        this attack as an interrupt action when it drops to 0 hp.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 9v3a7ttLA17Ux1W3
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.9v3a7ttLA17Ux1W3'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Ember Burst
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 10]] vs PD (each enemy engaged with the devil)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: The target takes [[5]] fire damage for each creature hit by the smoke
+        devil earlier in the battle (max [[15]] damage; remember to track this)
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: STDcpH0hNVralJd3
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.STDcpH0hNVralJd3'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Devil's Due (Formless)
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When you choose to add the escalation die to an attack against a smoke
+        devil, it gains <em>resist damage 16+</em> against the attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: ZRINEuEqsRVZ9npm
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.ZRINEuEqsRVZ9npm'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Smoke devils drift and eddy as if blown by an evil wind.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: zTzOiDMv4lVsaMjm
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.zTzOiDMv4lVsaMjm'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist fire 13+
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a fire attack targets this creature, the attacker must roll a
+        natural 13+ on the attack roll or it only deals half damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: eslYXfRVSSyymLaJ
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.eslYXfRVSSyymLaJ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Free-form covert ability - Insinuate
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Smoke devils have a preternatural ability to get to their chosen victims.
+        Keeping the smoke devil out is a hard, champion-tier challenge (DC 25).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: XKectQK1c9W3hKZ5
+  _key: '!actors.items!XBuW0KQtlgAKHj8b.XKectQK1c9W3hKZ5'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Smokey Retreat
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>A smoke devil can &ldquo;take 12&rdquo; on disengage checks, taking
+        a natural result of 12 instead of rolling (which normally would allow it to
+        disengage automatically from up to two enemies).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Smoke Devil
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Smoke Devil
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
-  publicationSource: 13TW
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 19
     attackMod:
       type: Number
       value: 0
@@ -15,540 +417,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 19
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 90
-      min: 0
-      max: 90
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 8
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 90
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 90
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 8
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 19
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 19
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    resistance:
+      value: Resist fire 13+
     role:
       value: troop
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: devil
-    resistance:
-      value: Resist fire 13+
     vulnerability:
       value: ''
+  publicationSource: 13TW
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Smoke Devil
-  displayName: 0
-  actorLink: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    tint: '#ffffff'
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    color: null
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    color: null
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  appendNumber: false
-  prependAdjective: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Dire Embrace
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs PD'
-      hit:
-        type: String
-        label: Hit
-        value: '[[15]] poison damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Full embrace
-        value: >-
-          If the target is the only creature engaged with the smoke devil, the
-          attack deals 30 poison damage instead.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[7]] poison damage'
-    _id: eL6jc8y5n1TT5cNr
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.eL6jc8y5n1TT5cNr'
-  - name: Ember of hate
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Each time the smoke devil hits an enemy, the embers floating in the
-          center of its body glow more brightly. Once per battle as a free
-          action during its turn, the devil can make an <em>ember burst</em>
-          attack. It also makes this attack as an interrupt action when it drops
-          to 0 hp.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 8p2GEstNK0cFyX4B
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.8p2GEstNK0cFyX4B'
-  - name: Ember Burst
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 10]] vs PD (each enemy engaged with the devil)'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          The target takes [[5]] fire damage for each creature hit by the smoke
-          devil earlier in the battle (max [[15]] damage; remember to track
-          this)
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: 9v3a7ttLA17Ux1W3
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.9v3a7ttLA17Ux1W3'
-  - name: Devil's Due (Formless)
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When you choose to add the escalation die to an attack against a
-          smoke devil, it gains <em>resist damage 16+</em> against the
-          attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: STDcpH0hNVralJd3
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.STDcpH0hNVralJd3'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>Smoke devils drift and eddy as if blown by an evil wind.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: ZRINEuEqsRVZ9npm
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.ZRINEuEqsRVZ9npm'
-  - name: Resist fire 13+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a fire attack targets this creature, the attacker must roll a
-          natural 13+ on the attack roll or it only deals half damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: zTzOiDMv4lVsaMjm
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.zTzOiDMv4lVsaMjm'
-  - name: Free-form covert ability - Insinuate
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Smoke devils have a preternatural ability to get to their chosen
-          victims. Keeping the smoke devil out is a hard, champion-tier
-          challenge (DC 25).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: eslYXfRVSSyymLaJ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.eslYXfRVSSyymLaJ'
-  - name: Smokey Retreat
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>A smoke devil can &ldquo;take 12&rdquo; on disengage checks, taking
-          a natural result of 12 instead of rolling (which normally would allow
-          it to disengage automatically from up to two enemies).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: XKectQK1c9W3hKZ5
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-      WYU73coo5rYxuFle: 3
-    flags: {}
-    _key: '!actors.items!XBuW0KQtlgAKHj8b.XKectQK1c9W3hKZ5'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-_key: '!actors!XBuW0KQtlgAKHj8b'
-
+        enabled: false
+type: npc

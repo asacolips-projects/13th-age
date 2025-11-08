@@ -1,68 +1,44 @@
-name: Diabolical Staff
-type: equipment
+_id: immemisvGhlW7W8R
+_key: '!items!immemisvGhlW7W8R'
+effects: []
+flags:
+  core: {}
+folder: hdNGdgWFpXBVwTZG
 img: icons/svg/item-bag.svg
+name: Diabolical Staff
+ownership:
+  default: 0
+sort: 200000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge: 16+) You can evoke the power of the staff to gain additional
-      attention and power from the spirits of darkness. When you roll
-      relationship dice with a villainous icon, treat a single 4 as a 5. If you
-      don&rsquo;t roll a 4, the staff recharges automatically during your next
-      quick rest.</p>
-
-      <p>Quirk: Exaggerates a chaotic or destructive trait that is already
-      there.</p>
-  publicationSource: 1e
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '16'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 2
+      divine:
+        bonus: 2
       melee:
         bonus: 2
       ranged:
         bonus: 0
-      divine:
-        bonus: 2
-      arcane:
-        bonus: 2
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -70,31 +46,57 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'champion'
-  isActive: true
-  price:
-    value: ''
   chackra: staff
-effects: []
-folder: hdNGdgWFpXBVwTZG
-flags:
-  core: {}
-_id: immemisvGhlW7W8R
-sort: 200000
-ownership:
-  default: 0
-_key: '!items!immemisvGhlW7W8R'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge: 16+) You can evoke the power of the staff to gain additional
+      attention and power from the spirits of darkness. When you roll relationship
+      dice with a villainous icon, treat a single 4 as a 5. If you don&rsquo;t roll
+      a 4, the staff recharges automatically during your next quick rest.</p>
 
+      <p>Quirk: Exaggerates a chaotic or destructive trait that is already there.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '16'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: champion
+type: equipment

@@ -1,159 +1,147 @@
-name: Bard HP Threshold Table
-img: icons/svg/d20-grey.svg
+_id: ygHMP1yE1T6zaeJh
+_key: '!tables!ygHMP1yE1T6zaeJh'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    documentCollection: ''
-    _id: 9i7Fw131LG66pcw5
-    text: Target with 40 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.9i7Fw131LG66pcw5'
-  - type: text
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    documentCollection: ''
-    _id: NOtpaCU1b0GbGW1T
-    text: Target with 40 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.NOtpaCU1b0GbGW1T'
-  - type: text
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    documentCollection: ''
-    _id: qo16CSmUTBmgCezX
-    text: Target with 68 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.qo16CSmUTBmgCezX'
-  - type: text
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    documentCollection: ''
-    _id: EVE6YA96WghhR6Qa
-    text: Target with 80 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.EVE6YA96WghhR6Qa'
-  - type: text
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    documentCollection: ''
-    _id: 9Q69k3xWJhv9sc47
-    text: Target with 104 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.9Q69k3xWJhv9sc47'
-  - type: text
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    documentCollection: ''
-    _id: YkVE7LF8EFZOL0nd
-    text: Target with 132 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.YkVE7LF8EFZOL0nd'
-  - type: text
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    documentCollection: ''
-    _id: JQwplMCdh5pv3WdL
-    text: Target with 160 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.JQwplMCdh5pv3WdL'
-  - type: text
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    documentCollection: ''
-    _id: dFfXaM6DiV5UXJ1D
-    text: Target with 208 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.dFfXaM6DiV5UXJ1D'
-  - type: text
-    weight: 1
-    range:
-      - 9
-      - 9
-    drawn: false
-    documentCollection: ''
-    _id: 9Cc3qzN9yU06kh19
-    text: Target with 268 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.9Cc3qzN9yU06kh19'
-  - type: text
-    weight: 1
-    range:
-      - 10
-      - 10
-    drawn: false
-    documentCollection: ''
-    _id: DYHcnD9z5JoxKJcC
-    text: Target with 320 hp or fewer.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.DYHcnD9z5JoxKJcC'
-  - type: text
-    documentCollection: ''
-    weight: 1
-    range:
-      - 11
-      - 11
-    drawn: false
-    _id: pFDRe8ODyrx4xSiZ
-    text: Target with 416 hp or fewer.
-    documentId: null
-    flags: {}
-    img: icons/svg/d20-black.svg
-    _key: '!tables.results!ygHMP1yE1T6zaeJh.pFDRe8ODyrx4xSiZ'
-formula: '@lvl'
-replacement: true
 displayRoll: false
 flags:
   core: {}
 folder: null
-_id: ygHMP1yE1T6zaeJh
-sort: 2900000
+formula: '@lvl'
+img: icons/svg/d20-grey.svg
+name: Bard HP Threshold Table
 ownership:
   default: 0
-_key: '!tables!ygHMP1yE1T6zaeJh'
-
+replacement: true
+results:
+- _id: 9i7Fw131LG66pcw5
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.9i7Fw131LG66pcw5'
+  description: Target with 40 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: NOtpaCU1b0GbGW1T
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.NOtpaCU1b0GbGW1T'
+  description: Target with 40 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: qo16CSmUTBmgCezX
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.qo16CSmUTBmgCezX'
+  description: Target with 68 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: EVE6YA96WghhR6Qa
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.EVE6YA96WghhR6Qa'
+  description: Target with 80 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: 9Q69k3xWJhv9sc47
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.9Q69k3xWJhv9sc47'
+  description: Target with 104 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: YkVE7LF8EFZOL0nd
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.YkVE7LF8EFZOL0nd'
+  description: Target with 132 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: JQwplMCdh5pv3WdL
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.JQwplMCdh5pv3WdL'
+  description: Target with 160 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: dFfXaM6DiV5UXJ1D
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.dFfXaM6DiV5UXJ1D'
+  description: Target with 208 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: 9Cc3qzN9yU06kh19
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.9Cc3qzN9yU06kh19'
+  description: Target with 268 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: DYHcnD9z5JoxKJcC
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.DYHcnD9z5JoxKJcC'
+  description: Target with 320 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+- _id: pFDRe8ODyrx4xSiZ
+  _key: '!tables.results!ygHMP1yE1T6zaeJh.pFDRe8ODyrx4xSiZ'
+  description: Target with 416 hp or fewer.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
+sort: 2900000

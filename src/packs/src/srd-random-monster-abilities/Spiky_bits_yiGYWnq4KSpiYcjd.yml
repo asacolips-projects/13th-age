@@ -1,30 +1,28 @@
-name: Spiky bits
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>Whenever an enemy hits the dire animal with a melee attack, deal damage
-      equal to twice the animal&rsquo;s level to that attacker.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: yiGYWnq4KSpiYcjd
+_key: '!items!yiGYWnq4KSpiYcjd'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Spiky bits
 ownership:
   default: 0
-_id: yiGYWnq4KSpiYcjd
-_key: '!items!yiGYWnq4KSpiYcjd'
-
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>Whenever an enemy hits the dire animal with a melee attack, deal damage
+      equal to twice the animal&rsquo;s level to that attacker.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

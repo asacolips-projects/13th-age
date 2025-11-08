@@ -1,10 +1,343 @@
 _id: RyzWdFRVyrDvHDWG
-name: Pixie Pod
-type: npc
+_key: '!actors!RyzWdFRVyrDvHDWG'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/plant.webp
+items:
+- _id: CdatyCpcn0vcwNCa
+  _key: '!actors.items!RyzWdFRVyrDvHDWG.CdatyCpcn0vcwNCa'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'C: Peripheral summoning'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 8]] vs. MD ([[1]] random nearby enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[8]] psychic damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: ''
+      value: Add a new podling into the battle in a random location.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: VToKd6nUMRuHrIyr
+  _key: '!actors.items!RyzWdFRVyrDvHDWG.VToKd6nUMRuHrIyr'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Release the pods
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Once per battle when the pixie pod rolls a natural even hit with peripheral
+        summoning, it adds a number of podlings into the battle equal to the escalation
+        die instead of only one.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: TUfhJ37xGW8HKeHo
+  _key: '!actors.items!RyzWdFRVyrDvHDWG.TUfhJ37xGW8HKeHo'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Immobile
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Although its podlings occasionally pick up and move it around out of\
+        \ combat, in battle the pixie pod can\u2019t move and is *stuck* except for\
+        \ its teleport ability."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: inrBc4ADNIS9Zy5Q
+  _key: '!actors.items!RyzWdFRVyrDvHDWG.inrBc4ADNIS9Zy5Q'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Lost opportunity
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "This creature can\u2019t make opportunity attacks."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: jz2NGlzbRFMxIXZ1
+  _key: '!actors.items!RyzWdFRVyrDvHDWG.jz2NGlzbRFMxIXZ1'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Lurching teleport
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Once per battle as a move action, the pixie-pod can teleport to a nearby
+        location. But its control sucks. The teleport goes in a random direction.
+        Roll it using a [[d8]] for direction.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: JV2rREz423igxM8V
+  _key: '!actors.items!RyzWdFRVyrDvHDWG.JV2rREz423igxM8V'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Magical concealment
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: As long as one or more of its podlings are nearby, the pixie pod is invisible
+        and extremely difficult to even detect. A PC who wants to locate the pixie-pod
+        must spend a standard action searching and succeed at a DC 25 skill check
+        using Wisdom. Backgrounds connected to plants and the wilderness help normally,
+        and general searching skills and magic talents might help a bit but not at
+        full strength. Once located, the plant can be attacked like a normal invisible
+        creature. When it teleports, however, it must be located all over again.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: RpHbTwRrZ5SFYkW2
+  _key: '!actors.items!RyzWdFRVyrDvHDWG.RpHbTwRrZ5SFYkW2'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Start with mooks
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The pixie pod is normally accompanied by five active podlings that don\u2019\
+        t count toward the total when building a battle with the pod. Additional podlings\
+        \ do count, however."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Pixie Pod
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Pixie Pod
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/plant.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 17
     attackMod:
       type: Number
       value: 0
@@ -15,471 +348,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 17
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 13
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 16
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 40
-      min: 0
-      max: 40
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 7
-      mod: 7
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 40
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 40
+    init:
+      label: Initiative Modifier
+      mod: 7
+      type: Number
+      value: 7
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 16
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 13
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 3
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: leader
-      type: String
       label: Role
-    size:
-      value: normal
       type: String
+      value: leader
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: normal
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
-      value: plant
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: plant
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: CdatyCpcn0vcwNCa
-    flags: {}
-    name: 'C: Peripheral summoning'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. MD ([[1]] random nearby enemy)'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[8]] psychic damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit
-        value: Add a new podling into the battle in a random location.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!RyzWdFRVyrDvHDWG.CdatyCpcn0vcwNCa'
-  - _id: VToKd6nUMRuHrIyr
-    flags: {}
-    name: Release the pods
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Once per battle when the pixie pod rolls a natural even hit with
-          peripheral summoning, it adds a number of podlings into the battle
-          equal to the escalation die instead of only one.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!RyzWdFRVyrDvHDWG.VToKd6nUMRuHrIyr'
-  - _id: TUfhJ37xGW8HKeHo
-    flags: {}
-    name: Immobile
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Although its podlings occasionally pick up and move it around out of
-          combat, in battle the pixie pod can’t move and is *stuck* except for
-          its teleport ability.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!RyzWdFRVyrDvHDWG.TUfhJ37xGW8HKeHo'
-  - _id: inrBc4ADNIS9Zy5Q
-    flags: {}
-    name: Lost opportunity
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: This creature can’t make opportunity attacks.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!RyzWdFRVyrDvHDWG.inrBc4ADNIS9Zy5Q'
-  - _id: jz2NGlzbRFMxIXZ1
-    flags: {}
-    name: Lurching teleport
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Once per battle as a move action, the pixie-pod can teleport to a
-          nearby location. But its control sucks. The teleport goes in a random
-          direction. Roll it using a [[d8]] for direction.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!RyzWdFRVyrDvHDWG.jz2NGlzbRFMxIXZ1'
-  - _id: JV2rREz423igxM8V
-    flags: {}
-    name: Magical concealment
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          As long as one or more of its podlings are nearby, the pixie pod is
-          invisible and extremely difficult to even detect. A PC who wants to
-          locate the pixie-pod must spend a standard action searching and
-          succeed at a DC 25 skill check using Wisdom. Backgrounds connected to
-          plants and the wilderness help normally, and general searching skills
-          and magic talents might help a bit but not at full strength. Once
-          located, the plant can be attacked like a normal invisible creature.
-          When it teleports, however, it must be located all over again.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!RyzWdFRVyrDvHDWG.JV2rREz423igxM8V'
-  - _id: RpHbTwRrZ5SFYkW2
-    flags: {}
-    name: Start with mooks
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The pixie pod is normally accompanied by five active podlings that
-          don’t count toward the total when building a battle with the pod.
-          Additional podlings do count, however.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!RyzWdFRVyrDvHDWG.RpHbTwRrZ5SFYkW2'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Pixie Pod
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/plant.webp
-    scaleX: 1
-    scaleY: 1
-    anchorX: 0.5
-    anchorY: 0.5
-    offsetX: 0
-    offsetY: 0
-    fit: contain
-    rotation: 0
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    color: null
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-  appendNumber: false
-  prependAdjective: false
-  hexagonalShape: 0
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!RyzWdFRVyrDvHDWG'
-
+        enabled: false
+type: npc

@@ -1,10 +1,535 @@
-name: Briar Elf Sovereign
-type: npc
 _id: JtzTaTZD1dGKWWiN
+_key: '!actors!JtzTaTZD1dGKWWiN'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+  core: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: c0llzSPnYqfAvYPW
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.c0llzSPnYqfAvYPW'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Thorny scepter
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 17]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[100]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+ hit
+      type: String
+      value: '[[80]] ongoing damage. Aftereffect: When the target saves against the
+        poison damage it becomes dazed (-4 attack) until the end of its next turn.'
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[50]] damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: vNnYnyWtYnyTzr7m
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.vNnYnyWtYnyTzr7m'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Verdant evolution'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 18]] vs. PD (one nearby enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[80]] poison damage and [[50]] ongoing poison damage. Aftereffect:
+        When the target saves against the poison damage it becomes confused until
+        the end of its next turn.'
+    hit1:
+      label: Hit
+      name: Natural 18+ hit
+      type: String
+      value: "Until the end of the battle the target\u2019s saves against poison damage\
+        \ all become hard saves (16+)."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: cpnmOdbZ957ogNSA
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.cpnmOdbZ957ogNSA'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: "The sovereign\xB4s orders"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: ''
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">When the escalation die is 1, as a free action
+        the sovereign can cause an ally to reroll a missed attack and take the better
+        roll. When the escalation die value is 2 the sovereign can do this twice during
+        the round. When the escalation die is 3+ the sovereign gets to order three
+        attacks rerolled.</span> </p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: ''
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: g9WFu70MPvy7Edct
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.g9WFu70MPvy7Edct'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: 'Choose one:'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: r3H66KMdQEzae6yl
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.r3H66KMdQEzae6yl'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Humanoid
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p><span class="fontstyle0">The sovereign has a magic item. You don&rsquo;t
+        need to work out what the item is right now, just give it +2 to all its defenses,
+        saves, and attacks to represent a generic magical &lsquo;thing&rsquo;. Once
+        the battle is over the adventurers can loot the body for a magic item, and
+        you can reveal/decide what the item actually is.</span> </p>
+
+        <p>&nbsp;</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: AaFMVCbl2yTnhtwZ
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.AaFMVCbl2yTnhtwZ'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Plant
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">This monster&rsquo;s type is [plant]. Whenever
+        the briar elf sovereign is standing on soil and doesn&rsquo;t move on its
+        turn it heals 14 hit points.</span> </p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 5Q8rJmJ8eCiBchFS
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.5Q8rJmJ8eCiBchFS'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Undead
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">This monster&rsquo;s type is [undead]. Other
+        undead refuse to fight this monster (sorry necromancers). Cleric attack spells
+        that target this monster only deal half damage on a hit.</span> </p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: LLo7duBPxyzVuLdb
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.LLo7duBPxyzVuLdb'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Royal command
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">The briar elf sovereign is no longer capped
+        at three rerolls per round from </span><span class="fontstyle2">the sovereign&rsquo;s
+        orders</span><span class="fontstyle0">&mdash;it gets four when the escalation
+        die is 4, five rerolls when the escalation die is 5, and can order six allies
+        a round to reroll their attacks once the escalation die reaches 6.</span>
+        </p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: 4pLgb2qnEz4NVaIo
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.4pLgb2qnEz4NVaIo'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Fear Aura
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">Enemies engaged with this briar elf who have
+        fewer than 120 hp are dazed (-4 attack) and can&rsquo;t use the escalation
+        die.</span></p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: NdLGUsMZt4S8XLFt
+  _key: '!actors.items!JtzTaTZD1dGKWWiN.NdLGUsMZt4S8XLFt'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Dark escalator
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p><span class="fontstyle0">On turns when the escalation die is even
+        the briar elves uses the escalation die, and their enemies do not.</span>
+        </p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Briar Elf Sovereign
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Briar Elf Sovereign
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 28
     attackMod:
       type: Number
       value: 0
@@ -15,666 +540,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 28
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 24
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 26
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 750
-      min: 0
-      max: 750
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 20
-    level:
-      type: Number
-      label: Level
-      value: 12
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 750
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 750
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 20
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 12
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 26
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 24
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: leader
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Briar Elf Sovereign
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Thorny scepter
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 17]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[100]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+ hit
-        value: >-
-          [[80]] ongoing damage. Aftereffect: When the target saves against the
-          poison damage it becomes dazed (-4 attack) until the end of its next
-          turn.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[50]] damage'
-    _id: c0llzSPnYqfAvYPW
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.BvLJNL0NwFdcRjjL
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.c0llzSPnYqfAvYPW'
-  - name: 'C: Verdant evolution'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 18]] vs. PD (one nearby enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[80]] poison damage and [[50]] ongoing poison damage. Aftereffect:
-          When the target saves against the poison damage it becomes confused
-          until the end of its next turn.
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 18+ hit
-        value: >-
-          Until the end of the battle the target’s saves against poison damage
-          all become hard saves (16+).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: vNnYnyWtYnyTzr7m
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.1s38Tmee9NHmKFTE
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.vNnYnyWtYnyTzr7m'
-  - name: The sovereign´s orders
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">When the escalation die is 1, as a free
-          action the sovereign can cause an ally to reroll a missed attack and
-          take the better roll. When the escalation die value is 2 the sovereign
-          can do this twice during the round. When the escalation die is 3+ the
-          sovereign gets to order three attacks rerolled.</span> </p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: ''
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: cpnmOdbZ957ogNSA
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.eT6ZEHlcG4hTK1R9.Item.zAQho2qb2R8Ur83x
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.cpnmOdbZ957ogNSA'
-  - name: 'Choose one:'
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: g9WFu70MPvy7Edct
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.g9WFu70MPvy7Edct'
-  - name: Humanoid
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">The sovereign has a magic item. You
-          don&rsquo;t need to work out what the item is right now, just give it
-          +2 to all its defenses, saves, and attacks to represent a generic
-          magical &lsquo;thing&rsquo;. Once the battle is over the adventurers
-          can loot the body for a magic item, and you can reveal/decide what the
-          item actually is.</span> </p>
-
-          <p>&nbsp;</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: r3H66KMdQEzae6yl
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.r3H66KMdQEzae6yl'
-  - name: Plant
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">This monster&rsquo;s type is [plant].
-          Whenever the briar elf sovereign is standing on soil and doesn&rsquo;t
-          move on its turn it heals 14 hit points.</span> </p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: AaFMVCbl2yTnhtwZ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.AaFMVCbl2yTnhtwZ'
-  - name: Undead
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
-          Other undead refuse to fight this monster (sorry necromancers). Cleric
-          attack spells that target this monster only deal half damage on a
-          hit.</span> </p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 5Q8rJmJ8eCiBchFS
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.5Q8rJmJ8eCiBchFS'
-  - name: Royal command
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">The briar elf sovereign is no longer
-          capped at three rerolls per round from </span><span
-          class="fontstyle2">the sovereign&rsquo;s orders</span><span
-          class="fontstyle0">&mdash;it gets four when the escalation die is 4,
-          five rerolls when the escalation die is 5, and can order six allies a
-          round to reroll their attacks once the escalation die reaches
-          6.</span> </p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: LLo7duBPxyzVuLdb
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.LLo7duBPxyzVuLdb'
-  - name: Fear Aura
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">Enemies engaged with this briar elf who
-          have fewer than 120 hp are dazed (-4 attack) and can&rsquo;t use the
-          escalation die.</span></p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 4pLgb2qnEz4NVaIo
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.4pLgb2qnEz4NVaIo'
-  - name: Dark escalator
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p><span class="fontstyle0">On turns when the escalation die is even
-          the briar elves uses the escalation die, and their enemies do
-          not.</span> </p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: NdLGUsMZt4S8XLFt
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!JtzTaTZD1dGKWWiN.NdLGUsMZt4S8XLFt'
-effects: []
-folder: null
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-  core: {}
-sort: 0
-_key: '!actors!JtzTaTZD1dGKWWiN'
-
+        enabled: false
+type: npc

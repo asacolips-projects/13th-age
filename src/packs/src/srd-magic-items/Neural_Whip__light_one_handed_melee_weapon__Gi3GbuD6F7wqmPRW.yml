@@ -1,71 +1,44 @@
-name: Neural Whip (light one-handed melee weapon)
-type: equipment
+_id: Gi3GbuD6F7wqmPRW
+_key: '!items!Gi3GbuD6F7wqmPRW'
+effects: []
+flags:
+  core: {}
+folder: uGMLSN6ivBLGtUfv
 img: icons/svg/item-bag.svg
+name: Neural Whip (light one-handed melee weapon)
+ownership:
+  default: 0
+sort: 200000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>A tentacle snakes one end around your arm, inserting filaments beneath
-      the skin. The whip stretches and flexes at your mental command, the tip
-      studded with hardened pulsing nerves.</p>
-
-      <p>Always: Bonus to attacks and damage: +1 (adventurer); +2 (champion); +3
-      (epic).</p>
-
-      <p>2/battle: You can use a reach trick with the whip (13th Age core book,
-      page 44), and the attack deals psychic damage.</p>
-
-      <p>Quirk: Grows eyes in unusual places.</p>
-  publicationSource: B1
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: once-per-battle
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '2'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '2'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -73,31 +46,61 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: melee
-effects: []
-folder: uGMLSN6ivBLGtUfv
-flags:
-  core: {}
-_id: Gi3GbuD6F7wqmPRW
-sort: 200000
-ownership:
-  default: 0
-_key: '!items!Gi3GbuD6F7wqmPRW'
+  description:
+    label: Description
+    type: String
+    value: '<p>A tentacle snakes one end around your arm, inserting filaments beneath
+      the skin. The whip stretches and flexes at your mental command, the tip studded
+      with hardened pulsing nerves.</p>
 
+      <p>Always: Bonus to attacks and damage: +1 (adventurer); +2 (champion); +3 (epic).</p>
+
+      <p>2/battle: You can use a reach trick with the whip (13th Age core book, page
+      44), and the attack deals psychic damage.</p>
+
+      <p>Quirk: Grows eyes in unusual places.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '2'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: once-per-battle
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: '2'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

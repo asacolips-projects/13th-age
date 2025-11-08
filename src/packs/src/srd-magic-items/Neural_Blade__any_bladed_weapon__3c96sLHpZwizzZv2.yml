@@ -1,70 +1,44 @@
-name: Neural Blade (any bladed weapon)
-type: equipment
+_id: 3c96sLHpZwizzZv2
+_key: '!items!3c96sLHpZwizzZv2'
+effects: []
+flags:
+  core: {}
+folder: uGMLSN6ivBLGtUfv
 img: icons/svg/item-bag.svg
+name: Neural Blade (any bladed weapon)
+ownership:
+  default: 0
+sort: 600000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>A boney blade with a spine and brain.</p>
-
-      <p>Always: Bonus to attacks and damage: +1 (adventurer); +2 (champion); +3
-      (epic); and the weapon deals psychic damage.</p>
-
-      <p>Chuulish recharge: Choose a nearby enemy. That enemy is now
-      *vulnerable* to psychic damage until the end of the battle.</p>
-
-      <p>Quirk: Large sphincters on arm where the ganglia-tentacles from the
-      blade&rsquo;s hilt insert themselves.</p>
-  publicationSource: B1
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '16'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 1
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -72,31 +46,61 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: melee
-effects: []
-folder: uGMLSN6ivBLGtUfv
-flags:
-  core: {}
-_id: 3c96sLHpZwizzZv2
-sort: 600000
-ownership:
-  default: 0
-_key: '!items!3c96sLHpZwizzZv2'
+  description:
+    label: Description
+    type: String
+    value: '<p>A boney blade with a spine and brain.</p>
 
+      <p>Always: Bonus to attacks and damage: +1 (adventurer); +2 (champion); +3 (epic);
+      and the weapon deals psychic damage.</p>
+
+      <p>Chuulish recharge: Choose a nearby enemy. That enemy is now *vulnerable*
+      to psychic damage until the end of the battle.</p>
+
+      <p>Quirk: Large sphincters on arm where the ganglia-tentacles from the blade&rsquo;s
+      hilt insert themselves.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '16'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

@@ -1,258 +1,264 @@
+_id: ZNAbELcTDiz8YO4r
+_key: '!items!ZNAbELcTDiz8YO4r'
+effects:
+- _id: CESUEgJMv5CwuRW5
+  _key: '!items.effects!ZNAbELcTDiz8YO4r.CESUEgJMv5CwuRW5'
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '2'
+  - key: system.attributes.disengageBonus
+    mode: 2
+    priority: null
+    value: '5'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: icons/creatures/abilities/paw-print-orange.webp
+  name: Leopard Aspect Adept Bonus
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+flags: {}
+folder: null
+img: icons/creatures/abilities/paw-print-orange.webp
 name: Leopard Aspect
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 16
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: Shifter
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Druid
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Leopard Aspect
-  powerType:
-    type: String
-    label: Power Type
-    value: power
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: quick
-  range:
-    type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: ''
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  hit:
     type: String
-    label: Hit
     value: ''
-  hitEven:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
-    value: <p>Daily, or recharge 16+ for adepts</p>
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
   effect:
-    type: String
     label: Effect
-    value: >-
-      <p>Initiate Effect: Until the end of the battle, when an enemy misses you
-      with a melee attack and rolls a natural 1&ndash;4, you gain an additional
-      standard action during your next turn. You can only gain one additional
-      standard action a turn this way. Powers like elven grace or a command
-      won&rsquo;t stack with this effect either.</p><p>Adept Effect: As the
-      initiate effect, and you gain a +2 bonus to AC. You also gain a +5 bonus
-      to disengage checks and to saves against being *stuck*, *dazed*, or
-      *stunned*.</p>
-  spellLevel2:
-    hide: true
     type: String
-    label: 2nd Level Spell
+    value: '<p>Initiate Effect: Until the end of the battle, when an enemy misses
+      you with a melee attack and rolls a natural 1&ndash;4, you gain an additional
+      standard action during your next turn. You can only gain one additional standard
+      action a turn this way. Powers like elven grace or a command won&rsquo;t stack
+      with this effect either.</p><p>Adept Effect: As the initiate effect, and you
+      gain a +2 bonus to AC. You also gain a +5 bonus to disengage checks and to saves
+      against being *stuck*, *dazed*, or *stunned*.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
-  spellLevel3:
-    hide: true
+  feats: null
+  finalVerse:
+    label: Final Verse
     type: String
-    label: 3rd Level Spell
     value: ''
-  spellLevel4:
-    hide: true
+  group:
+    label: Group
     type: String
-    label: 4th Level Spell
+    value: Shifter
+  hit:
+    label: Hit
+    type: String
     value: ''
-  spellLevel5:
-    hide: true
+  hitEven:
+    label: Natural Even Hit
     type: String
-    label: 5th Level Spell
     value: ''
-  spellLevel6:
-    hide: true
+  hitOdd:
+    label: Natural Odd Hit
     type: String
-    label: 6th Level Spell
     value: ''
-  spellLevel7:
-    hide: true
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
     type: String
-    label: 7th Level Spell
     value: ''
-  spellLevel8:
-    hide: true
+  missEven:
+    label: Even Miss
     type: String
-    label: 8th Level Spell
     value: ''
-  spellLevel9:
-    hide: true
+  missOdd:
+    label: Odd Miss
     type: String
-    label: 9th Level Spell
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Leopard Aspect
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Druid
+  powerType:
+    label: Power Type
+    type: String
+    value: power
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: ''
+  recharge:
+    label: Recharge
+    type: Number
+    value: 16
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: <p>Daily, or recharge 16+ for adepts</p>
+  spellChain:
+    label: Chain Spell
+    type: String
     value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
     value: ''
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: icons/creatures/abilities/paw-print-orange.webp
-_id: ZNAbELcTDiz8YO4r
-effects:
-  - origin: null
-    disabled: false
-    name: Leopard Aspect Adept Bonus
-    img: icons/creatures/abilities/paw-print-orange.webp
-    _id: CESUEgJMv5CwuRW5
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '2'
-        mode: 2
-        priority: null
-      - key: system.attributes.disengageBonus
-        value: '5'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        duration: EndOfCombat
-    _key: '!items.effects!ZNAbELcTDiz8YO4r.CESUEgJMv5CwuRW5'
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!ZNAbELcTDiz8YO4r'
-
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

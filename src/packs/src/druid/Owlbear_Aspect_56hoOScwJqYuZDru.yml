@@ -1,356 +1,360 @@
+_id: 56hoOScwJqYuZDru
+_key: '!items!56hoOScwJqYuZDru'
+effects:
+- _id: CESUEgJMv5CwuRW5
+  _key: '!items.effects!56hoOScwJqYuZDru.CESUEgJMv5CwuRW5'
+  changes:
+  - key: system.attributes.critMod.atk
+    mode: 2
+    priority: null
+    value: '2'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: icons/magic/nature/stealth-hide-eyes-green.webp
+  name: Owlbear Aspect Initiate Bonus
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: CESUEgJMv5CwuRW6
+  _key: '!items.effects!56hoOScwJqYuZDru.CESUEgJMv5CwuRW6'
+  changes:
+  - key: system.attributes.critMod.atk.value
+    mode: 2
+    priority: null
+    value: '2'
+  - key: system.attributes.attackMod.value
+    mode: 2
+    priority: null
+    value: '1'
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '2'
+  - key: system.attributes.pd.value
+    mode: 2
+    priority: null
+    value: '2'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: icons/magic/nature/stealth-hide-eyes-green.webp
+  name: Owlbear Aspect Adept Bonus
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+flags: {}
+folder: null
+img: icons/magic/nature/stealth-hide-eyes-green.webp
 name: Owlbear Aspect
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 16
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: Shifter
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Druid
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Owlbear Aspect
-  powerType:
-    type: String
-    label: Power Type
-    value: power
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: quick
-  range:
-    type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: ''
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  hit:
     type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
-  special:
-    type: String
-    label: Special
-    value: <p>Daily, or recharge 16+ for adepts</p>
-  effect:
-    type: String
-    label: Effect
-    value: >-
-      <p>Initiate Effect: Until the end of the battle, your crit range with
-      melee attacks expands by 2.</p><p>Adept Effect: As the initiate effect,
-      and you gain a +1 bonus to melee attacks and a +2 bonus to AC and PD.</p>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: ''
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
     value: ''
   breathWeapon:
-    type: String
     label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
     type: String
-    label: Roll Table
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: '<p>Initiate Effect: Until the end of the battle, your crit range with
+      melee attacks expands by 2.</p><p>Adept Effect: As the initiate effect, and
+      you gain a +1 bonus to melee attacks and a +2 bonus to AC and PD.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>When you score a critical hit, you heal [[@lvl + @wis.mod]] hit
-          points ([[@lvl + 2 * @wis.mod]] at 5th level; [[@lvl + 3 * @wis.mod]] at 8th
-          level).</p>
+        value: <p>When you score a critical hit, you heal [[@lvl + @wis.mod]] hit
+          points ([[@lvl + 2 * @wis.mod]] at 5th level; [[@lvl + 3 * @wis.mod]] at
+          8th level).</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: adventurer
     '1':
       description:
         type: String
-        value: >-
-          <p>While you are in this aspect, your critical hits with melee attacks
+        value: <p>While you are in this aspect, your critical hits with melee attacks
           deal triple damage instead of double damage.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: champion
     '2':
       description:
         type: String
-        value: >-
-          <p>Until the first time it recharges each day, owlbear aspect is
-          recharge 11+ instead of recharge 16+ for adepts.</p>
+        value: <p>Until the first time it recharges each day, owlbear aspect is recharge
+          11+ instead of recharge 16+ for adepts.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: 1
       powerUsage:
         type: String
         value: daily
       quantity:
         type: Number
         value: 1
-      maxQuantity:
-        type: Number
-        value: 1
-flags: {}
-img: icons/magic/nature/stealth-hide-eyes-green.webp
-_id: 56hoOScwJqYuZDru
-effects:
-  - origin: null
-    disabled: false
-    name: Owlbear Aspect Initiate Bonus
-    img: icons/magic/nature/stealth-hide-eyes-green.webp
-    _id: CESUEgJMv5CwuRW5
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.critMod.atk
-        value: '2'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        duration: EndOfCombat
-    _key: '!items.effects!56hoOScwJqYuZDru.CESUEgJMv5CwuRW5'
-  - origin: null
-    disabled: false
-    name: Owlbear Aspect Adept Bonus
-    img: icons/magic/nature/stealth-hide-eyes-green.webp
-    _id: CESUEgJMv5CwuRW6
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.critMod.atk.value
-        value: '2'
-        mode: 2
-        priority: null
-      - key: system.attributes.attackMod.value
-        value: '1'
-        mode: 2
-        priority: null
-      - key: system.attributes.ac.value
-        value: '2'
-        mode: 2
-        priority: null
-      - key: system.attributes.pd.value
-        value: '2'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        duration: EndOfCombat
-    _key: '!items.effects!56hoOScwJqYuZDru.CESUEgJMv5CwuRW6'
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!56hoOScwJqYuZDru'
-
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: Shifter
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Owlbear Aspect
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Druid
+  powerType:
+    label: Power Type
+    type: String
+    value: power
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: ''
+  recharge:
+    label: Recharge
+    type: Number
+    value: 16
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: <p>Daily, or recharge 16+ for adepts</p>
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: ''
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

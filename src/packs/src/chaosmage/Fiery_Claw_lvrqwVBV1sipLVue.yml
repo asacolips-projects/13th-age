@@ -1,217 +1,224 @@
+_id: lvrqwVBV1sipLVue
+_key: '!items!lvrqwVBV1sipLVue'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/red_31.jpg
 name: Fiery Claw
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: at-will
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: null
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: Great Gold Wyrm (Blood of Warriors)
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Chaos Mage
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Fiery Claw
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged Spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: One nearby enemy
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @cha.mod + @std + @atk.a.bonus]] vs PD'
-  hit:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Hit
-    value: >-
-      [[1d8 + @cha.dmg + @atk.a.bonus]] fire damage, and the target loses its resist
-      damage abilities, if any (hard save ends, 16+). 
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: '[[@lvl]] damage'
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
-    value: <p>This spell attack ignores all the target’s resistances.</p>
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: ''
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
+  feats: null
+  finalVerse:
+    label: Final Verse
     type: String
-    label: 3rd Level Spell
-    value: '[[3d8 + @cha.dmg + @atk.a.bonus]] damage'
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
     value: ''
-  spellLevel5:
-    hide: true
+  group:
+    label: Group
     type: String
-    label: 5th Level Spell
-    value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage'
-  spellLevel6:
-    hide: true
+    value: Great Gold Wyrm (Blood of Warriors)
+  hit:
+    label: Hit
     type: String
-    label: 6th Level Spell
+    value: '[[1d8 + @cha.dmg + @atk.a.bonus]] fire damage, and the target loses its
+      resist damage abilities, if any (hard save ends, 16+). '
+  hitEven:
+    label: Natural Even Hit
+    type: String
     value: ''
-  spellLevel7:
-    hide: true
+  hitOdd:
+    label: Natural Odd Hit
     type: String
-    label: 7th Level Spell
-    value: '[[7d8 + @cha.dmg + @atk.a.bonus]] damage'
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
     value: ''
-  spellLevel9:
-    hide: true
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: null
+  miss:
+    label: Miss
     type: String
-    label: 9th Level Spell
-    value: '[[9d8 + @cha.dmg + @atk.a.bonus]] damage'
+    value: '[[@lvl]] damage'
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Fiery Claw
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Chaos Mage
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: at-will
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  range:
+    label: Range
+    type: String
+    value: Ranged Spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: "<p>This spell attack ignores all the target\u2019s resistances.</p>"
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
     value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: '[[3d8 + @cha.dmg + @atk.a.bonus]] damage'
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: '[[5d8 + @cha.dmg + @atk.a.bonus]] damage'
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: '[[7d8 + @cha.dmg + @atk.a.bonus]] damage'
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: '[[9d8 + @cha.dmg + @atk.a.bonus]] damage'
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: systems/archmage/assets/icons/skills/red_31.jpg
-_id: lvrqwVBV1sipLVue
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!lvrqwVBV1sipLVue'
-
+  target:
+    label: Target
+    type: String
+    value: One nearby enemy
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power
