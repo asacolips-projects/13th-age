@@ -1,6 +1,5 @@
 import VueRenderingMixin from '../item/_vue-application-mixin.mjs'
 import { ArchmageActiveEffectSheetVue } from '../../vue/components.vue.es.js'
-import { wrapRolls } from '../item/_item-sheet-helpers.mjs'
 
 export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
   foundry.applications.sheets.ActiveEffectConfig
