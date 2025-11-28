@@ -20,9 +20,11 @@ pages:
   system: {}
   text:
     content: "<p>You take a \u20134 penalty to defenses and can\u2019t take any actions;\
-      \ but at the start of your turn, roll a hard save (16+). If the save succeeds,\
-      \ you can take one action on your turn. (This save doesn\u2019t solve the stunned\
-      \ condition, it just lets you take one action.)</p>"
+      \ but at the start of your turn, you can roll a hard save (16+). If the save\
+      \ succeeds, you can take one action on that turn. (This doesn\u2019t solve the\
+      \ stunned condition, it just lets you take one action; if it\u2019s a \u201C\
+      save ends\u201D effect, hopefully you\u2019ll save again at the end of your\
+      \ turn.)</p>"
     format: 1
   title:
     level: 1
@@ -31,4 +33,4 @@ pages:
   video:
     controls: true
     volume: 0.5
-sort: 0
+sort: 500000
