@@ -753,6 +753,22 @@ export class MacroUtils {
       });
     }
   }
+
+  /**
+   * Scale dice up one size
+   */
+  static scaleDiceUp(expr) {
+    switch(expr) {
+      case "d4": return "d6";
+      case "d6": return "d8";
+      case "d8": return "d10";
+      case "d10": return "d12";
+      case "d12": return "2d6";
+      case "2d6": return "2d8";
+      case "2d8": return "2d10";
+      default: return expr;
+    }
+  }
 }
 
 /**
