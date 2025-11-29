@@ -1,10 +1,454 @@
 _id: YlcIhsZunTFwe5ol
-name: Vicious Warbanner
-type: npc
+_key: '!actors!YlcIhsZunTFwe5ol'
+effects: []
+flags: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+items:
+- _id: VKWQBZXlbynLcWnp
+  _key: '!actors.items!YlcIhsZunTFwe5ol.VKWQBZXlbynLcWnp'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: flagspear
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[18]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: tzTUph3dfEGRz2tZ
+  _key: '!actors.items!YlcIhsZunTFwe5ol.tzTUph3dfEGRz2tZ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Banner magic
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: Roll [[1d20]] and [[1d20]] and use each roll (or a lower result of your
+        choice) to determine one effect
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: <ul><li>1&ndash;5:&nbsp;The warbanner&rsquo;s bearer can make a basic
+        attack with a +2 attack bonus as a free action.</li><li>6&ndash;10:&nbsp;Add
+        a 3rd level orc mook to the warbanner&rsquo;s band.</li><li>11&ndash;15:&nbsp;The
+        warbanner can make a&nbsp;flagspear&nbsp;attack as a free action.</li><li>16&ndash;20:&nbsp;The
+        warbanner can make a&nbsp;false rally&nbsp;attack as a free action.</li></ul>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: C
+    hit:
+      label: Hit
+      type: String
+      value: ''
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: EmA4YzPbzIRAezBj
+  _key: '!actors.items!YlcIhsZunTFwe5ol.EmA4YzPbzIRAezBj'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: False rally
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. MD ([[1]] nearby enemy with 15HP or fewer)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: Special trigger C
+    hit:
+      label: Hit
+      type: String
+      value: The target is *confused* (hard save ends, 16+)
+    hit1:
+      label: Hit
+      name: Critical hit
+      type: String
+      value: "The target can now only save against the confusion with a natural 20\
+        \ (or until the warbanner drops) and can\u2019t flee if the rest of the PCs\
+        \ choose to do so."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: hcAStbTNapnkkSek
+  _key: '!actors.items!YlcIhsZunTFwe5ol.hcAStbTNapnkkSek'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Designated bearer
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Once per round as a quick action, the warbanner can fly directly above
+        a lower-level ally in its band and designate that ally as its bearer. Alternately,
+        it can release itself from a bearer and fly free.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: loPz9DAC3Y3bPwvB
+  _key: '!actors.items!YlcIhsZunTFwe5ol.loPz9DAC3Y3bPwvB'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Bearer beware
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>While the warbanner has a bearer it moves with the bearer and is engaged
+        by enemies that engage the bearer. The bearer is *vulnerable* to all attacks
+        but it can use the escalation die.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 0cBLgHZ6Qm3HRtFE
+  _key: '!actors.items!YlcIhsZunTFwe5ol.0cBLgHZ6Qm3HRtFE'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Conditional resist damage 16+
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>As feral warbanner</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: gkEoGqQ7PSN0UBRg
+  _key: '!actors.items!YlcIhsZunTFwe5ol.gkEoGqQ7PSN0UBRg'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>As feral warbanner</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: j9tZRZCXSP4KARSI
+  _key: '!actors.items!YlcIhsZunTFwe5ol.j9tZRZCXSP4KARSI'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Mook morale
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Mooks fighting in the warbanner&rsquo;s band gain a bonus to their
+        hit points equal to the warbanner&rsquo;s level (3).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Vicious Warbanner
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Vicious Warbanner
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 18
     attackMod:
       type: Number
       value: 0
@@ -15,569 +459,167 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 18
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 16
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 13
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 100
-      min: 0
-      max: 100
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 8
-      mod: 8
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      base: 8
-      automatic: true
     escalation:
       value: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 100
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 100
+    init:
+      label: Initiative Modifier
+      mod: 8
+      type: Number
+      value: 8
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 13
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 16
+    saves:
+      automatic: true
+      base: 8
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: caster
-      type: String
       label: Role
-    size:
-      value: normal
       type: String
+      value: caster
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: normal
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
-      value: construct
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: construct
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: VKWQBZXlbynLcWnp
-    flags: {}
-    name: flagspear
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[18]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.VKWQBZXlbynLcWnp'
-  - _id: tzTUph3dfEGRz2tZ
-    flags: {}
-    name: Banner magic
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <ul><li>1&ndash;5:&nbsp;The warbanner&rsquo;s bearer can make a basic
-          attack with a +2 attack bonus as a free
-          action.</li><li>6&ndash;10:&nbsp;Add a 3rd level orc mook to the
-          warbanner&rsquo;s band.</li><li>11&ndash;15:&nbsp;The warbanner can
-          make a&nbsp;flagspear&nbsp;attack as a free
-          action.</li><li>16&ndash;20:&nbsp;The warbanner can make a&nbsp;false
-          rally&nbsp;attack as a free action.</li></ul>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: C
-      attack:
-        type: String
-        label: Attack Roll
-        value: >-
-          Roll [[1d20]] and [[1d20]] and use each roll (or a lower result of
-          your choice) to determine one effect
-      hit:
-        type: String
-        label: Hit
-        value: ''
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.tzTUph3dfEGRz2tZ'
-  - _id: EmA4YzPbzIRAezBj
-    flags: {}
-    name: False rally
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: Special trigger C
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. MD ([[1]] nearby enemy with 15HP or fewer)'
-      hit:
-        type: String
-        label: Hit
-        value: The target is *confused* (hard save ends, 16+)
-      hit1:
-        type: String
-        label: Hit
-        name: Critical hit
-        value: >-
-          The target can now only save against the confusion with a natural 20
-          (or until the warbanner drops) and can’t flee if the rest of the PCs
-          choose to do so.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.EmA4YzPbzIRAezBj'
-  - _id: hcAStbTNapnkkSek
-    flags: {}
-    name: Designated bearer
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per round as a quick action, the warbanner can fly directly
-          above a lower-level ally in its band and designate that ally as its
-          bearer. Alternately, it can release itself from a bearer and fly
-          free.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.hcAStbTNapnkkSek'
-  - _id: loPz9DAC3Y3bPwvB
-    flags: {}
-    name: Bearer beware
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>While the warbanner has a bearer it moves with the bearer and is
-          engaged by enemies that engage the bearer. The bearer is *vulnerable*
-          to all attacks but it can use the escalation die.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.loPz9DAC3Y3bPwvB'
-  - _id: 0cBLgHZ6Qm3HRtFE
-    flags: {}
-    name: Conditional resist damage 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>As feral warbanner</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.0cBLgHZ6Qm3HRtFE'
-  - _id: gkEoGqQ7PSN0UBRg
-    flags: {}
-    name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>As feral warbanner</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.gkEoGqQ7PSN0UBRg'
-  - _id: j9tZRZCXSP4KARSI
-    flags: {}
-    name: Mook morale
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Mooks fighting in the warbanner&rsquo;s band gain a bonus to their
-          hit points equal to the warbanner&rsquo;s level (3).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 800000
-    effects: []
-    folder: null
-    _key: '!actors.items!YlcIhsZunTFwe5ol.j9tZRZCXSP4KARSI'
-effects: []
-folder: null
-sort: 100001
-flags: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Vicious Warbanner
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    anchorX: 0.5
-    anchorY: 0.5
-    offsetX: 0
-    offsetY: 0
-    fit: contain
-    rotation: 0
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    color: null
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-  appendNumber: false
-  prependAdjective: false
-  hexagonalShape: 0
-  detectionModes: []
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!YlcIhsZunTFwe5ol'
-
+        enabled: false
+type: npc

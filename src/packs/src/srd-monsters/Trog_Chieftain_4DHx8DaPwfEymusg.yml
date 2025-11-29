@@ -1,10 +1,423 @@
-name: Trog Chieftain
-type: npc
 _id: 4DHx8DaPwfEymusg
+_key: '!actors!4DHx8DaPwfEymusg'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: EGLishlC1q0oMjJE
+  _key: '!actors.items!4DHx8DaPwfEymusg.EGLishlC1q0oMjJE'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Ancestral trident
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 12]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: "[[28]] damage, and the target takes a \u20135 penalty to disengage checks\
+        \ until the end of its next turn"
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: "Damage equal to five times the penalty the trog\u2019s stench currently\
+        \ imposes on the target."
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: lcxxVpc9KpSP41Wl
+  _key: '!actors.items!4DHx8DaPwfEymusg.lcxxVpc9KpSP41Wl'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Bellow of dominance'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. MD (one nearby enemy not effected by trog stench)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[25]] psychic damage, and the trog chieftain gains a *fear aura* against
+        the target (save ends)'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: stBYKROky6DY1Vmt
+  _key: '!actors.items!4DHx8DaPwfEymusg.stBYKROky6DY1Vmt'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: War cackle
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the chieftain drops an enemy to 0 hp or below, each nearby troglodyte
+        can roll a saving throw against one effect on it. If that enemy is a dwarf
+        or elf, the save gains a +5 bonus.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: gNKhl8oZ3vgudnzo
+  _key: '!actors.items!4DHx8DaPwfEymusg.gNKhl8oZ3vgudnzo'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Chameleon
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Underground, or in swamps and rivers, attacks against troglodytes
+        by enemies who aren&rsquo;t engaged with them take a &ndash;4 penalty.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: aqmrQxll8BAMQv99
+  _key: '!actors.items!4DHx8DaPwfEymusg.aqmrQxll8BAMQv99'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Trog stench
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Trogs spray scents that stink so badly that other humanoids take
+        penalties to all attacks, defenses, and saves when engaged with a troglodyte
+        or when nearby three or more troglodytes. Non-humanoids aren&rsquo;t affected.</p>
+
+        <p>Humanoids affected by trog stench can make a normal save (with a penalty)
+        at the end of each of their turns. If the save succeeds, the humanoid can
+        ignore all trog stench for the rest of the battle. Trog stench penalties vary
+        for different humanoid races:</p>
+
+        <table style="width: 100%; height: 95px;" border="1">
+
+        <tbody>
+
+        <tr style="height: 17px;">
+
+        <td style="width: 78.6685%; height: 17px;">Race</td>
+
+        <td style="width: 21.3315%; height: 17px;">Save Penalty</td>
+
+        </tr>
+
+        <tr style="height: 17px;">
+
+        <td style="width: 78.6685%; height: 17px;">Elves, gnolls, gnomes</td>
+
+        <td style="width: 21.3315%; height: 17px;">-4</td>
+
+        </tr>
+
+        <tr style="height: 10px;">
+
+        <td style="width: 78.6685%; height: 10px;">Humans, halflings, half-elves,
+        Aasimar, tieflings, etc.</td>
+
+        <td style="width: 21.3315%; height: 10px;">-3</td>
+
+        </tr>
+
+        <tr style="height: 17px;">
+
+        <td style="width: 78.6685%; height: 17px;">Half-orcs, draconics</td>
+
+        <td style="width: 21.3315%; height: 17px;">-2</td>
+
+        </tr>
+
+        <tr style="height: 17px;">
+
+        <td style="width: 78.6685%; height: 17px;">Dwarves</td>
+
+        <td style="width: 21.3315%; height: 17px;">-1</td>
+
+        </tr>
+
+        <tr style="height: 17px;">
+
+        <td style="width: 78.6685%; height: 17px;">Steelforged</td>
+
+        <td style="width: 21.3315%; height: 17px;">-0</td>
+
+        </tr>
+
+        </tbody>
+
+        </table>
+
+        <p>&nbsp;</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: FM21rDuAvnwUqIcV
+  _key: '!actors.items!4DHx8DaPwfEymusg.FM21rDuAvnwUqIcV'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Scuzzy-toothed yawp
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>While an enemy is affected by the fear aura of the trog chieftain&rsquo;s
+        bellow of dominance, that enemy can&rsquo;t attack a troglodyte.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Trog Chieftain
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Trog Chieftain
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 23
     attackMod:
       type: Number
       value: 0
@@ -15,542 +428,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 23
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 20
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 18
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 125
-      min: 0
-      max: 125
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 8
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 125
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 125
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 8
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 7
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 18
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 20
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: leader
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Trog Chieftain
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Ancestral trident
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[28]] damage, and the target takes a –5 penalty to disengage checks
-          until the end of its next turn
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: >-
-          Damage equal to five times the penalty the trog’s stench currently
-          imposes on the target.
-    _id: EGLishlC1q0oMjJE
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4DHx8DaPwfEymusg.EGLishlC1q0oMjJE'
-  - name: 'C: Bellow of dominance'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. MD (one nearby enemy not effected by trog stench)'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[25]] psychic damage, and the trog chieftain gains a *fear aura*
-          against the target (save ends)
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: lcxxVpc9KpSP41Wl
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4DHx8DaPwfEymusg.lcxxVpc9KpSP41Wl'
-  - name: War cackle
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the chieftain drops an enemy to 0 hp or below, each nearby
-          troglodyte can roll a saving throw against one effect on it. If that
-          enemy is a dwarf or elf, the save gains a +5 bonus.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: stBYKROky6DY1Vmt
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4DHx8DaPwfEymusg.stBYKROky6DY1Vmt'
-  - name: Chameleon
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Underground, or in swamps and rivers, attacks against troglodytes
-          by enemies who aren&rsquo;t engaged with them take a &ndash;4
-          penalty.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: gNKhl8oZ3vgudnzo
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4DHx8DaPwfEymusg.gNKhl8oZ3vgudnzo'
-  - name: Trog stench
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Trogs spray scents that stink so badly that other humanoids take
-          penalties to all attacks, defenses, and saves when engaged with a
-          troglodyte or when nearby three or more troglodytes. Non-humanoids
-          aren&rsquo;t affected.</p>
-
-          <p>Humanoids affected by trog stench can make a normal save (with a
-          penalty) at the end of each of their turns. If the save succeeds, the
-          humanoid can ignore all trog stench for the rest of the battle. Trog
-          stench penalties vary for different humanoid races:</p>
-
-          <table style="width: 100%; height: 95px;" border="1">
-
-          <tbody>
-
-          <tr style="height: 17px;">
-
-          <td style="width: 78.6685%; height: 17px;">Race</td>
-
-          <td style="width: 21.3315%; height: 17px;">Save Penalty</td>
-
-          </tr>
-
-          <tr style="height: 17px;">
-
-          <td style="width: 78.6685%; height: 17px;">Elves, gnolls, gnomes</td>
-
-          <td style="width: 21.3315%; height: 17px;">-4</td>
-
-          </tr>
-
-          <tr style="height: 10px;">
-
-          <td style="width: 78.6685%; height: 10px;">Humans, halflings,
-          half-elves, Aasimar, tieflings, etc.</td>
-
-          <td style="width: 21.3315%; height: 10px;">-3</td>
-
-          </tr>
-
-          <tr style="height: 17px;">
-
-          <td style="width: 78.6685%; height: 17px;">Half-orcs, draconics</td>
-
-          <td style="width: 21.3315%; height: 17px;">-2</td>
-
-          </tr>
-
-          <tr style="height: 17px;">
-
-          <td style="width: 78.6685%; height: 17px;">Dwarves</td>
-
-          <td style="width: 21.3315%; height: 17px;">-1</td>
-
-          </tr>
-
-          <tr style="height: 17px;">
-
-          <td style="width: 78.6685%; height: 17px;">Steelforged</td>
-
-          <td style="width: 21.3315%; height: 17px;">-0</td>
-
-          </tr>
-
-          </tbody>
-
-          </table>
-
-          <p>&nbsp;</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: aqmrQxll8BAMQv99
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4DHx8DaPwfEymusg.aqmrQxll8BAMQv99'
-  - name: Scuzzy-toothed yawp
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>While an enemy is affected by the fear aura of the trog
-          chieftain&rsquo;s bellow of dominance, that enemy can&rsquo;t attack a
-          troglodyte.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: FM21rDuAvnwUqIcV
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4DHx8DaPwfEymusg.FM21rDuAvnwUqIcV'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!4DHx8DaPwfEymusg'
-
+        enabled: false
+type: npc

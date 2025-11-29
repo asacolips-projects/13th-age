@@ -1,10 +1,357 @@
 _id: cfahZzXSitFIPQgs
-name: Elder Sparkscale Naga
-type: npc
+_key: '!actors!cfahZzXSitFIPQgs'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: YQ3tKhHKBvEL90UY
+  _key: '!actors.items!cfahZzXSitFIPQgs.YQ3tKhHKBvEL90UY'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Bite
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[30]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: ''
+      value: Each nearby enemy takes [[10]] thunder damage.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: '[[20]] damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: uu0pkXfjquhc7UqU
+  _key: '!actors.items!cfahZzXSitFIPQgs.uu0pkXfjquhc7UqU'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'R: Bloom of lightning'
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. PD ([[1d3]] nearby or far away enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: 'Limited use: 1/battle.'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[30]] lightning damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: ''
+      value: Each nearby enemy takes [[10]] thunder damage.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: Each nearby creature (including allies) takes [[5]] thunder damage.
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: SHsg41GlUqpb5zYf
+  _key: '!actors.items!cfahZzXSitFIPQgs.SHsg41GlUqpb5zYf'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'C: Sparking aura'
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 14]] vs. PD ([[1]] nearby enemy'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: or [[1]] nearby enemy per point of esc. die if supreme mystic escalator
+        benefit is active);40 lightning damage, and the target is *vulnerable* (save
+        ends)
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: BPFgHIyXp7FXEF7A
+  _key: '!actors.items!cfahZzXSitFIPQgs.BPFgHIyXp7FXEF7A'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Arcane mirror
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Whenever an enemy targets the elder sparkscale naga with a spell, the\
+        \ naga regains the use of bloom of lightning if it\u2019s expended. In addition,\
+        \ if that spell is a recharge spell, roll its recharge check immediately after\
+        \ the spell is cast. If the spell is a per-battle or daily spell, roll a hard\
+        \ save (16+) immediately after the spell is cast; on a success, the spellcaster\
+        \ doesn\u2019t expend the spell."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: mgJ6ByODxbtjK7ae
+  _key: '!actors.items!cfahZzXSitFIPQgs.mgJ6ByODxbtjK7ae'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Supreme mystic escalator
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The naga and each of its nearby allies can use the escalation die unless
+        the naga has been hit by two enemy spells since its last turn.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Elder Sparkscale Naga
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Elder Sparkscale Naga
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 24
     attackMod:
       type: Number
       value: 0
@@ -15,470 +362,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 24
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 23
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 190
-      min: 0
-      max: 190
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 15
-      mod: 15
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 190
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 190
+    init:
+      label: Initiative Modifier
+      mod: 15
+      type: Number
+      value: 15
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 19
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 23
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: leader
-      type: String
       label: Role
-    size:
-      value: normal
       type: String
+      value: leader
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
-      value: beast
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: beast
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: YQ3tKhHKBvEL90UY
-    flags: {}
-    name: Bite
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. AC'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[30]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 16+
-        value: Each nearby enemy takes [[10]] thunder damage.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: '[[20]] damage.'
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!cfahZzXSitFIPQgs.YQ3tKhHKBvEL90UY'
-  - _id: uu0pkXfjquhc7UqU
-    flags: {}
-    name: 'R: Bloom of lightning'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: 'Limited use: 1/battle.'
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. PD ([[1d3]] nearby or far away enemies)'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[30]] lightning damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 16+
-        value: Each nearby enemy takes [[10]] thunder damage.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: Each nearby creature (including allies) takes [[5]] thunder damage.
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!cfahZzXSitFIPQgs.uu0pkXfjquhc7UqU'
-  - _id: SHsg41GlUqpb5zYf
-    flags: {}
-    name: 'C: Sparking aura'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. PD ([[1]] nearby enemy'
-      hit:
-        type: ''
-        label: Hit
-        value: >-
-          or [[1]] nearby enemy per point of esc. die if supreme mystic
-          escalator benefit is active);40 lightning damage, and the target is
-          *vulnerable* (save ends)
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!cfahZzXSitFIPQgs.SHsg41GlUqpb5zYf'
-  - _id: BPFgHIyXp7FXEF7A
-    flags: {}
-    name: Arcane mirror
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Whenever an enemy targets the elder sparkscale naga with a spell, the
-          naga regains the use of bloom of lightning if it’s expended. In
-          addition, if that spell is a recharge spell, roll its recharge check
-          immediately after the spell is cast. If the spell is a per-battle or
-          daily spell, roll a hard save (16+) immediately after the spell is
-          cast; on a success, the spellcaster doesn’t expend the spell.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!cfahZzXSitFIPQgs.BPFgHIyXp7FXEF7A'
-  - _id: mgJ6ByODxbtjK7ae
-    flags: {}
-    name: Supreme mystic escalator
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The naga and each of its nearby allies can use the escalation die
-          unless the naga has been hit by two enemy spells since its last turn.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!cfahZzXSitFIPQgs.mgJ6ByODxbtjK7ae'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Elder Sparkscale Naga
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!cfahZzXSitFIPQgs'
-
+        enabled: false
+type: npc

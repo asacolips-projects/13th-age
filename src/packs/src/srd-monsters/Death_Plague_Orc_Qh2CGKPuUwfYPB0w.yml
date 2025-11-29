@@ -1,10 +1,235 @@
 _id: Qh2CGKPuUwfYPB0w
-name: Death-Plague Orc
-type: npc
+_key: '!actors!Qh2CGKPuUwfYPB0w'
+effects: []
+flags: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: XuRbT9uAV41gIdao
+  _key: '!actors.items!Qh2CGKPuUwfYPB0w.XuRbT9uAV41gIdao'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Huge spiked flail
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[21]] damage'
+    hit1:
+      label: Hit
+      name: Natural roll is above target's Constitution
+      type: String
+      value: The target catches a disease.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: kOG363EorLNLH2hP
+  _key: '!actors.items!Qh2CGKPuUwfYPB0w.kOG363EorLNLH2hP'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Disease
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>When a creature contracts a death-plague orc disease, roll a [[1d4]]
+        for the disease type and a [[1d6]] for that disease&rsquo;s symptoms after
+        the battle. Until cured, at the start of each day (after each full heal-up)
+        the PC makes a Constitution check (including any appropriate background) to
+        determine the severity of the disease for that day, or if the PC is cured.</p><p>Full
+        bed rest under the care of a healer reduces severity roll from a d6 to a d4
+        (so a severity check result of 18 would be 1d4 + 2 not 1d6 + 2). A PC under
+        the care of and experience healer or someone who knows healing magic gains
+        a +10 bonus to the Constitution check. At the GM&rsquo;s option, special ingredients
+        or healing items, found via quest, can give additional bonuses to the check.</p><p>Disease
+        Type (d4)</p><ol><li>Filthy Fever (d6 roll for symptoms that day)</li><li>Chatter
+        Pox (d6 roll for symptoms that day)</li><li>Slug Scourge (d6 roll for symptoms
+        that day)</li><li>Red Fever (d6 roll for symptoms that day)</li></ol><p>Filthy
+        Fever Symptoms (d6)</p><ul><li>Slight temperature.</li><li>2&ndash;3: The
+        runs. You gain 1 less recovery than normal after a full heal-up due to fluid
+        loss.</li><li>4+: You have a hacking cough that sounds like insane laughter
+        and are losing fluids. You gain 2 fewer recoveries than normal after a full
+        heal-up and can&rsquo;t remain silent.</li></ul><p>Chatter Pox Symptoms (d6)</p><ul><li>1:
+        Unsightly and painful sores, occasional shivers.</li><li>2&ndash;3: Running
+        sores, shivering and chattering teeth. You take a &ndash;3 penalty to social
+        skill checks and to attack rolls with spells.</li><li>4+: Infected sores,
+        fever dreams. Your constitution is *weakened*. After each full heal-up, roll
+        1d4 + 3 to determine your starting maximum recoveries for that day. Each time
+        you cast a spell that isn&rsquo;t at-will, there&rsquo;s a 25% chance it fails
+        (but you don&rsquo;t expend the spell).</li></ul><p>Slug Scourge Symptoms
+        (d6)</p><ul><li>1: Extreme appetite, nausea.</li><li>2&ndash;3: Vomiting up
+        slugs. Whenever you make a non-combat Charisma check, roll 2d20 and take the
+        lower result.</li><li>4+: The slugs are inside your lungs! After each quick
+        rest, you lose 25% of your maximum hit points. If you drop to 0 hp this way,
+        you enter into a coma until the next day.</li></ul><p>Red Fever Symptoms (d6)</p><ul><li>1:
+        Scarlet stripes on the eyeballs, itching, buzzing in ears.</li><li>2&ndash;3:
+        Blurred vision. You take a &ndash;3 penalty to ranged attacks.</li><li>4+:
+        Fever, rage, and confusion. Whenever you roll a natural odd attack roll, you
+        are *confused* until the end of your next turn. Ranged attacks have a 25%
+        chance of accidentally targeting an ally (check before making the attack roll).</li></ul><p>Disease
+        Severity (Con check each day; result affects d6 symptoms roll)</p><ul><li>1&ndash;14:
+        d6 + 3</li><li>15&ndash;20: d6 + 2</li><li>20&ndash;24: d6 + 1</li><li>25&ndash;29:
+        d6 + 0</li><li>30+: Cured</li></ul>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Death-Plague Orc
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Death-Plague Orc
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 20
     attackMod:
       type: Number
       value: 0
@@ -15,378 +240,167 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 18
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 12
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 90
-      min: 0
-      max: 90
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 2
-      mod: 2
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      base: 8
-      automatic: true
     escalation:
       value: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 90
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 90
+    init:
+      label: Initiative Modifier
+      mod: 2
+      type: Number
+      value: 2
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 12
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 18
+    saves:
+      automatic: true
+      base: 8
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: spoiler
-      type: String
       label: Role
-    size:
-      value: large
       type: String
+      value: spoiler
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
-      value: humanoid
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: humanoid
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: XuRbT9uAV41gIdao
-    flags: {}
-    name: Huge spiked flail
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[21]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural roll is above target's Constitution
-        value: The target catches a disease.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!Qh2CGKPuUwfYPB0w.XuRbT9uAV41gIdao'
-  - _id: kOG363EorLNLH2hP
-    flags: {}
-    name: Disease
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a creature contracts a death-plague orc disease, roll a
-          [[1d4]] for the disease type and a [[1d6]] for that disease&rsquo;s
-          symptoms after the battle. Until cured, at the start of each day
-          (after each full heal-up) the PC makes a Constitution check (including
-          any appropriate background) to determine the severity of the disease
-          for that day, or if the PC is cured.</p><p>Full bed rest under the
-          care of a healer reduces severity roll from a d6 to a d4 (so a
-          severity check result of 18 would be 1d4 + 2 not 1d6 + 2). A PC under
-          the care of and experience healer or someone who knows healing magic
-          gains a +10 bonus to the Constitution check. At the GM&rsquo;s option,
-          special ingredients or healing items, found via quest, can give
-          additional bonuses to the check.</p><p>Disease Type
-          (d4)</p><ol><li>Filthy Fever (d6 roll for symptoms that
-          day)</li><li>Chatter Pox (d6 roll for symptoms that day)</li><li>Slug
-          Scourge (d6 roll for symptoms that day)</li><li>Red Fever (d6 roll for
-          symptoms that day)</li></ol><p>Filthy Fever Symptoms
-          (d6)</p><ul><li>Slight temperature.</li><li>2&ndash;3: The runs. You
-          gain 1 less recovery than normal after a full heal-up due to fluid
-          loss.</li><li>4+: You have a hacking cough that sounds like insane
-          laughter and are losing fluids. You gain 2 fewer recoveries than
-          normal after a full heal-up and can&rsquo;t remain
-          silent.</li></ul><p>Chatter Pox Symptoms (d6)</p><ul><li>1: Unsightly
-          and painful sores, occasional shivers.</li><li>2&ndash;3: Running
-          sores, shivering and chattering teeth. You take a &ndash;3 penalty to
-          social skill checks and to attack rolls with spells.</li><li>4+:
-          Infected sores, fever dreams. Your constitution is *weakened*. After
-          each full heal-up, roll 1d4 + 3 to determine your starting maximum
-          recoveries for that day. Each time you cast a spell that isn&rsquo;t
-          at-will, there&rsquo;s a 25% chance it fails (but you don&rsquo;t
-          expend the spell).</li></ul><p>Slug Scourge Symptoms
-          (d6)</p><ul><li>1: Extreme appetite, nausea.</li><li>2&ndash;3:
-          Vomiting up slugs. Whenever you make a non-combat Charisma check, roll
-          2d20 and take the lower result.</li><li>4+: The slugs are inside your
-          lungs! After each quick rest, you lose 25% of your maximum hit points.
-          If you drop to 0 hp this way, you enter into a coma until the next
-          day.</li></ul><p>Red Fever Symptoms (d6)</p><ul><li>1: Scarlet stripes
-          on the eyeballs, itching, buzzing in ears.</li><li>2&ndash;3: Blurred
-          vision. You take a &ndash;3 penalty to ranged attacks.</li><li>4+:
-          Fever, rage, and confusion. Whenever you roll a natural odd attack
-          roll, you are *confused* until the end of your next turn. Ranged
-          attacks have a 25% chance of accidentally targeting an ally (check
-          before making the attack roll).</li></ul><p>Disease Severity (Con
-          check each day; result affects d6 symptoms
-          roll)</p><ul><li>1&ndash;14: d6 + 3</li><li>15&ndash;20: d6 +
-          2</li><li>20&ndash;24: d6 + 1</li><li>25&ndash;29: d6 + 0</li><li>30+:
-          Cured</li></ul>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!Qh2CGKPuUwfYPB0w.kOG363EorLNLH2hP'
-effects: []
-folder: null
-sort: 100001
-flags: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Death-Plague Orc
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    tint: '#ffffff'
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 1
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!Qh2CGKPuUwfYPB0w'
-
+        enabled: false
+type: npc

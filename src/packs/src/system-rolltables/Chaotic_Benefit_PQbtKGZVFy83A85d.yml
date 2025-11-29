@@ -1,54 +1,53 @@
-name: Chaotic Benefit
-img: icons/svg/d20-grey.svg
+_id: PQbtKGZVFy83A85d
+_key: '!tables!PQbtKGZVFy83A85d'
 description: ''
-results:
-  - type: pack
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    text: Chaotic Benefit (A)
-    img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: jcbFdEkR9g1isX0S
-    _id: oxsAg9eafCaXA6yU
-    flags: {}
-    _key: '!tables.results!PQbtKGZVFy83A85d.oxsAg9eafCaXA6yU'
-  - type: pack
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    text: Chaotic Benefit (C)
-    img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: DsZC28QGCvhy8LyE
-    _id: MxloVN4q71UE1ZeS
-    flags: {}
-    _key: '!tables.results!PQbtKGZVFy83A85d.MxloVN4q71UE1ZeS'
-  - type: pack
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    text: Chaotic Benefit (E)
-    img: icons/svg/d20-grey.svg
-    documentCollection: archmage.system-rolltables
-    documentId: hojV2urxFb1cjgWJ
-    _id: pkIOIFFKtZB9DwYQ
-    flags: {}
-    _key: '!tables.results!PQbtKGZVFy83A85d.pkIOIFFKtZB9DwYQ'
-formula: '@tier'
-replacement: true
 displayRoll: false
 flags: {}
 folder: null
-sort: 1700000
+formula: '@tier'
+img: icons/svg/d20-grey.svg
+name: Chaotic Benefit
 ownership:
   default: 0
-_id: PQbtKGZVFy83A85d
-_key: '!tables!PQbtKGZVFy83A85d'
-
+replacement: true
+results:
+- _id: oxsAg9eafCaXA6yU
+  _key: '!tables.results!PQbtKGZVFy83A85d.oxsAg9eafCaXA6yU'
+  description: ''
+  documentUuid: Compendium.archmage.system-rolltables.RollTable.jcbFdEkR9g1isX0S
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-grey.svg
+  name: Chaotic Benefit (A)
+  range:
+  - 1
+  - 1
+  type: document
+  weight: 1
+- _id: MxloVN4q71UE1ZeS
+  _key: '!tables.results!PQbtKGZVFy83A85d.MxloVN4q71UE1ZeS'
+  description: ''
+  documentUuid: Compendium.archmage.system-rolltables.RollTable.DsZC28QGCvhy8LyE
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-grey.svg
+  name: Chaotic Benefit (C)
+  range:
+  - 2
+  - 2
+  type: document
+  weight: 1
+- _id: pkIOIFFKtZB9DwYQ
+  _key: '!tables.results!PQbtKGZVFy83A85d.pkIOIFFKtZB9DwYQ'
+  description: ''
+  documentUuid: Compendium.archmage.system-rolltables.RollTable.hojV2urxFb1cjgWJ
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-grey.svg
+  name: Chaotic Benefit (E)
+  range:
+  - 3
+  - 3
+  type: document
+  weight: 1
+sort: 1700000

@@ -1,33 +1,31 @@
-name: Gate
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>Once per battle as a standard action, if the demon is staggered, it can
-      summon a single demon ally at least two levels below its own level. The
-      allied demon rolls initiative and does not appear on the battlefield until
-      its turn starts. (Note that using a gate costs the demon an obligation, so
-      some demons would rather flee or die than activate one.)</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: 6QirduZForphIdI1
+_key: '!items!6QirduZForphIdI1'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Gate
 ownership:
   default: 0
-_id: 6QirduZForphIdI1
-_key: '!items!6QirduZForphIdI1'
-
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>Once per battle as a standard action, if the demon is staggered, it
+      can summon a single demon ally at least two levels below its own level. The
+      allied demon rolls initiative and does not appear on the battlefield until its
+      turn starts. (Note that using a gate costs the demon an obligation, so some
+      demons would rather flee or die than activate one.)</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

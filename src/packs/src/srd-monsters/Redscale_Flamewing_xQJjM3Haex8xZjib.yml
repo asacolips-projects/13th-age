@@ -1,10 +1,620 @@
-name: Redscale Flamewing
-type: npc
 _id: xQJjM3Haex8xZjib
+_key: '!actors!xQJjM3Haex8xZjib'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: C21cie5a7QzUTYBK
+  _key: '!actors.items!xQJjM3Haex8xZjib.C21cie5a7QzUTYBK'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Burning mace
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 17]] vs. AC (1 or 2 attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[45]] damage and [[45]] fire damage, divided between the targets if
+        two different enemies are hit, or piled onto one target if only one target
+        is hit.'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 3A3LBPCabGkCRAeE
+  _key: '!actors.items!xQJjM3Haex8xZjib.3A3LBPCabGkCRAeE'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Fireball breath (careful)'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 17]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[60]] fire damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[10]] fire damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: tjiT9BCfkBiVRZAC
+  _key: '!actors.items!xQJjM3Haex8xZjib.tjiT9BCfkBiVRZAC'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Fireball breath (big)'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 17]] vs. AC ([[2d3]] nearby or faraway enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[60]] fire damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: Any ally of the flamewing engaged with the missed target takes [[20]]
+        fire damage, and the flamewing loses its ability to fly using its fiery wings
+        until the end of the battle.
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: vQFnD7X1dEgLzuF6
+  _key: '!actors.items!xQJjM3Haex8xZjib.vQFnD7X1dEgLzuF6'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Attack on the wing
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The flamewing can make attacks mid-movement as it flies past without
+        taking opportunity attacks, but at a &ndash;2 attack penalty. It can split
+        its <em>burning mace</em> attack between two enemies in two locations as it
+        flies past. As its wings are made of fire, the flamewing might accidentally
+        set the environment ablaze, which might benefit one side or the other in the
+        battle (or harm both).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: TTEMvvk5d8F54Erv
+  _key: '!actors.items!xQJjM3Haex8xZjib.TTEMvvk5d8F54Erv'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Fiery temper
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the flamewing is forced to land, it rolls 3d20 for its next attack
+        roll and takes the best result.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: SsPF6jsXcIQ50kZT
+  _key: '!actors.items!xQJjM3Haex8xZjib.SsPF6jsXcIQ50kZT'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The flamewing can fly, and fly fast&mdash;soaring on wings of flame.
+        However, its turning circle isn&rsquo;t great and it can&rsquo;t hover, so
+        in tight quarters it needs to land. Also, its wings are made of fire, and
+        overusing its fireball breath can cause the wings to gutter and fade.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: df9H8ztFvSOcwMPb
+  _key: '!actors.items!xQJjM3Haex8xZjib.df9H8ztFvSOcwMPb'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist fire 16+
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a fire attack targets this creature, the attacker must roll a
+        natural 16+ on the attack roll or it only deals half damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Yxv4vYCtTNMIrJeE
+  _key: '!actors.items!xQJjM3Haex8xZjib.Yxv4vYCtTNMIrJeE'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Healed by fire
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The first time each battle the flamewing is hit by a fire attack,
+        instead of taking the fire damage it heals that many hit points.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: yOEL4yFu6huxoISF
+  _key: '!actors.items!xQJjM3Haex8xZjib.yOEL4yFu6huxoISF'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Tail whip
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The dragonic deals [[2d12]] extra damage to a target it misses with
+        a melee attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: PnIpwbjpR9WNJqN0
+  _key: '!actors.items!xQJjM3Haex8xZjib.PnIpwbjpR9WNJqN0'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Fiery wings'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 17]] vs. AC ([[1d3]] closest nearby enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[60]] fire damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: MPWdAML5r6xYBvyD
+  _key: '!actors.items!xQJjM3Haex8xZjib.MPWdAML5r6xYBvyD'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Limited flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>At the start of each turn, roll a [[/r d6]]. If the result is less
+        than or equal to the escalation die, the dragonic gains flight as a move action
+        during its turns thanks to a pair of wings it unfurls from its back. The flight
+        tends to be more power-flapping or gliding from one place to another rather
+        than hovering. Flamewings who also have limited flight prefer to use their
+        burning wings to fly in combat wherever possible, resorting to their physical
+        wings only if needed.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: P2sR30ECr6OLaxPB
+  _key: '!actors.items!xQJjM3Haex8xZjib.P2sR30ECr6OLaxPB'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Blood of the wyrm
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This dragonic displays traits of its forebears, the mighty wyrms.
+        Roll a [[/r d10]] and consult the random dragon ability table, or choose one
+        of the first ten options that looks likely to shape the story or battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Redscale Flamewing
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Redscale Flamewing
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 28
     attackMod:
       type: Number
       value: 0
@@ -15,730 +625,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 28
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 26
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 21
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 380
-      min: 0
-      max: 380
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 17
-    level:
-      type: Number
-      label: Level
-      value: 12
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 380
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 380
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 17
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 12
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 21
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 26
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: wrecker
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Redscale Flamewing
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Burning mace
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 17]] vs. AC (1 or 2 attacks)'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[45]] damage and [[45]] fire damage, divided between the targets if
-          two different enemies are hit, or piled onto one target if only one
-          target is hit.
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: C21cie5a7QzUTYBK
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.C21cie5a7QzUTYBK'
-  - name: 'R: Fireball breath (careful)'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 17]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[60]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[10]] fire damage'
-    _id: 3A3LBPCabGkCRAeE
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.3A3LBPCabGkCRAeE'
-  - name: 'R: Fireball breath (big)'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 17]] vs. AC ([[2d3]] nearby or faraway enemies in a group)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[60]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: >-
-          Any ally of the flamewing engaged with the missed target takes [[20]]
-          fire damage, and the flamewing loses its ability to fly using its
-          fiery wings until the end of the battle.
-    _id: tjiT9BCfkBiVRZAC
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.tjiT9BCfkBiVRZAC'
-  - name: Attack on the wing
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The flamewing can make attacks mid-movement as it flies past
-          without taking opportunity attacks, but at a &ndash;2 attack penalty.
-          It can split its <em>burning mace</em> attack between two enemies in
-          two locations as it flies past. As its wings are made of fire, the
-          flamewing might accidentally set the environment ablaze, which might
-          benefit one side or the other in the battle (or harm both).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: vQFnD7X1dEgLzuF6
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.vQFnD7X1dEgLzuF6'
-  - name: Fiery temper
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the flamewing is forced to land, it rolls 3d20 for its next
-          attack roll and takes the best result.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: TTEMvvk5d8F54Erv
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.TTEMvvk5d8F54Erv'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The flamewing can fly, and fly fast&mdash;soaring on wings of
-          flame. However, its turning circle isn&rsquo;t great and it
-          can&rsquo;t hover, so in tight quarters it needs to land. Also, its
-          wings are made of fire, and overusing its fireball breath can cause
-          the wings to gutter and fade.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: SsPF6jsXcIQ50kZT
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.SsPF6jsXcIQ50kZT'
-  - name: Resist fire 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a fire attack targets this creature, the attacker must roll a
-          natural 16+ on the attack roll or it only deals half damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: df9H8ztFvSOcwMPb
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.df9H8ztFvSOcwMPb'
-  - name: Healed by fire
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The first time each battle the flamewing is hit by a fire attack,
-          instead of taking the fire damage it heals that many hit points.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Yxv4vYCtTNMIrJeE
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.Yxv4vYCtTNMIrJeE'
-  - name: Tail whip
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The dragonic deals [[2d12]] extra damage to a target it misses with
-          a melee attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: yOEL4yFu6huxoISF
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.yOEL4yFu6huxoISF'
-  - name: 'C: Fiery wings'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 17]] vs. AC ([[1d3]] closest nearby enemies)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[60]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: PnIpwbjpR9WNJqN0
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xQJjM3Haex8xZjib.PnIpwbjpR9WNJqN0'
-  - name: Limited flight
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At the start of each turn, roll a [[/r d6]]. If the result is less
-          than or equal to the escalation die, the dragonic gains flight as a
-          move action during its turns thanks to a pair of wings it unfurls from
-          its back. The flight tends to be more power-flapping or gliding from
-          one place to another rather than hovering. Flamewings who also have
-          limited flight prefer to use their burning wings to fly in combat
-          wherever possible, resorting to their physical wings only if
-          needed.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: MPWdAML5r6xYBvyD
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _key: '!actors.items!xQJjM3Haex8xZjib.MPWdAML5r6xYBvyD'
-  - name: Blood of the wyrm
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This dragonic displays traits of its forebears, the mighty wyrms.
-          Roll a [[/r d10]] and consult the random dragon ability table, or
-          choose one of the first ten options that looks likely to shape the
-          story or battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: P2sR30ECr6OLaxPB
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _key: '!actors.items!xQJjM3Haex8xZjib.P2sR30ECr6OLaxPB'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!xQJjM3Haex8xZjib'
-
+        enabled: false
+type: npc

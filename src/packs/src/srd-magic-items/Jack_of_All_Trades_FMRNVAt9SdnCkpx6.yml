@@ -1,65 +1,44 @@
-name: Jack of All Trades
-type: equipment
+_id: FMRNVAt9SdnCkpx6
+_key: '!items!FMRNVAt9SdnCkpx6'
+effects: []
+flags:
+  core: {}
+folder: Fra2TRtKCXKmIFPo
 img: icons/svg/item-bag.svg
+name: Jack of All Trades
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>When you make a skill check, if your background bonus for that check is
-      +1 or +0, you gain a +2 bonus for your background bonus instead (if your
-      bonus is +2 or higher, this ring has no effect).</p>
-
-      <p>Quirk: Talks as though they know everything.</p>
-  publicationSource: 13TW
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -67,31 +46,56 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: ring
-effects: []
-folder: Fra2TRtKCXKmIFPo
-flags:
-  core: {}
-_id: FMRNVAt9SdnCkpx6
-sort: 0
-ownership:
-  default: 0
-_key: '!items!FMRNVAt9SdnCkpx6'
+  description:
+    label: Description
+    type: String
+    value: '<p>When you make a skill check, if your background bonus for that check
+      is +1 or +0, you gain a +2 bonus for your background bonus instead (if your
+      bonus is +2 or higher, this ring has no effect).</p>
 
+      <p>Quirk: Talks as though they know everything.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 13TW
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

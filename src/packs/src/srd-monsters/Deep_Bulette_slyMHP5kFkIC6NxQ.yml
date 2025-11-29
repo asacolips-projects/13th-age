@@ -1,10 +1,279 @@
 _id: slyMHP5kFkIC6NxQ
-name: Deep Bulette
-type: npc
+_key: '!actors!slyMHP5kFkIC6NxQ'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: DKpiFW9MEgyA3N4h
+  _key: '!actors.items!slyMHP5kFkIC6NxQ.DKpiFW9MEgyA3N4h'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Pulverizing maw
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 15]] vs. AC ([[1d3]] enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[90]] damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: '[[45]] damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 246ZODwAL3XYDVEf
+  _key: '!actors.items!slyMHP5kFkIC6NxQ.246ZODwAL3XYDVEf'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Blood frenzy
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The deep bulette\u2019s crit range expands by 4 while the escalation\
+        \ die is 4+."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: dkqouMExgaKNtCQM
+  _key: '!actors.items!slyMHP5kFkIC6NxQ.dkqouMExgaKNtCQM'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Tunnel fighter
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: DIktHh16ddDqIAga
+  _key: '!actors.items!slyMHP5kFkIC6NxQ.DIktHh16ddDqIAga'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Escalation die is odd
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the bulette hits an enemy engaged with it with an attack, that target
+        pops free from it and is *hampered* (save ends).
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: dHcjJkSRQgoAxUnk
+  _key: '!actors.items!slyMHP5kFkIC6NxQ.dHcjJkSRQgoAxUnk'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Escalation die is even
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "The deep bulette engages each nearby enemy in front of it as it pushes\
+        \ its bulk inexorably forward down the tunnel. Enemies pushed ahead of it\
+        \ this way don\u2019t get to make opportunity attacks."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Deep Bulette
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Deep Bulette
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 25
     attackMod:
       type: Number
       value: 0
@@ -15,408 +284,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 25
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 23
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 378
-      min: 0
-      max: 378
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 10
-      mod: 10
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 378
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 378
+    init:
+      label: Initiative Modifier
+      mod: 10
+      type: Number
+      value: 10
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 19
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 23
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 9
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: wrecker
-      type: String
       label: Role
-    size:
-      value: huge
       type: String
+      value: wrecker
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: huge
+    sizeB:
+      value: ''
     strength:
       value: triple
     type:
-      value: beast
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: beast
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: DKpiFW9MEgyA3N4h
-    flags: {}
-    name: Pulverizing maw
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 15]] vs. AC ([[1d3]] enemies)'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[90]] damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: '[[45]] damage.'
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!slyMHP5kFkIC6NxQ.DKpiFW9MEgyA3N4h'
-  - _id: 246ZODwAL3XYDVEf
-    flags: {}
-    name: Blood frenzy
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The deep bulette’s crit range expands by 4 while the escalation die is
-          4+.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!slyMHP5kFkIC6NxQ.246ZODwAL3XYDVEf'
-  - _id: dkqouMExgaKNtCQM
-    flags: {}
-    name: Tunnel fighter
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!slyMHP5kFkIC6NxQ.dkqouMExgaKNtCQM'
-  - _id: DIktHh16ddDqIAga
-    flags: {}
-    name: Escalation die is odd
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the bulette hits an enemy engaged with it with an attack, that
-          target pops free from it and is *hampered* (save ends).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!slyMHP5kFkIC6NxQ.DIktHh16ddDqIAga'
-  - _id: dHcjJkSRQgoAxUnk
-    flags: {}
-    name: Escalation die is even
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The deep bulette engages each nearby enemy in front of it as it pushes
-          its bulk inexorably forward down the tunnel. Enemies pushed ahead of
-          it this way don’t get to make opportunity attacks.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!slyMHP5kFkIC6NxQ.dHcjJkSRQgoAxUnk'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Deep Bulette
-  displayName: 0
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!slyMHP5kFkIC6NxQ'
-
+        enabled: false
+type: npc

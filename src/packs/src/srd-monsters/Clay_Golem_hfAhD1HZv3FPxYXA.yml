@@ -1,10 +1,250 @@
 _id: hfAhD1HZv3FPxYXA
-name: Clay Golem
-type: npc
+_key: '!actors!hfAhD1HZv3FPxYXA'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+items:
+- _id: F2IqUtvy3xHxQl2S
+  _key: '!actors.items!hfAhD1HZv3FPxYXA.F2IqUtvy3xHxQl2S'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Bare brutal hands
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 10]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[36]] damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: wPqxJbwQDrP7IDvN
+  _key: '!actors.items!hfAhD1HZv3FPxYXA.wPqxJbwQDrP7IDvN'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Cursed wound
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "A non-dwarf creature damaged by a clay golem can\u2019t be healed to\
+        \ above half its maximum hit points until after the battle."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: rbB1AF1KceusJV0W
+  _key: '!actors.items!hfAhD1HZv3FPxYXA.rbB1AF1KceusJV0W'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Golem immunity
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Non-organic golems are immune to effects. They can\u2019t be *dazed*,\
+        \ *weakened*, *confused*, made *vulnerable*, or touched by ongoing damage.\
+        \ You can damage a golem, but that\u2019s about it."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 68p8UNkGhxNNiRtA
+  _key: '!actors.items!hfAhD1HZv3FPxYXA.68p8UNkGhxNNiRtA'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Ignore attacks 11+
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "When an attack hits this creature, the attacker must roll a natural\
+        \ 11+ on the attack roll or it misses instead. That\u2019s all attacks."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Clay Golem
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Clay Golem
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
-  publicationSource: 1e
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 20
     attackMod:
       type: Number
       value: 0
@@ -15,381 +255,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 18
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 14
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 120
-      min: 0
-      max: 120
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 6
-      mod: 6
-    level:
-      type: Number
-      label: Level
-      value: 6
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 120
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 120
+    init:
+      label: Initiative Modifier
+      mod: 6
+      type: Number
+      value: 6
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 6
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 14
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 18
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 6
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: spoiler
-      type: String
       label: Role
-    size:
-      value: large
       type: String
+      value: spoiler
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
-      value: construct
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: construct
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 6
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: 1e
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: F2IqUtvy3xHxQl2S
-    flags: {}
-    name: Bare brutal hands
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 10]] vs. AC'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[36]] damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!hfAhD1HZv3FPxYXA.F2IqUtvy3xHxQl2S'
-  - _id: wPqxJbwQDrP7IDvN
-    flags: {}
-    name: Cursed wound
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          A non-dwarf creature damaged by a clay golem can’t be healed to above
-          half its maximum hit points until after the battle.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!hfAhD1HZv3FPxYXA.wPqxJbwQDrP7IDvN'
-  - _id: rbB1AF1KceusJV0W
-    flags: {}
-    name: Golem immunity
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Non-organic golems are immune to effects. They can’t be *dazed*,
-          *weakened*, *confused*, made *vulnerable*, or touched by ongoing
-          damage. You can damage a golem, but that’s about it.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!hfAhD1HZv3FPxYXA.rbB1AF1KceusJV0W'
-  - _id: 68p8UNkGhxNNiRtA
-    flags: {}
-    name: Ignore attacks 11+
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When an attack hits this creature, the attacker must roll a natural
-          11+ on the attack roll or it misses instead. That’s all attacks.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!hfAhD1HZv3FPxYXA.68p8UNkGhxNNiRtA'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Clay Golem
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 1
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!hfAhD1HZv3FPxYXA'
-
+        enabled: false
+type: npc

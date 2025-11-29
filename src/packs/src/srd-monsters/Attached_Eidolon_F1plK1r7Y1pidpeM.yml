@@ -1,10 +1,494 @@
-name: Attached Eidolon
-type: npc
 _id: F1plK1r7Y1pidpeM
+_key: '!actors!F1plK1r7Y1pidpeM'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+items:
+- _id: mXKXjRHxBzFJ9UUJ
+  _key: '!actors.items!F1plK1r7Y1pidpeM.mXKXjRHxBzFJ9UUJ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Sharp claws, sharper teeth
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[10]] holy damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: oJbiC4ZTtAcTslmX
+  _key: '!actors.items!F1plK1r7Y1pidpeM.oJbiC4ZTtAcTslmX'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Long tongue'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[3]] ongoing acid and holy damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: ODpYwpfklbRwylZI
+  _key: '!actors.items!F1plK1r7Y1pidpeM.ODpYwpfklbRwylZI'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Change shape
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>An attached eidolon can look like any medium- or small-sized normal
+        beast or humanoid creature. It generally changes shape to blend in, choosing
+        to look like a pet or attractive humanoid companion of the one who summoned
+        them.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 0aTHjeHm8ge7ZVB1
+  _key: '!actors.items!F1plK1r7Y1pidpeM.0aTHjeHm8ge7ZVB1'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Attached eidolons can fly, but not well. If their current shape doesn&rsquo;t
+        have wings, it can grow some as a move action.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 3SlurmyghLQpvHUC
+  _key: '!actors.items!F1plK1r7Y1pidpeM.3SlurmyghLQpvHUC'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Terrifying glare
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Twice per battle as a quick action; the eidolon can terrify each enemy
+        engaged with it that has 30 hp or fewer (they are dazed and unable to use
+        the escalation die until the end of their next turn) as a fear effect.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 0BvmOnQcPLHzGVna
+  _key: '!actors.items!F1plK1r7Y1pidpeM.0BvmOnQcPLHzGVna'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Aid Another
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>The eidolon&rsquo;s presence can provide aid to its allies, especially
+        the one to which it&rsquo;s attached. Once per round as a quick action, one
+        of the eidolon&rsquo;s nearby allies can gain one of the following benefits:</p>
+
+        <p><em>Winning ways</em>: The ally&rsquo;s crit range expands by 1 until the
+        end of the battle.</p>
+
+        <p><em>Wide smile</em>: The ally gains a +1 attack bonus until the end of
+        the battle.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 9nmVOmG8xEzSTqxJ
+  _key: '!actors.items!F1plK1r7Y1pidpeM.9nmVOmG8xEzSTqxJ'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Undying
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When an eidolon drops to 0 hp it becomes discorporate. The eidolon
+        isn&rsquo;t dead, just gone. It has lost its link to or focus upon the time
+        and place where the adventurers are. If adventurers drive off an eidolon repeatedly
+        it will probably just stay away. Eidolons can be vindictive and hold grudges,
+        but they have many possible worlds to interact with and if a mortal proves
+        too troublesome the eidolon will move on. In general eidolons need defeating
+        on three separate occasions to convince them to stay away forever.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Ve6GZ5SPMnAfmkVE
+  _key: '!actors.items!F1plK1r7Y1pidpeM.Ve6GZ5SPMnAfmkVE'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Split reality
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The eidolon splits the party into different realities. Each player
+        rolls a [[/r d4]] for their character. That PC can only perceive and interact
+        with the eidolon and with other characters who rolled the same number. That
+        means PCs in different realities can&rsquo;t communicate or affect each other
+        in any way. For the rest of the battle, each player rolls a [[/r d4]] at the
+        start of the round to see which reality their character is now in. At the
+        start of each round, the eidolon can choose which version(s) of reality its
+        allies are in.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: 8NwcRqPF5gFCnroF
+  _key: '!actors.items!F1plK1r7Y1pidpeM.8NwcRqPF5gFCnroF'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Warp time
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>At the start of each round two combatants swap places in the initiative
+        order as determined by the eidolon. Alternately, the eidolon warps the momentum
+        of the battle and the escalation die value is determined at the start of the
+        round with a [[/r d6]] roll.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: qek5GIBG0JGLJ2yj
+  _key: '!actors.items!F1plK1r7Y1pidpeM.qek5GIBG0JGLJ2yj'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Reshuffle space
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The eidolon swaps the position of two creatures in the battle at the
+        start of the round. Alternately, if you are using minis and some sort of map
+        tiles you can rearrange the tiles with the minis still on them.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Attached Eidolon
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Attached Eidolon
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 19
     attackMod:
       type: Number
       value: 0
@@ -15,624 +499,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 19
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 17
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 13
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 45
-      min: 0
-      max: 45
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 7
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 45
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 45
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 7
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 13
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 17
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: troop
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: spirit
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Attached Eidolon
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/spirit.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Sharp claws, sharper teeth
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[10]] holy damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: mXKXjRHxBzFJ9UUJ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!F1plK1r7Y1pidpeM.mXKXjRHxBzFJ9UUJ'
-  - name: 'C: Long tongue'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. AC ([[1d3]] nearby or faraway enemies in a group)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[3]] ongoing acid and holy damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: oJbiC4ZTtAcTslmX
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!F1plK1r7Y1pidpeM.oJbiC4ZTtAcTslmX'
-  - name: Change shape
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>An attached eidolon can look like any medium- or small-sized normal
-          beast or humanoid creature. It generally changes shape to blend in,
-          choosing to look like a pet or attractive humanoid companion of the
-          one who summoned them.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: ODpYwpfklbRwylZI
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!F1plK1r7Y1pidpeM.ODpYwpfklbRwylZI'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Attached eidolons can fly, but not well. If their current shape
-          doesn&rsquo;t have wings, it can grow some as a move action.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 0aTHjeHm8ge7ZVB1
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!F1plK1r7Y1pidpeM.0aTHjeHm8ge7ZVB1'
-  - name: Terrifying glare
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Twice per battle as a quick action; the eidolon can terrify each
-          enemy engaged with it that has 30 hp or fewer (they are dazed and
-          unable to use the escalation die until the end of their next turn) as
-          a fear effect.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 3SlurmyghLQpvHUC
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!F1plK1r7Y1pidpeM.3SlurmyghLQpvHUC'
-  - name: Aid Another
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The eidolon&rsquo;s presence can provide aid to its allies,
-          especially the one to which it&rsquo;s attached. Once per round as a
-          quick action, one of the eidolon&rsquo;s nearby allies can gain one of
-          the following benefits:</p>
-
-          <p><em>Winning ways</em>: The ally&rsquo;s crit range expands by 1
-          until the end of the battle.</p>
-
-          <p><em>Wide smile</em>: The ally gains a +1 attack bonus until the end
-          of the battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 0BvmOnQcPLHzGVna
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!F1plK1r7Y1pidpeM.0BvmOnQcPLHzGVna'
-  - name: Undying
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When an eidolon drops to 0 hp it becomes discorporate. The eidolon
-          isn&rsquo;t dead, just gone. It has lost its link to or focus upon the
-          time and place where the adventurers are. If adventurers drive off an
-          eidolon repeatedly it will probably just stay away. Eidolons can be
-          vindictive and hold grudges, but they have many possible worlds to
-          interact with and if a mortal proves too troublesome the eidolon will
-          move on. In general eidolons need defeating on three separate
-          occasions to convince them to stay away forever.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 9nmVOmG8xEzSTqxJ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
-    _key: '!actors.items!F1plK1r7Y1pidpeM.9nmVOmG8xEzSTqxJ'
-  - name: Split reality
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The eidolon splits the party into different realities. Each player
-          rolls a [[/r d4]] for their character. That PC can only perceive and
-          interact with the eidolon and with other characters who rolled the
-          same number. That means PCs in different realities can&rsquo;t
-          communicate or affect each other in any way. For the rest of the
-          battle, each player rolls a [[/r d4]] at the start of the round to see
-          which reality their character is now in. At the start of each round,
-          the eidolon can choose which version(s) of reality its allies are
-          in.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Ve6GZ5SPMnAfmkVE
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
-    _key: '!actors.items!F1plK1r7Y1pidpeM.Ve6GZ5SPMnAfmkVE'
-  - name: Warp time
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At the start of each round two combatants swap places in the
-          initiative order as determined by the eidolon. Alternately, the
-          eidolon warps the momentum of the battle and the escalation die value
-          is determined at the start of the round with a [[/r d6]] roll.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 8NwcRqPF5gFCnroF
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
-    _key: '!actors.items!F1plK1r7Y1pidpeM.8NwcRqPF5gFCnroF'
-  - name: Reshuffle space
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The eidolon swaps the position of two creatures in the battle at
-          the start of the round. Alternately, if you are using minis and some
-          sort of map tiles you can rearrange the tiles with the minis still on
-          them.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qek5GIBG0JGLJ2yj
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
-    _key: '!actors.items!F1plK1r7Y1pidpeM.qek5GIBG0JGLJ2yj'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!F1plK1r7Y1pidpeM'
-
+        enabled: false
+type: npc

@@ -1,10 +1,561 @@
-name: Great Hound
-type: npc
 _id: u128IpFMguDbUy56
+_key: '!actors!u128IpFMguDbUy56'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: nE2rfIdWukl9YGxg
+  _key: '!actors.items!u128IpFMguDbUy56.nE2rfIdWukl9YGxg'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Savage bite
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 13]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[40]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Xnsuu6x68Bj3uqzO
+  _key: '!actors.items!u128IpFMguDbUy56.Xnsuu6x68Bj3uqzO'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Overbear
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 13]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[32]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: "The target is *stuck* and can\u2019t make ranged attacks (save ends)."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Ezil397ytc7lESp6
+  _key: '!actors.items!u128IpFMguDbUy56.Ezil397ytc7lESp6'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Power of a name
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This creature gains different abilities based on which name it has
+        taken.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: AU1TIPFMz4GnCFBB
+  _key: '!actors.items!u128IpFMguDbUy56.AU1TIPFMz4GnCFBB'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Barghest
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the hound scores a critical hit with its <em>savage bite</em>
+        attack, it heals [[20]] hp.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: FYO2RTE6n3mdzxv2
+  _key: '!actors.items!u128IpFMguDbUy56.FYO2RTE6n3mdzxv2'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Grim
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the hound hits with its <em>savage bite</em> attack, the target
+        is also *vulnerable* (save ends).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: qBcz4AbeV8Q5hJLj
+  _key: '!actors.items!u128IpFMguDbUy56.qBcz4AbeV8Q5hJLj'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Warg
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the hound rolls a natural even miss with its <em>savage bite</em>
+        attack, the target takes half damage and the warg&rsquo;s rider, if any, takes
+        the other half. In addition, a creature riding the hound deals only half damage
+        with natural even misses with melee attacks.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: UFQ8ZyIapPQz8bpC
+  _key: '!actors.items!u128IpFMguDbUy56.UFQ8ZyIapPQz8bpC'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Dire Feature
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Add a dire feature. Roll a [[/r d6]].</p>
+
+        <p><strong>1:</strong> Armor plates</p>
+
+        <p><strong>2:</strong> Spiky bits</p>
+
+        <p><strong>3:</strong> Carnage</p>
+
+        <p><strong>4:</strong> Poison</p>
+
+        <p><strong>5:</strong> Dire regeneration</p>
+
+        <p><strong>6:</strong> Fury</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: k0p5vGHCQ3U21epB
+  _key: '!actors.items!u128IpFMguDbUy56.k0p5vGHCQ3U21epB'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Armor plates
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Add +2 to the dire animal&rsquo;s AC, and add +1 to its PD.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: dZRb0tMrn742JvTW
+  _key: '!actors.items!u128IpFMguDbUy56.dZRb0tMrn742JvTW'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Spiky bits
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Whenever an enemy hits the hound with a melee attack, deal [[10]]
+        damage to that attacker.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: qRw0ANaGLpPH6lmn
+  _key: '!actors.items!u128IpFMguDbUy56.qRw0ANaGLpPH6lmn'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Carnage
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The hound&rsquo;s attacks that miss deal [[5]] damage. When staggered,
+        its missed attacks deal [[10]] damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: KhPuoG5G40AUBRvv
+  _key: '!actors.items!u128IpFMguDbUy56.KhPuoG5G40AUBRvv'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Poison
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Savage bite also deals [[10]] ongoing poison.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: Y6u21fSSPAS1QRQR
+  _key: '!actors.items!u128IpFMguDbUy56.Y6u21fSSPAS1QRQR'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Dire regeneration
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the escalation die is even, the hound heals [[15]] hp.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: CsD58sgOG7PVjE5g
+  _key: '!actors.items!u128IpFMguDbUy56.CsD58sgOG7PVjE5g'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Fury
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>While staggered, the hound gains a +2 attack bonus and deals +[[4]]
+        damage, but at the end of each of its turns it takes [[2d6]] damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Great Hound
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Great Hound
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 18
     attackMod:
       type: Number
       value: 0
@@ -15,676 +566,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 18
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 17
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 12
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 140
-      min: 0
-      max: 140
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 10
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 140
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 140
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 10
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 12
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 17
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: wrecker
+    roleB:
+      value: ''
     size:
       value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
       value: beast
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Great Hound
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    tint: '#ffffff'
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    alphaThreshold: 0.75
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 1
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Savage bite
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[40]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: nE2rfIdWukl9YGxg
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.nE2rfIdWukl9YGxg'
-  - name: Overbear
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. PD'
-      hit:
-        type: String
-        label: Hit
-        value: '[[32]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: The target is *stuck* and can’t make ranged attacks (save ends).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: Xnsuu6x68Bj3uqzO
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.Xnsuu6x68Bj3uqzO'
-  - name: Power of a name
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This creature gains different abilities based on which name it has
-          taken.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Ezil397ytc7lESp6
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.bGCMwbeU7CeMjInE.Item.K3BWgRJHz9NgFipv
-    _key: '!actors.items!u128IpFMguDbUy56.Ezil397ytc7lESp6'
-  - name: Barghest
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the hound scores a critical hit with its <em>savage bite</em>
-          attack, it heals [[20]] hp.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: AU1TIPFMz4GnCFBB
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.AU1TIPFMz4GnCFBB'
-  - name: Grim
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the hound hits with its <em>savage bite</em> attack, the
-          target is also *vulnerable* (save ends).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: FYO2RTE6n3mdzxv2
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.FYO2RTE6n3mdzxv2'
-  - name: Warg
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the hound rolls a natural even miss with its <em>savage
-          bite</em> attack, the target takes half damage and the warg&rsquo;s
-          rider, if any, takes the other half. In addition, a creature riding
-          the hound deals only half damage with natural even misses with melee
-          attacks.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qBcz4AbeV8Q5hJLj
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.qBcz4AbeV8Q5hJLj'
-  - name: Dire Feature
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: |-
-          <p>Add a dire feature. Roll a [[/r d6]].</p>
-          <p><strong>1:</strong> Armor plates</p>
-          <p><strong>2:</strong> Spiky bits</p>
-          <p><strong>3:</strong> Carnage</p>
-          <p><strong>4:</strong> Poison</p>
-          <p><strong>5:</strong> Dire regeneration</p>
-          <p><strong>6:</strong> Fury</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: UFQ8ZyIapPQz8bpC
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.UFQ8ZyIapPQz8bpC'
-  - name: Armor plates
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>Add +2 to the dire animal&rsquo;s AC, and add +1 to its PD.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: k0p5vGHCQ3U21epB
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.k0p5vGHCQ3U21epB'
-  - name: Spiky bits
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Whenever an enemy hits the hound with a melee attack, deal [[10]]
-          damage to that attacker.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: dZRb0tMrn742JvTW
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.dZRb0tMrn742JvTW'
-  - name: Carnage
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The hound&rsquo;s attacks that miss deal [[5]] damage. When
-          staggered, its missed attacks deal [[10]] damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qRw0ANaGLpPH6lmn
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.qRw0ANaGLpPH6lmn'
-  - name: Poison
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>Savage bite also deals [[10]] ongoing poison.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: KhPuoG5G40AUBRvv
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.KhPuoG5G40AUBRvv'
-  - name: Dire regeneration
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>When the escalation die is even, the hound heals [[15]] hp.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Y6u21fSSPAS1QRQR
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.Y6u21fSSPAS1QRQR'
-  - name: Fury
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>While staggered, the hound gains a +2 attack bonus and deals +[[4]]
-          damage, but at the end of each of its turns it takes [[2d6]]
-          damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: CsD58sgOG7PVjE5g
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!u128IpFMguDbUy56.CsD58sgOG7PVjE5g'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!u128IpFMguDbUy56'
-
+        enabled: false
+type: npc

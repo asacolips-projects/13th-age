@@ -1,65 +1,44 @@
-name: Body Breaking, Dagger of
-type: equipment
+_id: DjmtneqgPskZE33p
+_key: '!items!DjmtneqgPskZE33p'
+effects: []
+flags:
+  core: {}
+folder: S3zYrTXKi6Ffsb52
 img: icons/svg/item-bag.svg
+name: Body Breaking, Dagger of
+ownership:
+  default: 0
+sort: 500000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>This rune-covered bronze dagger also works as a wand. When you cast an
-      arcane attack spell using this dagger/wand, you gain a +1 bonus to attack
-      and damage with that spell if it targets PD.</p>
-
-      <p>Quirk: Scratches self unnervingly.</p>
-  publicationSource: 13TW
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 1
+      divine:
+        bonus: 0
       melee:
         bonus: 1
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 1
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -67,33 +46,56 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: wand
-  embeddedMacro:
-    value: ''
-effects: []
-folder: S3zYrTXKi6Ffsb52
-flags:
-  core: {}
-_id: DjmtneqgPskZE33p
-sort: 500000
-ownership:
-  default: 0
-_key: '!items!DjmtneqgPskZE33p'
+  description:
+    label: Description
+    type: String
+    value: '<p>This rune-covered bronze dagger also works as a wand. When you cast
+      an arcane attack spell using this dagger/wand, you gain a +1 bonus to attack
+      and damage with that spell if it targets PD.</p>
 
+      <p>Quirk: Scratches self unnervingly.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 13TW
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

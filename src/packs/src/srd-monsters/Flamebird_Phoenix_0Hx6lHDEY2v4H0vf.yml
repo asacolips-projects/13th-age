@@ -1,10 +1,504 @@
-name: Flamebird Phoenix
-type: npc
 _id: 0Hx6lHDEY2v4H0vf
+_key: '!actors!0Hx6lHDEY2v4H0vf'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
+items:
+- _id: mjcWsHz16iVseUeh
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.mjcWsHz16iVseUeh'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Fly-by flaming talons
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[16]] damage, and [[5]] ongoing fire damage'
+    hit1:
+      label: Hit
+      name: Natural even hit or miss
+      type: String
+      value: The phoenix may move again this turn as a free action if it has already
+        made a flying move on its turn.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: The flamebird phoenix can use a *flaming screech* attack as a quick action,
+        either this turn, or on its next turn.
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Cu0m0NMOuNAgOXTP
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.Cu0m0NMOuNAgOXTP'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '[Usually special trigger, but also possible as a standard action] C: Flaming
+    screech'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. PD ([[1d3]] nearby enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[5]] fire damage, and [[5]] ongoing fire damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: SpNVY4uMqHcPX9PX
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.SpNVY4uMqHcPX9PX'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Conflagration of rebirth
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. PD (every nearby enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[10]] fire damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: OQNxe1UAfNurV1eQ
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.OQNxe1UAfNurV1eQ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The flamebird phoenix can fly extremely well.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: OM4qOXsCD9XEAsi5
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.OM4qOXsCD9XEAsi5'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flaming wings
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The flamebird phoenix deals [[4]] fire damage to each enemy that ends
+        it turn engaged with the phoenix.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: uZyPZgWwAIxSDrPg
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.uZyPZgWwAIxSDrPg'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist fire 16+
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a fire attack targets this creature, the attacker must roll a
+        natural 16+ on the attack roll or it only deals half damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: QYcNdfmtTDMhDjT2
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.QYcNdfmtTDMhDjT2'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Spectacular effects
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the phoenix is dealt a critical hit, it must roll an easy save
+        (6+). If the save fails, the phoenix drops to 0 hit points; see the *reborn
+        in fire* ability below!</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: oeyzDa97nafRmcSm
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.oeyzDa97nafRmcSm'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Reborn in fire
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Whenever the phoenix drops to 0 hit points, roll a [[/r d20]] and
+        add the escalation die. For each time this phoenix has rolled its reborn in
+        fire ability earlier this battle, subtract 10 from the roll. For example,
+        a phoenix making its second reborn in fire roll (because its first roll ended
+        up being 20+!) when the escalation die is 6 would roll the d20 and subtract
+        4.</p>
+
+        <p><strong>20+</strong>: The flamebird phoenix is immediately reborn, healing
+        to [[40]] hit points, and keeps fighting!</p>
+
+        <p><strong>15&ndash;19</strong>: The phoenix is reborn in fire, but vaults
+        into the overworld, removed from the battle. On the other hand, it&rsquo;s
+        not done with the PCs! Add the phoenix to an upcoming battle by surprise,
+        adding it as an additional monster not accounted for by the usual encounter-building
+        calculations.</p>
+
+        <p><strong>8&ndash;14</strong>: The flamebird phoenix is reborn in fire but
+        wants nothing more to do with this battle. It makes a <em>conflagration of
+        rebirth</em>&nbsp;attack, but when the attack is over it shoots off into the
+        overworld so quickly that it&rsquo;s a teleport effect, and does not return
+        to the battle, nor to the adventure.</p>
+
+        <p><strong>7 or less</strong>: The phoenix flares back to life somewhere nearby
+        in a few hours, days, months, or years. Probably not relevant to the PCs unless
+        they or the phoenix bear a special grudge.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: dYwS7LDDb29XD9hE
+  _key: '!actors.items!0Hx6lHDEY2v4H0vf.dYwS7LDDb29XD9hE'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Fire eater
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>If a fire attack against the flamebird phoenix fails to beat its resistance,
+        then instead of taking damage the flamebird phoenix heals that amount instead.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Flamebird Phoenix
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Flamebird Phoenix
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/elemental.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 19
     attackMod:
       type: Number
       value: 0
@@ -15,616 +509,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 19
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 15
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 15
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 78
-      min: 0
-      max: 78
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 11
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 78
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 78
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 11
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 15
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 15
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: wrecker
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
       value: elemental
-    resistance:
-      value: ''
     vulnerability:
       value: cold
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Flamebird Phoenix
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/elemental.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Fly-by flaming talons
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[16]] damage, and [[5]] ongoing fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit or miss
-        value: >-
-          The phoenix may move again this turn as a free action if it has
-          already made a flying move on its turn.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: >-
-          The flamebird phoenix can use a *flaming screech* attack as a quick
-          action, either this turn, or on its next turn.
-    _id: mjcWsHz16iVseUeh
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.mjcWsHz16iVseUeh'
-  - name: >-
-      [Usually special trigger, but also possible as a standard action] C:
-      Flaming screech
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. PD ([[1d3]] nearby enemies)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[5]] fire damage, and [[5]] ongoing fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: Cu0m0NMOuNAgOXTP
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.Cu0m0NMOuNAgOXTP'
-  - name: Conflagration of rebirth
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. PD (every nearby enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[10]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: SpNVY4uMqHcPX9PX
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.SpNVY4uMqHcPX9PX'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>The flamebird phoenix can fly extremely well.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: OQNxe1UAfNurV1eQ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.OQNxe1UAfNurV1eQ'
-  - name: Flaming wings
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The flamebird phoenix deals [[4]] fire damage to each enemy that
-          ends it turn engaged with the phoenix.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: OM4qOXsCD9XEAsi5
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.OM4qOXsCD9XEAsi5'
-  - name: Resist fire 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a fire attack targets this creature, the attacker must roll a
-          natural 16+ on the attack roll or it only deals half damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: uZyPZgWwAIxSDrPg
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.uZyPZgWwAIxSDrPg'
-  - name: Spectacular effects
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the phoenix is dealt a critical hit, it must roll an easy save
-          (6+). If the save fails, the phoenix drops to 0 hit points; see the
-          *reborn in fire* ability below!</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: QYcNdfmtTDMhDjT2
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.QYcNdfmtTDMhDjT2'
-  - name: Reborn in fire
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Whenever the phoenix drops to 0 hit points, roll a [[/r d20]] and
-          add the escalation die. For each time this phoenix has rolled its
-          reborn in fire ability earlier this battle, subtract 10 from the roll.
-          For example, a phoenix making its second reborn in fire roll (because
-          its first roll ended up being 20+!) when the escalation die is 6 would
-          roll the d20 and subtract 4.</p>
-
-          <p><strong>20+</strong>: The flamebird phoenix is immediately reborn,
-          healing to [[40]] hit points, and keeps fighting!</p>
-
-          <p><strong>15&ndash;19</strong>: The phoenix is reborn in fire, but
-          vaults into the overworld, removed from the battle. On the other hand,
-          it&rsquo;s not done with the PCs! Add the phoenix to an upcoming
-          battle by surprise, adding it as an additional monster not accounted
-          for by the usual encounter-building calculations.</p>
-
-          <p><strong>8&ndash;14</strong>: The flamebird phoenix is reborn in
-          fire but wants nothing more to do with this battle. It makes a
-          <em>conflagration of rebirth</em>&nbsp;attack, but when the attack is
-          over it shoots off into the overworld so quickly that it&rsquo;s a
-          teleport effect, and does not return to the battle, nor to the
-          adventure.</p>
-
-          <p><strong>7 or less</strong>: The phoenix flares back to life
-          somewhere nearby in a few hours, days, months, or years. Probably not
-          relevant to the PCs unless they or the phoenix bear a special
-          grudge.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: oeyzDa97nafRmcSm
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.oeyzDa97nafRmcSm'
-  - name: Fire eater
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>If a fire attack against the flamebird phoenix fails to beat its
-          resistance, then instead of taking damage the flamebird phoenix heals
-          that amount instead.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: dYwS7LDDb29XD9hE
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!0Hx6lHDEY2v4H0vf.dYwS7LDDb29XD9hE'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!0Hx6lHDEY2v4H0vf'
-
+        enabled: false
+type: npc

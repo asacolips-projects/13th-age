@@ -1,10 +1,411 @@
 _id: zgih0GWcaiDOs7iU
-name: Fang Devil
-type: npc
+_key: '!actors!zgih0GWcaiDOs7iU'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+items:
+- _id: aangEl2xq8jChAUA
+  _key: '!actors.items!zgih0GWcaiDOs7iU.aangEl2xq8jChAUA'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Mighty tentacles
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 12]] vs. PD ([[2]] attacks; can target nearby enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[20]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: ''
+      value: "The target pops free from each enemy and moves next to the Devil, which\
+        \ engages and grabs it. (The Devil can grab any number of enemies simultaneously.)\
+        \ If it has quick actions left, it will use its devil\u2019s beak and cutting\
+        \ talon attacks."
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: '[[10]] damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: wRW5aBzAV9dr5mSO
+  _key: '!actors.items!zgih0GWcaiDOs7iU.wRW5aBzAV9dr5mSO'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Cutting talon
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 12]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[40]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: ''
+      value: The target also takes [[20]] ongoing damage.
+    hit2:
+      label: Hit
+      name: Natural odd miss
+      type: ''
+      value: '[[20]] ongoing damage.'
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 7lbifIeOWMYzidbX
+  _key: '!actors.items!zgih0GWcaiDOs7iU.7lbifIeOWMYzidbX'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: "[Special trigger] Devil\u2019s beak"
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: "[[d20 + 16]] vs. AC ([[1]] enemy it\u2019s grabbing; includes +4 grab\
+        \ bonus)"
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[30]] damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: '[[15]] damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: si0G437Mfm8XL0L9
+  _key: '!actors.items!zgih0GWcaiDOs7iU.si0G437Mfm8XL0L9'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Quick use
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: This ability only requires a quick action (once per round) to use.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: hli2hKXXXlEnLhgB
+  _key: '!actors.items!zgih0GWcaiDOs7iU.hli2hKXXXlEnLhgB'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Quick use
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: This ability only requires a quick action (once per round) to use.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 15u8KkA3JHk60i0F
+  _key: '!actors.items!zgih0GWcaiDOs7iU.15u8KkA3JHk60i0F'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: "Devil\u2019s due (Trouble)"
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When you choose to add the escalation die to an attack against Fang Devil,
+        you are *hampered* until the end of your next turn after you make the attack.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: rZuFTrok2qH40tLU
+  _key: '!actors.items!zgih0GWcaiDOs7iU.rZuFTrok2qH40tLU'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Resist energy 13+
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When an energy attack targets this creature, the attacker must roll a
+        natural 13+ on the attack roll or it only deals half damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Fang Devil
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 3
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Fang Devil
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 3
+sort: 100001
 system:
-  publicationSource: 13TW
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 22
     attackMod:
       type: Number
       value: 0
@@ -15,522 +416,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 22
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 22
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 22
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 360
-      min: 0
-      max: 360
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 13
-      mod: 13
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 360
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 360
+    init:
+      label: Initiative Modifier
+      mod: 13
+      type: Number
+      value: 13
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 7
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 22
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 22
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 7
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: spoiler
-      type: String
       label: Role
-    size:
-      value: huge
       type: String
+      value: spoiler
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: huge
+    sizeB:
+      value: ''
     strength:
       value: triple
     type:
-      value: devil
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: devil
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: 13TW
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: aangEl2xq8jChAUA
-    flags: {}
-    name: Mighty tentacles
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. PD ([[2]] attacks; can target nearby enemies)'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[20]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit
-        value: >-
-          The target pops free from each enemy and moves next to the Devil,
-          which engages and grabs it. (The Devil can grab any number of enemies
-          simultaneously.) If it has quick actions left, it will use its devil’s
-          beak and cutting talon attacks.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: '[[10]] damage.'
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!zgih0GWcaiDOs7iU.aangEl2xq8jChAUA'
-  - _id: wRW5aBzAV9dr5mSO
-    flags: {}
-    name: Cutting talon
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. AC'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[40]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit
-        value: The target also takes [[20]] ongoing damage.
-      hit2:
-        type: ''
-        label: Hit
-        name: Natural odd miss
-        value: '[[20]] ongoing damage.'
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!zgih0GWcaiDOs7iU.wRW5aBzAV9dr5mSO'
-  - _id: 7lbifIeOWMYzidbX
-    flags: {}
-    name: '[Special trigger] Devil’s beak'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: >-
-          [[d20 + 16]] vs. AC ([[1]] enemy it’s grabbing; includes +4 grab
-          bonus)
-      hit:
-        type: ''
-        label: Hit
-        value: '[[30]] damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: '[[15]] damage.'
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!zgih0GWcaiDOs7iU.7lbifIeOWMYzidbX'
-  - _id: si0G437Mfm8XL0L9
-    flags: {}
-    name: Quick use
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: This ability only requires a quick action (once per round) to use.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!zgih0GWcaiDOs7iU.si0G437Mfm8XL0L9'
-  - _id: hli2hKXXXlEnLhgB
-    flags: {}
-    name: Quick use
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: This ability only requires a quick action (once per round) to use.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!zgih0GWcaiDOs7iU.hli2hKXXXlEnLhgB'
-  - _id: 15u8KkA3JHk60i0F
-    flags: {}
-    name: Devil’s due (Trouble)
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When you choose to add the escalation die to an attack against Fang
-          Devil, you are *hampered* until the end of your next turn after you
-          make the attack.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!zgih0GWcaiDOs7iU.15u8KkA3JHk60i0F'
-  - _id: rZuFTrok2qH40tLU
-    flags: {}
-    name: Resist energy 13+
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When an energy attack targets this creature, the attacker must roll a
-          natural 13+ on the attack roll or it only deals half damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!zgih0GWcaiDOs7iU.rZuFTrok2qH40tLU'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Fang Devil
-  displayName: 0
-  width: 3
-  height: 3
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!zgih0GWcaiDOs7iU'
-
+        enabled: false
+type: npc

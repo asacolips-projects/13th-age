@@ -1,31 +1,29 @@
-name: Healing Potion (Iconic)
-type: loot
-img: systems/archmage/assets/icons/items/potions/magic-red.jpg
+_id: UpPrOgojlARTyh3L
+_key: '!items!UpPrOgojlARTyh3L'
 effects: []
 flags:
   core: {}
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>As a standard action, spend a recovery and regain 4d8 additional hp
-      (max 130).</p>
-  quantity:
-    type: Number
-    label: Quantity
-    value: 1
-  price:
-    type: Number
-    label: Price
-    value: 300
 folder: 0mcnzVgWo4dqvS1l
-_id: UpPrOgojlARTyh3L
-sort: 600000
+img: systems/archmage/assets/icons/items/potions/magic-red.jpg
+name: Healing Potion (Iconic)
 ownership:
   default: 0
-_key: '!items!UpPrOgojlARTyh3L'
-
+sort: 600000
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>As a standard action, spend a recovery and regain 4d8 additional hp
+      (max 130).</p>
+  name:
+    label: Name
+    type: String
+  price:
+    label: Price
+    type: Number
+    value: 300
+  quantity:
+    label: Quantity
+    type: Number
+    value: 1
+type: loot

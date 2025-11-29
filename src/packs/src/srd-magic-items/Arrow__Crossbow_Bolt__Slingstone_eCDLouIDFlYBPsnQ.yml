@@ -1,10 +1,9 @@
-name: Arrow, Crossbow Bolt, Slingstone
-sorting: a
-folder: null
-type: Item
 _id: eCDLouIDFlYBPsnQ
-sort: 0
+_key: '!folders!eCDLouIDFlYBPsnQ'
 color: null
 flags: {}
-_key: '!folders!eCDLouIDFlYBPsnQ'
-
+folder: null
+name: Arrow, Crossbow Bolt, Slingstone
+sort: 0
+sorting: a
+type: Item

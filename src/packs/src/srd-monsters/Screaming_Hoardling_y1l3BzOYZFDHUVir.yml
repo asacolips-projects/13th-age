@@ -1,10 +1,376 @@
-name: Screaming Hoardling
-type: npc
 _id: y1l3BzOYZFDHUVir
+_key: '!actors!y1l3BzOYZFDHUVir'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+items:
+- _id: mFLs0pfSF1uFp71t
+  _key: '!actors.items!y1l3BzOYZFDHUVir.mFLs0pfSF1uFp71t'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Magic axe and hammer
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 12]] vs. AC (2 attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[13]] damage'
+    hit1:
+      label: Hit
+      name: Natural 1-3
+      type: String
+      value: The screaming hoardling drops its weapon and makes a *howl of emptiness*
+        attack as a free action.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: NsPWMIqPgqDFRcom
+  _key: '!actors.items!y1l3BzOYZFDHUVir.NsPWMIqPgqDFRcom'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Returning axe or hammer'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 12]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[13]] damage'
+    hit1:
+      label: Hit
+      name: Natural 1-3
+      type: String
+      value: The screaming hoardling drops its weapon and makes a *howl of emptiness*
+        attack
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: f7XXadFeE32ovVLs
+  _key: '!actors.items!y1l3BzOYZFDHUVir.f7XXadFeE32ovVLs'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '[Special trigger only] C: Howl of emptiness'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 12]] vs. MD (each nearby enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[10]] psychic damage'
+    hit1:
+      label: Hit
+      name: Effect
+      type: String
+      value: "The screaming hoardling is *dazed* and *vulnerable* until the start\
+        \ of its next turn as it scrambles for its \u2018lost treasure\u2019, the\
+        \ weapon it just dropped."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: jCUy0LWB8QpCt7IM
+  _key: '!actors.items!y1l3BzOYZFDHUVir.jCUy0LWB8QpCt7IM'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Piecemeal armor
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the screaming hoardling survives a critical hit to AC it makes
+        a <em>howl of emptiness</em> attack as a free action, as a piece of its scavenged
+        armor falls away. Knock a point off its AC.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: jSgOznRqIFrPbiyn
+  _key: '!actors.items!y1l3BzOYZFDHUVir.jSgOznRqIFrPbiyn'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Eternal greed
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>If the screaming hoardling is reduced to zero HP while coping with
+        the effects of its howl of emptiness attack, at the start of the next turn
+        it rises with [[36]] HP, then spends a quick action (or two) to re-equip lost
+        items. A character can negate this recovery-from-death by returning a lost
+        item to the corpse with a quick action. If a character has for some reason
+        taken the screaming hoardling&rsquo;s fallen treasure, they will find themselves
+        pursued by an unkillable enemy until they give that item back.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Screaming Hoardling
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Screaming Hoardling
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 23
     attackMod:
       type: Number
       value: 0
@@ -15,483 +381,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 23
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 21
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 17
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 110
-      min: 0
-      max: 110
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 10
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 110
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 110
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 10
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 7
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 17
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 21
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: troop
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: undead
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Screaming Hoardling
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Magic axe and hammer
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. AC (2 attacks)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[13]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 1-3
-        value: >-
-          The screaming hoardling drops its weapon and makes a *howl of
-          emptiness* attack as a free action.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: mFLs0pfSF1uFp71t
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!y1l3BzOYZFDHUVir.mFLs0pfSF1uFp71t'
-  - name: 'R: Returning axe or hammer'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[13]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 1-3
-        value: >-
-          The screaming hoardling drops its weapon and makes a *howl of
-          emptiness* attack
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: NsPWMIqPgqDFRcom
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!y1l3BzOYZFDHUVir.NsPWMIqPgqDFRcom'
-  - name: '[Special trigger only] C: Howl of emptiness'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. MD (each nearby enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[10]] psychic damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Effect
-        value: >-
-          The screaming hoardling is *dazed* and *vulnerable* until the start of
-          its next turn as it scrambles for its ‘lost treasure’, the weapon it
-          just dropped.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: f7XXadFeE32ovVLs
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!y1l3BzOYZFDHUVir.f7XXadFeE32ovVLs'
-  - name: Piecemeal armor
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the screaming hoardling survives a critical hit to AC it makes
-          a <em>howl of emptiness</em> attack as a free action, as a piece of
-          its scavenged armor falls away. Knock a point off its AC.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: jCUy0LWB8QpCt7IM
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!y1l3BzOYZFDHUVir.jCUy0LWB8QpCt7IM'
-  - name: Eternal greed
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>If the screaming hoardling is reduced to zero HP while coping with
-          the effects of its howl of emptiness attack, at the start of the next
-          turn it rises with [[36]] HP, then spends a quick action (or two) to
-          re-equip lost items. A character can negate this recovery-from-death
-          by returning a lost item to the corpse with a quick action. If a
-          character has for some reason taken the screaming hoardling&rsquo;s
-          fallen treasure, they will find themselves pursued by an unkillable
-          enemy until they give that item back.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: jSgOznRqIFrPbiyn
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!y1l3BzOYZFDHUVir.jSgOznRqIFrPbiyn'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!y1l3BzOYZFDHUVir'
-
+        enabled: false
+type: npc

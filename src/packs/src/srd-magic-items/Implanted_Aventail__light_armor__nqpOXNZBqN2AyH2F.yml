@@ -1,71 +1,44 @@
-name: Implanted Aventail (light armor)
-type: equipment
+_id: nqpOXNZBqN2AyH2F
+_key: '!items!nqpOXNZBqN2AyH2F'
+effects: []
+flags:
+  core: {}
+folder: uGMLSN6ivBLGtUfv
 img: icons/svg/item-bag.svg
+name: Implanted Aventail (light armor)
+ownership:
+  default: 0
+sort: 500000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>The symbiote is normally hidden. When commanded, a wave of small
-      crab-like creatures pours out of concealed gill-like openings in your
-      skin, providing you with scale-like armor.</p>
-
-      <p>Always: +1 AC (adventurer); +2 AC (champion); +3 AC (epic).</p>
-
-      <p>Unleashing the armor is a quick action, and you retain the AC bonuses
-      as long as it is in place. When the insects are retracted as a move
-      action, you don&rsquo;t appear to be (or count as) wearing armor.</p>
-
-      <p>Quirk: Gill-like slits cover body even when the armor is not up.</p>
-  publicationSource: B1
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 1
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
-      bonus: 1
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
+      bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -73,31 +46,62 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: armor
-effects: []
-folder: uGMLSN6ivBLGtUfv
-flags:
-  core: {}
-_id: nqpOXNZBqN2AyH2F
-sort: 500000
-ownership:
-  default: 0
-_key: '!items!nqpOXNZBqN2AyH2F'
+  description:
+    label: Description
+    type: String
+    value: '<p>The symbiote is normally hidden. When commanded, a wave of small crab-like
+      creatures pours out of concealed gill-like openings in your skin, providing
+      you with scale-like armor.</p>
 
+      <p>Always: +1 AC (adventurer); +2 AC (champion); +3 AC (epic).</p>
+
+      <p>Unleashing the armor is a quick action, and you retain the AC bonuses as
+      long as it is in place. When the insects are retracted as a move action, you
+      don&rsquo;t appear to be (or count as) wearing armor.</p>
+
+      <p>Quirk: Gill-like slits cover body even when the armor is not up.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

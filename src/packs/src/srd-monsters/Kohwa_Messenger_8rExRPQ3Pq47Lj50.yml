@@ -1,10 +1,533 @@
-name: Kohwa Messenger
-type: npc
 _id: 8rExRPQ3Pq47Lj50
+_key: '!actors!8rExRPQ3Pq47Lj50'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+items:
+- _id: z17PFM8ye1Q4ADLY
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.z17PFM8ye1Q4ADLY'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Jaws of steel
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[30]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 468lc76cl1iBCJHh
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.468lc76cl1iBCJHh'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Piercing gaze'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[24]] lightning damage'
+    hit1:
+      label: Hit
+      name: Natural odd roll
+      type: String
+      value: Each time the kohwa messenger makes a natural odd roll when using this
+        attack, it can immediately make another *piercing gaze* attack roll against
+        a different target it has not already targeted this turn.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: eLhy1OEtL5jT6q2Y
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.eLhy1OEtL5jT6q2Y'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Judgment of the gods'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. PD ([[1d4]] nearby enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[40]] psychic damage'
+    hit1:
+      label: Hit
+      name: Natural roll above Wisdom
+      type: String
+      value: The target is *dazed* (normal save ends).
+    hit2:
+      label: Hit
+      name: Limited use
+      type: String
+      value: 1/battle while staggered
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: utboRel9HST5b6JE
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.utboRel9HST5b6JE'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: "Invocation of the gods\u2019 protection"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Once per battle, as a quick action, the kohwa messenger can invoke
+        the protection of their unknown gods. Once the invocation has been made, at
+        the start of each of the messenger&rsquo;s turns, roll [[/r 1d6]]. As long
+        as the roll is equal to or less than the escalation die, critical hits against
+        the messenger and its allies only inflict normal damage (although they do
+        still trigger the kohwa enforcer&rsquo;s acid rain attack, if appropriate).
+        As soon as the roll fails, the protection lapses.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: VZVhOpevFWSKKsoV
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.VZVhOpevFWSKKsoV'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Implacable dread
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The kowha messenger can use the&nbsp;<em>implacable dread</em> attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: IXMZSIP71iBwV3t4
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.IXMZSIP71iBwV3t4'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Implacable dread'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 11]] vs. MD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: "The target is *weakened* (normal save ends). During the next round,\
+        \ if the target is unengaged, it takes no action other than to move away from\
+        \ the messenger. If engaged, then the target\u2019s first action is to attempt\
+        \ to disengage from its foe, moving away if successful. If the target fails\
+        \ the disengage check, they use their second action to move away, inviting\
+        \ opportunity attacks"
+    hit1:
+      label: Hit
+      name: Limited use
+      type: String
+      value: Cannot be used until the escalation die reaches 4+
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: The target develops a deep and abiding mistrust of all kohwa.
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 66dcA6WBSHggpjBN
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.66dcA6WBSHggpjBN'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Kohwa are winged, and therefore capable of flight. While they are
+        strong fliers and able to travel great distances in this way, they are acutely
+        aware of how ungainly they look while doing so, and therefore prefer to walk
+        or run unless they are certain no one is watching.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: nmFFNWLoHjm6jCtz
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.nmFFNWLoHjm6jCtz'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Swimming
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Unlike many cat species, kohwa are perfectly at home in the water,
+        so diving into a lake or river is a poor defense against them.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: D0GVHu6urDrXc0LL
+  _key: '!actors.items!8rExRPQ3Pq47Lj50.D0GVHu6urDrXc0LL'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Telepathy
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Kohwa are capable of short-range telepathy with non-kohwa. It is assumed
+        (although no one is entirely sure) that they are capable of communicating
+        with others of their species at greater distances, as when one is in trouble,
+        others are sure to appear&mdash;eventually.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Kohwa Messenger
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Kohwa Messenger
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 21
     attackMod:
       type: Number
       value: 0
@@ -15,636 +538,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 21
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 20
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 162
-      min: 0
-      max: 162
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 12
-    level:
-      type: Number
-      label: Level
-      value: 5
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 162
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 162
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 12
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 19
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 20
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: caster
+    roleB:
+      value: ''
     size:
       value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
       value: beast
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Kohwa Messenger
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 1
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Jaws of steel
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[30]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: z17PFM8ye1Q4ADLY
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.z17PFM8ye1Q4ADLY'
-  - name: 'R: Piercing gaze'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. PD'
-      hit:
-        type: String
-        label: Hit
-        value: '[[24]] lightning damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural odd roll
-        value: >-
-          Each time the kohwa messenger makes a natural odd roll when using this
-          attack, it can immediately make another *piercing gaze* attack roll
-          against a different target it has not already targeted this turn.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: 468lc76cl1iBCJHh
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.468lc76cl1iBCJHh'
-  - name: 'C: Judgment of the gods'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. PD ([[1d4]] nearby enemies)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[40]] psychic damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural roll above Wisdom
-        value: The target is *dazed* (normal save ends).
-      hit2:
-        type: String
-        label: Hit
-        name: Limited use
-        value: 1/battle while staggered
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: eLhy1OEtL5jT6q2Y
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.eLhy1OEtL5jT6q2Y'
-  - name: Invocation of the gods’ protection
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per battle, as a quick action, the kohwa messenger can invoke
-          the protection of their unknown gods. Once the invocation has been
-          made, at the start of each of the messenger&rsquo;s turns, roll [[/r
-          1d6]]. As long as the roll is equal to or less than the escalation
-          die, critical hits against the messenger and its allies only inflict
-          normal damage (although they do still trigger the kohwa
-          enforcer&rsquo;s acid rain attack, if appropriate). As soon as the
-          roll fails, the protection lapses.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: utboRel9HST5b6JE
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.utboRel9HST5b6JE'
-  - name: Implacable dread
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The kowha messenger can use the&nbsp;<em>implacable dread</em>
-          attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: VZVhOpevFWSKKsoV
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.VZVhOpevFWSKKsoV'
-  - name: 'R: Implacable dread'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 11]] vs. MD'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          The target is *weakened* (normal save ends). During the next round, if
-          the target is unengaged, it takes no action other than to move away
-          from the messenger. If engaged, then the target’s first action is to
-          attempt to disengage from its foe, moving away if successful. If the
-          target fails the disengage check, they use their second action to move
-          away, inviting opportunity attacks
-      hit1:
-        type: String
-        label: Hit
-        name: Limited use
-        value: Cannot be used until the escalation die reaches 4+
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: The target develops a deep and abiding mistrust of all kohwa.
-    _id: IXMZSIP71iBwV3t4
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.IXMZSIP71iBwV3t4'
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Kohwa are winged, and therefore capable of flight. While they are
-          strong fliers and able to travel great distances in this way, they are
-          acutely aware of how ungainly they look while doing so, and therefore
-          prefer to walk or run unless they are certain no one is watching.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 66dcA6WBSHggpjBN
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.66dcA6WBSHggpjBN'
-  - name: Swimming
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Unlike many cat species, kohwa are perfectly at home in the water,
-          so diving into a lake or river is a poor defense against them.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: nmFFNWLoHjm6jCtz
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.nmFFNWLoHjm6jCtz'
-  - name: Telepathy
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Kohwa are capable of short-range telepathy with non-kohwa. It is
-          assumed (although no one is entirely sure) that they are capable of
-          communicating with others of their species at greater distances, as
-          when one is in trouble, others are sure to
-          appear&mdash;eventually.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: D0GVHu6urDrXc0LL
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!8rExRPQ3Pq47Lj50.D0GVHu6urDrXc0LL'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!8rExRPQ3Pq47Lj50'
-
+        enabled: false
+type: npc

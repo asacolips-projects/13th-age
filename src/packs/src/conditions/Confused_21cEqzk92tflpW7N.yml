@@ -1,51 +1,33 @@
-name: Confused
-folder: null
-flags: {}
 _id: 21cEqzk92tflpW7N
-pages:
-  - name: Confused
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>You can’t make opportunity attacks or use your limited powers. Your
-        next attack action will be a basic or at-will attack against any nearby
-        ally, determined randomly.</p>
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    _id: b8qErHdtnyvrMKGP
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    _key: '!journal.pages!21cEqzk92tflpW7N.b8qErHdtnyvrMKGP'
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
+_key: '!journal!21cEqzk92tflpW7N'
+categories: []
+flags: {}
+folder: null
+name: Confused
 ownership:
   default: 0
-sort: 0
-_key: '!journal!21cEqzk92tflpW7N'
-
+pages:
+- _id: b8qErHdtnyvrMKGP
+  _key: '!journal.pages!21cEqzk92tflpW7N.b8qErHdtnyvrMKGP'
+  category: null
+  flags: {}
+  image: {}
+  name: Confused
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<p>You can\u2019t make opportunity attacks or use your limited powers.\
+      \ Your next attack action will be a basic or at-will attack against any nearby\
+      \ ally, determined randomly.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 100000

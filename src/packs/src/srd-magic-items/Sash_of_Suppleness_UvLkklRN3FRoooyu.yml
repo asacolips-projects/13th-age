@@ -1,98 +1,102 @@
-name: Sash of Suppleness
-type: equipment
+_id: UvLkklRN3FRoooyu
+_key: '!items!UvLkklRN3FRoooyu'
+effects: []
+flags:
+  core: {}
+folder: yyTzewZiGJj1uSbs
 img: icons/svg/item-bag.svg
+name: Sash of Suppleness
+ownership:
+  default: 0
+sort: 300000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 6+) A silky sash worn as a belt. When an attack hits your AC
-      and deals 16 damage or less, change that hit into a miss (epic: 40 damage
-      or less).</p>
-
-      <p>Quirk: Always stretching, even when it would be more polite or sensible
-      to not be doing so.</p>
-  publicationSource: 1e
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '6'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
       bonus: 2
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
-      bonus: 0
     rerollAc:
       bonus: 0
       current: 0
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'champion'
-  isActive: true
-  price:
-    value: ''
   chackra: belt
-effects: []
-folder: yyTzewZiGJj1uSbs
-flags:
-  core: {}
-_id: UvLkklRN3FRoooyu
-sort: 300000
-ownership:
-  default: 0
-_key: '!items!UvLkklRN3FRoooyu'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 6+) A silky sash worn as a belt. When an attack hits your
+      AC and deals 16 damage or less, change that hit into a miss (epic: 40 damage
+      or less).</p>
 
+      <p>Quirk: Always stretching, even when it would be more polite or sensible to
+      not be doing so.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '6'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: champion
+type: equipment

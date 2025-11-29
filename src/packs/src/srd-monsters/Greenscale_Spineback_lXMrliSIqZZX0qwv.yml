@@ -1,10 +1,519 @@
-name: Greenscale Spineback
-type: npc
 _id: lXMrliSIqZZX0qwv
+_key: '!actors!lXMrliSIqZZX0qwv'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: G2g7d8Kug7lQPeuL
+  _key: '!actors.items!lXMrliSIqZZX0qwv.G2g7d8Kug7lQPeuL'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Needle teeth
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 14]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[20]] poison damage, and [[15]] ongoing poison damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: The target becomes vulnerable to poison damage until the end of the battle.
+        Creatures that resist poison damage ignore this effect.
+    hit2:
+      label: Hit
+      name: Crit
+      type: String
+      value: The target loses all its resistances and is *weakened* until the end
+        of its next turn.
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: csi4Q4UlkyzffT5J
+  _key: '!actors.items!lXMrliSIqZZX0qwv.csi4Q4UlkyzffT5J'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Spine barrage'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 16]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[25]] damage, and [[25]] ongoing poison damage'
+    hit1:
+      label: Hit
+      name: Limited use
+      type: String
+      value: "1/battle, but missing with the attack doesn\u2019t expend it."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 78jGPPovixi1hD1q
+  _key: '!actors.items!lXMrliSIqZZX0qwv.78jGPPovixi1hD1q'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Poison cloud'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 14]] vs. PD ([[1d3]] nearby enemies in a group)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[25]] poison damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: The crit range for this attack expands by 1 (to a maximum of 16+).
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[10]] poison damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: tI5bmiI111ndxXZp
+  _key: '!actors.items!lXMrliSIqZZX0qwv.tI5bmiI111ndxXZp'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Hallucinogenic exhalation
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The first time this greenscale spineback becomes staggered, each nearby
+        enemy must roll a save. If it fails, it&rsquo;s *confused* and takes [[10]]
+        ongoing poison damage (save ends both). Enemies who resist poison are immune
+        to this effect.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: FQwFiJkgrt0jb4qf
+  _key: '!actors.items!lXMrliSIqZZX0qwv.FQwFiJkgrt0jb4qf'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist poison 16+
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a poison attack targets this creature, the attacker must roll
+        a natural 16+ on the attack roll or it only deals half damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: c5WL5PSaD4fgR4vG
+  _key: '!actors.items!lXMrliSIqZZX0qwv.c5WL5PSaD4fgR4vG'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Elf killer
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The spineback hates elves, and its crit range expands by 1 against
+        them.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: QinMfq8cHin1AbPa
+  _key: '!actors.items!lXMrliSIqZZX0qwv.QinMfq8cHin1AbPa'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Tail whip
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The dragonic deals [[2d6]] extra damage to a target it misses with
+        a melee attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: dpXxQ2CnWJFWm6uj
+  _key: '!actors.items!lXMrliSIqZZX0qwv.dpXxQ2CnWJFWm6uj'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Toxic skin
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This spineback is not so much scaly as slimy like a rare toxic frog.
+        When an enemy makes an unarmed attack against it or otherwise grapples with
+        the dragonic, that enemy takes [[2d6]] poison damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: NUi6oeaBx3kXxdaq
+  _key: '!actors.items!lXMrliSIqZZX0qwv.NUi6oeaBx3kXxdaq'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Limited flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>At the start of each turn, roll a [[/r d6]]. If the result is less
+        than or equal to the escalation die, the dragonic gains flight as a move action
+        during its turns thanks to a pair of wings it unfurls from its back. The flight
+        tends to be more power-flapping or gliding from one place to another rather
+        than hovering. Flamewings who also have limited flight prefer to use their
+        burning wings to fly in combat wherever possible, resorting to their physical
+        wings only if needed.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: zAg9HbdrZqCIyT8M
+  _key: '!actors.items!lXMrliSIqZZX0qwv.zAg9HbdrZqCIyT8M'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Blood of the wyrm
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This dragonic displays traits of its forebears, the mighty wyrms.
+        Roll a [[/r d10]] and consult the random dragon ability table, or choose one
+        of the first ten options that looks likely to shape the story or battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Greenscale Spineback
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Greenscale Spineback
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 24
     attackMod:
       type: Number
       value: 0
@@ -15,636 +524,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 24
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 23
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 162
-      min: 0
-      max: 162
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 14
-    level:
-      type: Number
-      label: Level
-      value: 9
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 162
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 162
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 14
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 9
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 19
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 23
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: spoiler
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Greenscale Spineback
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Needle teeth
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[20]] poison damage, and [[15]] ongoing poison damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The target becomes vulnerable to poison damage until the end of the
-          battle. Creatures that resist poison damage ignore this effect.
-      hit2:
-        type: String
-        label: Hit
-        name: Crit
-        value: >-
-          The target loses all its resistances and is *weakened* until the end
-          of its next turn.
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: G2g7d8Kug7lQPeuL
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.G2g7d8Kug7lQPeuL'
-  - name: 'R: Spine barrage'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 16]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[25]] damage, and [[25]] ongoing poison damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Limited use
-        value: 1/battle, but missing with the attack doesn’t expend it.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: csi4Q4UlkyzffT5J
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.csi4Q4UlkyzffT5J'
-  - name: 'C: Poison cloud'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 14]] vs. PD ([[1d3]] nearby enemies in a group)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[25]] poison damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: The crit range for this attack expands by 1 (to a maximum of 16+).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[10]] poison damage'
-    _id: 78jGPPovixi1hD1q
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.78jGPPovixi1hD1q'
-  - name: Hallucinogenic exhalation
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The first time this greenscale spineback becomes staggered, each
-          nearby enemy must roll a save. If it fails, it&rsquo;s *confused* and
-          takes [[10]] ongoing poison damage (save ends both). Enemies who
-          resist poison are immune to this effect.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: tI5bmiI111ndxXZp
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.tI5bmiI111ndxXZp'
-  - name: Resist poison 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a poison attack targets this creature, the attacker must roll
-          a natural 16+ on the attack roll or it only deals half damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: FQwFiJkgrt0jb4qf
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.FQwFiJkgrt0jb4qf'
-  - name: Elf killer
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The spineback hates elves, and its crit range expands by 1 against
-          them.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: c5WL5PSaD4fgR4vG
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.c5WL5PSaD4fgR4vG'
-  - name: Tail whip
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The dragonic deals [[2d6]] extra damage to a target it misses with
-          a melee attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: QinMfq8cHin1AbPa
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.QinMfq8cHin1AbPa'
-  - name: Toxic skin
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This spineback is not so much scaly as slimy like a rare toxic
-          frog. When an enemy makes an unarmed attack against it or otherwise
-          grapples with the dragonic, that enemy takes [[2d6]] poison
-          damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: dpXxQ2CnWJFWm6uj
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!lXMrliSIqZZX0qwv.dpXxQ2CnWJFWm6uj'
-  - name: Limited flight
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At the start of each turn, roll a [[/r d6]]. If the result is less
-          than or equal to the escalation die, the dragonic gains flight as a
-          move action during its turns thanks to a pair of wings it unfurls from
-          its back. The flight tends to be more power-flapping or gliding from
-          one place to another rather than hovering. Flamewings who also have
-          limited flight prefer to use their burning wings to fly in combat
-          wherever possible, resorting to their physical wings only if
-          needed.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: NUi6oeaBx3kXxdaq
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _key: '!actors.items!lXMrliSIqZZX0qwv.NUi6oeaBx3kXxdaq'
-  - name: Blood of the wyrm
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This dragonic displays traits of its forebears, the mighty wyrms.
-          Roll a [[/r d10]] and consult the random dragon ability table, or
-          choose one of the first ten options that looks likely to shape the
-          story or battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: zAg9HbdrZqCIyT8M
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _key: '!actors.items!lXMrliSIqZZX0qwv.zAg9HbdrZqCIyT8M'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!lXMrliSIqZZX0qwv'
-
+        enabled: false
+type: npc

@@ -1,93 +1,92 @@
-name: Dire Animal Features
-img: icons/svg/d20-grey.svg
+_id: sC3cmu2Pi9Mntu6e
+_key: '!tables!sC3cmu2Pi9Mntu6e'
 description: ''
-results:
-  - type: pack
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    text: Armor plates
-    img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: vsLLuFnF1fQPUU7y
-    _id: LJkxvMzHzhL5VEzM
-    flags: {}
-    _key: '!tables.results!sC3cmu2Pi9Mntu6e.LJkxvMzHzhL5VEzM'
-  - type: pack
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    text: Spiky bits
-    img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: yiGYWnq4KSpiYcjd
-    _id: PBMSMQUM5MEk0br4
-    flags: {}
-    _key: '!tables.results!sC3cmu2Pi9Mntu6e.PBMSMQUM5MEk0br4'
-  - type: pack
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    text: Carnage
-    img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: AdQpkwd5MmhELVuu
-    _id: c1rxrflVmOhB4b1l
-    flags: {}
-    _key: '!tables.results!sC3cmu2Pi9Mntu6e.c1rxrflVmOhB4b1l'
-  - type: pack
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    text: Poison
-    img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: sq0L4MWJYZjATISW
-    _id: RM2JRJbxJBPuOmZ7
-    flags: {}
-    _key: '!tables.results!sC3cmu2Pi9Mntu6e.RM2JRJbxJBPuOmZ7'
-  - type: pack
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    text: Dire regeneration
-    img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: bJsnIYiCGygnN1dP
-    _id: 7cpxNjYuryfDdQ4b
-    flags: {}
-    _key: '!tables.results!sC3cmu2Pi9Mntu6e.7cpxNjYuryfDdQ4b'
-  - type: pack
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    text: Fury
-    img: icons/svg/item-bag.svg
-    documentCollection: archmage.srd-random-monster-abilities
-    documentId: zhIklz5gZpibHNdn
-    _id: MejA9vvGlTQDgG0S
-    flags: {}
-    _key: '!tables.results!sC3cmu2Pi9Mntu6e.MejA9vvGlTQDgG0S'
-formula: 1d6
-replacement: true
 displayRoll: false
 flags: {}
 folder: null
-sort: 2700000
+formula: 1d6
+img: icons/svg/d20-grey.svg
+name: Dire Animal Features
 ownership:
   default: 0
-_id: sC3cmu2Pi9Mntu6e
-_key: '!tables!sC3cmu2Pi9Mntu6e'
-
+replacement: true
+results:
+- _id: LJkxvMzHzhL5VEzM
+  _key: '!tables.results!sC3cmu2Pi9Mntu6e.LJkxvMzHzhL5VEzM'
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.vsLLuFnF1fQPUU7y
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Armor plates
+  range:
+  - 1
+  - 1
+  type: document
+  weight: 1
+- _id: PBMSMQUM5MEk0br4
+  _key: '!tables.results!sC3cmu2Pi9Mntu6e.PBMSMQUM5MEk0br4'
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.yiGYWnq4KSpiYcjd
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Spiky bits
+  range:
+  - 2
+  - 2
+  type: document
+  weight: 1
+- _id: c1rxrflVmOhB4b1l
+  _key: '!tables.results!sC3cmu2Pi9Mntu6e.c1rxrflVmOhB4b1l'
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.AdQpkwd5MmhELVuu
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Carnage
+  range:
+  - 3
+  - 3
+  type: document
+  weight: 1
+- _id: RM2JRJbxJBPuOmZ7
+  _key: '!tables.results!sC3cmu2Pi9Mntu6e.RM2JRJbxJBPuOmZ7'
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.sq0L4MWJYZjATISW
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Poison
+  range:
+  - 4
+  - 4
+  type: document
+  weight: 1
+- _id: 7cpxNjYuryfDdQ4b
+  _key: '!tables.results!sC3cmu2Pi9Mntu6e.7cpxNjYuryfDdQ4b'
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.bJsnIYiCGygnN1dP
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Dire regeneration
+  range:
+  - 5
+  - 5
+  type: document
+  weight: 1
+- _id: MejA9vvGlTQDgG0S
+  _key: '!tables.results!sC3cmu2Pi9Mntu6e.MejA9vvGlTQDgG0S'
+  description: ''
+  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.zhIklz5gZpibHNdn
+  drawn: false
+  flags: {}
+  img: icons/svg/item-bag.svg
+  name: Fury
+  range:
+  - 6
+  - 6
+  type: document
+  weight: 1
+sort: 2700000

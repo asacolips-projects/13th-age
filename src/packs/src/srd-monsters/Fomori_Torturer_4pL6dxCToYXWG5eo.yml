@@ -1,10 +1,1054 @@
-name: Fomori Torturer
-type: npc
 _id: 4pL6dxCToYXWG5eo
+_key: '!actors!4pL6dxCToYXWG5eo'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+items:
+- _id: 5SjNnwvjvAfm1YrR
+  _key: '!actors.items!4pL6dxCToYXWG5eo.5SjNnwvjvAfm1YrR'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Irradiant touch
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 17]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: "[[40]] damage, [[30]] ongoing poison damage, and the target\u2019s teeth\
+        \ and hair start to fall out"
+    hit1:
+      label: Hit
+      name: Crit
+      type: String
+      value: The target is *weakened* (save ends).
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: aV0b8Mm7Z60NjUWl
+  _key: '!actors.items!4pL6dxCToYXWG5eo.aV0b8Mm7Z60NjUWl'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: "C: \u201CKill your friends\u201D"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 17]] vs. MD (one nearby or faraway enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[45]] psychic damage, [[35]] ongoing psychic damage and the target
+        is *confused* (save ends both)'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[45]] psychic damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: e3tdkhwGSdJHrqud
+  _key: '!actors.items!4pL6dxCToYXWG5eo.e3tdkhwGSdJHrqud'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Chaos aura
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>At the start of each round roll a [[/r d6]] and compare it to the
+        escalation die. Whichever result is highest determines the true-fomori&rsquo;s
+        effect on local reality for that round. (If there are multiple true-fomori
+        in the battle, only roll for one per round.)&nbsp;</p>
+
+        <p><strong>1:</strong> Crawling shadows&mdash;Wherever the fomori&rsquo;s
+        shadow falls, small objects turn into insects.</p>
+
+        <p><strong>2&ndash;3:</strong> Deeper insanity&mdash;When an enemy target&rsquo;s
+        the fomori&rsquo;s MD and gets a natural odd attack roll, the attack rebounds
+        and that enemy must reroll the attack against itself.</p>
+
+        <p><strong>4&ndash;5:</strong> Sudden reversals&mdash;This round the escalation
+        die value is a negative, subtracting from the adventurers&rsquo; attack rolls.</p>
+
+        <p><strong>6:</strong> Doom&mdash;The fomori and its allies use the escalation
+        die and the adventurers do not.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 4Tj34O6PiHfVUkR0
+  _key: '!actors.items!4pL6dxCToYXWG5eo.4Tj34O6PiHfVUkR0'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Fear aura
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Enemies engaged with the true-fomori who have 120 hp or fewer are
+        *dazed* and cannot use the escalation die.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: nC9AJQqN4fjKLGHi
+  _key: '!actors.items!4pL6dxCToYXWG5eo.nC9AJQqN4fjKLGHi'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Power from worship
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>At the start of its turn, the fomori torturer heals [[5]] hp for each
+        fomorian that can see or hear it, and also heals [[5]] hp if at least one
+        unclean-one can see or hear it. This effect affects the fomori even if it&rsquo;s
+        dead, healing it from 0 hp.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: tLhaGCGifi4bWCi9
+  _key: '!actors.items!4pL6dxCToYXWG5eo.tLhaGCGifi4bWCi9'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Eye beam'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 5 + @lvl]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[21]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: "The target pops free from enemies it\u2019s engaged with and can\u2019\
+        t engage any enemies until it saves against the ongoing force damage."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: IxGJqjVOzPqM3UwK
+  _key: '!actors.items!4pL6dxCToYXWG5eo.IxGJqjVOzPqM3UwK'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Draining bite
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 5 + @lvl]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[21]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: The target heals using a recovery, but the true-fomori gains the hit
+        points.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: fUAjJafs6OOwMEbM
+  _key: '!actors.items!4pL6dxCToYXWG5eo.fUAjJafs6OOwMEbM'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: "\u2014House of Songs\u2014"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>These fomori sing songs that drive listeners to insanity.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: oTXBPcRKCTVoFOxU
+  _key: '!actors.items!4pL6dxCToYXWG5eo.oTXBPcRKCTVoFOxU'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Song of the House
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the escalation die is odd, the enemy with the highest MD must
+        roll a save at the start of the round. If it fails, it&rsquo;s *confused*
+        until the end of its next turn. When the escalation die is even, the same
+        effect applies to the enemy with the lowest MD. The fomori chooses if enemies
+        are tied for highest or lowest MD.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: EwXbZeYdFwiyceHM
+  _key: '!actors.items!4pL6dxCToYXWG5eo.EwXbZeYdFwiyceHM'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Ear-bleed
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The ears of all non-fomori creatures in the battle begin to bleed,
+        and continue to do so until the end of the day. Until the next full heal-up,
+        those creatures take a &ndash;4 penalty to skill checks involving social situations
+        or detecting sounds.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: NIMPoQbKOF9OmDhS
+  _key: '!actors.items!4pL6dxCToYXWG5eo.NIMPoQbKOF9OmDhS'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Discordancy
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The first time each battle the true fomori is staggered, each of its
+        enemies in the battle is hampered until the end of its next turn.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: Ky1OPxHaFYvuShII
+  _key: '!actors.items!4pL6dxCToYXWG5eo.Ky1OPxHaFYvuShII'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: "\u2014House of Eyes\u2014"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>These fomori usually have lots of eyes, or a single prominent eye,
+        and fly by hovering.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: YUuGfrjZkASTtHqy
+  _key: '!actors.items!4pL6dxCToYXWG5eo.YUuGfrjZkASTtHqy'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Hovering flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This creature flies, its host&rsquo;s unwashed and diseased feet hovering
+        inches above the ground.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: fOGUcBNFbzuij4Pd
+  _key: '!actors.items!4pL6dxCToYXWG5eo.fOGUcBNFbzuij4Pd'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Eye beam
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Once per turn as a quick action, the fomori can fire a powerful *eye
+        beam* from one or more of its eyes.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: Xg5PoohZDa6QAiBO
+  _key: '!actors.items!4pL6dxCToYXWG5eo.Xg5PoohZDa6QAiBO'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Eye theft
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a creature is staggered, it begins to feel as if its eyes are
+        being pulled out by an invisible force. It takes a &ndash;1 penalty to hit
+        and damage. Enemies that die in the presence of this fomori do indeed have
+        their eyes sucked out as the fomori absorbs the eyeballs.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: hAuZjD17typKsRxu
+  _key: '!actors.items!4pL6dxCToYXWG5eo.hAuZjD17typKsRxu'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: "\u2014House of Nightmares\u2014"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>These fomori shift their forms instinctually, constantly devolving
+        into ever-more horrible creatures.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: usGbsbLeanAbmn9Z
+  _key: '!actors.items!4pL6dxCToYXWG5eo.usGbsbLeanAbmn9Z'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Shifting from Nightmares
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the true-fomori is hit by an attack that targets PD or MD, until
+        the start of its next turn, the values of its PD and MD switch and it gains
+        a bonus to AC equal to the escalation die.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: GJ4EE6uXeAH8EgUr
+  _key: '!actors.items!4pL6dxCToYXWG5eo.GJ4EE6uXeAH8EgUr'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Nightmares
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>After a battle with the fomori, the character with the lowest MD (randomly
+        choose on a tie) has a nightmare during the following night, with a 50% chance
+        that the nightmare somehow comes true the next day.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: 4HjcN5tu1o43L6q4
+  _key: '!actors.items!4pL6dxCToYXWG5eo.4HjcN5tu1o43L6q4'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Skin theft
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>You know that trick with the tablecloth? When the true-fomori scores
+        a critical hit, it does that to some of its target&rsquo;s skin, and the target
+        is *stunned* (save ends). Replacing the skin might take more than normal healing,
+        too, and it might take a while to look right on a creature again.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: qj0cjnomZGhHePm6
+  _key: '!actors.items!4pL6dxCToYXWG5eo.qj0cjnomZGhHePm6'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: "\u2014House of Spiders\u2014"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>These true-fomori tend to have lots of legs and can control spiders,
+        scorpions, ticks, and other arachnids.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: C43Co64dS9xDJBEx
+  _key: '!actors.items!4pL6dxCToYXWG5eo.C43Co64dS9xDJBEx'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Scuttle
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The true-fomori can climb like a spider and squeeze its body down
+        to scuttle swiftly under low openings.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: G8mSY3V3uJhNH6rW
+  _key: '!actors.items!4pL6dxCToYXWG5eo.G8mSY3V3uJhNH6rW'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Bite
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Once per turn as a quick action, the true-fomori can make a *draining
+        bite* attack to inject acid into its victim and drink its innards.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: vtlNBZC6MHI3ry9e
+  _key: '!actors.items!4pL6dxCToYXWG5eo.vtlNBZC6MHI3ry9e'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Sun-eating
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>A creature staggered by this fomori can no longer see the sun the
+        following day and must rely on lantern light or magical illumination. There
+        is a 50% chance each day thereafter that the adventurer recovers and can once
+        again see sunlight and feels its warmth. While a creature is unable to see
+        or feel the healing sun, whenever it rolls recovery dice, it must reroll any
+        die that has the maximum result (for example, a 10 on a d10).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: WmVnyGMo1t2wZDCe
+  _key: '!actors.items!4pL6dxCToYXWG5eo.WmVnyGMo1t2wZDCe'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: "\u2014House of Colors\u2014"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>These true-fomori have plumage or fur in unnatural madness-causing
+        colors.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: jzonh2dGOe21pK86
+  _key: '!actors.items!4pL6dxCToYXWG5eo.jzonh2dGOe21pK86'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Color out of time
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>An enemy making a ranged attack against the true-fomori takes a penalty
+        to the attack equal to the escalation die and can&rsquo;t use the escalation
+        die for that attack.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: sXXG2HnTpswGsRnC
+  _key: '!actors.items!4pL6dxCToYXWG5eo.sXXG2HnTpswGsRnC'
+  effects: []
+  flags:
+    core: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Color drain
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the true-fomori drops a creature to 0 hp or lower, that creature
+        is drained of all color and can no longer perceive color. While under this
+        effect, the creature takes a &ndash; 4 penalty to social skill checks and
+        a &ndash;1 penalty to saves. Restoring color to the creature requires a quest
+        involving walking a sacred labyrinth.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Fomori Torturer
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Fomori Torturer
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 28
     attackMod:
       type: Number
       value: 0
@@ -15,1224 +1059,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 28
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 26
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 22
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 360
-      min: 0
-      max: 360
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 8
-    level:
-      type: Number
-      label: Level
-      value: 12
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 360
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 360
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 8
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 12
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 22
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 26
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: spoiler
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: aberration
-    resistance:
-      value: ''
     vulnerability:
       value: holy
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Fomori Torturer
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Irradiant touch
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 17]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[40]] damage, [[30]] ongoing poison damage, and the target’s teeth
-          and hair start to fall out
-      hit1:
-        type: String
-        label: Hit
-        name: Crit
-        value: The target is *weakened* (save ends).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: 5SjNnwvjvAfm1YrR
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4pL6dxCToYXWG5eo.5SjNnwvjvAfm1YrR'
-  - name: 'C: “Kill your friends”'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 17]] vs. MD (one nearby or faraway enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[45]] psychic damage, [[35]] ongoing psychic damage and the target is
-          *confused* (save ends both)
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[45]] psychic damage'
-    _id: aV0b8Mm7Z60NjUWl
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4pL6dxCToYXWG5eo.aV0b8Mm7Z60NjUWl'
-  - name: Chaos aura
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At the start of each round roll a [[/r d6]] and compare it to the
-          escalation die. Whichever result is highest determines the
-          true-fomori&rsquo;s effect on local reality for that round. (If there
-          are multiple true-fomori in the battle, only roll for one per
-          round.)&nbsp;</p>
-
-          <p><strong>1:</strong> Crawling shadows&mdash;Wherever the
-          fomori&rsquo;s shadow falls, small objects turn into insects.</p>
-
-          <p><strong>2&ndash;3:</strong> Deeper insanity&mdash;When an enemy
-          target&rsquo;s the fomori&rsquo;s MD and gets a natural odd attack
-          roll, the attack rebounds and that enemy must reroll the attack
-          against itself.</p>
-
-          <p><strong>4&ndash;5:</strong> Sudden reversals&mdash;This round the
-          escalation die value is a negative, subtracting from the
-          adventurers&rsquo; attack rolls.</p>
-
-          <p><strong>6:</strong> Doom&mdash;The fomori and its allies use the
-          escalation die and the adventurers do not.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: e3tdkhwGSdJHrqud
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4pL6dxCToYXWG5eo.e3tdkhwGSdJHrqud'
-  - name: Fear aura
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Enemies engaged with the true-fomori who have 120 hp or fewer are
-          *dazed* and cannot use the escalation die.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 4Tj34O6PiHfVUkR0
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4pL6dxCToYXWG5eo.4Tj34O6PiHfVUkR0'
-  - name: Power from worship
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At the start of its turn, the fomori torturer heals [[5]] hp for
-          each fomorian that can see or hear it, and also heals [[5]] hp if at
-          least one unclean-one can see or hear it. This effect affects the
-          fomori even if it&rsquo;s dead, healing it from 0 hp.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: nC9AJQqN4fjKLGHi
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4pL6dxCToYXWG5eo.nC9AJQqN4fjKLGHi'
-  - name: 'R: Eye beam'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 5 + @lvl]] vs. PD'
-      hit:
-        type: String
-        label: Hit
-        value: '[[21]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The target pops free from enemies it’s engaged with and can’t engage
-          any enemies until it saves against the ongoing force damage.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: tLhaGCGifi4bWCi9
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.IibDY22I36W2wX8U
-    _key: '!actors.items!4pL6dxCToYXWG5eo.tLhaGCGifi4bWCi9'
-  - name: Draining bite
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 5 + @lvl]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[21]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The target heals using a recovery, but the true-fomori gains the hit
-          points.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: IxGJqjVOzPqM3UwK
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.eswlNTs98Y6wiZJV
-    _key: '!actors.items!4pL6dxCToYXWG5eo.IxGJqjVOzPqM3UwK'
-  - name: —House of Songs—
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: <p>These fomori sing songs that drive listeners to insanity.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: fUAjJafs6OOwMEbM
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.dN6joTRlDFDYMgtC
-    _key: '!actors.items!4pL6dxCToYXWG5eo.fUAjJafs6OOwMEbM'
-  - name: Song of the House
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the escalation die is odd, the enemy with the highest MD must
-          roll a save at the start of the round. If it fails, it&rsquo;s
-          *confused* until the end of its next turn. When the escalation die is
-          even, the same effect applies to the enemy with the lowest MD. The
-          fomori chooses if enemies are tied for highest or lowest MD.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: oTXBPcRKCTVoFOxU
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.lwMsAjpoVncFYAgg
-    _key: '!actors.items!4pL6dxCToYXWG5eo.oTXBPcRKCTVoFOxU'
-  - name: Ear-bleed
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The ears of all non-fomori creatures in the battle begin to bleed,
-          and continue to do so until the end of the day. Until the next full
-          heal-up, those creatures take a &ndash;4 penalty to skill checks
-          involving social situations or detecting sounds.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: EwXbZeYdFwiyceHM
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.4NLrMUdw30hYLVs9
-    _key: '!actors.items!4pL6dxCToYXWG5eo.EwXbZeYdFwiyceHM'
-  - name: Discordancy
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The first time each battle the true fomori is staggered, each of
-          its enemies in the battle is hampered until the end of its next
-          turn.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: NIMPoQbKOF9OmDhS
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.NJICCbfIt5VApMJ4
-    _key: '!actors.items!4pL6dxCToYXWG5eo.NIMPoQbKOF9OmDhS'
-  - name: —House of Eyes—
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>These fomori usually have lots of eyes, or a single prominent eye,
-          and fly by hovering.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Ky1OPxHaFYvuShII
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.sXBuEqKc3ekPlfdk
-    _key: '!actors.items!4pL6dxCToYXWG5eo.Ky1OPxHaFYvuShII'
-  - name: Hovering flight
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This creature flies, its host&rsquo;s unwashed and diseased feet
-          hovering inches above the ground.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: YUuGfrjZkASTtHqy
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.xXoWOfvLbPysEIrw
-    _key: '!actors.items!4pL6dxCToYXWG5eo.YUuGfrjZkASTtHqy'
-  - name: Eye beam
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per turn as a quick action, the fomori can fire a powerful
-          *eye beam* from one or more of its eyes.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: fOGUcBNFbzuij4Pd
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.NWpJfT8hRTMHF03A
-    _key: '!actors.items!4pL6dxCToYXWG5eo.fOGUcBNFbzuij4Pd'
-  - name: Eye theft
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a creature is staggered, it begins to feel as if its eyes are
-          being pulled out by an invisible force. It takes a &ndash;1 penalty to
-          hit and damage. Enemies that die in the presence of this fomori do
-          indeed have their eyes sucked out as the fomori absorbs the
-          eyeballs.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Xg5PoohZDa6QAiBO
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.eOT4VnuAvr3f8INX
-    _key: '!actors.items!4pL6dxCToYXWG5eo.Xg5PoohZDa6QAiBO'
-  - name: —House of Nightmares—
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>These fomori shift their forms instinctually, constantly devolving
-          into ever-more horrible creatures.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: hAuZjD17typKsRxu
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.HPxXB7cJx3xXqgV2
-    _key: '!actors.items!4pL6dxCToYXWG5eo.hAuZjD17typKsRxu'
-  - name: Shifting from Nightmares
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the true-fomori is hit by an attack that targets PD or MD,
-          until the start of its next turn, the values of its PD and MD switch
-          and it gains a bonus to AC equal to the escalation die.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: usGbsbLeanAbmn9Z
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.bFvzaY4bI6Za4D1W
-    _key: '!actors.items!4pL6dxCToYXWG5eo.usGbsbLeanAbmn9Z'
-  - name: Nightmares
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>After a battle with the fomori, the character with the lowest MD
-          (randomly choose on a tie) has a nightmare during the following night,
-          with a 50% chance that the nightmare somehow comes true the next
-          day.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: GJ4EE6uXeAH8EgUr
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.LzayEDAGBYlxSzBk
-    _key: '!actors.items!4pL6dxCToYXWG5eo.GJ4EE6uXeAH8EgUr'
-  - name: Skin theft
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>You know that trick with the tablecloth? When the true-fomori
-          scores a critical hit, it does that to some of its target&rsquo;s
-          skin, and the target is *stunned* (save ends). Replacing the skin
-          might take more than normal healing, too, and it might take a while to
-          look right on a creature again.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 4HjcN5tu1o43L6q4
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.oE8Nsyn0FrIZeNjB
-    _key: '!actors.items!4pL6dxCToYXWG5eo.4HjcN5tu1o43L6q4'
-  - name: —House of Spiders—
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>These true-fomori tend to have lots of legs and can control
-          spiders, scorpions, ticks, and other arachnids.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: qj0cjnomZGhHePm6
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.MSSKcOq4lt4PDTuW
-    _key: '!actors.items!4pL6dxCToYXWG5eo.qj0cjnomZGhHePm6'
-  - name: Scuttle
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The true-fomori can climb like a spider and squeeze its body down
-          to scuttle swiftly under low openings.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: C43Co64dS9xDJBEx
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.ktGG8Tsg4CyoUQw7
-    _key: '!actors.items!4pL6dxCToYXWG5eo.C43Co64dS9xDJBEx'
-  - name: Bite
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per turn as a quick action, the true-fomori can make a
-          *draining bite* attack to inject acid into its victim and drink its
-          innards.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: G8mSY3V3uJhNH6rW
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.g0j1S6Pf89WJJtfY
-    _key: '!actors.items!4pL6dxCToYXWG5eo.G8mSY3V3uJhNH6rW'
-  - name: Sun-eating
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>A creature staggered by this fomori can no longer see the sun the
-          following day and must rely on lantern light or magical illumination.
-          There is a 50% chance each day thereafter that the adventurer recovers
-          and can once again see sunlight and feels its warmth. While a creature
-          is unable to see or feel the healing sun, whenever it rolls recovery
-          dice, it must reroll any die that has the maximum result (for example,
-          a 10 on a d10).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: vtlNBZC6MHI3ry9e
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.fWS8WcIc5nAvprxA
-    _key: '!actors.items!4pL6dxCToYXWG5eo.vtlNBZC6MHI3ry9e'
-  - name: —House of Colors—
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>These true-fomori have plumage or fur in unnatural madness-causing
-          colors.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: WmVnyGMo1t2wZDCe
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.9IdRAVz2G0BbZW75
-    _key: '!actors.items!4pL6dxCToYXWG5eo.WmVnyGMo1t2wZDCe'
-  - name: Color out of time
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>An enemy making a ranged attack against the true-fomori takes a
-          penalty to the attack equal to the escalation die and can&rsquo;t use
-          the escalation die for that attack.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: jzonh2dGOe21pK86
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.OyptndEigSBlbvui
-    _key: '!actors.items!4pL6dxCToYXWG5eo.jzonh2dGOe21pK86'
-  - name: Color drain
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the true-fomori drops a creature to 0 hp or lower, that
-          creature is drained of all color and can no longer perceive color.
-          While under this effect, the creature takes a &ndash; 4 penalty to
-          social skill checks and a &ndash;1 penalty to saves. Restoring color
-          to the creature requires a quest involving walking a sacred
-          labyrinth.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: sXXG2HnTpswGsRnC
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags:
-      core:
-        sourceId: >-
-          Compendium.archmage.srd-Monsters.Actor.X6FFaDP5mpnLy01E.Item.3AKolXVUg2okfjyG
-    _key: '!actors.items!4pL6dxCToYXWG5eo.sXXG2HnTpswGsRnC'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!4pL6dxCToYXWG5eo'
-
+        enabled: false
+type: npc

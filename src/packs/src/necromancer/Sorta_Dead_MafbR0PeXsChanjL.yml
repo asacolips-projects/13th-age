@@ -1,291 +1,293 @@
+_id: MafbR0PeXsChanjL
+_key: '!items!MafbR0PeXsChanjL'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/water_03.jpg
 name: Sorta Dead
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: ''
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Necromancer
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Sorta Dead
-  powerType:
-    type: String
-    label: Power Type
-    value: talent
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
-    value: ''
-  range:
     type: String
-    label: Range
-    value: ''
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
     value: ''
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  hit:
     type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: ''
-  castBroadEffect:
-    type: String
-    label: Cast for Broad Effect
-    value: ''
-  castPower:
-    type: String
-    label: Cast for Power
-    value: ''
-  sustainedEffect:
-    type: String
-    label: Opening and Sustained Effect
-    value: ''
-  finalVerse:
-    type: String
-    label: Final Verse
-    value: ''
-  special:
-    type: String
-    label: Special
-    value: ''
-  effect:
-    type: String
-    label: Effect
-    value: >-
-      <p>In some ways, you’re dead already. You don’t need to eat or sleep or
-      breathe. You can’t drown in normal water/liquid, though magical gas will
-      still affect you.</p><p>When a spell or effect targets or applies to
-      undead, you can decide whether you want to count as undead for that
-      specific effect. (For example, you could count as undead to take advantage
-      of a target’s vulnerability created by the ripping claws attack of a
-      starving ghoul mook you summoned via summon undead.)</p><p>The first time
-      you die each level, roll a normal save, adding [[d20 + @cha.mod]]. If you
-      succeed, you heal using a free recovery instead of dying. If you were
-      dying because of last gasp saves, consider yourself saved from the last
-      gasp problem also.</p>
-  spellLevel2:
-    hide: true
-    type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
-    type: String
-    label: 3rd Level Spell
-    value: ''
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: ''
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: ''
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: ''
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
     value: ''
   breathWeapon:
-    type: String
     label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
     type: String
-    label: Roll Table
+    value: ''
+  castBroadEffect:
+    label: Cast for Broad Effect
+    type: String
+    value: ''
+  castPower:
+    label: Cast for Power
+    type: String
+    value: ''
+  crit:
+    label: Crit
+    type: String
+    value: ''
+  critMod:
+    label: Attack
+    type: String
+    value: ''
+  description:
+    label: Description
+    type: String
+    value: ''
+  effect:
+    label: Effect
+    type: String
+    value: "<p>In some ways, you\u2019re dead already. You don\u2019t need to eat\
+      \ or sleep or breathe. You can\u2019t drown in normal water/liquid, though magical\
+      \ gas will still affect you.</p><p>When a spell or effect targets or applies\
+      \ to undead, you can decide whether you want to count as undead for that specific\
+      \ effect. (For example, you could count as undead to take advantage of a target\u2019\
+      s vulnerability created by the ripping claws attack of a starving ghoul mook\
+      \ you summoned via summon undead.)</p><p>The first time you die each level,\
+      \ roll a normal save, adding [[d20 + @cha.mod]]. If you succeed, you heal using\
+      \ a free recovery instead of dying. If you were dying because of last gasp saves,\
+      \ consider yourself saved from the last gasp problem also.</p>"
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: >-
-          <p>You gain <em>resist poison 16+</em> and <em>resist negative energy
+        value: <p>You gain <em>resist poison 16+</em> and <em>resist negative energy
           16+</em>.</p>
       isActive:
         type: Boolean
         value: false
+      maxQuantity:
+        type: Number
+        value: null
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
       tier:
         type: String
         value: adventurer
-      powerUsage:
-        type: String
-        value: ''
-      quantity:
-        type: Number
-        value: null
-      maxQuantity:
-        type: Number
-        value: null
     '1':
       description:
         type: String
-        value: >-
-          <p>The spells <em>zombie form, ghoul form, ghost form</em>, and
-          <em>vampiric form</em> all function as recharge 16+ after battle
-          spells for you, though you still memorize them as daily spells.</p>
+        value: <p>The spells <em>zombie form, ghoul form, ghost form</em>, and <em>vampiric
+          form</em> all function as recharge 16+ after battle spells for you, though
+          you still memorize them as daily spells.</p>
       isActive:
         type: Boolean
         value: false
+      maxQuantity:
+        type: Number
+        value: null
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
       tier:
         type: String
         value: champion
-      powerUsage:
-        type: String
-        value: ''
-      quantity:
-        type: Number
-        value: null
-      maxQuantity:
-        type: Number
-        value: null
     '2':
       description:
         type: String
-        value: >-
-          <p>No undead creature that is not under the direct command of a
-          necromantic icon can attack you unless you attack it or cast a spell
-          against it first.</p>
+        value: <p>No undead creature that is not under the direct command of a necromantic
+          icon can attack you unless you attack it or cast a spell against it first.</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: systems/archmage/assets/icons/skills/water_03.jpg
-_id: MafbR0PeXsChanjL
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!MafbR0PeXsChanjL'
-
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Sorta Dead
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Necromancer
+  powerType:
+    label: Power Type
+    type: String
+    value: talent
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: ''
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: ''
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: ''
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: ''
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

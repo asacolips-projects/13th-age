@@ -1,10 +1,423 @@
 _id: CrkhTU3AyEm6vnaV
-name: Fury Devil (Erinyes)
-type: npc
+_key: '!actors!CrkhTU3AyEm6vnaV'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+items:
+- _id: NHjk66oNpQ8rGK87
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.NHjk66oNpQ8rGK87'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Stout, sharp dagger
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 13]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[24]] damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss while hellbent
+      type: ''
+      value: '[[4]] psychic damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 3t9rjOBVZVsyZlMl
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.3t9rjOBVZVsyZlMl'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'R: Word of rebuke'
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 13]] vs. MD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[15]] psychic damage'
+    hit1:
+      label: Hit
+      type: String
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: xDPlsk96t9pj8wO3
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.xDPlsk96t9pj8wO3'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Any hit while hellbent
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target also takes [[8]] psychic damage and [[8]] ongoing psychic
+        damage (that feels like a terminal case of guilt).
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: f7MtgZoLWvBMpt9Q
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.f7MtgZoLWvBMpt9Q'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Any hit while hellbent
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: The target takes [[30]] psychic damage instead.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: CbUOoBQjVMjnVhgW
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.CbUOoBQjVMjnVhgW'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Defense against the inconsequential
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Attacks against a fury devil take a -4 penalty unless the devil is hellbent
+        against that attacker.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: xuWYGM2Xwm9rIaSB
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.xuWYGM2Xwm9rIaSB'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: "Devil\u2019s due (Fury)"
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When you choose to add the escalation die to an attack against a fury
+        devil, the fury devil deals [[1d10]] extra damage with its next attack this
+        battle, hit or miss.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: fuyOnTb2lrCZF9vJ
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.fuyOnTb2lrCZF9vJ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Flight
+  ownership:
+    default: 0
+  sort: 600000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: Fury devils fly from place to place but fight on their feet.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: BUbb9cnbcdi2XCWK
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.BUbb9cnbcdi2XCWK'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Menacing charge
+  ownership:
+    default: 0
+  sort: 700000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When an enemy intercepts the fury devil, the next attack this battle
+        the devil makes against that enemy that hits is a critical hit instead.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 0ypzTqqTBeHxNrRb
+  _key: '!actors.items!CrkhTU3AyEm6vnaV.0ypzTqqTBeHxNrRb'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Resist fire 13+
+  ownership:
+    default: 0
+  sort: 800000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When a fire attack targets this creature, the attacker must roll a natural
+        13+ on the attack roll or it only deals half damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Fury Devil (Erinyes)
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Fury Devil (Erinyes)
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 100001
 system:
-  publicationSource: 13TW
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 23
     attackMod:
       type: Number
       value: 0
@@ -15,539 +428,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 23
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 22
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 22
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 120
-      min: 0
-      max: 120
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 13
-      mod: 13
-    level:
-      type: Number
-      label: Level
-      value: 8
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 120
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 120
+    init:
+      label: Initiative Modifier
+      mod: 13
+      type: Number
+      value: 13
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 8
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 22
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 22
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 8
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: wrecker
-      type: String
       label: Role
-    size:
-      value: normal
       type: String
+      value: wrecker
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
-      value: devil
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: devil
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 8
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: 13TW
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: NHjk66oNpQ8rGK87
-    flags: {}
-    name: Stout, sharp dagger
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. AC'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[24]] damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss while hellbent
-        value: '[[4]] psychic damage.'
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.NHjk66oNpQ8rGK87'
-  - _id: 3t9rjOBVZVsyZlMl
-    flags: {}
-    name: 'R: Word of rebuke'
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. MD'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[15]] psychic damage'
-      hit1:
-        type: String
-        label: Hit
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.3t9rjOBVZVsyZlMl'
-  - _id: xDPlsk96t9pj8wO3
-    flags: {}
-    name: Any hit while hellbent
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          The target also takes [[8]] psychic damage and [[8]] ongoing psychic
-          damage (that feels like a terminal case of guilt).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.xDPlsk96t9pj8wO3'
-  - _id: f7MtgZoLWvBMpt9Q
-    flags: {}
-    name: Any hit while hellbent
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: The target takes [[30]] psychic damage instead.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.f7MtgZoLWvBMpt9Q'
-  - _id: CbUOoBQjVMjnVhgW
-    flags: {}
-    name: Defense against the inconsequential
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Attacks against a fury devil take a -4 penalty unless the devil is
-          hellbent against that attacker.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.CbUOoBQjVMjnVhgW'
-  - _id: xuWYGM2Xwm9rIaSB
-    flags: {}
-    name: Devil’s due (Fury)
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When you choose to add the escalation die to an attack against a fury
-          devil, the fury devil deals [[1d10]] extra damage with its next attack
-          this battle, hit or miss.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.xuWYGM2Xwm9rIaSB'
-  - _id: fuyOnTb2lrCZF9vJ
-    flags: {}
-    name: Flight
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: Fury devils fly from place to place but fight on their feet.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.fuyOnTb2lrCZF9vJ'
-  - _id: BUbb9cnbcdi2XCWK
-    flags: {}
-    name: Menacing charge
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When an enemy intercepts the fury devil, the next attack this battle
-          the devil makes against that enemy that hits is a critical hit
-          instead.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 700000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.BUbb9cnbcdi2XCWK'
-  - _id: 0ypzTqqTBeHxNrRb
-    flags: {}
-    name: Resist fire 13+
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When a fire attack targets this creature, the attacker must roll a
-          natural 13+ on the attack roll or it only deals half damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 800000
-    effects: []
-    folder: null
-    _key: '!actors.items!CrkhTU3AyEm6vnaV.0ypzTqqTBeHxNrRb'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Fury Devil (Erinyes)
-  displayName: 0
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!CrkhTU3AyEm6vnaV'
-
+        enabled: false
+type: npc

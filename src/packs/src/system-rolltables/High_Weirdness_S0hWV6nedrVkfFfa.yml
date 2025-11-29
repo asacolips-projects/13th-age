@@ -1,648 +1,605 @@
-name: High Weirdness
-flags:
-  core:
-    sourceId: RollTable.DTO7DyVibUHwW1wG
-img: icons/svg/d20-grey.svg
-description: ''
-results:
-  - _id: 4Dt7L2TpjmsN7UKx
-    flags: {}
-    type: text
-    text: >-
-      You accidentally summon [[1d3]] wibbles that either attack you or drift
-      off to wreak a small amount of havoc elsewhere in the battle.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 1
-      - 2
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.4Dt7L2TpjmsN7UKx'
-  - _id: RCWFsrzGoVK03q5b
-    flags: {}
-    type: text
-    text: >-
-      You’re hit by a pulsing wrinkle in time. You move and speak
-      ever–so–slightly slower than you should until you catch up. There’s no
-      effect this turn, but at the end of your turn, decrease your initiative
-      [[2d6]] points, to a minimum of 1.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 3
-      - 4
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.RCWFsrzGoVK03q5b'
-  - _id: 44PpzeyvSHbD2Gly
-    flags: {}
-    type: text
-    text: Each creature in the battle with temporary hit points loses half of them.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 5
-      - 6
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.44PpzeyvSHbD2Gly'
-  - _id: ph1r9PWr5C9pykxd
-    flags: {}
-    type: text
-    text: >-
-      You can only speak by asking questions. If you or your character violates
-      this requirement, your character takes 1 damage the first time, 2 damage
-      the second time, and so on. (Have another player keep track.)
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 7
-      - 8
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.ph1r9PWr5C9pykxd'
-  - _id: ypmD4j0ECYdTP0Ki
-    flags: {}
-    type: text
-    text: >-
-      Your magic items’ quirks take over. If you aren’t doing a good enough job
-      of roleplaying this personality fiasco, the GM and the rest of the players
-      are authorized to suggest (in)appropriate behavior.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 9
-      - 10
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.ypmD4j0ECYdTP0Ki'
-  - _id: 8PeGAl6qL79mpZpp
-    flags: {}
-    type: text
-    text: >-
-      You leech personality traits from surrounding spirits, whatever those
-      happen to be. These are only traits, not personality overrides.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 11
-      - 11
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.8PeGAl6qL79mpZpp'
-  - _id: DlhGoqrEiW4ZmpN8
-    flags: {}
-    type: text
-    text: >-
-      You must speak in what you think could be the voice of the last creature
-      your chaos mage attacked. If it doesn’t seem to have a voice, invent one.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 12
-      - 12
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.DlhGoqrEiW4ZmpN8'
-  - _id: GQJhVQbDUUkhKNzw
-    flags: {}
-    type: text
-    text: >-
-      Small squeaking rodents erupt from any plausible cover that you go near.
-      There’s no real effect except they’re somewhat noisy and rodents suddenly
-      pop up in unexpected places.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 13
-      - 13
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.GQJhVQbDUUkhKNzw'
-  - _id: wTHMtvXlZAZCWiu1
-    flags: {}
-    type: text
-    text: >-
-      Your (the PC) favorite song begins playing around you magically, getting
-      louder and louder (tell the table what type of song it is, or maybe hum
-      it). It might or might not interfere with bardic songs or monsters that
-      need to be heard properly to get their dirty work done.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 14
-      - 14
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.wTHMtvXlZAZCWiu1'
-  - _id: oZKzDrzs2wyz5t9P
-    flags: {}
-    type: text
-    text: >-
-      A disembodied voice begins narrating the events of the battle to all
-      participants. The voice isn't necessarily on your side, pick a random icon
-      it seems to be associated with.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 15
-      - 15
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.oZKzDrzs2wyz5t9P'
-  - _id: YsM2wyTwH099eG0E
-    flags: {}
-    type: text
-    text: >-
-      You grow horns or other spikes all over. If you already have horns, then
-      you lose them. Some of the horns, or lack thereof, persist after the
-      weirdness ends.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 16
-      - 16
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.YsM2wyTwH099eG0E'
-  - _id: 5Xk0RBwm27itDTl4
-    flags: {}
-    type: text
-    text: >-
-      One of your arms becomes a functional tentacle. It has no mechanical
-      effects, but unless you’re special or lucky it’s probably not a very
-      pretty tentacle. Your option on whether or not it remains after the
-      weirdness ends.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 17
-      - 17
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.5Xk0RBwm27itDTl4'
-  - _id: cbv8146SAzBHMYJc
-    flags: {}
-    type: text
-    text: >-
-      A great gust of wind circles around the battlefield. It probably has no
-      serious effect unless there’s something happening that a great gust of
-      wind could seriously affect.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 18
-      - 18
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.cbv8146SAzBHMYJc'
-  - _id: N4WsRWXsPMzhAGOr
-    flags: {}
-    type: text
-    text: >-
-      All creatures leave colored trails behind them as they move, turning the
-      battle scene into a strange glowing artwork. Images fade every ten seconds
-      or so.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 19
-      - 19
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.N4WsRWXsPMzhAGOr'
-  - _id: EWQUilNDmqWJKtar
-    flags: {}
-    type: text
-    text: >-
-      Some minor detail of your appearance changes hair color, gaps between
-      teeth, handedness, and so on. The change is permanent–ish.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 20
-      - 20
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.EWQUilNDmqWJKtar'
-  - _id: RemmxivZ6m2ocT2h
-    flags: {}
-    type: text
-    text: >-
-      Grit, explosive dust, or other debris explodes into the air around you,
-      dealing [[1d4]] damage per tier to each nearby creature.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 21
-      - 22
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.RemmxivZ6m2ocT2h'
-  - _id: K844XvIDfxR5rgFB
-    flags: {}
-    type: text
-    text: >-
-      There’s tension in the air, or the rumble of distant thunder, or a sense
-      of impending disaster, and the next creature that misses with an attack
-      this battle takes [[@cha.dmg]] damage.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 23
-      - 24
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.K844XvIDfxR5rgFB'
-  - _id: 0qTGszhd68vN7hTm
-    flags: {}
-    type: text
-    text: >-
-      Quickly passing auras blur and shake across the battlefield, or cold winds
-      whip through and grow warmer as they pass, or the lights flicker . . . and
-      the creature that has taken the most damage in the battle gains temporary
-      hit points equal to 10% of its maximum hit points.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 25
-      - 26
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.0qTGszhd68vN7hTm'
-  - _id: 8lch93aKI6Ytq1U0
-    flags: {}
-    type: text
-    text: >-
-      One random creature in the battle other than you teleports next to and is
-      engaged by one of its random enemies other than you.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 27
-      - 28
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.8lch93aKI6Ytq1U0'
-  - _id: qB71qOkVrV8u6RBg
-    flags: {}
-    type: text
-    text: >-
-      (Global effect) Space seriously twists, affecting the spells and ranged
-      attacks of each creature in the battle creatures that are nearby count as
-      if they were far away, and creatures that are far away count as if they
-      are nearby.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 29
-      - 30
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.qB71qOkVrV8u6RBg'
-  - _id: Nxct1IdKYwLc0Vw5
-    flags: {}
-    type: text
-    text: >-
-      The first spell you cast this battle has effects (not damage) like a spell
-      two levels higher than it, if possible.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 31
-      - 32
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.Nxct1IdKYwLc0Vw5'
-  - _id: beJEMae8iyNXjk2v
-    flags: {}
-    type: text
-    text: >-
-      (Global effect) All normal saves made by creatures in the battle are
-      actually easy saves (6+).
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 33
-      - 34
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.beJEMae8iyNXjk2v'
-  - _id: iYvBqYLAjV9oY5zk
-    flags: {}
-    type: text
-    text: >-
-      (Global effect) There’s a blurring at the edge of all things. No creature
-      can intercept another. Disengage attempts automatically succeed.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 35
-      - 36
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.iYvBqYLAjV9oY5zk'
-  - _id: 4JLHqIxwwm881ymh
-    flags: {}
-    type: text
-    text: >-
-      (Global effect) The champions shall inherit the dirt! Until the end of
-      your next turn, saves that fail count as if they succeed, and saves that
-      succeed count as if they fail!
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 37
-      - 38
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.4JLHqIxwwm881ymh'
-  - _id: 0bcxcsBn0PsugSiG
-    flags: {}
-    type: text
-    text: Roll the escalation die and use the new result.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 39
-      - 40
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.0bcxcsBn0PsugSiG'
-  - _id: puRpQWYEJNQ3Vfn9
-    flags: {}
-    type: text
-    text: >-
-      (Global effect) Each creature in the battle taking ongoing damage
-      immediately takes that damage. Then all ongoing damage effects end.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 41
-      - 42
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.puRpQWYEJNQ3Vfn9'
-  - _id: JxZu4YmqgNwicO7i
-    flags: {}
-    type: text
-    text: >-
-      (Global effect) Each creature that makes an attack targeting PD targets MD
-      instead. Attacks against MD target PD instead.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 43
-      - 44
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.JxZu4YmqgNwicO7i'
-  - _id: BoeH0jN67ksv2E6R
-    flags: {}
-    type: text
-    text: >-
-      Your shadow detaches and flits around you. Until the weirdness ends, you
-      gain a +2 attack bonus but take a –2 penalty to saves. Your personality
-      may or may not be affected. It’s up to you.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 45
-      - 46
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.BoeH0jN67ksv2E6R'
-  - _id: axUG1puaErmCdQnK
-    flags: {}
-    type: text
-    text: >-
-      Choose yourself or one ally with temporary hit points and double those
-      temporary hit points.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 47
-      - 48
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.axUG1puaErmCdQnK'
-  - _id: ERE3MczwSFIZxfF2
-    flags: {}
-    type: text
-    text: >-
-      There’s a large magical special effect of your choice (non-mechanical),
-      and each creature in the battle ignores all resistances.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 49
-      - 50
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.ERE3MczwSFIZxfF2'
-  - _id: waWUUwd9eu7lunP2
-    flags: {}
-    type: text
-    text: >-
-      You gain an additional quick action during each of your turns while this
-      weirdness is in effect.
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 51
-      - 55
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.waWUUwd9eu7lunP2'
-  - _id: V3uRPyy8Dg71KA4V
-    flags: {}
-    type: text
-    text: >-
-      When one of your allies casts an arcane spell this battle, the spell gains
-      a small bonus effect chosen by the GM (something that suits the spell and
-      the story).
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 56
-      - 60
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.V3uRPyy8Dg71KA4V'
-  - _id: W9p0UJvXfCxlzoVn
-    flags: {}
-    type: text
-    text: >-
-      You and your allies gain small halos, or celestial light pours in, or a
-      subtle glow illuminates each countenance. When one of your allies casts a
-      divine spell this battle, it gains a small bonus effect chosen by the GM,
-      something that suits the spell and the story.
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 61
-      - 65
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.W9p0UJvXfCxlzoVn'
-  - _id: DolBEMRoKKIKLxki
-    flags: {}
-    type: text
-    text: >-
-      Your features shift and settle into a temporary new pattern. You gain a
-      random racial ability until the end of your next turn. Ignore results that
-      duplicate a racial ability you already have. Roll a [[d8]]. 1: dwarf’s
-      that’s your best shot; 2: dark elf’s cruel; 3: high elf’s highblood
-      teleport; 4: gnome’s confounding; 5: half–elf’s surprising; 6: halfling’s
-      evasive; 7: holy one’s halo; 8: tieflings’s curse of chaos.
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 66
-      - 70
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.DolBEMRoKKIKLxki'
-  - _id: oMIb0AeZjAp4hq8l
-    flags: {}
-    type: text
-    text: >-
-      f one of your allies is at 0 hit points or below, that ally can roll a
-      free death save that won’t count against their missed death save total.
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 71
-      - 75
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.oMIb0AeZjAp4hq8l'
-  - _id: LInbYggUZjc1kX0Q
-    flags: {}
-    type: text
-    text: >-
-      Choose one creature (including you) that has already rallied this battle.
-      It can rally again this battle (using the same action it normally would)
-      as if it hadn’t already rallied (no roll if the first use).
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 76
-      - 80
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.LInbYggUZjc1kX0Q'
-  - _id: KFSSkFY9Qgp4JK3Z
-    flags: {}
-    type: text
-    text: >-
-      Your presence blurs through space, spirit, and time, and you can fight in
-      spirit on your turn (see Combat Rules, Special Action) in addition to
-      taking your normal turn.
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 81
-      - 85
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.KFSSkFY9Qgp4JK3Z'
-  - _id: HHAChBzg2ezqhiRm
-    flags: {}
-    type: text
-    text: >-
-      You shift, you waver, or you go transparent. You don’t take any miss
-      damage while this weirdness is affecting you.
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 86
-      - 90
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.HHAChBzg2ezqhiRm'
-  - _id: I2aBA0F0oLkmPmuY
-    flags: {}
-    type: text
-    text: >-
-      The magic items in the area all start talking at once. You or one ally of
-      your choice can roll to recharge one magic item (affected creature’s
-      choice).
-    img: icons/svg/d20-black.svg
-    weight: 5
-    range:
-      - 91
-      - 95
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.I2aBA0F0oLkmPmuY'
-  - _id: xhHZuAKjteKzqVj3
-    flags: {}
-    type: text
-    text: >-
-      Something related to your one unique thing goes very right for you. This
-      is on you and the GM to work out together. The GM has the final say,
-      though.
-    img: icons/svg/d20-black.svg
-    weight: 2
-    range:
-      - 96
-      - 97
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.xhHZuAKjteKzqVj3'
-  - _id: Dd2KJsR39NanBRqi
-    flags: {}
-    type: text
-    text: >-
-      If you and your allies flee RIGHT NOW, you don’t take a campaign loss for
-      your discretion. This may take some explaining. It’s all about the chaos
-      magic.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 98
-      - 98
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.Dd2KJsR39NanBRqi'
-  - _id: 4EPjUWAQtcPLh7fK
-    flags: {}
-    type: text
-    text: >-
-      Roll twice more on this table. If you wish you can ignore one of the
-      rolled results but must stick with the other. If you roll the same result
-      twice, you get that weirdness just once.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 99
-      - 99
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.4EPjUWAQtcPLh7fK'
-  - _id: ZnfzhFE6zOKXkChv
-    flags: {}
-    type: text
-    text: >-
-      You gain an extra standard action during the next turn after this
-      weirdness goes into effect.
-    img: icons/svg/d20-black.svg
-    weight: 1
-    range:
-      - 100
-      - 100
-    drawn: false
-    documentId: null
-    _key: '!tables.results!S0hWV6nedrVkfFfa.ZnfzhFE6zOKXkChv'
-formula: 1d100
-replacement: true
-displayRoll: false
 _id: S0hWV6nedrVkfFfa
+_key: '!tables!S0hWV6nedrVkfFfa'
+description: ''
+displayRoll: false
+flags:
+  core: {}
+folder: null
+formula: 1d100
+img: icons/svg/d20-grey.svg
+name: High Weirdness
 ownership:
   default: 0
-folder: null
+replacement: true
+results:
+- _id: 4Dt7L2TpjmsN7UKx
+  _key: '!tables.results!S0hWV6nedrVkfFfa.4Dt7L2TpjmsN7UKx'
+  description: You accidentally summon [[1d3]] wibbles that either attack you or drift
+    off to wreak a small amount of havoc elsewhere in the battle.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 2
+  type: text
+  weight: 2
+- _id: RCWFsrzGoVK03q5b
+  _key: '!tables.results!S0hWV6nedrVkfFfa.RCWFsrzGoVK03q5b'
+  description: "You\u2019re hit by a pulsing wrinkle in time. You move and speak ever\u2013\
+    so\u2013slightly slower than you should until you catch up. There\u2019s no effect\
+    \ this turn, but at the end of your turn, decrease your initiative [[2d6]] points,\
+    \ to a minimum of 1."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 4
+  type: text
+  weight: 2
+- _id: 44PpzeyvSHbD2Gly
+  _key: '!tables.results!S0hWV6nedrVkfFfa.44PpzeyvSHbD2Gly'
+  description: Each creature in the battle with temporary hit points loses half of
+    them.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 6
+  type: text
+  weight: 2
+- _id: ph1r9PWr5C9pykxd
+  _key: '!tables.results!S0hWV6nedrVkfFfa.ph1r9PWr5C9pykxd'
+  description: You can only speak by asking questions. If you or your character violates
+    this requirement, your character takes 1 damage the first time, 2 damage the second
+    time, and so on. (Have another player keep track.)
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 8
+  type: text
+  weight: 2
+- _id: ypmD4j0ECYdTP0Ki
+  _key: '!tables.results!S0hWV6nedrVkfFfa.ypmD4j0ECYdTP0Ki'
+  description: "Your magic items\u2019 quirks take over. If you aren\u2019t doing\
+    \ a good enough job of roleplaying this personality fiasco, the GM and the rest\
+    \ of the players are authorized to suggest (in)appropriate behavior."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 10
+  type: text
+  weight: 2
+- _id: 8PeGAl6qL79mpZpp
+  _key: '!tables.results!S0hWV6nedrVkfFfa.8PeGAl6qL79mpZpp'
+  description: You leech personality traits from surrounding spirits, whatever those
+    happen to be. These are only traits, not personality overrides.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
+- _id: DlhGoqrEiW4ZmpN8
+  _key: '!tables.results!S0hWV6nedrVkfFfa.DlhGoqrEiW4ZmpN8'
+  description: "You must speak in what you think could be the voice of the last creature\
+    \ your chaos mage attacked. If it doesn\u2019t seem to have a voice, invent one."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 12
+  - 12
+  type: text
+  weight: 1
+- _id: GQJhVQbDUUkhKNzw
+  _key: '!tables.results!S0hWV6nedrVkfFfa.GQJhVQbDUUkhKNzw'
+  description: "Small squeaking rodents erupt from any plausible cover that you go\
+    \ near. There\u2019s no real effect except they\u2019re somewhat noisy and rodents\
+    \ suddenly pop up in unexpected places."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 13
+  - 13
+  type: text
+  weight: 1
+- _id: wTHMtvXlZAZCWiu1
+  _key: '!tables.results!S0hWV6nedrVkfFfa.wTHMtvXlZAZCWiu1'
+  description: Your (the PC) favorite song begins playing around you magically, getting
+    louder and louder (tell the table what type of song it is, or maybe hum it). It
+    might or might not interfere with bardic songs or monsters that need to be heard
+    properly to get their dirty work done.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 14
+  - 14
+  type: text
+  weight: 1
+- _id: oZKzDrzs2wyz5t9P
+  _key: '!tables.results!S0hWV6nedrVkfFfa.oZKzDrzs2wyz5t9P'
+  description: A disembodied voice begins narrating the events of the battle to all
+    participants. The voice isn't necessarily on your side, pick a random icon it
+    seems to be associated with.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 15
+  - 15
+  type: text
+  weight: 1
+- _id: YsM2wyTwH099eG0E
+  _key: '!tables.results!S0hWV6nedrVkfFfa.YsM2wyTwH099eG0E'
+  description: You grow horns or other spikes all over. If you already have horns,
+    then you lose them. Some of the horns, or lack thereof, persist after the weirdness
+    ends.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 16
+  - 16
+  type: text
+  weight: 1
+- _id: 5Xk0RBwm27itDTl4
+  _key: '!tables.results!S0hWV6nedrVkfFfa.5Xk0RBwm27itDTl4'
+  description: "One of your arms becomes a functional tentacle. It has no mechanical\
+    \ effects, but unless you\u2019re special or lucky it\u2019s probably not a very\
+    \ pretty tentacle. Your option on whether or not it remains after the weirdness\
+    \ ends."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 17
+  - 17
+  type: text
+  weight: 1
+- _id: cbv8146SAzBHMYJc
+  _key: '!tables.results!S0hWV6nedrVkfFfa.cbv8146SAzBHMYJc'
+  description: "A great gust of wind circles around the battlefield. It probably has\
+    \ no serious effect unless there\u2019s something happening that a great gust\
+    \ of wind could seriously affect."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 18
+  - 18
+  type: text
+  weight: 1
+- _id: N4WsRWXsPMzhAGOr
+  _key: '!tables.results!S0hWV6nedrVkfFfa.N4WsRWXsPMzhAGOr'
+  description: All creatures leave colored trails behind them as they move, turning
+    the battle scene into a strange glowing artwork. Images fade every ten seconds
+    or so.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 19
+  - 19
+  type: text
+  weight: 1
+- _id: EWQUilNDmqWJKtar
+  _key: '!tables.results!S0hWV6nedrVkfFfa.EWQUilNDmqWJKtar'
+  description: "Some minor detail of your appearance changes hair color, gaps between\
+    \ teeth, handedness, and so on. The change is permanent\u2013ish."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 20
+  - 20
+  type: text
+  weight: 1
+- _id: RemmxivZ6m2ocT2h
+  _key: '!tables.results!S0hWV6nedrVkfFfa.RemmxivZ6m2ocT2h'
+  description: Grit, explosive dust, or other debris explodes into the air around
+    you, dealing [[1d4]] damage per tier to each nearby creature.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 21
+  - 22
+  type: text
+  weight: 2
+- _id: K844XvIDfxR5rgFB
+  _key: '!tables.results!S0hWV6nedrVkfFfa.K844XvIDfxR5rgFB'
+  description: "There\u2019s tension in the air, or the rumble of distant thunder,\
+    \ or a sense of impending disaster, and the next creature that misses with an\
+    \ attack this battle takes [[@cha.dmg]] damage."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 23
+  - 24
+  type: text
+  weight: 2
+- _id: 0qTGszhd68vN7hTm
+  _key: '!tables.results!S0hWV6nedrVkfFfa.0qTGszhd68vN7hTm'
+  description: Quickly passing auras blur and shake across the battlefield, or cold
+    winds whip through and grow warmer as they pass, or the lights flicker . . . and
+    the creature that has taken the most damage in the battle gains temporary hit
+    points equal to 10% of its maximum hit points.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 25
+  - 26
+  type: text
+  weight: 2
+- _id: 8lch93aKI6Ytq1U0
+  _key: '!tables.results!S0hWV6nedrVkfFfa.8lch93aKI6Ytq1U0'
+  description: One random creature in the battle other than you teleports next to
+    and is engaged by one of its random enemies other than you.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 27
+  - 28
+  type: text
+  weight: 2
+- _id: qB71qOkVrV8u6RBg
+  _key: '!tables.results!S0hWV6nedrVkfFfa.qB71qOkVrV8u6RBg'
+  description: (Global effect) Space seriously twists, affecting the spells and ranged
+    attacks of each creature in the battle creatures that are nearby count as if they
+    were far away, and creatures that are far away count as if they are nearby.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 29
+  - 30
+  type: text
+  weight: 2
+- _id: Nxct1IdKYwLc0Vw5
+  _key: '!tables.results!S0hWV6nedrVkfFfa.Nxct1IdKYwLc0Vw5'
+  description: The first spell you cast this battle has effects (not damage) like
+    a spell two levels higher than it, if possible.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 31
+  - 32
+  type: text
+  weight: 2
+- _id: beJEMae8iyNXjk2v
+  _key: '!tables.results!S0hWV6nedrVkfFfa.beJEMae8iyNXjk2v'
+  description: (Global effect) All normal saves made by creatures in the battle are
+    actually easy saves (6+).
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 33
+  - 34
+  type: text
+  weight: 2
+- _id: iYvBqYLAjV9oY5zk
+  _key: '!tables.results!S0hWV6nedrVkfFfa.iYvBqYLAjV9oY5zk'
+  description: "(Global effect) There\u2019s a blurring at the edge of all things.\
+    \ No creature can intercept another. Disengage attempts automatically succeed."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 35
+  - 36
+  type: text
+  weight: 2
+- _id: 4JLHqIxwwm881ymh
+  _key: '!tables.results!S0hWV6nedrVkfFfa.4JLHqIxwwm881ymh'
+  description: (Global effect) The champions shall inherit the dirt! Until the end
+    of your next turn, saves that fail count as if they succeed, and saves that succeed
+    count as if they fail!
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 37
+  - 38
+  type: text
+  weight: 2
+- _id: 0bcxcsBn0PsugSiG
+  _key: '!tables.results!S0hWV6nedrVkfFfa.0bcxcsBn0PsugSiG'
+  description: Roll the escalation die and use the new result.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 39
+  - 40
+  type: text
+  weight: 2
+- _id: puRpQWYEJNQ3Vfn9
+  _key: '!tables.results!S0hWV6nedrVkfFfa.puRpQWYEJNQ3Vfn9'
+  description: (Global effect) Each creature in the battle taking ongoing damage immediately
+    takes that damage. Then all ongoing damage effects end.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 41
+  - 42
+  type: text
+  weight: 2
+- _id: JxZu4YmqgNwicO7i
+  _key: '!tables.results!S0hWV6nedrVkfFfa.JxZu4YmqgNwicO7i'
+  description: (Global effect) Each creature that makes an attack targeting PD targets
+    MD instead. Attacks against MD target PD instead.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 43
+  - 44
+  type: text
+  weight: 2
+- _id: BoeH0jN67ksv2E6R
+  _key: '!tables.results!S0hWV6nedrVkfFfa.BoeH0jN67ksv2E6R'
+  description: "Your shadow detaches and flits around you. Until the weirdness ends,\
+    \ you gain a +2 attack bonus but take a \u20132 penalty to saves. Your personality\
+    \ may or may not be affected. It\u2019s up to you."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 45
+  - 46
+  type: text
+  weight: 2
+- _id: axUG1puaErmCdQnK
+  _key: '!tables.results!S0hWV6nedrVkfFfa.axUG1puaErmCdQnK'
+  description: Choose yourself or one ally with temporary hit points and double those
+    temporary hit points.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 47
+  - 48
+  type: text
+  weight: 2
+- _id: ERE3MczwSFIZxfF2
+  _key: '!tables.results!S0hWV6nedrVkfFfa.ERE3MczwSFIZxfF2'
+  description: "There\u2019s a large magical special effect of your choice (non-mechanical),\
+    \ and each creature in the battle ignores all resistances."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 49
+  - 50
+  type: text
+  weight: 2
+- _id: waWUUwd9eu7lunP2
+  _key: '!tables.results!S0hWV6nedrVkfFfa.waWUUwd9eu7lunP2'
+  description: You gain an additional quick action during each of your turns while
+    this weirdness is in effect.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 51
+  - 55
+  type: text
+  weight: 5
+- _id: V3uRPyy8Dg71KA4V
+  _key: '!tables.results!S0hWV6nedrVkfFfa.V3uRPyy8Dg71KA4V'
+  description: When one of your allies casts an arcane spell this battle, the spell
+    gains a small bonus effect chosen by the GM (something that suits the spell and
+    the story).
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 56
+  - 60
+  type: text
+  weight: 5
+- _id: W9p0UJvXfCxlzoVn
+  _key: '!tables.results!S0hWV6nedrVkfFfa.W9p0UJvXfCxlzoVn'
+  description: You and your allies gain small halos, or celestial light pours in,
+    or a subtle glow illuminates each countenance. When one of your allies casts a
+    divine spell this battle, it gains a small bonus effect chosen by the GM, something
+    that suits the spell and the story.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 61
+  - 65
+  type: text
+  weight: 5
+- _id: DolBEMRoKKIKLxki
+  _key: '!tables.results!S0hWV6nedrVkfFfa.DolBEMRoKKIKLxki'
+  description: "Your features shift and settle into a temporary new pattern. You gain\
+    \ a random racial ability until the end of your next turn. Ignore results that\
+    \ duplicate a racial ability you already have. Roll a [[d8]]. 1: dwarf\u2019s\
+    \ that\u2019s your best shot; 2: dark elf\u2019s cruel; 3: high elf\u2019s highblood\
+    \ teleport; 4: gnome\u2019s confounding; 5: half\u2013elf\u2019s surprising; 6:\
+    \ halfling\u2019s evasive; 7: holy one\u2019s halo; 8: tieflings\u2019s curse\
+    \ of chaos."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 66
+  - 70
+  type: text
+  weight: 5
+- _id: oMIb0AeZjAp4hq8l
+  _key: '!tables.results!S0hWV6nedrVkfFfa.oMIb0AeZjAp4hq8l'
+  description: "f one of your allies is at 0 hit points or below, that ally can roll\
+    \ a free death save that won\u2019t count against their missed death save total."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 71
+  - 75
+  type: text
+  weight: 5
+- _id: LInbYggUZjc1kX0Q
+  _key: '!tables.results!S0hWV6nedrVkfFfa.LInbYggUZjc1kX0Q'
+  description: "Choose one creature (including you) that has already rallied this\
+    \ battle. It can rally again this battle (using the same action it normally would)\
+    \ as if it hadn\u2019t already rallied (no roll if the first use)."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 76
+  - 80
+  type: text
+  weight: 5
+- _id: KFSSkFY9Qgp4JK3Z
+  _key: '!tables.results!S0hWV6nedrVkfFfa.KFSSkFY9Qgp4JK3Z'
+  description: Your presence blurs through space, spirit, and time, and you can fight
+    in spirit on your turn (see Combat Rules, Special Action) in addition to taking
+    your normal turn.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 81
+  - 85
+  type: text
+  weight: 5
+- _id: HHAChBzg2ezqhiRm
+  _key: '!tables.results!S0hWV6nedrVkfFfa.HHAChBzg2ezqhiRm'
+  description: "You shift, you waver, or you go transparent. You don\u2019t take any\
+    \ miss damage while this weirdness is affecting you."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 86
+  - 90
+  type: text
+  weight: 5
+- _id: I2aBA0F0oLkmPmuY
+  _key: '!tables.results!S0hWV6nedrVkfFfa.I2aBA0F0oLkmPmuY'
+  description: "The magic items in the area all start talking at once. You or one\
+    \ ally of your choice can roll to recharge one magic item (affected creature\u2019\
+    s choice)."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 91
+  - 95
+  type: text
+  weight: 5
+- _id: xhHZuAKjteKzqVj3
+  _key: '!tables.results!S0hWV6nedrVkfFfa.xhHZuAKjteKzqVj3'
+  description: Something related to your one unique thing goes very right for you.
+    This is on you and the GM to work out together. The GM has the final say, though.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 96
+  - 97
+  type: text
+  weight: 2
+- _id: Dd2KJsR39NanBRqi
+  _key: '!tables.results!S0hWV6nedrVkfFfa.Dd2KJsR39NanBRqi'
+  description: "If you and your allies flee RIGHT NOW, you don\u2019t take a campaign\
+    \ loss for your discretion. This may take some explaining. It\u2019s all about\
+    \ the chaos magic."
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 98
+  - 98
+  type: text
+  weight: 1
+- _id: 4EPjUWAQtcPLh7fK
+  _key: '!tables.results!S0hWV6nedrVkfFfa.4EPjUWAQtcPLh7fK'
+  description: Roll twice more on this table. If you wish you can ignore one of the
+    rolled results but must stick with the other. If you roll the same result twice,
+    you get that weirdness just once.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 99
+  - 99
+  type: text
+  weight: 1
+- _id: ZnfzhFE6zOKXkChv
+  _key: '!tables.results!S0hWV6nedrVkfFfa.ZnfzhFE6zOKXkChv'
+  description: You gain an extra standard action during the next turn after this weirdness
+    goes into effect.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 100
+  - 100
+  type: text
+  weight: 1
 sort: 1800000
-_key: '!tables!S0hWV6nedrVkfFfa'
-

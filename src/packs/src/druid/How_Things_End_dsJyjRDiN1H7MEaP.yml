@@ -1,215 +1,223 @@
+_id: dsJyjRDiN1H7MEaP
+_key: '!items!dsJyjRDiN1H7MEaP'
+effects: []
+flags: {}
+folder: null
+img: icons/magic/unholy/orb-beam-pink.webp
 name: How Things End
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: 'Terrain Caster: Ruins'
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Druid
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: How Things End
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 5
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: Up to 3 nearby staggered enemies
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @wis.mod + @std + @atk.d.bonus]] vs. MD'
-  hit:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Hit
-    value: '[[6d10 + @wis.dmg + @atk.d.bonus]] psychic damage.'
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: As a hit, plus the target can’t attack you during its next turn.
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
     value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: Half damage.
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
-    value: '-1 TC daily spell'
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: ''
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
+  feats: null
+  finalVerse:
+    label: Final Verse
     type: String
-    label: 3rd Level Spell
     value: ''
-  spellLevel4:
-    hide: true
+  group:
+    label: Group
     type: String
-    label: 4th Level Spell
+    value: 'Terrain Caster: Ruins'
+  hit:
+    label: Hit
+    type: String
+    value: '[[6d10 + @wis.dmg + @atk.d.bonus]] psychic damage.'
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: "As a hit, plus the target can\u2019t attack you during its next turn."
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
     value: ''
-  spellLevel5:
-    hide: true
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
     type: String
-    label: 5th Level Spell
+    value: Half damage.
+  missEven:
+    label: Even Miss
+    type: String
     value: ''
-  spellLevel6:
-    hide: true
+  missOdd:
+    label: Odd Miss
     type: String
-    label: 6th Level Spell
     value: ''
-  spellLevel7:
-    hide: true
+  name:
+    label: Name
     type: String
-    label: 7th Level Spell
-    value: '[[10d10 + @wis.dmg + @atk.d.bonus]] damage.'
-  spellLevel8:
-    hide: true
+  powerLevel:
+    label: Level
+    type: Number
+    value: 5
+  powerOriginName:
+    label: Power Original Name
     type: String
-    label: 8th Level Spell
+    value: How Things End
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Druid
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: -1 TC daily spell
+  rollTable:
+    label: Roll Table
+    type: String
     value: ''
-  spellLevel9:
-    hide: true
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
     type: String
-    label: 9th Level Spell
-    value: '[[2d8 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
     value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: ''
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: ''
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: '[[10d10 + @wis.dmg + @atk.d.bonus]] damage.'
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: '[[2d8 * 10 + @wis.dmg + @atk.d.bonus]] damage.'
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: icons/magic/unholy/orb-beam-pink.webp
-_id: dsJyjRDiN1H7MEaP
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!dsJyjRDiN1H7MEaP'
-
+  target:
+    label: Target
+    type: String
+    value: Up to 3 nearby staggered enemies
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

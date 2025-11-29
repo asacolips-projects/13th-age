@@ -1,51 +1,33 @@
-name: Staggered
-folder: null
-flags: {}
 _id: oqkyq1xn6xi2ajmi
-pages:
-  - name: Staggered
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>When you are reduced to half your hit points or fewer, you’re
-        staggered. Some powers, spells, and monster interactions work
-        differently when you are staggered.</p>
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    _id: Vc7jjnY2dmkNv9Tm
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    _key: '!journal.pages!oqkyq1xn6xi2ajmi.Vc7jjnY2dmkNv9Tm'
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
+_key: '!journal!oqkyq1xn6xi2ajmi'
+categories: []
+flags: {}
+folder: null
+name: Staggered
 ownership:
   default: 0
-sort: 0
-_key: '!journal!oqkyq1xn6xi2ajmi'
-
+pages:
+- _id: Vc7jjnY2dmkNv9Tm
+  _key: '!journal.pages!oqkyq1xn6xi2ajmi.Vc7jjnY2dmkNv9Tm'
+  category: null
+  flags: {}
+  image: {}
+  name: Staggered
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: "<p>When you are reduced to half your hit points or fewer, you\u2019\
+      re staggered. Some powers, spells, and monster interactions work differently\
+      \ when you are staggered.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 1900000

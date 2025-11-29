@@ -1,50 +1,32 @@
-name: Fear
-folder: null
-flags: {}
 _id: gy68o7eat5p6bpgq
-pages:
-  - name: Fear
-    type: text
-    title:
-      show: false
-      level: 1
-    text:
-      format: 1
-      content: >-
-        <p>Fear makes you *dazed* you and prevents you from using the escalation
-        die.</p>
-    _stats:
-      coreVersion: '12.331'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    _id: 8bj6rym7VzQdANGd
-    system: {}
-    image: {}
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    sort: 0
-    ownership:
-      default: -1
-    flags: {}
-    _key: '!journal.pages!gy68o7eat5p6bpgq.8bj6rym7VzQdANGd'
-_stats:
-  coreVersion: '12.331'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
+_key: '!journal!gy68o7eat5p6bpgq'
+categories: []
+flags: {}
+folder: null
+name: Fear
 ownership:
   default: 0
-sort: 0
-_key: '!journal!gy68o7eat5p6bpgq'
-
+pages:
+- _id: 8bj6rym7VzQdANGd
+  _key: '!journal.pages!gy68o7eat5p6bpgq.8bj6rym7VzQdANGd'
+  category: null
+  flags: {}
+  image: {}
+  name: Fear
+  ownership:
+    default: -1
+  sort: 0
+  src: null
+  system: {}
+  text:
+    content: <p>Fear makes you *dazed* you and prevents you from using the escalation
+      die.</p>
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 1400000

@@ -1,287 +1,289 @@
+_id: k6IACfFF9kcxEEH2
+_key: '!items!k6IACfFF9kcxEEH2'
+effects:
+- _id: RchFg2itUVx2jKfF
+  _key: '!items.effects!k6IACfFF9kcxEEH2.RchFg2itUVx2jKfF'
+  changes:
+  - key: system.attributes.attackMod.value
+    mode: 2
+    priority: null
+    value: '2'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/skills/light_04.jpg
+  name: Bless (Power)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: dfbqhTOqV6vD8ftQ
+  _key: '!items.effects!k6IACfFF9kcxEEH2.dfbqhTOqV6vD8ftQ'
+  changes:
+  - key: system.attributes.attackMod.value
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/skills/light_04.jpg
+  name: Bless (Broad Effect)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/light_04.jpg
 name: Bless
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Cleric
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Bless
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: quick
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: ''
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  hit:
     type: String
-    label: Hit
     value: ''
-  hitEven:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
-    value: >-
-      <p>Choose up to three nearby creatures (including you); each target gains
+    type: String
+    value: <p>Choose up to three nearby creatures (including you); each target gains
       a +1 attack bonus until the end of the battle.</p>
   castPower:
-    type: String
     label: Cast for Power
-    value: >-
-      <p>One nearby ally gains a +2 attack bonus until the end of the
-      battle.</p>
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
+    value: <p>One nearby ally gains a +2 attack bonus until the end of the battle.</p>
+  crit:
+    label: Crit
+    type: String
     value: ''
-  finalVerse:
+  critMod:
+    label: Attack
     type: String
-    label: Final Verse
     value: ''
-  special:
+  description:
+    label: Description
     type: String
-    label: Special
     value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: <p>You can cast this spell for power or for broad effect.</p>
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: false
+  feats: null
+  finalVerse:
+    label: Final Verse
     type: String
-    label: 3rd Level Spell
-    value: >-
-      Each target also gains [[1d10]] temporary hit points per point of the
-      attack bonus.
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
     value: ''
-  spellLevel5:
-    hide: false
+  group:
+    label: Group
     type: String
-    label: 5th Level Spell
-    value: >-
-      Each target also gains [[2d10]] temporary hit points instead of 1d10 per
-      point of the attack bonus.
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
     value: ''
-  spellLevel7:
-    hide: false
+  hit:
+    label: Hit
     type: String
-    label: 7th Level Spell
-    value: All attack bonuses granted by the spell increase by +1.
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
     value: ''
-  spellLevel9:
-    hide: false
+  hitEven:
+    label: Natural Even Hit
     type: String
-    label: 9th Level Spell
-    value: >-
-      Each target also gains [[3d10]] temporary hit points instead of 2d10 per
-      point of the attack bonus.
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Bless
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Cleric
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
     value: ''
+  spellLevel3:
+    hide: false
+    label: 3rd Level Spell
+    type: String
+    value: Each target also gains [[1d10]] temporary hit points per point of the attack
+      bonus.
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: false
+    label: 5th Level Spell
+    type: String
+    value: Each target also gains [[2d10]] temporary hit points instead of 1d10 per
+      point of the attack bonus.
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: false
+    label: 7th Level Spell
+    type: String
+    value: All attack bonuses granted by the spell increase by +1.
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: false
+    label: 9th Level Spell
+    type: String
+    value: Each target also gains [[3d10]] temporary hit points instead of 2d10 per
+      point of the attack bonus.
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: null
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: systems/archmage/assets/icons/skills/light_04.jpg
-effects:
-  - origin: null
-    disabled: false
-    name: Bless (Power)
-    img: systems/archmage/assets/icons/skills/light_04.jpg
-    _id: RchFg2itUVx2jKfF
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attackMod.value
-        value: '2'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-    _key: '!items.effects!k6IACfFF9kcxEEH2.RchFg2itUVx2jKfF'
-  - origin: null
-    disabled: false
-    name: Bless (Broad Effect)
-    img: systems/archmage/assets/icons/skills/light_04.jpg
-    _id: dfbqhTOqV6vD8ftQ
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attackMod.value
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-    _key: '!items.effects!k6IACfFF9kcxEEH2.dfbqhTOqV6vD8ftQ'
-_id: k6IACfFF9kcxEEH2
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!k6IACfFF9kcxEEH2'
-
+  target:
+    label: Target
+    type: String
+    value: ''
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

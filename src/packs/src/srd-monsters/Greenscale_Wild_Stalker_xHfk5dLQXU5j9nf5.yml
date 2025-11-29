@@ -1,10 +1,364 @@
-name: Greenscale Wild Stalker
-type: npc
 _id: xHfk5dLQXU5j9nf5
+_key: '!actors!xHfk5dLQXU5j9nf5'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: e1cD9Y01rDCOWYeS
+  _key: '!actors.items!xHfk5dLQXU5j9nf5.e1cD9Y01rDCOWYeS'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Poisoned claws
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[4]] damage, and [[3]] ongoing poison damage'
+    hit1:
+      label: Hit
+      name: First failed save
+      type: String
+      value: The ongoing poison damage increases by [[2]].
+    hit2:
+      label: Hit
+      name: Second failed save
+      type: String
+      value: The target is also *weakened* (save ends both).
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Dnsx8EyzwwZIWyJo
+  _key: '!actors.items!xHfk5dLQXU5j9nf5.Dnsx8EyzwwZIWyJo'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Poisonous spit'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[8]] poison damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: "The target is partially blinded and takes a \u20132 penalty to attacks\
+        \ and defenses until the end of its next turn."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: TFqdXLDCnuDyEojv
+  _key: '!actors.items!xHfk5dLQXU5j9nf5.TFqdXLDCnuDyEojv'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Superior camouflage
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The wild stalker&rsquo;s scales naturally change to blend with its
+        surroundings, allowing it to hide in plain sight and making checks to detect
+        it take a &ndash;5 penalty. When it attacks from concealment without being
+        seen first, the target is vulnerable to its attack. It can regain its camouflage
+        by moving out of direct sight and hiding (hard DC to spot).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: ImcNf13CLVlr1FKp
+  _key: '!actors.items!xHfk5dLQXU5j9nf5.ImcNf13CLVlr1FKp'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Resist poison 14+
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When a poison attack targets this creature, the attacker must roll
+        a natural 14+ on the attack roll or it only deals half damage.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: 7ekSmVD8a9NxPZBN
+  _key: '!actors.items!xHfk5dLQXU5j9nf5.7ekSmVD8a9NxPZBN'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Limited flight
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>At the start of each turn, roll a [[/r d6]]. If the result is less
+        than or equal to the escalation die, the dragonic gains flight as a move action
+        during its turns thanks to a pair of wings it unfurls from its back. The flight
+        tends to be more power-flapping or gliding from one place to another rather
+        than hovering. Flamewings who also have limited flight prefer to use their
+        burning wings to fly in combat wherever possible, resorting to their physical
+        wings only if needed.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: 0CnlTZCBlF984SNa
+  _key: '!actors.items!xHfk5dLQXU5j9nf5.0CnlTZCBlF984SNa'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Blood of the wyrm
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This dragonic displays traits of its forebears, the mighty wyrms.
+        Roll a [[/r d10]] and consult the random dragon ability table, or choose one
+        of the first ten options that looks likely to shape the story or battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Greenscale Wild Stalker
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Greenscale Wild Stalker
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 19
     attackMod:
       type: Number
       value: 0
@@ -15,481 +369,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 19
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 16
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 12
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 42
-      min: 0
-      max: 42
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 6
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 42
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 42
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 6
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 12
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 16
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: archer
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Greenscale Wild Stalker
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Poisoned claws
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[4]] damage, and [[3]] ongoing poison damage'
-      hit1:
-        type: String
-        label: Hit
-        name: First failed save
-        value: The ongoing poison damage increases by [[2]].
-      hit2:
-        type: String
-        label: Hit
-        name: Second failed save
-        value: The target is also *weakened* (save ends both).
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: e1cD9Y01rDCOWYeS
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xHfk5dLQXU5j9nf5.e1cD9Y01rDCOWYeS'
-  - name: 'R: Poisonous spit'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. PD'
-      hit:
-        type: String
-        label: Hit
-        value: '[[8]] poison damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: >-
-          The target is partially blinded and takes a –2 penalty to attacks and
-          defenses until the end of its next turn.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: Dnsx8EyzwwZIWyJo
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xHfk5dLQXU5j9nf5.Dnsx8EyzwwZIWyJo'
-  - name: Superior camouflage
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The wild stalker&rsquo;s scales naturally change to blend with its
-          surroundings, allowing it to hide in plain sight and making checks to
-          detect it take a &ndash;5 penalty. When it attacks from concealment
-          without being seen first, the target is vulnerable to its attack. It
-          can regain its camouflage by moving out of direct sight and hiding
-          (hard DC to spot).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: TFqdXLDCnuDyEojv
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xHfk5dLQXU5j9nf5.TFqdXLDCnuDyEojv'
-  - name: Resist poison 14+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When a poison attack targets this creature, the attacker must roll
-          a natural 14+ on the attack roll or it only deals half damage.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: ImcNf13CLVlr1FKp
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xHfk5dLQXU5j9nf5.ImcNf13CLVlr1FKp'
-  - name: Limited flight
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>At the start of each turn, roll a [[/r d6]]. If the result is less
-          than or equal to the escalation die, the dragonic gains flight as a
-          move action during its turns thanks to a pair of wings it unfurls from
-          its back. The flight tends to be more power-flapping or gliding from
-          one place to another rather than hovering. Flamewings who also have
-          limited flight prefer to use their burning wings to fly in combat
-          wherever possible, resorting to their physical wings only if
-          needed.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 7ekSmVD8a9NxPZBN
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xHfk5dLQXU5j9nf5.7ekSmVD8a9NxPZBN'
-  - name: Blood of the wyrm
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This dragonic displays traits of its forebears, the mighty wyrms.
-          Roll a [[/r d10]] and consult the random dragon ability table, or
-          choose one of the first ten options that looks likely to shape the
-          story or battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: 0CnlTZCBlF984SNa
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!xHfk5dLQXU5j9nf5.0CnlTZCBlF984SNa'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!xHfk5dLQXU5j9nf5'
-
+        enabled: false
+type: npc

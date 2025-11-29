@@ -1,145 +1,136 @@
-name: Greeting Fist Damage
-img: icons/svg/d20-grey.svg
+_id: 8WCCTzukG6PRCm6N
+_key: '!tables!8WCCTzukG6PRCm6N'
 description: ''
-results:
-  - type: text
-    weight: 1
-    range:
-      - 1
-      - 1
-    drawn: false
-    documentCollection: ''
-    _id: 9i7Fw131LG66pcw5
-    text: +[[1d6]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.9i7Fw131LG66pcw5'
-  - type: text
-    weight: 1
-    range:
-      - 2
-      - 2
-    drawn: false
-    documentCollection: ''
-    _id: NOtpaCU1b0GbGW1T
-    text: +[[2d6]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.NOtpaCU1b0GbGW1T'
-  - type: text
-    weight: 1
-    range:
-      - 3
-      - 3
-    drawn: false
-    documentCollection: ''
-    _id: qo16CSmUTBmgCezX
-    text: +[[2d6]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.qo16CSmUTBmgCezX'
-  - type: text
-    weight: 1
-    range:
-      - 4
-      - 4
-    drawn: false
-    documentCollection: ''
-    _id: EVE6YA96WghhR6Qa
-    text: +[[2d8]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.EVE6YA96WghhR6Qa'
-  - type: text
-    weight: 1
-    range:
-      - 5
-      - 5
-    drawn: false
-    documentCollection: ''
-    _id: 9Q69k3xWJhv9sc47
-    text: +[[2d8]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.9Q69k3xWJhv9sc47'
-  - type: text
-    weight: 1
-    range:
-      - 6
-      - 6
-    drawn: false
-    documentCollection: ''
-    _id: YkVE7LF8EFZOL0nd
-    text: +[[4d6]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.YkVE7LF8EFZOL0nd'
-  - type: text
-    weight: 1
-    range:
-      - 7
-      - 7
-    drawn: false
-    documentCollection: ''
-    _id: JQwplMCdh5pv3WdL
-    text: +[[4d6]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.JQwplMCdh5pv3WdL'
-  - type: text
-    weight: 1
-    range:
-      - 8
-      - 8
-    drawn: false
-    documentCollection: ''
-    _id: dFfXaM6DiV5UXJ1D
-    text: +[[4d10]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.dFfXaM6DiV5UXJ1D'
-  - type: text
-    weight: 1
-    range:
-      - 9
-      - 9
-    drawn: false
-    documentCollection: ''
-    _id: 9Cc3qzN9yU06kh19
-    text: +[[4d10]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.9Cc3qzN9yU06kh19'
-  - type: text
-    weight: 1
-    range:
-      - 10
-      - 10
-    drawn: false
-    documentCollection: ''
-    _id: DYHcnD9z5JoxKJcC
-    text: +[[6d12]] damage.
-    img: icons/svg/d20-black.svg
-    documentId: null
-    flags: {}
-    _key: '!tables.results!8WCCTzukG6PRCm6N.DYHcnD9z5JoxKJcC'
-formula: '@lvl'
-replacement: true
 displayRoll: false
 flags: {}
 folder: null
-sort: 700000
+formula: '@lvl'
+img: icons/svg/d20-grey.svg
+name: Greeting Fist Damage
 ownership:
   default: 0
-_id: 8WCCTzukG6PRCm6N
-_key: '!tables!8WCCTzukG6PRCm6N'
-
+replacement: true
+results:
+- _id: 9i7Fw131LG66pcw5
+  _key: '!tables.results!8WCCTzukG6PRCm6N.9i7Fw131LG66pcw5'
+  description: +[[1d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: NOtpaCU1b0GbGW1T
+  _key: '!tables.results!8WCCTzukG6PRCm6N.NOtpaCU1b0GbGW1T'
+  description: +[[2d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: qo16CSmUTBmgCezX
+  _key: '!tables.results!8WCCTzukG6PRCm6N.qo16CSmUTBmgCezX'
+  description: +[[2d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: EVE6YA96WghhR6Qa
+  _key: '!tables.results!8WCCTzukG6PRCm6N.EVE6YA96WghhR6Qa'
+  description: +[[2d8]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: 9Q69k3xWJhv9sc47
+  _key: '!tables.results!8WCCTzukG6PRCm6N.9Q69k3xWJhv9sc47'
+  description: +[[2d8]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: YkVE7LF8EFZOL0nd
+  _key: '!tables.results!8WCCTzukG6PRCm6N.YkVE7LF8EFZOL0nd'
+  description: +[[4d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: JQwplMCdh5pv3WdL
+  _key: '!tables.results!8WCCTzukG6PRCm6N.JQwplMCdh5pv3WdL'
+  description: +[[4d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: dFfXaM6DiV5UXJ1D
+  _key: '!tables.results!8WCCTzukG6PRCm6N.dFfXaM6DiV5UXJ1D'
+  description: <p>+[[4d10]] damage.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: 9Cc3qzN9yU06kh19
+  _key: '!tables.results!8WCCTzukG6PRCm6N.9Cc3qzN9yU06kh19'
+  description: +[[4d10]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: DYHcnD9z5JoxKJcC
+  _key: '!tables.results!8WCCTzukG6PRCm6N.DYHcnD9z5JoxKJcC'
+  description: <p>+[[6d12]] damage.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+sort: 700000

@@ -1,30 +1,28 @@
-name: Dire regeneration
-type: trait
-img: icons/svg/item-bag.svg
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>When the escalation die is even, this animal heals damage equal to
-      triple its level at the start of its turn.</p>
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: ''
+_id: bJsnIYiCGygnN1dP
+_key: '!items!bJsnIYiCGygnN1dP'
 effects: []
 flags: {}
 folder: null
-sort: 0
+img: icons/svg/item-bag.svg
+name: Dire regeneration
 ownership:
   default: 0
-_id: bJsnIYiCGygnN1dP
-_key: '!items!bJsnIYiCGygnN1dP'
-
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: <p>When the escalation die is even, this animal heals damage equal to triple
+      its level at the start of its turn.</p>
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+type: trait

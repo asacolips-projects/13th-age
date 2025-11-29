@@ -1,63 +1,42 @@
-name: Grabbed
 _id: aDEmM5lU3pfG3t7S
-pages:
-  - sort: 100000
-    name: Grabbed
-    type: text
-    _id: bARhilQBGWTzzm91
-    system: {}
-    title:
-      show: false
-      level: 1
-    image: {}
-    text:
-      format: 1
-      content: >-
-        <p>When you’re grabbed you are engaged with the creature grabbing you
-        and you can’t move away unless you teleport, somehow pop free first, or
-        successfully disengage. Disengage checks take a –5 penalty unless you
-        hit the creature that is grabbing you the same turn that you’re trying
-        to disengage.</p><p>If you are smaller than the creature that is
-        grabbing you, it can move and carry you along with no problem. If you
-        are the same size or larger, it has to let go of you if it wants to
-        move.</p><p>Grabbed creatures can’t make opportunity attacks. That also
-        applies if the creature grabbing you decides to let go and move away
-        from you; it doesn’t have to disengage or take an opportunity attack
-        from you, it just leaves you behind.</p><p>Grabbed creatures can’t use
-        ranged attacks, although melee and close attacks are fine.</p><p>The
-        creature grabbing you gets a +4 attack bonus against you.</p>
-    video:
-      controls: true
-      volume: 0.5
-    src: null
-    ownership:
-      default: -1
-      dwEgyf88FCl0gnfL: 3
-    flags: {}
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      coreVersion: '12.331'
-      systemId: archmage
-      systemVersion: 1.31.0
-      createdTime: 1725299287670
-      modifiedTime: 1725299314798
-      lastModifiedBy: dwEgyf88FCl0gnfL
-    _key: '!journal.pages!aDEmM5lU3pfG3t7S.bARhilQBGWTzzm91'
+_key: '!journal!aDEmM5lU3pfG3t7S'
+categories: []
+flags: {}
 folder: null
-sort: 0
+name: Grabbed
 ownership:
   default: 0
-  dwEgyf88FCl0gnfL: 3
-flags: {}
-_stats:
-  compendiumSource: null
-  duplicateSource: null
-  coreVersion: '12.331'
-  systemId: archmage
-  systemVersion: 1.31.0
-  createdTime: 1725299283142
-  modifiedTime: 1725299283142
-  lastModifiedBy: dwEgyf88FCl0gnfL
-_key: '!journal!aDEmM5lU3pfG3t7S'
-
+pages:
+- _id: bARhilQBGWTzzm91
+  _key: '!journal.pages!aDEmM5lU3pfG3t7S.bARhilQBGWTzzm91'
+  category: null
+  flags: {}
+  image: {}
+  name: Grabbed
+  ownership:
+    default: -1
+  sort: 100000
+  src: null
+  system: {}
+  text:
+    content: "<p>When you\u2019re grabbed you are engaged with the creature grabbing\
+      \ you and you can\u2019t move away unless you teleport, somehow pop free first,\
+      \ or successfully disengage. Disengage checks take a \u20135 penalty unless\
+      \ you hit the creature that is grabbing you the same turn that you\u2019re trying\
+      \ to disengage.</p><p>If you are smaller than the creature that is grabbing\
+      \ you, it can move and carry you along with no problem. If you are the same\
+      \ size or larger, it has to let go of you if it wants to move.</p><p>Grabbed\
+      \ creatures can\u2019t make opportunity attacks. That also applies if the creature\
+      \ grabbing you decides to let go and move away from you; it doesn\u2019t have\
+      \ to disengage or take an opportunity attack from you, it just leaves you behind.</p><p>Grabbed\
+      \ creatures can\u2019t use ranged attacks, although melee and close attacks\
+      \ are fine.</p><p>The creature grabbing you gets a +4 attack bonus against you.</p>"
+    format: 1
+  title:
+    level: 1
+    show: false
+  type: text
+  video:
+    controls: true
+    volume: 0.5
+sort: 800000

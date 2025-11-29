@@ -1,71 +1,44 @@
-name: Rope of Entangling
-type: equipment
+_id: 0apwiD13Wu5p05RO
+_key: '!items!0apwiD13Wu5p05RO'
+effects: []
+flags:
+  core: {}
+folder: GoCSFhQquIjGx2h1
 img: icons/svg/item-bag.svg
+name: Rope of Entangling
+ownership:
+  default: 0
+sort: 100000
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>Fifty feet of fine, spidersilk rope, woven so closely that it seems
-      like a solid, flexible cable. Once you attune the rope during a full
-      heal-up, you can make it entangle things with standard action commands. In
-      combat, it&rsquo;s not that useful, because it&rsquo;s slow compared to a
-      living thing. If the target is stationary, however, the rope excels at
-      reaching, climbing, snaking, coiling, and entangling. You might be able to
-      get the rope to bind a ferocious monster, but the rope is likely to get
-      destroyed in the process.</p>
-
-      <p>Quirk: Speaks in sentences for which &ldquo;convoluted&rdquo; is the
-      only proper term.</p>
-  publicationSource: 1e
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: other
-  recharge:
-    type: Number
-    label: Recharge
-    value: '0'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: null
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: null
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -73,31 +46,61 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: wondrous
-effects: []
-folder: GoCSFhQquIjGx2h1
-flags:
-  core: {}
-_id: 0apwiD13Wu5p05RO
-sort: 100000
-ownership:
-  default: 0
-_key: '!items!0apwiD13Wu5p05RO'
+  description:
+    label: Description
+    type: String
+    value: '<p>Fifty feet of fine, spidersilk rope, woven so closely that it seems
+      like a solid, flexible cable. Once you attune the rope during a full heal-up,
+      you can make it entangle things with standard action commands. In combat, it&rsquo;s
+      not that useful, because it&rsquo;s slow compared to a living thing. If the
+      target is stationary, however, the rope excels at reaching, climbing, snaking,
+      coiling, and entangling. You might be able to get the rope to bind a ferocious
+      monster, but the rope is likely to get destroyed in the process.</p>
 
+      <p>Quirk: Speaks in sentences for which &ldquo;convoluted&rdquo; is the only
+      proper term.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: null
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: other
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: null
+  recharge:
+    label: Recharge
+    type: Number
+    value: '0'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

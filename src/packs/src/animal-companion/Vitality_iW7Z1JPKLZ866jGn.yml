@@ -1,225 +1,228 @@
+_id: iW7Z1JPKLZ866jGn
+_key: '!items!iW7Z1JPKLZ866jGn'
+effects: []
+flags: {}
+folder: null
+img: icons/magic/light/explosion-star-large-blue-yellow.webp
 name: Vitality
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: Animal Companion
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Ranger/Druid
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Vitality
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: quick
-  range:
-    type: String
-    label: Range
-    value: Ranged spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: One nearby animal companion
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
-    value: ''
-  hit:
     type: String
-    label: Hit
     value: ''
-  hitEven:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
+    type: String
     value: <p>The target heals using a free recovery.</p>
-  spellLevel2:
-    hide: true
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 2nd Level Spell
     value: ''
-  spellLevel3:
-    hide: true
+  feats: null
+  finalVerse:
+    label: Final Verse
     type: String
-    label: 3rd Level Spell
-    value: >-
-      In addition, the target heals hit points equal to your Wisdom modifier at
-      the start of each of its turns until the end of the battle or until it
-      drops to 0 hit points.
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
     value: ''
-  spellLevel5:
-    hide: true
+  group:
+    label: Group
     type: String
-    label: 5th Level Spell
-    value: >-
-      The healing the target gains at the start of its turn is now double your
-      Wisdom modifier.
-  spellLevel6:
-    hide: true
+    value: Animal Companion
+  hit:
+    label: Hit
     type: String
-    label: 6th Level Spell
     value: ''
-  spellLevel7:
-    hide: true
+  hitEven:
+    label: Natural Even Hit
     type: String
-    label: 7th Level Spell
-    value: >-
-      The healing the target gains at the start of its turn is now triple your
-      Wisdom modifier.
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
     value: ''
-  spellLevel9:
-    hide: true
+  hitOdd:
+    label: Natural Odd Hit
     type: String
-    label: 9th Level Spell
-    value: >-
-      The first time this battle that the target drops to 0 hit points, you can
-      roll a normal save. If you succeed, the target heals using one of your
-      recoveries.
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Vitality
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Ranger/Druid
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Ranged spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
   spellLevel10:
     hide: true
-    type: String
     label: 10th Level Spell
+    type: String
     value: ''
   spellLevel11:
     hide: true
-    type: String
     label: 11th Level Spell
-    value: ''
-  spellChain:
     type: String
-    label: Chain Spell
     value: ''
-  breathWeapon:
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
     type: String
-    label: Breath Weapon
     value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: In addition, the target heals hit points equal to your Wisdom modifier
+      at the start of each of its turns until the end of the battle or until it drops
+      to 0 hit points.
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: The healing the target gains at the start of its turn is now double your
+      Wisdom modifier.
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: The healing the target gains at the start of its turn is now triple your
+      Wisdom modifier.
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: The first time this battle that the target drops to 0 hit points, you can
+      roll a normal save. If you succeed, the target heals using one of your recoveries.
   sustainOn:
-    type: Number
     label: Sustain On
+    type: Number
     value: ''
-  rollTable:
+  sustainedEffect:
+    label: Opening and Sustained Effect
     type: String
-    label: Roll Table
     value: ''
-  feats: null
-flags: {}
-img: icons/magic/light/explosion-star-large-blue-yellow.webp
-_id: iW7Z1JPKLZ866jGn
-effects: []
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!iW7Z1JPKLZ866jGn'
-
+  target:
+    label: Target
+    type: String
+    value: One nearby animal companion
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

@@ -1,10 +1,620 @@
-name: Demonic Icon Wizard
-type: npc
 _id: nc33yJT9Bnu4EI1X
+_key: '!actors!nc33yJT9Bnu4EI1X'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+items:
+- _id: iruaTktWWm999O5x
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.iruaTktWWm999O5x'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Half-hearted stab
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[8]] damage'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Ate36zC3aInIjY9P
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.Ate36zC3aInIjY9P'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Accursed bolt'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. PD (one nearby or faraway enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[12]] lightning damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: The Demonic Icon wizard can make an *accursed bolt* attack against a
+        second nearby enemy, followed by a third and final different nearby enemy
+        if the second attack is also a natural even hit.
+    hit2:
+      label: Hit
+      name: Natural odd hit
+      type: String
+      value: The Demonic Icon wizard can make an *abyssal curse* attack as a free
+        action.
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: twcTNo5aCzOnrvWo
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.twcTNo5aCzOnrvWo'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '[Special trigger] Abyssal curse'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. MD (creature hit by a natural odd abyssal bolt)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: The target is *weakened* until the end of its next turn.
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: gH7Gv3gguT7RZBKQ
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.gH7Gv3gguT7RZBKQ'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Hellfireball'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. PD ([[1d3]] nearby enemies in a group and any allies
+        engaged with those enemies)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[18]] fire damage'
+    hit1:
+      label: Hit
+      name: Natural 16+ hit
+      type: String
+      value: '[[7]] psychic damage'
+    hit2:
+      label: Hit
+      name: Limited use
+      type: String
+      value: 1/ battle, and generally after trying to corrupt at least one icon relationship.
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: '[[9]] fire damage'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: iMHoq7mljUiNtBI1
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.iMHoq7mljUiNtBI1'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Corrupting grasp'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[12]] negative damage, and the target pops free.'
+    hit1:
+      label: Hit
+      name: Natural 16+ hit
+      type: String
+      value: The target is *dazed* until the end of its next turn.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: GxOYbxyC00UsukWR
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.GxOYbxyC00UsukWR'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: "The Demonic Icon\u2019s knowledge"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Once per day, the Demonic Icon wizard can offer to answer truthfully
+        one question about the adventure, with knowledge drawn from the Demonic Icon
+        or their spells rather than from the wizard. If the questioner has a negative
+        relationship with the Demonic Icon, it becomes conflicted; if the relationship
+        is conflicted, it becomes positive. If the PC does not have an icon relationship
+        with the Demonic Icon, the character must shift one relationship point with
+        another icon into a conflicted or positive relationship with the Demonic Icon.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: ikkK6kYHWN6mQ84w
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.ikkK6kYHWN6mQ84w'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: "The Demonic Icon\u2019s blessing"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>Once per battle as a standard action, the Demonic Icon wizard can
+        grant one nearby player character a random demon-style power from the table
+        below. The blessing only takes effect if the character accepts it, but the
+        character can choose to accept the blessing at any point this day, in this
+        or another battle. If the blessing is accepted, the Demonic Icon&rsquo;s blessing
+        affects the target&rsquo;s icon relationships the same as the Demonic Icon&rsquo;s
+        knowledge.</p>
+
+        <table style="width: 100%;" border="1"><colgroup><col style="width: 11.6731%;"><col
+        style="width: 88.3269%;"></colgroup>
+
+        <tbody>
+
+        <tr>
+
+        <td>[[/r d4]]</td>
+
+        <td>Random Demon-Style Power</td>
+
+        </tr>
+
+        <tr>
+
+        <td>1</td>
+
+        <td><em>Resist energy 16+</em>&mdash;When an attack that deals energy damage
+        targets you, the attacker must roll a natural 16+ on the attack roll or it
+        only deals half damage.</td>
+
+        </tr>
+
+        <tr>
+
+        <td>2</td>
+
+        <td>
+
+        <p><em>Fear aura</em>&mdash;Enemies engaged with you that have fewer hit points
+        than double your current hit points are dazed. If they could normally use
+        the escalation die, now they can&rsquo;t.</p>
+
+        </td>
+
+        </tr>
+
+        <tr>
+
+        <td>3</td>
+
+        <td><em>Demonic speed</em>&mdash;You can take an extra standard action each
+        turn that the escalation die is even. You lose 2d6 hit points each time you
+        use the extra action.</td>
+
+        </tr>
+
+        <tr>
+
+        <td>4</td>
+
+        <td>
+
+        <p><em>Teleport [[/r 1d3 + 1]] times this battle</em>&mdash;As a move action,
+        you can teleport anywhere you can see nearby.</p>
+
+        </td>
+
+        </tr>
+
+        </tbody>
+
+        </table>
+
+        <p>&nbsp;</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: Ehx8HcJnPzgdl9yb
+  _key: '!actors.items!nc33yJT9Bnu4EI1X.Ehx8HcJnPzgdl9yb'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Ye called in Their name, and I came hither
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: '<p>As a standard action, a player character in the Demonic Icon cult
+        area (or some other evil marsh or cursed area!) who has a 5 or 6 icon advantage
+        with the Demonic Icon can spend it to summon a Demonic Icon wizard to their
+        location. The Demonic Icon wizard teleports next to the summoner, and acts
+        on the turn immediately after the summoner&rsquo;s to either answer a question
+        with the Demonic Icon&rsquo;s knowledge or perform the Demonic Icon&rsquo;s
+        blessing on a nearby ally. After doing so, it teleports away.</p>
+
+        <p><em>Limited use:</em> Once per campaign for all Demonic Icon wizards after
+        the PC&rsquo;s first battle against a Demonic Icon wizard. If used on a character
+        who already has a positive relationship with the Demonic Icon, the PC gets
+        another such point, replacing one of their other icon relationships.</p>'
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+name: Demonic Icon Wizard
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Demonic Icon Wizard
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 20
     attackMod:
       type: Number
       value: 0
@@ -15,717 +625,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 14
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 18
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 54
-      min: 0
-      max: 54
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 7
-    level:
-      type: Number
-      label: Level
-      value: 4
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 54
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 54
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 7
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 4
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 18
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 14
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: caster
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: humanoid
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Demonic Icon Wizard
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Half-hearted stab
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[8]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: iruaTktWWm999O5x
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.iruaTktWWm999O5x'
-  - name: 'R: Accursed bolt'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. PD (one nearby or faraway enemy)'
-      hit:
-        type: String
-        label: Hit
-        value: '[[12]] lightning damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: >-
-          The Demonic Icon wizard can make an *accursed bolt* attack against a
-          second nearby enemy, followed by a third and final different nearby
-          enemy if the second attack is also a natural even hit.
-      hit2:
-        type: String
-        label: Hit
-        name: Natural odd hit
-        value: >-
-          The Demonic Icon wizard can make an *abyssal curse* attack as a free
-          action.
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: Ate36zC3aInIjY9P
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.Ate36zC3aInIjY9P'
-  - name: '[Special trigger] Abyssal curse'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. MD (creature hit by a natural odd abyssal bolt)'
-      hit:
-        type: String
-        label: Hit
-        value: The target is *weakened* until the end of its next turn.
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: twcTNo5aCzOnrvWo
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.twcTNo5aCzOnrvWo'
-  - name: 'R: Hellfireball'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: >-
-          [[d20 + 9]] vs. PD ([[1d3]] nearby enemies in a group and any allies
-          engaged with those enemies)
-      hit:
-        type: String
-        label: Hit
-        value: '[[18]] fire damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+ hit
-        value: '[[7]] psychic damage'
-      hit2:
-        type: String
-        label: Hit
-        name: Limited use
-        value: >-
-          1/ battle, and generally after trying to corrupt at least one icon
-          relationship.
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: '[[9]] fire damage'
-    _id: gH7Gv3gguT7RZBKQ
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.gH7Gv3gguT7RZBKQ'
-  - name: 'C: Corrupting grasp'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. PD'
-      hit:
-        type: String
-        label: Hit
-        value: '[[12]] negative damage, and the target pops free.'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+ hit
-        value: The target is *dazed* until the end of its next turn.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: iMHoq7mljUiNtBI1
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.iMHoq7mljUiNtBI1'
-  - name: The Demonic Icon’s knowledge
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per day, the Demonic Icon wizard can offer to answer
-          truthfully one question about the adventure, with knowledge drawn from
-          the Demonic Icon or their spells rather than from the wizard. If the
-          questioner has a negative relationship with the Demonic Icon, it
-          becomes conflicted; if the relationship is conflicted, it becomes
-          positive. If the PC does not have an icon relationship with the
-          Demonic Icon, the character must shift one relationship point with
-          another icon into a conflicted or positive relationship with the
-          Demonic Icon.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: GxOYbxyC00UsukWR
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.GxOYbxyC00UsukWR'
-  - name: The Demonic Icon’s blessing
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per battle as a standard action, the Demonic Icon wizard can
-          grant one nearby player character a random demon-style power from the
-          table below. The blessing only takes effect if the character accepts
-          it, but the character can choose to accept the blessing at any point
-          this day, in this or another battle. If the blessing is accepted, the
-          Demonic Icon&rsquo;s blessing affects the target&rsquo;s icon
-          relationships the same as the Demonic Icon&rsquo;s knowledge.</p>
-
-          <table style="width: 100%;" border="1"><colgroup><col style="width:
-          11.6731%;"><col style="width: 88.3269%;"></colgroup>
-
-          <tbody>
-
-          <tr>
-
-          <td>[[/r d4]]</td>
-
-          <td>Random Demon-Style Power</td>
-
-          </tr>
-
-          <tr>
-
-          <td>1</td>
-
-          <td><em>Resist energy 16+</em>&mdash;When an attack that deals energy
-          damage targets you, the attacker must roll a natural 16+ on the attack
-          roll or it only deals half damage.</td>
-
-          </tr>
-
-          <tr>
-
-          <td>2</td>
-
-          <td>
-
-          <p><em>Fear aura</em>&mdash;Enemies engaged with you that have fewer
-          hit points than double your current hit points are dazed. If they
-          could normally use the escalation die, now they can&rsquo;t.</p>
-
-          </td>
-
-          </tr>
-
-          <tr>
-
-          <td>3</td>
-
-          <td><em>Demonic speed</em>&mdash;You can take an extra standard action
-          each turn that the escalation die is even. You lose 2d6 hit points
-          each time you use the extra action.</td>
-
-          </tr>
-
-          <tr>
-
-          <td>4</td>
-
-          <td>
-
-          <p><em>Teleport [[/r 1d3 + 1]] times this battle</em>&mdash;As a move
-          action, you can teleport anywhere you can see nearby.</p>
-
-          </td>
-
-          </tr>
-
-          </tbody>
-
-          </table>
-
-          <p>&nbsp;</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: ikkK6kYHWN6mQ84w
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.ikkK6kYHWN6mQ84w'
-  - name: Ye called in Their name, and I came hither
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>As a standard action, a player character in the Demonic Icon cult
-          area (or some other evil marsh or cursed area!) who has a 5 or 6 icon
-          advantage with the Demonic Icon can spend it to summon a Demonic Icon
-          wizard to their location. The Demonic Icon wizard teleports next to
-          the summoner, and acts on the turn immediately after the
-          summoner&rsquo;s to either answer a question with the Demonic
-          Icon&rsquo;s knowledge or perform the Demonic Icon&rsquo;s blessing on
-          a nearby ally. After doing so, it teleports away.</p>
-
-          <p><em>Limited use:</em> Once per campaign for all Demonic Icon
-          wizards after the PC&rsquo;s first battle against a Demonic Icon
-          wizard. If used on a character who already has a positive relationship
-          with the Demonic Icon, the PC gets another such point, replacing one
-          of their other icon relationships.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: Ehx8HcJnPzgdl9yb
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!nc33yJT9Bnu4EI1X.Ehx8HcJnPzgdl9yb'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!nc33yJT9Bnu4EI1X'
-
+        enabled: false
+type: npc

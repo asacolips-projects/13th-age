@@ -1,64 +1,44 @@
-name: Helm of the Undaunted Hero
-type: equipment
+_id: 6kU3lcmoUhLjucCU
+_key: '!items!6kU3lcmoUhLjucCU'
+effects: []
+flags:
+  core: {}
+folder: 6MQpEp3NjY3Z0S8G
 img: icons/svg/item-bag.svg
+name: Helm of the Undaunted Hero
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>(Recharge 6+): When your turn starts, roll a save against one ongoing
-      save ends effect.</p>
-
-      <p>Quirk: Favors traditional battle hymns.</p>
-  publicationSource: 1e
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '6'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 1
     pd:
       bonus: 0
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -66,31 +46,55 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'adventurer'
-  isActive: true
-  price:
-    value: ''
   chackra: helmet
-effects: []
-folder: 6MQpEp3NjY3Z0S8G
-flags:
-  core: {}
-_id: 6kU3lcmoUhLjucCU
-sort: 0
-ownership:
-  default: 0
-_key: '!items!6kU3lcmoUhLjucCU'
+  description:
+    label: Description
+    type: String
+    value: '<p>(Recharge 6+): When your turn starts, roll a save against one ongoing
+      save ends effect.</p>
 
+      <p>Quirk: Favors traditional battle hymns.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: 1e
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '6'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: adventurer
+type: equipment

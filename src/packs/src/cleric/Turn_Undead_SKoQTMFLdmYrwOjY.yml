@@ -1,257 +1,106 @@
+_id: SKoQTMFLdmYrwOjY
+_key: '!items!SKoQTMFLdmYrwOjY'
+effects: []
+flags: {}
+folder: null
+img: systems/archmage/assets/icons/skills/affliction_08.jpg
 name: Turn Undead
-type: power
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: ''
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: daily
-  recharge:
-    type: Number
-    label: Recharge
-    value: 0
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: 1
-  maxQuantity:
-    type: Number
-    label: Uses
-    value: 1
-  embeddedMacro:
-    type: String
-    label: Embedded Macro
-    value: ''
-  group:
-    type: String
-    label: Group
-    value: null
-  powerSource:
-    type: String
-    label: Power Source
-    value: class
-  powerSourceName:
-    type: String
-    label: Power Source
-    value: Cleric
-  powerOriginName:
-    type: String
-    label: Power Original Name
-    value: Turn Undead
-  powerType:
-    type: String
-    label: Power Type
-    value: spell
-  powerLevel:
-    type: Number
-    label: Level
-    value: 1
   actionType:
-    type: String
     label: Action
+    type: String
     value: standard
-  range:
-    type: String
-    label: Range
-    value: Close-quarters spell
-  trigger:
-    type: String
-    label: Trigger
-    value: ''
-  target:
-    type: String
-    label: Target
-    value: '[[1d4]] nearby undead creatures, each with 55 hp or fewer.'
   always:
-    type: String
     label: Always
+    type: String
     value: ''
   attack:
-    type: String
     label: Attack
+    type: String
     value: '[[d20 + @wis.mod + @cha.mod + @std + @atk.d.bonus]] vs. MD'
-  hit:
+  breathWeapon:
+    label: Breath Weapon
     type: String
-    label: Hit
-    value: ''
-  hitEven:
-    type: String
-    label: Natural Even Hit
-    value: ''
-  hitOdd:
-    type: String
-    label: Natural Odd Hit
-    value: ''
-  crit:
-    type: String
-    label: Crit
-    value: ''
-  miss:
-    type: String
-    label: Miss
-    value: ''
-  missEven:
-    type: String
-    label: Even Miss
-    value: ''
-  missOdd:
-    type: String
-    label: Odd Miss
-    value: ''
-  resources:
-    type: String
-    label: Resources
     value: ''
   castBroadEffect:
-    type: String
     label: Cast for Broad Effect
+    type: String
     value: ''
   castPower:
-    type: String
     label: Cast for Power
-    value: ''
-  sustainedEffect:
     type: String
-    label: Opening and Sustained Effect
     value: ''
-  finalVerse:
+  crit:
+    label: Crit
     type: String
-    label: Final Verse
     value: ''
-  special:
+  critMod:
+    label: Attack
     type: String
-    label: Special
+    value: ''
+  description:
+    label: Description
+    type: String
     value: ''
   effect:
-    type: String
     label: Effect
-    value: >-
-      <p><strong><br />Hit:&nbsp;</strong>The target is *dazed* until the end of
-      your next turn.</p><p><strong>Hit by 4+</strong>: [[1d10 * @lvl]] holy
-      damage, and the target is dazed until end of your next
-      turn.</p><p><strong>Hit by 8+</strong>: Against non-mooks, holy damage
-      equal to half the target's maximum hit points, and the target is dazed
-      (save ends). Against mooks, the +8 result now deals [[4d10 * @lvl]] holy
-      damage.</p><p><strong>Hit by 12+ or Natural 20</strong>: Against
-      non-mooks, the target is destroyed. Against mooks, the +12 result now
-      deals [[4d20 * @lvl]] holy damage</p>
-  spellLevel2:
-    hide: true
     type: String
-    label: 2nd Level Spell
-    value: ''
-  spellLevel3:
-    hide: true
+    value: '<p><strong><br />Hit:&nbsp;</strong>The target is *dazed* until the end
+      of your next turn.</p><p><strong>Hit by 4+</strong>: [[1d10 * @lvl]] holy damage,
+      and the target is dazed until end of your next turn.</p><p><strong>Hit by 8+</strong>:
+      Against non-mooks, holy damage equal to half the target''s maximum hit points,
+      and the target is dazed (save ends). Against mooks, the +8 result now deals
+      [[4d10 * @lvl]] holy damage.</p><p><strong>Hit by 12+ or Natural 20</strong>:
+      Against non-mooks, the target is destroyed. Against mooks, the +12 result now
+      deals [[4d20 * @lvl]] holy damage</p>'
+  embeddedMacro:
+    label: Embedded Macro
     type: String
-    label: 3rd Level Spell
-    value: Target with 90 hp or fewer.
-  spellLevel4:
-    hide: true
-    type: String
-    label: 4th Level Spell
-    value: ''
-  spellLevel5:
-    hide: true
-    type: String
-    label: 5th Level Spell
-    value: Target with 150 hp or fewer.
-  spellLevel6:
-    hide: true
-    type: String
-    label: 6th Level Spell
-    value: ''
-  spellLevel7:
-    hide: true
-    type: String
-    label: 7th Level Spell
-    value: Target with 240 hp or fewer.
-  spellLevel8:
-    hide: true
-    type: String
-    label: 8th Level Spell
-    value: ''
-  spellLevel9:
-    hide: true
-    type: String
-    label: 9th Level Spell
-    value: Target with 400 hp or fewer.
-  spellLevel10:
-    hide: true
-    type: String
-    label: 10th Level Spell
-    value: ''
-  spellLevel11:
-    hide: true
-    type: String
-    label: 11th Level Spell
-    value: ''
-  spellChain:
-    type: String
-    label: Chain Spell
-    value: ''
-  breathWeapon:
-    type: String
-    label: Breath Weapon
-    value: ''
-  sustainOn:
-    type: Number
-    label: Sustain On
-    value: ''
-  rollTable:
-    type: String
-    label: Roll Table
     value: ''
   feats:
     '0':
       description:
         type: String
-        value: "<p>You can expend your daily use of\_<em>turn undead</em>\_to gain an additional use of\_<em>heal</em>\_in one battle.</p>"
+        value: "<p>You can expend your daily use of\_<em>turn undead</em>\_to gain\
+          \ an additional use of\_<em>heal</em>\_in one battle.</p>"
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: adventurer
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: adventurer
     '1':
       description:
         type: String
-        value: >-
-          <p>You can choose to target either demons or undead with the spell
+        value: <p>You can choose to target either demons or undead with the spell
           (but not both with the same casting).</p>
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: champion
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
+      tier:
+        type: String
+        value: champion
     '2':
       description:
         type: String
@@ -259,25 +108,182 @@ system:
       isActive:
         type: Boolean
         value: false
-      tier:
-        type: String
-        value: epic
+      maxQuantity:
+        type: Number
+        value: null
       powerUsage:
         type: String
         value: ''
       quantity:
         type: Number
         value: null
-      maxQuantity:
-        type: Number
-        value: null
-flags: {}
-img: systems/archmage/assets/icons/skills/affliction_08.jpg
-effects: []
-_id: SKoQTMFLdmYrwOjY
-ownership:
-  default: 0
-folder: null
-sort: 0
-_key: '!items!SKoQTMFLdmYrwOjY'
-
+      tier:
+        type: String
+        value: epic
+  finalVerse:
+    label: Final Verse
+    type: String
+    value: ''
+  group:
+    label: Group
+    type: String
+    value: null
+  hit:
+    label: Hit
+    type: String
+    value: ''
+  hitEven:
+    label: Natural Even Hit
+    type: String
+    value: ''
+  hitOdd:
+    label: Natural Odd Hit
+    type: String
+    value: ''
+  maxQuantity:
+    label: Uses
+    type: Number
+    value: 1
+  miss:
+    label: Miss
+    type: String
+    value: ''
+  missEven:
+    label: Even Miss
+    type: String
+    value: ''
+  missOdd:
+    label: Odd Miss
+    type: String
+    value: ''
+  name:
+    label: Name
+    type: String
+  powerLevel:
+    label: Level
+    type: Number
+    value: 1
+  powerOriginName:
+    label: Power Original Name
+    type: String
+    value: Turn Undead
+  powerSource:
+    label: Power Source
+    type: String
+    value: class
+  powerSourceName:
+    label: Power Source
+    type: String
+    value: Cleric
+  powerType:
+    label: Power Type
+    type: String
+    value: spell
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: daily
+  quantity:
+    label: Uses
+    type: Number
+    value: 1
+  range:
+    label: Range
+    type: String
+    value: Close-quarters spell
+  recharge:
+    label: Recharge
+    type: Number
+    value: 0
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  resources:
+    label: Resources
+    type: String
+    value: ''
+  rollTable:
+    label: Roll Table
+    type: String
+    value: ''
+  sequencer:
+    ray: ''
+    reversed: false
+    self: ''
+    target: ''
+  special:
+    label: Special
+    type: String
+    value: ''
+  spellChain:
+    label: Chain Spell
+    type: String
+    value: ''
+  spellLevel10:
+    hide: true
+    label: 10th Level Spell
+    type: String
+    value: ''
+  spellLevel11:
+    hide: true
+    label: 11th Level Spell
+    type: String
+    value: ''
+  spellLevel2:
+    hide: true
+    label: 2nd Level Spell
+    type: String
+    value: ''
+  spellLevel3:
+    hide: true
+    label: 3rd Level Spell
+    type: String
+    value: Target with 90 hp or fewer.
+  spellLevel4:
+    hide: true
+    label: 4th Level Spell
+    type: String
+    value: ''
+  spellLevel5:
+    hide: true
+    label: 5th Level Spell
+    type: String
+    value: Target with 150 hp or fewer.
+  spellLevel6:
+    hide: true
+    label: 6th Level Spell
+    type: String
+    value: ''
+  spellLevel7:
+    hide: true
+    label: 7th Level Spell
+    type: String
+    value: Target with 240 hp or fewer.
+  spellLevel8:
+    hide: true
+    label: 8th Level Spell
+    type: String
+    value: ''
+  spellLevel9:
+    hide: true
+    label: 9th Level Spell
+    type: String
+    value: Target with 400 hp or fewer.
+  sustainOn:
+    label: Sustain On
+    type: Number
+    value: ''
+  sustainedEffect:
+    label: Opening and Sustained Effect
+    type: String
+    value: ''
+  target:
+    label: Target
+    type: String
+    value: '[[1d4]] nearby undead creatures, each with 55 hp or fewer.'
+  trigger:
+    label: Trigger
+    type: String
+    value: ''
+type: power

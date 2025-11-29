@@ -1,10 +1,316 @@
 _id: tda4lMHYL8KKDAmp
-name: Bronze Golem
-type: npc
+_key: '!actors!tda4lMHYL8KKDAmp'
+effects: []
+flags:
+  archmage: {}
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+items:
+- _id: Q9cAmJ90WiB2NQ3H
+  _key: '!actors.items!tda4lMHYL8KKDAmp.Q9cAmJ90WiB2NQ3H'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Gong-like fists of bronze
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 12]] vs. AC ([[2]] attacks)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[20]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit against a target in heavy armor
+      type: ''
+      value: The target is *dazed* (save ends).
+    hit2:
+      label: Hit
+      name: Natural odd hit against a target in light armor or no armor
+      type: ''
+      value: The target takes [[10]] extra damage.
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Hit
+      name: Miss
+      type: ''
+      value: '[[4d6]] damage.'
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: HxZtIHLVNZEfZfxd
+  _key: '!actors.items!tda4lMHYL8KKDAmp.HxZtIHLVNZEfZfxd'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Golem immunity
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Non-organic golems are immune to effects. They can\u2019t be *dazed*,\
+        \ *weakened*, *confused*, made *vulnerable*, or touched by ongoing damage.\
+        \ You can damage a golem, but that\u2019s about it."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: fv28H9RGknIocwUB
+  _key: '!actors.items!tda4lMHYL8KKDAmp.fv28H9RGknIocwUB'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Hidden flaw
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "An enemy who hits the bronze golem with a natural 18+ attack roll can\
+        \ roll a DC 25 skill check using Intelligence or Wisdom to notice the bronze\
+        \ golem\u2019s hidden flaw! On a success, until the end of the battle, the\
+        \ golem loses its damage resistance and becomes *vulnerable* to all attacks\
+        \ (against each enemy informed of the flaw)."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: P7IL55olHtkNOuJe
+  _key: '!actors.items!tda4lMHYL8KKDAmp.P7IL55olHtkNOuJe'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Resist damage 18+
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When an attack targets this creature, the attacker must roll a natural
+        18+ on the attack roll or it only deals half damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: T2gFHVndhVD7kw51
+  _key: '!actors.items!tda4lMHYL8KKDAmp.T2gFHVndhVD7kw51'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Percussion resonance
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the escalation die reaches 3+, the bronze golem gains a bonus to
+        its first gong-like fists of bronze attack roll each turn equal to the number
+        of attacks made against it so far that turn. (Each turn is separate, not cumulative.)
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: jawzR6z8oHDjEMRz
+  _key: '!actors.items!tda4lMHYL8KKDAmp.jawzR6z8oHDjEMRz'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Spiky
+  ownership:
+    default: 0
+  sort: 500000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When an enemy engaged with the bronze golem misses it with a melee attack,
+        that enemy takes [[2d12]] damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Bronze Golem
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 2
+  light:
+    alpha: 1
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Bronze Golem
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 1
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 2
+sort: 100001
 system:
-  publicationSource: B1
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 22
     attackMod:
       type: Number
       value: 0
@@ -15,446 +321,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 22
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 21
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 17
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 190
-      min: 0
-      max: 190
-      temp: 0
-      tempmax: 0
-      base: 10
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 11
-      mod: 11
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
-    saves:
-      bonus: 0
-      disengageBonus: 0
-      deathFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
-      lastGaspFails:
-        value: 0
-        max: 4
-        steps:
-          - false
-          - false
-          - false
-          - false
     escalation:
       value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 190
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 190
+    init:
+      label: Initiative Modifier
+      mod: 11
+      type: Number
+      value: 11
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 7
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 17
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 21
+    saves:
+      bonus: 0
+      deathFails:
+        max: 4
+        maxOverride: 0
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
+        max: 4
+        steps:
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 7
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: blocker
-      type: String
       label: Role
-    size:
-      value: large
       type: String
+      value: blocker
+    roleB:
+      value: ''
+    size:
       label: Size
+      type: String
+      value: large
+    sizeB:
+      value: ''
     strength:
       value: double
     type:
-      value: construct
-      type: String
       label: Type
-    resistance:
-      value: ''
       type: String
-      label: Resistance
+      value: construct
     vulnerability:
-      value: ''
-      type: String
       label: Vulnerability
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 12
+      type: String
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-items:
-  - _id: Q9cAmJ90WiB2NQ3H
-    flags: {}
-    name: Gong-like fists of bronze
-    type: action
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. AC ([[2]] attacks)'
-      hit:
-        type: ''
-        label: Hit
-        value: '[[20]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit against a target in heavy armor
-        value: The target is *dazed* (save ends).
-      hit2:
-        type: ''
-        label: Hit
-        name: Natural odd hit against a target in light armor or no armor
-        value: The target takes [[10]] extra damage.
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: ''
-        label: Hit
-        name: Miss
-        value: '[[4d6]] damage.'
-    sort: 0
-    effects: []
-    folder: null
-    _key: '!actors.items!tda4lMHYL8KKDAmp.Q9cAmJ90WiB2NQ3H'
-  - _id: HxZtIHLVNZEfZfxd
-    flags: {}
-    name: Golem immunity
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Non-organic golems are immune to effects. They can’t be *dazed*,
-          *weakened*, *confused*, made *vulnerable*, or touched by ongoing
-          damage. You can damage a golem, but that’s about it.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 100000
-    effects: []
-    folder: null
-    _key: '!actors.items!tda4lMHYL8KKDAmp.HxZtIHLVNZEfZfxd'
-  - _id: fv28H9RGknIocwUB
-    flags: {}
-    name: Hidden flaw
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          An enemy who hits the bronze golem with a natural 18+ attack roll can
-          roll a DC 25 skill check using Intelligence or Wisdom to notice the
-          bronze golem’s hidden flaw! On a success, until the end of the battle,
-          the golem loses its damage resistance and becomes *vulnerable* to all
-          attacks (against each enemy informed of the flaw).
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 200000
-    effects: []
-    folder: null
-    _key: '!actors.items!tda4lMHYL8KKDAmp.fv28H9RGknIocwUB'
-  - _id: P7IL55olHtkNOuJe
-    flags: {}
-    name: Resist damage 18+
-    type: trait
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When an attack targets this creature, the attacker must roll a natural
-          18+ on the attack roll or it only deals half damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 300000
-    effects: []
-    folder: null
-    _key: '!actors.items!tda4lMHYL8KKDAmp.P7IL55olHtkNOuJe'
-  - _id: T2gFHVndhVD7kw51
-    flags: {}
-    name: Percussion resonance
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the escalation die reaches 3+, the bronze golem gains a bonus to
-          its first gong-like fists of bronze attack roll each turn equal to the
-          number of attacks made against it so far that turn. (Each turn is
-          separate, not cumulative.)
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    _key: '!actors.items!tda4lMHYL8KKDAmp.T2gFHVndhVD7kw51'
-  - _id: jawzR6z8oHDjEMRz
-    flags: {}
-    name: Spiky
-    type: nastierSpecial
-    img: icons/svg/mystery-man.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When an enemy engaged with the bronze golem misses it with a melee
-          attack, that enemy takes [[2d12]] damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    _key: '!actors.items!tda4lMHYL8KKDAmp.jawzR6z8oHDjEMRz'
-effects: []
-folder: null
-sort: 100001
-flags:
-  archmage: {}
-ownership:
-  default: 0
-prototypeToken:
-  flags: {}
-  name: Bronze Golem
-  displayName: 0
-  width: 2
-  height: 2
-  lockRotation: false
-  rotation: 0
-  actorLink: false
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  alpha: 1
-  light:
-    alpha: 1
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-      type: null
-    darkness:
-      min: 0
-      max: 1
-    attenuation: 0.5
-    negative: false
-    priority: 0
-    color: null
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  sight:
-    angle: 360
-    enabled: false
-    range: 0
-    brightness: 1
-    visionMode: basic
-    attenuation: 0.1
-    saturation: 0
-    contrast: 0
-    color: null
-  appendNumber: false
-  prependAdjective: false
-  detectionModes: []
-  hexagonalShape: 1
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-_key: '!actors!tda4lMHYL8KKDAmp'
-
+        enabled: false
+type: npc

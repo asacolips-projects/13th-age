@@ -1,10 +1,430 @@
-name: Shadow Mongoose Destroyer of Fate
-type: npc
 _id: 4L0M5AJJ7Eh2znxC
+_key: '!actors!4L0M5AJJ7Eh2znxC'
+effects: []
+flags:
+  archmage:
+    portraitFrame: false
+    portraitRound: false
+folder: null
 img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+items:
+- _id: DpVYXIc1rBW35Dr4
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.DpVYXIc1rBW35Dr4'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Cloud of claws
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[7]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: After the current battle is over, the next time this day that the target
+        takes ongoing damage, the shadow mongoose gets to make a *destruction of fate*
+        attack against the target.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: p95WN5g3zvF03nfI
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.p95WN5g3zvF03nfI'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '[Triggered action] R: Destruction of fate'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 9]] vs. MD (one target that has been hit twice by the shadow
+        mongoose this battle)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: The target rolls their icon dice, and any that come up 1-4 the shadow
+        mongoose steals until the end of the day. At the start of the next day the
+        target rolls a save (11+) for each stolen icon relationship, on a success
+        the icon relationship die returns to them.
+    hit1:
+      label: Hit
+      name: Crit
+      type: String
+      value: "\u2026and the shadow mongoose steals an item belonging to the target,\
+        \ preferably a magic one but sometimes the most vital one (a key, a map)."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: rQ5HQfsOuPa5XOuX
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.rQ5HQfsOuPa5XOuX'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: "Shadow\u2019s slide"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The shadow mongoose can move over any solid surface, slithering like
+        a shadow.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: QuJvsC8FLax3lTlC
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.QuJvsC8FLax3lTlC'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Play dead
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Once per battle the shadow mongoose may fake being dead. Only magical
+        senses and a DC 25 skill roll from the PC who struck the &lsquo;killing blow&rsquo;
+        will detect that the creature is still alive. Shadow mongooses like to fake
+        their deaths so that they can escape battle with their stolen icon relationships.
+        Since shadow anatomy isn&rsquo;t entirely biological, this ability functions
+        like fleeing the battle if it succeeds, the PCs can go ahead and blast away
+        at what they think is the corpse, but they&rsquo;ll be fragging the mongoose&rsquo;s
+        shadows, not the mongoose itself.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: EYE2IZRRfwDXLK8c
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.EYE2IZRRfwDXLK8c'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Trapper
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The shadow mongoose can change shape, though not mid-battle. Shadow
+        mongoose destroyers of fate use this ability to seem innocuous until they
+        are ready to strike.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: zKolTdvgmsf3HZod
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.zKolTdvgmsf3HZod'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Shadow fate
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When the shadow mongoose dies all the icon relationship dice that
+        it stole return to their owners. The person who killed the shadow mongoose
+        gains a magic item that the shadow mongoose had stolen (though maybe not one
+        that it had stolen from the party).</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: hg5mfxdq8FV7JV7X
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.hg5mfxdq8FV7JV7X'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Drop the loot
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>The shadow mongoose flees the battle. One nearby enemy of the shadow
+        mongoose has their icon relationships flip positive to negative and vise-versa
+        (conflicted relationships are unaffected). This relationship inversion is
+        temporary, lasting only until the end of the next game session.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: ybmbPcaysULol6Rz
+  _key: '!actors.items!4L0M5AJJ7Eh2znxC.ybmbPcaysULol6Rz'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Shadow dancer
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>If the shadow mongoose doesn&rsquo;t attack on its turn it can turn
+        into a flat shadow, and cannot be intercepted or attacked it is moving in
+        this form. When it returns to its normal form, it deals double damage with
+        its next attack, hit or miss.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+name: Shadow Mongoose Destroyer of Fate
+ownership:
+  default: 0
+prototypeToken:
+  actorLink: false
+  alpha: 1
+  appendNumber: false
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  detectionModes: []
+  displayBars: 0
+  displayName: 0
+  disposition: -1
+  flags: {}
+  height: 1
+  light:
+    alpha: 0.5
+    angle: 360
+    animation:
+      intensity: 5
+      reverse: false
+      speed: 5
+      type: null
+    attenuation: 0.5
+    bright: 0
+    color: null
+    coloration: 1
+    contrast: 0
+    darkness:
+      max: 1
+      min: 0
+    dim: 0
+    luminosity: 0.5
+    negative: false
+    priority: 0
+    saturation: 0
+    shadows: 0
+  lockRotation: false
+  movementAction: null
+  name: Shadow Mongoose Destroyer of Fate
+  occludable:
+    radius: 0
+  prependAdjective: false
+  randomImg: false
+  ring:
+    colors:
+      background: null
+      ring: null
+    effects: 1
+    enabled: false
+    subject:
+      scale: 1
+      texture: null
+  rotation: 0
+  sight:
+    angle: 360
+    attenuation: 0.1
+    brightness: 0
+    color: null
+    contrast: 0
+    enabled: false
+    range: 0
+    saturation: 0
+    visionMode: basic
+  texture:
+    alphaThreshold: 0.75
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    scaleX: 1
+    scaleY: 1
+    src: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+    tint: '#ffffff'
+  turnMarker:
+    animation: null
+    disposition: false
+    mode: 1
+    src: null
+  width: 1
+sort: 0
 system:
-  publicationSource: B2
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 17
     attackMod:
       type: Number
       value: 0
@@ -15,552 +435,146 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 17
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 14
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 18
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 80
-      min: 0
-      max: 80
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 11
-    level:
-      type: Number
-      label: Level
-      value: 4
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 80
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 80
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 11
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 4
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 18
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 14
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
+        maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
+      desperateTriggered: false
+      disengageBonus: 0
       lastGaspFails:
-        value: 0
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: spoiler
+    roleB:
+      value: ''
     size:
       value: normal
+    sizeB:
+      value: ''
     strength:
       value: normal
     type:
       value: spirit
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-prototypeToken:
-  name: Shadow Mongoose Destroyer of Fate
-  displayName: 0
-  actorLink: false
-  appendNumber: false
-  prependAdjective: false
-  texture:
-    src: systems/archmage/assets/icons/tokens/monsters/spirit.webp
-    scaleX: 1
-    scaleY: 1
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
-    anchorX: 0.5
-    anchorY: 0.5
-    fit: contain
-    tint: '#ffffff'
-    alphaThreshold: 0.75
-  width: 1
-  height: 1
-  lockRotation: false
-  rotation: 0
-  alpha: 1
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: attributes.hp
-  bar2:
-    attribute: null
-  light:
-    alpha: 0.5
-    angle: 360
-    bright: 0
-    coloration: 1
-    dim: 0
-    attenuation: 0.5
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      type: null
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
-    negative: false
-    priority: 0
-    color: null
-  sight:
-    enabled: false
-    range: 0
-    angle: 360
-    visionMode: basic
-    attenuation: 0.1
-    brightness: 0
-    saturation: 0
-    contrast: 0
-    color: null
-  detectionModes: []
-  flags: {}
-  randomImg: false
-  hexagonalShape: 0
-  occludable:
-    radius: 0
-  ring:
-    enabled: false
-    colors:
-      ring: null
-      background: null
-    effects: 1
-    subject:
-      scale: 1
-      texture: null
-items:
-  - name: Cloud of claws
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 9]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[7]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: >-
-          After the current battle is over, the next time this day that the
-          target takes ongoing damage, the shadow mongoose gets to make a
-          *destruction of fate* attack against the target.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: DpVYXIc1rBW35Dr4
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.DpVYXIc1rBW35Dr4'
-  - name: '[Triggered action] R: Destruction of fate'
-    type: action
-    img: icons/svg/target.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: >-
-          [[d20 + 9]] vs. MD (one target that has been hit twice by the shadow
-          mongoose this battle)
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          The target rolls their icon dice, and any that come up 1-4 the shadow
-          mongoose steals until the end of the day. At the start of the next day
-          the target rolls a save (11+) for each stolen icon relationship, on a
-          success the icon relationship die returns to them.
-      hit1:
-        type: String
-        label: Hit
-        name: Crit
-        value: >-
-          …and the shadow mongoose steals an item belonging to the target,
-          preferably a magic one but sometimes the most vital one (a key, a
-          map).
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    _id: p95WN5g3zvF03nfI
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.p95WN5g3zvF03nfI'
-  - name: Shadow’s slide
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The shadow mongoose can move over any solid surface, slithering
-          like a shadow.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: rQ5HQfsOuPa5XOuX
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.rQ5HQfsOuPa5XOuX'
-  - name: Play dead
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Once per battle the shadow mongoose may fake being dead. Only
-          magical senses and a DC 25 skill roll from the PC who struck the
-          &lsquo;killing blow&rsquo; will detect that the creature is still
-          alive. Shadow mongooses like to fake their deaths so that they can
-          escape battle with their stolen icon relationships. Since shadow
-          anatomy isn&rsquo;t entirely biological, this ability functions like
-          fleeing the battle if it succeeds, the PCs can go ahead and blast away
-          at what they think is the corpse, but they&rsquo;ll be fragging the
-          mongoose&rsquo;s shadows, not the mongoose itself.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: QuJvsC8FLax3lTlC
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.QuJvsC8FLax3lTlC'
-  - name: Trapper
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The shadow mongoose can change shape, though not mid-battle. Shadow
-          mongoose destroyers of fate use this ability to seem innocuous until
-          they are ready to strike.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: EYE2IZRRfwDXLK8c
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.EYE2IZRRfwDXLK8c'
-  - name: Shadow fate
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the shadow mongoose dies all the icon relationship dice that
-          it stole return to their owners. The person who killed the shadow
-          mongoose gains a magic item that the shadow mongoose had stolen
-          (though maybe not one that it had stolen from the party).</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: zKolTdvgmsf3HZod
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.zKolTdvgmsf3HZod'
-  - name: Drop the loot
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The shadow mongoose flees the battle. One nearby enemy of the
-          shadow mongoose has their icon relationships flip positive to negative
-          and vise-versa (conflicted relationships are unaffected). This
-          relationship inversion is temporary, lasting only until the end of the
-          next game session.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: hg5mfxdq8FV7JV7X
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.hg5mfxdq8FV7JV7X'
-  - name: Shadow dancer
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>If the shadow mongoose doesn&rsquo;t attack on its turn it can turn
-          into a flat shadow, and cannot be intercepted or attacked it is moving
-          in this form. When it returns to its normal form, it deals double
-          damage with its next attack, hit or miss.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    _id: ybmbPcaysULol6Rz
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _key: '!actors.items!4L0M5AJJ7Eh2znxC.ybmbPcaysULol6Rz'
-effects: []
-folder: null
-sort: 0
-ownership:
-  default: 0
-flags:
-  archmage:
-    portraitRound: false
-    portraitFrame: false
-_key: '!actors!4L0M5AJJ7Eh2znxC'
-
+        enabled: false
+type: npc

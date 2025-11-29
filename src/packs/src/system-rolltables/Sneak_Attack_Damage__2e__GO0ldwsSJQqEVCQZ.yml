@@ -1,0 +1,149 @@
+_id: GO0ldwsSJQqEVCQZ
+_key: '!tables!GO0ldwsSJQqEVCQZ'
+description: ''
+displayRoll: false
+flags:
+  core: {}
+folder: null
+formula: '@lvl'
+img: icons/svg/d20-grey.svg
+name: Sneak Attack Damage (2e)
+ownership:
+  default: 0
+replacement: true
+results:
+- _id: 9i7Fw131LG66pcw5
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.9i7Fw131LG66pcw5'
+  description: +[[1d4]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 1
+  type: text
+  weight: 1
+- _id: NOtpaCU1b0GbGW1T
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.NOtpaCU1b0GbGW1T'
+  description: +[[1d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 2
+  - 2
+  type: text
+  weight: 1
+- _id: qo16CSmUTBmgCezX
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.qo16CSmUTBmgCezX'
+  description: +[[1d8]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 3
+  - 3
+  type: text
+  weight: 1
+- _id: EVE6YA96WghhR6Qa
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.EVE6YA96WghhR6Qa'
+  description: +[[2d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 4
+  - 4
+  type: text
+  weight: 1
+- _id: 9Q69k3xWJhv9sc47
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.9Q69k3xWJhv9sc47'
+  description: +[[2d8]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 5
+  type: text
+  weight: 1
+- _id: YkVE7LF8EFZOL0nd
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.YkVE7LF8EFZOL0nd'
+  description: +[[3d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 6
+  - 6
+  type: text
+  weight: 1
+- _id: JQwplMCdh5pv3WdL
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.JQwplMCdh5pv3WdL'
+  description: +[[4d6]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 7
+  - 7
+  type: text
+  weight: 1
+- _id: dFfXaM6DiV5UXJ1D
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.dFfXaM6DiV5UXJ1D'
+  description: +[[20]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 8
+  - 8
+  type: text
+  weight: 1
+- _id: 9Cc3qzN9yU06kh19
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.9Cc3qzN9yU06kh19'
+  description: +[[25]] damage.
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 9
+  type: text
+  weight: 1
+- _id: DYHcnD9z5JoxKJcC
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.DYHcnD9z5JoxKJcC'
+  description: <p>+[[30]] damage.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 10
+  - 10
+  type: text
+  weight: 1
+- _id: yFAh81MqTy54mjon
+  _key: '!tables.results!GO0ldwsSJQqEVCQZ.yFAh81MqTy54mjon'
+  description: <p>+[[40]] damage.</p>
+  documentUuid: null
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 11
+  - 11
+  type: text
+  weight: 1
+sort: 1200000

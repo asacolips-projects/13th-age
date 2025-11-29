@@ -1,72 +1,44 @@
-name: Strider Symbiote (cloak/mantle – champion tier item)
-type: equipment
+_id: fxMQ7hN568UaXXHg
+_key: '!items!fxMQ7hN568UaXXHg'
+effects: []
+flags:
+  core: {}
+folder: uGMLSN6ivBLGtUfv
 img: icons/svg/item-bag.svg
+name: "Strider Symbiote (cloak/mantle \u2013 champion tier item)"
+ownership:
+  default: 0
+sort: 0
 system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>This living &ldquo;backpack&rdquo; clings to you with tentacles and
-      inserts mouthparts into the top of your spine. The segmented limbs of the
-      strider usually lie flat against your body but may be commanded to spring
-      out and carry you like a long-legged spider</p>
-
-      <p>Always: +2 PD (champion); +3 PD (epic).</p>
-
-      <p>Chuulish recharge: Until the end of the battle or for five minutes, you
-      can move on walls or ceilings as easily as you do across the ground.
-      (epic: chuulish recharge starts at 11+)</p>
-
-      <p>Quirk: Twitching antenna.</p>
-  publicationSource: B1
-  powerUsage:
-    type: String
-    label: Power Usage
-    value: recharge
-  recharge:
-    type: Number
-    label: Recharge
-    value: '16'
-  rechargeAttempts:
-    type: Number
-    label: Number of Recharges Attempted
-    value: 0
-  quantity:
-    type: Number
-    label: Uses
-    value: '1'
-  maxQuantity:
-    type: Number
-    label: Max Uses
-    value: '1'
-  properties: {}
   attributes:
+    ac:
+      bonus: 0
     attack:
+      arcane:
+        bonus: 0
+      divine:
+        bonus: 0
       melee:
         bonus: 0
       ranged:
         bonus: 0
-      divine:
-        bonus: 0
-      arcane:
-        bonus: 0
-    ac:
+    cha:
+      bonus: 0
+    con:
+      bonus: 0
+    dex:
+      bonus: 0
+    disengage:
+      bonus: 0
+    hp:
+      bonus: 0
+    int:
       bonus: 0
     md:
       bonus: 0
     pd:
       bonus: 2
-    hp:
-      bonus: 0
     recoveries:
-      bonus: 0
-    save:
-      bonus: 0
-      threshold: 0
-    disengage:
       bonus: 0
     rerollAc:
       bonus: 0
@@ -74,31 +46,63 @@ system:
     rerollSave:
       bonus: 0
       current: 0
+    save:
+      bonus: 0
+      threshold: 0
     str:
-      bonus: 0
-    dex:
-      bonus: 0
-    con:
-      bonus: 0
-    int:
       bonus: 0
     wis:
       bonus: 0
-    cha:
-      bonus: 0
-  icons: ''
-  tier: 'champion'
-  isActive: true
-  price:
-    value: ''
   chackra: cloak
-effects: []
-folder: uGMLSN6ivBLGtUfv
-flags:
-  core: {}
-_id: fxMQ7hN568UaXXHg
-sort: 0
-ownership:
-  default: 0
-_key: '!items!fxMQ7hN568UaXXHg'
+  description:
+    label: Description
+    type: String
+    value: '<p>This living &ldquo;backpack&rdquo; clings to you with tentacles and
+      inserts mouthparts into the top of your spine. The segmented limbs of the strider
+      usually lie flat against your body but may be commanded to spring out and carry
+      you like a long-legged spider</p>
 
+      <p>Always: +2 PD (champion); +3 PD (epic).</p>
+
+      <p>Chuulish recharge: Until the end of the battle or for five minutes, you can
+      move on walls or ceilings as easily as you do across the ground. (epic: chuulish
+      recharge starts at 11+)</p>
+
+      <p>Quirk: Twitching antenna.</p>'
+  embeddedMacro:
+    label: Embedded Macro
+    type: String
+    value: ''
+  icons: ''
+  isActive: true
+  maxQuantity:
+    label: Max Uses
+    type: Number
+    value: '1'
+  name:
+    label: Name
+    type: String
+  powerUsage:
+    label: Power Usage
+    type: String
+    value: recharge
+  price:
+    label: Price
+    type: Number
+    value: ''
+  properties: {}
+  publicationSource: B1
+  quantity:
+    label: Uses
+    type: Number
+    value: '1'
+  recharge:
+    label: Recharge
+    type: Number
+    value: '16'
+  rechargeAttempts:
+    label: Number of Recharges Attempted
+    type: Number
+    value: 0
+  tier: champion
+type: equipment

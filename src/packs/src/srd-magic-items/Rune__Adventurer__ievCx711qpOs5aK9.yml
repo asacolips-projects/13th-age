@@ -1,174 +1,171 @@
-name: Rune (Adventurer)
-type: loot
-img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+_id: ievCx711qpOs5aK9
+_key: '!items!ievCx711qpOs5aK9'
 effects:
-  - origin: null
-    disabled: false
-    name: Magic Rune (Adventurer, Armor)
-    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
-    _id: jnS8iXTk9vLhlph1
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.ac.value
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!ievCx711qpOs5aK9.jnS8iXTk9vLhlph1'
-  - origin: null
-    disabled: false
-    name: Magic Rune (Adventurer, Melee Weapon)
-    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
-    _id: lqlDR6BC1sdep7Ni
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.melee.bonus
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!ievCx711qpOs5aK9.lqlDR6BC1sdep7Ni'
-  - origin: null
-    disabled: false
-    name: Magic Rune (Adventurer, Ranged Weapon)
-    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
-    _id: VJZXQ5BBR9RHwuyE
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.ranged.bonus
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!ievCx711qpOs5aK9.VJZXQ5BBR9RHwuyE'
-  - origin: null
-    disabled: false
-    name: Magic Rune (Adventurer, Implement)
-    img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
-    _id: y4BSKRb2cFd6oQHI
-    type: base
-    system: {}
-    changes:
-      - key: system.attributes.attack.divine.bonus
-        value: '1'
-        mode: 2
-        priority: null
-      - key: system.attributes.attack.arcane.bonus
-        value: '1'
-        mode: 2
-        priority: null
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    description: ''
-    tint: '#ffffff'
-    transfer: true
-    statuses: []
-    sort: 0
-    flags:
-      archmage:
-        duration: EndOfCombat
-        ongoingDamage: 0
-        ongoingDamageType: ''
-        ongoingDamageCrit: false
-    _key: '!items.effects!ievCx711qpOs5aK9.y4BSKRb2cFd6oQHI'
+- _id: jnS8iXTk9vLhlph1
+  _key: '!items.effects!ievCx711qpOs5aK9.jnS8iXTk9vLhlph1'
+  changes:
+  - key: system.attributes.ac.value
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+  name: Magic Rune (Adventurer, Armor)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: lqlDR6BC1sdep7Ni
+  _key: '!items.effects!ievCx711qpOs5aK9.lqlDR6BC1sdep7Ni'
+  changes:
+  - key: system.attributes.attack.melee.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+  name: Magic Rune (Adventurer, Melee Weapon)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: VJZXQ5BBR9RHwuyE
+  _key: '!items.effects!ievCx711qpOs5aK9.VJZXQ5BBR9RHwuyE'
+  changes:
+  - key: system.attributes.attack.ranged.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+  name: Magic Rune (Adventurer, Ranged Weapon)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
+- _id: y4BSKRb2cFd6oQHI
+  _key: '!items.effects!ievCx711qpOs5aK9.y4BSKRb2cFd6oQHI'
+  changes:
+  - key: system.attributes.attack.divine.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  - key: system.attributes.attack.arcane.bonus
+    mode: 2
+    priority: null
+    value: '1'
+  description: ''
+  disabled: false
+  duration:
+    combat: null
+    rounds: null
+    seconds: null
+    startRound: null
+    startTime: null
+    startTurn: null
+    turns: null
+  flags:
+    archmage:
+      duration: EndOfCombat
+      ongoingDamage: 0
+      ongoingDamageCrit: false
+      ongoingDamageType: ''
+  img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+  name: Magic Rune (Adventurer, Implement)
+  origin: null
+  sort: 0
+  statuses: []
+  system: {}
+  tint: '#ffffff'
+  transfer: true
+  type: base
 flags:
   core: {}
-system:
-  name:
-    type: String
-    label: Name
-  description:
-    type: String
-    label: Description
-    value: >-
-      <p>Works as a
-      @UUID[Compendium.archmage.srd-magic-items.Item.fvPFOgomRoH6gU83]{Magic Oil
-      (Adventurer)} and provides an additional effect based on what it is
-      applied to:</p>
-
-      <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random
-      Rune Effect on Armor}</p>
-
-      <p>@UUID[Compendium.archmage.system-rolltables.HlqbChfomypWhoL2]{Random
-      Rune Effect on Weapon}</p>
-
-      <p>@UUID[Compendium.archmage.system-rolltables.1To7U9r1mJ9767qW]{Random
-      Rune Effect on Spellcasting Implement}</p>
-  quantity:
-    type: Number
-    label: Quantity
-    value: 1
-  price:
-    type: Number
-    label: Price
-    value: 150
 folder: 0mcnzVgWo4dqvS1l
-_id: ievCx711qpOs5aK9
-sort: 0
+img: systems/archmage/assets/icons/spells/runes-blue-1.jpg
+name: Rune (Adventurer)
 ownership:
   default: 0
-_key: '!items!ievCx711qpOs5aK9'
+sort: 0
+system:
+  description:
+    label: Description
+    type: String
+    value: '<p>Works as a @UUID[Compendium.archmage.srd-magic-items.Item.fvPFOgomRoH6gU83]{Magic
+      Oil (Adventurer)} and provides an additional effect based on what it is applied
+      to:</p>
 
+      <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random Rune
+      Effect on Armor}</p>
+
+      <p>@UUID[Compendium.archmage.system-rolltables.HlqbChfomypWhoL2]{Random Rune
+      Effect on Weapon}</p>
+
+      <p>@UUID[Compendium.archmage.system-rolltables.1To7U9r1mJ9767qW]{Random Rune
+      Effect on Spellcasting Implement}</p>'
+  name:
+    label: Name
+    type: String
+  price:
+    label: Price
+    type: Number
+    value: 150
+  quantity:
+    label: Quantity
+    type: Number
+    value: 1
+type: loot
