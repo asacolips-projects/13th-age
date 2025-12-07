@@ -567,8 +567,8 @@ export class ItemArchmage extends Item {
     if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
     if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
     else if (use == 'cyclic') {
-      if (item.actor.system.attributes.escalation.value > 0
-        && item.actor.system.attributes.escalation.value % 2 == 0) {
+      if (item?.actor?.system.attributes.escalation.value > 0
+        && item?.actor?.system.attributes.escalation.value % 2 == 0) {
         // Cyclic power, E.D. even, at-will
         use = 'at-will';
       } else use = 'once-per-battle';
