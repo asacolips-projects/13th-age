@@ -556,6 +556,8 @@ system:
       value: normal
     type:
       value: humanoid
+    typeB:
+      value: ''
     vulnerability:
       value: ''
   publicationSource: B2

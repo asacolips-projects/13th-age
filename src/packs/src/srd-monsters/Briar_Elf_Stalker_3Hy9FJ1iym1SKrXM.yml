@@ -85,7 +85,7 @@ items:
     core: {}
   folder: null
   img: icons/svg/target.svg
-  name: "R: Barbed arrows"
+  name: 'R: Barbed arrows'
   ownership:
     default: 0
   sort: 0
@@ -131,10 +131,14 @@ items:
       value: ''
     hit4:
       label: Hit
+      name: ''
       type: String
+      value: ''
     hit5:
       label: Hit
+      name: ''
       type: String
+      value: ''
     miss:
       label: Miss
       type: String
@@ -536,6 +540,8 @@ system:
       value: normal
     type:
       value: humanoid
+    typeB:
+      value: ''
     vulnerability:
       value: ''
   publicationSource: B2
