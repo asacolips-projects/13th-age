@@ -1,19 +1,13 @@
-<div style="width: 35em;">
-	<div class="flexrow" style="align-items: stretch;">
-		<fieldset class="flexcol">
+<div>
+		<fieldset>
 			<legend>Level</legend>
-
-			{{#each levels as |level|}}
-			<label class="flexrow" style="gap: 0.5rem;">
-				<input type="radio" style="flex-grow: 0;" name="level" value="{{level}}" /> {{level}}
-			</label>
-			{{/each}}
+			<input autofocus type="number" name="level" min="0" max="14" value="1" />
 		</fieldset>
 
-		<fieldset class="flexcol" />
+		<fieldset />
 			<legend>Strength</legend>
 			<label class="flexrow" style="gap: 0.5rem;">
-				<input type="radio" style="flex-grow: 0;" name="strength" value="normal" /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.normal'}}
+				<input type="radio" style="flex-grow: 0;" name="strength" value="normal" checked /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.normal'}}
 			</label>
 			<label class="flexrow" style="gap: 0.5rem;">
 				<input type="radio" style="flex-grow: 0;" name="strength" value="mook" /> {{localize 'ARCHMAGE.CREATUREROLES.mook'}}
@@ -31,5 +25,4 @@
 				<input type="radio" style="flex-grow: 0;" name="strength" value="triple" /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.triple-strength'}}
 			</label>
 		</fieldset>
-	</div>
 </div>

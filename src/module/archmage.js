@@ -921,7 +921,9 @@ Hooks.on("renderDocumentDirectory", (app, html, options) => {
           <i class="fas fa-face-smile-horns open-archmage-browser"></i>
         ${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}
         </button>
-        <button type="button" class="create-baseline-monster" style="flex-grow: 0;" data-tooltip="${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.baselineMonster')}">
+        <button type="button" class="create-baseline-monster" style="flex-grow: 0;"
+          data-tooltip="${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.baselineMonster')}"
+          data-tooltip-direction="UP">
           <i class="fas fa-spaghetti-monster-flying"></i>
         </button>
       </div>

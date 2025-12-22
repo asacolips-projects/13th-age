@@ -1,9 +1,6 @@
 export async function baselineMonsterDialog () {
   const content = await foundry.applications.handlebars.renderTemplate(
-    'systems/archmage/templates/dialog/baseline-monster-dialog.html',
-		{
-			levels: Array.from({ length: 15 }, (_, i) => i),
-		}
+    'systems/archmage/templates/dialog/baseline-monster-dialog.html'
   )
 
   new foundry.applications.api.DialogV2({
@@ -22,8 +19,14 @@ export async function baselineMonsterDialog () {
     ],
     submit: async ({ level, strength }) => {
       console.log('Creating monster with options:', { level, strength })
+      level = Math.clamped(level, 0, 14)
       const { baselineMonsterStats } = CONFIG.ARCHMAGE
       const stats = baselineMonsterStats.byStrength[strength]
+      if (!stats) {
+        ui.notifications.error(`Invalid strength option: ${strength}`)
+        return
+      }
+
       const systemData = {
         attributes: {
           ac: { value: baselineMonsterStats.ac[level] },
