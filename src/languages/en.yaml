@@ -567,6 +567,7 @@ ARCHMAGE:
       browseCreatures: 'Browse Creatures'
       browsePowers: 'Browse Powers'
       browseItems: 'Browse Items'
+      baselineMonster: 'Create Baseline Monster'
     sources:
       tooltipTemplate: 'Source: {source}'
       '1e': '13th Age Core Rulebook (1e)'
