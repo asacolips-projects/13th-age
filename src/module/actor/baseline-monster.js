@@ -1,38 +1,3 @@
-// All arrays indexed by level, 0-14
-const attackBonuses = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-const ac = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-const pd = [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
-const md = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
-const init = [3, 3, 6, 6, 6, 9, 9, 9, 12, 12, 12, 15, 15, 15, 18]
-
-const statsByStrength = {
-  normal: {
-    damage: [6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60, 80, 100, 120, 160],
-    hp: [25, 30, 40, 50, 60, 80, 100, 120, 160, 200, 240, 320, 400, 480, 640]
-  },
-  mook: {
-    damage: [3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 30, 40, 50, 60, 80],
-    hp: [6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60, 80, 100, 120, 160]
-  },
-  weakling: {
-    damage: [3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 30, 40, 50, 60, 80],
-    hp: [13, 15, 20, 25, 30, 40, 50, 60, 80, 100, 120, 160, 200, 240, 320]
-  },
-  elite: {
-    damage: [9, 12, 15, 18, 22, 30, 38, 45, 60, 75, 90, 120, 150, 180, 240],
-    hp: [38, 45, 60, 75, 90, 120, 150, 180, 240, 300, 360, 480, 600, 720, 960]
-  },
-  double: {
-    damage: [9, 12, 15, 18, 22, 30, 35, 45, 60, 75, 90, 120, 150, 180, 240],
-    damageSecondary: [3, 4, 5, 6, 8, 10, 15, 15, 20, 25, 30, 40, 50, 60, 80],
-    hp: [50, 60, 80, 100, 120, 160, 200, 240, 320, 400, 480, 640, 800, 960, 1280]
-  },
-  triple: {
-    damage: [9, 12, 15, 18, 22, 30, 35, 45, 60, 75, 90, 120, 150, 180, 240],
-    damageSecondary: [9, 12, 15, 18, 22, 30, 35, 45, 60, 75, 90, 120, 150, 180, 240],
-    hp: [75, 90, 120, 150, 180, 240, 300, 360, 480, 600, 720, 960, 1200, 1440, 1920]
-  }
-}
 export function baselineMonsterDialog () {
   new foundry.applications.api.DialogV2({
     window: { title: 'Choose an option' },
@@ -71,13 +36,14 @@ export function baselineMonsterDialog () {
     ],
     submit: async ({ level, strength }) => {
       console.log('Creating monster with options:', { level, strength })
-      const stats = statsByStrength[strength]
+      const { baselineMonsterStats } = CONFIG.ARCHMAGE
+      const stats = baselineMonsterStats.byStrength[strength]
       const systemData = {
         attributes: {
-          ac: { value: ac[level] },
-          pd: { value: pd[level] },
-          md: { value: md[level] },
-          init: { value: init[level] },
+          ac: { value: baselineMonsterStats.ac[level] },
+          pd: { value: baselineMonsterStats.pd[level] },
+          md: { value: baselineMonsterStats.md[level] },
+          init: { value: baselineMonsterStats.init[level] },
           level: { value: level },
           hp: {
             value: stats.hp[level],
@@ -104,7 +70,9 @@ export function baselineMonsterDialog () {
           name: 'Basic Attack',
           type: 'action',
           system: {
-            attack: { value: `[[d20+${attackBonuses[level]}]] vs. AC` },
+            attack: {
+              value: `[[d20+${baselineMonsterStats.attackBonuses[level]}]] vs. AC`
+            },
             hit: { value: `[[${stats.damage[level]}]] damage` }
           }
         }
@@ -115,7 +83,9 @@ export function baselineMonsterDialog () {
             name: 'Secondary Attack',
             type: 'action',
             system: {
-              attack: { value: `[[d20+${attackBonuses[level]}]] vs. AC` },
+              attack: {
+                value: `[[d20+${baselineMonsterStats.attackBonuses[level]}]] vs. AC`
+              },
               hit: { value: `[[${stats.damageSecondary[level]}]] damage` }
             }
           }
