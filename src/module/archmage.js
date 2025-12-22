@@ -916,14 +916,15 @@ Hooks.on("renderDocumentDirectory", (app, html, options) => {
   const htmlElement = $(html)[0];
   if (options.documentCls === 'actor') {
     htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", `
-      <button type="button" class="create-baseline-monster">
-        <i class="fas fa-spaghetti-monster-flying"></i>
-        ${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.baselineMonster')}
-      </button>
-      <button type="button" class="open-archmage-browser" data-tab="creatures">
-        <i class="fas fa-face-smile-horns open-archmage-browser"></i>
+      <div class="flexrow">
+        <button type="button" class="open-archmage-browser" data-tab="creatures">
+          <i class="fas fa-face-smile-horns open-archmage-browser"></i>
         ${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}
-      </button>
+        </button>
+        <button type="button" class="create-baseline-monster" style="flex-grow: 0;" data-tooltip="${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.baselineMonster')}">
+          <i class="fas fa-spaghetti-monster-flying"></i>
+        </button>
+      </div>
     `);
   }
   if (options.documentCls === 'item') {
