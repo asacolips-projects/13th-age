@@ -1,0 +1,35 @@
+<div style="width: 35em;">
+	<div class="flexrow" style="align-items: stretch;">
+		<fieldset class="flexcol">
+			<legend>Level</legend>
+
+			{{#each levels as |level|}}
+			<label class="flexrow" style="gap: 0.5rem;">
+				<input type="radio" style="flex-grow: 0;" name="level" value="{{level}}" /> {{level}}
+			</label>
+			{{/each}}
+		</fieldset>
+
+		<fieldset class="flexcol" />
+			<legend>Strength</legend>
+			<label class="flexrow" style="gap: 0.5rem;">
+				<input type="radio" style="flex-grow: 0;" name="strength" value="normal" /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.normal'}}
+			</label>
+			<label class="flexrow" style="gap: 0.5rem;">
+				<input type="radio" style="flex-grow: 0;" name="strength" value="mook" /> {{localize 'ARCHMAGE.CREATUREROLES.mook'}}
+			</label>
+			<label class="flexrow" style="gap: 0.5rem;">
+				<input type="radio" style="flex-grow: 0;" name="strength" value="weakling" /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.weakling'}}
+			</label>
+			<label class="flexrow" style="gap: 0.5rem;">
+				<input type="radio" style="flex-grow: 0;" name="strength" value="elite" /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.elite'}}
+			</label>
+			<label class="flexrow" style="gap: 0.5rem;">
+				<input type="radio" style="flex-grow: 0;" name="strength" value="double" /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.double-strength'}}
+			</label>
+			<label class="flexrow" style="gap: 0.5rem;">
+				<input type="radio" style="flex-grow: 0;" name="strength" value="triple" /> {{localize 'ARCHMAGE.CREATURESTRENGTHS.triple-strength'}}
+			</label>
+		</fieldset>
+	</div>
+</div>

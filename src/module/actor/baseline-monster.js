@@ -1,28 +1,14 @@
-export function baselineMonsterDialog () {
+export async function baselineMonsterDialog () {
+  const content = await foundry.applications.handlebars.renderTemplate(
+    'systems/archmage/templates/dialog/baseline-monster-dialog.html',
+		{
+			levels: Array.from({ length: 15 }, (_, i) => i),
+		}
+  )
+
   new foundry.applications.api.DialogV2({
     window: { title: 'Choose an option' },
-    content: `
-			<label>
-				Monster Level:
-				<select name="level">
-					${[...Array(15).keys()]
-            .map(i => `<option value="${i}">Level ${i}</option>`)
-            .join('')}
-				</select>
-			</label>
-
-			<label>
-				Monster Strength:
-				<select name="strength">
-					<option value="normal" selected>Standard</option>
-					<option value="mook">Mook</option>
-					<option value="weakling">Weakling</option>
-					<option value="elite">Elite</option>
-					<option value="double">Double Strength</option>
-					<option value="triple">Triple Strength</option>
-				</select>
-			</label>
-		`,
+    content,
     buttons: [
       {
         action: 'create',
