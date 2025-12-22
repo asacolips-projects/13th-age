@@ -1174,7 +1174,7 @@ ARCHMAGE.REGEXP = {
 }
 
 ARCHMAGE.baselineMonsterStats = {
-  // arrays indexed by level, 0 to 14const attackBonuses = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  // arrays indexed by level, 0 to 14
   attackBonuses: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
   ac: [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
   pd: [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
