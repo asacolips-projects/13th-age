@@ -281,6 +281,9 @@ Hooks.once('init', async function() {
     // Update tier multiplier Array
     CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
 
+    // Update monster baseline stats
+    CONFIG.ARCHMAGE.baselineMonsterStats = CONFIG.ARCHMAGE.baselineMonsterStats2e;
+
     // Remove 1e hampered from context menu status effects
     let id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
     CONFIG.statusEffects.splice(id, 1);
