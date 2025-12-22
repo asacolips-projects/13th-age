@@ -24,6 +24,7 @@ import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
+import { baselineMonsterDialog } from './actor/baseline-monster.js';
 
 Hooks.once('init', async function() {
 
@@ -873,7 +874,7 @@ Hooks.once('ready', async () => {
 
   // Handle click events for the compendium browser.
   document.addEventListener("click", (event) => {
-    if (event?.target?.classList && event.target.classList.contains("open-archmage-browser")) {
+    if (event?.target?.classList?.contains("open-archmage-browser")) {
       // Retrieve the existing compendium browser, if any.
       let compendiumBrowser = Object.values(ui.windows).find(app => app.constructor.name == 'ArchmageCompendiumBrowserApplication');
       // Otherwise, build a new one.
@@ -887,6 +888,11 @@ Hooks.once('ready', async () => {
     if (event?.target?.classList?.contains('archmage-rolls-reference')) {
       event.preventDefault();
       new ArchmageReference().render(true);
+    }
+
+    if (event?.target?.classList?.contains('create-baseline-monster')) {
+      event.preventDefault();
+      baselineMonsterDialog();
     }
   });
 
