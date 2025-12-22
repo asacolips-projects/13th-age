@@ -369,7 +369,7 @@ export class DiceArchmage {
     }
 
     const content = await foundry.applications.handlebars.renderTemplate(
-      'systems/archmage/templates/chat/background-check-dialog.html',
+      'systems/archmage/templates/dialog/background-check-dialog.html',
       {
         abilities: Object.entries(actor.system.abilities).map(
           ([key, ability]) => ({

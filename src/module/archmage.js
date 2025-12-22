@@ -24,6 +24,7 @@ import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
+import { baselineMonsterDialog } from './actor/baseline-monster.js';
 
 Hooks.once('init', async function() {
 
@@ -279,6 +280,9 @@ Hooks.once('init', async function() {
 
     // Update tier multiplier Array
     CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
+
+    // Update monster baseline stats
+    CONFIG.ARCHMAGE.baselineMonsterStats = CONFIG.ARCHMAGE.baselineMonsterStats2e;
 
     // Remove 1e hampered from context menu status effects
     let id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
@@ -873,7 +877,7 @@ Hooks.once('ready', async () => {
 
   // Handle click events for the compendium browser.
   document.addEventListener("click", (event) => {
-    if (event?.target?.classList && event.target.classList.contains("open-archmage-browser")) {
+    if (event?.target?.classList?.contains("open-archmage-browser")) {
       // Retrieve the existing compendium browser, if any.
       let compendiumBrowser = Object.values(ui.windows).find(app => app.constructor.name == 'ArchmageCompendiumBrowserApplication');
       // Otherwise, build a new one.
@@ -887,6 +891,11 @@ Hooks.once('ready', async () => {
     if (event?.target?.classList?.contains('archmage-rolls-reference')) {
       event.preventDefault();
       new ArchmageReference().render(true);
+    }
+
+    if (event?.target?.classList?.contains('create-baseline-monster')) {
+      event.preventDefault();
+      baselineMonsterDialog();
     }
   });
 
@@ -910,7 +919,17 @@ Hooks.on("renderDocumentDirectory", (app, html, options) => {
   const htmlElement = $(html)[0];
   if (options.documentCls === 'actor') {
     htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", `
-      <button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns open-archmage-browser"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}</button>
+      <div class="flexrow">
+        <button type="button" class="open-archmage-browser" data-tab="creatures">
+          <i class="fas fa-face-smile-horns open-archmage-browser"></i>
+        ${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}
+        </button>
+        <button type="button" class="create-baseline-monster" style="flex-grow: 0;"
+          data-tooltip="${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.baselineMonster')}"
+          data-tooltip-direction="UP">
+          <i class="fas fa-spaghetti-monster-flying"></i>
+        </button>
+      </div>
     `);
   }
   if (options.documentCls === 'item') {
