@@ -1,6 +1,6 @@
 id: archmage
 title: 13th Age
-version: "1.37.0"
+version: "1.38.0"
 authors:
   - name: Matt Smith
     discord: asacolips
@@ -15,7 +15,7 @@ description: The official 13th Age system for Foundry Virtual Tabletop.
 
 compatibility:
   minimum: "13"
-  verified: "13.350"
+  verified: "13.351"
   maximum: "13"
 
 esmodules:
