@@ -100,8 +100,8 @@ function powerUsageClass(power) {
 	if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
 	if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
 	else if (use == 'cyclic') {
-		if (this.actor.system.attributes.escalation.value > 0
-			&& this.actor.system.attributes.escalation.value % 2 == 0) {
+		if (props.actor.system.attributes.escalation.value > 0
+			&& props.actor.system.attributes.escalation.value % 2 == 0) {
 			use = 'at-will cyclic';
 		} else use = 'once-per-battle cyclic';
 	}
