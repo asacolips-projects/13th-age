@@ -8,6 +8,7 @@ import { ItemArchmageSheet } from './item/item-sheet.js';
 import { ArchmagePowerSheetV2 } from './item/power-sheet-v2.js';
 import { ArchmageEquipmentSheetV2 } from './item/equipment-sheet-v2.js';
 import { ArchmageActionSheetV2 } from './item/action-sheet-v2.js';
+import { wrapRolls } from './item/_item-sheet-helpers.mjs';
 import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { MacroUtils } from './setup/utility-classes.js';
@@ -137,6 +138,7 @@ Hooks.once('init', async function() {
     ItemArchmage,
     ItemArchmageSheet,
     EffectArchmageSheet,
+    wrapRolls,
     ArchmageActiveEffectSheetV2,
     ArchmageMacros,
     ArchmageUtility,
