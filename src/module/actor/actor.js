@@ -1714,6 +1714,7 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   rollAbilityTest(abilityId, background = null) {
+    console.warn('ActorArchmage.rollAbilityTest() is deprecated. Use game.archmage.DiceArchmage.BackgroundRoll(actor, {defaultAbility, defaultBackground}) instead.');
     let abl = null;
     let bg = null;
     let terms = ['@abil', '@lvl', '@bg'];
