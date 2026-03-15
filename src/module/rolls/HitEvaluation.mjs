@@ -15,7 +15,8 @@ export default class HitEvaluation {
         let hasMissed = undefined;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
-        let critRangeMin = 20 - attacker?.system?.attributes.critMod.atk.value - critMod;
+        const baseCritrange = game.settings.get("archmage", "optionalBaseCritRange") ? 18 : 20;
+        let critRangeMin = baseCritrange - attacker?.system?.attributes.critMod.atk.value - critMod;
 
         let $rolls = $row_self.find('.inline-result');
         if ($rolls.length == 0) {

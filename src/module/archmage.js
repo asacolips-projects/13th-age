@@ -505,6 +505,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'optionalBaseCritRange', {
+    name: "ARCHMAGE.SETTINGS.optionalBaseCritRangeName",
+    hint: "ARCHMAGE.SETTINGS.optionalBaseCritRangeHint",
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'unboundEscDie', {
     name: "ARCHMAGE.SETTINGS.UnboundEscDieName",
     hint: "ARCHMAGE.SETTINGS.UnboundEscDieHint",
@@ -1007,6 +1016,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'allowTargetDamageApplication',
         'allowRerolls',
         'rechargeOncePerDay',
+        'optionalBaseCritRange',
         'automateBaseStatsFromClass',
         'showPrivateGMAttackRolls',
       ],
