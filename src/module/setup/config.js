@@ -8,6 +8,7 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusDead",
     img: "icons/svg/skull.svg",
     journal: "ig1kzvpojsk20dbt",
+    order: 0,
   },
   // Staggered
   {
@@ -15,6 +16,7 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusStaggered",
     img: "icons/svg/blood.svg",
     journal: "oqkyq1xn6xi2ajmi",
+    order: 1,
   },
   // Unconscious.
   {
@@ -43,7 +45,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 2,
   },
   // Charmed.
   {
@@ -55,7 +58,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 3,
   },
   // Confused.
   {
@@ -67,7 +71,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 4,
   },
   // Dazed.
   {
@@ -86,7 +91,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 5,
   },
   // Fear.
   {
@@ -110,33 +116,9 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 6,
   },
-  // This was a 2e playtest condition that didn't make the cut
-  // Frenzied.
-  // {
-    // id: "frenzied",
-    // name: "ARCHMAGE.EFFECT.StatusFrenzied",
-    // img: "icons/svg/pill.svg",
-    // journal: "gy68o7eat5p6bpgr",
-    // changes: [
-      // {
-        // key: 'system.attributes.escalation.value',
-        // type: "override",
-        // value: '0'
-      // },
-      // {
-        // key: 'system.attributes.attackMod.value',
-        // type: "add",
-        // value: '-4'
-      // }
-    // ],
-    // flags: {
-      // archmage: {
-        // duration: "Unknown",
-      // }
-    // }
-  // },
   // Grabbed.
   {
     id: "grabbed",
@@ -147,7 +129,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 7,
   },
   // Hampered / Hindered.
   {
@@ -159,7 +142,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 8,
   },
   {
     id: "hindered",
@@ -170,7 +154,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 9,
   },
   // Helpless.
   {
@@ -199,7 +184,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 10,
   },
   // Shocked.
   {
@@ -211,7 +197,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 11,
   },
   // Stuck.
   {
@@ -223,7 +210,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 12,
   },
   // Stunned.
   {
@@ -252,7 +240,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 13,
   },
   // Vulnerable.
   {
@@ -271,7 +260,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 14,
   },
   // Weakened.
   {
@@ -305,7 +295,8 @@ ARCHMAGE.statusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 15,
   },
 ];
 // Extended (optional) status effects
@@ -319,7 +310,8 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 16,
   },
   // Ongoing Damage.
   {
@@ -330,7 +322,8 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 17,
   },
   // Regen.
   {
@@ -341,7 +334,8 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 18,
   },
   // Bonus defenses.
   {
@@ -352,7 +346,8 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 19,
   },
   // Reduced defenses.
   {
@@ -363,7 +358,8 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 20,
   },
   // Blessed.
   {
@@ -374,7 +370,8 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 21,
   },
   // Cursed.
   {
@@ -385,18 +382,20 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 22,
   },
   // Flying.
   {
-    id: "flying",
+    id: "fly",  //flying - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusFlying",
     img: "icons/svg/wing.svg",
     flags: {
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 23,
   },
   // Hidden.
   {
@@ -407,7 +406,8 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 24,
   },
   // Last Gasps.
   {
@@ -418,62 +418,72 @@ ARCHMAGE.extendedStatusEffects = [
       archmage: {
         duration: "Unknown",
       }
-    }
+    },
+    order: 25,
   },
   // Asleep.
   {
     id: "sleep", //asleep - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusAsleep",
     img: "icons/svg/sleep.svg",
+    order: 26,
   },
   // Blind.
   {
     id: "blind",
     name: "ARCHMAGE.EFFECT.StatusBlind",
     img: "icons/svg/blind.svg",
+    order: 27,
   },
   // Silenced.
   {
     id: "silenced",
     name: "ARCHMAGE.EFFECT.StatusSilenced",
     img: "icons/svg/silenced.svg",
+    order: 28,
   },
-  // Holy Shield.
+/*   // Holy Shield.
   {
     id: "holyshield",
     name: "ARCHMAGE.EFFECT.StatusHolyShield",
-    img: "icons/svg/holy-shield.svg"
+    img: "icons/svg/holy-shield.svg",
+    order: 29,
   },
   // Fire Shield.
   {
     id: "fireshield",
     name: "ARCHMAGE.EFFECT.StatusFireShield",
-    img: "icons/svg/fire-shield.svg"
+    img: "icons/svg/fire-shield.svg",
+    order: 30,
   },
   // Ice Shield.
   {
     id: "iceshield",
     name: "ARCHMAGE.EFFECT.StatusIceShield",
-    img: "icons/svg/ice-shield.svg"
+    img: "icons/svg/ice-shield.svg",
+    order: 31,
   },
   // Mage Shield.
   {
     id: "mageshield",
     name: "ARCHMAGE.EFFECT.StatusMageShield",
-    img: "icons/svg/mage-shield.svg"
-  },
+    img: "icons/svg/mage-shield.svg",
+    order: 32,
+  }, */
   // Buffed.
-  // {
-    // id: "buffed",
-    // name: "ARCHMAGE.EFFECT.StatusBuffed",
-    // img: "icons/svg/up.svg"
-  // },
+  {
+    id: "buffed",
+    name: "ARCHMAGE.EFFECT.StatusBuffed",
+    img: "icons/svg/up.svg",
+    order: 33,
+  },
   // Debuffed.
-  // {
-    // id: "debuffed",
-    // name: "ARCHMAGE.EFFECT.StatusDebuffed",
-    // img: "icons/svg/direction.svg"
-  // },
+  {
+    id: "debuffed",
+    name: "ARCHMAGE.EFFECT.StatusDebuffed",
+    img: "icons/svg/direction.svg",
+    order: 34,
+  },
 ];
 
 ARCHMAGE.featTiers = {
