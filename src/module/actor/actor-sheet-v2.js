@@ -1212,7 +1212,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
         }
       },
       render: html => {
-        let tabs = new Tabs(classResults.tabs);
+        let tabs = new foundry.applications.ux.Tabs(classResults.tabs);
         tabs.bind(html[0]);
         html.find('.import-powers-item').addClass('collapsed');
         html.find('.import-powers-item .item-summary').css('max-height', 0);
