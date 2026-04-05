@@ -259,6 +259,8 @@ ARCHMAGE:
     allowTargetDamageApplicationName: Allow target damage application
     allowRerollsHint: Whether or not to allow non-GM players to reroll their own dice rolls.
     allowRerollsName: Allow dice rerolls
+    optionalBaseCritRangeName: Crit 18+
+    optionalBaseCritRangeHint: Optional rule expanding everyone's base crit range to 18+ instead of 20.
     secondEditionHint: Turn this on to use the 13th Age second edition rules, off if you'd prefer the first edition rules.
     secondEditionName: Use 2e Rules
     alternateIconRollingMethodHint: Turn this on to use Jonathan's alternate icon rolling method, which allows you to roll for icons in the moment instead of at the start of the arc.

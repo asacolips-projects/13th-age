@@ -626,8 +626,12 @@ export class ItemArchmage extends Item {
             const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ':';
             const triggerHit = game.i18n.localize("ARCHMAGE.CHAT.hit") + ':';
             const triggerLevelSpell = game.i18n.localize("ARCHMAGE.CHAT.spellLevelTrigger") + ':';
+            const triggerResources = game.i18n.localize("ARCHMAGE.CHAT.resources") + ':';
+            const triggerEffect = game.i18n.localize("ARCHMAGE.CHAT.effect") + ':';
             if (row_text.includes(triggerAttack) ||
-                row_text.includes(triggerTarget)) {
+                row_text.includes(triggerTarget) ||
+                row_text.includes(triggerResources) ||
+                row_text.includes(triggerEffect)) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){

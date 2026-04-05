@@ -1695,13 +1695,17 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  rollAbility(abilityId, background = null) {
-    this.rollAbilityTest(abilityId, background);
+  rollAbility(abilityId = null, background = null) {
+    DiceArchmage.BackgroundRoll(this, {
+      defaultAbility: abilityId,
+      defaultBackground: background
+    });
   }
 
   /* -------------------------------------------- */
 
   /**
+   * @deprecated Use DiceArchmage.BackgroundRoll() instead.
    * Roll an Ability Test
    * Prompt the user for input regarding Advantage/Disadvantage and any
    * Situational Bonus
@@ -1710,6 +1714,7 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   rollAbilityTest(abilityId, background = null) {
+    console.warn('ActorArchmage.rollAbilityTest() is deprecated. Use game.archmage.DiceArchmage.BackgroundRoll(actor, {defaultAbility, defaultBackground}) instead.');
     let abl = null;
     let bg = null;
     let terms = ['@abil', '@lvl', '@bg'];
