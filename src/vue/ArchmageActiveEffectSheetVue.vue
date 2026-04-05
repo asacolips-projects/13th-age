@@ -201,7 +201,7 @@ watch(viewModel, async (newModel) => {
 		newChanges.push({
 			key: fKey,
 			value: value,
-			mode: CONST.ACTIVE_EFFECT_MODES.ADD
+			mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
 		})
 
 		// melee.dice also applies to monk weapons
@@ -210,7 +210,7 @@ watch(viewModel, async (newModel) => {
 				newChanges.push({
 					key: fKey.replace("melee", k),
 					value: value,
-					mode: CONST.ACTIVE_EFFECT_MODES.ADD
+					mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
 				});
 			});
 		}
@@ -220,7 +220,7 @@ watch(viewModel, async (newModel) => {
 	if (newModel.edBlocked) {
 		newChanges.push({
 			key: 'system.attributes.escalation.value',
-			mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+			mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE,
 			value: '0'
 		});
 	}
