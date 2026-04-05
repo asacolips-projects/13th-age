@@ -6,21 +6,21 @@ ARCHMAGE.statusEffects = [
   {
     id: "dead",
     name: "ARCHMAGE.EFFECT.StatusDead",
-    icon: "icons/svg/skull.svg",
+    img: "icons/svg/skull.svg",
     journal: "ig1kzvpojsk20dbt",
   },
   // Staggered
   {
     id: "staggered",
     name: "ARCHMAGE.EFFECT.StatusStaggered",
-    icon: "icons/svg/blood.svg",
+    img: "icons/svg/blood.svg",
     journal: "oqkyq1xn6xi2ajmi",
   },
   // Unconscious.
   {
     id: "unconscious",
     name: "ARCHMAGE.EFFECT.StatusUnconscious",
-    icon: "icons/svg/unconscious.svg",
+    img: "icons/svg/unconscious.svg",
     journal: "u9VHMyTBvK4lLbPa",
     changes: [
       {
@@ -49,7 +49,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "charmed",
     name: "ARCHMAGE.EFFECT.StatusCharmed",
-    icon: "icons/svg/heal.svg",
+    img: "icons/svg/heal.svg",
     journal: "21cEqzk92tflpW7P",
     flags: {
       archmage: {
@@ -61,7 +61,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "confused",
     name: "ARCHMAGE.EFFECT.StatusConfused",
-    icon: "icons/svg/stoned.svg",
+    img: "icons/svg/stoned.svg",
     journal: "21cEqzk92tflpW7N",
     flags: {
       archmage: {
@@ -73,7 +73,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "dazed",
     name: "ARCHMAGE.EFFECT.StatusDazed",
-    icon: "icons/svg/sun.svg",
+    img: "icons/svg/sun.svg",
     journal: "dk4ua6smvjafdrqm",
     changes: [
       {
@@ -92,7 +92,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "fear",
     name: "ARCHMAGE.EFFECT.StatusFear",
-    icon: "icons/svg/terror.svg",
+    img: "icons/svg/terror.svg",
     journal: "gy68o7eat5p6bpgq",
     changes: [
       {
@@ -117,7 +117,7 @@ ARCHMAGE.statusEffects = [
   // {
     // id: "frenzied",
     // name: "ARCHMAGE.EFFECT.StatusFrenzied",
-    // icon: "icons/svg/pill.svg",
+    // img: "icons/svg/pill.svg",
     // journal: "gy68o7eat5p6bpgr",
     // changes: [
       // {
@@ -141,7 +141,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "grabbed",
     name: "ARCHMAGE.EFFECT.StatusGrabbed",
-    icon: "icons/svg/item-bag.svg",
+    img: "icons/svg/item-bag.svg",
     journal: "aDEmM5lU3pfG3t7S",
     flags: {
       archmage: {
@@ -153,7 +153,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "hampered",
     name: "ARCHMAGE.EFFECT.StatusHampered",
-    icon: "icons/svg/paralysis.svg",
+    img: "icons/svg/paralysis.svg",
     journal: "mk69wxlsqwnydwip",
     flags: {
       archmage: {
@@ -164,7 +164,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "hindered",
     name: "ARCHMAGE.EFFECT.StatusHindered",
-    icon: "icons/svg/paralysis.svg",
+    img: "icons/svg/paralysis.svg",
     journal: "FHDyJEb29LWnO2Dg",
     flags: {
       archmage: {
@@ -176,7 +176,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "helpless",
     name: "ARCHMAGE.EFFECT.StatusHelpless",
-    icon: "icons/svg/falling.svg",
+    img: "icons/svg/falling.svg",
     journal: "g20s05odo7v5mw2q",
     changes: [
       {
@@ -205,7 +205,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "shocked",
     name: "ARCHMAGE.EFFECT.StatusShocked",
-    icon: "icons/svg/lightning.svg",
+    img: "icons/svg/lightning.svg",
     journal: "m78aw2gepbc5ccgm",
     flags: {
       archmage: {
@@ -217,7 +217,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "stuck",
     name: "ARCHMAGE.EFFECT.StatusStuck",
-    icon: "icons/svg/net.svg",
+    img: "icons/svg/net.svg",
     journal: "ti7104njam2n18a5",
     flags: {
       archmage: {
@@ -229,7 +229,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "stunned",
     name: "ARCHMAGE.EFFECT.StatusStunned",
-    icon: "icons/svg/daze.svg",
+    img: "icons/svg/daze.svg",
     journal: "2rxwthymp5rl1dqe",
     changes: [
       {
@@ -258,7 +258,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "vulnerable",
     name: "ARCHMAGE.EFFECT.StatusVulnerable",
-    icon: "icons/svg/target.svg",
+    img: "icons/svg/target.svg",
     journal: "bi9ye2usgfsdpubs",
     changes: [
       {
@@ -277,7 +277,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "weakened",
     name: "ARCHMAGE.EFFECT.StatusWeakened",
-    icon: "icons/svg/downgrade.svg",
+    img: "icons/svg/downgrade.svg",
     journal: "3r2jt3c6skn7gw7d",
     changes: [
       {
@@ -314,7 +314,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "empowered",
     name: "ARCHMAGE.EFFECT.StatusEmpowered",
-    icon: "icons/svg/upgrade.svg",
+    img: "icons/svg/upgrade.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -325,7 +325,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "ongoingDamage",
     name: "ARCHMAGE.EFFECT.StatusOngoingDamage",
-    icon: "icons/svg/degen.svg",
+    img: "icons/svg/degen.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -336,7 +336,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "regen",
     name: "ARCHMAGE.EFFECT.StatusRegen",
-    icon: "icons/svg/regen.svg",
+    img: "icons/svg/regen.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -347,7 +347,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "bonusDefenses",
     name: "ARCHMAGE.EFFECT.StatusBonusDefenses",
-    icon: "icons/svg/shield.svg",
+    img: "icons/svg/shield.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -358,7 +358,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "reducedDefenses",
     name: "ARCHMAGE.EFFECT.StatusReducedDefenses",
-    icon: "icons/svg/acid.svg", //ruins
+    img: "icons/svg/acid.svg", //ruins
     flags: {
       archmage: {
         duration: "Unknown",
@@ -369,7 +369,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "blessed",
     name: "ARCHMAGE.EFFECT.StatusBlessed",
-    icon: "icons/svg/angel.svg",
+    img: "icons/svg/angel.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -380,7 +380,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "cursed",
     name: "ARCHMAGE.EFFECT.StatusCursed",
-    icon: "icons/svg/dice-target.svg",
+    img: "icons/svg/dice-target.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -391,7 +391,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "flying",
     name: "ARCHMAGE.EFFECT.StatusFlying",
-    icon: "icons/svg/wing.svg",
+    img: "icons/svg/wing.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -402,7 +402,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "invisible", //hidden - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusHidden",
-    icon: "icons/svg/mystery-man.svg",
+    img: "icons/svg/mystery-man.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -413,7 +413,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "lastgasps",
     name: "ARCHMAGE.EFFECT.StatusLastGasps",
-    icon: "icons/svg/clockwork.svg",
+    img: "icons/svg/clockwork.svg",
     flags: {
       archmage: {
         duration: "Unknown",
@@ -424,55 +424,55 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "sleep", //asleep - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusAsleep",
-    icon: "icons/svg/sleep.svg",
+    img: "icons/svg/sleep.svg",
   },
   // Blind.
   {
     id: "blind",
     name: "ARCHMAGE.EFFECT.StatusBlind",
-    icon: "icons/svg/blind.svg",
+    img: "icons/svg/blind.svg",
   },
   // Silenced.
   {
     id: "silenced",
     name: "ARCHMAGE.EFFECT.StatusSilenced",
-    icon: "icons/svg/silenced.svg",
+    img: "icons/svg/silenced.svg",
   },
   // Holy Shield.
   {
     id: "holyshield",
     name: "ARCHMAGE.EFFECT.StatusHolyShield",
-    icon: "icons/svg/holy-shield.svg"
+    img: "icons/svg/holy-shield.svg"
   },
   // Fire Shield.
   {
     id: "fireshield",
     name: "ARCHMAGE.EFFECT.StatusFireShield",
-    icon: "icons/svg/fire-shield.svg"
+    img: "icons/svg/fire-shield.svg"
   },
   // Ice Shield.
   {
     id: "iceshield",
     name: "ARCHMAGE.EFFECT.StatusIceShield",
-    icon: "icons/svg/ice-shield.svg"
+    img: "icons/svg/ice-shield.svg"
   },
   // Mage Shield.
   {
     id: "mageshield",
     name: "ARCHMAGE.EFFECT.StatusMageShield",
-    icon: "icons/svg/mage-shield.svg"
+    img: "icons/svg/mage-shield.svg"
   },
   // Buffed.
   // {
     // id: "buffed",
     // name: "ARCHMAGE.EFFECT.StatusBuffed",
-    // icon: "icons/svg/up.svg"
+    // img: "icons/svg/up.svg"
   // },
   // Debuffed.
   // {
     // id: "debuffed",
     // name: "ARCHMAGE.EFFECT.StatusDebuffed",
-    // icon: "icons/svg/direction.svg"
+    // img: "icons/svg/direction.svg"
   // },
 ];
 
