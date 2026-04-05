@@ -25,17 +25,17 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'system.attributes.ac.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.pd.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.md.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       }
     ],
@@ -78,7 +78,7 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'system.attributes.attackMod.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       }
     ],
@@ -97,12 +97,12 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'system.attributes.escalation.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE,
         value: '0'
       },
       {
         key: 'system.attributes.attackMod.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       }
     ],
@@ -122,12 +122,12 @@ ARCHMAGE.statusEffects = [
     // changes: [
       // {
         // key: 'system.attributes.escalation.value',
-        // mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        // mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE,
         // value: '0'
       // },
       // {
         // key: 'system.attributes.attackMod.value',
-        // mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        // mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         // value: '-4'
       // }
     // ],
@@ -181,17 +181,17 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'system.attributes.ac.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.pd.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.md.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       }
     ],
@@ -234,17 +234,17 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'system.attributes.ac.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.pd.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.md.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       }
     ],
@@ -263,7 +263,7 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'system.attributes.critMod.def.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '2'
       }
     ],
@@ -282,22 +282,22 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'system.attributes.attackMod.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.ac.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.pd.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       },
       {
         key: 'system.attributes.md.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD,
         value: '-4'
       }
     ],

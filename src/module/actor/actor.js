@@ -199,7 +199,7 @@ export class ActorArchmage extends Actor {
       }
 
       // For non-stacking bonuses, let the users sort it out
-      if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
+      if (change.mode != CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD) {
         uniqueChanges.push(change);
         continue;
       }
@@ -2125,10 +2125,10 @@ export class ActorArchmage extends Actor {
           label: negRecoveryLabel,
           icon: "icons/svg/down.svg",
           changes: [
-            {key: "system.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "system.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "system.attributes.md.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "system.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD}
+            {key: "system.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD},
+            {key: "system.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD},
+            {key: "system.attributes.md.value", value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD},
+            {key: "system.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD}
           ]
         };
         MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.Infinite)
