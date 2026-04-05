@@ -304,7 +304,7 @@ export class ActorArchmage extends Actor {
       if (overrides[change.key]) continue;
 
       // Apply effect
-      const result = change.effect.apply(this, change);
+      const result = change.effect.applyChange(this, change);
       // Remember we already applied change for everything but @ed and @std
       if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
         overrides[change.key] = result[change.key];
