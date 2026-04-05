@@ -127,7 +127,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
       newChanges.push({
         key: key,
         value: value,
-        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
       });
       // For melee weapon damage, include monk weapons
       if (key == 'system.attributes.weapon.melee.dice') {
@@ -135,7 +135,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
           newChanges.push({
             key: key.replace("melee", k),
             value: value,
-            mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+            mode: CONST.ACTIVE_EFFECT_MODES.ADD
           });
         });
       }
@@ -178,7 +178,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
     if ( formData.blockedFromEscalationDie ) {
       ae.changes.push({
         key: 'system.attributes.escalation.value',
-        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE,
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
         value: '0'
       });
     }
