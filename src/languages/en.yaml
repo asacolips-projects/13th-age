@@ -118,6 +118,7 @@ ARCHMAGE:
   maxSkulls: Max Death Saves/Skulls
   melee: Melee
   meleeWeaponDice: Melee Weapon Dice
+  messageMode: Message Mode
   misc: Misc.
   miscellaneous: Miscellaneous
   miss: Miss
@@ -181,7 +182,6 @@ ARCHMAGE:
   rollBonusPlaceholder: e.g. +1d4
   rollDisadvantageShort: Dis.
   rollFormula: Formula
-  rollMode: Roll Mode
   rollNormal: Normal
   save: Save
   saves: Saves

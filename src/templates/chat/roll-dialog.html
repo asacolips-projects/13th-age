@@ -35,10 +35,10 @@
     </div>
   {{/if}}
   <div class="form-group">
-    <label>{{localize 'ARCHMAGE.rollMode'}}</label>
-    <select name="rollMode">
-      {{#select defaultRollMode}}
-      {{#each rollModes as |mode|}}
+    <label>{{localize 'ARCHMAGE.messageMode'}}</label>
+    <select name="messageMode">
+      {{#select defaultMessageMode}}
+      {{#each messageModes as |mode|}}
         <option value="{{@key}}">{{localize mode.label}}</option>
       {{/each}}
       {{/select}}

@@ -1689,7 +1689,7 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
 
       // Execute the roll
       const roll = await new Roll(a.dataset.formula, rollData).roll();
-      var message = roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+      var message = roll.toMessage({ flavor: a.dataset.flavor }, { messageMode: a.dataset.mode });
       $('.message').off("contextmenu");
       return message;
     }

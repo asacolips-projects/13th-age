@@ -594,8 +594,8 @@ export class ItemArchmage extends Item {
     };
 
     // Toggle default roll mode
-    let rollMode = game.settings.get("core", "rollMode");
-    chatData = ChatMessage.applyRollMode(chatData, rollMode);
+    let messageMode = game.settings.get("core", "messageMode");
+    chatData = ChatMessage.applyMode(chatData, messageMode);
 
     // Render the template
     chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
