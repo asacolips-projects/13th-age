@@ -714,7 +714,7 @@ export class ItemArchmage extends Item {
       changes: [{
         key: "system.attributes.ac.value",
         value: bonusMagnitude,
-        mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       }]
     }
     MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)

@@ -199,7 +199,7 @@ export class ActorArchmage extends Actor {
       }
 
       // For non-stacking bonuses, let the users sort it out
-      if (change.mode != CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD) {
+      if (change.type != "add") {
         uniqueChanges.push(change);
         continue;
       }
@@ -304,7 +304,7 @@ export class ActorArchmage extends Actor {
       if (overrides[change.key]) continue;
 
       // Apply effect
-      const result = change.effect.applyChange(this, change);
+      const result = ActiveEffect.applyChange(this, change);
       // Remember we already applied change for everything but @ed and @std
       if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
         overrides[change.key] = result[change.key];
@@ -2125,10 +2125,10 @@ export class ActorArchmage extends Actor {
           label: negRecoveryLabel,
           icon: "icons/svg/down.svg",
           changes: [
-            {key: "system.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD},
-            {key: "system.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD},
-            {key: "system.attributes.md.value", value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD},
-            {key: "system.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD}
+            {key: "system.attributes.ac.value",value: newRec, type: "add"},
+            {key: "system.attributes.pd.value", value: newRec, type: "add"},
+            {key: "system.attributes.md.value", value: newRec, type: "add"},
+            {key: "system.attributes.attackMod.value", value: newRec, type: "add"}
           ]
         };
         MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.Infinite)

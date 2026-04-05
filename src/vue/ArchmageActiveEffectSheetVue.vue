@@ -101,15 +101,15 @@ const tabs = reactive({ ...rawTabs });
 
 const effect = computed(() => props.context.document);
 
-const modes = [
-  'question',
-  'times',
-  'plus',
-  "minus",
-  'angle-double-down',
-  'angle-double-up',
-  'undo'
-]
+const modes = {
+  'custom': 'question',
+  'multiply': 'times',
+  'add': 'plus',
+  'subtract': 'minus',
+  'downgrade': 'angle-double-down',
+  'upgrade': 'angle-double-up',
+  'override': 'undo'
+}
 
 const changes = computed(() => {
   const changesArray = [];
@@ -119,7 +119,7 @@ const changes = computed(() => {
       let change = {
         name: label,
         img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-        mode: modes[c.mode],
+        mode: modes[c.type],
         value: c.value
       };
       if (change.mode === "plus" && change.value < 0) {
@@ -201,7 +201,7 @@ watch(viewModel, async (newModel) => {
 		newChanges.push({
 			key: fKey,
 			value: value,
-			mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+			mode: "add"
 		})
 
 		// melee.dice also applies to monk weapons
@@ -210,7 +210,7 @@ watch(viewModel, async (newModel) => {
 				newChanges.push({
 					key: fKey.replace("melee", k),
 					value: value,
-					mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+					mode: "add"
 				});
 			});
 		}
@@ -220,7 +220,7 @@ watch(viewModel, async (newModel) => {
 	if (newModel.edBlocked) {
 		newChanges.push({
 			key: 'system.attributes.escalation.value',
-			mode: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE,
+			mode: "override",
 			value: '0'
 		});
 	}

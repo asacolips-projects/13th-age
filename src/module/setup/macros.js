@@ -12,9 +12,9 @@ export class ArchmageMacros {
   static async aasimarHalo(speaker, actor, token, character, archmage) {
     const name = archmage.item.name;
     const effects = [
-      { key: "system.attributes.ac.value", value: 2, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD },
-      { key: "system.attributes.pd.value", value: 2, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD },
-      { key: "system.attributes.md.value", value: 2, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD }
+      { key: "system.attributes.ac.value", value: 2, type: "add" },
+      { key: "system.attributes.pd.value", value: 2, type: "add" },
+      { key: "system.attributes.md.value", value: 2, type: "add" }
     ];
 
     // Check for previous effects
@@ -61,8 +61,8 @@ export class ArchmageMacros {
       name: archmage.item.name,
       icon: archmage.item.img,
       changes: [
-        { key: "system.attributes.ac.value", value: penalty, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD },
-        { key: "system.attributes.pd.value", value: penalty, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD }
+        { key: "system.attributes.ac.value", value: penalty, type: "add" },
+        { key: "system.attributes.pd.value", value: penalty, type: "add" }
       ]
     }
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
@@ -93,7 +93,7 @@ export class ArchmageMacros {
       changes: [{
         key: "system.attributes.attackMod.value",
         value: 1,
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       },]
     };
 
@@ -102,14 +102,14 @@ export class ArchmageMacros {
       effectData.changes.push({
         key: "system.attributes.saves.bonus",
         value: 1,
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       });
     }
     if (archmage.item.system.powerLevel.value >= 9) {
       effectData.changes.push({
         key: "system.attributes.md.value",
         value: 1,
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       });
     }
 
@@ -141,7 +141,7 @@ export class ArchmageMacros {
       changes: [{
         key: "system.attributes.attackMod.value",
         value: bonus,
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       },]
     };
 
@@ -172,7 +172,7 @@ export class ArchmageMacros {
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: bonus ,
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE
+        type: "override"
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
@@ -190,7 +190,7 @@ export class ArchmageMacros {
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: bonus,
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
@@ -254,7 +254,7 @@ export class ArchmageMacros {
       name: name,
       icon: archmage.item.img,
       changes: [
-        { key: "system.attributes.critMod.atk.value", value: bonus + prev, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD },
+        { key: "system.attributes.critMod.atk.value", value: bonus + prev, type: "add" },
       ]};
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
@@ -283,27 +283,27 @@ export class ArchmageMacros {
         bonus = !shieldEquipped ? 2 : 3;
       }
       // Apply to AC.
-      effects.push({ key: "system.attributes.ac.value", value: bonus, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD });
+      effects.push({ key: "system.attributes.ac.value", value: bonus, type: "add" });
       // Champion and/or Epic feat applies to PD.
       if (feats.champion || feats.epic) {
-        effects.push({ key: "system.attributes.pd.value", value: bonus, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD });
+        effects.push({ key: "system.attributes.pd.value", value: bonus, type: "add" });
       }
       // Epic feat applies to MD.
       if (feats.epic) {
-        effects.push({ key: "system.attributes.md.value", value: bonus, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD });
+        effects.push({ key: "system.attributes.md.value", value: bonus, type: "add" });
       }
     }
     else {
       // If the champion feat in active increase the bonus
       if (feats.champion) bonus = 3;
-      effects.push({ key: "system.attributes.ac.value", value: bonus, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD });
+      effects.push({ key: "system.attributes.ac.value", value: bonus, type: "add" });
       // If the adventurer feat in active apply to PD
       if (feats.adventurer) {
-        effects.push({ key: "system.attributes.pd.value", value: bonus, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD });
+        effects.push({ key: "system.attributes.pd.value", value: bonus, type: "add" });
       }
       // If the epic feat in active apply to MD
       if (feats.epic) {
-        effects.push({ key: "system.attributes.md.value", value: bonus, type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD });
+        effects.push({ key: "system.attributes.md.value", value: bonus, type: "add" });
       }
     }
 
@@ -342,11 +342,11 @@ export class ArchmageMacros {
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: game.archmage.MacroUtils.scaleDiceUp(actor.system.attributes.weapon.melee.dice),
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE
+        type: "override"
       }, {
         key: "system.attributes.recoveries.dice",
         value: game.archmage.MacroUtils.scaleDiceUp(actor.system.attributes.recoveries.dice),
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.OVERRIDE
+        type: "override"
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
@@ -378,7 +378,7 @@ export class ArchmageMacros {
       changes: [{
         key: "system.attributes.hp.extra",
         value: bonus,
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
@@ -432,7 +432,7 @@ export class ArchmageMacros {
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: `+${rollData.lvl}-${rollData.atk.m.bonus}`, // replace item bonus with level
-        type: CONST.ACTIVE_EFFECT_CHANGE_TYPES.ADD
+        type: "add"
       }]
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
