@@ -311,8 +311,8 @@ Hooks.once('init', async function() {
     CONFIG.statusEffects[id].hud = false;
 
     // Remove 2e charmed from context menu status effects
-    id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
-    CONFIG.statusEffects[id].hud = false;
+    // id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
+    // CONFIG.statusEffects[id].hud = false;
   }
 
   // Assign the actor class to the CONFIG
