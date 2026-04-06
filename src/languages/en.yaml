@@ -231,8 +231,6 @@ ARCHMAGE:
     ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
     ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
     ColorblindOptionDefault: Default Colors
-    extendedStatusEffectsHint: If enabled extends the official status list with a handful of useful token markers.
-    extendedStatusEffectsName: Extended Status Effects List
     allowPasteParsingHint: If enabled, the system will attempt to parse clipboard contents for dice rolls before pasting them into fields on power sheets and monster action sheets.
     allowPasteParsingName: Paste Roll Parsing
     hideExtraRollsHint: If enabled, powers with multiple attack rolls will display at most one attack per targeted token if any is targeted.

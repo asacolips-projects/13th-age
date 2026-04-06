@@ -259,21 +259,7 @@ Hooks.once('init', async function() {
   }
 
   // Update status effects.
-  function _setArchmageStatusEffects(extended) {
-    if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
-    else CONFIG.statusEffects = foundry.utils.duplicate(ARCHMAGE.statusEffects);
-  }
-  game.settings.register('archmage', 'extendedStatusEffects', {
-    name: "ARCHMAGE.SETTINGS.extendedStatusEffectsName",
-    hint: "ARCHMAGE.SETTINGS.extendedStatusEffectsHint",
-    scope: 'world',
-    config: true,
-    default: false,
-    type: Boolean,
-    requiresReload: true,
-    onChange: enable => _setArchmageStatusEffects(enable)
-  });
-  _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
+  CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects);
 
   // Update 2e constants
   if (game.settings.get("archmage", "secondEdition")) {
@@ -1045,7 +1031,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       label: 'ARCHMAGE.SETTINGS.groups.general',
       settings: [
         'allowPasteParsing',
-        'extendedStatusEffects',
         'initiativeDexTiebreaker',
         'initiativeStaticNpc',
         'unboundEscDie',
