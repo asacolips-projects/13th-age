@@ -299,7 +299,7 @@ ARCHMAGE.statusEffects = [
     order: 150,
   },
 ];
-// Extended (optional) status effects
+// Extended (no longer optional) status effects
 ARCHMAGE.extendedStatusEffects = [
   // Empowered.
   {
