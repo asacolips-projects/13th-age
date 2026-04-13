@@ -19,7 +19,7 @@ export async function baselineMonsterDialog () {
     ],
     submit: async ({ level, strength }) => {
       console.log('Creating monster with options:', { level, strength })
-      level = Math.clamped(level, 0, 14)
+      level = Math.clamp(level, 0, 14)
       const { baselineMonsterStats } = CONFIG.ARCHMAGE
       const stats = baselineMonsterStats.byStrength[strength]
       if (!stats) {

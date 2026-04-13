@@ -57,7 +57,7 @@ export class DiceArchmage {
     }
 
     // Inner roll function
-    let rollMode = game.settings.get("core", "rollMode");
+    let messageMode = game.settings.get("core", "messageMode");
     let rolled = false;
     let roll = async (html = null, data = {}) => {
       let flav = (flavor instanceof Function) ? flavor(terms, data) : title;
@@ -83,7 +83,7 @@ export class DiceArchmage {
       }
 
       let form = html ? html.find('form')[0] : null;
-      rollMode = form ? form.rollMode.value : rollMode;
+      messageMode = form ? form.messageMode.value : messageMode;
 
       // Execute the roll
       let roll = new Roll(terms.join('+'), data);
@@ -119,7 +119,7 @@ export class DiceArchmage {
       // Render the template.
       foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
         chatData.content = content;
-        game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode: rollMode });
+        game.archmage.ArchmageUtility.createChatMessage(chatData, { messageMode: messageMode });
       });
     };
 
@@ -150,10 +150,10 @@ export class DiceArchmage {
       abilityCheck: data.abilityCheck ?? true,
       backgroundCheck: data.backgroundCheck ?? false,
       defaultAbility: false,
-      defaultRollMode: rollMode,
+      defaultMessageMode: messageMode,
       abilities: abilities ?? {},
       backgrounds: backgrounds ?? {},
-      rollModes: CONFIG.Dice.rollModes
+      messageModes: CONFIG.ChatMessage.modes
     };
 
     // If this is a background check, default to the highest ability score.
@@ -227,7 +227,7 @@ export class DiceArchmage {
             onClose(html, terms, data);
           }
           if (rolled) {
-            rollMode = html.find('[name="rollMode"]').val();
+            messageMode = html.find('[name="messageMode"]').val();
             data['bonus'] = html.find('[name="bonus"]').val();
             if (data.abilityCheck) {
               data['bg'] = html.find('[name="background"]').val();
@@ -287,7 +287,7 @@ export class DiceArchmage {
   }) {
 
     // Inner roll function
-    let rollMode = 'roll';
+    let messageMode = 'roll';
     let roll = () => {
       let roll = new Roll(terms.join('+'), data);
       let flav = (flavor instanceof Function) ? flavor(terms, data) : title;
@@ -300,7 +300,7 @@ export class DiceArchmage {
       roll.toMessage({
         alias: alias,
         flavor: flav,
-        rollMode: rollMode
+        messageMode: messageMode
       });
 
       // Return the Roll object
@@ -326,7 +326,7 @@ export class DiceArchmage {
     let dialogData = {
       formula: terms.join(' + '),
       data: data,
-      rollModes: CONFIG.Dice.rollModes
+      messageModes: CONFIG.ChatMessage.modes
     };
 
     // Render modal dialog
@@ -350,7 +350,7 @@ export class DiceArchmage {
             if (onClose) {
               onClose(html, terms, data);
             }
-            rollMode = html.find('[name="rollMode"]').val();
+            messageMode = html.find('[name="messageMode"]').val();
             data['bonus'] = html.find('[name="bonus"]').val();
             data['background'] = html.find('[name="background"]').val();
             resolve(roll());
@@ -387,8 +387,8 @@ export class DiceArchmage {
             bonus: formatBonus(background.bonus.value),
             checked: background.name.value === defaultBackground
           })),
-        rollModes: CONFIG.Dice.rollModes,
-        defaultRollMode: game.settings.get('core', 'rollMode')
+        messageModes: CONFIG.ChatMessage.modes,
+        defaultMessageMode: game.settings.get('core', 'messageMode')
       }
     )
 
@@ -396,7 +396,7 @@ export class DiceArchmage {
       situationalBonus: form.bonus.value,
       abilityKey: form.ability.value,
       backgroundKey: form.background.value,
-      rollMode: form.rollMode.value
+      messageMode: form.messageMode.value
     })
 
     return new foundry.applications.api.DialogV2({
@@ -486,7 +486,7 @@ export class DiceArchmage {
     situationalBonus,
     abilityKey,
     backgroundKey,
-    rollMode
+    messageMode
   }) {
     // Construct the terms for the roll
     // First: the d20
@@ -554,6 +554,6 @@ export class DiceArchmage {
     )
 
     // Send it to chat
-    game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode })
+    game.archmage.ArchmageUtility.createChatMessage(chatData, { messageMode })
   }
 }

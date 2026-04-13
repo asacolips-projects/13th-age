@@ -36,11 +36,11 @@ export class ArchmageUtility {
       context = {};
     }
 
-    if (!foundry.utils.hasProperty(context, "rollMode")) {
+    if (!foundry.utils.hasProperty(context, "messageMode")) {
       // Default roll mode set via chat box.
-      context.rollMode = game.settings.get("core", "rollMode");
+      context.messageMode = game.settings.get("core", "messageMode");
     }
-    chatData = ChatMessage.applyRollMode(chatData, context.rollMode);
+    chatData = ChatMessage.applyMode(chatData, context.messageMode);
 
     // Return early if we don't need to wait for the 3d dice animation.
     if (!waitForDice || !game.dice3d) {
@@ -74,7 +74,7 @@ export class ArchmageUtility {
     var hide = chatData?.whisper?.length ? chatData.whisper : null;
     if (hide && game.user.isGM &&
         game.settings.get("archmage", "showPrivateGMAttackRolls") &&
-        game.settings.get("core", "rollMode") === "gmroll") {
+        game.settings.get("core", "messageMode") === "gmroll") {
       hide = null;
     } else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
       hide = null;
