@@ -514,6 +514,11 @@ export class DiceArchmage {
       terms.push(`@backgrounds.${backgroundKey}.bonus.value`)
     }
 
+    // Next: the item bonus
+    if (ability.bonus) {
+      terms.push(`@${abilityKey}.bonus`)
+    }
+
     // Next: the situational bonus
     if (situationalBonus) {
       terms.push(`${situationalBonus}`)
