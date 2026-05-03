@@ -68,7 +68,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
     const attr = event.currentTarget.dataset.edit;
     const current = foundry.utils.getProperty(this.document, attr);
     const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
-    const fp = new FilePicker({
+    const fp = new foundry.applications.apps.FilePicker.implementation({
       current,
       type: "image",
       redirectToRoot: img ? [img] : [],
@@ -127,7 +127,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
       newChanges.push({
         key: key,
         value: value,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+        type: "add"
       });
       // For melee weapon damage, include monk weapons
       if (key == 'system.attributes.weapon.melee.dice') {
@@ -135,7 +135,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
           newChanges.push({
             key: key.replace("melee", k),
             value: value,
-            mode: CONST.ACTIVE_EFFECT_MODES.ADD
+            type: "add"
           });
         });
       }
@@ -178,7 +178,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
     if ( formData.blockedFromEscalationDie ) {
       ae.changes.push({
         key: 'system.attributes.escalation.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        type: "override",
         value: '0'
       });
     }

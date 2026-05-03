@@ -259,21 +259,7 @@ Hooks.once('init', async function() {
   }
 
   // Update status effects.
-  function _setArchmageStatusEffects(extended) {
-    if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
-    else CONFIG.statusEffects = foundry.utils.duplicate(ARCHMAGE.statusEffects);
-  }
-  game.settings.register('archmage', 'extendedStatusEffects', {
-    name: "ARCHMAGE.SETTINGS.extendedStatusEffectsName",
-    hint: "ARCHMAGE.SETTINGS.extendedStatusEffectsHint",
-    scope: 'world',
-    config: true,
-    default: false,
-    type: Boolean,
-    requiresReload: true,
-    onChange: enable => _setArchmageStatusEffects(enable)
-  });
-  _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
+  CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects);
 
   // Update 2e constants
   if (game.settings.get("archmage", "secondEdition")) {
@@ -288,7 +274,7 @@ Hooks.once('init', async function() {
 
     // Remove 1e hampered from context menu status effects
     let id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
-    CONFIG.statusEffects.splice(id, 1);
+    CONFIG.statusEffects[id].hud = false;
 
     // Update class base stats
     for (let cl of Object.keys(CONFIG.ARCHMAGE.classes2e)) {
@@ -322,11 +308,11 @@ Hooks.once('init', async function() {
 
     // Remove 2e hindered from context menu status effects
     let id = CONFIG.statusEffects.findIndex(e => e.id == "hindered");
-    CONFIG.statusEffects.splice(id, 1);
+    CONFIG.statusEffects[id].hud = false;
 
     // Remove 2e charmed from context menu status effects
-    id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
-    CONFIG.statusEffects.splice(id, 1);
+    // id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
+    // CONFIG.statusEffects[id].hud = false;
   }
 
   // Assign the actor class to the CONFIG
@@ -1045,7 +1031,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       label: 'ARCHMAGE.SETTINGS.groups.general',
       settings: [
         'allowPasteParsing',
-        'extendedStatusEffects',
         'initiativeDexTiebreaker',
         'initiativeStaticNpc',
         'unboundEscDie',
@@ -1689,7 +1674,7 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
 
       // Execute the roll
       const roll = await new Roll(a.dataset.formula, rollData).roll();
-      var message = roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+      var message = roll.toMessage({ flavor: a.dataset.flavor }, { messageMode: a.dataset.mode });
       $('.message').off("contextmenu");
       return message;
     }

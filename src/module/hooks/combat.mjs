@@ -65,8 +65,8 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
             // Ensure it's the *next* turn
-            if (combat.round  > effect.duration.startRound
-            || (combat.round == effect.duration.startRound && combat.turn > effect.duration.startTurn)) {
+            if (combat.round  > effect.start.round
+            || (combat.round == effect.start.round && combat.turn > effect.start.turn)) {
                 currentCombatantEffectData.selfEnded.push(effect);
                 effectsToDelete.push(effect.id);
             }

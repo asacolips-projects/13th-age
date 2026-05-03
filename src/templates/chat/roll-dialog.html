@@ -12,12 +12,7 @@
     <div class="form-group">
       <label>{{localize 'ARCHMAGE.background'}}</label>
       <select name="background" data-dtype="String">
-        <option value="0">—</option>
-        {{#each backgrounds as |background_obj key|}}
-          {{#if background_obj.isActive.value}}
-            <option value="{{background_obj.bonus.value}}" data-label="{{background_obj.name.value}}">{{numberFormat background_obj.bonus.value decimals=0 sign=true}} {{background_obj.name.value}}</option>
-          {{/if}}
-        {{/each}}
+        {{selectOptions backgrounds selected="0" localize=false}}
       </select>
     </div>
   {{/if}}
@@ -26,22 +21,14 @@
     <div class="form-group">
       <label>{{localize 'ARCHMAGE.abilityScore'}}</label>
       <select name="ability" data-dtype="String">
-        {{#select defaultAbility}}
-        {{#each abilities as |ability_obj key|}}
-          <option value="{{ability_obj.mod}}" data-label="{{localize (concatenate 'ARCHMAGE.' key '.label')}}">{{numberFormat ability_obj.mod decimals=0 sign=true}} {{localize (concatenate "ARCHMAGE." key ".label")}}</option>
-        {{/each}}
-        {{/select}}
+        {{selectOptions abilities selected=defaultAbility localize=true}}
       </select>
     </div>
   {{/if}}
   <div class="form-group">
-    <label>{{localize 'ARCHMAGE.rollMode'}}</label>
-    <select name="rollMode">
-      {{#select defaultRollMode}}
-      {{#each rollModes as |mode|}}
-        <option value="{{@key}}">{{localize mode.label}}</option>
-      {{/each}}
-      {{/select}}
+    <label>{{localize 'ARCHMAGE.messageMode'}}</label>
+    <select name="messageMode">
+      {{selectOptions messageModes selected=defaultMessageMode localize=true}}
     </select>
   </div>
 </form>

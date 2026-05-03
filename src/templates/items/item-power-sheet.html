@@ -46,46 +46,28 @@
                   <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.powerSourceTypeTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.powerSource'}}</label>
                       <select name="system.powerSource.value" data-dtype="{{system.powerSource.type}}">
-                          {{#select system.powerSource.value}}
-                          {{#each powerSources as |name type|}}
-                          <option value="{{type}}">{{name}}</option>
-                          {{/each}}
-                          {{/select}}
+                          {{selectOptions powerSources selected=system.powerSource.value localize=true}}
                       </select>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerType'}}</label>
                       <select name="system.powerType.value" data-dtype="{{system.powerType.type}}">
-                          {{#select system.powerType.value}}
-                          {{#each powerTypes as |name type|}}
-                          <option value="{{type}}">{{name}}</option>
-                          {{/each}}
-                          {{/select}}
+                          {{selectOptions powerTypes selected=system.powerType.value localize=true}}
                       </select>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerUsage'}}</label>
                       <select name="system.powerUsage.value" data-dtype="{{system.powerUsage.type}}">
-                          {{#select system.powerUsage.value}}
-                          <option value="">{{localize 'ARCHMAGE.noneOption'}}</option>
-                          {{#each powerUsages as |name type|}}
-                          <option value="{{type}}">{{name}}</option>
-                          {{/each}}
-                          {{/select}}
+                          {{selectOptions powerUsages selected=system.powerUsage.value localize=true blank='ARCHMAGE.noneOption'}}
                       </select>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.actionType'}}</label>
                       <select name="system.actionType.value" data-dtype="{{system.actionType.type}}">
-                          {{#select system.actionType.value}}
-                          <option value="">{{localize 'ARCHMAGE.noneOption'}}</option>
-                          {{#each actionTypes as |name type|}}
-                          <option value="{{type}}">{{name}}</option>
-                          {{/each}}
-                          {{/select}}
+                          {{selectOptions actionTypes selected=system.actionType.value localize=true blank='ARCHMAGE.noneOption'}}
                       </select>
                   </div>
 
@@ -304,11 +286,7 @@
                             <div class="form-group">
                                 <label>{{localize 'ARCHMAGE.CHAT.tier'}}</label>
                                 <select name="system.feats.{{@key}}.tier.value" data-dtype="{{this.tier.type}}">
-                                    {{#select this.tier.value}}
-                                    {{#each ../featTiers as |name tier|}}
-                                    <option value="{{tier}}">{{name}}</option>
-                                    {{/each}}
-                                    {{/select}}
+                                    {{selectOptions ../featTiers selected=this.tier.value localize=true}}
                                 </select>
                             </div>
                             <div class="form-group">
@@ -322,12 +300,7 @@
                             <div class="form-group">
                                 <label>{{localize 'ARCHMAGE.CHAT.powerUsage'}}</label>
                                 <select name="system.feats.{{@key}}.powerUsage.value" data-dtype="{{this.powerUsage.type}}">
-                                    {{#select this.powerUsage.value}}
-                                    <option value="">- None -</option>
-                                    {{#each ../featUsages as |name type|}}
-                                    <option value="{{type}}">{{name}}</option>
-                                    {{/each}}
-                                    {{/select}}
+                                    {{selectOptions ../featUsages selected=this.powerUsage.value localize=true blank='- None -'}}
                                 </select>
                             </div>
 

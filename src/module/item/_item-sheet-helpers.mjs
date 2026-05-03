@@ -125,7 +125,7 @@ export function replaceEffectAndConditionReferences(text) {
   function generateConditionLink(name) {
       const condition = conditions.find(x => game.i18n.localize(x.name) === name);
       return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="">
-              <img class="effects-icon" src="${condition.icon}" />
+              <img class="effects-icon" src="${condition.img}" />
               ${name}</a>`;
   }
 

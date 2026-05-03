@@ -199,7 +199,7 @@ export class ActorArchmage extends Actor {
       }
 
       // For non-stacking bonuses, let the users sort it out
-      if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
+      if (change.type != "add") {
         uniqueChanges.push(change);
         continue;
       }
@@ -304,7 +304,7 @@ export class ActorArchmage extends Actor {
       if (overrides[change.key]) continue;
 
       // Apply effect
-      const result = change.effect.apply(this, change);
+      const result = ActiveEffect.applyChange(this, change);
       // Remember we already applied change for everything but @ed and @std
       if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
         overrides[change.key] = result[change.key];
@@ -958,7 +958,7 @@ export class ActorArchmage extends Actor {
     let title = game.i18n.localize('ARCHMAGE.CHAT.disengage');
 
     // Inner roll function
-    let rollMode = game.settings.get("core", "rollMode");
+    let messageMode = game.settings.get("core", "messageMode");
     let rolled = false;
     let roll = async (html = null, data = {}) => {
       // Don't include situational bonus unless it is defined
@@ -971,7 +971,7 @@ export class ActorArchmage extends Actor {
       }
 
       let form = html ? html.find('form')[0] : null;
-      rollMode = form ? form.rollMode.value : rollMode;
+      messageMode = form ? form.messageMode.value : messageMode;
 
       // Execute the roll
       let roll = new Roll(terms.join('+'), data);
@@ -1006,7 +1006,7 @@ export class ActorArchmage extends Actor {
       // Render the template.
       foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
         chatData.content = content;
-        game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode: rollMode });
+        game.archmage.ArchmageUtility.createChatMessage(chatData, { messageMode: messageMode });
       });
     };
 
@@ -1019,8 +1019,8 @@ export class ActorArchmage extends Actor {
     let dialogData = {
       formula: terms.join(' + '),
       data: data,
-      defaultRollMode: rollMode,
-      rollModes: CONFIG.Dice.rollModes
+      defaultMessageMode: messageMode,
+      messageModes: CONFIG.ChatMessage.modes
     };
 
     foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
@@ -1115,7 +1115,7 @@ export class ActorArchmage extends Actor {
         default: 'normal',
         close: html => {
           if (rolled) {
-            rollMode = html.find('[name="rollMode"]').val();
+            messageMode = html.find('[name="messageMode"]').val();
             data['bonus'] = html.find('[name="bonus"]').val();
             roll(html, data);
           }
@@ -1677,8 +1677,8 @@ export class ActorArchmage extends Actor {
         user: game.user.id, speaker: {actor: this.id, token: this.token,
         alias: this.name, scene: game.user.viewedScene},
       };
-      let rollMode = game.settings.get("core", "rollMode");
-      ChatMessage.applyRollMode(chatData, rollMode);
+      let messageMode = game.settings.get("core", "messageMode");
+      ChatMessage.applyMode(chatData, messageMode);
       chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
       await game.archmage.ArchmageUtility.createChatMessage(chatData);
     } else {
@@ -2125,10 +2125,10 @@ export class ActorArchmage extends Actor {
           label: negRecoveryLabel,
           icon: "icons/svg/down.svg",
           changes: [
-            {key: "system.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "system.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "system.attributes.md.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "system.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD}
+            {key: "system.attributes.ac.value",value: newRec, type: "add"},
+            {key: "system.attributes.pd.value", value: newRec, type: "add"},
+            {key: "system.attributes.md.value", value: newRec, type: "add"},
+            {key: "system.attributes.attackMod.value", value: newRec, type: "add"}
           ]
         };
         MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.Infinite)
