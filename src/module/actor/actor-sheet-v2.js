@@ -203,6 +203,68 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     return result;
   }
 
+  /** @override */
+  async saveEditor(name, {remove=true, preventRender}={}) {
+    const editor = this.editors[name];
+    if (!editor || !editor.instance) throw new Error(`${name} is not an active editor name!`);
+    editor.active = false;
+    const instance = editor.instance;
+    const event = new Event("submit", {cancelable: true});
+    await this._onSubmit(event, {preventRender});
+
+    if (remove) {
+      // Grab the .editor wrapper before destroying: ProseMirror restructures the
+      // DOM on activate (inserts menu-container + editor-container) and does NOT
+      // undo that on destroy. Foundry normally restores it via render(), but the
+      // Vue sheet's render() skips DOM recreation when vueRoot already exists.
+      const editorEl = editor.options.target?.closest(".editor");
+
+      instance.destroy();
+      editor.instance = editor.mce = null;
+
+      if (editorEl) {
+        editorEl.classList.remove("prosemirror");
+        editorEl.innerHTML = "";
+
+        if (editor.hasButton) {
+          const btn = document.createElement("a");
+          btn.className = "editor-edit";
+          btn.innerHTML = '<i class="fas fa-edit"></i>';
+          btn.onclick = () => {
+            // Rebuild plugins — ProseMirror plugin instances carry editor-view
+            // state and cannot be reused across activations.
+            editor.options.plugins = this._configureProseMirrorPlugins(name, {remove: true});
+            // Strip 'document' from editor.options before activation: the
+            // DocumentSheet.activateEditor override merges options.document
+            // (the actor) into editor.options via mergeObject, and on a second
+            // activation that causes mergeObject to try writing into the
+            // actor's read-only properties.
+            delete editor.options.document;
+            editor.initial = foundry.utils.getProperty(this.object, name);
+            this.activateEditor(name, {}, editor.initial);
+          };
+          editor.button = btn;
+          editorEl.appendChild(btn);
+        }
+
+        const contentDiv = document.createElement("div");
+        contentDiv.className = "editor-content";
+        contentDiv.dataset.edit = name;
+        editor.options.target = contentDiv;
+        const rawContent = foundry.utils.getProperty(this.object, name) ?? "";
+        contentDiv.innerHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(rawContent, {
+          secrets: this.object.isOwner,
+          documents: true,
+          links: true,
+          rolls: true,
+          rollData: this.object.getRollData?.() ?? {},
+        });
+        editorEl.appendChild(contentDiv);
+      }
+    }
+    editor.changed = false;
+  }
+
   // Update initial content throughout all editors.
   _updateEditors(html) {
     for (let [name, editor] of Object.entries(this.editors)) {
