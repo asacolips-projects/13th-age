@@ -296,6 +296,12 @@ export class ItemArchmage extends Item {
       .filter(n => this.system[`spellLevel${n}`]?.value);
     const hasSpellLevels = spellLevels.length > 0;
 
+    // Nothing to show — skip the dialog entirely.
+    if (!hasSpellLevels && !hasUses && !hasResources) {
+      overrides['system.powerLevel.value'] = baseLvl;
+      return { overrides, consumeUsage: true, consumeResources: true };
+    }
+
     const content = `
       <form>
         ${hasUses ? `
