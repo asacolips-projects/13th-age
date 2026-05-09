@@ -42,12 +42,14 @@ export class ItemArchmage extends Item {
     // Understand what the user is trying to do
     let usageMode = await this._rollUsageMode()
 
-    // First check remaining uses.
-    let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode);
-    if (early_exit) return;
+    // For powers with a level, show a dialog to set level and consume-usage.
+    const rollOptions = await this._rollTemporaryOverrides();
+    if (!rollOptions) return;
+    const { overrides: tempOverrides, consumeUsage, consumeResources } = rollOptions;
 
-    // Determine level item is used at
-    const tempOverrides = await this._rollTemporaryOverrides()
+    // Check remaining uses, honoring the consume-usage choice from the dialog.
+    let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode, consumeUsage);
+    if (early_exit) return;
 
     // Make an ephemeral clone of the item which we can dirty during processing.
     let itemToRender = this.clone(tempOverrides, {"save": false, "keepId": true});
@@ -58,7 +60,7 @@ export class ItemArchmage extends Item {
     }
 
     // Then check resources.
-    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
+    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, undefined, consumeResources);
     if (early_exit) return;
 
     // Handle crit modifier
@@ -237,11 +239,13 @@ export class ItemArchmage extends Item {
     return retVal;
   }
 
-  async _rollUsesCheck(updateData, usageMode) {
+  async _rollUsesCheck(updateData, usageMode, consumeUsage = true) {
     // If we have a special usage mode skip this check
     if (!["", "openingEffect"].includes(usageMode)) return false;
     // Only check uses on owned items.
     if (!this.actor) return false;
+    // Respect the consume-usage choice from the power roll dialog.
+    if (!consumeUsage) return false;
     // Update uses left
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
@@ -270,26 +274,100 @@ export class ItemArchmage extends Item {
 
   async _rollTemporaryOverrides() {
     let overrides = {};
-    if (this.type != 'power') return overrides;
-    let lvl = this.system.powerLevel?.value ?? 0;
+    if (this.type != 'power') return { overrides, consumeUsage: true };
+    let baseLvl = this.system.powerLevel?.value ?? 0;
     if (this.itemActor?.getFlag("archmage", "overridePowerLevel")) {
-      lvl = Math.max(this.itemActor.system.attributes.level.value, lvl);
+      baseLvl = Math.max(this.itemActor.system.attributes.level.value, baseLvl);
     }
-    if (event.altKey && this.system.powerLevel?.value != undefined) {
-      lvl += 1;
-      overrides['name'] = this.name + ' (+1)';
+
+    // Only show the dialog if the item has a power level defined.
+    if (this.system.powerLevel?.value == undefined) {
+      overrides['system.powerLevel.value'] = baseLvl;
+      return { overrides, consumeUsage: true };
     }
-    overrides['system.powerLevel.value'] = lvl;
-    return overrides;
+
+    const hasUses = this.system.quantity?.value != null;
+    const usesLeft = this.system.quantity?.value ?? 0;
+    const hasResources = !!this.system.resources?.value;
+    const resourcesStr = this.system.resources?.value ?? "";
+
+    // Collect levels that have a spellLevelN entry with content.
+    const spellLevels = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+      .filter(n => this.system[`spellLevel${n}`]?.value);
+    const hasSpellLevels = spellLevels.length > 0;
+
+    const content = `
+      <form>
+        ${hasUses ? `
+        <div class="form-group">
+          <label>
+            ${game.i18n.localize("ARCHMAGE.CHAT.consumeUsage")}
+            ${usesLeft <= 0 ? `<i class="fas fa-triangle-exclamation" data-tooltip="${game.i18n.localize("ARCHMAGE.CHAT.NoUses")}"></i>` : ""}
+          </label>
+          <input type="checkbox" name="consumeUsage" checked/>
+        </div>` : ""}
+        ${hasResources ? `
+        <div class="form-group">
+          <label>
+            ${game.i18n.localize("ARCHMAGE.CHAT.consumeResources")}
+            <i class="fas fa-circle-info" data-tooltip="${resourcesStr.replace(/"/g, "&quot;")}"></i>
+          </label>
+          <input type="checkbox" name="consumeResources" checked/>
+        </div>` : ""}
+      </form>`;
+
+    return new Promise(resolve => {
+      let resolved = false;
+      const makeCallback = lvl => (event, button) => {
+        const form = button.form;
+        const finalLvl = lvl ?? (hasSpellLevels ? Number(form.level.value) : baseLvl);
+        const consume = hasUses ? form.consumeUsage.checked : true;
+        const consumeRes = hasResources ? form.consumeResources.checked : true;
+        overrides['system.powerLevel.value'] = finalLvl;
+        resolved = true;
+        resolve({ overrides, consumeUsage: consume, consumeResources: consumeRes });
+      };
+
+      let buttons;
+      if (hasSpellLevels) {
+        const allOdd = spellLevels.every(n => n % 2 === 1);
+        const floorLevel = Math.max(1, spellLevels[0] - (allOdd ? 2 : 1));
+        const allLevels = [...new Set([...spellLevels, floorLevel, baseLvl])].sort((a, b) => a - b);
+        buttons = allLevels.map(n => ({
+          action: `level${n}`,
+          label: `${n}`,
+          icon: n === baseLvl ? "fas fa-circle-dot" : undefined,
+          default: n === baseLvl,
+          callback: makeCallback(n)
+        }));
+      } else {
+        buttons = [{
+          action: "normal",
+          label: game.i18n.localize("ARCHMAGE.CHAT.powerRollUse"),
+          default: true,
+          callback: makeCallback(null)
+        }];
+      }
+
+      new foundry.applications.api.DialogV2({
+        window: { title: `${game.i18n.localize("ARCHMAGE.CHAT.powerRollTitle")}: ${this.name}` },
+        content,
+        buttons,
+        close: () => { if (!resolved) resolve(null); }
+      }).render({ force: true });
+    });
   }
 
-  async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode) {
+  async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode, consumeResources = true) {
     // Updates resources if field is set
     let resStr = this.system.resources?.value;
     if (!resStr) return false;
 
     // Exit early with no actor.
     if (!this.actor) return false;
+
+    // Respect the consume-resources choice from the power roll dialog.
+    if (!consumeResources) return false;
 
     let resources = resStr.split(",").map(item => item.trim());
     let res = this.actor.system.resources;
