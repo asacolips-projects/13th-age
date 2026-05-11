@@ -280,12 +280,6 @@ export class ItemArchmage extends Item {
       baseLvl = Math.max(this.itemActor.system.attributes.level.value, baseLvl);
     }
 
-    // Only show the dialog if the item has a power level defined and alt is held.
-    if (this.system.powerLevel?.value == undefined || !event?.altKey) {
-      overrides['system.powerLevel.value'] = baseLvl;
-      return { overrides, consumeUsage: true, consumeResources: true };
-    }
-
     const hasUses = this.system.quantity?.value != null;
     const usesLeft = this.system.quantity?.value ?? 0;
     const hasResources = !!this.system.resources?.value;
@@ -296,8 +290,8 @@ export class ItemArchmage extends Item {
       .filter(n => this.system[`spellLevel${n}`]?.value);
     const hasSpellLevels = spellLevels.length > 0;
 
-    // Nothing to show — skip the dialog entirely.
-    if (!hasSpellLevels && !hasUses && !hasResources) {
+    // Skip the dialog if alt isn't held, or there's nothing for it to display.
+    if (!event?.altKey || (!hasSpellLevels && !hasUses && !hasResources)) {
       overrides['system.powerLevel.value'] = baseLvl;
       return { overrides, consumeUsage: true, consumeResources: true };
     }
