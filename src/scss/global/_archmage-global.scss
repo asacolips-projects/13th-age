@@ -228,6 +228,13 @@ option[selected] {
   background: $c-power-other;
 }
 
+.power-modified {
+  font-size: 0.75em;
+  font-weight: normal;
+  font-style: italic;
+  opacity: 0.8;
+}
+
 // Actor Sheet
 
 .archmage {

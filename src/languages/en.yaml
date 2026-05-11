@@ -842,6 +842,10 @@ ARCHMAGE:
     powerRollUse: Use
     consumeUsage: Consume Usage
     consumeResources: Consume Resources
+    modified: (modified)
+    modifiedLevel: "Level {level}"
+    modifiedNoUsage: usage not consumed
+    modifiedNoResources: resources not consumed
     powerSource: Power Source
     powerSourceName: Source Name
     powerSourcePlaceholder: Wizard

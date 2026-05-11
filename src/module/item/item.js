@@ -83,7 +83,7 @@ export class ItemArchmage extends Item {
     let token = this._rollGetToken(itemToRender);
 
     // Render the chat card.
-    let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token);
+    let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token, { tempOverrides, consumeUsage, consumeResources });
 
     // Evaluate outcomes and prepare animations.
     let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {
@@ -654,15 +654,28 @@ export class ItemArchmage extends Item {
     return use;
   }
 
-  async _rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token) {
+  async _rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token, rollContext = {}) {
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
+
+    // Build a list of human-readable override descriptions for the "(modified)" tooltip.
+    const modifiedParts = [];
+    const { tempOverrides = {}, consumeUsage = true, consumeResources = true } = rollContext;
+    const origLvl = this.system.powerLevel?.value;
+    const newLvl = tempOverrides['system.powerLevel.value'];
+    if (newLvl !== undefined && newLvl !== origLvl) {
+      modifiedParts.push(game.i18n.format("ARCHMAGE.CHAT.modifiedLevel", { level: newLvl }));
+    }
+    if (!consumeUsage) modifiedParts.push(game.i18n.localize("ARCHMAGE.CHAT.modifiedNoUsage"));
+    if (!consumeResources) modifiedParts.push(game.i18n.localize("ARCHMAGE.CHAT.modifiedNoResources"));
+
     const templateData = {
       actor: this.itemActor,
       tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: itemToRender,
       data: await itemToRender.getChatData({ rollData: rollData }, true),
-      usageClass: this._getUsageClass(itemToRender)
+      usageClass: this._getUsageClass(itemToRender),
+      modifiedTooltip: modifiedParts.length ? modifiedParts.join(", ") : null
     };
 
     // Basic chat message data
