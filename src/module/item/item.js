@@ -280,10 +280,10 @@ export class ItemArchmage extends Item {
       baseLvl = Math.max(this.itemActor.system.attributes.level.value, baseLvl);
     }
 
-    // Only show the dialog if the item has a power level defined.
-    if (this.system.powerLevel?.value == undefined) {
+    // Only show the dialog if the item has a power level defined and alt is held.
+    if (this.system.powerLevel?.value == undefined || !event?.altKey) {
       overrides['system.powerLevel.value'] = baseLvl;
-      return { overrides, consumeUsage: true };
+      return { overrides, consumeUsage: true, consumeResources: true };
     }
 
     const hasUses = this.system.quantity?.value != null;
