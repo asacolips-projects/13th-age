@@ -837,6 +837,15 @@ ARCHMAGE:
     hasUnknown: The following Effects with an <strong>unknown duration</strong> are currently active on this Actor
     powerLevel: Level
     powerLevelTitle: Adjusting the power level will affect which level effects get sent to chat.
+    powerRollLevel: Level
+    powerRollTitle: Use Power
+    powerRollUse: Use
+    consumeUsage: Consume Usage
+    consumeResources: Consume Resources
+    modified: (modified)
+    modifiedLevel: "Level {level}"
+    modifiedNoUsage: usage not consumed
+    modifiedNoResources: resources not consumed
     powerSource: Power Source
     powerSourceName: Source Name
     powerSourcePlaceholder: Wizard
