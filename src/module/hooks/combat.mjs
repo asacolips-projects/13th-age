@@ -305,7 +305,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
 
 async function executeLifecycleMacro(combatant, hookName) {
     // If this isn't the actor's player, emit a socket request for that player to execute the hook
-    if (game.user?.character?.id !== combatant.actor.id) {
+    if (game.user?.character?.id !== combatant.actor?.id) {
         return game.socket.emit('system.archmage', {
             type: 'actorLifecycleHook',
             actorId: combatant.actor.id,
