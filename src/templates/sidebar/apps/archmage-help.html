@@ -17,7 +17,7 @@
       </li>
     </ol>
 
-    <h3>Ability Modifiers (x1 Adventurer, x2 Champion, x3/x4 Epic 1e/2e)</h3>
+    <h3>Damage bonus from ability mod (x1 Adventurer, x2 Champion, x3/x4 Epic 1e/2e)</h3>
     <ol class="hotkey-list">
       <li>
         <div class="keys">
@@ -44,11 +44,7 @@
         <div class="keys"><span class="key">@lvl</span></div>
       </li>
       <li>
-        <h4>Level Dice (scales differently from level in 2e)</h4>
-        <div class="keys"><span class="key">@lvldice</span></div>
-      </li>
-      <li>
-        <h4>Initiative</h4>
+        <h4>Initiative bonus</h4>
         <div class="keys"><span class="key">@init</span></div>
       </li>
       <li>
@@ -62,6 +58,37 @@
       <li>
         <h4>Tier multiplier (x1 Adventurer, x2 Champion, x3/x4 Epic 1e/2e)</h4>
         <div class="keys"><span class="key">@tierMult</span></div>
+      </li>
+      <li>
+        <h4>HP and recoveries</h4>
+        <div class="keys">
+          <span class="key">@hp.value</span>
+          <span class="key">@hp.max</span>
+          <span class="key">@hp.temp</span>
+          <span class="key">@recoveries.value</span>
+          <span class="key">@recoveries.max</span>
+          <span class="key">@recoveries.dice</span>
+          <span class="key">@recoveries.formula</span>
+          <span class="key">@recoveries.avg</span>
+        </div>
+      </li>
+      <li>
+        <h4>Defenses</h4>
+          <div class="keys">
+          <span class="key">@ac.value</span>
+          <span class="key">@pd.value</span>
+          <span class="key">@md.value</span>
+        </div>
+      </li>
+      <li>
+        <h4>Dying and saves</h4>
+        <div class="keys">
+          <span class="key">@skulls</span>
+          <span class="key">@saves.bonus</span>
+          <span class="key">@saves.disengageBonus</span>
+          <span class="key">@saves.deathFails.value</span>
+          <span class="key">@saves.lastGaspFails.value</span>
+        </div>
       </li>
     </ol>
 
@@ -128,7 +155,7 @@
     <p>Weapons are broken down into melee (<span class="key">@wpn.m</span>), ranged (<span class="key">@wpn.r</span>), JAB (<span class="key">@wpn.j</span>), PUNCH (<span class="key">@wpn.p</span>), and KICK (<span class="key">@wpn.k</span>). JAB, PUNCH, and KICK are intended for monks, and will default to the monk damage die (d6, d8, d10, respectively).</p>
     <ol class="hotkey-list">
       <li>
-        <h4>Weapon Damage Die (single)</h4>
+        <h4>Weapon Damage Die (single, example: <code>1d10</code>)</h4>
         <div class="keys">
           <span class="key">@wpn.m.die</span>
           <span class="key">@wpn.r.die</span>
@@ -138,13 +165,29 @@
         </div>
       </li>
       <li>
-        <h4>Weapon Damage Dice (per level)</h4>
+        <h4>Weapon Damage Dice (per level, example: <code>3d6</code>)</h4>
         <div class="keys">
           <span class="key">@wpn.m.dice</span>
           <span class="key">@wpn.r.dice</span>
           <span class="key">@wpn.j.dice</span>
           <span class="key">@wpn.p.dice</span>
           <span class="key">@wpn.k.dice</span>
+        </div>
+      </li>
+      <li>
+        <h4>Weapon Damage die size (example: <code>8</code>)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.dieNum</span>
+          <span class="key">@wpn.r.dieNum</span>
+          <span class="key">@wpn.j.dieNum</span>
+          <span class="key">@wpn.p.dieNum</span>
+          <span class="key">@wpn.k.dieNum</span>
+        </div>
+      </li>
+      <li>
+        <h4>Epic damage bonus (+5/10/15 for levels 8-10)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.epicBonus</span>
         </div>
       </li>
     </ol>

@@ -82,22 +82,22 @@ export default {
     };
     function getChanges(effect) {
       let changes = [];
-      let modes = [
-        'question',
-        'times',
-        'plus',
-        "minus",
-        'angle-double-down',
-        'angle-double-up',
-        'undo'
-      ]
+      let modes = {
+        'custom': 'question',
+        'multiply': 'times',
+        'add': 'plus',
+        'subtract': 'minus',
+        'downgrade': 'angle-double-down',
+        'upgrade': 'angle-double-up',
+        'override': 'undo'
+      }
       effect.changes.forEach(c => {
         if (c.key && c.value) {
           const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
           let change = {
             name: label,
             img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-            mode: modes[c.mode],
+            mode: modes[c.type],
             value: c.value
           };
           if (change.mode === "plus" && change.value < 0) {

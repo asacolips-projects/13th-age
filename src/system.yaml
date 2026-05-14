@@ -14,9 +14,9 @@ authors:
 description: The official 13th Age system for Foundry Virtual Tabletop.
 
 compatibility:
-  minimum: "13"
-  verified: "13.351"
-  maximum: "13"
+  minimum: "14"
+  verified: "14.360"
+  maximum: "14"
 
 esmodules:
   - module/archmage.js
