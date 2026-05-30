@@ -657,7 +657,7 @@ export class ActorArchmage extends Actor {
     }
     let formulaDice = (recoveryDice * (Number(recoveryDie[1]) || 1)).toString() + "d" + recoveryDie[2];
     let formulaConst = data.abilities.con.nonKey.dmg;
-    recoveryAvg = Math.floor(recoveryDice * recoveryAvg);
+    recoveryAvg = Math.round(recoveryDice * recoveryAvg);
 
     if (flags.archmage?.strongRecovery) {
       // Handle Strong Recovery special case
