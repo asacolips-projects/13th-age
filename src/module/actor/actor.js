@@ -1263,7 +1263,7 @@ export class ActorArchmage extends Actor {
 
     // Half healing for recoveries we do NOT have
     if (Number(totalRecoveries) <= 0 && !data.free) {
-      formula = `floor((${formula})/2)`;
+      formula = `round((${formula})/2)`;
     }
 
     // If max is set, handle it
@@ -2122,7 +2122,7 @@ export class ActorArchmage extends Actor {
       let newRec = data.system.attributes.recoveries.value;
       if (newRec < 0) {
         const effectData = {
-          label: negRecoveryLabel,
+          name: negRecoveryLabel,
           icon: "icons/svg/down.svg",
           changes: [
             {key: "system.attributes.ac.value",value: newRec, type: "add"},
