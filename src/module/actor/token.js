@@ -30,8 +30,8 @@ export class TokenArchmage extends foundry.canvas.placeables.Token {
     let displayMax = max + (tempmax > 0 ? tempmax : 0);
 
     // Allocate percentages of the total
-    const tempPct = Math.clamped(temp, 0, displayMax) / displayMax;
-    const colorPct = Math.clamped(value, 0, effectiveMax) / displayMax;
+    const tempPct = Math.clamp(temp, 0, displayMax) / displayMax;
+    const colorPct = Math.clamp(value, 0, effectiveMax) / displayMax;
     const hpColor = this._getHPColor(value, effectiveMax);
 
     // Determine colors to use
@@ -42,7 +42,7 @@ export class TokenArchmage extends foundry.canvas.placeables.Token {
     const w = this.w;
     let h = Math.max((canvas.dimensions.size / 12), 8);
     if ( this.document.height >= 2 ) h *= 1.6;
-    const bs = Math.clamped(h / 8, 1, 2);
+    const bs = Math.clamp(h / 8, 1, 2);
     const bs1 = bs+1;
 
     // Overall bar container
@@ -81,7 +81,7 @@ export class TokenArchmage extends foundry.canvas.placeables.Token {
    * @returns {Color}               The color used to represent the HP percentage
    */
   _getHPColor(current, max) {
-    const pct = Math.clamped(current, 0, max) / max;
+    const pct = Math.clamp(current, 0, max) / max;
     return Color.fromRGB([(1-(pct/2)), pct, 0]);
   }
 }

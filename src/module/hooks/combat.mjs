@@ -65,8 +65,8 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
             // Ensure it's the *next* turn
-            if (combat.round  > effect.duration.startRound
-            || (combat.round == effect.duration.startRound && combat.turn > effect.duration.startTurn)) {
+            if (combat.round  > effect.start.round
+            || (combat.round == effect.start.round && combat.turn > effect.start.turn)) {
                 currentCombatantEffectData.selfEnded.push(effect);
                 effectsToDelete.push(effect.id);
             }
@@ -305,7 +305,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
 
 async function executeLifecycleMacro(combatant, hookName) {
     // If this isn't the actor's player, emit a socket request for that player to execute the hook
-    if (game.user?.character?.id !== combatant.actor.id) {
+    if (game.user?.character?.id !== combatant.actor?.id) {
         return game.socket.emit('system.archmage', {
             type: 'actorLifecycleHook',
             actorId: combatant.actor.id,

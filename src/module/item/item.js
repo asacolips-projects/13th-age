@@ -685,8 +685,8 @@ export class ItemArchmage extends Item {
     };
 
     // Toggle default roll mode
-    let rollMode = game.settings.get("core", "rollMode");
-    chatData = ChatMessage.applyRollMode(chatData, rollMode);
+    let messageMode = game.settings.get("core", "messageMode");
+    chatData = ChatMessage.applyMode(chatData, messageMode);
 
     // Render the template
     chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
@@ -805,7 +805,7 @@ export class ItemArchmage extends Item {
       changes: [{
         key: "system.attributes.ac.value",
         value: bonusMagnitude,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+        type: "add"
       }]
     }
     MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
