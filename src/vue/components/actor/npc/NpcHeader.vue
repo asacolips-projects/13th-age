@@ -375,7 +375,7 @@
     .editor-wrapper {
       min-height: 0;
     }
-    :deep(.editor-content) {
+    .editor-content {
       padding: 0;
       background: transparent;
     }

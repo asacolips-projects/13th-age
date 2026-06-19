@@ -4,8 +4,8 @@ To compile the components, run the following from the root directory of this rep
 
 ```bash
 npm install
-npm run build # or `npm run vite:build` for just vue components
-npm run watch # or `npm run vite:watch` for just vue components
+npm run build
+npm run dev
 ```
 
 ## Organization

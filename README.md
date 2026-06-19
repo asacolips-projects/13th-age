@@ -20,9 +20,9 @@ Contributions are accepted and encouraged! To contribute to the project, fork th
 
 ## Building locally
 
-This project uses **gulp** for the majority of its build tasks, but it also uses **vite** to compile its Vue components for usage in character sheets. Source files are located in the `src/` directory and are compiled to the `dist/` directory. To use the locally built system in Foundry, symlink your `dist/` directory to `systems/archmage` in your Foundry data directory.
+This project uses **Vite** for all build tasks, including Vue component compilation, SCSS, YAML manifests, asset copying, and compendium pack compilation. Source files are located in the `src/` directory and are compiled to the `dist/` directory. To use the locally built system in Foundry, symlink your `dist/` directory to `systems/archmage` in your Foundry data directory.
 
-To run a build, you'll need node 16 installed. Once you have node and npm, install the project
+To run a build, you'll need Node 20 or later installed. Once you have node and npm, install the project
 dependencies:
 
 ```
@@ -31,10 +31,12 @@ npm install
 The following commands can be used for various versions of build tasks:
 
 ```bash
-# One time build
+# One time build (includes compendium packs)
 npm run build
+# Production build (includes compendium packs)
+npm run build:prod
 # Watch for changes and build automatically
-npm run watch
+npm run dev
 # Compile CSS only
 npm run css
 # Compile manifests and language files only
@@ -43,10 +45,6 @@ npm run yaml
 npm run compilePacks
 # Extract compendium databases to yaml files
 npm run extractPacks
-# Compile vue components only
-npm run vite:build
-# Watch for changes in vue only
-npm run vite:watch
 ```
 
 ## Working with compendia

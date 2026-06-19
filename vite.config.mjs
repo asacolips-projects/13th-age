@@ -1,52 +1,61 @@
-import path, { resolve } from 'path'
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import path from 'node:path';
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { foundrySystemBuild } from './vite/plugins/foundry-system-build.mjs';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@/': `${path.resolve(__dirname, 'src/vue')}/`,
-      '@src/': `${path.resolve(__dirname, 'src')}/`,
-    }
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "src/scss/v2/_init.scss";'
-      }
-    },
-  },
-  build: {
-    sourcemap: true,
-    outDir: './dist/vue',
-    lib: {
-      entry: path.resolve(__dirname, 'src/vue/index.js'),
-      name: 'v3ArchmageVueComponents',
-      formats: ['es'], // also supports 'umd'
-      fileName: (format) => `components.vue.${format}.js`,
-    },
-    rollupOptions: {
-      external: [
-        'vue',
-      ],
-      output: {
-        // Provide global variables to use in the UMD build
-        // Add external deps here
-        globals: {
-          vue: 'Vue',
-        },
-        // Map the external dependency to a local copy of Vue 3 esm.
-        paths: {
-          vue: `../scripts/lib/vue.esm-browser.js`
-        },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name == 'style.css')
-            return `styles.vue.css`;
-          return assetInfo.name;
-        }
+const ROOT = import.meta.dirname;
+const SCSS_LOAD_PATHS = [
+  path.resolve(ROOT, 'src/scss'),
+  path.resolve(ROOT, 'src/scss/v2'),
+];
+const SCSS_INIT = path.resolve(ROOT, 'src/scss/v2/_init.scss').replace(/\\/g, '/');
+
+export default defineConfig(({ mode }) => {
+  const prod = mode === 'production';
+  const packs = process.env.BUILD_PACKS === '1';
+
+  return {
+    plugins: [
+      vue(),
+      foundrySystemBuild({ prod, packs }),
+    ],
+    resolve: {
+      alias: {
+        '@/': `${path.resolve(ROOT, 'src/vue')}/`,
+        '@src/': `${path.resolve(ROOT, 'src')}/`,
       },
     },
-  }
+    css: {
+      preprocessorOptions: {
+        scss: {
+          loadPaths: SCSS_LOAD_PATHS,
+          additionalData: `@import "${SCSS_INIT}";`,
+        },
+      },
+    },
+    build: {
+      sourcemap: true,
+      outDir: './dist/vue',
+      lib: {
+        entry: path.resolve(ROOT, 'src/vue/index.js'),
+        name: 'v3ArchmageVueComponents',
+        formats: ['es'],
+        fileName: (format) => `components.vue.${format}.js`,
+        cssFileName: 'styles.vue',
+      },
+      rollupOptions: {
+        external: ['vue'],
+        output: {
+          globals: {
+            vue: 'Vue',
+          },
+          paths: {
+            vue: prod
+              ? '../scripts/lib/vue.esm-browser.prod.js'
+              : '../scripts/lib/vue.esm-browser.js',
+          },
+        },
+      },
+    },
+  };
 });
