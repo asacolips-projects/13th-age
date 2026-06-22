@@ -223,7 +223,7 @@ ARCHMAGE:
       general: General
     automateBaseStatsFromClassHint: Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).
     automateBaseStatsFromClassName: Automatically compute base stats
-    automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
+    automateHPConditionsHint: If enabled, the Staggered, Dead and Unconscious conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
     automateHPConditionsName: Auto-manage Dead and Staggered
     ColorblindHint: Change the colors of the power cards to a more accessibile color palette.
     ColorblindName: Enable Colorblind Accessibility Mode
@@ -271,8 +271,8 @@ ARCHMAGE:
     showNaturalRollsName: Show natural d20 rolls in chat
     showVulnsInChatHint: Detects when an attack target is vulnerable (and to what type of attacks). This will reveal monsters' vulnerabilities to players.
     showVulnsInChatName: Show target(s) vulnerabilities in chat
-    staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
-    staggeredOverlayName: Staggered as overlay
+    staggeredOverlayHint: If enabled the Staggered, Dead and Uncoscious conditions will be automatically applied as a token overlays instead of a normal icons.
+    staggeredOverlayName: Staggered/Dead/Uncoscious as overlay
     sheetTooltipsHint: Adds tooltips to sheets containing relevant SRD rules and tips. May be most useful when first learning the system or for the GM who only references player sheets occasionally. Client setting.
     sheetTooltipsName: Sheet tooltips
     showPrivateGMAttackRollsHint: Shows 3D dice and their result for item/attack rolls to players when the GM's roll mode it set to "Private GM roll". Only the dice are shown, not the chat cards. Dice rolls may be useful to know for players (in cases such as the Fighter's Counter-Attack).
