@@ -227,7 +227,7 @@ watch(viewModel, async (newModel) => {
 
 	ae.changes = newChanges.filter(c => c.value !== null)
 	effect.value.changes = ae.changes
-	return foundryEffect.update(ae)
+	return foundryEffect.update({ "changes": newChanges })
 }, { deep: true });
 
 </script>
