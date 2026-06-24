@@ -637,7 +637,7 @@ export class MacroUtils {
    */
   static setDuration(data, duration, options={}) {
     // Assign by level to avoid weird issues with str path accessor
-    if (!data.flags?.archmage?.duration) data.flags = {archmage: {duration: "Unknown"}};
+    if (!data.flags?.archmage?.duration) data.flags = data.flags ? foundry.utils.mergeObject(data.flags, {archmage: {duration: "Unknown"}}) : {archmage: {duration: "Unknown"}};
     switch(duration) {
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn:
       case "StartOfNextTurn":
@@ -698,13 +698,9 @@ export class MacroUtils {
         console.warn("Unknown duration ", duration);
     }
     // Set Foundry core duration to make the thing appear on tokens
-    if (data.flags.archmage.duration != "Infinite") {
-        data['duration'] = {
-          rounds: 999,
-          turns: 999
-        }
+    if (data.flags.archmage.duration != "Infinite" || options.showIcon ) {
+        data.showIcon = 2; // Always
     }
-
     return data;
   }
 
