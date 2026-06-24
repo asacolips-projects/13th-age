@@ -201,7 +201,7 @@ watch(viewModel, async (newModel) => {
 		newChanges.push({
 			key: fKey,
 			value: value,
-			mode: "add"
+			type: "add"
 		})
 
 		// melee.dice also applies to monk weapons
@@ -210,7 +210,7 @@ watch(viewModel, async (newModel) => {
 				newChanges.push({
 					key: fKey.replace("melee", k),
 					value: value,
-					mode: "add"
+					type: "add"
 				});
 			});
 		}
@@ -220,14 +220,14 @@ watch(viewModel, async (newModel) => {
 	if (newModel.edBlocked) {
 		newChanges.push({
 			key: 'system.attributes.escalation.value',
-			mode: "override",
+			type: "override",
 			value: '0'
 		});
 	}
 
 	ae.changes = newChanges.filter(c => c.value !== null)
-	effect.changes = ae.changes
-	return foundryEffect.update(ae)
+	effect.value.changes = ae.changes
+	return foundryEffect.update({ "changes": newChanges })
 }, { deep: true });
 
 </script>

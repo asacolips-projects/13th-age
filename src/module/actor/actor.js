@@ -1795,16 +1795,16 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  async _updateHpCondition(data, id, thres, maxHp, label) {
+  async _updateHpCondition(data, id, thres, maxHp, label, overlay) {
     let filtered = this.effects.filter(x => x.name === label);
     filtered = filtered.map(e => e.id);
     if (filtered.length == 0 && data.system.attributes.hp.value/maxHp <= thres) {
         let effectData = CONFIG.statusEffects.find(x => x.id == id);
         let createData = foundry.utils.deepClone(effectData);
         createData.name = game.i18n.localize(effectData.name);
-        createData["flags.core.overlay"] = true;
+        if (overlay) createData.flags = {"core": {"overlay": overlay}};
         createData.statuses = [createData.id];
-        MacroUtils.setDuration(createData, CONFIG.ARCHMAGE.effectDurationTypes.Infinite)
+        MacroUtils.setDuration(createData, CONFIG.ARCHMAGE.effectDurationTypes.Infinite, {showIcon: true});
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});
@@ -2044,14 +2044,17 @@ export class ActorArchmage extends Actor {
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
         // Staggered
         await this._updateHpCondition(data, "staggered", 0.5, maxHp,
-          game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
+          game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"),
+          game.settings.get('archmage', 'staggeredOverlay'));
         // Dead / Unconscious
         if (this.type == 'npc'){
           await this._updateHpCondition(data, "dead", 0, maxHp,
-            game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+            game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"),
+          game.settings.get('archmage', 'staggeredOverlay'));
         } else {
           await this._updateHpCondition(data, "unconscious", 0, maxHp,
-            game.i18n.localize("ARCHMAGE.EFFECT.StatusUnconscious"));
+            game.i18n.localize("ARCHMAGE.EFFECT.StatusUnconscious"),
+          game.settings.get('archmage', 'staggeredOverlay'));
         }
       }
 
