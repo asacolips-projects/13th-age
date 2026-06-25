@@ -63,7 +63,8 @@ export async function baselineMonsterDialog () {
               value: `[[d20+${baselineMonsterStats.attackBonuses[level]}]] vs. AC`
             },
             hit: { value: `[[${stats.damage[level]}]] damage` }
-          }
+          },
+          img: 'icons/svg/target.svg'
         }
       ])
       if (stats.damageSecondary) {
@@ -76,7 +77,8 @@ export async function baselineMonsterDialog () {
                 value: `[[d20+${baselineMonsterStats.attackBonuses[level]}]] vs. AC`
               },
               hit: { value: `[[${stats.damageSecondary[level]}]] damage` }
-            }
+            },
+            img: 'icons/svg/target.svg'
           }
         ])
       }
