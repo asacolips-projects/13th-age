@@ -35,6 +35,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       sourcemap: true,
+      minify: prod,
       outDir: './dist/vue',
       lib: {
         entry: path.resolve(ROOT, 'src/vue/index.js'),
