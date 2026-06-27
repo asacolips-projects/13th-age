@@ -92,7 +92,7 @@ export default {
         'override': 'undo'
       }
       effect.changes.forEach(c => {
-        if (c.key && c.value) {
+        if (c.key && c.value != null) {
           const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
           let change = {
             name: label,
