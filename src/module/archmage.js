@@ -639,6 +639,9 @@ Hooks.once('init', async function() {
     return this.actor?.getInitiativeFormula() ?? "1d20";
   };
 
+  // Hide ruler distance labels — 13th Age uses abstract movement where distances are irrelevant.
+  CONFIG.Token.rulerClass.WAYPOINT_LABEL_TEMPLATE = "";
+
   ArchmageUtility.fixVuePopoutBug();
 });
 
