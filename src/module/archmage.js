@@ -576,6 +576,15 @@ Hooks.once('init', async function() {
     requiresReload: true
   });
 
+  game.settings.register('archmage', 'disableMovementTrails', {
+    name: "ARCHMAGE.SETTINGS.disableMovementTrailsName",
+    hint: "ARCHMAGE.SETTINGS.disableMovementTrailsHint",
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+  });
+
   game.settings.register('archmage', 'allowPasteParsing', {
     name: "ARCHMAGE.SETTINGS.allowPasteParsingName",
     hint: "ARCHMAGE.SETTINGS.allowPasteParsingHint",
@@ -638,6 +647,9 @@ Hooks.once('init', async function() {
   Combatant.prototype._getInitiativeFormula = function() {
     return this.actor?.getInitiativeFormula() ?? "1d20";
   };
+
+  // Hide ruler distance labels — 13th Age uses abstract movement where distances are irrelevant.
+  CONFIG.Token.rulerClass.WAYPOINT_LABEL_TEMPLATE = "";
 
   ArchmageUtility.fixVuePopoutBug();
 });
@@ -1030,6 +1042,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.general',
       settings: [
+        "disableMovementTrails",
         'allowPasteParsing',
         'initiativeDexTiebreaker',
         'initiativeStaticNpc',
@@ -1037,6 +1050,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'tourVisibility',
       ],
       highlights: [
+        "disableMovementTrails",
       ],
     }
   ];
@@ -1248,6 +1262,15 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
       data.height = 3;
       data.width = 3;
     }
+  }
+});
+
+/* -------------------------------------------- */
+
+Hooks.on("updateToken", (tokenDoc, changes, options, userId) => {
+  if (!game.settings.get('archmage', 'disableMovementTrails')) return;
+  if ("x" in changes || "y" in changes) {
+    tokenDoc.clearMovementHistory?.();
   }
 });
 
