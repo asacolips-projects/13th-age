@@ -1297,7 +1297,7 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     const gridSize = canvas.scene.grid.size;
     // Get the set of targeted tokens
     const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
-      if (!t.visible) return false;
+      if (t.hidden || !t.isOwner) return false;
       return (t.x <= x
           && (t.x + t.width * gridSize) >= x
           && t.y <= y
