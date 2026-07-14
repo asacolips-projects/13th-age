@@ -225,6 +225,8 @@ ARCHMAGE:
     automateBaseStatsFromClassName: Automatically compute base stats
     automateHPConditionsHint: If enabled, the Staggered, Dead and Unconscious conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
     automateHPConditionsName: Auto-manage Dead and Staggered
+    disableMovementDistancesHint: Removes the distance labels when dragging tokens.
+    disableMovementDistancesName: Disable Movement Distances
     disableMovementTrailsHint: Clears movement history trails immediately after a token is dropped. Disable to allow Foundry's default persistent trail behavior.
     disableMovementTrailsName: Disable Movement Trails
     ColorblindHint: Change the colors of the power cards to a more accessibile color palette.
