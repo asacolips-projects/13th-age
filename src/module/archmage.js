@@ -576,6 +576,16 @@ Hooks.once('init', async function() {
     requiresReload: true
   });
 
+  game.settings.register('archmage', 'disableMovementDistances', {
+    name: "ARCHMAGE.SETTINGS.disableMovementDistancesName",
+    hint: "ARCHMAGE.SETTINGS.disableMovementDistancesHint",
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean,
+    requiresReload: true
+  });
+
   game.settings.register('archmage', 'disableMovementTrails', {
     name: "ARCHMAGE.SETTINGS.disableMovementTrailsName",
     hint: "ARCHMAGE.SETTINGS.disableMovementTrailsHint",
@@ -648,9 +658,6 @@ Hooks.once('init', async function() {
     return this.actor?.getInitiativeFormula() ?? "1d20";
   };
 
-  // Hide ruler distance labels — 13th Age uses abstract movement where distances are irrelevant.
-  CONFIG.Token.rulerClass.WAYPOINT_LABEL_TEMPLATE = "";
-
   ArchmageUtility.fixVuePopoutBug();
 });
 
@@ -671,6 +678,11 @@ Hooks.on('ready', () => {
           ]
       })
   );
+
+  // Optionally Hide ruler distance labels — 13th Age uses abstract movement where distances are irrelevant.
+  if (game.settings.get('archmage', 'disableMovementDistances')) {
+    CONFIG.Token.rulerClass.WAYPOINT_LABEL_TEMPLATE = "";
+  }
 });
 
 Hooks.on('setup', (data, options, id) => {
@@ -994,9 +1006,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.edition',
       settings: ['secondEdition', 'alternateIconRollingMethod'],
-      highlights: [
-        'alternateIconRollingMethod',
-      ],
+      highlights: [ ],
     },
     {
       label: 'ARCHMAGE.SETTINGS.groups.automation',
@@ -1042,6 +1052,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.general',
       settings: [
+        "disableMovementDistances",
         "disableMovementTrails",
         'allowPasteParsing',
         'initiativeDexTiebreaker',
@@ -1050,6 +1061,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'tourVisibility',
       ],
       highlights: [
+        "disableMovementDistances",
         "disableMovementTrails",
       ],
     }
