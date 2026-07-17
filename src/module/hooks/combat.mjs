@@ -298,7 +298,8 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
     const chatData = {
         user: game.user.id,
         speaker: ChatMessage.getSpeaker({actor: combatant?.actor}),
-        content: html
+        content: html,
+        flags: {core: {canPopout: true}}
     };
     ChatMessage.create(chatData, {});
 }
