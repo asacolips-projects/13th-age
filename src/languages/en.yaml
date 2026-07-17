@@ -223,8 +223,8 @@ ARCHMAGE:
       general: General
     automateBaseStatsFromClassHint: Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).
     automateBaseStatsFromClassName: Automatically compute base stats
-    automateHPConditionsHint: If enabled, the Staggered, Dead and Unconscious conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
-    automateHPConditionsName: Auto-manage Dead and Staggered
+    automateHPConditionsHint: If enabled, the Staggered, Dead and Unconscious conditions will be automatically applied and removed after hp changes. You can disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
+    automateHPConditionsName: Auto-manage Dead/Unconscious and Staggered
     disableMovementDistancesHint: Removes the distance labels when dragging tokens.
     disableMovementDistancesName: Disable Movement Distances
     disableMovementTrailsHint: Clears movement history trails immediately after a token is dropped. Disable to allow Foundry's default persistent trail behavior.
@@ -275,7 +275,7 @@ ARCHMAGE:
     showNaturalRollsName: Show natural d20 rolls in chat
     showVulnsInChatHint: Detects when an attack target is vulnerable (and to what type of attacks). This will reveal monsters' vulnerabilities to players.
     showVulnsInChatName: Show target(s) vulnerabilities in chat
-    staggeredOverlayHint: If enabled the Staggered, Dead and Uncoscious conditions will be automatically applied as a token overlays instead of a normal icons.
+    staggeredOverlayHint: If enabled the Staggered, Dead and Uncoscious conditions will be automatically applied as token overlays instead of normal icons.
     staggeredOverlayName: Staggered/Dead/Uncoscious as overlay
     sheetTooltipsHint: Adds tooltips to sheets containing relevant SRD rules and tips. May be most useful when first learning the system or for the GM who only references player sheets occasionally. Client setting.
     sheetTooltipsName: Sheet tooltips
