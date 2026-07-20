@@ -48,10 +48,11 @@ export class ArchmageUtility {
     }
 
     // Return early if there is nothing to wait on.
-    // Our own inline rolls are handled separately,
-    // so we only wait for roll messages or if default DSN inline rolls are used.
-    if ((!chatData.rolls || chatData.rolls.length == 0) &&
-        !game.settings.get("dice-so-nice", "animateInlineRoll")) {
+    // Static rolls can be valid Roll instances, but DSN has no dice to animate.
+    const hasDiceRolls = chatData.rolls?.some(roll => ArchmageUtility.rollHasDice(roll));
+    const hasInlineDiceRolls = game.settings.get("dice-so-nice", "animateInlineRoll")
+      && ArchmageUtility.contentHasInlineDiceRoll(chatData.content);
+    if (!hasDiceRolls && !hasInlineDiceRolls) {
       return await ChatMessage.create(chatData, context);
     }
 
@@ -65,7 +66,7 @@ export class ArchmageUtility {
 
   static async show3DDiceForRoll(roll, chatData = null,
                                  chatMsgID = null, user = null, sync = true) {
-    if (!roll || !game.dice3d) {
+    if (!roll || !game.dice3d || !ArchmageUtility.rollHasDice(roll)) {
       return;
     }
     if (user == null) {
@@ -84,6 +85,31 @@ export class ArchmageUtility {
               roll, game.user, sync, hide,
               chatData?.blind && !game.user.isGM,
               chatMsgID, chatData?.speaker);
+  }
+
+  static rollHasDice(roll) {
+    return roll?.dice?.length > 0
+      || roll?.terms?.some(term => term?.faces || term?.dice?.length > 0);
+  }
+
+  static contentHasInlineDiceRoll(content) {
+    if (typeof content !== "string" || !content.includes("inline-result")) {
+      return false;
+    }
+
+    const html = document.createElement("div");
+    html.innerHTML = content;
+    for (let element of html.querySelectorAll(".inline-result[data-roll]")) {
+      try {
+        const roll = Roll.fromJSON(unescape(element.dataset.roll));
+        if (ArchmageUtility.rollHasDice(roll)) {
+          return true;
+        }
+      } catch (err) {
+        console.warn("Archmage | Could not inspect inline roll for dice animation.", err);
+      }
+    }
+    return false;
   }
 
   /**
