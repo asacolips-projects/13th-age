@@ -9,7 +9,6 @@ command: |-
     ui.notifications.info("No character selected!");
     return;
   }
-  console.log(pc)
   const lvl = pc.system.attributes.level.value;
   if (lvl <= 4) name = "Chaotic Benefit (A)";
   else if (lvl <= 7) name = "Chaotic Benefit (C)";
