@@ -819,7 +819,7 @@ async function addEscalationDie() {
 /* -------------------------------------------- */
 
 Hooks.once('ready', async () => {
-  $(`<div class="archmage-hotbar faded-ui flexcol"></div>`).insertBefore('#players');
+  $(`<div class="archmage-hotbar faded-ui flexrow"></div>`).insertBefore('#players');
   await addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
