@@ -1300,7 +1300,7 @@ Hooks.on('dropActorSheetData', (actor, sheet, data) => {
 
 /* ---------------------------------------------- */
 
-Hooks.on('dropCanvasData', async (canvas, data) => {
+Hooks.on('dropCanvasData', (canvas, data) => {
 
   function findToken() {
     // Get the token at the drop point, if any
@@ -1332,9 +1332,17 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     }
     return token;
   }
+  const types = ['effect', 'ActiveEffect', 'condition', 'ongoing-damage'];
+  if (!types.includes(data.type)) return;
+
   const token = findToken();
   if (!token) return;
-  return await _applyAE(token.actor, data);
+  // Render the condition dialog and apply the effect.
+  _applyAE(token.actor, data);
+  // Return false to prevent Foundry from adding a duplicate effect. This hook
+  // must stay synchronous: an async handler returns a Promise, which Foundry
+  // reads as truthy and so does not cancel its own drop handling.
+  return false;
 });
 
 async function _applyAE(actor, data) {
