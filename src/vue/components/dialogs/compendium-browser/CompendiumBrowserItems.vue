@@ -16,10 +16,10 @@
     </div>
 
     <!-- Icons filter. -->
-    <!-- <div class="unit unit--input"> -->
-      <!-- <label class="unit-title" for="compendiumBrowser.itemIcons">{{ localize('ARCHMAGE.icon') }}</label> -->
-      <!-- <input type="text" name="compendiumBrowser.itemIcon" v-model="icon" placeholder="Archmage"/> -->
-    <!-- </div> -->
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.itemIcons">{{ localize('ARCHMAGE.ITEM.icon') }}</label>
+      <input type="text" name="compendiumBrowser.itemIcons" v-model="icons" :placeholder="localize('ARCHMAGE.ITEM.iconPlaceholder')"/>
+    </div>
 
     <!-- Chakra filter. -->
     <div class="unit unit--input">
@@ -213,6 +213,7 @@ export default {
       packIndex: [],
       // Filters.
       name: '',
+      icons: '',
       chakra: [],
       recharge: [],
       bonuses: [],
@@ -252,11 +253,14 @@ export default {
      resetFilters() {
       this.sortBy = 'name';
       this.name = '';
+      this.icons = '';
       this.chakra = [];
       this.recharge = [];
       this.bonuses = [];
       this.tier = [];
       this.powerUsage = [];
+      this.source = [];
+      this.location = [];
     },
     getBonuses(equipment) {
       let bonuses = {};
@@ -407,6 +411,12 @@ export default {
         result = result.filter(entry => entry.name.toLocaleLowerCase().includes(name));
       }
 
+      // Filter by associated icon.
+      if (this.icons && this.icons.length > 0) {
+        const icons = this.icons.toLocaleLowerCase();
+        result = result.filter(entry => (entry.system?.icons ?? '').toLocaleLowerCase().includes(icons));
+      }
+
       // Handle multiselect filters, which use arrays as their values.
       if (Array.isArray(this.chakra) && this.chakra.length > 0) {
         // @todo chakra is misspelled in our data model. We need to fix that :(
@@ -518,6 +528,7 @@ export default {
     // Load the pack index with the fields we need.
     getPackIndex(packIds, [
       'system.chackra',
+      'system.icons',
       'system.tier',
       'system.publicationSource',
       'system.recharge.value',
