@@ -70,6 +70,34 @@
     }
   }
 
+  // Group reordering affordances.
+  .power-group-title[draggable="true"] {
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  .power-group-grip {
+    font-size: $font-tiny;
+    margin-right: $padding-sm;
+    opacity: 0.35;
+  }
+
+  .power-group-title:hover .power-group-grip {
+    opacity: 1;
+  }
+
+  .power-group--dragging {
+    opacity: 0.5;
+  }
+
+  .power-group--drop-target > .power-group-header {
+    outline: 2px dashed;
+    outline-offset: 2px;
+  }
+
   .power-title {
     margin: 0;
     font-size: $font-xs;
