@@ -663,7 +663,8 @@ export class ItemArchmage extends Item {
     const { tempOverrides = {}, consumeUsage = true, consumeResources = true } = rollContext;
     const origLvl = this.system.powerLevel?.value;
     const newLvl = tempOverrides['system.powerLevel.value'];
-    if (newLvl !== undefined && newLvl !== origLvl) {
+    // tempOverrides will set the new level to 0 even when the power doesn't have a level set
+    if (newLvl !== undefined && newLvl !== "" && newLvl !== (origLvl || 0)) {
       modifiedParts.push(game.i18n.format("ARCHMAGE.CHAT.modifiedLevel", { level: newLvl }));
     }
     if (!consumeUsage) modifiedParts.push(game.i18n.localize("ARCHMAGE.CHAT.modifiedNoUsage"));

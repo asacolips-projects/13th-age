@@ -721,7 +721,7 @@ class ArchmageUpdateHandler {
         try {
           await item.update(this.prepareMigrateItemData(item));
         } catch (error) {
-          error.message = `Failed 13th Age system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
+          error.message = `Failed 13th Age system migration for item ${item.name} in compendium ${packLabel}: ${error.message}`;
           console.error(error);
         }
       };

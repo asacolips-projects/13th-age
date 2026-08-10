@@ -11,7 +11,8 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    jquery: true
+    jquery: true,
+    node: true,
   },
 
   extends: ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js/0.8.0"],
@@ -91,6 +92,7 @@ module.exports = {
     "no-octal-escape": "warn",
     "no-promise-executor-return": "warn",
     "no-proto": "warn",
+    "no-prototype-builtins": "off",
     "no-regex-spaces": "warn",
     "no-script-url": "warn",
     "no-self-assign": "warn",
