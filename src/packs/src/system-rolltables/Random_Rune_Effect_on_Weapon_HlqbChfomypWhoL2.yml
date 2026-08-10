@@ -1,5 +1,4 @@
 _id: HlqbChfomypWhoL2
-_key: '!tables!HlqbChfomypWhoL2'
 description: ''
 displayRoll: true
 flags: {}
@@ -11,66 +10,129 @@ ownership:
   default: 0
 replacement: true
 results:
-- _id: bJuCbDtePhhsemCO
-  _key: '!tables.results!HlqbChfomypWhoL2.bJuCbDtePhhsemCO'
-  description: +4 bonus to opportunity attacks
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 1
-  - 20
-  type: text
-  weight: 1
-- _id: 7ICQCROIg0U569Rz
-  _key: '!tables.results!HlqbChfomypWhoL2.7ICQCROIg0U569Rz'
-  description: 'Weapon gains an energy damage type such as fire, cold, etc., and deals
-    +1d4 damage (champion: +2d6; epic: +5d6)'
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 21
-  - 40
-  type: text
-  weight: 1
-- _id: ebU7OtOZYwshHd0b
-  _key: '!tables.results!HlqbChfomypWhoL2.ebU7OtOZYwshHd0b'
-  description: +4 attack bonus on first round of combat
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 41
-  - 60
-  type: text
-  weight: 1
-- _id: c7wJevTMdk3tJ89m
-  _key: '!tables.results!HlqbChfomypWhoL2.c7wJevTMdk3tJ89m'
-  description: 'Weapon deals +1d10 damage while escalation die is 3+ (champion: +4d6;
-    epic: +3d20)'
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 61
-  - 80
-  type: text
-  weight: 1
-- _id: Rfxt0e9NXnWZSSHH
-  _key: '!tables.results!HlqbChfomypWhoL2.Rfxt0e9NXnWZSSHH'
-  description: Reroll one missed attack roll with weapon
-  drawn: false
-  flags: {}
-  img: null
-  name: ''
-  range:
-  - 81
-  - 100
-  type: text
-  weight: 1
+  - _id: bJuCbDtePhhsemCO
+    description: +4 bonus to opportunity attacks
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 1
+      - 20
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!HlqbChfomypWhoL2.bJuCbDtePhhsemCO'
+  - _id: 7ICQCROIg0U569Rz
+    description: >-
+      Weapon gains an energy damage type such as fire, cold, etc., and deals
+      +1d4 damage (champion: +2d6; epic: +5d6)
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 21
+      - 40
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!HlqbChfomypWhoL2.7ICQCROIg0U569Rz'
+  - _id: ebU7OtOZYwshHd0b
+    description: +4 attack bonus on first round of combat
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 41
+      - 60
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!HlqbChfomypWhoL2.ebU7OtOZYwshHd0b'
+  - _id: c7wJevTMdk3tJ89m
+    description: >-
+      Weapon deals +1d10 damage while escalation die is 3+ (champion: +4d6;
+      epic: +3d20)
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 61
+      - 80
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!HlqbChfomypWhoL2.c7wJevTMdk3tJ89m'
+  - _id: Rfxt0e9NXnWZSSHH
+    description: Reroll one missed attack roll with weapon
+    drawn: false
+    flags: {}
+    img: null
+    name: ''
+    range:
+      - 81
+      - 100
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!HlqbChfomypWhoL2.Rfxt0e9NXnWZSSHH'
 sort: 1400000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!HlqbChfomypWhoL2'

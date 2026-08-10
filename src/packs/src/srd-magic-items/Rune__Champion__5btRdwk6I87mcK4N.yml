@@ -1,138 +1,177 @@
 _id: 5btRdwk6I87mcK4N
-_key: '!items!5btRdwk6I87mcK4N'
 effects:
-- _id: jnS8iXTk9vLhlph0
-  _key: '!items.effects!5btRdwk6I87mcK4N.jnS8iXTk9vLhlph0'
-  changes:
-  - key: system.attributes.ac.value
-    mode: 2
-    priority: null
-    value: '2'
-  description: ''
-  disabled: false
-  duration:
-    combat: null
-    rounds: null
-    seconds: null
-    startRound: null
-    startTime: null
-    startTurn: null
-    turns: null
-  flags:
-    archmage:
-      duration: EndOfCombat
-      ongoingDamage: 0
-      ongoingDamageCrit: false
-      ongoingDamageType: ''
-  img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
-  name: Magic Rune (Champion, Armor)
-  origin: null
-  sort: 0
-  statuses: []
-  system: {}
-  tint: '#ffffff'
-  transfer: true
-  type: base
-- _id: lqlDR6BC1sdep7Nh
-  _key: '!items.effects!5btRdwk6I87mcK4N.lqlDR6BC1sdep7Nh'
-  changes:
-  - key: system.attributes.attack.melee.bonus
-    mode: 2
-    priority: null
-    value: '2'
-  description: ''
-  disabled: false
-  duration:
-    combat: null
-    rounds: null
-    seconds: null
-    startRound: null
-    startTime: null
-    startTurn: null
-    turns: null
-  flags:
-    archmage:
-      duration: EndOfCombat
-      ongoingDamage: 0
-      ongoingDamageCrit: false
-      ongoingDamageType: ''
-  img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
-  name: Magic Rune (Champion, Melee Weapon)
-  origin: null
-  sort: 0
-  statuses: []
-  system: {}
-  tint: '#ffffff'
-  transfer: true
-  type: base
-- _id: VJZXQ5BBR9RHwuyD
-  _key: '!items.effects!5btRdwk6I87mcK4N.VJZXQ5BBR9RHwuyD'
-  changes:
-  - key: system.attributes.attack.ranged.bonus
-    mode: 2
-    priority: null
-    value: '2'
-  description: ''
-  disabled: false
-  duration:
-    combat: null
-    rounds: null
-    seconds: null
-    startRound: null
-    startTime: null
-    startTurn: null
-    turns: null
-  flags:
-    archmage:
-      duration: EndOfCombat
-      ongoingDamage: 0
-      ongoingDamageCrit: false
-      ongoingDamageType: ''
-  img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
-  name: Magic Rune (Champion, Ranged Weapon)
-  origin: null
-  sort: 0
-  statuses: []
-  system: {}
-  tint: '#ffffff'
-  transfer: true
-  type: base
-- _id: y4BSKRb2cFd6oQHG
-  _key: '!items.effects!5btRdwk6I87mcK4N.y4BSKRb2cFd6oQHG'
-  changes:
-  - key: system.attributes.attack.divine.bonus
-    mode: 2
-    priority: null
-    value: '2'
-  - key: system.attributes.attack.arcane.bonus
-    mode: 2
-    priority: null
-    value: '2'
-  description: ''
-  disabled: false
-  duration:
-    combat: null
-    rounds: null
-    seconds: null
-    startRound: null
-    startTime: null
-    startTurn: null
-    turns: null
-  flags:
-    archmage:
-      duration: EndOfCombat
-      ongoingDamage: 0
-      ongoingDamageCrit: false
-      ongoingDamageType: ''
-  img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
-  name: Magic Rune (Champion, Implement)
-  origin: null
-  sort: 0
-  statuses: []
-  system: {}
-  tint: '#ffffff'
-  transfer: true
-  type: base
+  - _id: jnS8iXTk9vLhlph0
+    description: ''
+    disabled: false
+    duration:
+      value: null
+      units: seconds
+      expiry: null
+      expired: false
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageCrit: false
+        ongoingDamageType: ''
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    name: Magic Rune (Champion, Armor)
+    origin: null
+    sort: 0
+    statuses: []
+    system:
+      changes:
+        - key: system.attributes.ac.value
+          priority: null
+          value: 2
+          type: add
+    tint: '#ffffff'
+    transfer: true
+    type: base
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    start: null
+    showIcon: 1
+    folder: null
+    _key: '!items.effects!5btRdwk6I87mcK4N.jnS8iXTk9vLhlph0'
+  - _id: lqlDR6BC1sdep7Nh
+    description: ''
+    disabled: false
+    duration:
+      value: null
+      units: seconds
+      expiry: null
+      expired: false
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageCrit: false
+        ongoingDamageType: ''
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    name: Magic Rune (Champion, Melee Weapon)
+    origin: null
+    sort: 0
+    statuses: []
+    system:
+      changes:
+        - key: system.attributes.attack.melee.bonus
+          priority: null
+          value: 2
+          type: add
+    tint: '#ffffff'
+    transfer: true
+    type: base
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    start: null
+    showIcon: 1
+    folder: null
+    _key: '!items.effects!5btRdwk6I87mcK4N.lqlDR6BC1sdep7Nh'
+  - _id: VJZXQ5BBR9RHwuyD
+    description: ''
+    disabled: false
+    duration:
+      value: null
+      units: seconds
+      expiry: null
+      expired: false
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageCrit: false
+        ongoingDamageType: ''
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    name: Magic Rune (Champion, Ranged Weapon)
+    origin: null
+    sort: 0
+    statuses: []
+    system:
+      changes:
+        - key: system.attributes.attack.ranged.bonus
+          priority: null
+          value: 2
+          type: add
+    tint: '#ffffff'
+    transfer: true
+    type: base
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    start: null
+    showIcon: 1
+    folder: null
+    _key: '!items.effects!5btRdwk6I87mcK4N.VJZXQ5BBR9RHwuyD'
+  - _id: y4BSKRb2cFd6oQHG
+    description: ''
+    disabled: false
+    duration:
+      value: null
+      units: seconds
+      expiry: null
+      expired: false
+    flags:
+      archmage:
+        duration: EndOfCombat
+        ongoingDamage: 0
+        ongoingDamageCrit: false
+        ongoingDamageType: ''
+    img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+    name: Magic Rune (Champion, Implement)
+    origin: null
+    sort: 0
+    statuses: []
+    system:
+      changes:
+        - key: system.attributes.attack.divine.bonus
+          priority: null
+          value: 2
+          type: add
+        - key: system.attributes.attack.arcane.bonus
+          priority: null
+          value: 2
+          type: add
+    tint: '#ffffff'
+    transfer: true
+    type: base
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    start: null
+    showIcon: 1
+    folder: null
+    _key: '!items.effects!5btRdwk6I87mcK4N.y4BSKRb2cFd6oQHG'
 flags:
   core: {}
 folder: 0mcnzVgWo4dqvS1l
@@ -142,30 +181,43 @@ ownership:
   default: 0
 sort: 0
 system:
-  description:
-    label: Description
+  name:
     type: String
-    value: '<p>Works as a @UUID[Compendium.archmage.srd-magic-items.Item.l1EK3xmGFAdGPByu]{Magic
-      Oil (Champion)} and provides an additional effect based on what it is applied
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Works as a
+      @UUID[Compendium.archmage.srd-magic-items.Item.l1EK3xmGFAdGPByu]{Magic Oil
+      (Champion)} and provides an additional effect based on what it is applied
       to:</p>
 
-      <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random Rune
-      Effect on Armor}</p>
+      <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random
+      Rune Effect on Armor}</p>
 
-      <p>@UUID[Compendium.archmage.system-rolltables.HlqbChfomypWhoL2]{Random Rune
-      Effect on Weapon}</p>
+      <p>@UUID[Compendium.archmage.system-rolltables.HlqbChfomypWhoL2]{Random
+      Rune Effect on Weapon}</p>
 
-      <p>@UUID[Compendium.archmage.system-rolltables.1To7U9r1mJ9767qW]{Random Rune
-      Effect on Spellcasting Implement}</p>'
-  name:
-    label: Name
-    type: String
-  price:
-    label: Price
-    type: Number
-    value: 300
+      <p>@UUID[Compendium.archmage.system-rolltables.1To7U9r1mJ9767qW]{Random
+      Rune Effect on Spellcasting Implement}</p>
   quantity:
-    label: Quantity
     type: Number
+    label: Quantity
     value: 1
+  price:
+    type: Number
+    label: Price
+    value: 300
 type: loot
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!5btRdwk6I87mcK4N'

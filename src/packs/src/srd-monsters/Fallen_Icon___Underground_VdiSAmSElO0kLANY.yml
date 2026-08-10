@@ -1,5 +1,4 @@
 _id: VdiSAmSElO0kLANY
-_key: '!actors!VdiSAmSElO0kLANY'
 effects: []
 flags:
   archmage:
@@ -8,519 +7,668 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 items:
-- _id: 1ZVWgnWWJ2PXKgH7
-  _key: '!actors.items!VdiSAmSElO0kLANY.1ZVWgnWWJ2PXKgH7'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Hammer of golden sovereignty
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 18]] vs. AC (up to 3 enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[90]] damage'
-    hit1:
-      label: Hit
-      name: Natural even hit
-      type: String
-      value: The target pops free and takes extra damage equal to the attack roll.
-    hit2:
-      label: Hit
-      name: First natural even miss each round if targeting one or two enemies
-      type: String
-      value: The Fallen Icon makes another *hammer of golden sovereignty* attack against
-        the enemy it missed.
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: Auc977EQ3fWEB4zC
-  _key: '!actors.items!VdiSAmSElO0kLANY.Auc977EQ3fWEB4zC'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Behind the mask'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 18]] vs. MD (one nearby enemy)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[160]] psychic damage and the target is *weakened* (save ends)'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: '[[80]] psychic damage and the target is *weakened* until the end of
-        its next turn.'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: MXcdq2TuV9oRyjSD
-  _key: '!actors.items!VdiSAmSElO0kLANY.MXcdq2TuV9oRyjSD'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: '[Special trigger] C: Golden greed'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 18]] vs. MD (one nearby enemy)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: The target is *confused* (save ends)
-    hit1:
-      label: Hit
-      name: Limited use
-      type: String
-      value: "When a nearby enemy uses the magic item power of an epic tier item,\
-        \ the Fallen Icon may make a *golden greed* attack against [[1d4]] other nearby\
-        \ enemies as a free action. (It\u2019s possible the PCs should have some warning,\
-        \ for example, a magic item might be too-eagerly wheedling to be used. Or\
-        \ maybe you\u2019d rather teach lessons the hard way.)"
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: bl8qGiBmV3I46w4Z
-  _key: '!actors.items!VdiSAmSElO0kLANY.bl8qGiBmV3I46w4Z'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: The mask slips
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When first staggered, the Fallen Icon makes a <em>behind the mask</em>
-        attack against the enemy that caused the triggering damage as a free action.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: 6dbza1bJUCvn8aHp
-  _key: '!actors.items!VdiSAmSElO0kLANY.6dbza1bJUCvn8aHp'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: The wandering king
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The Fallen Icon can deal [[4d6]] damage to itself and teleport someplace
-        it can see nearby as a move action.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: EXtfVvVTyxoBlUzU
-  _key: '!actors.items!VdiSAmSElO0kLANY.EXtfVvVTyxoBlUzU'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Sticks and rags
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The Fallen Icon has resist damage 16+ to attacks not made with epic-tier
-        magical weapons, implements, or bracers. Enemies not wearing epic-tier magical
-        armor are vulnerable to its hammer of golden sovereignty attacks (that&rsquo;s
-        right&mdash;eschewing magic items makes it easier to defeat the minions of
-        the Fallen Icon, but harder to beat the Fallen Icon itself).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: WDPH1oWaNLo0DPTp
-  _key: '!actors.items!VdiSAmSElO0kLANY.WDPH1oWaNLo0DPTp'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Even worse
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the escalation die is even, the Fallen Icon rolls 2d20 instead
-        of 1d20 and uses the higher result whenever it attacks or rolls a save.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: dBoeCucSWKuD7WKU
-  _key: '!actors.items!VdiSAmSElO0kLANY.dBoeCucSWKuD7WKU'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Fallen icon
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>The Fallen Icon is no longer an icon, but it still possesses magical
-        bonds with reality that make it difficult to destroy. See the flavor text
-        at the top of the Fallen Icon&rsquo;s stat block for ways in which significant
-        campaign victories can make the Fallen Icon easier to defeat. (To be clear:
-        if the PCs don&rsquo;t achieve any of these campaign victories, the Fallen
-        Icon will be difficult or perhaps even impossible to destroy.)</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: FOzph4r3MH76tG2e
-  _key: '!actors.items!VdiSAmSElO0kLANY.FOzph4r3MH76tG2e'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Compel fealty
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>An epic-tier dwarf, forgeborn, or human slain by the Fallen Icon will
-        arise at the end of the battle as a bronze kingsguard, loyal gatherer, or
-        royal bearer&mdash;whichever seems most appropriate.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: BGFEH1fHBD6fMsbE
-  _key: '!actors.items!VdiSAmSElO0kLANY.BGFEH1fHBD6fMsbE'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Eternal kingdom
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>If the Fallen Icon King is slain, the GM secretly rolls a normal save
-        (11+) at the end of each session, including this one. If the save succeeds,
-        the Fallen Icon returns to life in one of its secret treasure rooms deep in
-        the underworld. If the campaign somehow ends while the Fallen Icon is still
-        dead, it&rsquo;s the GM&rsquo;s call whether the Fallen Icon stays dead or
-        rises after the events of the campaign.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: wIUDDPi9WoOYsimn
-  _key: '!actors.items!VdiSAmSElO0kLANY.wIUDDPi9WoOYsimn'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Fealty owed
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Human, dwarf, and forgeborn characters may not use their racial power
-        until the escalation die reaches 4 or higher, and not when engaged with the
-        Fallen Icon (so standard humans are simply out of luck).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: k68C4oYL7yneLDrd
-  _key: '!actors.items!VdiSAmSElO0kLANY.k68C4oYL7yneLDrd'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Fealty shown
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The first time each round an attack would reduce the Fallen Icon to
-        zero hit points or less, it instead damages the closest nearby loyal gatherer.
-        If these have all been destroyed, the attack damages the closest nearby royal
-        bearer, then finally the closest bronze kingsguard. If these have all been
-        destroyed, the Fallen Icon is reduced to zero hit points&mdash;but see long
-        live the icon below.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: 0tYNKjJTBCGHcf2Y
-  _key: '!actors.items!VdiSAmSElO0kLANY.0tYNKjJTBCGHcf2Y'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Long Live the Icon
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the Fallen Icon is finally defeated, nothing remains but a featureless
-        gold mask that wants to be picked up. This mask makes a golden greed attack
-        against each enemy in the battle as a free action. The save to end the confusion
-        from this attack is a hard save, with confused targets violently fighting
-        over the mask. When no targets are confused, the mask crumbles into dust.
-        (If one PC slays the others while confused, they&rsquo;re probably going to
-        put on the mask.)</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-name: "Fallen Icon \u2013 Underground"
+  - _id: 1ZVWgnWWJ2PXKgH7
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Hammer of golden sovereignty
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 18]] vs. AC (up to 3 enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[90]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The target pops free and takes extra damage equal to the attack roll.
+      hit2:
+        type: String
+        label: Hit
+        name: First natural even miss each round if targeting one or two enemies
+        value: >-
+          The Fallen Icon makes another *hammer of golden sovereignty* attack
+          against the enemy it missed.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.1ZVWgnWWJ2PXKgH7'
+  - _id: Auc977EQ3fWEB4zC
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Behind the mask'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 18]] vs. MD (one nearby enemy)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[160]] psychic damage and the target is *weakened* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: >-
+          [[80]] psychic damage and the target is *weakened* until the end of
+          its next turn.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.Auc977EQ3fWEB4zC'
+  - _id: MXcdq2TuV9oRyjSD
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: '[Special trigger] C: Golden greed'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 18]] vs. MD (one nearby enemy)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: The target is *confused* (save ends)
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          When a nearby enemy uses the magic item power of an epic tier item,
+          the Fallen Icon may make a *golden greed* attack against [[1d4]] other
+          nearby enemies as a free action. (It’s possible the PCs should have
+          some warning, for example, a magic item might be too-eagerly wheedling
+          to be used. Or maybe you’d rather teach lessons the hard way.)
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.MXcdq2TuV9oRyjSD'
+  - _id: bl8qGiBmV3I46w4Z
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: The mask slips
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When first staggered, the Fallen Icon makes a <em>behind the
+          mask</em> attack against the enemy that caused the triggering damage
+          as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.bl8qGiBmV3I46w4Z'
+  - _id: 6dbza1bJUCvn8aHp
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: The wandering king
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The Fallen Icon can deal [[4d6]] damage to itself and teleport
+          someplace it can see nearby as a move action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.6dbza1bJUCvn8aHp'
+  - _id: EXtfVvVTyxoBlUzU
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Sticks and rags
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The Fallen Icon has resist damage 16+ to attacks not made with
+          epic-tier magical weapons, implements, or bracers. Enemies not wearing
+          epic-tier magical armor are vulnerable to its hammer of golden
+          sovereignty attacks (that&rsquo;s right&mdash;eschewing magic items
+          makes it easier to defeat the minions of the Fallen Icon, but harder
+          to beat the Fallen Icon itself).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.EXtfVvVTyxoBlUzU'
+  - _id: WDPH1oWaNLo0DPTp
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Even worse
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die is even, the Fallen Icon rolls 2d20 instead
+          of 1d20 and uses the higher result whenever it attacks or rolls a
+          save.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.WDPH1oWaNLo0DPTp'
+  - _id: dBoeCucSWKuD7WKU
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Fallen icon
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The Fallen Icon is no longer an icon, but it still possesses
+          magical bonds with reality that make it difficult to destroy. See the
+          flavor text at the top of the Fallen Icon&rsquo;s stat block for ways
+          in which significant campaign victories can make the Fallen Icon
+          easier to defeat. (To be clear: if the PCs don&rsquo;t achieve any of
+          these campaign victories, the Fallen Icon will be difficult or perhaps
+          even impossible to destroy.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.dBoeCucSWKuD7WKU'
+  - _id: FOzph4r3MH76tG2e
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Compel fealty
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>An epic-tier dwarf, forgeborn, or human slain by the Fallen Icon
+          will arise at the end of the battle as a bronze kingsguard, loyal
+          gatherer, or royal bearer&mdash;whichever seems most appropriate.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.FOzph4r3MH76tG2e'
+  - _id: BGFEH1fHBD6fMsbE
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Eternal kingdom
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the Fallen Icon King is slain, the GM secretly rolls a normal
+          save (11+) at the end of each session, including this one. If the save
+          succeeds, the Fallen Icon returns to life in one of its secret
+          treasure rooms deep in the underworld. If the campaign somehow ends
+          while the Fallen Icon is still dead, it&rsquo;s the GM&rsquo;s call
+          whether the Fallen Icon stays dead or rises after the events of the
+          campaign.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.BGFEH1fHBD6fMsbE'
+  - _id: wIUDDPi9WoOYsimn
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Fealty owed
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Human, dwarf, and forgeborn characters may not use their racial
+          power until the escalation die reaches 4 or higher, and not when
+          engaged with the Fallen Icon (so standard humans are simply out of
+          luck).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.wIUDDPi9WoOYsimn'
+  - _id: k68C4oYL7yneLDrd
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Fealty shown
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time each round an attack would reduce the Fallen Icon to
+          zero hit points or less, it instead damages the closest nearby loyal
+          gatherer. If these have all been destroyed, the attack damages the
+          closest nearby royal bearer, then finally the closest bronze
+          kingsguard. If these have all been destroyed, the Fallen Icon is
+          reduced to zero hit points&mdash;but see long live the icon below.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.k68C4oYL7yneLDrd'
+  - _id: 0tYNKjJTBCGHcf2Y
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Long Live the Icon
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the Fallen Icon is finally defeated, nothing remains but a
+          featureless gold mask that wants to be picked up. This mask makes a
+          golden greed attack against each enemy in the battle as a free action.
+          The save to end the confusion from this attack is a hard save, with
+          confused targets violently fighting over the mask. When no targets are
+          confused, the mask crumbles into dust. (If one PC slays the others
+          while confused, they&rsquo;re probably going to put on the mask.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!VdiSAmSElO0kLANY.0tYNKjJTBCGHcf2Y'
+name: Fallen Icon – Underground
 ownership:
   default: 0
 prototypeToken:
@@ -531,7 +679,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -561,7 +709,7 @@ prototypeToken:
     shadows: 0
   lockRotation: false
   movementAction: null
-  name: "Fallen Icon \u2013 Underground"
+  name: Fallen Icon – Underground
   occludable:
     radius: 0
   prependAdjective: false
@@ -591,9 +739,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
@@ -604,15 +749,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 30
     attackMod:
       type: Number
       value: 0
@@ -623,82 +763,89 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 1200
+    ac:
+      type: Number
+      label: Armor Class
+      value: 30
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 27
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 27
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 1200
+      min: 0
+      max: 1200
       temp: 0
       tempmax: 0
-      type: Number
-      value: 1200
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 20
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 13
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 27
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 27
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: '<p><strong>First PC campaign victory</strong>: Remove the Fallen Icon&rsquo;s
-        eternal kingdom ability.</p>
+      value: >-
+        <p><strong>First PC campaign victory</strong>: Remove the Fallen
+        Icon&rsquo;s eternal kingdom ability.</p>
 
-        <p><strong>Second PC campaign victory</strong>: Remove <em>even worse</em>,
-        and ignore any nastier specials even if you are a nasty GM.</p>
+        <p><strong>Second PC campaign victory</strong>: Remove <em>even
+        worse</em>, and ignore any nastier specials even if you are a nasty
+        GM.</p>
 
-        <p><strong>Third PC campaign victory</strong>: Reduce the Fallen Icon&rsquo;s
-        defenses by 2.</p>
+        <p><strong>Third PC campaign victory</strong>: Reduce the Fallen
+        Icon&rsquo;s defenses by 2.</p>
 
-        <p><strong>Fourth PC campaign victory</strong>: Remove <em>the wandering king</em>.</p>'
-    resistance:
-      value: ''
+        <p><strong>Fourth PC campaign victory</strong>: Remove <em>the wandering
+        king</em>.</p>
     role:
       value: spoiler
     roleB:
@@ -711,67 +858,80 @@ system:
       value: triple
     type:
       value: aberration
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!VdiSAmSElO0kLANY'

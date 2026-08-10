@@ -1,5 +1,4 @@
 _id: egaJHVECNJso3CQL
-_key: '!actors!egaJHVECNJso3CQL'
 effects: []
 flags:
   archmage:
@@ -8,325 +7,416 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 items:
-- _id: kqTOZQNMtbG30uIb
-  _key: '!actors.items!egaJHVECNJso3CQL.kqTOZQNMtbG30uIb'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Invasive tentacles
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 17]] vs. AC ([[1d3]] nearby enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[30]] damage, and [[30]] ongoing psychic damage'
-    hit1:
-      label: Hit
-      name: Target fails a save against the ongoing psychic damage
-      type: String
-      value: "At the start of the target\u2019s next turn, it must use its move action\
-        \ to engage the omnipotent brain. It won\u2019t take opportunity attacks to\
-        \ do so, instead trying to disengage."
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: JcpDVp5PnHlI2Eje
-  _key: '!actors.items!egaJHVECNJso3CQL.JcpDVp5PnHlI2Eje'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Psionic supremacy'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 17]] vs. MD (one nearby or faraway enemy)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[35]] ongoing psychic damage'
-    hit1:
-      label: Hit
-      name: Aftereffect
-      type: String
-      value: 'When the target saves against the ongoing damage, it must choose one:
-        it makes a basic attack against itself or an ally with its next standard action,
-        OR it becomes *weakened* until the end of its next turn.'
-    hit2:
-      label: Hit
-      name: "Natural 1\u20135"
-      type: String
-      value: The target is immune to the aftereffect of psionic supremacy until the
-        end of the battle.
-    hit3:
-      label: Hit
-      name: Limited use
-      type: String
-      value: 2/round, as separate quick actions.
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: The brain heals [[50]] hp.
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: LQaa2YFuEz54rOhJ
-  _key: '!actors.items!egaJHVECNJso3CQL.LQaa2YFuEz54rOhJ'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Crawling brain
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The brain can crawl about on tentacles but prefers to use its telekinetic
-        grasp to move enemies toward it or its allies.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: hw3A5rfnPmqas7tF
-  _key: '!actors.items!egaJHVECNJso3CQL.hw3A5rfnPmqas7tF'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Psychic contamination
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Creatures engaged with the star-mask omnipotent brain that have 120
-        hp or fewer can&rsquo;t target the omnipotent brain with attacks.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: l9MvosYHTP2e8o1W
-  _key: '!actors.items!egaJHVECNJso3CQL.l9MvosYHTP2e8o1W'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Telekinetic grasp
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>As a move action the brain can move an ally or enemy, causing them
-        to fly about. An enemy can roll a save to avoid being moved against its will.
-        If it succeeds, there&rsquo;s no effect. Enemies hurled against solid objects
-        or other allies take [[2d20]] damage, or possibly more if hurled into dangerous
-        terrain.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: HY78gvvMnBrpzw5s
-  _key: '!actors.items!egaJHVECNJso3CQL.HY78gvvMnBrpzw5s'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Absorb
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When an enemy engaged with the star-mask brain omnipotent rolls a
-        natural 1&ndash;5 on a disengage check, it&rsquo;s absorbed into the omnipotent
-        brain&rsquo;s flesh. Absorbed characters are *stuck*, *weakened*, and move
-        with the omnipotent (hard save ends all, 16+). Creatures can also be freed
-        from an omnipotent brain&rsquo;s flesh with a DC 30 skill check as a standard
-        action. If the check fails by 5 or more, the assisting ally is also now absorbed
-        with the same effects.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: kWJNmYRu0yzitSsT
-  _key: '!actors.items!egaJHVECNJso3CQL.kWJNmYRu0yzitSsT'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Perceptual warp
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When an enemy targets the omnipotent brain with a ranged attack and
-        rolls a natural 1&ndash;5, it must reroll the attack against an ally engaged
-        with the brain, if any, as if it had fumbled.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: xP51fwdUUbDmcKoo
-  _key: '!actors.items!egaJHVECNJso3CQL.xP51fwdUUbDmcKoo'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Psychic command
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The omnipotent brain can use a standard action to allow a nearby ally
-        to make an attack as a free action with a +4 attack bonus. If the ally misses
-        it takes [[1d8]] damage and the brain heals [[50]] hp.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: kqTOZQNMtbG30uIb
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Invasive tentacles
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. AC ([[1d3]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage, and [[30]] ongoing psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Target fails a save against the ongoing psychic damage
+        value: >-
+          At the start of the target’s next turn, it must use its move action to
+          engage the omnipotent brain. It won’t take opportunity attacks to do
+          so, instead trying to disengage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.kqTOZQNMtbG30uIb'
+  - _id: JcpDVp5PnHlI2Eje
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Psionic supremacy'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. MD (one nearby or faraway enemy)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[35]] ongoing psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Aftereffect
+        value: >-
+          When the target saves against the ongoing damage, it must choose one:
+          it makes a basic attack against itself or an ally with its next
+          standard action, OR it becomes *weakened* until the end of its next
+          turn.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 1–5
+        value: >-
+          The target is immune to the aftereffect of psionic supremacy until the
+          end of the battle.
+      hit3:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 2/round, as separate quick actions.
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: The brain heals [[50]] hp.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.JcpDVp5PnHlI2Eje'
+  - _id: LQaa2YFuEz54rOhJ
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Crawling brain
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The brain can crawl about on tentacles but prefers to use its
+          telekinetic grasp to move enemies toward it or its allies.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.LQaa2YFuEz54rOhJ'
+  - _id: hw3A5rfnPmqas7tF
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Psychic contamination
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Creatures engaged with the star-mask omnipotent brain that have 120
+          hp or fewer can&rsquo;t target the omnipotent brain with attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.hw3A5rfnPmqas7tF'
+  - _id: l9MvosYHTP2e8o1W
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Telekinetic grasp
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a move action the brain can move an ally or enemy, causing them
+          to fly about. An enemy can roll a save to avoid being moved against
+          its will. If it succeeds, there&rsquo;s no effect. Enemies hurled
+          against solid objects or other allies take [[2d20]] damage, or
+          possibly more if hurled into dangerous terrain.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.l9MvosYHTP2e8o1W'
+  - _id: HY78gvvMnBrpzw5s
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Absorb
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an enemy engaged with the star-mask brain omnipotent rolls a
+          natural 1&ndash;5 on a disengage check, it&rsquo;s absorbed into the
+          omnipotent brain&rsquo;s flesh. Absorbed characters are *stuck*,
+          *weakened*, and move with the omnipotent (hard save ends all, 16+).
+          Creatures can also be freed from an omnipotent brain&rsquo;s flesh
+          with a DC 30 skill check as a standard action. If the check fails by 5
+          or more, the assisting ally is also now absorbed with the same
+          effects.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.HY78gvvMnBrpzw5s'
+  - _id: kWJNmYRu0yzitSsT
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Perceptual warp
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an enemy targets the omnipotent brain with a ranged attack and
+          rolls a natural 1&ndash;5, it must reroll the attack against an ally
+          engaged with the brain, if any, as if it had fumbled.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.kWJNmYRu0yzitSsT'
+  - _id: xP51fwdUUbDmcKoo
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Psychic command
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The omnipotent brain can use a standard action to allow a nearby
+          ally to make an attack as a free action with a +4 attack bonus. If the
+          ally misses it takes [[1d8]] damage and the brain heals [[50]] hp.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!egaJHVECNJso3CQL.xP51fwdUUbDmcKoo'
 name: Star-Mask Omnipotent Brain
 ownership:
   default: 0
@@ -338,7 +428,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -398,9 +488,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
@@ -411,15 +498,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 3
+  depth: 3
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 26
     attackMod:
       type: Number
       value: 0
@@ -430,72 +512,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 900
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 28
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 900
+      min: 0
+      max: 900
       temp: 0
       tempmax: 0
-      type: Number
-      value: 900
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 16
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 12
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 28
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 22
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: caster
@@ -509,67 +595,80 @@ system:
       value: triple
     type:
       value: aberration
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!egaJHVECNJso3CQL'

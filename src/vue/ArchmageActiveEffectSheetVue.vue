@@ -114,7 +114,7 @@ const modes = {
 const changes = computed(() => {
   const changesArray = [];
   effect.value.changes.forEach(c => {
-    if (c.key && c.value) {
+    if (c.key && c.value != null) {
       const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
       let change = {
         name: label,
@@ -176,7 +176,7 @@ watch(effect, async (newEffect) => {
 		}
 
 		if (change.key === 'system.attributes.escalation.value') {
-			viewModel.edBlocked = change.value === '0';
+			viewModel.edBlocked = change.value == 0;
 		}
 	}
 }, { immediate: true, deep: true })

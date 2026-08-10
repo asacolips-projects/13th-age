@@ -1,5 +1,4 @@
 _id: ig1kzvpojsk20dbt
-_key: '!journal!ig1kzvpojsk20dbt'
 categories: []
 flags: {}
 folder: null
@@ -7,26 +6,48 @@ name: Dead
 ownership:
   default: 0
 pages:
-- _id: zMm8NkEewH2YuxRD
-  _key: '!journal.pages!ig1kzvpojsk20dbt.zMm8NkEewH2YuxRD'
-  category: null
-  flags: {}
-  image: {}
-  name: Dead
-  ownership:
-    default: -1
-  sort: 0
-  src: null
-  system: {}
-  text:
-    content: <p>You are dead and must be resurrected. If your GM allows it, you may
-      be able to Fight in Spirit.</p>
-    format: 1
-  title:
-    level: 1
-    show: false
-  type: text
-  video:
-    controls: true
-    volume: 0.5
+  - _id: zMm8NkEewH2YuxRD
+    category: null
+    flags: {}
+    image: {}
+    name: Dead
+    ownership:
+      default: -1
+    sort: 0
+    src: null
+    system: {}
+    text:
+      content: >-
+        <p>You are dead and must be resurrected. If your GM allows it, you may
+        be able to Fight in Spirit.</p>
+      format: 1
+    title:
+      level: 1
+      show: false
+    type: text
+    video:
+      controls: true
+      volume: 0.5
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!journal.pages!ig1kzvpojsk20dbt.zMm8NkEewH2YuxRD'
 sort: 1600000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!journal!ig1kzvpojsk20dbt'

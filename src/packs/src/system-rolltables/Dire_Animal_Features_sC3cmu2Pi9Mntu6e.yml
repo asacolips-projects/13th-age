@@ -1,5 +1,4 @@
 _id: sC3cmu2Pi9Mntu6e
-_key: '!tables!sC3cmu2Pi9Mntu6e'
 description: ''
 displayRoll: false
 flags: {}
@@ -11,82 +10,153 @@ ownership:
   default: 0
 replacement: true
 results:
-- _id: LJkxvMzHzhL5VEzM
-  _key: '!tables.results!sC3cmu2Pi9Mntu6e.LJkxvMzHzhL5VEzM'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.vsLLuFnF1fQPUU7y
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Armor plates
-  range:
-  - 1
-  - 1
-  type: document
-  weight: 1
-- _id: PBMSMQUM5MEk0br4
-  _key: '!tables.results!sC3cmu2Pi9Mntu6e.PBMSMQUM5MEk0br4'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.yiGYWnq4KSpiYcjd
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Spiky bits
-  range:
-  - 2
-  - 2
-  type: document
-  weight: 1
-- _id: c1rxrflVmOhB4b1l
-  _key: '!tables.results!sC3cmu2Pi9Mntu6e.c1rxrflVmOhB4b1l'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.AdQpkwd5MmhELVuu
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Carnage
-  range:
-  - 3
-  - 3
-  type: document
-  weight: 1
-- _id: RM2JRJbxJBPuOmZ7
-  _key: '!tables.results!sC3cmu2Pi9Mntu6e.RM2JRJbxJBPuOmZ7'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.sq0L4MWJYZjATISW
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Poison
-  range:
-  - 4
-  - 4
-  type: document
-  weight: 1
-- _id: 7cpxNjYuryfDdQ4b
-  _key: '!tables.results!sC3cmu2Pi9Mntu6e.7cpxNjYuryfDdQ4b'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.bJsnIYiCGygnN1dP
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Dire regeneration
-  range:
-  - 5
-  - 5
-  type: document
-  weight: 1
-- _id: MejA9vvGlTQDgG0S
-  _key: '!tables.results!sC3cmu2Pi9Mntu6e.MejA9vvGlTQDgG0S'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.zhIklz5gZpibHNdn
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Fury
-  range:
-  - 6
-  - 6
-  type: document
-  weight: 1
+  - _id: LJkxvMzHzhL5VEzM
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.vsLLuFnF1fQPUU7y
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Armor plates
+    range:
+      - 1
+      - 1
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!sC3cmu2Pi9Mntu6e.LJkxvMzHzhL5VEzM'
+  - _id: PBMSMQUM5MEk0br4
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.yiGYWnq4KSpiYcjd
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Spiky bits
+    range:
+      - 2
+      - 2
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!sC3cmu2Pi9Mntu6e.PBMSMQUM5MEk0br4'
+  - _id: c1rxrflVmOhB4b1l
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.AdQpkwd5MmhELVuu
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Carnage
+    range:
+      - 3
+      - 3
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!sC3cmu2Pi9Mntu6e.c1rxrflVmOhB4b1l'
+  - _id: RM2JRJbxJBPuOmZ7
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.sq0L4MWJYZjATISW
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Poison
+    range:
+      - 4
+      - 4
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!sC3cmu2Pi9Mntu6e.RM2JRJbxJBPuOmZ7'
+  - _id: 7cpxNjYuryfDdQ4b
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.bJsnIYiCGygnN1dP
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Dire regeneration
+    range:
+      - 5
+      - 5
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!sC3cmu2Pi9Mntu6e.7cpxNjYuryfDdQ4b'
+  - _id: MejA9vvGlTQDgG0S
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.zhIklz5gZpibHNdn
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Fury
+    range:
+      - 6
+      - 6
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!sC3cmu2Pi9Mntu6e.MejA9vvGlTQDgG0S'
 sort: 2700000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!sC3cmu2Pi9Mntu6e'

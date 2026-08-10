@@ -1,5 +1,4 @@
 _id: f2XCtGbD1H5gxTrF
-_key: '!actors!f2XCtGbD1H5gxTrF'
 effects: []
 flags:
   archmage:
@@ -8,287 +7,364 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 items:
-- _id: k9Vblyk5tGwgTmKR
-  _key: '!actors.items!f2XCtGbD1H5gxTrF.k9Vblyk5tGwgTmKR'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Weathered claws
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 12]] vs. AC (2 attacks)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[10]] damage'
-    hit1:
-      label: Hit
-      name: Metamorphic talons
-      type: String
-      value: Whenever the hellstone gargoyle misses with a melee attack, *weathered
-        claws* deals an additional 1d6 psychic damage until the end of the battle
-        (maximum 4d6).
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: pqIyiFRRYNQokpaR
-  _key: '!actors.items!f2XCtGbD1H5gxTrF.pqIyiFRRYNQokpaR'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'R: Foul waterspout'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 14]] vs. PD (one nearby enemy that is dazed, weakened, stunned,
-        or has not acted yet this battle)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[15]] damage and [[25]] ongoing psychic damage'
-    hit1:
-      label: Hit
-      name: Limited use
-      type: String
-      value: 1/battle
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: '[[15]] psychic damage'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: eQXZLxYlwMJJqTPk
-  _key: '!actors.items!f2XCtGbD1H5gxTrF.eQXZLxYlwMJJqTPk'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Cloud of dust
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Whenever an engaged enemy misses with an attack against AC or PD,
-        the attacker is *vulnerable* to psychic until the end of their next turn (fyi,
-        that applies to&nbsp;<em>weathered claws</em> attacks that now have bonus
-        psychic damage).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: b4s0H3jqhzXf5o5A
-  _key: '!actors.items!f2XCtGbD1H5gxTrF.b4s0H3jqhzXf5o5A'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Not-quite-flight
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The hellstone gargoyle can't fly per se, but a clumsy glide can be
-        achieved.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: qJO4IkGO4wkMNaqz
-  _key: '!actors.items!f2XCtGbD1H5gxTrF.qJO4IkGO4wkMNaqz'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Part of the scenery
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When there's the chance of an ambush, give the PC's a hard champion-tier
-        skill check (usually DC 25) to notice the gargoyle and avoid being surprised.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: 7NYSrP6ipDGHJDb7
-  _key: '!actors.items!f2XCtGbD1H5gxTrF.7NYSrP6ipDGHJDb7'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Grotesque visage
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>The hellstone gargoyle has a fear aura: enemies engaged with the
-        hellstone gargoyle who are below 36 hit points are *dazed* and can''t use
-        the escalation die.</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: TeLCXMu079XjoNzv
-  _key: '!actors.items!f2XCtGbD1H5gxTrF.TeLCXMu079XjoNzv'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Extra-toxic
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p><em>Cloud of dust</em> is now save ends (11+).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: k9Vblyk5tGwgTmKR
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Weathered claws
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[10]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Metamorphic talons
+        value: >-
+          Whenever the hellstone gargoyle misses with a melee attack, *weathered
+          claws* deals an additional 1d6 psychic damage until the end of the
+          battle (maximum 4d6).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!f2XCtGbD1H5gxTrF.k9Vblyk5tGwgTmKR'
+  - _id: pqIyiFRRYNQokpaR
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'R: Foul waterspout'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20 + 14]] vs. PD (one nearby enemy that is dazed, weakened,
+          stunned, or has not acted yet this battle)
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage and [[25]] ongoing psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[15]] psychic damage'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!f2XCtGbD1H5gxTrF.pqIyiFRRYNQokpaR'
+  - _id: eQXZLxYlwMJJqTPk
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Cloud of dust
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Whenever an engaged enemy misses with an attack against AC or PD,
+          the attacker is *vulnerable* to psychic until the end of their next
+          turn (fyi, that applies to&nbsp;<em>weathered claws</em> attacks that
+          now have bonus psychic damage).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!f2XCtGbD1H5gxTrF.eQXZLxYlwMJJqTPk'
+  - _id: b4s0H3jqhzXf5o5A
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Not-quite-flight
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The hellstone gargoyle can't fly per se, but a clumsy glide can be
+          achieved.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!f2XCtGbD1H5gxTrF.b4s0H3jqhzXf5o5A'
+  - _id: qJO4IkGO4wkMNaqz
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Part of the scenery
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When there's the chance of an ambush, give the PC's a hard
+          champion-tier skill check (usually DC 25) to notice the gargoyle and
+          avoid being surprised.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!f2XCtGbD1H5gxTrF.qJO4IkGO4wkMNaqz'
+  - _id: 7NYSrP6ipDGHJDb7
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Grotesque visage
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The hellstone gargoyle has a fear aura: enemies engaged with the
+          hellstone gargoyle who are below 36 hit points are *dazed* and can't
+          use the escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!f2XCtGbD1H5gxTrF.7NYSrP6ipDGHJDb7'
+  - _id: TeLCXMu079XjoNzv
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Extra-toxic
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p><em>Cloud of dust</em> is now save ends (11+).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!f2XCtGbD1H5gxTrF.TeLCXMu079XjoNzv'
 name: Hellstone Gargoyle
 ownership:
   default: 0
@@ -300,7 +376,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -360,9 +436,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/construct.webp
@@ -373,15 +446,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 22
     attackMod:
       type: Number
       value: 0
@@ -392,72 +460,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 97
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 97
+      min: 0
+      max: 97
       temp: 0
       tempmax: 0
-      type: Number
-      value: 97
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 10
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 7
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 18
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 24
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: wrecker
@@ -471,67 +543,80 @@ system:
       value: normal
     type:
       value: construct
+    resistance:
+      value: ''
     vulnerability:
       value: thunder
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!f2XCtGbD1H5gxTrF'

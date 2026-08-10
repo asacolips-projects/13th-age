@@ -1,5 +1,4 @@
 _id: ZFQFPgG66s9ISLU2
-_key: '!actors!ZFQFPgG66s9ISLU2'
 effects: []
 flags:
   archmage:
@@ -8,404 +7,495 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: wAfjlQU2iydTwirM
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.wAfjlQU2iydTwirM'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Sharp claws
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. AC (2 attacks)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[6]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: vLHL0AT7yD1AMVEV
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.vLHL0AT7yD1AMVEV'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'R: Jagged lightning'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. PD (up to 2 nearby enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[6]] lightning damage'
-    hit1:
-      label: Hit
-      name: First natural even hit each turn
-      type: String
-      value: The lightning caller can target another nearby enemy with *jagged lightning*.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: ntoZa24UcdqAWfeW
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.ntoZa24UcdqAWfeW'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Lightning breath'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 +10]] vs. PD (each enemy engaged with the lightning caller)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[2]] lightning damage, and the target pops free from the lightning
-        caller'
-    hit1:
-      label: Hit
-      name: Limited use
-      type: String
-      value: 1/battle, as a quick action
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: xayObUKuQZUUJ28j
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.xayObUKuQZUUJ28j'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Lightning zap
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. PD (one enemy attacking the lightning caller)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: "[[3]] lightning damage, the target takes a \u20132 penalty to the attack,\
-        \ and the minion dissipates."
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: ebsqAMVmvvyIkMqk
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.ebsqAMVmvvyIkMqk'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Resist lightning 14+
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When a lightning attack targets this creature, the attacker must roll
-        a natural 14+ on the attack roll or it only deals half damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: pBFp4WPvGbl63Tjf
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.pBFp4WPvGbl63Tjf'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Call lightning minion
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Once per battle as a move action, the lightning caller can summon
-        [[1d2]] small lightning minions that protect it. They look like small dragons
-        made of lightning that circle around the caller and can&rsquo;t be attacked
-        directly. When an enemy attacks the lightning caller, one minion makes a <em>lightning
-        zap</em> attack against it as an interrupt action. All minions dissipate at
-        the end of battle.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: tH9GV3lrpHebJ1wa
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.tH9GV3lrpHebJ1wa'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Limited flight
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>At the start of each turn, roll a [[/r d6]]. If the result is less
-        than or equal to the escalation die, the dragonic gains flight as a move action
-        during its turns thanks to a pair of wings it unfurls from its back. The flight
-        tends to be more power-flapping or gliding from one place to another rather
-        than hovering. Flamewings who also have limited flight prefer to use their
-        burning wings to fly in combat wherever possible, resorting to their physical
-        wings only if needed.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: WvebAvDBXLpybXbz
-  _key: '!actors.items!ZFQFPgG66s9ISLU2.WvebAvDBXLpybXbz'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Blood of the wyrm
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>This dragonic displays traits of its forebears, the mighty wyrms.
-        Roll a [[/r d10]] and consult the random dragon ability table, or choose one
-        of the first ten options that looks likely to shape the story or battle.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: wAfjlQU2iydTwirM
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Sharp claws
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[6]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.wAfjlQU2iydTwirM'
+  - _id: vLHL0AT7yD1AMVEV
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'R: Jagged lightning'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. PD (up to 2 nearby enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[6]] lightning damage'
+      hit1:
+        type: String
+        label: Hit
+        name: First natural even hit each turn
+        value: >-
+          The lightning caller can target another nearby enemy with *jagged
+          lightning*.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.vLHL0AT7yD1AMVEV'
+  - _id: ntoZa24UcdqAWfeW
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Lightning breath'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 +10]] vs. PD (each enemy engaged with the lightning caller)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[2]] lightning damage, and the target pops free from the lightning
+          caller
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle, as a quick action
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.ntoZa24UcdqAWfeW'
+  - _id: xayObUKuQZUUJ28j
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Lightning zap
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. PD (one enemy attacking the lightning caller)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[3]] lightning damage, the target takes a –2 penalty to the attack,
+          and the minion dissipates.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.xayObUKuQZUUJ28j'
+  - _id: ebsqAMVmvvyIkMqk
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Resist lightning 14+
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a lightning attack targets this creature, the attacker must
+          roll a natural 14+ on the attack roll or it only deals half
+          damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.ebsqAMVmvvyIkMqk'
+  - _id: pBFp4WPvGbl63Tjf
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Call lightning minion
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle as a move action, the lightning caller can summon
+          [[1d2]] small lightning minions that protect it. They look like small
+          dragons made of lightning that circle around the caller and
+          can&rsquo;t be attacked directly. When an enemy attacks the lightning
+          caller, one minion makes a <em>lightning zap</em> attack against it as
+          an interrupt action. All minions dissipate at the end of battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.pBFp4WPvGbl63Tjf'
+  - _id: tH9GV3lrpHebJ1wa
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Limited flight
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>At the start of each turn, roll a [[/r d6]]. If the result is less
+          than or equal to the escalation die, the dragonic gains flight as a
+          move action during its turns thanks to a pair of wings it unfurls from
+          its back. The flight tends to be more power-flapping or gliding from
+          one place to another rather than hovering. Flamewings who also have
+          limited flight prefer to use their burning wings to fly in combat
+          wherever possible, resorting to their physical wings only if
+          needed.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.tH9GV3lrpHebJ1wa'
+  - _id: WvebAvDBXLpybXbz
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Blood of the wyrm
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This dragonic displays traits of its forebears, the mighty wyrms.
+          Roll a [[/r d10]] and consult the random dragon ability table, or
+          choose one of the first ten options that looks likely to shape the
+          story or battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ZFQFPgG66s9ISLU2.WvebAvDBXLpybXbz'
 name: Bluescale Lightning Caller
 ownership:
   default: 0
@@ -417,7 +507,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -477,9 +567,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -490,15 +577,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 19
     attackMod:
       type: Number
       value: 0
@@ -509,72 +591,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 46
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 14
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 46
+      min: 0
+      max: 46
       temp: 0
       tempmax: 0
-      type: Number
-      value: 46
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 5
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 4
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 18
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 14
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: caster
@@ -588,67 +674,80 @@ system:
       value: normal
     type:
       value: humanoid
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!ZFQFPgG66s9ISLU2'

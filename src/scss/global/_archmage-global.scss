@@ -1639,9 +1639,10 @@ option[selected] {
 }
 
 .archmage-hotbar {
-  justify-content: start;
   margin: 0 4px 8px;
   position: relative;
+  flex-wrap: nowrap;
+  gap: 10px;
 }
 
 // Escalation die.
@@ -1705,6 +1706,7 @@ option[selected] {
   width: 200px;
   padding: 5px;
   margin-top: 5px;
+  min-width: 12em;
 
   &.hide {
     display: none;

@@ -1028,6 +1028,20 @@ export class ActorArchmage extends Actor {
         title: title,
         content: dlg,
         buttons: {
+          bon4: {
+            label: '+4',
+            callback: () => {
+              situational = 4;
+              rolled = true;
+            }
+          },
+          bon3: {
+            label: '+3',
+            callback: () => {
+              situational = 3;
+              rolled = true;
+            }
+          },
           bon2: {
             label: '+2',
             callback: () => {
@@ -1090,27 +1104,27 @@ export class ActorArchmage extends Actor {
               rolled = true;
             }
           },
-          pen7: {
-            label: '-7',
-            callback: () => {
-              situational = -7;
-              rolled = true;
-            }
-          },
-          pen8: {
-            label: '-8',
-            callback: () => {
-              situational = -8;
-              rolled = true;
-            }
-          },
-          pen9: {
-            label: '-9',
-            callback: () => {
-              situational = -9;
-              rolled = true;
-            }
-          },
+          // pen7: {
+            // label: '-7',
+            // callback: () => {
+              // situational = -7;
+              // rolled = true;
+            // }
+          // },
+          // pen8: {
+            // label: '-8',
+            // callback: () => {
+              // situational = -8;
+              // rolled = true;
+            // }
+          // },
+          // pen9: {
+            // label: '-9',
+            // callback: () => {
+              // situational = -9;
+              // rolled = true;
+            // }
+          // },
         },
         default: 'normal',
         close: html => {

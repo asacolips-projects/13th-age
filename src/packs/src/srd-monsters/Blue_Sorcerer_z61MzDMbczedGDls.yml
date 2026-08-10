@@ -1,408 +1,497 @@
 _id: z61MzDMbczedGDls
-_key: '!actors!z61MzDMbczedGDls'
 effects: []
 flags: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: hjI6MwJIHvJExo4h
-  _key: '!actors.items!z61MzDMbczedGDls.hjI6MwJIHvJExo4h'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Nasty dagger or short spear
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[6]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: aNbhel42WSI13bxe
-  _key: '!actors.items!z61MzDMbczedGDls.aNbhel42WSI13bxe'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'R: Lightning fork'
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. PD'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: Minor Spell
-    hit:
-      label: Hit
-      type: String
-      value: '[[6]] lightning damage'
-    hit1:
-      label: Hit
-      name: Natural even hit or miss
-      type: String
-      value: The sorceder can target a different nearby enemy with the attack
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 8Bt4Ccu6y2SfNiv9
-  _key: '!actors.items!z61MzDMbczedGDls.8Bt4Ccu6y2SfNiv9'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Breath of the Blue'
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. PD ([[1]] nearby enemy)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: Major Spell
-    hit:
-      label: Hit
-      type: String
-      value: '[[10]] lightning damage, and at the start of the target''s next turn,
-        [[1d6]] nearby allies of the target take [[4]] lightning damage.'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 6MCeal3SkvoTXKWU
-  _key: '!actors.items!z61MzDMbczedGDls.6MCeal3SkvoTXKWU'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Chaos orb'
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. MD ([[1d3]] nearby enemies'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: Major Spell
-    hit:
-      label: Hit
-      type: String
-      value: '[[8]] lightning damage'
-    hit1:
-      label: Hit
-      name: Natural even hit
-      type: String
-      value: "The sorcerer gains one use of the target\u2019s racial power, if any.\
-        \ It must use that power by the end of the battle or lose it, and it can\u2019\
-        t use the power this turn."
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 7w8MpCU25te0G4Hz
-  _key: '!actors.items!z61MzDMbczedGDls.7w8MpCU25te0G4Hz'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Power-monger
-  ownership:
-    default: 0
-  sort: 600000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the blue sorcerer starts its turn and it didn&rsquo;t&nbsp;gather
-        power&nbsp;the previous turn, choose whether it will gather power or cast
-        a spell this turn. When it chooses to cast a spell, roll a [[1d20]] to see
-        if it uses a minor spell or a major spell:&nbsp;1&ndash;10:&nbsp;minor spell;&nbsp;11&ndash;20:&nbsp;major
-        spell.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: uT2YUtd3dyKyjHJt
-  _key: '!actors.items!z61MzDMbczedGDls.uT2YUtd3dyKyjHJt'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Gather power
-  ownership:
-    default: 0
-  sort: 700000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Like a PC sorcerer, a blue sorcerer can use its standard action to
-        gather power in order to cast a double-strength and double-damage spell with
-        its next standard action. When it gathers power, the sorcerer rolls a d6 and
-        gains one of the following chaotic benefits.</p><p>1&ndash;2:&nbsp;The sorcerer
-        gains a +1 bonus to AC until the start of its next turn.</p><p>3&ndash;4:&nbsp;One
-        nearby enemy of the sorcerer&rsquo;s choice takes damage equal to sorcerer&rsquo;s
-        level (3).</p><p>5&ndash;6:&nbsp;Each nearby enemy engaged with the sorcerer&rsquo;s
-        allies takes damage equal to sorcerer&rsquo;s level (3); OR grant one nearby
-        dragon with&nbsp;intermittent breath&nbsp;an additional use of its breath
-        weapon this battle.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: PZyc5SGB22V03eif
-  _key: '!actors.items!z61MzDMbczedGDls.PZyc5SGB22V03eif'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Escalating caster
-  ownership:
-    default: 0
-  sort: 800000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Add the escalation die to the sorcerer&rsquo;s&nbsp;power-monger&nbsp;rolls
-        and attack rolls.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: iCOfeC1qEI8lSNZi
-  _key: '!actors.items!z61MzDMbczedGDls.iCOfeC1qEI8lSNZi'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Sorcerous evasion (kobold sorcerers only)
-  ownership:
-    default: 0
-  sort: 1000000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Once per battle when an attack misses the sorcerer, the attacker takes
-        the miss damage from that attack, if any, and the sorcerer takes no damage</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: hjI6MwJIHvJExo4h
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Nasty dagger or short spear
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[6]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.hjI6MwJIHvJExo4h'
+  - _id: aNbhel42WSI13bxe
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'R: Lightning fork'
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: Minor Spell
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. PD'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[6]] lightning damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: The sorceder can target a different nearby enemy with the attack
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.aNbhel42WSI13bxe'
+  - _id: 8Bt4Ccu6y2SfNiv9
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Breath of the Blue'
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: Major Spell
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. PD ([[1]] nearby enemy)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10]] lightning damage, and at the start of the target's next turn,
+          [[1d6]] nearby allies of the target take [[4]] lightning damage.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.8Bt4Ccu6y2SfNiv9'
+  - _id: 6MCeal3SkvoTXKWU
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Chaos orb'
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: Major Spell
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. MD ([[1d3]] nearby enemies'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[8]] lightning damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The sorcerer gains one use of the target’s racial power, if any. It
+          must use that power by the end of the battle or lose it, and it can’t
+          use the power this turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.6MCeal3SkvoTXKWU'
+  - _id: 7w8MpCU25te0G4Hz
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Power-monger
+    ownership:
+      default: 0
+    sort: 600000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the blue sorcerer starts its turn and it
+          didn&rsquo;t&nbsp;gather power&nbsp;the previous turn, choose whether
+          it will gather power or cast a spell this turn. When it chooses to
+          cast a spell, roll a [[1d20]] to see if it uses a minor spell or a
+          major spell:&nbsp;1&ndash;10:&nbsp;minor
+          spell;&nbsp;11&ndash;20:&nbsp;major spell.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.7w8MpCU25te0G4Hz'
+  - _id: uT2YUtd3dyKyjHJt
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Gather power
+    ownership:
+      default: 0
+    sort: 700000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Like a PC sorcerer, a blue sorcerer can use its standard action to
+          gather power in order to cast a double-strength and double-damage
+          spell with its next standard action. When it gathers power, the
+          sorcerer rolls a d6 and gains one of the following chaotic
+          benefits.</p><p>1&ndash;2:&nbsp;The sorcerer gains a +1 bonus to AC
+          until the start of its next turn.</p><p>3&ndash;4:&nbsp;One nearby
+          enemy of the sorcerer&rsquo;s choice takes damage equal to
+          sorcerer&rsquo;s level (3).</p><p>5&ndash;6:&nbsp;Each nearby enemy
+          engaged with the sorcerer&rsquo;s allies takes damage equal to
+          sorcerer&rsquo;s level (3); OR grant one nearby dragon
+          with&nbsp;intermittent breath&nbsp;an additional use of its breath
+          weapon this battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.uT2YUtd3dyKyjHJt'
+  - _id: PZyc5SGB22V03eif
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Escalating caster
+    ownership:
+      default: 0
+    sort: 800000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Add the escalation die to the
+          sorcerer&rsquo;s&nbsp;power-monger&nbsp;rolls and attack rolls.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.PZyc5SGB22V03eif'
+  - _id: iCOfeC1qEI8lSNZi
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Sorcerous evasion (kobold sorcerers only)
+    ownership:
+      default: 0
+    sort: 1000000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle when an attack misses the sorcerer, the attacker
+          takes the miss damage from that attack, if any, and the sorcerer takes
+          no damage</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!z61MzDMbczedGDls.iCOfeC1qEI8lSNZi'
 name: Blue Sorcerer
 ownership:
   default: 0
@@ -414,7 +503,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -474,9 +563,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -487,15 +573,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 18
     attackMod:
       type: Number
       value: 0
@@ -506,167 +587,184 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 48
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 14
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 48
+      min: 0
+      max: 48
       temp: 0
       tempmax: 0
-      type: Number
-      value: 48
-    init:
-      label: Initiative Modifier
-      mod: 9
-      type: Number
-      value: 9
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 3
-    md:
-      base: 10
-      label: Mental Defense
-      min: 0
-      type: Number
-      value: 17
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 14
-    saves:
+      base: 7
+      extra: 0
       automatic: true
-      base: 8
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+      mod: 9
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+      automatic: true
+      base: 8
+    escalation:
+      value: 0
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 3
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: caster
       label: Role
       type: String
-      value: caster
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: humanoid
       label: Type
       type: String
-      value: humanoid
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: B1
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B1
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!z61MzDMbczedGDls'

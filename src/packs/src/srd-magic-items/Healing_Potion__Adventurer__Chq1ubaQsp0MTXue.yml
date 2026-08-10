@@ -1,5 +1,4 @@
 _id: Chq1ubaQsp0MTXue
-_key: '!items!Chq1ubaQsp0MTXue'
 effects: []
 flags:
   core: {}
@@ -10,20 +9,32 @@ ownership:
   default: 0
 sort: 900000
 system:
-  description:
-    label: Description
-    type: String
-    value: <p>As a standard action, spend a recovery and regain 1d8 additional hp
-      (max 30).</p>
   name:
-    label: Name
     type: String
-  price:
-    label: Price
-    type: Number
-    value: 50
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>As a standard action, spend a recovery and regain 1d8 additional hp
+      (max 30).</p>
   quantity:
-    label: Quantity
     type: Number
+    label: Quantity
     value: 1
+  price:
+    type: Number
+    label: Price
+    value: 50
 type: loot
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!Chq1ubaQsp0MTXue'

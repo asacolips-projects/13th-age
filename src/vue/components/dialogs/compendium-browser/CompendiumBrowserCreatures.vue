@@ -244,6 +244,8 @@ export default {
       this.role = [];
       this.size = [];
       this.strength = [];
+      this.source = [];
+      this.location = [];
     },
     /**
      * Tooltip for a publication source, which may be translated

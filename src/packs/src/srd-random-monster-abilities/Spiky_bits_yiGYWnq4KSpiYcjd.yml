@@ -1,5 +1,4 @@
 _id: yiGYWnq4KSpiYcjd
-_key: '!items!yiGYWnq4KSpiYcjd'
 effects: []
 flags: {}
 folder: null
@@ -9,20 +8,32 @@ ownership:
   default: 0
 sort: 0
 system:
-  description:
-    label: Description
+  name:
     type: String
-    value: <p>Whenever an enemy hits the dire animal with a melee attack, deal damage
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Whenever an enemy hits the dire animal with a melee attack, deal damage
       equal to twice the animal&rsquo;s level to that attacker.</p>
   embeddedMacro:
-    label: Embedded Macro
     type: String
+    label: Embedded Macro
     value: ''
   group:
+    type: String
     label: Group
-    type: String
     value: ''
-  name:
-    label: Name
-    type: String
 type: trait
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!yiGYWnq4KSpiYcjd'

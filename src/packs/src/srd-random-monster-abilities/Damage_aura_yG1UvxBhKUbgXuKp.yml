@@ -1,5 +1,4 @@
 _id: yG1UvxBhKUbgXuKp
-_key: '!items!yG1UvxBhKUbgXuKp'
 effects: []
 flags: {}
 folder: null
@@ -9,22 +8,34 @@ ownership:
   default: 0
 sort: 0
 system:
+  name:
+    type: String
+    label: Name
   description:
+    type: String
     label: Description
-    type: String
-    value: <p>When an enemy starts its turn engaged with the dragon, it takes damage
-      equal to the dragon&rsquo;s level (adventurer tier), double the level (champion
-      tier), or triple the level (epic tier). The damage type is the same as the dragon&rsquo;s
-      breath weapon.</p>
+    value: >-
+      <p>When an enemy starts its turn engaged with the dragon, it takes damage
+      equal to the dragon&rsquo;s level (adventurer tier), double the level
+      (champion tier), or triple the level (epic tier). The damage type is the
+      same as the dragon&rsquo;s breath weapon.</p>
   embeddedMacro:
-    label: Embedded Macro
     type: String
+    label: Embedded Macro
     value: ''
   group:
+    type: String
     label: Group
-    type: String
     value: ''
-  name:
-    label: Name
-    type: String
 type: trait
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!yG1UvxBhKUbgXuKp'
