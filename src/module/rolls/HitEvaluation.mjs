@@ -14,7 +14,7 @@ export default class HitEvaluation {
         let hasHit = undefined;
         let hasMissed = undefined;
 
-        let defense = HitEvaluation._getTargetDefense(row_text);
+        let targetedDefenses = HitEvaluation._getTargetDefenses(row_text);
         const baseCritrange = game.settings.get("archmage", "optionalBaseCritRange") ? 18 : 20;
         let critRangeMin = baseCritrange - attacker?.system?.attributes.critMod.atk.value - critMod;
 
@@ -94,7 +94,7 @@ export default class HitEvaluation {
 
             // Target analysis, only perform if we actually have targets
             if (roll_index >= targetsToProcess) return;
-            var targetDefense = HitEvaluation._getTargetDefenseValue(target, defense);
+            var targetDefense = HitEvaluation._getTargetDefenseValue(target, targetedDefenses);
             if (targetDefense != undefined) {
               var hit = rollTotal >= targetDefense;
               if (hit) {
@@ -134,9 +134,16 @@ export default class HitEvaluation {
         };
     }
 
-    // Get either the Token overridden value or the base sheet value
-    static _getTargetDefenseValue(target, defense) {
-        return target.actor?.system.attributes[defense]?.value;
+    // Get either the Token overridden value or the base sheet value.
+    // With several defenses (e.g. "vs. PD or MD") the attack resolves against the lowest one.
+    static _getTargetDefenseValue(target, defenses) {
+        const values = defenses
+            .map(defense => target.actor?.system.attributes[defense]?.value)
+            .filter(value => value !== undefined && value !== null && value !== '')
+            .map(Number)
+            .filter(value => !Number.isNaN(value));
+        if (values.length === 0) return undefined;
+        return Math.min(...values);
     }
 
     // Returns a list of vulnerabilities. If the "vulnerable" condition is present, it is included as "vulnerable".
@@ -169,16 +176,15 @@ export default class HitEvaluation {
       return target.actor?.system.attributes.critMod.def.value;
     }
 
-    static _getTargetDefense(row_text) {
-        if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.ac.key"))) {
-            return "ac";
-        }
-        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.pd.key"))) {
-            return "pd";
-        }
-        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.md.key"))) {
-            return  "md";
-        }
+    // Returns the list of defenses mentioned in the row text, in the order in which they appear.
+    // Attacks can target or-separated combinations (e.g. "vs. PD or MD"), in which case every mentioned defense is returned.
+    static _getTargetDefenses(row_text) {
+        const text = row_text.toUpperCase();
+        return ["ac", "pd", "md"]
+            .map(key => ({key, index: text.indexOf(" " + game.i18n.localize(`ARCHMAGE.${key}.key`))}))
+            .filter(x => x.index >= 0)
+            .sort((a, b) => a.index - b.index)
+            .map(x => x.key);
     }
 
   static getNames(targets, targetsSpecial) {
