@@ -1,253 +1,332 @@
 _id: lxDotrrIxRrnMFgs
-_key: '!actors!lxDotrrIxRrnMFgs'
 effects: []
 flags:
   archmage: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 items:
-- _id: JTxbX4Wl77xTaikK
-  _key: '!actors.items!lxDotrrIxRrnMFgs.JTxbX4Wl77xTaikK'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Heedless claws
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 8]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[6]] damage'
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: lhq4kOOk7qjDIiFB
-  _key: '!actors.items!lxDotrrIxRrnMFgs.lhq4kOOk7qjDIiFB'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: "Devil\u2019s due (Squirm)"
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: "When you choose to add the escalation die to an attack against a lemure,\
-        \ another lemure in the mob somehow ends up in an unwanted place in the battle,\
-        \ though it\u2019s hard to say how exactly. They don\u2019t seem to teleport,\
-        \ but there are so many of the things squirming around it just happens."
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: cB7JcHfIuO2Okpgs
-  _key: '!actors.items!lxDotrrIxRrnMFgs.cB7JcHfIuO2Okpgs'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Living wave
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: When three or more lemures engage an enemy, they can pick it up and move
-        it along with them as they please without taking opportunity attacks. The
-        enemy getting moved around pops free of any other enemies engaged with it.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: ERcT9VwUI3eOGM6g
-  _key: '!actors.items!lxDotrrIxRrnMFgs.ERcT9VwUI3eOGM6g'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Nobody home
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: "When a lemure is targeted by an attack against MD, it ignores any effects\
-        \ of the attack and only takes damage from it. In addition, lemures fight\
-        \ in a straightforward way, without tactics. They never disengage willingly,\
-        \ and they\u2019re not coordinated enough to concentrate attacks on a *vulnerable*\
-        \ target."
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: RJBnU2YdTRNAuPFS
-  _key: '!actors.items!lxDotrrIxRrnMFgs.RJBnU2YdTRNAuPFS'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Resist fire 13+
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: When a fire attack targets this creature, the attacker must roll a natural
-        13+ on the attack roll or it only deals half damage.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: Jmh5uTcDCLzId3A7
-  _key: '!actors.items!lxDotrrIxRrnMFgs.Jmh5uTcDCLzId3A7'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: "Free-form ability\u2014Mass"
-  ownership:
-    default: 0
-  sort: 500000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: "Heedless of each other\u2019s safety or their own, lemures use sheer\
-        \ numbers to press through locked doors, climb walls, or dog pile on defenders."
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: VsFFRPOas72UTy22
-  _key: '!actors.items!lxDotrrIxRrnMFgs.VsFFRPOas72UTy22'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Too dumb to die
-  ownership:
-    default: 0
-  sort: 600000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: "At the start of the lemure mob\u2019s turn, roll a [[d6]] for each lemure\
-        \ in the mob that\u2019s dropped this battle. For each 6, one of them reassembles\
-        \ its horrid self and stumbles back into the melee that turn (add 13 hit points\
-        \ to the mob\u2019s hp total). To make sure a downed lemure is truly dead,\
-        \ an attacker can spend an additional [[7]] damage of the total dealt to finish\
-        \ the job instead of carrying that damage over to another lemure in the mob.\
-        \ Expending the right sort of limited-use power, such as a daily spell, might\
-        \ also keep a number of downed lemures totally dead. Once the last member\
-        \ of the mob drops, stop rolling to see if lemures rise up."
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: JTxbX4Wl77xTaikK
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Heedless claws
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[6]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!lxDotrrIxRrnMFgs.JTxbX4Wl77xTaikK'
+  - _id: lhq4kOOk7qjDIiFB
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Devil’s due (Squirm)
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When you choose to add the escalation die to an attack against a
+          lemure, another lemure in the mob somehow ends up in an unwanted place
+          in the battle, though it’s hard to say how exactly. They don’t seem to
+          teleport, but there are so many of the things squirming around it just
+          happens.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!lxDotrrIxRrnMFgs.lhq4kOOk7qjDIiFB'
+  - _id: cB7JcHfIuO2Okpgs
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Living wave
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When three or more lemures engage an enemy, they can pick it up and
+          move it along with them as they please without taking opportunity
+          attacks. The enemy getting moved around pops free of any other enemies
+          engaged with it.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!lxDotrrIxRrnMFgs.cB7JcHfIuO2Okpgs'
+  - _id: ERcT9VwUI3eOGM6g
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Nobody home
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a lemure is targeted by an attack against MD, it ignores any
+          effects of the attack and only takes damage from it. In addition,
+          lemures fight in a straightforward way, without tactics. They never
+          disengage willingly, and they’re not coordinated enough to concentrate
+          attacks on a *vulnerable* target.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!lxDotrrIxRrnMFgs.ERcT9VwUI3eOGM6g'
+  - _id: RJBnU2YdTRNAuPFS
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Resist fire 13+
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a fire attack targets this creature, the attacker must roll a
+          natural 13+ on the attack roll or it only deals half damage.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!lxDotrrIxRrnMFgs.RJBnU2YdTRNAuPFS'
+  - _id: Jmh5uTcDCLzId3A7
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Free-form ability—Mass
+    ownership:
+      default: 0
+    sort: 500000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Heedless of each other’s safety or their own, lemures use sheer
+          numbers to press through locked doors, climb walls, or dog pile on
+          defenders.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!lxDotrrIxRrnMFgs.Jmh5uTcDCLzId3A7'
+  - _id: VsFFRPOas72UTy22
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Too dumb to die
+    ownership:
+      default: 0
+    sort: 600000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          At the start of the lemure mob’s turn, roll a [[d6]] for each lemure
+          in the mob that’s dropped this battle. For each 6, one of them
+          reassembles its horrid self and stumbles back into the melee that turn
+          (add 13 hit points to the mob’s hp total). To make sure a downed
+          lemure is truly dead, an attacker can spend an additional [[7]] damage
+          of the total dealt to finish the job instead of carrying that damage
+          over to another lemure in the mob. Expending the right sort of
+          limited-use power, such as a daily spell, might also keep a number of
+          downed lemures totally dead. Once the last member of the mob drops,
+          stop rolling to see if lemures rise up.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!lxDotrrIxRrnMFgs.VsFFRPOas72UTy22'
 name: Lemure
 ownership:
   default: 0
@@ -259,7 +338,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -319,9 +398,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/devil.webp
@@ -332,15 +408,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 17
     attackMod:
       type: Number
       value: 0
@@ -351,165 +422,182 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 6
-    hp:
-      automatic: true
+    ac:
+      type: Number
+      label: Armor Class
+      value: 17
       base: 10
-      extra: 0
-      label: Hit Points
-      max: 13
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 13
+      min: 0
+      max: 13
       temp: 0
       tempmax: 0
-      type: Number
-      value: 13
+      base: 10
+      extra: 0
+      automatic: true
     init:
+      type: Number
       label: Initiative Modifier
+      value: 3
       mod: 3
-      type: Number
-      value: 3
     level:
+      type: Number
       label: Level
-      max: 12
-      min: 0
-      type: Number
       value: 3
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 17
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 15
+      max: 12
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+    escalation:
+      value: 6
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 3
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: mook
       label: Role
       type: String
-      value: mook
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: devil
       label: Type
       type: String
-      value: devil
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: 13TW
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 3
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: 13TW
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!lxDotrrIxRrnMFgs'

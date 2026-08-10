@@ -32,14 +32,14 @@
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.saveBonus') }} </label>
 		<div class="field">
 			<input type="number" v-model="viewModel.saveBonus" />
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.disengageBonus') }} </label>
 		<div class="field">
 			<input type="number" v-model="viewModel.disengageBonus" />
@@ -53,7 +53,7 @@
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div class="form-group">
 		<label>
 			{{ localize('ARCHMAGE.ITEM.critDefBonus') }}
 			<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.critDefBonusHint')" />

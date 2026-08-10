@@ -1,5 +1,4 @@
 _id: 2PwoIGDEI0Vla9GG
-_key: '!items!2PwoIGDEI0Vla9GG'
 effects: []
 flags: {}
 folder: null
@@ -9,20 +8,32 @@ ownership:
   default: 0
 sort: 0
 system:
-  description:
-    label: Description
+  name:
     type: String
-    value: <p>You&rsquo;ll see that the demon resists fire the first time you use
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>You&rsquo;ll see that the demon resists fire the first time you use
       fire against it.</p>
   embeddedMacro:
-    label: Embedded Macro
     type: String
+    label: Embedded Macro
     value: ''
   group:
+    type: String
     label: Group
-    type: String
     value: ''
-  name:
-    label: Name
-    type: String
 type: trait
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!2PwoIGDEI0Vla9GG'

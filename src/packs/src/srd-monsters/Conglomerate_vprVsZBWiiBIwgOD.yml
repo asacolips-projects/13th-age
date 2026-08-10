@@ -1,5 +1,4 @@
 _id: vprVsZBWiiBIwgOD
-_key: '!actors!vprVsZBWiiBIwgOD'
 effects: []
 flags:
   archmage:
@@ -8,267 +7,334 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 items:
-- _id: 62Yyv5WyIgN3qk8I
-  _key: '!actors.items!vprVsZBWiiBIwgOD.62Yyv5WyIgN3qk8I'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Pebble dash
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 7]] vs. AC (2 attacks)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[3]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: Bv9p9hlhDp3X5eLA
-  _key: '!actors.items!vprVsZBWiiBIwgOD.Bv9p9hlhDp3X5eLA'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Throwing stones'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 6]] vs. PD (one nearby enemy)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[7]] damage and the conglomerate teleports to become adjacent to the
-        target.'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: l8jFuMHMGhxlC0Qz
-  _key: '!actors.items!vprVsZBWiiBIwgOD.l8jFuMHMGhxlC0Qz'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Rock pile
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Once per battle the conglomerate can launch itself at a nearby enemy
-        as a hail of rubble.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: BCG2pTru7RPjxE6t
-  _key: '!actors.items!vprVsZBWiiBIwgOD.BCG2pTru7RPjxE6t'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: All-rock (resist weapons and negative energy 16+)
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>All taranar are resistant to physical damage as a result of their
-        stony nature. If an assailant fails to make a natural roll of 16+ when using
-        a weapon against a taranar, the attacker deals only half damage. The resistance
-        also applies to negative energy damage, which tends to fizzle ineffectively
-        against the ancient stones.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: KMLROvaDTw2m2iq4
-  _key: '!actors.items!vprVsZBWiiBIwgOD.KMLROvaDTw2m2iq4'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Lightning-flare
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>As a last ditch defense, when a taranar is reduced to between 1 and
-        10 hp, it can discharge its remaining stored energy as a counterattack (no
-        attack roll required) against the character who delivered the telling blow,
-        dealing 1d6 lightning damage per level of the taranar ([[2d6]]). The taranar
-        immediately returns to its immobile rock form and cannot take any further
-        role in the battle. It will then remain torpid unless destroyed or the cycle
-        turns full circle and the conditions for it to wake are met again (providing
-        they can be). Such severely damaged creatures reawaken as broken taranar,
-        regardless of what they were before.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: yx6OCm2yogjuEAjF
-  _key: '!actors.items!vprVsZBWiiBIwgOD.yx6OCm2yogjuEAjF'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Thick-skinned
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Being made of stone has its benefits. The taranar are immune to almost
-        all effects&mdash;they cannot be dazed, weakened, confused, or made vulnerable
-        to anything beyond those energies they are already vulnerable to (fire and
-        cold; see below). Taranar are also immune to ongoing damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: 62Yyv5WyIgN3qk8I
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Pebble dash
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 7]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[3]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!vprVsZBWiiBIwgOD.62Yyv5WyIgN3qk8I'
+  - _id: Bv9p9hlhDp3X5eLA
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Throwing stones'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 6]] vs. PD (one nearby enemy)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[7]] damage and the conglomerate teleports to become adjacent to the
+          target.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!vprVsZBWiiBIwgOD.Bv9p9hlhDp3X5eLA'
+  - _id: l8jFuMHMGhxlC0Qz
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Rock pile
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle the conglomerate can launch itself at a nearby
+          enemy as a hail of rubble.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!vprVsZBWiiBIwgOD.l8jFuMHMGhxlC0Qz'
+  - _id: BCG2pTru7RPjxE6t
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: All-rock (resist weapons and negative energy 16+)
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>All taranar are resistant to physical damage as a result of their
+          stony nature. If an assailant fails to make a natural roll of 16+ when
+          using a weapon against a taranar, the attacker deals only half damage.
+          The resistance also applies to negative energy damage, which tends to
+          fizzle ineffectively against the ancient stones.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!vprVsZBWiiBIwgOD.BCG2pTru7RPjxE6t'
+  - _id: KMLROvaDTw2m2iq4
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Lightning-flare
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a last ditch defense, when a taranar is reduced to between 1 and
+          10 hp, it can discharge its remaining stored energy as a counterattack
+          (no attack roll required) against the character who delivered the
+          telling blow, dealing 1d6 lightning damage per level of the taranar
+          ([[2d6]]). The taranar immediately returns to its immobile rock form
+          and cannot take any further role in the battle. It will then remain
+          torpid unless destroyed or the cycle turns full circle and the
+          conditions for it to wake are met again (providing they can be). Such
+          severely damaged creatures reawaken as broken taranar, regardless of
+          what they were before.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!vprVsZBWiiBIwgOD.KMLROvaDTw2m2iq4'
+  - _id: yx6OCm2yogjuEAjF
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Thick-skinned
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Being made of stone has its benefits. The taranar are immune to
+          almost all effects&mdash;they cannot be dazed, weakened, confused, or
+          made vulnerable to anything beyond those energies they are already
+          vulnerable to (fire and cold; see below). Taranar are also immune to
+          ongoing damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!vprVsZBWiiBIwgOD.yx6OCm2yogjuEAjF'
 name: Conglomerate
 ownership:
   default: 0
@@ -280,7 +346,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -340,9 +406,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
@@ -353,15 +416,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 18
     attackMod:
       type: Number
       value: 0
@@ -372,72 +430,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 8
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 12
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 8
+      min: 0
+      max: 8
       temp: 0
       tempmax: 0
-      type: Number
-      value: 8
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 2
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 2
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 12
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 16
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: mook
@@ -451,67 +513,80 @@ system:
       value: normal
     type:
       value: elemental
+    resistance:
+      value: ''
     vulnerability:
       value: cold, fire
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!vprVsZBWiiBIwgOD'

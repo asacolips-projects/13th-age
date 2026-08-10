@@ -1,5 +1,4 @@
 _id: hojV2urxFb1cjgWJ
-_key: '!tables!hojV2urxFb1cjgWJ'
 description: ''
 displayRoll: false
 flags: {}
@@ -11,40 +10,81 @@ ownership:
   default: 0
 replacement: true
 results:
-- _id: zRUVOBQt3zOd63zy
-  _key: '!tables.results!hojV2urxFb1cjgWJ.zRUVOBQt3zOd63zy'
-  description: You gain a +1 bonus to all defenses until the start of your next turn.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 1
-  - 2
-  type: text
-  weight: 2
-- _id: G80jfQRER4qJ3LUQ
-  _key: '!tables.results!hojV2urxFb1cjgWJ.G80jfQRER4qJ3LUQ'
-  description: Deal [[@lvl + 2 * @cha.mod]] damage to all nearby staggered enemies.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 3
-  - 4
-  type: text
-  weight: 2
-- _id: pUiLydoJceGpNFp9
-  _key: '!tables.results!hojV2urxFb1cjgWJ.pUiLydoJceGpNFp9'
-  description: Deal [[@lvl + 2 * @cha.mod]] damage to one nearby enemy
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 5
-  - 6
-  type: text
-  weight: 2
+  - _id: zRUVOBQt3zOd63zy
+    description: You gain a +1 bonus to all defenses until the start of your next turn.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 1
+      - 2
+    type: text
+    weight: 2
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!hojV2urxFb1cjgWJ.zRUVOBQt3zOd63zy'
+  - _id: G80jfQRER4qJ3LUQ
+    description: Deal [[@lvl + 2 * @cha.mod]] damage to all nearby staggered enemies.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 3
+      - 4
+    type: text
+    weight: 2
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!hojV2urxFb1cjgWJ.G80jfQRER4qJ3LUQ'
+  - _id: pUiLydoJceGpNFp9
+    description: Deal [[@lvl + 2 * @cha.mod]] damage to one nearby enemy
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 5
+      - 6
+    type: text
+    weight: 2
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!hojV2urxFb1cjgWJ.pUiLydoJceGpNFp9'
 sort: 2400000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!hojV2urxFb1cjgWJ'

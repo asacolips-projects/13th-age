@@ -1,5 +1,4 @@
 _id: mk69wxlsqwnydwip
-_key: '!journal!mk69wxlsqwnydwip'
 categories: []
 flags: {}
 folder: null
@@ -7,25 +6,46 @@ name: Hampered
 ownership:
   default: 0
 pages:
-- _id: yZ7ybvesYPUYKtgB
-  _key: '!journal.pages!mk69wxlsqwnydwip.yZ7ybvesYPUYKtgB'
-  category: null
-  flags: {}
-  image: {}
-  name: Hampered
-  ownership:
-    default: -1
-  sort: 0
-  src: null
-  system: {}
-  text:
-    content: <p>You can only make basic attacks. You can still move normally.</p>
-    format: 1
-  title:
-    level: 1
-    show: false
-  type: text
-  video:
-    controls: true
-    volume: 0.5
+  - _id: yZ7ybvesYPUYKtgB
+    category: null
+    flags: {}
+    image: {}
+    name: Hampered
+    ownership:
+      default: -1
+    sort: 0
+    src: null
+    system: {}
+    text:
+      content: <p>You can only make basic attacks. You can still move normally.</p>
+      format: 1
+    title:
+      level: 1
+      show: false
+    type: text
+    video:
+      controls: true
+      volume: 0.5
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!journal.pages!mk69wxlsqwnydwip.yZ7ybvesYPUYKtgB'
 sort: 1800000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!journal!mk69wxlsqwnydwip'

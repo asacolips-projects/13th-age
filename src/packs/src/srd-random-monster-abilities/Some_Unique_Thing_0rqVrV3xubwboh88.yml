@@ -1,5 +1,4 @@
 _id: 0rqVrV3xubwboh88
-_key: '!items!0rqVrV3xubwboh88'
 effects: []
 flags: {}
 folder: null
@@ -9,22 +8,34 @@ ownership:
   default: 0
 sort: 0
 system:
+  name:
+    type: String
+    label: Name
   description:
+    type: String
     label: Description
-    type: String
-    value: <p>The dragon has an entirely unique characteristic, something akin to
-      a player character&rsquo;s one unique thing except that the dragon&rsquo;s version
-      may be relevant to combat. GM, if you don&rsquo;t feel like making something
-      up, choose an ability from the list above.</p>
+    value: >-
+      <p>The dragon has an entirely unique characteristic, something akin to a
+      player character&rsquo;s one unique thing except that the dragon&rsquo;s
+      version may be relevant to combat. GM, if you don&rsquo;t feel like making
+      something up, choose an ability from the list above.</p>
   embeddedMacro:
-    label: Embedded Macro
     type: String
+    label: Embedded Macro
     value: ''
   group:
+    type: String
     label: Group
-    type: String
     value: ''
-  name:
-    label: Name
-    type: String
 type: trait
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!0rqVrV3xubwboh88'

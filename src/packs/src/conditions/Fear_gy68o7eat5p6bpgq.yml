@@ -1,5 +1,4 @@
 _id: gy68o7eat5p6bpgq
-_key: '!journal!gy68o7eat5p6bpgq'
 categories: []
 flags: {}
 folder: null
@@ -7,26 +6,48 @@ name: Fear
 ownership:
   default: 0
 pages:
-- _id: 8bj6rym7VzQdANGd
-  _key: '!journal.pages!gy68o7eat5p6bpgq.8bj6rym7VzQdANGd'
-  category: null
-  flags: {}
-  image: {}
-  name: Fear
-  ownership:
-    default: -1
-  sort: 0
-  src: null
-  system: {}
-  text:
-    content: <p>Fear makes you *dazed* you and prevents you from using the escalation
-      die.</p>
-    format: 1
-  title:
-    level: 1
-    show: false
-  type: text
-  video:
-    controls: true
-    volume: 0.5
+  - _id: 8bj6rym7VzQdANGd
+    category: null
+    flags: {}
+    image: {}
+    name: Fear
+    ownership:
+      default: -1
+    sort: 0
+    src: null
+    system: {}
+    text:
+      content: >-
+        <p>Fear makes you *dazed* you and prevents you from using the escalation
+        die.</p>
+      format: 1
+    title:
+      level: 1
+      show: false
+    type: text
+    video:
+      controls: true
+      volume: 0.5
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!journal.pages!gy68o7eat5p6bpgq.8bj6rym7VzQdANGd'
 sort: 1400000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!journal!gy68o7eat5p6bpgq'

@@ -1,5 +1,4 @@
 _id: g20s05odo7v5mw2q
-_key: '!journal!g20s05odo7v5mw2q'
 categories: []
 flags: {}
 folder: null
@@ -7,27 +6,49 @@ name: Helpless
 ownership:
   default: 0
 pages:
-- _id: 8cwYRWwmhE6IBYYU
-  _key: '!journal.pages!g20s05odo7v5mw2q.8cwYRWwmhE6IBYYU'
-  category: null
-  flags: {}
-  image: {}
-  name: Helpless
-  ownership:
-    default: -1
-  sort: 0
-  src: null
-  system: {}
-  text:
-    content: "<p>If you\u2019re *unconscious* or asleep, you\u2019re *helpless*. While\
-      \ *helpless*, you take a \u20134 penalty to all defenses and you can be the\
-      \ target of a <em>coup de grace</em>.</p>"
-    format: 1
-  title:
-    level: 1
-    show: false
-  type: text
-  video:
-    controls: true
-    volume: 0.5
+  - _id: 8cwYRWwmhE6IBYYU
+    category: null
+    flags: {}
+    image: {}
+    name: Helpless
+    ownership:
+      default: -1
+    sort: 0
+    src: null
+    system: {}
+    text:
+      content: >-
+        <p>If you’re *unconscious* or asleep, you’re *helpless*. While
+        *helpless*, you take a –4 penalty to all defenses and you can be the
+        target of a <em>coup de grace</em>.</p>
+      format: 1
+    title:
+      level: 1
+      show: false
+    type: text
+    video:
+      controls: true
+      volume: 0.5
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!journal.pages!g20s05odo7v5mw2q.8cwYRWwmhE6IBYYU'
 sort: 1300000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!journal!g20s05odo7v5mw2q'

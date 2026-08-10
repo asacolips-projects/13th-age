@@ -1,5 +1,4 @@
 _id: fnh84WoLu1gwdosl
-_key: '!tables!fnh84WoLu1gwdosl'
 description: ''
 displayRoll: false
 flags:
@@ -12,108 +11,199 @@ ownership:
   default: 0
 replacement: true
 results:
-- _id: MEVDyPLFvTc13W0n
-  _key: '!tables.results!fnh84WoLu1gwdosl.MEVDyPLFvTc13W0n'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.q0vVL4L1yf5QMonV
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: True seeing
-  range:
-  - 1
-  - 1
-  type: document
-  weight: 1
-- _id: VVljIJNSbquO25vm
-  _key: '!tables.results!fnh84WoLu1gwdosl.VVljIJNSbquO25vm'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.2PwoIGDEI0Vla9GG
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Resist fire 18+
-  range:
-  - 2
-  - 2
-  type: document
-  weight: 1
-- _id: c6L2jYZ4AXFaJn9z
-  _key: '!tables.results!fnh84WoLu1gwdosl.c6L2jYZ4AXFaJn9z'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.i0xyt4xwBObvBDnO
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Invisibility
-  range:
-  - 3
-  - 3
-  type: document
-  weight: 1
-- _id: abU60RmfxzOT8iYc
-  _key: '!tables.results!fnh84WoLu1gwdosl.abU60RmfxzOT8iYc'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.YhARzcfkSGgNqO9B
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Resist energy 12+
-  range:
-  - 4
-  - 4
-  type: document
-  weight: 1
-- _id: t50alDgyctQJQkPa
-  _key: '!tables.results!fnh84WoLu1gwdosl.t50alDgyctQJQkPa'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.b57i28kZTNUC7IHA
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Fear aura
-  range:
-  - 5
-  - 5
-  type: document
-  weight: 1
-- _id: Xd595FgKrWRuLCov
-  _key: '!tables.results!fnh84WoLu1gwdosl.Xd595FgKrWRuLCov'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.0KY6GWNAlL2Bp8MY
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Teleport 1d3 times each battle
-  range:
-  - 6
-  - 6
-  type: document
-  weight: 1
-- _id: tmf0Mff8X6vIvF9q
-  _key: '!tables.results!fnh84WoLu1gwdosl.tmf0Mff8X6vIvF9q'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.z6lUYL09Ar5IYGu3
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Demonic speed
-  range:
-  - 7
-  - 7
-  type: document
-  weight: 1
-- _id: 7l8pYTJFbspTR9NV
-  _key: '!tables.results!fnh84WoLu1gwdosl.7l8pYTJFbspTR9NV'
-  description: ''
-  documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.6QirduZForphIdI1
-  drawn: false
-  flags: {}
-  img: icons/svg/item-bag.svg
-  name: Gate
-  range:
-  - 8
-  - 8
-  type: document
-  weight: 1
+  - _id: MEVDyPLFvTc13W0n
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.q0vVL4L1yf5QMonV
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: True seeing
+    range:
+      - 1
+      - 1
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.MEVDyPLFvTc13W0n'
+  - _id: VVljIJNSbquO25vm
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.2PwoIGDEI0Vla9GG
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Resist fire 18+
+    range:
+      - 2
+      - 2
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.VVljIJNSbquO25vm'
+  - _id: c6L2jYZ4AXFaJn9z
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.i0xyt4xwBObvBDnO
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Invisibility
+    range:
+      - 3
+      - 3
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.c6L2jYZ4AXFaJn9z'
+  - _id: abU60RmfxzOT8iYc
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.YhARzcfkSGgNqO9B
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Resist energy 12+
+    range:
+      - 4
+      - 4
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.abU60RmfxzOT8iYc'
+  - _id: t50alDgyctQJQkPa
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.b57i28kZTNUC7IHA
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Fear aura
+    range:
+      - 5
+      - 5
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.t50alDgyctQJQkPa'
+  - _id: Xd595FgKrWRuLCov
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.0KY6GWNAlL2Bp8MY
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Teleport 1d3 times each battle
+    range:
+      - 6
+      - 6
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.Xd595FgKrWRuLCov'
+  - _id: tmf0Mff8X6vIvF9q
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.z6lUYL09Ar5IYGu3
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Demonic speed
+    range:
+      - 7
+      - 7
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.tmf0Mff8X6vIvF9q'
+  - _id: 7l8pYTJFbspTR9NV
+    description: ''
+    documentUuid: Compendium.archmage.srd-random-monster-abilities.Item.6QirduZForphIdI1
+    drawn: false
+    flags: {}
+    img: icons/svg/item-bag.svg
+    name: Gate
+    range:
+      - 8
+      - 8
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!fnh84WoLu1gwdosl.7l8pYTJFbspTR9NV'
 sort: 2300000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!fnh84WoLu1gwdosl'

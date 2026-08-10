@@ -576,6 +576,25 @@ Hooks.once('init', async function() {
     requiresReload: true
   });
 
+  game.settings.register('archmage', 'disableMovementDistances', {
+    name: "ARCHMAGE.SETTINGS.disableMovementDistancesName",
+    hint: "ARCHMAGE.SETTINGS.disableMovementDistancesHint",
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean,
+    requiresReload: true
+  });
+
+  game.settings.register('archmage', 'disableMovementTrails', {
+    name: "ARCHMAGE.SETTINGS.disableMovementTrailsName",
+    hint: "ARCHMAGE.SETTINGS.disableMovementTrailsHint",
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+  });
+
   game.settings.register('archmage', 'allowPasteParsing', {
     name: "ARCHMAGE.SETTINGS.allowPasteParsingName",
     hint: "ARCHMAGE.SETTINGS.allowPasteParsingHint",
@@ -659,6 +678,11 @@ Hooks.on('ready', () => {
           ]
       })
   );
+
+  // Optionally Hide ruler distance labels — 13th Age uses abstract movement where distances are irrelevant.
+  if (game.settings.get('archmage', 'disableMovementDistances')) {
+    CONFIG.Token.rulerClass.WAYPOINT_LABEL_TEMPLATE = "";
+  }
 });
 
 Hooks.on('setup', (data, options, id) => {
@@ -795,7 +819,7 @@ async function addEscalationDie() {
 /* -------------------------------------------- */
 
 Hooks.once('ready', async () => {
-  $(`<div class="archmage-hotbar faded-ui flexcol"></div>`).insertBefore('#players');
+  $(`<div class="archmage-hotbar faded-ui flexrow"></div>`).insertBefore('#players');
   await addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
@@ -982,9 +1006,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.edition',
       settings: ['secondEdition', 'alternateIconRollingMethod'],
-      highlights: [
-        'alternateIconRollingMethod',
-      ],
+      highlights: [ ],
     },
     {
       label: 'ARCHMAGE.SETTINGS.groups.automation',
@@ -1030,6 +1052,8 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     {
       label: 'ARCHMAGE.SETTINGS.groups.general',
       settings: [
+        "disableMovementDistances",
+        "disableMovementTrails",
         'allowPasteParsing',
         'initiativeDexTiebreaker',
         'initiativeStaticNpc',
@@ -1037,6 +1061,8 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'tourVisibility',
       ],
       highlights: [
+        "disableMovementDistances",
+        "disableMovementTrails",
       ],
     }
   ];
@@ -1253,6 +1279,15 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 /* -------------------------------------------- */
 
+Hooks.on("updateToken", (tokenDoc, changes, options, userId) => {
+  if (!game.settings.get('archmage', 'disableMovementTrails')) return;
+  if ("x" in changes || "y" in changes) {
+    tokenDoc.clearMovementHistory?.();
+  }
+});
+
+/* -------------------------------------------- */
+
 Hooks.on('dropActorSheetData', (actor, sheet, data) => {
   const types = ['effect', 'ActiveEffect', 'condition', 'ongoing-damage'];
   if (types.includes(data.type)) {
@@ -1265,7 +1300,7 @@ Hooks.on('dropActorSheetData', (actor, sheet, data) => {
 
 /* ---------------------------------------------- */
 
-Hooks.on('dropCanvasData', async (canvas, data) => {
+Hooks.on('dropCanvasData', (canvas, data) => {
 
   function findToken() {
     // Get the token at the drop point, if any
@@ -1274,7 +1309,7 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     const gridSize = canvas.scene.grid.size;
     // Get the set of targeted tokens
     const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
-      if (!t.visible) return false;
+      if (t.hidden || !t.isOwner) return false;
       return (t.x <= x
           && (t.x + t.width * gridSize) >= x
           && t.y <= y
@@ -1297,9 +1332,17 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     }
     return token;
   }
+  const types = ['effect', 'ActiveEffect', 'condition', 'ongoing-damage'];
+  if (!types.includes(data.type)) return;
+
   const token = findToken();
   if (!token) return;
-  return await _applyAE(token.actor, data);
+  // Render the condition dialog and apply the effect.
+  _applyAE(token.actor, data);
+  // Return false to prevent Foundry from adding a duplicate effect. This hook
+  // must stay synchronous: an async handler returns a Promise, which Foundry
+  // reads as truthy and so does not cancel its own drop handling.
+  return false;
 });
 
 async function _applyAE(actor, data) {
