@@ -312,7 +312,7 @@ export class ItemArchmage extends Item {
     }
 
     const max = Number(formula);
-    return Number.isFinite(max) ? Math.floor(max) : null;
+    return Number.isFinite(max) ? Math.max(Math.floor(max), 0) : null;
   }
 
   async _rollUsesCheck(updateData, usageMode, consumeUsage = true) {

@@ -1620,7 +1620,7 @@ export class ActorArchmage extends Actor {
       // follow the character as it levels up.
       if (item.type == 'power') {
         let maxSecondary = await item.resolveMaxQuantity('maxQuantitySecondary') ?? 1;
-        if (maxSecondary && usageArray.includes(item.system.powerUsageSecondary?.value)
+        if (typeof maxSecondary === 'number' && usageArray.includes(item.system.powerUsageSecondary?.value)
           && item.system.quantitySecondary?.value != maxSecondary) {
           itemUpdateData['system.quantitySecondary.value'] = maxSecondary;
           templateData.items.push({
