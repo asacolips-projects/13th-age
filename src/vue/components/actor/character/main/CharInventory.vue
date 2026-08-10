@@ -44,7 +44,7 @@
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
-        <li v-for="equipment in equipmentGroups[groupKey]" :key="equipment._id" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" data-draggable="true" draggable="true">
+        <li v-for="equipment in equipmentGroups[groupKey]" :key="equipment._id" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" data-document-class="Item" data-draggable="true" draggable="true">
           <!-- Clickable equipment header. -->
           <div class="equipment-summary grid equipment-grid equipment">
             <Rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></Rollable>

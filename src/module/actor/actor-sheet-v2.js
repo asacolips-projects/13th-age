@@ -1185,11 +1185,12 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
         dragData = effect.toDragData();
       }
     }
-    else if (li.dataset.documentClass === 'Item') {
-      if (li.dataset.itemId) {
-        const item = this.actor.items.get(li.dataset.itemId);
-        dragData = item.toDragData();
-      }
+    // Treat a row that carries an item id as an Item even if the markup forgot
+    // to declare the document class - without drag data the drop is a silent
+    // no-op, which is a very confusing way for a missing attribute to fail.
+    else if (li.dataset.itemId) {
+      const item = this.actor.items.get(li.dataset.itemId);
+      if (item) dragData = item.toDragData();
     }
 
     if (!dragData) return;
