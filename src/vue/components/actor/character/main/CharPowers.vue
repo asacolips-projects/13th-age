@@ -127,6 +127,7 @@ export default {
       sortBy: 'custom',
       searchValue: null,
       activePowers: {},
+      sectionClasses: [],
       // Persisted group ordering for the current groupBy mode, plus transient
       // state for the group drag interaction.
       groupOrder: [],
@@ -180,7 +181,13 @@ export default {
      * Computed class string for the main powers section element.
      */
     classes() {
-      return `section section--powers flexcol`;
+      // return `section section--powers flexcol ${this.sectionClasses.join(' ')}`;
+      return [
+        'section',
+        'section--powers',
+        'flexcol',
+        ...this.sectionClasses,
+      ].join(' ');
     },
     /**
      * Computed power groups. Takes the entire powers item array and reduces it
@@ -401,6 +408,7 @@ export default {
     onGroupDragStart(event, groupKey) {
       if (!this.canReorderGroups) return;
       this.draggedGroup = groupKey;
+      this.sectionClasses.push('dragging');
       event.dataTransfer.effectAllowed = 'move';
       // Tag the payload so nothing downstream mistakes this for an item drag.
       event.dataTransfer.setData('text/plain', JSON.stringify({
@@ -424,6 +432,8 @@ export default {
       this.dragOverGroup = null;
     },
     async onGroupDrop(event, groupKey) {
+      // @todo make this remove only 'dragging' instead of nuking it.
+      this.sectionClasses = [];
       if (!this.draggedGroup) return;
       // A group is being reordered, so keep this away from item sorting.
       event.preventDefault();
