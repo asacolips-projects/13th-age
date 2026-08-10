@@ -1,5 +1,4 @@
 _id: 79OynB4yZM1RcUgu
-_key: '!actors!79OynB4yZM1RcUgu'
 effects: []
 flags:
   archmage:
@@ -8,173 +7,205 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
-- _id: jFcJ0Oe6ABiNvzMZ
-  _key: '!actors.items!79OynB4yZM1RcUgu.jFcJ0Oe6ABiNvzMZ'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Thagomizer
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[24]] damage'
-    hit1:
-      label: Hit
-      name: "Hit and natural attack roll exceeds target\u2019s Dexterity"
-      type: String
-      value: "Target is flung [[1d6 * 10]] feet in a random direction. (If that\u2019\
-        s going to put it into a very dangerous place or over a cliff or similar bad\
-        \ spot, it can roll a normal save to catch itself before being thrown and\
-        \ take another [[2d6]] damage."
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: EuDQVgYLseIPhpbJ
-  _key: '!actors.items!79OynB4yZM1RcUgu.EuDQVgYLseIPhpbJ'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'R: Rear and stomp!'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 9]] vs. PD ([[1d3]] nearby enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[22]] damage and the target is *hampered* (save ends)'
-    hit1:
-      label: Hit
-      name: Limited use
-      type: String
-      value: 1/battle, but not while staggered.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 1LKiEO2N6r0VSZHW
-  _key: '!actors.items!79OynB4yZM1RcUgu.1LKiEO2N6r0VSZHW'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Whoooosh
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the escalation die is even, the spiketail can target a nearby
-        enemy with its thagomizer attack instead of needing to be engaged.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: jFcJ0Oe6ABiNvzMZ
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Thagomizer
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[24]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Hit and natural attack roll exceeds target’s Dexterity
+        value: >-
+          Target is flung [[1d6 * 10]] feet in a random direction. (If that’s
+          going to put it into a very dangerous place or over a cliff or similar
+          bad spot, it can roll a normal save to catch itself before being
+          thrown and take another [[2d6]] damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!79OynB4yZM1RcUgu.jFcJ0Oe6ABiNvzMZ'
+  - _id: EuDQVgYLseIPhpbJ
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'R: Rear and stomp!'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. PD ([[1d3]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[22]] damage and the target is *hampered* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle, but not while staggered.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!79OynB4yZM1RcUgu.EuDQVgYLseIPhpbJ'
+  - _id: 1LKiEO2N6r0VSZHW
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Whoooosh
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die is even, the spiketail can target a nearby
+          enemy with its thagomizer attack instead of needing to be engaged.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!79OynB4yZM1RcUgu.1LKiEO2N6r0VSZHW'
 name: Spiketail
 ownership:
   default: 0
@@ -186,7 +217,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -246,9 +277,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
@@ -259,15 +287,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 2
+  depth: 2
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 19
     attackMod:
       type: Number
       value: 0
@@ -278,72 +301,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 124
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 124
+      min: 0
+      max: 124
       temp: 0
       tempmax: 0
-      type: Number
-      value: 124
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 8
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 4
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 14
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 17
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: wrecker
@@ -357,67 +384,80 @@ system:
       value: double
     type:
       value: beast
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!79OynB4yZM1RcUgu'

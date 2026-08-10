@@ -1,5 +1,4 @@
 _id: acdLcpev3KnflNCr
-_key: '!actors!acdLcpev3KnflNCr'
 effects: []
 flags:
   archmage:
@@ -8,277 +7,357 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
-- _id: Ss2Qb18x5PMrpztt
-  _key: '!actors.items!acdLcpev3KnflNCr.Ss2Qb18x5PMrpztt'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: '[Special trigger] C: Death from below!'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 14]] vs. AC (each nearby creature)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: "Limited use: 1/battle, during the remorhaz\u2019s first turn or if appearing\
-        \ on the surface after burrowing."
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[45]] damage; OR [[22]] damage, and the target is *stunned* (save ends)'
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Hit
-      name: Miss
-      type: ''
-      value: '[[15]] damage.'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: PHvKce1QVleKqG2C
-  _key: '!actors.items!acdLcpev3KnflNCr.PHvKce1QVleKqG2C'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Savage bite
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 16]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: "[[50]] damage, [[20]] fire damage, and the remorhaz grabs the target\
-        \ if it\u2019s not already grabbing a creature"
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Hit
-      name: Miss
-      type: ''
-      value: '[[15]] fire damage.'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: afwIpj25nb4zkoKJ
-  _key: '!actors.items!acdLcpev3KnflNCr.afwIpj25nb4zkoKJ'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Burrow
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: As the standard monster ability, except the remorhaz only needs to roll
-        6+ in snow and ice.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: RwjB54KB0gBlNjcs
-  _key: '!actors.items!acdLcpev3KnflNCr.RwjB54KB0gBlNjcs'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Furnace aura
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: When a creature is engaged with the remorhaz (or grabbed by it) at the
-        start of its turn, it takes fire damage equal to 6 x the escalation die.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: DyP8utGUCJVoHGwV
-  _key: '!actors.items!acdLcpev3KnflNCr.DyP8utGUCJVoHGwV'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Bejeweled remorhaz
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: "It takes [[10]] fire damage; OR one piece of its non-magical equipment\
-        \ (something useful, but player\u2019s choice) melts or burns up. Adjust skill\
-        \ checks or stats accordingly."
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: KpWf0Bw4KqR0v3q8
-  _key: '!actors.items!acdLcpev3KnflNCr.KpWf0Bw4KqR0v3q8'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Remorhaz steamer
-  ownership:
-    default: 0
-  sort: 500000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: The remorhaz is melting the ice/snow all the time and obscuring steam
-        rises into the air. Ranged attacks against the remorhaz take a -2 penalty,
-        or a -4 penalty if the attacker is far away.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: JAekL5cTYdMxxpEs
-  _key: '!actors.items!acdLcpev3KnflNCr.JAekL5cTYdMxxpEs'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Spiney remorhaz
-  ownership:
-    default: 0
-  sort: 600000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: The remorhaz is covered in red-hot spines. When a nearby enemy rolls
-        a natural 1-5 with an attack roll, it takes [[20]] fire damage unless it has
-        somehow protected itself from the heat.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: Ss2Qb18x5PMrpztt
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: '[Special trigger] C: Death from below!'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Limited use: 1/battle, during the remorhaz’s first turn or if
+          appearing on the surface after burrowing.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. AC (each nearby creature)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[45]] damage; OR [[22]] damage, and the target is *stunned* (save
+          ends)
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[15]] damage.'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!acdLcpev3KnflNCr.Ss2Qb18x5PMrpztt'
+  - _id: PHvKce1QVleKqG2C
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Savage bite
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[50]] damage, [[20]] fire damage, and the remorhaz grabs the target
+          if it’s not already grabbing a creature
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[15]] fire damage.'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!acdLcpev3KnflNCr.PHvKce1QVleKqG2C'
+  - _id: afwIpj25nb4zkoKJ
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Burrow
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          As the standard monster ability, except the remorhaz only needs to
+          roll 6+ in snow and ice.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!acdLcpev3KnflNCr.afwIpj25nb4zkoKJ'
+  - _id: RwjB54KB0gBlNjcs
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Furnace aura
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a creature is engaged with the remorhaz (or grabbed by it) at the
+          start of its turn, it takes fire damage equal to 6 x the escalation
+          die.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!acdLcpev3KnflNCr.RwjB54KB0gBlNjcs'
+  - _id: DyP8utGUCJVoHGwV
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Bejeweled remorhaz
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          It takes [[10]] fire damage; OR one piece of its non-magical equipment
+          (something useful, but player’s choice) melts or burns up. Adjust
+          skill checks or stats accordingly.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!acdLcpev3KnflNCr.DyP8utGUCJVoHGwV'
+  - _id: KpWf0Bw4KqR0v3q8
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Remorhaz steamer
+    ownership:
+      default: 0
+    sort: 500000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The remorhaz is melting the ice/snow all the time and obscuring steam
+          rises into the air. Ranged attacks against the remorhaz take a -2
+          penalty, or a -4 penalty if the attacker is far away.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!acdLcpev3KnflNCr.KpWf0Bw4KqR0v3q8'
+  - _id: JAekL5cTYdMxxpEs
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Spiney remorhaz
+    ownership:
+      default: 0
+    sort: 600000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The remorhaz is covered in red-hot spines. When a nearby enemy rolls a
+          natural 1-5 with an attack roll, it takes [[20]] fire damage unless it
+          has somehow protected itself from the heat.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!acdLcpev3KnflNCr.JAekL5cTYdMxxpEs'
 name: Adult Remorhaz
 ownership:
   default: 0
@@ -290,7 +369,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -350,9 +429,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
@@ -363,15 +439,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 2
+  depth: 2
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 24
     attackMod:
       type: Number
       value: 0
@@ -382,163 +453,180 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
       base: 10
-      extra: 0
-      label: Hit Points
-      max: 280
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 280
+      min: 0
+      max: 280
       temp: 0
       tempmax: 0
-      type: Number
-      value: 280
+      base: 10
+      extra: 0
+      automatic: true
     init:
+      type: Number
       label: Initiative Modifier
-      mod: 11
-      type: Number
       value: 11
+      mod: 11
     level:
+      type: Number
       label: Level
-      max: 12
-      min: 0
-      type: Number
       value: 8
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 18
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 22
+      max: 12
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 8
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: wrecker
       label: Role
       type: String
-      value: wrecker
     roleB:
       value: ''
     size:
+      value: large
       label: Size
       type: String
-      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
+      value: beast
       label: Type
       type: String
-      value: beast
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: B1
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 8
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B1
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!acdLcpev3KnflNCr'

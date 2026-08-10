@@ -1,5 +1,4 @@
 _id: DvSTFFWi24BeGhWy
-_key: '!tables!DvSTFFWi24BeGhWy'
 description: ''
 displayRoll: false
 flags:
@@ -12,52 +11,103 @@ ownership:
   default: 0
 replacement: true
 results:
-- _id: bWWh5IN7CrKxYypX
-  _key: '!tables.results!DvSTFFWi24BeGhWy.bWWh5IN7CrKxYypX'
-  description: Cold
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 1
-  - 1
-  type: text
-  weight: 1
-- _id: GCRjbjoPD7IW922C
-  _key: '!tables.results!DvSTFFWi24BeGhWy.GCRjbjoPD7IW922C'
-  description: Fire
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 2
-  - 2
-  type: text
-  weight: 1
-- _id: sP3X8nl0bQ4fkEZt
-  _key: '!tables.results!DvSTFFWi24BeGhWy.sP3X8nl0bQ4fkEZt'
-  description: Lightning
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 3
-  - 3
-  type: text
-  weight: 1
-- _id: W1Nkj2oENC2lBnEK
-  _key: '!tables.results!DvSTFFWi24BeGhWy.W1Nkj2oENC2lBnEK'
-  description: Thunder
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 4
-  - 4
-  type: text
-  weight: 1
+  - _id: bWWh5IN7CrKxYypX
+    description: Cold
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 1
+      - 1
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!DvSTFFWi24BeGhWy.bWWh5IN7CrKxYypX'
+  - _id: GCRjbjoPD7IW922C
+    description: Fire
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 2
+      - 2
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!DvSTFFWi24BeGhWy.GCRjbjoPD7IW922C'
+  - _id: sP3X8nl0bQ4fkEZt
+    description: Lightning
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 3
+      - 3
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!DvSTFFWi24BeGhWy.sP3X8nl0bQ4fkEZt'
+  - _id: W1Nkj2oENC2lBnEK
+    description: Thunder
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 4
+      - 4
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!DvSTFFWi24BeGhWy.W1Nkj2oENC2lBnEK'
 sort: 1000000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!DvSTFFWi24BeGhWy'

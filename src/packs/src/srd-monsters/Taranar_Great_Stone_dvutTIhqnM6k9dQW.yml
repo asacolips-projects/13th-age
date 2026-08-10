@@ -1,5 +1,4 @@
 _id: dvutTIhqnM6k9dQW
-_key: '!actors!dvutTIhqnM6k9dQW'
 effects: []
 flags:
   archmage:
@@ -8,438 +7,539 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 items:
-- _id: tQnPHqSBLVD0vWNH
-  _key: '!actors.items!dvutTIhqnM6k9dQW.tQnPHqSBLVD0vWNH'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: "Stones\u2019 might"
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 13]] vs. AC (2 attacks)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[50]] damage'
-    hit1:
-      label: Hit
-      name: Both attacks hit the same target
-      type: String
-      value: The taranar smashes the target into the ground, the target is either
-        *stuck*, hard save ends (if the ground was soft), or takes [[20]] damage (if
-        the ground was hard).
-    hit2:
-      label: Hit
-      name: Miss with both attacks
-      type: String
-      value: The taranar ends up just pounding the ground, and can make a follow-up
-        *seism* attack as a quick action.
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 1AhhJveQ5IVNtOeq
-  _key: '!actors.items!dvutTIhqnM6k9dQW.1AhhJveQ5IVNtOeq'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Seism'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 13]] vs. PD (the four closest nearby or faraway enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[40]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: '[[10]] damage'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: j5LRztTftoJ1DvV9
-  _key: '!actors.items!dvutTIhqnM6k9dQW.j5LRztTftoJ1DvV9'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Heave
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 13]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[60]] damage, and the target is thrown away from the taranar, and the
-        taranar makes a thrown adventurer attack to see if the character just tossed
-        through the air hits anybody'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: '[[30]] damage, and the adventurer avoids being thrown.'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: OujXqhqIrx1nbcD7
-  _key: '!actors.items!dvutTIhqnM6k9dQW.OujXqhqIrx1nbcD7'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Throw enemy
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The taranar great stone can use an enemy as a missile weapon, making
-        the <em>heave</em> attack.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: PqM6ZAysW8beM6Di
-  _key: '!actors.items!dvutTIhqnM6k9dQW.PqM6ZAysW8beM6Di'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Thrown adventurer
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 13]] vs. AC ([[1d4]] enemies in a group)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[30]] damage, and the thrown adventurer slams into the targets'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: p1XmmYXrN1o5imJO
-  _key: '!actors.items!dvutTIhqnM6k9dQW.p1XmmYXrN1o5imJO'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Blade breaker
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Once per battle when a melee weapon attack hits the taranar and is
-        not a crit, the attack does half damage and the weapon breaks. Wielders of
-        magical weapons have a choice between dealing no damage but their weapon staying
-        intact, or dealing normal damage but their weapon shatters and deals [[2d10]]
-        force damage to both them and the taranar.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: zpjUyAhQoI4I5Eh1
-  _key: '!actors.items!dvutTIhqnM6k9dQW.zpjUyAhQoI4I5Eh1'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: All-rock (resist weapons and negative energy 16+)
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>All taranar are resistant to physical damage as a result of their
-        stony nature. If an assailant fails to make a natural roll of 16+ when using
-        a weapon against a taranar, the attacker deals only half damage. The resistance
-        also applies to negative energy damage, which tends to fizzle ineffectively
-        against the ancient stones.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: Udb3CIXOo32j5XIc
-  _key: '!actors.items!dvutTIhqnM6k9dQW.Udb3CIXOo32j5XIc'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Lightning-flare
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>As a last ditch defense, when a taranar is reduced to between 1 and
-        10 hp, it can discharge its remaining stored energy as a counterattack (no
-        attack roll required) against the character who delivered the telling blow,
-        dealing 1d6 lightning damage per level of the taranar ([[8d6]]). The taranar
-        immediately returns to its immobile rock form and cannot take any further
-        role in the battle. It will then remain torpid unless destroyed or the cycle
-        turns full circle and the conditions for it to wake are met again (providing
-        they can be). Such severely damaged creatures reawaken as broken taranar,
-        regardless of what they were before.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: raGusBwGChStffBE
-  _key: '!actors.items!dvutTIhqnM6k9dQW.raGusBwGChStffBE'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Thick-skinned
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Being made of stone has its benefits. The taranar are immune to almost
-        all effects&mdash;they cannot be dazed, weakened, confused, or made vulnerable
-        to anything beyond those energies they are already vulnerable to (fire and
-        cold; see below). Taranar are also immune to ongoing damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: tQnPHqSBLVD0vWNH
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Stones’ might
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC (2 attacks)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[50]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Both attacks hit the same target
+        value: >-
+          The taranar smashes the target into the ground, the target is either
+          *stuck*, hard save ends (if the ground was soft), or takes [[20]]
+          damage (if the ground was hard).
+      hit2:
+        type: String
+        label: Hit
+        name: Miss with both attacks
+        value: >-
+          The taranar ends up just pounding the ground, and can make a follow-up
+          *seism* attack as a quick action.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.tQnPHqSBLVD0vWNH'
+  - _id: 1AhhJveQ5IVNtOeq
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Seism'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. PD (the four closest nearby or faraway enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[40]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] damage'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.1AhhJveQ5IVNtOeq'
+  - _id: j5LRztTftoJ1DvV9
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Heave
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[60]] damage, and the target is thrown away from the taranar, and the
+          taranar makes a thrown adventurer attack to see if the character just
+          tossed through the air hits anybody
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[30]] damage, and the adventurer avoids being thrown.'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.j5LRztTftoJ1DvV9'
+  - _id: OujXqhqIrx1nbcD7
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Throw enemy
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The taranar great stone can use an enemy as a missile weapon,
+          making the <em>heave</em> attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.OujXqhqIrx1nbcD7'
+  - _id: PqM6ZAysW8beM6Di
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Thrown adventurer
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC ([[1d4]] enemies in a group)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage, and the thrown adventurer slams into the targets'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.PqM6ZAysW8beM6Di'
+  - _id: p1XmmYXrN1o5imJO
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Blade breaker
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle when a melee weapon attack hits the taranar and is
+          not a crit, the attack does half damage and the weapon breaks.
+          Wielders of magical weapons have a choice between dealing no damage
+          but their weapon staying intact, or dealing normal damage but their
+          weapon shatters and deals [[2d10]] force damage to both them and the
+          taranar.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.p1XmmYXrN1o5imJO'
+  - _id: zpjUyAhQoI4I5Eh1
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: All-rock (resist weapons and negative energy 16+)
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>All taranar are resistant to physical damage as a result of their
+          stony nature. If an assailant fails to make a natural roll of 16+ when
+          using a weapon against a taranar, the attacker deals only half damage.
+          The resistance also applies to negative energy damage, which tends to
+          fizzle ineffectively against the ancient stones.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.zpjUyAhQoI4I5Eh1'
+  - _id: Udb3CIXOo32j5XIc
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Lightning-flare
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a last ditch defense, when a taranar is reduced to between 1 and
+          10 hp, it can discharge its remaining stored energy as a counterattack
+          (no attack roll required) against the character who delivered the
+          telling blow, dealing 1d6 lightning damage per level of the taranar
+          ([[8d6]]). The taranar immediately returns to its immobile rock form
+          and cannot take any further role in the battle. It will then remain
+          torpid unless destroyed or the cycle turns full circle and the
+          conditions for it to wake are met again (providing they can be). Such
+          severely damaged creatures reawaken as broken taranar, regardless of
+          what they were before.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.Udb3CIXOo32j5XIc'
+  - _id: raGusBwGChStffBE
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Thick-skinned
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Being made of stone has its benefits. The taranar are immune to
+          almost all effects&mdash;they cannot be dazed, weakened, confused, or
+          made vulnerable to anything beyond those energies they are already
+          vulnerable to (fire and cold; see below). Taranar are also immune to
+          ongoing damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!dvutTIhqnM6k9dQW.raGusBwGChStffBE'
 name: Taranar Great Stone
 ownership:
   default: 0
@@ -451,7 +551,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -511,9 +611,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
@@ -524,15 +621,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 3
+  depth: 3
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 22
     attackMod:
       type: Number
       value: 0
@@ -543,72 +635,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 400
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 400
+      min: 0
+      max: 400
       temp: 0
       tempmax: 0
-      type: Number
-      value: 400
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 13
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 8
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 20
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 21
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: wrecker
@@ -622,67 +718,80 @@ system:
       value: triple
     type:
       value: elemental
+    resistance:
+      value: ''
     vulnerability:
       value: cold, fire
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!dvutTIhqnM6k9dQW'

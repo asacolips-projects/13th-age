@@ -1,277 +1,345 @@
 _id: HMyjkCXU6y3I1EqE
-_key: '!actors!HMyjkCXU6y3I1EqE'
 effects: []
 flags: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 items:
-- _id: 6DQ8SbJfWc3Lzm4J
-  _key: '!actors.items!HMyjkCXU6y3I1EqE.6DQ8SbJfWc3Lzm4J'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Caustic bite
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. AC ([[1]] creature wearing light armor or no armor)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[18]] damage, and [[5]] ongoing acid damage'
-    hit1:
-      label: Hit
-      name: Natural 14+
-      type: String
-      value: "The target is now considered to be wearing no armor (the armor is damaged\
-        \ beyond repair; adjust defenses accordingly). If the target\u2019s armor\
-        \ is magical, the target must roll a hard save (16+). On a success, the armor\
-        \ isn\u2019t affected. This effect is permanent until the creature obtains\
-        \ new armor."
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: PPAkROBsPZM5jOhn
-  _key: '!actors.items!HMyjkCXU6y3I1EqE.PPAkROBsPZM5jOhn'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Rusting antenna
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. PD ([[1]] creature wearing heavy armor)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: <p>Each time the rust monster obliterator destroys heavy armor with this
-        attack, it gains a different random demon ability until the end of the battle
-        (reroll duplicate abilities). (See the demon abilities table.)</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: "[[10]] damage, and the target is now considered to be wearing no armor\
-        \ (the armor is damaged beyond repair; adjust defenses accordingly). If the\
-        \ target\u2019s armor is magical, the target must roll a hard save (16+).\
-        \ On a success, the armor isn\u2019t affected. This effect is permanent until\
-        \ the creature obtains new armor."
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: CXGlSqn8pAhEtvJm
-  _key: '!actors.items!HMyjkCXU6y3I1EqE.CXGlSqn8pAhEtvJm'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Corrupting body
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Whenever a creature hits the rust monster with a melee weapon, the
-        attacker must roll a save; on a failure, the weapon is destroyed. Magic weapons
-        require an easy save (6+) instead. This effect is permanent.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: pflITxvemkzQQLJN
-  _key: '!actors.items!HMyjkCXU6y3I1EqE.pflITxvemkzQQLJN'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Rust's targets
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Magic items wielded by creatures with 100 hp or more are not affected
-        by the rust monster&rsquo;s ability to destroy items (but the target still
-        takes damage).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: AdxkUpE0uqhh7JjS
-  _key: '!actors.items!HMyjkCXU6y3I1EqE.AdxkUpE0uqhh7JjS'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Saving quirks
-  ownership:
-    default: 0
-  sort: 500000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Before rolling a save for a magic item, a PC can gain a +5 bonus to
-        the save by agreeing to roleplay the item&rsquo;s quirk as a huge element
-        of their personality until the next full heal-up. Failure to live up to this
-        roleplaying agreement means that the item hasn&rsquo;t received the support
-        it needs from its owner to survive the rust monster&rsquo;s destructive effects,
-        and the item is destroyed at the end of the next battle even if its owner
-        saved.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: BYMyfllMq1KlWFIX
-  _key: '!actors.items!HMyjkCXU6y3I1EqE.BYMyfllMq1KlWFIX'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Tail whirligig
-  ownership:
-    default: 0
-  sort: 600000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When an enemy targets the rust monster obliterator with a spell, the
-        rust monster rolls a save. On a success, the spell has no effect on the rust
-        monster. If the rust monster is staggered, it must roll a hard save (16+)
-        instead.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: 6DQ8SbJfWc3Lzm4J
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Caustic bite
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC ([[1]] creature wearing light armor or no armor)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] damage, and [[5]] ongoing acid damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 14+
+        value: >-
+          The target is now considered to be wearing no armor (the armor is
+          damaged beyond repair; adjust defenses accordingly). If the target’s
+          armor is magical, the target must roll a hard save (16+). On a
+          success, the armor isn’t affected. This effect is permanent until the
+          creature obtains new armor.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!HMyjkCXU6y3I1EqE.6DQ8SbJfWc3Lzm4J'
+  - _id: PPAkROBsPZM5jOhn
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Rusting antenna
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Each time the rust monster obliterator destroys heavy armor with
+          this attack, it gains a different random demon ability until the end
+          of the battle (reroll duplicate abilities). (See the demon abilities
+          table.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. PD ([[1]] creature wearing heavy armor)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10]] damage, and the target is now considered to be wearing no armor
+          (the armor is damaged beyond repair; adjust defenses accordingly). If
+          the target’s armor is magical, the target must roll a hard save (16+).
+          On a success, the armor isn’t affected. This effect is permanent until
+          the creature obtains new armor.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!HMyjkCXU6y3I1EqE.PPAkROBsPZM5jOhn'
+  - _id: CXGlSqn8pAhEtvJm
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Corrupting body
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Whenever a creature hits the rust monster with a melee weapon, the
+          attacker must roll a save; on a failure, the weapon is destroyed.
+          Magic weapons require an easy save (6+) instead. This effect is
+          permanent.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!HMyjkCXU6y3I1EqE.CXGlSqn8pAhEtvJm'
+  - _id: pflITxvemkzQQLJN
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Rust's targets
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Magic items wielded by creatures with 100 hp or more are not
+          affected by the rust monster&rsquo;s ability to destroy items (but the
+          target still takes damage).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!HMyjkCXU6y3I1EqE.pflITxvemkzQQLJN'
+  - _id: AdxkUpE0uqhh7JjS
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Saving quirks
+    ownership:
+      default: 0
+    sort: 500000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Before rolling a save for a magic item, a PC can gain a +5 bonus to
+          the save by agreeing to roleplay the item&rsquo;s quirk as a huge
+          element of their personality until the next full heal-up. Failure to
+          live up to this roleplaying agreement means that the item hasn&rsquo;t
+          received the support it needs from its owner to survive the rust
+          monster&rsquo;s destructive effects, and the item is destroyed at the
+          end of the next battle even if its owner saved.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!HMyjkCXU6y3I1EqE.AdxkUpE0uqhh7JjS'
+  - _id: BYMyfllMq1KlWFIX
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Tail whirligig
+    ownership:
+      default: 0
+    sort: 600000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an enemy targets the rust monster obliterator with a spell,
+          the rust monster rolls a save. On a success, the spell has no effect
+          on the rust monster. If the rust monster is staggered, it must roll a
+          hard save (16+) instead.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!HMyjkCXU6y3I1EqE.BYMyfllMq1KlWFIX'
 name: Rust Monster Obliterator
 ownership:
   default: 0
@@ -283,7 +351,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -343,9 +411,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
@@ -356,15 +421,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 19
     attackMod:
       type: Number
       value: 0
@@ -375,167 +435,184 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 72
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 72
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 72
+      min: 0
+      max: 72
       temp: 0
       tempmax: 0
-      type: Number
-      value: 72
-    init:
-      label: Initiative Modifier
-      mod: 8
-      type: Number
-      value: 8
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 5
-    md:
-      base: 10
-      label: Mental Defense
-      min: 0
-      type: Number
-      value: 72
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 15
-    saves:
+      base: 7
+      extra: 0
       automatic: true
-      base: 8
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+      mod: 8
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+      automatic: true
+      base: 8
+    escalation:
+      value: 0
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 5
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: spoiler
       label: Role
       type: String
-      value: spoiler
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: demon
       label: Type
       type: String
-      value: demon
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: B1
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 5
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B1
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!HMyjkCXU6y3I1EqE'

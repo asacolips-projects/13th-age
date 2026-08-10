@@ -1,5 +1,4 @@
 _id: qPDnIHgrhRT1tAIJ
-_key: '!actors!qPDnIHgrhRT1tAIJ'
 effects: []
 flags:
   archmage:
@@ -7,214 +6,268 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: ZUDQL52Gfg2zOZmc
-  _key: '!actors.items!qPDnIHgrhRT1tAIJ.ZUDQL52Gfg2zOZmc'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Trident and bite
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 10]] vs. AC ([[2]] attacks)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[10]] damage'
-    hit1:
-      label: Hit
-      name: Natural 20
-      type: ''
-      value: Increase the escalation die by 1, and the target is *hampered* (makes
-        only basic attacks) until the end of its next turn.
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 6azcNdP4sadab2pS
-  _key: '!actors.items!qPDnIHgrhRT1tAIJ.6azcNdP4sadab2pS'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: 'R: Barbed crossbow'
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 9]] vs. AC ([[1]] nearby enemy or a far away enemy at -2 atk);'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[10]] damage, and [[5]] ongoing damage'
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: wFVKtYxF0vwO0D7i
-  _key: '!actors.items!qPDnIHgrhRT1tAIJ.wFVKtYxF0vwO0D7i'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Blood frenzy
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: Make a note of the escalation die when the sahuagin becomes staggered.
-        The sahuagin gains a bonus to its melee attacks and damage equal to the escalation
-        die value for the rest of the battle.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: FmlpXyfxaRQYAGp5
-  _key: '!actors.items!qPDnIHgrhRT1tAIJ.FmlpXyfxaRQYAGp5'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Water breather
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: Sahuagin breathe underwater and swim very well.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: QMlrzx4dJN7LrcBe
-  _key: '!actors.items!qPDnIHgrhRT1tAIJ.QMlrzx4dJN7LrcBe'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Demon-touched
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: Roll a [[d6]] on the demon abilities table. The sahuagin gains that ability.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: ZUDQL52Gfg2zOZmc
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Trident and bite
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC ([[2]] attacks)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 20
+        value: >-
+          Increase the escalation die by 1, and the target is *hampered* (makes
+          only basic attacks) until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!qPDnIHgrhRT1tAIJ.ZUDQL52Gfg2zOZmc'
+  - _id: 6azcNdP4sadab2pS
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: 'R: Barbed crossbow'
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. AC ([[1]] nearby enemy or a far away enemy at -2 atk);'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] damage, and [[5]] ongoing damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!qPDnIHgrhRT1tAIJ.6azcNdP4sadab2pS'
+  - _id: wFVKtYxF0vwO0D7i
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Blood frenzy
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Make a note of the escalation die when the sahuagin becomes staggered.
+          The sahuagin gains a bonus to its melee attacks and damage equal to
+          the escalation die value for the rest of the battle.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!qPDnIHgrhRT1tAIJ.wFVKtYxF0vwO0D7i'
+  - _id: FmlpXyfxaRQYAGp5
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Water breather
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: Sahuagin breathe underwater and swim very well.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!qPDnIHgrhRT1tAIJ.FmlpXyfxaRQYAGp5'
+  - _id: QMlrzx4dJN7LrcBe
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Demon-touched
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Roll a [[d6]] on the demon abilities table. The sahuagin gains that
+          ability.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!qPDnIHgrhRT1tAIJ.QMlrzx4dJN7LrcBe'
 name: Sahuagin
 ownership:
   default: 0
@@ -226,7 +279,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -286,9 +339,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -299,15 +349,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 20
     attackMod:
       type: Number
       value: 0
@@ -318,165 +363,182 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 6
-    hp:
-      automatic: true
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
       base: 10
-      extra: 0
-      label: Hit Points
-      max: 70
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 70
+      min: 0
+      max: 70
       temp: 0
       tempmax: 0
-      type: Number
-      value: 70
+      base: 10
+      extra: 0
+      automatic: true
     init:
+      type: Number
       label: Initiative Modifier
-      mod: 9
-      type: Number
       value: 9
+      mod: 9
     level:
+      type: Number
       label: Level
-      max: 12
-      min: 0
-      type: Number
       value: 5
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 16
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 19
+      max: 12
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+    escalation:
+      value: 6
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 5
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: wrecker
       label: Role
       type: String
-      value: wrecker
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: humanoid
       label: Type
       type: String
-      value: humanoid
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: 1e
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 5
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: 1e
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!qPDnIHgrhRT1tAIJ'

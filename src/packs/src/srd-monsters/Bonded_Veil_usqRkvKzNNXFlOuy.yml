@@ -1,5 +1,4 @@
 _id: usqRkvKzNNXFlOuy
-_key: '!actors!usqRkvKzNNXFlOuy'
 effects: []
 flags:
   archmage:
@@ -8,177 +7,208 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 items:
-- _id: PSUQjEWGIF4I5DQR
-  _key: '!actors.items!usqRkvKzNNXFlOuy.PSUQjEWGIF4I5DQR'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Fluttering shroud
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 12]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[30]] damage'
-    hit1:
-      label: Hit
-      name: Natural even hit
-      type: String
-      value: The bonded pops free and flies until the end of its turn as a free action.
-        It must land at the end of its turn, or take falling damage.
-    hit2:
-      label: Hit
-      name: Natural 20
-      type: String
-      value: The target becomes weakened and vulnerable (save ends), and the bonded
-        can fly until the end of its next
-    hit3:
-      label: Hit
-      name: Special, once per battle
-      type: String
-      value: "The bonded makes this attack as a free action on somebody else\u2019\
-        s turn."
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: '[[15]] damage'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: a7KVeGIRqy17UW1N
-  _key: '!actors.items!usqRkvKzNNXFlOuy.a7KVeGIRqy17UW1N'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Cut to ribbons
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. AC (4 attacks)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[20]] damage'
-    hit1:
-      label: Hit
-      name: Natural even hit or miss
-      type: String
-      value: The bonded must pop free and, as a free action, move into engagement
-        with a different enemy it has not already attacked this turn, then continues
-        its cut to ribbons attack if it still has any of its four attacks left. If
-        there are no other enemies that can be attacked, the cut to ribbons attack
-        ends.
-    hit2:
-      label: Hit
-      name: Special, once per battle
-      type: String
-      value: "The bonded makes this attack as a free action on somebody else\u2019\
-        s turn."
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: XrOk3n0SGw79EXsx
-  _key: '!actors.items!usqRkvKzNNXFlOuy.XrOk3n0SGw79EXsx'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Veiled
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Until the bonded is hit, it has a +4 bonus to all defenses.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: PSUQjEWGIF4I5DQR
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Fluttering shroud
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The bonded pops free and flies until the end of its turn as a free
+          action. It must land at the end of its turn, or take falling damage.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 20
+        value: >-
+          The target becomes weakened and vulnerable (save ends), and the bonded
+          can fly until the end of its next
+      hit3:
+        type: String
+        label: Hit
+        name: Special, once per battle
+        value: The bonded makes this attack as a free action on somebody else’s turn.
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[15]] damage'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!usqRkvKzNNXFlOuy.PSUQjEWGIF4I5DQR'
+  - _id: a7KVeGIRqy17UW1N
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Cut to ribbons
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC (4 attacks)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The bonded must pop free and, as a free action, move into engagement
+          with a different enemy it has not already attacked this turn, then
+          continues its cut to ribbons attack if it still has any of its four
+          attacks left. If there are no other enemies that can be attacked, the
+          cut to ribbons attack ends.
+      hit2:
+        type: String
+        label: Hit
+        name: Special, once per battle
+        value: The bonded makes this attack as a free action on somebody else’s turn.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!usqRkvKzNNXFlOuy.a7KVeGIRqy17UW1N'
+  - _id: XrOk3n0SGw79EXsx
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Veiled
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>Until the bonded is hit, it has a +4 bonus to all defenses.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!usqRkvKzNNXFlOuy.XrOk3n0SGw79EXsx'
 name: Bonded Veil
 ownership:
   default: 0
@@ -190,7 +220,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -250,9 +280,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/construct.webp
@@ -263,15 +290,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 19
     attackMod:
       type: Number
       value: 0
@@ -282,72 +304,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 140
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 140
+      min: 0
+      max: 140
       temp: 0
       tempmax: 0
-      type: Number
-      value: 140
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 10
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 4
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 16
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 16
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: troop
@@ -361,67 +387,80 @@ system:
       value: triple
     type:
       value: construct
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!usqRkvKzNNXFlOuy'

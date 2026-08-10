@@ -1,5 +1,4 @@
 _id: bH1nh9QijQL0wJA4
-_key: '!actors!bH1nh9QijQL0wJA4'
 effects: []
 flags:
   archmage:
@@ -8,198 +7,242 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: WVsAVOfOZvQGgdxT
-  _key: '!actors.items!bH1nh9QijQL0wJA4.WVsAVOfOZvQGgdxT'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Dirty fists and bites
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[6]] damage'
-    hit1:
-      label: Hit
-      name: Natural 16+
-      type: String
-      value: The target takes [[3]] ongoing damage.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: CeYkNP5yue7NWwYG
-  _key: '!actors.items!bH1nh9QijQL0wJA4.CeYkNP5yue7NWwYG'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Psychotic scream'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 7]] vs MD (each non-derro creature engaged with it)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: The target is *dazed* until the end of its next turn
-    hit1:
-      label: Hit
-      name: "Natural roll above target\u2019s Wisdom"
-      type: String
-      value: The target is *confused* until the end of its next turn instead of dazed.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: f1qSymWPYLO3wpps
-  _key: '!actors.items!bH1nh9QijQL0wJA4.f1qSymWPYLO3wpps'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Psychotic scream
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When a fallen derro dies, it makes a&nbsp;<em>psychotic scream</em>
-        attack as a free action.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: HLIJ7nvaRhI0JfH8
-  _key: '!actors.items!bH1nh9QijQL0wJA4.HLIJ7nvaRhI0JfH8'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Broken minds, broken bodies
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>As a quick action, a fallen derro can take [[5]] damage to end one
-        ongoing effect on a creature in its mob.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: WVsAVOfOZvQGgdxT
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Dirty fists and bites
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[6]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The target takes [[3]] ongoing damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!bH1nh9QijQL0wJA4.WVsAVOfOZvQGgdxT'
+  - _id: CeYkNP5yue7NWwYG
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Psychotic scream'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 7]] vs MD (each non-derro creature engaged with it)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: The target is *dazed* until the end of its next turn
+      hit1:
+        type: String
+        label: Hit
+        name: Natural roll above target’s Wisdom
+        value: >-
+          The target is *confused* until the end of its next turn instead of
+          dazed.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!bH1nh9QijQL0wJA4.CeYkNP5yue7NWwYG'
+  - _id: f1qSymWPYLO3wpps
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Psychotic scream
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a fallen derro dies, it makes a&nbsp;<em>psychotic scream</em>
+          attack as a free action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!bH1nh9QijQL0wJA4.f1qSymWPYLO3wpps'
+  - _id: HLIJ7nvaRhI0JfH8
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Broken minds, broken bodies
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a quick action, a fallen derro can take [[5]] damage to end one
+          ongoing effect on a creature in its mob.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!bH1nh9QijQL0wJA4.HLIJ7nvaRhI0JfH8'
 name: Fallen Derro
 ownership:
   default: 0
@@ -211,7 +254,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -271,9 +314,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -284,15 +324,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 18
     attackMod:
       type: Number
       value: 0
@@ -303,72 +338,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 9
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 12
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 9
+      min: 0
+      max: 9
       temp: 0
       tempmax: 0
-      type: Number
-      value: 9
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 5
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 3
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 12
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 16
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: mook
@@ -382,67 +421,80 @@ system:
       value: normal
     type:
       value: humanoid
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!bH1nh9QijQL0wJA4'

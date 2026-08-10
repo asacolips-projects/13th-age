@@ -1,282 +1,344 @@
 _id: nQT9e80C9Mrd5VgW
-_key: '!actors!nQT9e80C9Mrd5VgW'
 effects: []
 flags:
   archmage: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 items:
-- _id: 9H8Icdm4nNl6qPmF
-  _key: '!actors.items!nQT9e80C9Mrd5VgW.9H8Icdm4nNl6qPmF'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Musky claw or slimy hoof
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 15]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[90]] damage'
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Hit
-      name: Miss
-      type: ''
-      value: The nalfeshnee gains a +4 attack bonus until it hits. Unlike most effects,
-        let it stack.
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: ooPmrHIjUgYY1Hxr
-  _key: '!actors.items!nQT9e80C9Mrd5VgW.ooPmrHIjUgYY1Hxr'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: 'R: Accursed burst'
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 15]] vs. PD ([[1d3]] nearby enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: 50 cold/fire/lightning/negative energy damage (your choice), and the
-        nalfeshnee can make an abyssal curse attack as a free action
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 3RuhF1s6WrPUPvN5
-  _key: '!actors.items!nQT9e80C9Mrd5VgW.3RuhF1s6WrPUPvN5'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: '[Special trigger] Abyssal curse'
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 15]] vs. MD (each creature hit by accursed burst)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: the target is *weakened* until the end of its next turn
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: HjOHpgRuCbUQZMcj
-  _key: '!actors.items!nQT9e80C9Mrd5VgW.HjOHpgRuCbUQZMcj'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Flight
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: Flight
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: Wq9UW9G0hGMy9opw
-  _key: '!actors.items!nQT9e80C9Mrd5VgW.Wq9UW9G0hGMy9opw'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Unpredictable
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: Nalfeshnee always have at least two random demon abilities.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: zKMhlkwWDAOxyk6c
-  _key: '!actors.items!nQT9e80C9Mrd5VgW.zKMhlkwWDAOxyk6c'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Hooked mooks
-  ownership:
-    default: 0
-  sort: 500000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: Once per battle, if the nalfeshnee is staggered, it can gate in [[2d4]]
-        hooked demons as a quick action. Roll initiative for the hooked demons; they
-        do not appear in the battle and take their turns until their next initiative
-        count comes up.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: 9H8Icdm4nNl6qPmF
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Musky claw or slimy hoof
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[90]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: >-
+          The nalfeshnee gains a +4 attack bonus until it hits. Unlike most
+          effects, let it stack.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!nQT9e80C9Mrd5VgW.9H8Icdm4nNl6qPmF'
+  - _id: ooPmrHIjUgYY1Hxr
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: 'R: Accursed burst'
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. PD ([[1d3]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          50 cold/fire/lightning/negative energy damage (your choice), and the
+          nalfeshnee can make an abyssal curse attack as a free action
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!nQT9e80C9Mrd5VgW.ooPmrHIjUgYY1Hxr'
+  - _id: 3RuhF1s6WrPUPvN5
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: '[Special trigger] Abyssal curse'
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. MD (each creature hit by accursed burst)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: the target is *weakened* until the end of its next turn
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!nQT9e80C9Mrd5VgW.3RuhF1s6WrPUPvN5'
+  - _id: HjOHpgRuCbUQZMcj
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Flight
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: Flight
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!nQT9e80C9Mrd5VgW.HjOHpgRuCbUQZMcj'
+  - _id: Wq9UW9G0hGMy9opw
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Unpredictable
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: Nalfeshnee always have at least two random demon abilities.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!nQT9e80C9Mrd5VgW.Wq9UW9G0hGMy9opw'
+  - _id: zKMhlkwWDAOxyk6c
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Hooked mooks
+    ownership:
+      default: 0
+    sort: 500000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Once per battle, if the nalfeshnee is staggered, it can gate in
+          [[2d4]] hooked demons as a quick action. Roll initiative for the
+          hooked demons; they do not appear in the battle and take their turns
+          until their next initiative count comes up.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!nQT9e80C9Mrd5VgW.zKMhlkwWDAOxyk6c'
 name: Nalfeshnee (boar demon)
 ownership:
   default: 0
@@ -288,7 +350,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -348,9 +410,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
@@ -361,15 +420,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 2
+  depth: 2
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 25
     attackMod:
       type: Number
       value: 0
@@ -380,165 +434,182 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 6
-    hp:
-      automatic: true
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
       base: 10
-      extra: 0
-      label: Hit Points
-      max: 400
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 24
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 400
+      min: 0
+      max: 400
       temp: 0
       tempmax: 0
-      type: Number
-      value: 400
+      base: 10
+      extra: 0
+      automatic: true
     init:
+      type: Number
       label: Initiative Modifier
-      mod: 13
-      type: Number
       value: 13
+      mod: 13
     level:
+      type: Number
       label: Level
-      max: 12
-      min: 0
-      type: Number
       value: 10
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 24
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 20
+      max: 12
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+    escalation:
+      value: 6
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 10
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: caster
       label: Role
       type: String
-      value: caster
     roleB:
       value: ''
     size:
+      value: large
       label: Size
       type: String
-      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
+      value: demon
       label: Type
       type: String
-      value: demon
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: 1e
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 10
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: 1e
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!nQT9e80C9Mrd5VgW'

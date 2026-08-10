@@ -1,198 +1,239 @@
 _id: sMhDYM1KPC23VcZp
-_key: '!actors!sMhDYM1KPC23VcZp'
 effects: []
 flags:
   archmage: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: iDaQgRYZgf8iHZRB
-  _key: '!actors.items!sMhDYM1KPC23VcZp.iDaQgRYZgf8iHZRB'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Gauntlet slap
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 5]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[3]] damage'
-    hit1:
-      label: Hit
-      name: Natural 5, 10, 15, 20
-      type: ''
-      value: The target also takes [[3]] ongoing psychic damage.
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: HNxANX0S88MHI8q7
-  _key: '!actors.items!sMhDYM1KPC23VcZp.HNxANX0S88MHI8q7'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: 'R: Orb of pain'
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 7]] vs. MD ([[1]] or more nearby or far away enemies; see history
-        of abuse)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[5]] psychic damage'
-    hit1:
-      label: Hit
-      name: Natural 5, 10, 15, 20
-      type: ''
-      value: The target also takes [[3]] ongoing psychic damage.
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: Cy5LSPJM1wUKp3Bm
-  _key: '!actors.items!sMhDYM1KPC23VcZp.Cy5LSPJM1wUKp3Bm'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Beyond saving
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: The avenging orb takes a -5 penalty to saving throws.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: PSbLZISFyeXxL1A7
-  _key: '!actors.items!sMhDYM1KPC23VcZp.PSbLZISFyeXxL1A7'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: History of abuse
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: "Keep track of the number of enemy attacks that hit the avenging orb\
-        \ during the battle. Until the end of the battle, the avenging orb can target\
-        \ an additional enemy beyond the first with its orb of pain attack for each\
-        \ of those hits. (Note that avenging orbs engaged in melee usually choose\
-        \ to use orb of pain and suffer any resulting opportunity attacks; if they\u2019\
-        re lucky they\u2019ll survive the attack and be able to choose more targets\
-        \ for the orb of pain.)"
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: iDaQgRYZgf8iHZRB
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Gauntlet slap
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 5]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[3]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 5, 10, 15, 20
+        value: The target also takes [[3]] ongoing psychic damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!sMhDYM1KPC23VcZp.iDaQgRYZgf8iHZRB'
+  - _id: HNxANX0S88MHI8q7
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: 'R: Orb of pain'
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: >-
+          [[d20 + 7]] vs. MD ([[1]] or more nearby or far away enemies; see
+          history of abuse)
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[5]] psychic damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 5, 10, 15, 20
+        value: The target also takes [[3]] ongoing psychic damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!sMhDYM1KPC23VcZp.HNxANX0S88MHI8q7'
+  - _id: Cy5LSPJM1wUKp3Bm
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Beyond saving
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The avenging orb takes a -5 penalty to saving throws.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!sMhDYM1KPC23VcZp.Cy5LSPJM1wUKp3Bm'
+  - _id: PSbLZISFyeXxL1A7
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: History of abuse
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Keep track of the number of enemy attacks that hit the avenging orb
+          during the battle. Until the end of the battle, the avenging orb can
+          target an additional enemy beyond the first with its orb of pain
+          attack for each of those hits. (Note that avenging orbs engaged in
+          melee usually choose to use orb of pain and suffer any resulting
+          opportunity attacks; if they’re lucky they’ll survive the attack and
+          be able to choose more targets for the orb of pain.)
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!sMhDYM1KPC23VcZp.PSbLZISFyeXxL1A7'
 name: Avenging Orb
 ownership:
   default: 0
@@ -204,7 +245,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -264,9 +305,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -277,15 +315,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 17
     attackMod:
       type: Number
       value: 0
@@ -296,165 +329,182 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 6
-    hp:
-      automatic: true
+    ac:
+      type: Number
+      label: Armor Class
+      value: 17
       base: 10
-      extra: 0
-      label: Hit Points
-      max: 46
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 13
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 46
+      min: 0
+      max: 46
       temp: 0
       tempmax: 0
-      type: Number
-      value: 46
+      base: 10
+      extra: 0
+      automatic: true
     init:
+      type: Number
       label: Initiative Modifier
-      mod: 3
-      type: Number
       value: 3
+      mod: 3
     level:
+      type: Number
       label: Level
-      max: 12
-      min: 0
-      type: Number
       value: 2
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 13
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 13
+      max: 12
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+    escalation:
+      value: 6
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 2
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: caster
       label: Role
       type: String
-      value: caster
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: humanoid
       label: Type
       type: String
-      value: humanoid
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: B1
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B1
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!sMhDYM1KPC23VcZp'

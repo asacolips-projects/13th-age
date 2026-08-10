@@ -1,5 +1,4 @@
 _id: zhIklz5gZpibHNdn
-_key: '!items!zhIklz5gZpibHNdn'
 effects: []
 flags: {}
 folder: null
@@ -9,20 +8,32 @@ ownership:
   default: 0
 sort: 0
 system:
-  description:
-    label: Description
+  name:
     type: String
-    value: <p>While staggered, the dire animal gains a +2 attack bonus and deals +4
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>While staggered, the dire animal gains a +2 attack bonus and deals +4
       damage, but at the end of each of its turns it takes 2d6 damage.</p>
   embeddedMacro:
-    label: Embedded Macro
     type: String
+    label: Embedded Macro
     value: ''
   group:
+    type: String
     label: Group
-    type: String
     value: ''
-  name:
-    label: Name
-    type: String
 type: trait
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!zhIklz5gZpibHNdn'

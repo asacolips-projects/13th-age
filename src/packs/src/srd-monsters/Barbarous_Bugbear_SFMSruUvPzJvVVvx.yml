@@ -1,175 +1,205 @@
 _id: SFMSruUvPzJvVVvx
-_key: '!actors!SFMSruUvPzJvVVvx'
 effects: []
 flags: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: qDN3xp79YryDaWwC
-  _key: '!actors.items!SFMSruUvPzJvVVvx.qDN3xp79YryDaWwC'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Warclub
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 9]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[11]] damage'
-    hit1:
-      label: Hit
-      name: Natural even hit or miss
-      type: String
-      value: Each enemy engaged with the barbarous bugbear takes [[1d8]] damage
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: YfDeF2SYE5IHw3Gf
-  _key: '!actors.items!SFMSruUvPzJvVVvx.YfDeF2SYE5IHw3Gf'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'R: Throwing axe'
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: '<p>Limited use: 2/battle.</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[10]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: Nyf4FdmNiII6KIxR
-  _key: '!actors.items!SFMSruUvPzJvVVvx.Nyf4FdmNiII6KIxR'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Ferocious start
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Until the barbarous bugbear is staggered or the escalation die is
-        2+, it acts twice per round. Roll initiative once at +12. It takes its second
-        turn when the initiative count is seven less (minimum 1).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: qDN3xp79YryDaWwC
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Warclub
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[11]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: Each enemy engaged with the barbarous bugbear takes [[1d8]] damage
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!SFMSruUvPzJvVVvx.qDN3xp79YryDaWwC'
+  - _id: YfDeF2SYE5IHw3Gf
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'R: Throwing axe'
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: '<p>Limited use: 2/battle.</p>'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[10]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!SFMSruUvPzJvVVvx.YfDeF2SYE5IHw3Gf'
+  - _id: Nyf4FdmNiII6KIxR
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Ferocious start
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Until the barbarous bugbear is staggered or the escalation die is
+          2+, it acts twice per round. Roll initiative once at +12. It takes its
+          second turn when the initiative count is seven less (minimum 1).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!SFMSruUvPzJvVVvx.Nyf4FdmNiII6KIxR'
 name: Barbarous Bugbear
 ownership:
   default: 0
@@ -181,7 +211,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -241,9 +271,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -254,15 +281,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 18
     attackMod:
       type: Number
       value: 0
@@ -273,167 +295,184 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 51
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 51
+      min: 0
+      max: 51
       temp: 0
       tempmax: 0
-      type: Number
-      value: 51
-    init:
-      label: Initiative Modifier
-      mod: 12
-      type: Number
-      value: 12
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 4
-    md:
-      base: 10
-      label: Mental Defense
-      min: 0
-      type: Number
-      value: 16
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 17
-    saves:
+      base: 7
+      extra: 0
       automatic: true
-      base: 8
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 12
+      mod: 12
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+      automatic: true
+      base: 8
+    escalation:
+      value: 0
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 4
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: wrecker
       label: Role
       type: String
-      value: wrecker
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: humanoid
       label: Type
       type: String
-      value: humanoid
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: B1
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 4
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B1
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!SFMSruUvPzJvVVvx'

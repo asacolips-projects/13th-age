@@ -1,5 +1,4 @@
 _id: pRxX1lnJRIYeJHEt
-_key: '!actors!pRxX1lnJRIYeJHEt'
 effects: []
 flags:
   archmage:
@@ -8,262 +7,326 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
-- _id: nopyfTDqYD7faIft
-  _key: '!actors.items!pRxX1lnJRIYeJHEt.nopyfTDqYD7faIft'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Chill touch
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 11]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[14]] negative energy damage and [[14]] ongoing cold damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: Zed2C06R0ITk0RG5
-  _key: '!actors.items!pRxX1lnJRIYeJHEt.Zed2C06R0ITk0RG5'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Poltergeist activity'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 11]] vs. PD ([[1d6]] nearby or faraway enemies in a group)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[13]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: uFHhiaDQGeKCuuaI
-  _key: '!actors.items!pRxX1lnJRIYeJHEt.uFHhiaDQGeKCuuaI'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Immaterial
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>As a quick action the phantom can become immaterial, phasing through
-        solid objects, but not ending its turn inside a solid object. Its chill touch
-        attack takes a -2 attack penalty while it is immaterial, but all its defenses
-        gain a +2 bonus against non-magical weapons and unarmed attacks. It is a quick
-        action for it to become material again.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: fkMZUYeUtTUWwppm
-  _key: '!actors.items!pRxX1lnJRIYeJHEt.fkMZUYeUtTUWwppm'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Face of death
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>The phantom changes its appearance to become terrifying. All nearby
-        and faraway enemies with less than 60 hp must save or become affected by fear
-        (*dazed* and unable to use the escalation die) until the end of their next
-        turn. Necromancers are immune to this effect. (Characters with active icon
-        relationship advantages might also be able to dodge it, depending on the story
-        they tell . . . .)</p>
+  - _id: nopyfTDqYD7faIft
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Chill touch
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[14]] negative energy damage and [[14]] ongoing cold damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!pRxX1lnJRIYeJHEt.nopyfTDqYD7faIft'
+  - _id: Zed2C06R0ITk0RG5
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Poltergeist activity'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. PD ([[1d6]] nearby or faraway enemies in a group)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[13]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!pRxX1lnJRIYeJHEt.Zed2C06R0ITk0RG5'
+  - _id: uFHhiaDQGeKCuuaI
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Immaterial
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a quick action the phantom can become immaterial, phasing
+          through solid objects, but not ending its turn inside a solid object.
+          Its chill touch attack takes a -2 attack penalty while it is
+          immaterial, but all its defenses gain a +2 bonus against non-magical
+          weapons and unarmed attacks. It is a quick action for it to become
+          material again.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!pRxX1lnJRIYeJHEt.uFHhiaDQGeKCuuaI'
+  - _id: fkMZUYeUtTUWwppm
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Face of death
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The phantom changes its appearance to become terrifying. All nearby
+          and faraway enemies with less than 60 hp must save or become affected
+          by fear (*dazed* and unable to use the escalation die) until the end
+          of their next turn. Necromancers are immune to this effect.
+          (Characters with active icon relationship advantages might also be
+          able to dodge it, depending on the story they tell . . . .)</p>
 
-        <p>*Quick use*: 1/battle, as a quick action.</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: NcceDN3Ryi7u4Nrv
-  _key: '!actors.items!pRxX1lnJRIYeJHEt.NcceDN3Ryi7u4Nrv'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Flight
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>While immaterial the phantom can fly.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: 0PKW8zVbeh2zHe0M
-  _key: '!actors.items!pRxX1lnJRIYeJHEt.0PKW8zVbeh2zHe0M'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Personalized terror
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Those affected by the face of death must save to end their fear instead
-        of it ending at the end of their next turn.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+          <p>*Quick use*: 1/battle, as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!pRxX1lnJRIYeJHEt.fkMZUYeUtTUWwppm'
+  - _id: NcceDN3Ryi7u4Nrv
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Flight
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>While immaterial the phantom can fly.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!pRxX1lnJRIYeJHEt.NcceDN3Ryi7u4Nrv'
+  - _id: 0PKW8zVbeh2zHe0M
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Personalized terror
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Those affected by the face of death must save to end their fear
+          instead of it ending at the end of their next turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!pRxX1lnJRIYeJHEt.0PKW8zVbeh2zHe0M'
 name: Phantom
 ownership:
   default: 0
@@ -275,7 +338,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -335,9 +398,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/undead.webp
@@ -348,15 +408,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 22
     attackMod:
       type: Number
       value: 0
@@ -367,72 +422,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 90
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 90
+      min: 0
+      max: 90
       temp: 0
       tempmax: 0
-      type: Number
-      value: 90
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 12
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 6
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 20
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 16
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: spoiler
@@ -446,67 +505,80 @@ system:
       value: normal
     type:
       value: undead
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!pRxX1lnJRIYeJHEt'

@@ -1,5 +1,4 @@
 _id: 6HXa4eOkbnuLnk6d
-_key: '!actors!6HXa4eOkbnuLnk6d'
 effects: []
 flags:
   archmage:
@@ -8,417 +7,508 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/devil.webp
 items:
-- _id: vy0FXYaqDW4A6b3g
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.vy0FXYaqDW4A6b3g'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Rain of blows
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 13]] vs. AC (3 attacks)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[33]] damage'
-    hit1:
-      label: Hit
-      name: Crit
-      type: String
-      value: The target is *dazed* (save ends).
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: GQZyp7S2cGYsxm7A
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.GQZyp7S2cGYsxm7A'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Crushing weight
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 14]] vs. PD'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[70]] damage, and the target is *stuck* (hard save ends, 16+)'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: The target is *hampered* until the end of its next turn.
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 1rMox8CIXyWLWMTd
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.1rMox8CIXyWLWMTd'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Looming fear'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 14]] vs. MD ([[1d4]] nearby enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[80]] psychic damage'
-    hit1:
-      label: Hit
-      name: Natural 16+
-      type: String
-      value: "While the target has 60 hp or fewer, it\u2019s *dazed* from fear and\
-        \ doesn\u2019t add the escalation die to its attacks (save ends all)."
-    hit2:
-      label: Hit
-      name: Limited use
-      type: String
-      value: ' 1/battle'
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: W1MhMIpfRaCifoUl
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.W1MhMIpfRaCifoUl'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: "Devil\u2019s due (Chakra suppression)"
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When you choose to add the escalation die to an attack against a great
-        hubris devil, the devil can choose one of your magic items whose powers won&rsquo;t
-        work for the rest of the battle (default bonuses still apply).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: WDutnoCRyf7wQoi6
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.WDutnoCRyf7wQoi6'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Resist holy 13+
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When a holy attack targets this creature, the attacker must roll a
-        natural 13+ on the attack roll or it only deals half damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: tbcXKmgwjE5ysqc8
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.tbcXKmgwjE5ysqc8'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Friend or enemy?
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>A hubris devil using NPCs to attack the heroes makes it tough for
-        them to know if there are friends or allies among the attackers, forcing the
-        characters to be more careful with their attacks. Any natural 1&ndash;5 attack
-        roll against the devil is an automatic miss with no miss damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: 1ZOqabLQPGhKbWjO
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.1ZOqabLQPGhKbWjO'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Surprise!
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the hubris devil attacks, it gains a surprise round unless the
-        PCs were extremely perceptive (by making a ridiculously hard skill check for
-        tier).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: ucP5mB1x3Dfyk3Kd
-  _key: '!actors.items!6HXa4eOkbnuLnk6d.ucP5mB1x3Dfyk3Kd'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Final-gasp soul snatch & escape
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>When the devil drops to 0 hp, it appears dead until the start of
-        its next turn, at which point it will attempt to steal a piece of the soul
-        of the closest character before it escapes into a supernatural bolt hole.
-        That character must roll a save. If they fail, they lose a chunk of their
-        soul&mdash;see below for possible effects. Anyone who uses a coup de grace
-        on the devil before its next turn will slay it before it can claim a chunk
-        of a soul and escape (but the PCs might not be aware of this).</p>
+  - _id: vy0FXYaqDW4A6b3g
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Rain of blows
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC (3 attacks)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[33]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Crit
+        value: The target is *dazed* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.vy0FXYaqDW4A6b3g'
+  - _id: GQZyp7S2cGYsxm7A
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Crushing weight
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. PD'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[70]] damage, and the target is *stuck* (hard save ends, 16+)'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: The target is *hampered* until the end of its next turn.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.GQZyp7S2cGYsxm7A'
+  - _id: 1rMox8CIXyWLWMTd
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Looming fear'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. MD ([[1d4]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[80]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: >-
+          While the target has 60 hp or fewer, it’s *dazed* from fear and
+          doesn’t add the escalation die to its attacks (save ends all).
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: ' 1/battle'
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.1rMox8CIXyWLWMTd'
+  - _id: W1MhMIpfRaCifoUl
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Devil’s due (Chakra suppression)
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When you choose to add the escalation die to an attack against a
+          great hubris devil, the devil can choose one of your magic items whose
+          powers won&rsquo;t work for the rest of the battle (default bonuses
+          still apply).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.W1MhMIpfRaCifoUl'
+  - _id: WDutnoCRyf7wQoi6
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Resist holy 13+
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a holy attack targets this creature, the attacker must roll a
+          natural 13+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.WDutnoCRyf7wQoi6'
+  - _id: tbcXKmgwjE5ysqc8
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Friend or enemy?
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A hubris devil using NPCs to attack the heroes makes it tough for
+          them to know if there are friends or allies among the attackers,
+          forcing the characters to be more careful with their attacks. Any
+          natural 1&ndash;5 attack roll against the devil is an automatic miss
+          with no miss damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.tbcXKmgwjE5ysqc8'
+  - _id: 1ZOqabLQPGhKbWjO
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Surprise!
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the hubris devil attacks, it gains a surprise round unless the
+          PCs were extremely perceptive (by making a ridiculously hard skill
+          check for tier).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.1ZOqabLQPGhKbWjO'
+  - _id: ucP5mB1x3Dfyk3Kd
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Final-gasp soul snatch & escape
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the devil drops to 0 hp, it appears dead until the start of
+          its next turn, at which point it will attempt to steal a piece of the
+          soul of the closest character before it escapes into a supernatural
+          bolt hole. That character must roll a save. If they fail, they lose a
+          chunk of their soul&mdash;see below for possible effects. Anyone who
+          uses a coup de grace on the devil before its next turn will slay it
+          before it can claim a chunk of a soul and escape (but the PCs might
+          not be aware of this).</p>
 
-        <p><strong>Effects:</strong> What does it mean to have a chunk of your soul
-        stolen. You&rsquo;re free to come up with complications that suit your campaign&rsquo;s
-        metaphysics or take the suggestions that follow as a starting point. Use one
-        or more, as you choose.</p>
+          <p><strong>Effects:</strong> What does it mean to have a chunk of your
+          soul stolen. You&rsquo;re free to come up with complications that suit
+          your campaign&rsquo;s metaphysics or take the suggestions that follow
+          as a starting point. Use one or more, as you choose.</p>
 
-        <ul>
+          <ul>
 
-        <li>Magic items no longer work for the affected character, even ones already
-        attuned to them, and in a similar vein, no new items can be attuned by that
-        PC.</li>
+          <li>Magic items no longer work for the affected character, even ones
+          already attuned to them, and in a similar vein, no new items can be
+          attuned by that PC.</li>
 
-        <li>The PC loses access to their highest level of spells or powers. For example,
-        a cleric who normally casts 7th level spells could only cast them at 5th level.</li>
+          <li>The PC loses access to their highest level of spells or powers.
+          For example, a cleric who normally casts 7th level spells could only
+          cast them at 5th level.</li>
 
-        <li>The PC takes a &ndash;2 penalty to saves.</li>
+          <li>The PC takes a &ndash;2 penalty to saves.</li>
 
-        <li>The PC must roll 2d20 for attack rolls and take the lowest result for
-        the first two rounds of each battle.</li>
+          <li>The PC must roll 2d20 for attack rolls and take the lowest result
+          for the first two rounds of each battle.</li>
 
-        <li>The PC&rsquo;s appearance changes in some disturbing, hollow way and they
-        take a &ndash;4 penalty to skill checks.</li>
+          <li>The PC&rsquo;s appearance changes in some disturbing, hollow way
+          and they take a &ndash;4 penalty to skill checks.</li>
 
-        <li>PC loses one to three recoveries; not temporarily, their ability to heal
-        decreases.</li>
+          <li>PC loses one to three recoveries; not temporarily, their ability
+          to heal decreases.</li>
 
-        <li>One icon relationship changes to become a sign of complications with devils,
-        not advantages.</li>
+          <li>One icon relationship changes to become a sign of complications
+          with devils, not advantages.</li>
 
-        <li>Devils gets some huge combat advantage against the PC.</li>
+          <li>Devils gets some huge combat advantage against the PC.</li>
 
-        </ul>
+          </ul>
 
-        <p><strong>Restoration:</strong> Similarly, you can choose how the missing
-        piece of soul might be restored. Some examples:</p>
+          <p><strong>Restoration:</strong> Similarly, you can choose how the
+          missing piece of soul might be restored. Some examples:</p>
 
-        <ul>
+          <ul>
 
-        <li>No big deal: the PC rolls a normal save each time they gain a level. If
-        the save succeeds, they get their soul back.</li>
+          <li>No big deal: the PC rolls a normal save each time they gain a
+          level. If the save succeeds, they get their soul back.</li>
 
-        <li>The party must find and kill the escaped hubris devil. Luckily, the PC&rsquo;s
-        &lsquo;link&rsquo; to the devil means that each day the PC can roll a normal
-        save; on an 11+, they have a good idea of which direction the devil is in.
-        And hubris devils don&rsquo;t move all that much.</li>
+          <li>The party must find and kill the escaped hubris devil. Luckily,
+          the PC&rsquo;s &lsquo;link&rsquo; to the devil means that each day the
+          PC can roll a normal save; on an 11+, they have a good idea of which
+          direction the devil is in. And hubris devils don&rsquo;t move all that
+          much.</li>
 
-        <li>Instead, the party must travel to the center of the devils&rsquo; power
-        and steal back their friend&rsquo;s soul shard. Or whatever it is that you
-        think their particular soul piece is gonna look like.</li>
+          <li>Instead, the party must travel to the center of the devils&rsquo;
+          power and steal back their friend&rsquo;s soul shard. Or whatever it
+          is that you think their particular soul piece is gonna look like.</li>
 
-        <li>The devils immediately barter the soul shard to an enemy icon, leading
-        to an entirely new set of quests and complications.</li>
+          <li>The devils immediately barter the soul shard to an enemy icon,
+          leading to an entirely new set of quests and complications.</li>
 
-        </ul>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+          </ul>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!6HXa4eOkbnuLnk6d.ucP5mB1x3Dfyk3Kd'
 name: Great Hubris Devil
 ownership:
   default: 0
@@ -430,7 +520,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -490,9 +580,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/devil.webp
@@ -503,15 +590,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 3
+  depth: 3
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 24
     attackMod:
       type: Number
       value: 0
@@ -522,72 +604,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 600
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 26
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 600
+      min: 0
+      max: 600
       temp: 0
       tempmax: 0
-      type: Number
-      value: 600
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 14
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 9
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 26
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 22
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: wrecker
@@ -601,67 +687,80 @@ system:
       value: triple
     type:
       value: devil
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!6HXa4eOkbnuLnk6d'

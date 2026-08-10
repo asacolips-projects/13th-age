@@ -1,263 +1,317 @@
 _id: AVurdV9m5R8LAEkr
-_key: '!actors!AVurdV9m5R8LAEkr'
 effects: []
 flags:
   archmage: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/demon.webp
 items:
-- _id: kwk9hFe4lviWuUgT
-  _key: '!actors.items!AVurdV9m5R8LAEkr.kwk9hFe4lviWuUgT'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Damned katar
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 12]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[20]] damage'
-    hit1:
-      label: Hit
-      name: Natural even hit or miss
-      type: ''
-      value: "The cambion becomes cloaked until it\u2019s hit by an attack against\
-        \ MD or until it misses with a natural odd attack roll."
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: ugvZ8MuAAqlPrJvS
-  _key: '!actors.items!AVurdV9m5R8LAEkr.ugvZ8MuAAqlPrJvS'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Spiky headbutt
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 12]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[8]] damage, and [[10]] ongoing poison damage'
-    hit1:
-      label: Hit
-      type: String
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: j7Xat8ju9airtiNd
-  _key: '!actors.items!AVurdV9m5R8LAEkr.j7Xat8ju9airtiNd'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: 'R: Ray of darkness'
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 12]] vs. MD'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[10]] negative energy damage'
-    hit1:
-      label: Hit
-      name: Natural even hit
-      type: ''
-      value: The target is *confused* until the end of its next turn, or if the cambion
-        was cloaked when it attacked, the confusion is save ends.
-    hit2:
-      label: Hit
-      name: Natural even miss
-      type: ''
-      value: The attacker takes [[5]] poison damage.
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    hitt3:
-      label: Hit
-      name: Natural odd miss
-      type: ''
-      value: The cambion katar can make a spiky headbutt attack against the attacker
-        as a free action.
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: NLTNkfgJN5u1EFHj
-  _key: '!actors.items!AVurdV9m5R8LAEkr.NLTNkfgJN5u1EFHj'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Corruption aura
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: DDR5WvUaOUEBz4Uq
-  _key: '!actors.items!AVurdV9m5R8LAEkr.DDR5WvUaOUEBz4Uq'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Superior dark step
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: While cloaked, the cambion katar automatically succeeds on all disengage
-        checks and gains a +2 bonus to all defenses against close and ranged attacks.
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: kwk9hFe4lviWuUgT
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Damned katar
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The cambion becomes cloaked until it’s hit by an attack against MD or
+          until it misses with a natural odd attack roll.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!AVurdV9m5R8LAEkr.kwk9hFe4lviWuUgT'
+  - _id: ugvZ8MuAAqlPrJvS
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Spiky headbutt
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[8]] damage, and [[10]] ongoing poison damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!AVurdV9m5R8LAEkr.ugvZ8MuAAqlPrJvS'
+  - _id: j7Xat8ju9airtiNd
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: 'R: Ray of darkness'
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. MD'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] negative energy damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The target is *confused* until the end of its next turn, or if the
+          cambion was cloaked when it attacked, the confusion is save ends.
+      hit2:
+        type: ''
+        label: Hit
+        name: Natural even miss
+        value: The attacker takes [[5]] poison damage.
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+      hitt3:
+        label: Hit
+        name: Natural odd miss
+        type: ''
+        value: >-
+          The cambion katar can make a spiky headbutt attack against the
+          attacker as a free action.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!AVurdV9m5R8LAEkr.j7Xat8ju9airtiNd'
+  - _id: NLTNkfgJN5u1EFHj
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Corruption aura
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!AVurdV9m5R8LAEkr.NLTNkfgJN5u1EFHj'
+  - _id: DDR5WvUaOUEBz4Uq
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Superior dark step
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While cloaked, the cambion katar automatically succeeds on all
+          disengage checks and gains a +2 bonus to all defenses against close
+          and ranged attacks.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!AVurdV9m5R8LAEkr.DDR5WvUaOUEBz4Uq'
 name: Cambion Katar
 ownership:
   default: 0
@@ -269,7 +323,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -329,9 +383,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
@@ -342,15 +393,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 21
     attackMod:
       type: Number
       value: 0
@@ -361,165 +407,182 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 6
-    hp:
-      automatic: true
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
       base: 10
-      extra: 0
-      label: Hit Points
-      max: 80
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 80
+      min: 0
+      max: 80
       temp: 0
       tempmax: 0
-      type: Number
-      value: 80
+      base: 10
+      extra: 0
+      automatic: true
     init:
+      type: Number
       label: Initiative Modifier
-      mod: 13
-      type: Number
       value: 13
+      mod: 13
     level:
+      type: Number
       label: Level
-      max: 12
-      min: 0
-      type: Number
       value: 6
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 15
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 19
+      max: 12
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+    escalation:
+      value: 6
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 6
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: wrecker
       label: Role
       type: String
-      value: wrecker
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: demon
       label: Type
       type: String
-      value: demon
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: B1
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 6
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B1
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!AVurdV9m5R8LAEkr'

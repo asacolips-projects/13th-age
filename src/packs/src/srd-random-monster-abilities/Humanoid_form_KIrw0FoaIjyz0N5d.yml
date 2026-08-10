@@ -1,5 +1,4 @@
 _id: KIrw0FoaIjyz0N5d
-_key: '!items!KIrw0FoaIjyz0N5d'
 effects: []
 flags: {}
 folder: null
@@ -9,25 +8,38 @@ ownership:
   default: 0
 sort: 0
 system:
+  name:
+    type: String
+    label: Name
   description:
+    type: String
     label: Description
-    type: String
-    value: <p>The dragon is capable of shapechanging into a humanoid form, usually
-      of a warrior or spellcaster appropriate to its nature and usually not obviously
-      draconic, registering as a normal human or elf or whatever. This ability is
-      best used for long-term dragon characters that make it worth the GM&rsquo;s
-      time to create a double- or triple-strength humanoid monster to represent the
-      shapechanged form. The dragon has the PC-style racial power of their humanoid
-      form, but only while in shapechanged form.</p>
+    value: >-
+      <p>The dragon is capable of shapechanging into a humanoid form, usually of
+      a warrior or spellcaster appropriate to its nature and usually not
+      obviously draconic, registering as a normal human or elf or whatever. This
+      ability is best used for long-term dragon characters that make it worth
+      the GM&rsquo;s time to create a double- or triple-strength humanoid
+      monster to represent the shapechanged form. The dragon has the PC-style
+      racial power of their humanoid form, but only while in shapechanged
+      form.</p>
   embeddedMacro:
-    label: Embedded Macro
     type: String
+    label: Embedded Macro
     value: ''
   group:
+    type: String
     label: Group
-    type: String
     value: ''
-  name:
-    label: Name
-    type: String
 type: trait
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!KIrw0FoaIjyz0N5d'

@@ -1,103 +1,125 @@
 _id: Jxopr3OiwFFG01hg
-_key: '!actors!Jxopr3OiwFFG01hg'
 effects: []
 flags:
   archmage: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
-- _id: HEYAY13Gi5zlTJfI
-  _key: '!actors.items!Jxopr3OiwFFG01hg.HEYAY13Gi5zlTJfI'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Sword
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: ''
-      value: '[[d20 + 9]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: ''
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: ''
-      value: '[[10]] damage'
-    hit1:
-      label: Hit
-      name: Natural even hit or miss
-      type: ''
-      value: Unless the wight is staggered, the attack also deals [[8]] ongoing negative
-        energy damage.
-    hit2:
-      label: Hit
-      type: String
-    hit3:
-      label: Hit
-      type: String
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: I5QMFJcjYEygvpBl
-  _key: '!actors.items!Jxopr3OiwFFG01hg.I5QMFJcjYEygvpBl'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/mystery-man.svg
-  name: Barrow-touch
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    description:
-      label: Description
-      type: ''
-      value: "The wight\u2019s attacks against enemies taking ongoing negative energy\
-        \ damage are against PD instead of AC and have an expanded crit range of 18+."
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: HEYAY13Gi5zlTJfI
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Sword
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          Unless the wight is staggered, the attack also deals [[8]] ongoing
+          negative energy damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Jxopr3OiwFFG01hg.HEYAY13Gi5zlTJfI'
+  - _id: I5QMFJcjYEygvpBl
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/mystery-man.svg
+    name: Barrow-touch
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The wight’s attacks against enemies taking ongoing negative energy
+          damage are against PD instead of AC and have an expanded crit range of
+          18+.
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Jxopr3OiwFFG01hg.I5QMFJcjYEygvpBl'
 name: Wight
 ownership:
   default: 0
@@ -109,7 +131,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -169,9 +191,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/undead.webp
@@ -182,15 +201,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 21
     attackMod:
       type: Number
       value: 0
@@ -201,165 +215,182 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 6
-    hp:
-      automatic: true
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
       base: 10
-      extra: 0
-      label: Hit Points
-      max: 48
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 48
+      min: 0
+      max: 48
       temp: 0
       tempmax: 0
-      type: Number
-      value: 48
+      base: 10
+      extra: 0
+      automatic: true
     init:
+      type: Number
       label: Initiative Modifier
-      mod: 7
-      type: Number
       value: 7
+      mod: 7
     level:
+      type: Number
       label: Level
-      max: 12
-      min: 0
-      type: Number
       value: 4
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 13
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 17
+      max: 12
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+    escalation:
+      value: 6
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 4
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: spoiler
       label: Role
       type: String
-      value: spoiler
     roleB:
       value: ''
     size:
+      value: normal
       label: Size
       type: String
-      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
+      value: undead
       label: Type
       type: String
-      value: undead
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: holy
       label: Vulnerability
       type: String
-      value: holy
-  publicationSource: 1e
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 4
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: 1e
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!Jxopr3OiwFFG01hg'
