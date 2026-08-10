@@ -227,6 +227,7 @@ export default {
       this.powerSourceName = '';
       this.powerUsage = [];
       this.trigger = '';
+      this.location = [];
     },
     /**
      * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
