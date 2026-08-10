@@ -120,7 +120,8 @@
   }
 
   .power-grid {
-    grid-template-columns: 32px auto 36px 44px 60px 36px 64px;
+    // The uses column holds two counters for powers with a secondary usage.
+    grid-template-columns: 32px auto 36px 44px 60px 44px 64px;
     gap: 2px;
     font-size: $font-tiny;
     font-family: $font-stack-label;
@@ -298,9 +299,41 @@
       }
     }
 
+    // Powers with a secondary usage take the colour of the pool currently being
+    // spent, so once the primary pool is empty the row switches to the secondary
+    // usage's colour and keeps a stripe of the primary one. Uses ::before rather
+    // than ::after so the "spent" hatching still shows once both pools are empty.
+    &.dual-usage {
+      &::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 5px;
+        bottom: 0;
+        z-index: 1;
+      }
+
+      &.dual-usage--at-will::before { background: $c-power-will; }
+      &.dual-usage--once-per-battle::before { background: $c-power-battle; }
+      &.dual-usage--daily::before { background: $c-power-daily; }
+      &.dual-usage--recharge::before { background: $c-power-recharge; }
+      &.dual-usage--other::before { background: $c-power-other; }
+    }
+
     .feat-pip,
-    .power-uses {
+    .power-uses-primary,
+    .power-uses-secondary {
       cursor: pointer;
+    }
+
+    .power-uses {
+      gap: 1px;
+
+      .power-uses-separator {
+        opacity: 0.6;
+      }
     }
   }
 

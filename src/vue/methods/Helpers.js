@@ -35,6 +35,74 @@ export function concat(...args) {
 }
 
 /**
+ * Resolve a power usage to the class that colours a power row.
+ *
+ * Cyclic powers borrow the colour of whichever usage they currently behave as,
+ * which depends on the escalation die.
+ *
+ * @param {string} usage Power usage, such as 'once-per-battle'.
+ * @param {object|null} actor Actor the power belongs to, needed for cyclic powers.
+ *
+ * @returns {string}
+ */
+function powerUsageColorClass(usage, actor) {
+  let use = usage ? usage : 'other';
+  if (['daily', 'daily-desperate'].includes(use)) return 'daily';
+  if (['recharge', 'recharge-desperate'].includes(use)) return 'recharge';
+  if (use == 'cyclic') {
+    const escalation = actor?.system?.attributes?.escalation?.value ?? 0;
+    return (escalation > 0 && escalation % 2 == 0) ? 'at-will' : 'once-per-battle';
+  }
+  return use;
+}
+
+/**
+ * Compute the CSS classes for a power row, based on its usage.
+ *
+ * Powers can track a secondary pool of uses on top of the primary one, such as
+ * the paladin's Smite Evil ("once per battle, plus an additional [[@cha.mod]]
+ * times per day"). Since the secondary pool is only spent once the primary one
+ * runs out, a power drawing on its secondary pool takes that usage's colour and
+ * keeps a stripe of the primary usage's colour, similar to cyclic powers.
+ *
+ * @param {object} power Power item data.
+ * @param {object|null} actor Actor the power belongs to.
+ *
+ * @returns {string}
+ */
+export function powerUsageClass(power, actor) {
+  const primaryUsage = power.system.powerUsage?.value;
+  const secondaryUsage = power.system.powerUsageSecondary?.value;
+  const hasSecondary = power.system.quantitySecondary?.value != null && !!secondaryUsage;
+  const onSecondary = hasSecondary && !(power.system.quantity?.value > 0);
+
+  const activeUsage = onSecondary ? secondaryUsage : primaryUsage;
+  const classes = [powerUsageColorClass(activeUsage, actor)];
+  if (activeUsage == 'cyclic') classes.push('cyclic');
+  if (onSecondary) {
+    classes.push('dual-usage', `dual-usage--${powerUsageColorClass(primaryUsage, actor)}`);
+  }
+  return classes.join(' ');
+}
+
+/**
+ * Compute the CSS class marking a power as spent.
+ *
+ * A power with a secondary pool of uses is only unavailable once both pools are
+ * empty.
+ *
+ * @param {object} power Power item data.
+ *
+ * @returns {string}
+ */
+export function powerAvailabilityClass(power) {
+  const primary = power.system?.quantity?.value;
+  const secondary = power.system?.quantitySecondary?.value;
+  if (primary == null && secondary == null) return '';
+  return ((primary ?? 0) + (secondary ?? 0)) === 0 ? 'unavailable' : '';
+}
+
+/**
  * Replace inline rolls with alternate formatting and wrap with an additional
  * span tag for formatting.
  *

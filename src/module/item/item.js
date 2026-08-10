@@ -29,6 +29,21 @@ export class ItemArchmage extends Item {
       let model = game.data.model.Item[this.type];
       if (!this.system.quantity) this.system.quantity = model.quantity;
     }
+
+    // Powers created before secondary usage existed have no fields for it yet.
+    if (this.type == 'power') {
+      const model = game.data?.model?.Item?.power ?? {};
+      const defaults = {
+        powerUsageSecondary: {type: 'String', value: ''},
+        quantitySecondary: {type: 'Number', value: null},
+        maxQuantitySecondary: {type: 'String', value: null}
+      };
+      for (const [key, fallback] of Object.entries(defaults)) {
+        if (!this.system[key]) {
+          this.system[key] = foundry.utils.deepClone(model[key] ?? fallback);
+        }
+      }
+    }
   }
 
   /**
@@ -239,6 +254,67 @@ export class ItemArchmage extends Item {
     return retVal;
   }
 
+  /**
+   * Collect the item's pools of uses, in the order they get spent.
+   *
+   * Powers can track a secondary pool of uses on top of the primary one, for
+   * cases such as the paladin's Smite Evil ("once per battle, plus an
+   * additional [[@cha.mod]] times per day"). The secondary pool is only spent
+   * once the primary one has run out.
+   *
+   * @returns {Array.<Object>}  One entry per tracked pool, each holding the
+   *   update path of its uses, the uses left, and its usage type. Pools which
+   *   aren't tracked at all (null uses) are omitted.
+   */
+  usagePools() {
+    const pools = [];
+    if (this.system.quantity?.value != null) {
+      pools.push({
+        path: "system.quantity.value",
+        uses: Number(this.system.quantity.value),
+        usage: this.system.powerUsage?.value
+      });
+    }
+    if (this.type == 'power' && this.system.quantitySecondary?.value != null) {
+      pools.push({
+        path: "system.quantitySecondary.value",
+        uses: Number(this.system.quantitySecondary.value),
+        usage: this.system.powerUsageSecondary?.value
+      });
+    }
+    return pools;
+  }
+
+  /**
+   * Resolve a maximum uses field, which may hold an inline roll.
+   *
+   * Max uses are stored as strings so that they can be expressed relative to
+   * the actor, such as "[[@cha.mod]]" for the paladin's Smite Evil.
+   *
+   * @param {string} field    Name of the field to resolve, either 'maxQuantity'
+   *   or 'maxQuantitySecondary'.
+   * @returns {Promise.<number|null>}  The numeric maximum, or null if the field
+   *   is empty or doesn't resolve to a number.
+   */
+  async resolveMaxQuantity(field = 'maxQuantity') {
+    const raw = this.system?.[field]?.value;
+    if (raw === null || raw === undefined || raw === '') return null;
+    if (typeof raw === 'number') return raw;
+
+    // Substitute any inline rolls with their totals before parsing.
+    let formula = String(raw).trim();
+    let ir;
+    while ((ir = INLINE_ROLL_REGEX.exec(formula))) {
+      const rolls = ArchmageRolls.getInlineRolls(ir[1], this.itemActor?.getRollData(this) ?? {});
+      if (!rolls) break;
+      await ArchmageRolls.rollAll(rolls, this.itemActor);
+      formula = formula.replace(ir[1], rolls[0].total);
+    }
+
+    const max = Number(formula);
+    return Number.isFinite(max) ? Math.floor(max) : null;
+  }
+
   async _rollUsesCheck(updateData, usageMode, consumeUsage = true) {
     // If we have a special usage mode skip this check
     if (!["", "openingEffect"].includes(usageMode)) return false;
@@ -247,18 +323,22 @@ export class ItemArchmage extends Item {
     // Respect the consume-usage choice from the power roll dialog.
     if (!consumeUsage) return false;
     // Update uses left
-    let uses = this.system.quantity?.value;
-    if (uses == null) return false;
+    const pools = this.usagePools();
+    if (!pools.length) return false;
     if (this.system.powerUsage?.value == 'cyclic'
       && this.actor.system.attributes.escalation.value > 0
       && this.actor.system.attributes.escalation.value % 2 == 0
-      && uses > 0) {
+      && pools[0].uses > 0) {
       // Cyclic power, E.D. even, do not consume uses
       return false;
     }
-    updateData["system.quantity.value"] = Math.max(uses - 1, 0);
+    // Spend from the first pool with uses left, falling back to the primary
+    // one (which is then reported as expended) when they're all empty.
+    const pool = pools.find(p => p.uses > 0) ?? pools[0];
+    let uses = pool.uses;
+    updateData[pool.path] = Math.max(uses - 1, 0);
     if (uses == 0 && !event.shiftKey && ["power", "equipment", "loot", "tool"].includes(this.type)
-      && this.system.powerUsage?.value != 'at-will') {
+      && pool.usage != 'at-will') {
       let use = false;
       await Dialog.confirm({
         title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
@@ -280,8 +360,9 @@ export class ItemArchmage extends Item {
       baseLvl = Math.max(this.itemActor.system.attributes.level.value, baseLvl);
     }
 
-    const hasUses = this.system.quantity?.value != null;
-    const usesLeft = this.system.quantity?.value ?? 0;
+    const pools = this.usagePools();
+    const hasUses = pools.length > 0;
+    const usesLeft = pools.reduce((total, pool) => total + pool.uses, 0);
     const hasResources = !!this.system.resources?.value;
     const resourcesStr = this.system.resources?.value ?? "";
 
@@ -641,7 +722,15 @@ export class ItemArchmage extends Item {
   }
 
   _getUsageClass(item) {
-    let use = item.system.powerUsage?.value ? item.system.powerUsage.value : 'other';
+    // Powers with a secondary pool of uses show the usage of whichever pool is
+    // being drawn from, so the card matches the sheet's colouring.
+    let usage = item.system.powerUsage?.value;
+    if (item.type == 'power' && item.system.quantitySecondary?.value != null
+      && item.system.powerUsageSecondary?.value
+      && !(item.system.quantity?.value > 0)) {
+      usage = item.system.powerUsageSecondary.value;
+    }
+    let use = usage ? usage : 'other';
     if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
     if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
     else if (use == 'cyclic') {
@@ -980,9 +1069,12 @@ export class ItemArchmage extends Item {
    *
    * @param {Object} options      Options to pass during execution.
    * @param {Boolean} options.createMessage  Whether or not to render chat messages.
+   * @param {Boolean} options.secondary  Recharge the power's secondary pool of
+   *   uses rather than the primary one. Secondary pools have no attempt
+   *   counter, so the "recharge once per day" setting doesn't limit them.
    * @returns {Promise.<Object>}  A promise resolving to an object with roll results.
    */
-  async recharge({createMessage=true}={}) {
+  async recharge({createMessage=true, secondary=false}={}) {
     // Only update for recharge powers/items.
     if (!this.system?.powerUsage?.value == 'recharge') return;
     // Only update for owned items.
@@ -996,8 +1088,9 @@ export class ItemArchmage extends Item {
 
     let actor = this.actor;
 
-    let maxQuantity = this.system?.maxQuantity?.value ?? 1;
-    let currQuantity = this.system?.quantity?.value ?? 0;
+    const quantityKey = secondary ? 'quantitySecondary' : 'quantity';
+    let maxQuantity = await this.resolveMaxQuantity(secondary ? 'maxQuantitySecondary' : 'maxQuantity') ?? 1;
+    let currQuantity = this.system?.[quantityKey]?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
     let rechAttempts = this.system?.rechargeAttempts?.value ?? 0;
 
@@ -1036,9 +1129,9 @@ export class ItemArchmage extends Item {
     // Update the item.
     if (rechargeSuccessful) {
       await this.update({
-        system: { quantity: { value: Number(currQuantity) + 1 } }
+        [`system.${quantityKey}.value`]: Number(currQuantity) + 1
       });
-    } else {
+    } else if (!secondary) {
       // Record recharge attempt
       await this.update({
         system: { rechargeAttempts: { value: Number(rechAttempts) + 1 } }
@@ -1091,7 +1184,10 @@ export class ItemArchmage extends Item {
       },
       {
         label: game.i18n.localize('ARCHMAGE.CHAT.powerUsage'),
-        value: CONFIG.ARCHMAGE.powerUsages[data.powerUsage.value]
+        // Powers tracking two pools of uses list both, e.g. "Once per battle / Daily".
+        value: data.powerUsageSecondary?.value
+          ? `${CONFIG.ARCHMAGE.powerUsages[data.powerUsage.value]} / ${CONFIG.ARCHMAGE.powerUsages[data.powerUsageSecondary.value]}`
+          : CONFIG.ARCHMAGE.powerUsages[data.powerUsage.value]
       },
       {
         label: game.i18n.localize('ARCHMAGE.CHAT.powerSource'),
