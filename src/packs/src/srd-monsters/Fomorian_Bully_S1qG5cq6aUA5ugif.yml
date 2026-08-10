@@ -1,5 +1,4 @@
 _id: S1qG5cq6aUA5ugif
-_key: '!actors!S1qG5cq6aUA5ugif'
 effects: []
 flags:
   archmage:
@@ -8,400 +7,501 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/giant.webp
 items:
-- _id: YSBmQaB6HYPIghY5
-  _key: '!actors.items!S1qG5cq6aUA5ugif.YSBmQaB6HYPIghY5'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Big club
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 11]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[40]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: zHVyLDpGRPlA0qdM
-  _key: '!actors.items!S1qG5cq6aUA5ugif.zHVyLDpGRPlA0qdM'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Resist mental attacks 16+
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When an attack against MD targets this creature, the attacker must
-        roll a natural 16+ on the attack roll or it only deals half damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: C7tudPJEObWASJoX
-  _key: '!actors.items!S1qG5cq6aUA5ugif.C7tudPJEObWASJoX'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Too stupid to notice
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the fomorian is moving, it only takes half damage from attacks&mdash;it
-        isn&rsquo;t really tougher, it just doesn&rsquo;t notice some wounds.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: 2luiEpf3OyidXARy
-  _key: '!actors.items!S1qG5cq6aUA5ugif.2luiEpf3OyidXARy'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Evil eye'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 11]] vs. PD (one nearby or faraway enemy, but not one that has
-        been targeted by this attack since the start of the last round)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: "[[10]] ongoing damage, and the target\u2019s skin and bones painfully\
-        \ twist to make them hideous to behold. At the start of each day, provided\
-        \ they receive some form of magical healing, the twisted victim rolls a save\
-        \ with a bonus equal to their Charisma or Constitution modifier (whichever\
-        \ is lower) to recover their original appearance."
-    hit1:
-      label: Hit
-      name: Limited use
-      type: String
-      value: Once one target has been hit by this attack, no further evil eye attacks
-        can be made by any fomorian this battle.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: xakbUxRP99B9TbRi
-  _key: '!actors.items!S1qG5cq6aUA5ugif.xakbUxRP99B9TbRi'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Fomorian Mutation Nastier Specials
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>Roll on the table below if you wish. You can also give fomorians
-        some unclean-one abilities (though never unearthly beauty).</p>
+  - _id: YSBmQaB6HYPIghY5
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Big club
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[40]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.YSBmQaB6HYPIghY5'
+  - _id: zHVyLDpGRPlA0qdM
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Resist mental attacks 16+
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an attack against MD targets this creature, the attacker must
+          roll a natural 16+ on the attack roll or it only deals half
+          damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.zHVyLDpGRPlA0qdM'
+  - _id: C7tudPJEObWASJoX
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Too stupid to notice
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the fomorian is moving, it only takes half damage from
+          attacks&mdash;it isn&rsquo;t really tougher, it just doesn&rsquo;t
+          notice some wounds.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.C7tudPJEObWASJoX'
+  - _id: 2luiEpf3OyidXARy
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Evil eye'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20 + 11]] vs. PD (one nearby or faraway enemy, but not one that has
+          been targeted by this attack since the start of the last round)
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10]] ongoing damage, and the target’s skin and bones painfully twist
+          to make them hideous to behold. At the start of each day, provided
+          they receive some form of magical healing, the twisted victim rolls a
+          save with a bonus equal to their Charisma or Constitution modifier
+          (whichever is lower) to recover their original appearance.
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          Once one target has been hit by this attack, no further evil eye
+          attacks can be made by any fomorian this battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.2luiEpf3OyidXARy'
+  - _id: xakbUxRP99B9TbRi
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Fomorian Mutation Nastier Specials
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Roll on the table below if you wish. You can also give fomorians
+          some unclean-one abilities (though never unearthly beauty).</p>
 
-        <table style="width: 100%;" border="1"><colgroup><col style="width: 12.9083%;"><col
-        style="width: 87.0917%;"></colgroup>
+          <table style="width: 100%;" border="1"><colgroup><col style="width:
+          12.9083%;"><col style="width: 87.0917%;"></colgroup>
 
-        <tbody>
+          <tbody>
 
-        <tr>
+          <tr>
 
-        <td>[[/r d4]]</td>
+          <td>[[/r d4]]</td>
 
-        <td>Mutation</td>
+          <td>Mutation</td>
 
-        </tr>
+          </tr>
 
-        <tr>
+          <tr>
 
-        <td>1</td>
+          <td>1</td>
 
-        <td>Extra arm</td>
+          <td>Extra arm</td>
 
-        </tr>
+          </tr>
 
-        <tr>
+          <tr>
 
-        <td>2</td>
+          <td>2</td>
 
-        <td>Extra eyes</td>
+          <td>Extra eyes</td>
 
-        </tr>
+          </tr>
 
-        <tr>
+          <tr>
 
-        <td>3</td>
+          <td>3</td>
 
-        <td>Fair is foul</td>
+          <td>Fair is foul</td>
 
-        </tr>
+          </tr>
 
-        <tr>
+          <tr>
 
-        <td>4</td>
+          <td>4</td>
 
-        <td>Thick skin</td>
+          <td>Thick skin</td>
 
-        </tr>
+          </tr>
 
-        </tbody>
+          </tbody>
 
-        </table>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: BBTCNbhyaMdRfqld
-  _key: '!actors.items!S1qG5cq6aUA5ugif.BBTCNbhyaMdRfqld'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Extra arm
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the escalation die is odd, the fomorian can make one extra melee
-        attack per round as a quick action.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: 83dusH80i0QxbQzk
-  _key: '!actors.items!S1qG5cq6aUA5ugif.83dusH80i0QxbQzk'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Extra eyes
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The fomorian has a cluster of small eyes in the back of its head,
-        a huge eye on a shoulder, a slug-like eye stalk, etc. The fomorian can&rsquo;t
-        be surprised or ambushed, and it has true sight (spells like blur, invisibility,
-        etc. don&rsquo;t work on it).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: 0RC3wbWwp7QUZBfr
-  _key: '!actors.items!S1qG5cq6aUA5ugif.0RC3wbWwp7QUZBfr'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Fair is foul
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Once per turn as a free action, the fomorian can make the <em>evil
-        eye</em> attack.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: kseCYL60EkzYIfqD
-  _key: '!actors.items!S1qG5cq6aUA5ugif.kseCYL60EkzYIfqD'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Thick skin
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>+1 AC and +2 PD.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+          </table>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.xakbUxRP99B9TbRi'
+  - _id: BBTCNbhyaMdRfqld
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Extra arm
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die is odd, the fomorian can make one extra
+          melee attack per round as a quick action.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.BBTCNbhyaMdRfqld'
+  - _id: 83dusH80i0QxbQzk
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Extra eyes
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The fomorian has a cluster of small eyes in the back of its head, a
+          huge eye on a shoulder, a slug-like eye stalk, etc. The fomorian
+          can&rsquo;t be surprised or ambushed, and it has true sight (spells
+          like blur, invisibility, etc. don&rsquo;t work on it).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.83dusH80i0QxbQzk'
+  - _id: 0RC3wbWwp7QUZBfr
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Fair is foul
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per turn as a free action, the fomorian can make the <em>evil
+          eye</em> attack.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.0RC3wbWwp7QUZBfr'
+  - _id: kseCYL60EkzYIfqD
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Thick skin
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>+1 AC and +2 PD.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!S1qG5cq6aUA5ugif.kseCYL60EkzYIfqD'
 name: Fomorian Bully
 ownership:
   default: 0
@@ -413,7 +513,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -473,9 +573,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/giant.webp
@@ -486,15 +583,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 2
+  depth: 2
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 23
     attackMod:
       type: Number
       value: 0
@@ -505,72 +597,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 180
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 180
+      min: 0
+      max: 180
       temp: 0
       tempmax: 0
-      type: Number
-      value: 180
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 9
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 6
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 13
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 21
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: troop
@@ -584,67 +680,80 @@ system:
       value: double
     type:
       value: giant
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!S1qG5cq6aUA5ugif'

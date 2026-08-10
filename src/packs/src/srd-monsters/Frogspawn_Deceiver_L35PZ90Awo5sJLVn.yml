@@ -1,5 +1,4 @@
 _id: L35PZ90Awo5sJLVn
-_key: '!actors!L35PZ90Awo5sJLVn'
 effects: []
 flags:
   archmage:
@@ -8,416 +7,537 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: 3IOt5Dm5ajSkHdFy
-  _key: '!actors.items!L35PZ90Awo5sJLVn.3IOt5Dm5ajSkHdFy'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Hidden knife
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 8]] vs. AC (or [[d20 + 12]] vs AC if the frogfolk has a higher
-        initiative)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[20]] damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 8AHCnioOEhdPm6Ph
-  _key: '!actors.items!L35PZ90Awo5sJLVn.8AHCnioOEhdPm6Ph'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'R: Poison darts'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[18]] poison damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: XMnWAAX3JYLv3KOm
-  _key: '!actors.items!L35PZ90Awo5sJLVn.XMnWAAX3JYLv3KOm'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Poison touch
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>This monster can coat items with poison. Once per battle on a hit
-        their attack does an extra ongoing 10 poison damage (hard save ends). Outside
-        battle they can coat objects with a skin-contact poison&mdash;[[10]] poison
-        damage and [[10]] ongoing poison damage (save ends, or hard save if the target
-        ingests the poison).</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: bPGnjFioacrn4D6X
-  _key: '!actors.items!L35PZ90Awo5sJLVn.bPGnjFioacrn4D6X'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Disguise
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Frogspawn deceivers are experts at disguising themselves as other
-        less froggy races, it requires a DC 25 skill check to see the truth beneath
-        their veils or deep cloaks and lifelike masks. Once they attack what they
-        are becomes obvious.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: vuN9Nnso2RNMkRQx
-  _key: '!actors.items!L35PZ90Awo5sJLVn.vuN9Nnso2RNMkRQx'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Jump
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>These froggy assassins can jump huge distances. When the escalation
-        die is even frogspawn deceivers can jump as a quick action, leaping over enemies
-        and past obstacles in a way that can&rsquo;t be intercepted and that doesn&rsquo;t
-        provoke attacks.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: UAjAL3WSwSfc9v0k
-  _key: '!actors.items!L35PZ90Awo5sJLVn.UAjAL3WSwSfc9v0k'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Slippery customer
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Frogspawn deceivers do not take miss damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: oqtOkN8uRBUZQXPI
-  _key: '!actors.items!L35PZ90Awo5sJLVn.oqtOkN8uRBUZQXPI'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Frogspawn abilities
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>You should certainly use one ability per frogspawn, occasionally two.
-        For frogspawn mooks, treat the abilities as usable once per battle.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: srZl2elB5q3H3IR0
-  _key: '!actors.items!L35PZ90Awo5sJLVn.srZl2elB5q3H3IR0'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Disgusting tongue
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The frogspawn deals [[@lvl]] poison damage to any character that pops
-        free of it or successfully disengages from it. (Teleporting away is probably
-        tongue-free unless the GM is hopping mad.)</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: FljCQlt7HcdRU2Pj
-  _key: '!actors.items!L35PZ90Awo5sJLVn.FljCQlt7HcdRU2Pj'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Dunk and cover
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>If the battle is taking place in a swamp, lake, or river, whenever
-        the frogspawn misses with a natural even attack roll, it can duck out of sight.
-        Remove the frogspawn from the table until the start of its next turn. At the
-        start of its next turn, place it anywhere nearby its previous location, but
-        not engaged with an enemy.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: Gb1BqtWtCRwYPNNv
-  _key: '!actors.items!L35PZ90Awo5sJLVn.Gb1BqtWtCRwYPNNv'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Erratic leap (move action)
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>If the frogspawn is unengaged at the start of its turn, choose a random
-        nearby enemy the frogspawn can see. The frogspawn leaps into engagement with
-        that enemy and its crit range with melee attacks expands by 3 until the end
-        of the turn.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: eSh1Zm8ycAU3zDah
-  _key: '!actors.items!L35PZ90Awo5sJLVn.eSh1Zm8ycAU3zDah'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Paranoid destroyer
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>This frogspawn can&rsquo;t be surprised. If there&rsquo;s a surprise
-        round, it gets to act. If there isn&rsquo;t a surprise round at the start
-        of combat, the frogspawn gets a surprise round if its natural initiative roll
-        is 16+. On the down side, subtract 2 from this frogspawn&rsquo;s MD, because
-        it&rsquo;s always sure it&rsquo;s going to die. (Gamemaster: Don&rsquo;t give
-        this ability to all the frogspawn in a battle. Just one or two.)</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: 3IOt5Dm5ajSkHdFy
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Hidden knife
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20 + 8]] vs. AC (or [[d20 + 12]] vs AC if the frogfolk has a higher
+          initiative)
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.3IOt5Dm5ajSkHdFy'
+  - _id: 8AHCnioOEhdPm6Ph
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'R: Poison darts'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] poison damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.8AHCnioOEhdPm6Ph'
+  - _id: XMnWAAX3JYLv3KOm
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Poison touch
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This monster can coat items with poison. Once per battle on a hit
+          their attack does an extra ongoing 10 poison damage (hard save ends).
+          Outside battle they can coat objects with a skin-contact
+          poison&mdash;[[10]] poison damage and [[10]] ongoing poison damage
+          (save ends, or hard save if the target ingests the poison).</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.XMnWAAX3JYLv3KOm'
+  - _id: bPGnjFioacrn4D6X
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Disguise
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Frogspawn deceivers are experts at disguising themselves as other
+          less froggy races, it requires a DC 25 skill check to see the truth
+          beneath their veils or deep cloaks and lifelike masks. Once they
+          attack what they are becomes obvious.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.bPGnjFioacrn4D6X'
+  - _id: vuN9Nnso2RNMkRQx
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Jump
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>These froggy assassins can jump huge distances. When the escalation
+          die is even frogspawn deceivers can jump as a quick action, leaping
+          over enemies and past obstacles in a way that can&rsquo;t be
+          intercepted and that doesn&rsquo;t provoke attacks.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.vuN9Nnso2RNMkRQx'
+  - _id: UAjAL3WSwSfc9v0k
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Slippery customer
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>Frogspawn deceivers do not take miss damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.UAjAL3WSwSfc9v0k'
+  - _id: oqtOkN8uRBUZQXPI
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Frogspawn abilities
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>You should certainly use one ability per frogspawn, occasionally
+          two. For frogspawn mooks, treat the abilities as usable once per
+          battle.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.oqtOkN8uRBUZQXPI'
+  - _id: srZl2elB5q3H3IR0
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Disgusting tongue
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The frogspawn deals [[@lvl]] poison damage to any character that
+          pops free of it or successfully disengages from it. (Teleporting away
+          is probably tongue-free unless the GM is hopping mad.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.srZl2elB5q3H3IR0'
+  - _id: FljCQlt7HcdRU2Pj
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Dunk and cover
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the battle is taking place in a swamp, lake, or river, whenever
+          the frogspawn misses with a natural even attack roll, it can duck out
+          of sight. Remove the frogspawn from the table until the start of its
+          next turn. At the start of its next turn, place it anywhere nearby its
+          previous location, but not engaged with an enemy.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.FljCQlt7HcdRU2Pj'
+  - _id: Gb1BqtWtCRwYPNNv
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Erratic leap (move action)
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the frogspawn is unengaged at the start of its turn, choose a
+          random nearby enemy the frogspawn can see. The frogspawn leaps into
+          engagement with that enemy and its crit range with melee attacks
+          expands by 3 until the end of the turn.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.Gb1BqtWtCRwYPNNv'
+  - _id: eSh1Zm8ycAU3zDah
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Paranoid destroyer
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This frogspawn can&rsquo;t be surprised. If there&rsquo;s a
+          surprise round, it gets to act. If there isn&rsquo;t a surprise round
+          at the start of combat, the frogspawn gets a surprise round if its
+          natural initiative roll is 16+. On the down side, subtract 2 from this
+          frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
+          to die. (Gamemaster: Don&rsquo;t give this ability to all the
+          frogspawn in a battle. Just one or two.)</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!L35PZ90Awo5sJLVn.eSh1Zm8ycAU3zDah'
 name: Frogspawn Deceiver
 ownership:
   default: 0
@@ -429,7 +549,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -489,9 +609,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -502,15 +619,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 21
     attackMod:
       type: Number
       value: 0
@@ -521,72 +633,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 72
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 72
+      min: 0
+      max: 72
       temp: 0
       tempmax: 0
-      type: Number
-      value: 72
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 8
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 5
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 16
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 19
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: spoiler
@@ -600,67 +716,80 @@ system:
       value: normal
     type:
       value: humanoid
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!L35PZ90Awo5sJLVn'

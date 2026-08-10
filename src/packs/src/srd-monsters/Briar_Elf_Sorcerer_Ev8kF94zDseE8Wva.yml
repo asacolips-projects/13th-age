@@ -1,5 +1,4 @@
 _id: Ev8kF94zDseE8Wva
-_key: '!actors!Ev8kF94zDseE8Wva'
 effects: []
 flags:
   archmage:
@@ -9,421 +8,530 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: Uyo4O6WT7pe8H2Z4
-  _key: '!actors.items!Ev8kF94zDseE8Wva.Uyo4O6WT7pe8H2Z4'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Fear Aura
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p><span class="fontstyle0">Enemies engaged with this briar elf who have
-        fewer than 72 hp are dazed (-4 attack) and can&rsquo;t use the escalation
-        die.</span></p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: o5RouID4HVURbRrk
-  _key: '!actors.items!Ev8kF94zDseE8Wva.o5RouID4HVURbRrk'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Dark Escalator
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p><span class="fontstyle0">On turns when the escalation die is even,
-        the briar elf sorcerer uses the escalation die, and each staggered adventurer
-        does not.</span> </p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: A86AUBN9akAOKWVP
-  _key: '!actors.items!Ev8kF94zDseE8Wva.A86AUBN9akAOKWVP'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Blood to sap
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 15]] vs. PD'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[60]] poison damage'
-    hit1:
-      label: Hit
-      name: Natural 16+ hit
-      type: String
-      value: The target becomes vulnerable to flesh to bark until the end of the battle.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: lXzMtOnMlbgE6IVJ
-  _key: '!actors.items!Ev8kF94zDseE8Wva.lXzMtOnMlbgE6IVJ'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Flesh to bark'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 16]] vs. PD'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[50]] poison damage and the target is stuck (save ends)'
-    hit1:
-      label: Hit
-      name: Crit
-      type: String
-      value: The target must make 4 last gasp saves, as it struggles to avoid turning
-        into a tree.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: fijlHlPGItWysk9A
-  _key: '!actors.items!Ev8kF94zDseE8Wva.fijlHlPGItWysk9A'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'R: Storm of thorns'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 16]] vs. PD ([[d3]] enemies in a group)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[40]] damage'
-    hit1:
-      label: Hit
-      name: Natural 16+ hit
-      type: String
-      value: '[[20]] ongoing poison damage'
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: '[[10]] damage'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: qs2aW7Y19PJt6iaN
-  _key: '!actors.items!Ev8kF94zDseE8Wva.qs2aW7Y19PJt6iaN'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Forest-shape
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p><span class="fontstyle0">The briar elf sorcerer can cause trees to
-        reshape themselves or to spontaneously grow from the ground. Once per battle
-        the briar elf sorcerer can use this ability as a free action: to stop another
-        character mid-movement, to pop a creature free, or to block and cancel a ranged
-        attack.</span> </p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: PfrhuG3q1rSH4ikI
-  _key: '!actors.items!Ev8kF94zDseE8Wva.PfrhuG3q1rSH4ikI'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: 'Choose one:'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: CqJjtdXZ4iQWv892
-  _key: '!actors.items!Ev8kF94zDseE8Wva.CqJjtdXZ4iQWv892'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Humanoid
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p><span class="fontstyle0">Once per battle, for one turn; storm of thorns
-        becomes a quick action to use.</span> </p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: QoCSYZYeMzOeUYtR
-  _key: '!actors.items!Ev8kF94zDseE8Wva.QoCSYZYeMzOeUYtR'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Plant
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p><span class="fontstyle0">This monster&rsquo;s type is [plant]. Every
-        time the briar elf sorcerer misses with its flesh to bark attack, its crit
-        range with that attack expands by 1.</span> </p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: iJc8ofaQYkdnxfbL
-  _key: '!actors.items!Ev8kF94zDseE8Wva.iJc8ofaQYkdnxfbL'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Undead
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p><span class="fontstyle0">This monster&rsquo;s type is [undead]. This
-        monster can phase through solid objects and creatures, but cannot end its
-        turn inside another object or creature. The monster automatically disengages
-        when it moves, and cannot be intercepted (unless the creature intercepting
-        it is also phasing)</span> </p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
+  - _id: Uyo4O6WT7pe8H2Z4
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Fear Aura
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">Enemies engaged with this briar elf who
+          have fewer than 72 hp are dazed (-4 attack) and can&rsquo;t use the
+          escalation die.</span></p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.Uyo4O6WT7pe8H2Z4'
+  - _id: o5RouID4HVURbRrk
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Dark Escalator
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">On turns when the escalation die is even,
+          the briar elf sorcerer uses the escalation die, and each staggered
+          adventurer does not.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.o5RouID4HVURbRrk'
+  - _id: A86AUBN9akAOKWVP
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Blood to sap
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. PD'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[60]] poison damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          The target becomes vulnerable to flesh to bark until the end of the
+          battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.A86AUBN9akAOKWVP'
+  - _id: lXzMtOnMlbgE6IVJ
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Flesh to bark'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. PD'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[50]] poison damage and the target is stuck (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Crit
+        value: >-
+          The target must make 4 last gasp saves, as it struggles to avoid
+          turning into a tree.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.lXzMtOnMlbgE6IVJ'
+  - _id: fijlHlPGItWysk9A
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'R: Storm of thorns'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. PD ([[d3]] enemies in a group)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[40]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: '[[20]] ongoing poison damage'
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] damage'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.fijlHlPGItWysk9A'
+  - _id: qs2aW7Y19PJt6iaN
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Forest-shape
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">The briar elf sorcerer can cause trees to
+          reshape themselves or to spontaneously grow from the ground. Once per
+          battle the briar elf sorcerer can use this ability as a free action:
+          to stop another character mid-movement, to pop a creature free, or to
+          block and cancel a ranged attack.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.qs2aW7Y19PJt6iaN'
+  - _id: PfrhuG3q1rSH4ikI
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: 'Choose one:'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.PfrhuG3q1rSH4ikI'
+  - _id: CqJjtdXZ4iQWv892
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Humanoid
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">Once per battle, for one turn; storm of
+          thorns becomes a quick action to use.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.CqJjtdXZ4iQWv892'
+  - _id: QoCSYZYeMzOeUYtR
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Plant
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">This monster&rsquo;s type is [plant].
+          Every time the briar elf sorcerer misses with its flesh to bark
+          attack, its crit range with that attack expands by 1.</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.QoCSYZYeMzOeUYtR'
+  - _id: iJc8ofaQYkdnxfbL
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Undead
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
+          This monster can phase through solid objects and creatures, but cannot
+          end its turn inside another object or creature. The monster
+          automatically disengages when it moves, and cannot be intercepted
+          (unless the creature intercepting it is also phasing)</span> </p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!Ev8kF94zDseE8Wva.iJc8ofaQYkdnxfbL'
 name: Briar Elf Sorcerer
 ownership:
   default: 0
@@ -435,7 +543,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -495,9 +603,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -508,15 +613,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 26
     attackMod:
       type: Number
       value: 0
@@ -527,72 +627,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 220
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 220
+      min: 0
+      max: 220
       temp: 0
       tempmax: 0
-      type: Number
-      value: 220
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 18
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 10
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 22
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 24
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: caster
@@ -606,67 +710,80 @@ system:
       value: normal
     type:
       value: humanoid
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!Ev8kF94zDseE8Wva'

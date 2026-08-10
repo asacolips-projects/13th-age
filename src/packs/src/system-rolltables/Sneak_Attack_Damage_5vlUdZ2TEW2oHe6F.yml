@@ -1,5 +1,4 @@
 _id: 5vlUdZ2TEW2oHe6F
-_key: '!tables!5vlUdZ2TEW2oHe6F'
 description: ''
 displayRoll: false
 flags: {}
@@ -11,124 +10,235 @@ ownership:
   default: 0
 replacement: true
 results:
-- _id: 9i7Fw131LG66pcw5
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.9i7Fw131LG66pcw5'
-  description: +[[1d4]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 1
-  - 1
-  type: text
-  weight: 1
-- _id: NOtpaCU1b0GbGW1T
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.NOtpaCU1b0GbGW1T'
-  description: +[[1d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 2
-  - 2
-  type: text
-  weight: 1
-- _id: qo16CSmUTBmgCezX
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.qo16CSmUTBmgCezX'
-  description: +[[1d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 3
-  - 3
-  type: text
-  weight: 1
-- _id: EVE6YA96WghhR6Qa
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.EVE6YA96WghhR6Qa'
-  description: +[[2d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 4
-  - 4
-  type: text
-  weight: 1
-- _id: 9Q69k3xWJhv9sc47
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.9Q69k3xWJhv9sc47'
-  description: +[[2d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 5
-  - 5
-  type: text
-  weight: 1
-- _id: YkVE7LF8EFZOL0nd
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.YkVE7LF8EFZOL0nd'
-  description: +[[3d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 6
-  - 6
-  type: text
-  weight: 1
-- _id: JQwplMCdh5pv3WdL
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.JQwplMCdh5pv3WdL'
-  description: +[[3d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 7
-  - 7
-  type: text
-  weight: 1
-- _id: dFfXaM6DiV5UXJ1D
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.dFfXaM6DiV5UXJ1D'
-  description: +[[5d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 8
-  - 8
-  type: text
-  weight: 1
-- _id: 9Cc3qzN9yU06kh19
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.9Cc3qzN9yU06kh19'
-  description: +[[5d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 9
-  - 9
-  type: text
-  weight: 1
-- _id: DYHcnD9z5JoxKJcC
-  _key: '!tables.results!5vlUdZ2TEW2oHe6F.DYHcnD9z5JoxKJcC'
-  description: +[[7d6]] damage.
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-black.svg
-  name: ''
-  range:
-  - 10
-  - 10
-  type: text
-  weight: 1
+  - _id: 9i7Fw131LG66pcw5
+    description: +[[1d4]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 1
+      - 1
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.9i7Fw131LG66pcw5'
+  - _id: NOtpaCU1b0GbGW1T
+    description: +[[1d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 2
+      - 2
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.NOtpaCU1b0GbGW1T'
+  - _id: qo16CSmUTBmgCezX
+    description: +[[1d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 3
+      - 3
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.qo16CSmUTBmgCezX'
+  - _id: EVE6YA96WghhR6Qa
+    description: +[[2d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 4
+      - 4
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.EVE6YA96WghhR6Qa'
+  - _id: 9Q69k3xWJhv9sc47
+    description: +[[2d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 5
+      - 5
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.9Q69k3xWJhv9sc47'
+  - _id: YkVE7LF8EFZOL0nd
+    description: +[[3d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 6
+      - 6
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.YkVE7LF8EFZOL0nd'
+  - _id: JQwplMCdh5pv3WdL
+    description: +[[3d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 7
+      - 7
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.JQwplMCdh5pv3WdL'
+  - _id: dFfXaM6DiV5UXJ1D
+    description: +[[5d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 8
+      - 8
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.dFfXaM6DiV5UXJ1D'
+  - _id: 9Cc3qzN9yU06kh19
+    description: +[[5d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 9
+      - 9
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.9Cc3qzN9yU06kh19'
+  - _id: DYHcnD9z5JoxKJcC
+    description: +[[7d6]] damage.
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-black.svg
+    name: ''
+    range:
+      - 10
+      - 10
+    type: text
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!5vlUdZ2TEW2oHe6F.DYHcnD9z5JoxKJcC'
 sort: 500000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!5vlUdZ2TEW2oHe6F'

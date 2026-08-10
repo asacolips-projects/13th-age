@@ -1,5 +1,4 @@
 _id: ECHt0HNq1krplJBu
-_key: '!actors!ECHt0HNq1krplJBu'
 effects: []
 flags:
   archmage:
@@ -8,451 +7,553 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
 items:
-- _id: 43SXZlXcMbBz3Nga
-  _key: '!actors.items!ECHt0HNq1krplJBu.43SXZlXcMbBz3Nga'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Fly-by flaming talons
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[25]] damage, and [[10]] ongoing fire damage'
-    hit1:
-      label: Hit
-      name: Natural even hit or miss
-      type: String
-      value: The phoenix may move again this turn as a free action if it has already
-        made a flying move on its turn.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: The resurgent phoenix can use a *victory screech* attack as a quick action,
-        either this turn, or on its next turn.
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 6KA1Z1kU9XN1NMrG
-  _key: '!actors.items!ECHt0HNq1krplJBu.6KA1Z1kU9XN1NMrG'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: '[Usually special trigger, but also possible as a standard action] C: Victory
-    screech'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. MD ([[1d3]] nearby or faraway enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: "[[10]] psychic damage, and the resurgent phoenix and its allies can\
-        \ add +1 to their attacks until the start of the resurgent phoenix\u2019s\
-        \ next turn; the bonus is cumulative if more than one victory screech attack\
-        \ hits."
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: HIdvtC8YEyFhE9Xb
-  _key: '!actors.items!ECHt0HNq1krplJBu.HIdvtC8YEyFhE9Xb'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Ignition
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 10]] vs. PD (the creature that triggered the attack)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[8]] fire damage and [[8]] ongoing fire damage'
-    hit1:
-      label: Hit
-      name: Limited use
-      type: String
-      value: 1/battle, as an interrupt action when an enemy makes a melee attack against
-        the phoenix.
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 2kVQTuBDv8LQSfQG
-  _key: '!actors.items!ECHt0HNq1krplJBu.2kVQTuBDv8LQSfQG'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Flight
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The resurgent phoenix can fly as well or better than&nbsp;anything
-        you&rsquo;ve seen airborne.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: GwtxFdk40puvzwqH
-  _key: '!actors.items!ECHt0HNq1krplJBu.GwtxFdk40puvzwqH'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Flaming wings
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The resurgent phoenix deals [[7]] fire damage to each enemy that ends
-        it turn engaged with the phoenix.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: 5XvFLjVHpmmtuPTw
-  _key: '!actors.items!ECHt0HNq1krplJBu.5XvFLjVHpmmtuPTw'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Resist fire 16+
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When a fire attack targets this creature, the attacker must roll a
-        natural 16+ on the attack roll or it only deals half damage.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: gzLKQkluZYJbGGVn
-  _key: '!actors.items!ECHt0HNq1krplJBu.gzLKQkluZYJbGGVn'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Spectacular effects
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the phoenix is dealt a critical hit, it must roll an easy save
-        (6+). If the save fails, the phoenix drops to 0 hit points; see the reborn
-        in fire ability below!</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: 99SpZWDSWQI9Cc6v
-  _key: '!actors.items!ECHt0HNq1krplJBu.99SpZWDSWQI9Cc6v'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Reborn in fire
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>Whenever the resurgent phoenix drops to 0 hit points, roll a [[/r
-        d20]] and add the escalation die. For each time this phoenix has rolled its
-        reborn in fire ability earlier this battle, subtract 10 from the roll. For
-        example, a phoenix making its second reborn in fire roll (because its first
-        roll ended up being 20+!) when the escalation die is 6 would roll the d20
-        and subtract 4.</p>
+  - _id: 43SXZlXcMbBz3Nga
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Fly-by flaming talons
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[25]] damage, and [[10]] ongoing fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The phoenix may move again this turn as a free action if it has
+          already made a flying move on its turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: >-
+          The resurgent phoenix can use a *victory screech* attack as a quick
+          action, either this turn, or on its next turn.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.43SXZlXcMbBz3Nga'
+  - _id: 6KA1Z1kU9XN1NMrG
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: >-
+      [Usually special trigger, but also possible as a standard action] C:
+      Victory screech
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. MD ([[1d3]] nearby or faraway enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10]] psychic damage, and the resurgent phoenix and its allies can
+          add +1 to their attacks until the start of the resurgent phoenix’s
+          next turn; the bonus is cumulative if more than one victory screech
+          attack hits.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.6KA1Z1kU9XN1NMrG'
+  - _id: HIdvtC8YEyFhE9Xb
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Ignition
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. PD (the creature that triggered the attack)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[8]] fire damage and [[8]] ongoing fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          1/battle, as an interrupt action when an enemy makes a melee attack
+          against the phoenix.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.HIdvtC8YEyFhE9Xb'
+  - _id: 2kVQTuBDv8LQSfQG
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Flight
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The resurgent phoenix can fly as well or better than&nbsp;anything
+          you&rsquo;ve seen airborne.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.2kVQTuBDv8LQSfQG'
+  - _id: GwtxFdk40puvzwqH
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Flaming wings
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The resurgent phoenix deals [[7]] fire damage to each enemy that
+          ends it turn engaged with the phoenix.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.GwtxFdk40puvzwqH'
+  - _id: 5XvFLjVHpmmtuPTw
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Resist fire 16+
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a fire attack targets this creature, the attacker must roll a
+          natural 16+ on the attack roll or it only deals half damage.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.5XvFLjVHpmmtuPTw'
+  - _id: gzLKQkluZYJbGGVn
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Spectacular effects
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the phoenix is dealt a critical hit, it must roll an easy save
+          (6+). If the save fails, the phoenix drops to 0 hit points; see the
+          reborn in fire ability below!</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.gzLKQkluZYJbGGVn'
+  - _id: 99SpZWDSWQI9Cc6v
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Reborn in fire
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Whenever the resurgent phoenix drops to 0 hit points, roll a [[/r
+          d20]] and add the escalation die. For each time this phoenix has
+          rolled its reborn in fire ability earlier this battle, subtract 10
+          from the roll. For example, a phoenix making its second reborn in fire
+          roll (because its first roll ended up being 20+!) when the escalation
+          die is 6 would roll the d20 and subtract 4.</p>
 
-        <p><strong>20+</strong>: The flamebird phoenix is immediately reborn, healing
-        to [[70]] hit points, and keeps fighting!</p>
+          <p><strong>20+</strong>: The flamebird phoenix is immediately reborn,
+          healing to [[70]] hit points, and keeps fighting!</p>
 
-        <p><strong>15&ndash;19</strong>: The phoenix is reborn in fire, but vaults
-        into the overworld, removed from the battle. On the other hand, it&rsquo;s
-        not done with the PCs! Add the phoenix to an upcoming battle by surprise,
-        adding it as an additional monster not accounted for by the usual encounter-building
-        calculations.</p>
+          <p><strong>15&ndash;19</strong>: The phoenix is reborn in fire, but
+          vaults into the overworld, removed from the battle. On the other hand,
+          it&rsquo;s not done with the PCs! Add the phoenix to an upcoming
+          battle by surprise, adding it as an additional monster not accounted
+          for by the usual encounter-building calculations.</p>
 
-        <p><strong>8&ndash;14</strong>: The flamebird phoenix is reborn in fire but
-        wants nothing more to do with this battle. It makes a <em>conflagration of
-        rebirth</em>&nbsp;attack, but when the attack is over it shoots off into the
-        overworld so quickly that it&rsquo;s a teleport effect, and does not return
-        to the battle, nor to the adventure.</p>
+          <p><strong>8&ndash;14</strong>: The flamebird phoenix is reborn in
+          fire but wants nothing more to do with this battle. It makes a
+          <em>conflagration of rebirth</em>&nbsp;attack, but when the attack is
+          over it shoots off into the overworld so quickly that it&rsquo;s a
+          teleport effect, and does not return to the battle, nor to the
+          adventure.</p>
 
-        <p><strong>7 or less</strong>: The phoenix flares back to life somewhere nearby
-        in a few hours, days, months, or years. Probably not relevant to the PCs unless
-        they or the phoenix bear a special grudge.</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: 7zjmAdegrLmgTUqF
-  _key: '!actors.items!ECHt0HNq1krplJBu.7zjmAdegrLmgTUqF'
-  effects: []
-  flags:
-    core: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Conflagration of rebirth
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 11]] vs. PD (every nearby enemy)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[15]] fire damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
+          <p><strong>7 or less</strong>: The phoenix flares back to life
+          somewhere nearby in a few hours, days, months, or years. Probably not
+          relevant to the PCs unless they or the phoenix bear a special
+          grudge.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.99SpZWDSWQI9Cc6v'
+  - _id: 7zjmAdegrLmgTUqF
+    effects: []
+    flags:
+      core: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Conflagration of rebirth
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. PD (every nearby enemy)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!ECHt0HNq1krplJBu.7zjmAdegrLmgTUqF'
 name: Resurgent Phoenix
 ownership:
   default: 0
@@ -464,7 +565,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -524,9 +625,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/elemental.webp
@@ -537,15 +635,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 2
+  depth: 2
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 20
     attackMod:
       type: Number
       value: 0
@@ -556,72 +649,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 124
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 124
+      min: 0
+      max: 124
       temp: 0
       tempmax: 0
-      type: Number
-      value: 124
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 13
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 5
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 17
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 17
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: leader
@@ -635,67 +732,80 @@ system:
       value: double
     type:
       value: elemental
+    resistance:
+      value: ''
     vulnerability:
       value: cold
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!ECHt0HNq1krplJBu'

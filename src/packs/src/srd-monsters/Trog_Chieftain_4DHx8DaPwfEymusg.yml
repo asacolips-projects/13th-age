@@ -1,5 +1,4 @@
 _id: 4DHx8DaPwfEymusg
-_key: '!actors!4DHx8DaPwfEymusg'
 effects: []
 flags:
   archmage:
@@ -8,323 +7,393 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-- _id: EGLishlC1q0oMjJE
-  _key: '!actors.items!4DHx8DaPwfEymusg.EGLishlC1q0oMjJE'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Ancestral trident
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 12]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: "[[28]] damage, and the target takes a \u20135 penalty to disengage checks\
-        \ until the end of its next turn"
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: "Damage equal to five times the penalty the trog\u2019s stench currently\
-        \ imposes on the target."
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: lcxxVpc9KpSP41Wl
-  _key: '!actors.items!4DHx8DaPwfEymusg.lcxxVpc9KpSP41Wl'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: 'C: Bellow of dominance'
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 11]] vs. MD (one nearby enemy not effected by trog stench)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[25]] psychic damage, and the trog chieftain gains a *fear aura* against
-        the target (save ends)'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: stBYKROky6DY1Vmt
-  _key: '!actors.items!4DHx8DaPwfEymusg.stBYKROky6DY1Vmt'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: War cackle
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When the chieftain drops an enemy to 0 hp or below, each nearby troglodyte
-        can roll a saving throw against one effect on it. If that enemy is a dwarf
-        or elf, the save gains a +5 bonus.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: gNKhl8oZ3vgudnzo
-  _key: '!actors.items!4DHx8DaPwfEymusg.gNKhl8oZ3vgudnzo'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Chameleon
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>Underground, or in swamps and rivers, attacks against troglodytes
-        by enemies who aren&rsquo;t engaged with them take a &ndash;4 penalty.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: aqmrQxll8BAMQv99
-  _key: '!actors.items!4DHx8DaPwfEymusg.aqmrQxll8BAMQv99'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Trog stench
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>Trogs spray scents that stink so badly that other humanoids take
-        penalties to all attacks, defenses, and saves when engaged with a troglodyte
-        or when nearby three or more troglodytes. Non-humanoids aren&rsquo;t affected.</p>
+  - _id: EGLishlC1q0oMjJE
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Ancestral trident
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[28]] damage, and the target takes a –5 penalty to disengage checks
+          until the end of its next turn
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: >-
+          Damage equal to five times the penalty the trog’s stench currently
+          imposes on the target.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!4DHx8DaPwfEymusg.EGLishlC1q0oMjJE'
+  - _id: lcxxVpc9KpSP41Wl
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: 'C: Bellow of dominance'
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. MD (one nearby enemy not effected by trog stench)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[25]] psychic damage, and the trog chieftain gains a *fear aura*
+          against the target (save ends)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!4DHx8DaPwfEymusg.lcxxVpc9KpSP41Wl'
+  - _id: stBYKROky6DY1Vmt
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: War cackle
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the chieftain drops an enemy to 0 hp or below, each nearby
+          troglodyte can roll a saving throw against one effect on it. If that
+          enemy is a dwarf or elf, the save gains a +5 bonus.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!4DHx8DaPwfEymusg.stBYKROky6DY1Vmt'
+  - _id: gNKhl8oZ3vgudnzo
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Chameleon
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Underground, or in swamps and rivers, attacks against troglodytes
+          by enemies who aren&rsquo;t engaged with them take a &ndash;4
+          penalty.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!4DHx8DaPwfEymusg.gNKhl8oZ3vgudnzo'
+  - _id: aqmrQxll8BAMQv99
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Trog stench
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Trogs spray scents that stink so badly that other humanoids take
+          penalties to all attacks, defenses, and saves when engaged with a
+          troglodyte or when nearby three or more troglodytes. Non-humanoids
+          aren&rsquo;t affected.</p>
 
-        <p>Humanoids affected by trog stench can make a normal save (with a penalty)
-        at the end of each of their turns. If the save succeeds, the humanoid can
-        ignore all trog stench for the rest of the battle. Trog stench penalties vary
-        for different humanoid races:</p>
+          <p>Humanoids affected by trog stench can make a normal save (with a
+          penalty) at the end of each of their turns. If the save succeeds, the
+          humanoid can ignore all trog stench for the rest of the battle. Trog
+          stench penalties vary for different humanoid races:</p>
 
-        <table style="width: 100%; height: 95px;" border="1">
+          <table style="width: 100%; height: 95px;" border="1">
 
-        <tbody>
+          <tbody>
 
-        <tr style="height: 17px;">
+          <tr style="height: 17px;">
 
-        <td style="width: 78.6685%; height: 17px;">Race</td>
+          <td style="width: 78.6685%; height: 17px;">Race</td>
 
-        <td style="width: 21.3315%; height: 17px;">Save Penalty</td>
+          <td style="width: 21.3315%; height: 17px;">Save Penalty</td>
 
-        </tr>
+          </tr>
 
-        <tr style="height: 17px;">
+          <tr style="height: 17px;">
 
-        <td style="width: 78.6685%; height: 17px;">Elves, gnolls, gnomes</td>
+          <td style="width: 78.6685%; height: 17px;">Elves, gnolls, gnomes</td>
 
-        <td style="width: 21.3315%; height: 17px;">-4</td>
+          <td style="width: 21.3315%; height: 17px;">-4</td>
 
-        </tr>
+          </tr>
 
-        <tr style="height: 10px;">
+          <tr style="height: 10px;">
 
-        <td style="width: 78.6685%; height: 10px;">Humans, halflings, half-elves,
-        Aasimar, tieflings, etc.</td>
+          <td style="width: 78.6685%; height: 10px;">Humans, halflings,
+          half-elves, Aasimar, tieflings, etc.</td>
 
-        <td style="width: 21.3315%; height: 10px;">-3</td>
+          <td style="width: 21.3315%; height: 10px;">-3</td>
 
-        </tr>
+          </tr>
 
-        <tr style="height: 17px;">
+          <tr style="height: 17px;">
 
-        <td style="width: 78.6685%; height: 17px;">Half-orcs, draconics</td>
+          <td style="width: 78.6685%; height: 17px;">Half-orcs, draconics</td>
 
-        <td style="width: 21.3315%; height: 17px;">-2</td>
+          <td style="width: 21.3315%; height: 17px;">-2</td>
 
-        </tr>
+          </tr>
 
-        <tr style="height: 17px;">
+          <tr style="height: 17px;">
 
-        <td style="width: 78.6685%; height: 17px;">Dwarves</td>
+          <td style="width: 78.6685%; height: 17px;">Dwarves</td>
 
-        <td style="width: 21.3315%; height: 17px;">-1</td>
+          <td style="width: 21.3315%; height: 17px;">-1</td>
 
-        </tr>
+          </tr>
 
-        <tr style="height: 17px;">
+          <tr style="height: 17px;">
 
-        <td style="width: 78.6685%; height: 17px;">Steelforged</td>
+          <td style="width: 78.6685%; height: 17px;">Steelforged</td>
 
-        <td style="width: 21.3315%; height: 17px;">-0</td>
+          <td style="width: 21.3315%; height: 17px;">-0</td>
 
-        </tr>
+          </tr>
 
-        </tbody>
+          </tbody>
 
-        </table>
+          </table>
 
-        <p>&nbsp;</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: FM21rDuAvnwUqIcV
-  _key: '!actors.items!4DHx8DaPwfEymusg.FM21rDuAvnwUqIcV'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Scuzzy-toothed yawp
-  ownership:
-    default: 0
-  sort: 0
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>While an enemy is affected by the fear aura of the trog chieftain&rsquo;s
-        bellow of dominance, that enemy can&rsquo;t attack a troglodyte.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+          <p>&nbsp;</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!4DHx8DaPwfEymusg.aqmrQxll8BAMQv99'
+  - _id: FM21rDuAvnwUqIcV
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Scuzzy-toothed yawp
+    ownership:
+      default: 0
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While an enemy is affected by the fear aura of the trog
+          chieftain&rsquo;s bellow of dominance, that enemy can&rsquo;t attack a
+          troglodyte.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!4DHx8DaPwfEymusg.FM21rDuAvnwUqIcV'
 name: Trog Chieftain
 ownership:
   default: 0
@@ -336,7 +405,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -396,9 +465,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
@@ -409,15 +475,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 0
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 23
     attackMod:
       type: Number
       value: 0
@@ -428,72 +489,76 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 125
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 125
+      min: 0
+      max: 125
       temp: 0
       tempmax: 0
-      type: Number
-      value: 125
+      base: 7
+      extra: 0
+      automatic: true
     init:
-      label: Initiative Modifier
       type: Number
+      label: Initiative Modifier
       value: 8
     level:
+      type: Number
       label: Level
-      max: 10
-      min: 0
-      type: Number
       value: 7
-    md:
-      base: 10
-      label: Mental Defense
       min: 0
-      type: Number
-      value: 18
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 20
+      max: 10
+    disengage: 11
+    disengageBonus: 0
     saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
-      value: ''
-    resistance:
       value: ''
     role:
       value: leader
@@ -507,67 +572,80 @@ system:
       value: normal
     type:
       value: humanoid
+    resistance:
+      value: ''
     vulnerability:
       value: ''
-  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B2
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!4DHx8DaPwfEymusg'

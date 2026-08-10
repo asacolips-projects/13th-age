@@ -1,321 +1,410 @@
 _id: 2Epu1Q2NsGWX2CYL
-_key: '!actors!2Epu1Q2NsGWX2CYL'
 effects: []
 flags: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
-- _id: pm8sjtnccrqW9w5p
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.pm8sjtnccrqW9w5p'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Bite and trample
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 17]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[80]] damage, [[40]] fire damage, and the remorhaz grabs the target'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: The target and each other crature engaged with de remorhaz takes [[20]]
-        firedamage.
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: LPc1g2Hpcl7GZ4YF
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.LPc1g2Hpcl7GZ4YF'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Nova Blast
-  ownership:
-    default: 0
-  sort: 200000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 16]] vs. PD ([[1d3]] nearby enemies)'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: R
-    hit:
-      label: Hit
-      type: String
-      value: '[[100]] fire damage'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: '[[25]] fire damage'
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
-- _id: 9bklTck8R4MxbQFE
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.9bklTck8R4MxbQFE'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Burrow
-  ownership:
-    default: 0
-  sort: 300000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>As the standard monster ability, except the remorhaz only needs to
-        roll 6+ in snow and ice.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: W5pZhLIiqxyDci12
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.W5pZhLIiqxyDci12'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Furnace aura
-  ownership:
-    default: 0
-  sort: 400000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>When a creature is engaged with the remorhaz (or grabbed by it) at
-        the start of its turn, it takes fire damage equal to 10 x the escalation die.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: fNXY8pfgYF0KDjHi
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.fNXY8pfgYF0KDjHi'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/regen.svg
-  name: Sluggish initiative
-  ownership:
-    default: 0
-  sort: 500000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The queen may be sluggish after eating unsuccessful suitors, laying
-        eggs, or moving across the ice like a rushing avalanche. Roll [[2d10]] to
-        determine her current initiative.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: trait
-- _id: rHf6hgYllYXFScLs
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.rHf6hgYllYXFScLs'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Bejeweled remorhaz
-  ownership:
-    default: 0
-  sort: 600000
-  system:
-    description:
-      label: Description
-      type: String
-      value: '<p>The remorhaz has glowing &ldquo;jewels&rdquo; on its armored plates.
-        When a nearby or far away enemy misses with an attack against the remorhaz,
-        that enemy chooses one: It takes [[25]] fire damage; OR one piece of its non-magical
-        equipment (something useful, GM&rsquo;s choice) melts or burns up. Adjust
-        skill checks or stats accordingly</p>'
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: T4i83m2F3ib88zTS
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.T4i83m2F3ib88zTS'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Remorhaz steamer
-  ownership:
-    default: 0
-  sort: 700000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The remorhaz is melting the ice/snow all the time and obscuring steam
-        rises into the air. Ranged attacks against the remorhaz take a &ndash;2 penalty,
-        or a &ndash;4 penalty if the attacker is far away.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
-- _id: uZsN8GVlOfuWANg8
-  _key: '!actors.items!2Epu1Q2NsGWX2CYL.uZsN8GVlOfuWANg8'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/poison.svg
-  name: Spiney remorhaz
-  ownership:
-    default: 0
-  sort: 800000
-  system:
-    description:
-      label: Description
-      type: String
-      value: <p>The remorhaz is covered in red-hot spines. When a nearby enemy rolls
-        a natural 1&ndash;5 with an attack roll, it takes [[30]] fire damage unless
-        it has somehow protected itself from the heat.</p>
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-  type: nastierSpecial
+  - _id: pm8sjtnccrqW9w5p
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Bite and trample
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[80]] damage, [[40]] fire damage, and the remorhaz grabs the target'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: >-
+          The target and each other crature engaged with de remorhaz takes
+          [[20]] firedamage.
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.pm8sjtnccrqW9w5p'
+  - _id: LPc1g2Hpcl7GZ4YF
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Nova Blast
+    ownership:
+      default: 0
+    sort: 200000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: R
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. PD ([[1d3]] nearby enemies)'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[100]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[25]] fire damage'
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.LPc1g2Hpcl7GZ4YF'
+  - _id: 9bklTck8R4MxbQFE
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Burrow
+    ownership:
+      default: 0
+    sort: 300000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As the standard monster ability, except the remorhaz only needs to
+          roll 6+ in snow and ice.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.9bklTck8R4MxbQFE'
+  - _id: W5pZhLIiqxyDci12
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Furnace aura
+    ownership:
+      default: 0
+    sort: 400000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a creature is engaged with the remorhaz (or grabbed by it) at
+          the start of its turn, it takes fire damage equal to 10 x the
+          escalation die.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.W5pZhLIiqxyDci12'
+  - _id: fNXY8pfgYF0KDjHi
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/regen.svg
+    name: Sluggish initiative
+    ownership:
+      default: 0
+    sort: 500000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The queen may be sluggish after eating unsuccessful suitors, laying
+          eggs, or moving across the ice like a rushing avalanche. Roll [[2d10]]
+          to determine her current initiative.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: trait
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.fNXY8pfgYF0KDjHi'
+  - _id: rHf6hgYllYXFScLs
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Bejeweled remorhaz
+    ownership:
+      default: 0
+    sort: 600000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The remorhaz has glowing &ldquo;jewels&rdquo; on its armored
+          plates. When a nearby or far away enemy misses with an attack against
+          the remorhaz, that enemy chooses one: It takes [[25]] fire damage; OR
+          one piece of its non-magical equipment (something useful, GM&rsquo;s
+          choice) melts or burns up. Adjust skill checks or stats
+          accordingly</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.rHf6hgYllYXFScLs'
+  - _id: T4i83m2F3ib88zTS
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Remorhaz steamer
+    ownership:
+      default: 0
+    sort: 700000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The remorhaz is melting the ice/snow all the time and obscuring
+          steam rises into the air. Ranged attacks against the remorhaz take a
+          &ndash;2 penalty, or a &ndash;4 penalty if the attacker is far
+          away.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.T4i83m2F3ib88zTS'
+  - _id: uZsN8GVlOfuWANg8
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/poison.svg
+    name: Spiney remorhaz
+    ownership:
+      default: 0
+    sort: 800000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The remorhaz is covered in red-hot spines. When a nearby enemy
+          rolls a natural 1&ndash;5 with an attack roll, it takes [[30]] fire
+          damage unless it has somehow protected itself from the heat.</p>
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    type: nastierSpecial
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!2Epu1Q2NsGWX2CYL.uZsN8GVlOfuWANg8'
 name: Remorhaz Queen
 ownership:
   default: 0
@@ -327,7 +416,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -387,9 +476,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
@@ -400,15 +486,10 @@ prototypeToken:
     mode: 1
     src: null
   width: 2
+  depth: 2
 sort: 100001
 system:
   attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 27
     attackMod:
       type: Number
       value: 0
@@ -419,167 +500,184 @@ system:
       def:
         type: Number
         value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 580
+    ac:
+      type: Number
+      label: Armor Class
+      value: 27
+      base: 10
       min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 26
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 580
+      min: 0
+      max: 580
       temp: 0
       tempmax: 0
-      type: Number
-      value: 580
-    init:
-      label: Initiative Modifier
-      mod: 11
-      type: Number
-      value: 11
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 11
-    md:
-      base: 10
-      label: Mental Defense
-      min: 0
-      type: Number
-      value: 22
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 26
-    saves:
+      base: 7
+      extra: 0
       automatic: true
-      base: 8
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 11
+      mod: 11
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
       bonus: 0
+      disengageBonus: 0
       deathFails:
+        value: 0
         max: 4
         maxOverride: 0
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
       desperateTriggered: false
-      disengageBonus: 0
       lastGaspFails:
+        value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
+          - false
+          - false
+          - false
+          - false
+      automatic: true
+      base: 8
+    escalation:
+      value: 0
   details:
     alignment:
+      type: String
       label: Alignment
-      type: String
     biography:
-      label: Biography
       type: String
+      label: Biography
     flavor:
       value: ''
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 11
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
     role:
+      value: wrecker
       label: Role
       type: String
-      value: wrecker
     roleB:
       value: ''
     size:
+      value: large
       label: Size
       type: String
-      value: large
     sizeB:
       value: ''
     strength:
       value: double
     type:
+      value: beast
       label: Type
       type: String
-      value: beast
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
     vulnerability:
+      value: ''
       label: Vulnerability
       type: String
-      value: ''
-  publicationSource: B1
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 11
   resources:
     perCombat: {}
     spendable:
       custom1:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom2:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom3:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom4:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom5:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom6:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom7:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom8:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       custom9:
-        current: 0
-        enabled: false
         label: ''
+        current: 0
         max: 0
+        enabled: false
         rest: none
       stoke:
-        current: 0
         enabled: false
+        current: 0
+  publicationSource: B1
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!2Epu1Q2NsGWX2CYL'

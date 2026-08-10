@@ -1,5 +1,4 @@
 _id: PQbtKGZVFy83A85d
-_key: '!tables!PQbtKGZVFy83A85d'
 description: ''
 displayRoll: false
 flags: {}
@@ -11,43 +10,84 @@ ownership:
   default: 0
 replacement: true
 results:
-- _id: oxsAg9eafCaXA6yU
-  _key: '!tables.results!PQbtKGZVFy83A85d.oxsAg9eafCaXA6yU'
-  description: ''
-  documentUuid: Compendium.archmage.system-rolltables.RollTable.jcbFdEkR9g1isX0S
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-grey.svg
-  name: Chaotic Benefit (A)
-  range:
-  - 1
-  - 1
-  type: document
-  weight: 1
-- _id: MxloVN4q71UE1ZeS
-  _key: '!tables.results!PQbtKGZVFy83A85d.MxloVN4q71UE1ZeS'
-  description: ''
-  documentUuid: Compendium.archmage.system-rolltables.RollTable.DsZC28QGCvhy8LyE
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-grey.svg
-  name: Chaotic Benefit (C)
-  range:
-  - 2
-  - 2
-  type: document
-  weight: 1
-- _id: pkIOIFFKtZB9DwYQ
-  _key: '!tables.results!PQbtKGZVFy83A85d.pkIOIFFKtZB9DwYQ'
-  description: ''
-  documentUuid: Compendium.archmage.system-rolltables.RollTable.hojV2urxFb1cjgWJ
-  drawn: false
-  flags: {}
-  img: icons/svg/d20-grey.svg
-  name: Chaotic Benefit (E)
-  range:
-  - 3
-  - 3
-  type: document
-  weight: 1
+  - _id: oxsAg9eafCaXA6yU
+    description: ''
+    documentUuid: Compendium.archmage.system-rolltables.RollTable.jcbFdEkR9g1isX0S
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-grey.svg
+    name: Chaotic Benefit (A)
+    range:
+      - 1
+      - 1
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!PQbtKGZVFy83A85d.oxsAg9eafCaXA6yU'
+  - _id: MxloVN4q71UE1ZeS
+    description: ''
+    documentUuid: Compendium.archmage.system-rolltables.RollTable.DsZC28QGCvhy8LyE
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-grey.svg
+    name: Chaotic Benefit (C)
+    range:
+      - 2
+      - 2
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!PQbtKGZVFy83A85d.MxloVN4q71UE1ZeS'
+  - _id: pkIOIFFKtZB9DwYQ
+    description: ''
+    documentUuid: Compendium.archmage.system-rolltables.RollTable.hojV2urxFb1cjgWJ
+    drawn: false
+    flags: {}
+    img: icons/svg/d20-grey.svg
+    name: Chaotic Benefit (E)
+    range:
+      - 3
+      - 3
+    type: document
+    weight: 1
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!tables.results!PQbtKGZVFy83A85d.pkIOIFFKtZB9DwYQ'
 sort: 1700000
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!tables!PQbtKGZVFy83A85d'

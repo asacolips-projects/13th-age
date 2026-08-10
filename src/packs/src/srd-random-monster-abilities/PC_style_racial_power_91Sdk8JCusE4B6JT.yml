@@ -1,5 +1,4 @@
 _id: 91Sdk8JCusE4B6JT
-_key: '!items!91Sdk8JCusE4B6JT'
 effects: []
 flags: {}
 folder: null
@@ -9,23 +8,36 @@ ownership:
   default: 0
 sort: 0
 system:
+  name:
+    type: String
+    label: Name
   description:
+    type: String
     label: Description
-    type: String
-    value: '<p>The dragon has one of the racial powers of a player character race.
-      If the dragon&rsquo;s story suggests a specific power, choose that. If you&rsquo;d
-      like the most common expression per color, here&rsquo;s our take: white (halfling);
-      black (halfling, half-orc, human, wood elf ); green (dwarf, dark elf ); blue
-      (high elf, half-orc); red (half-orc, human, wood elf ).</p>'
+    value: >-
+      <p>The dragon has one of the racial powers of a player character race. If
+      the dragon&rsquo;s story suggests a specific power, choose that. If
+      you&rsquo;d like the most common expression per color, here&rsquo;s our
+      take: white (halfling); black (halfling, half-orc, human, wood elf );
+      green (dwarf, dark elf ); blue (high elf, half-orc); red (half-orc, human,
+      wood elf ).</p>
   embeddedMacro:
-    label: Embedded Macro
     type: String
+    label: Embedded Macro
     value: ''
   group:
+    type: String
     label: Group
-    type: String
     value: ''
-  name:
-    label: Name
-    type: String
 type: trait
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!items!91Sdk8JCusE4B6JT'

@@ -1,78 +1,87 @@
 _id: IDZncUll2Y8Q1uP3
-_key: '!actors!IDZncUll2Y8Q1uP3'
 effects: []
 flags: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 items:
-- _id: BbEkmhYVNGpQ0rnr
-  _key: '!actors.items!IDZncUll2Y8Q1uP3.BbEkmhYVNGpQ0rnr'
-  effects: []
-  flags: {}
-  folder: null
-  img: icons/svg/target.svg
-  name: Pathetic Flailing
-  ownership:
-    default: 0
-  sort: 100000
-  system:
-    attack:
-      label: Attack Roll
-      type: String
-      value: '[[d20 + 15]] vs. AC'
-    critMod:
-      type: String
-      value: ''
-    description:
-      label: Description
-      type: String
-      value: ''
-    embeddedMacro:
-      label: Embedded Macro
-      type: String
-      value: ''
-    group:
-      label: Group
-      type: String
-      value: ''
-    hit:
-      label: Hit
-      type: String
-      value: '[[4d6]] damage.'
-    hit1:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit2:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit3:
-      label: Hit
-      name: ''
-      type: String
-      value: ''
-    hit4:
-      label: Hit
-      type: String
-    hit5:
-      label: Hit
-      type: String
-    miss:
-      label: Miss
-      type: String
-      value: ''
-    name:
-      label: Name
-      type: String
-    sequencer:
-      ray: ''
-      reversed: false
-      self: ''
-      target: ''
-  type: action
+  - _id: BbEkmhYVNGpQ0rnr
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/svg/target.svg
+    name: Pathetic Flailing
+    ownership:
+      default: 0
+    sort: 100000
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC'
+      critMod:
+        type: String
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[4d6]] damage.'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    type: action
+    _stats:
+      coreVersion: '14.364'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!IDZncUll2Y8Q1uP3.BbEkmhYVNGpQ0rnr'
 name: Skeletal Minion (Lvl 8)
 ownership:
   default: 0
@@ -84,7 +93,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
-  detectionModes: []
+  detectionModes: {}
   displayBars: 0
   displayName: 0
   disposition: -1
@@ -144,9 +153,6 @@ prototypeToken:
     anchorX: 0.5
     anchorY: 0.5
     fit: contain
-    offsetX: 0
-    offsetY: 0
-    rotation: 0
     scaleX: 1
     scaleY: 1
     src: systems/archmage/assets/icons/tokens/monsters/undead.webp
@@ -157,8 +163,203 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
+  depth: 1
 sort: 100001
 system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 72
+      min: 0
+      max: 72
+      temp: 0
+      tempmax: 0
+      base: 7
+      extra: 0
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+      mod: 8
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        maxOverride: 0
+        steps:
+          - false
+          - false
+          - false
+          - false
+      desperateTriggered: false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    escalation:
+      value: 0
+    recoveries:
+      dice: d8
+      label: Recoveries
+      max: 8
+      type: Number
+      value: 8
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: ''
+      label: Role
+      type: String
+    roleB:
+      value: ''
+    size:
+      value: Normal
+      label: Size
+      type: String
+    sizeB:
+      value: ''
+    strength:
+      value: ''
+    type:
+      value: undead
+      label: Type
+      type: String
+    resistance:
+      value: ''
+      label: Resistance
+      type: String
+    vulnerability:
+      value: ''
+      label: Vulnerability
+      type: String
+    class:
+      label: Class
+      type: String
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 8
+    out:
+      label: One Unique Thing
+      type: String
+      value: ''
+    race:
+      label: Race
+      type: String
+  resources:
+    perCombat: {}
+    spendable:
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      stoke:
+        enabled: false
+        current: 0
+  publicationSource: ''
   abilities:
     cha:
       label: Charisma
@@ -202,88 +403,6 @@ system:
       mod: 0
       type: Number
       value: 10
-  attributes:
-    ac:
-      base: 10
-      label: Armor Class
-      min: 0
-      type: Number
-      value: 26
-    attackMod:
-      type: Number
-      value: 0
-    critMod:
-      atk:
-        type: Number
-        value: 0
-      def:
-        type: Number
-        value: 0
-    disengage: 11
-    disengageBonus: 0
-    escalation:
-      value: 0
-    hp:
-      automatic: true
-      base: 7
-      extra: 0
-      label: Hit Points
-      max: 72
-      min: 0
-      temp: 0
-      tempmax: 0
-      type: Number
-      value: 72
-    init:
-      label: Initiative Modifier
-      mod: 8
-      type: Number
-      value: 8
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 8
-    md:
-      base: 10
-      label: Mental Defense
-      min: 0
-      type: Number
-      value: 20
-    pd:
-      base: 10
-      label: Physical Defense
-      min: 0
-      type: Number
-      value: 24
-    recoveries:
-      dice: d8
-      label: Recoveries
-      max: 8
-      type: Number
-      value: 8
-    saves:
-      bonus: 0
-      deathFails:
-        max: 4
-        maxOverride: 0
-        steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
-      desperateTriggered: false
-      disengageBonus: 0
-      lastGaspFails:
-        max: 4
-        steps:
-        - false
-        - false
-        - false
-        - false
-        value: 0
   backgrounds:
     bg1:
       bonus:
@@ -365,57 +484,6 @@ system:
       name:
         type: String
         value: ''
-  details:
-    alignment:
-      label: Alignment
-      type: String
-    biography:
-      label: Biography
-      type: String
-    class:
-      label: Class
-      type: String
-    flavor:
-      value: ''
-    level:
-      label: Level
-      max: 10
-      min: 0
-      type: Number
-      value: 8
-    out:
-      label: One Unique Thing
-      type: String
-      value: ''
-    race:
-      label: Race
-      type: String
-    resistance:
-      label: Resistance
-      type: String
-      value: ''
-    role:
-      label: Role
-      type: String
-      value: ''
-    roleB:
-      value: ''
-    size:
-      label: Size
-      type: String
-      value: Normal
-    sizeB:
-      value: ''
-    strength:
-      value: ''
-    type:
-      label: Type
-      type: String
-      value: undead
-    vulnerability:
-      label: Vulnerability
-      type: String
-      value: ''
   icons:
     i1:
       bonus:
@@ -482,65 +550,15 @@ system:
       relationship:
         type: String
         value: ''
-  publicationSource: ''
-  resources:
-    perCombat: {}
-    spendable:
-      custom1:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom2:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom3:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom4:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom5:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom6:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom7:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom8:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      custom9:
-        current: 0
-        enabled: false
-        label: ''
-        max: 0
-        rest: none
-      stoke:
-        current: 0
-        enabled: false
 type: npc
+_stats:
+  coreVersion: '14.364'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!actors!IDZncUll2Y8Q1uP3'
