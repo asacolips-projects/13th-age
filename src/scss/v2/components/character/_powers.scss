@@ -273,53 +273,32 @@
       }
     }
 
-    &.cyclic {
-      position: relative;
-
-      &::after {
-        display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 5px;
-        bottom: 0;
-      }
-
-      &.once-per-battle {
-        &::after {
-          background: $c-power-will;
-        }
-      }
-
-      &.at-will {
-        &::after {
-          background: $c-power-battle;
-        }
-      }
-    }
-
-    // Powers with a secondary usage take the colour of the pool currently being
-    // spent, so once the primary pool is empty the row switches to the secondary
-    // usage's colour and keeps a stripe of the primary one. Uses ::before rather
-    // than ::after so the "spent" hatching still shows once both pools are empty.
-    &.dual-usage {
+    // Powers that alternate between two usages (cyclic ones, and those with a
+    // secondary pool of uses) are coloured for the usage they're currently in,
+    // and carry a wedge of the other usage's colour at their trailing edge. The
+    // two swap over when the power changes mode. The 45 degree cut follows the
+    // direction of the usage gradients themselves.
+    //
+    // Drawn with ::before so the "spent" hatching on ::after still paints over
+    // the whole row, wedge included.
+    &.alt-usage {
       &::before {
         display: block;
         content: '';
         position: absolute;
         top: 0;
         right: 0;
-        width: 5px;
         bottom: 0;
-        z-index: 1;
+        width: 18px;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        pointer-events: none;
       }
 
-      &.dual-usage--at-will::before { background: $c-power-will; }
-      &.dual-usage--once-per-battle::before { background: $c-power-battle; }
-      &.dual-usage--daily::before { background: $c-power-daily; }
-      &.dual-usage--recharge::before { background: $c-power-recharge; }
-      &.dual-usage--other::before { background: $c-power-other; }
+      &.alt-usage--at-will::before { background: $c-power-will; }
+      &.alt-usage--once-per-battle::before { background: $c-power-battle; }
+      &.alt-usage--daily::before { background: $c-power-daily; }
+      &.alt-usage--recharge::before { background: $c-power-recharge; }
+      &.alt-usage--other::before { background: $c-power-other; }
     }
 
     .feat-pip,

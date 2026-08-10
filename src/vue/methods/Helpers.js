@@ -59,11 +59,12 @@ function powerUsageColorClass(usage, actor) {
 /**
  * Compute the CSS classes for a power row, based on its usage.
  *
- * Powers can track a secondary pool of uses on top of the primary one, such as
- * the paladin's Smite Evil ("once per battle, plus an additional [[@cha.mod]]
- * times per day"). Since the secondary pool is only spent once the primary one
- * runs out, a power drawing on its secondary pool takes that usage's colour and
- * keeps a stripe of the primary usage's colour, similar to cyclic powers.
+ * Some powers alternate between two usages: cyclic powers follow the escalation
+ * die, and powers with a secondary pool of uses fall back to it once the primary
+ * pool runs out, such as the paladin's Smite Evil ("once per battle, plus an
+ * additional [[@cha.mod]] times per day"). Those rows take the colour of the
+ * usage they're currently in, and mark the one they aren't with 'alt-usage',
+ * so the two swap over as the power changes mode.
  *
  * @param {object} power Power item data.
  * @param {object|null} actor Actor the power belongs to.
@@ -77,11 +78,21 @@ export function powerUsageClass(power, actor) {
   const onSecondary = hasSecondary && !(power.system.quantity?.value > 0);
 
   const activeUsage = onSecondary ? secondaryUsage : primaryUsage;
-  const classes = [powerUsageColorClass(activeUsage, actor)];
+  const active = powerUsageColorClass(activeUsage, actor);
+  const classes = [active];
   if (activeUsage == 'cyclic') classes.push('cyclic');
-  if (onSecondary) {
-    classes.push('dual-usage', `dual-usage--${powerUsageColorClass(primaryUsage, actor)}`);
+
+  // Work out the usage the power isn't currently in, if it has one.
+  let inactive = null;
+  if (hasSecondary) {
+    inactive = powerUsageColorClass(onSecondary ? primaryUsage : secondaryUsage, actor);
   }
+  else if (activeUsage == 'cyclic') {
+    // Cyclic powers alternate between behaving as at-will and once-per-battle.
+    inactive = active == 'at-will' ? 'once-per-battle' : 'at-will';
+  }
+  if (inactive && inactive != active) classes.push('alt-usage', `alt-usage--${inactive}`);
+
   return classes.join(' ');
 }
 
