@@ -1827,6 +1827,20 @@ function _handlecreateAEsMsg(msg) {
 }
 
 /**
+ * Handle the creation of pseudo-combatants emitted via sockets.
+ *
+ * Players lack the permissions needed to alter the initiative order,
+ * so the active GM creates the combatant on their behalf.
+ *
+ * @param {object} msg Operation data from the emitted socket.
+ * @returns {void}
+ */
+function _handlePseudoCombatantMsg(msg) {
+  if (!game.archmage.isSocketGM()) return;
+  game.archmage.MacroUtils.createPseudoCombatant(msg.combatId, msg.data);
+}
+
+/**
  * Handle damage/healing application emitted via sockets.
  *
  * The DamageApplicator class supports applying damage to targeted
@@ -1901,6 +1915,9 @@ Hooks.once('ready', async function () {
         break;
       case 'createAEs':
         _handlecreateAEsMsg(data);
+        break;
+      case 'pseudoCombatant':
+        _handlePseudoCombatantMsg(data);
         break;
       case 'applyDamageHealing':
         _handleApplyDamageHealing(data);
