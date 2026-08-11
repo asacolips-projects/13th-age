@@ -1257,26 +1257,6 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
     });
 });
 
-/* ---------------------------------------------- */
-Hooks.on('preCreateToken', async (scene, data, options, id) => {
-  let actorId = data.actorId;
-  // Attempt to get the actor.
-  let actor = game.actors.get(actorId);
-
-  // If there's an actor, set the token size.
-  if (actor) {
-    let size = actor.system.details.size?.value;
-    if (size == 'large' && data.height == 1 && data.width == 1) {
-      data.height = 2;
-      data.width = 2;
-    }
-    if (size == 'huge' && data.height == 1 && data.width == 1) {
-      data.height = 3;
-      data.width = 3;
-    }
-  }
-});
-
 /* -------------------------------------------- */
 
 Hooks.on("updateToken", (tokenDoc, changes, options, userId) => {
