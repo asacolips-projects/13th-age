@@ -2,7 +2,7 @@ import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from '../rolls/Targeting.mjs';
 import Triggers from '../Triggers/Triggers.mjs';
 
-const REGEX_EXPANDED_INLINE_ROLL = /.*=\s(\d+)/gm;
+const REGEX_EXPANDED_INLINE_ROLL = /.*=\s(\d+)/m;
 
 export class DamageApplicator {
 
