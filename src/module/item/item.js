@@ -1014,7 +1014,7 @@ export class ItemArchmage extends Item {
       // Basic chat message data
       const chatData = {
         user: game.user.id,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        type: CONST.CHAT_MESSAGE_STYLES.ROLL,
         roll: roll,
         speaker: game.archmage.ArchmageUtility.getSpeaker(actor),
       };
