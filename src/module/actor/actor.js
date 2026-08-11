@@ -2472,7 +2472,7 @@ export class ActorArchmage extends Actor {
           break;
         }
       }
-      if (alreadyConfigured) break;
+      if (alreadyConfigured || resId === undefined) continue;
 
       // Configure resource
       data.system.resources.spendable[resId] = {
