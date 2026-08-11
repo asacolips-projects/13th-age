@@ -29,7 +29,7 @@ export class ArchmageMacros {
       const effectData = {
         name: name,
         changes: effects,
-        icon: archmage.item.img
+        img: archmage.item.img
       };
       game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
       await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
@@ -59,7 +59,7 @@ export class ArchmageMacros {
 
     let effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [
         { key: "system.attributes.ac.value", value: penalty, type: "add" },
         { key: "system.attributes.pd.value", value: penalty, type: "add" }
@@ -89,7 +89,7 @@ export class ArchmageMacros {
     // Prepare effect data
     let effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.attackMod.value",
         value: 1,
@@ -137,7 +137,7 @@ export class ArchmageMacros {
     // Prepare effect data
     let effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.attackMod.value",
         value: bonus,
@@ -168,7 +168,7 @@ export class ArchmageMacros {
     const bonus = actor.isMulticlass() ? "d10" : "d12";
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: bonus ,
@@ -186,7 +186,7 @@ export class ArchmageMacros {
     }
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: bonus,
@@ -252,7 +252,7 @@ export class ArchmageMacros {
     // Make new effect
     let effectData = {
       name: name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [
         { key: "system.attributes.critMod.atk.value", value: bonus + prev, type: "add" },
       ]};
@@ -338,7 +338,7 @@ export class ArchmageMacros {
   static async paladinGreatDragonIncarnation(speaker, actor, token, character, archmage) {
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: game.archmage.MacroUtils.scaleDiceUp(actor.system.attributes.weapon.melee.dice),
@@ -374,7 +374,7 @@ export class ArchmageMacros {
     bonus = Number(bonus[1]);
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.hp.extra",
         value: bonus,
@@ -428,7 +428,7 @@ export class ArchmageMacros {
     const rollData = actor.getRollData();
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: `+${rollData.lvl}-${rollData.atk.m.bonus}`, // replace item bonus with level

@@ -2140,7 +2140,7 @@ export class ActorArchmage extends Actor {
       if (newRec < 0) {
         const effectData = {
           name: negRecoveryLabel,
-          icon: "icons/svg/down.svg",
+          img: "icons/svg/down.svg",
           changes: [
             {key: "system.attributes.ac.value",value: newRec, type: "add"},
             {key: "system.attributes.pd.value", value: newRec, type: "add"},
