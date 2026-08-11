@@ -911,7 +911,7 @@ export class ActorArchmage extends Actor {
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
       if (success) {
-        if (this.system.attributes.hp.value <= 0) this.rollRecovery({}, true);
+        if (this.system.attributes.hp.value <= 0) await this.rollRecovery({createMessage: true});
       } else {
         await this.update({'system.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
         // Handle desperate recharge
