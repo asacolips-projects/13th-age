@@ -221,7 +221,7 @@ export class ItemArchmage extends Item {
       const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower", {power: this.name, target: this.system.sustainOn.value});
       if (this.itemActor?.effects) {
         this.itemActor.effects.forEach(e => {
-          if (e.label == name) hasReminder = true;
+          if (e.name == name) hasReminder = true;
         });
       }
 
