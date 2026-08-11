@@ -984,7 +984,7 @@ export class ItemArchmage extends Item {
    */
   async recharge({createMessage=true}={}) {
     // Only update for recharge powers/items.
-    if (!this.system?.powerUsage?.value == 'recharge') return;
+    if (this.system?.powerUsage?.value !== 'recharge') return;
     // Only update for owned items.
     if (!this.actor) return;
 

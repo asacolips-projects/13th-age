@@ -2525,7 +2525,7 @@ export class ActorArchmage extends Actor {
    */
 
   async autoLevelActor(delta) {
-    if (!this.type == 'npc' || delta == 0) return false;
+    if (this.type !== 'npc' || delta == 0) return false;
     // Convert delta back to a number, and handle + characters.
     delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
 

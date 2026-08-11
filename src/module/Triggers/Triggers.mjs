@@ -33,11 +33,13 @@ export default class Triggers {
     for (let rollResult of rollResults) {
       for (let x = 0; x < this.registeredTriggers.length; x++) {
         let trigger = this.registeredTriggers[x];
+        let triggers_on = trigger.triggersOn();
+        let doesnt_trigger_on = trigger.doesntTriggerOn();
 
-        if (trigger.triggersOn().length > 0 && !trigger.triggersOn().filter(x => triggerText.includes(x)).length > 0) {
+        if (triggers_on.length === 0 && !triggers_on.filter(x => triggerText.includes(x)).length > 0) {
             continue;
         }
-        if (trigger.doesntTriggerOn().length > 0 && trigger.doesntTriggerOn().filter(x => triggerText.includes(x)).length > 0) {
+        if (doesnt_trigger_on.length === 0 && doesnt_trigger_on.filter(x => triggerText.includes(x)).length > 0) {
             continue;
         }
 

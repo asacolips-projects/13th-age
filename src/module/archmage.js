@@ -1804,7 +1804,7 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
 });
 
 function _handleCondButtonMsg(msg) {
-  if (!game.archmage.isSocketGM) return;
+  if (!game.archmage.isSocketGM()) return;
   const chatMessage = game.messages.get(msg.msg);
   if (chatMessage) {
     if (msg.disable) {
