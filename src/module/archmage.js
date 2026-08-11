@@ -1838,7 +1838,7 @@ function _handleApplyDamageHealing(data) {
         updates[data.attr] = hp.temp;
       }
       // Apply the update, if any.
-      if (updates?.[data.attr]) {
+      if (updates?.[data.attr] !== undefined) {
         actor.update(updates);
       }
     }
@@ -2019,7 +2019,8 @@ Hooks.on('preDeleteCombat', preDeleteCombat);
 
 /* ---------------------------------------------- */
 
-// Update escalation die values on scene change.
+// DEPRECATED?
+/* // Update escalation die values on scene change.
 Hooks.on('renderCombatTracker', (async () => {
   // Handle non-gm users.
   let combat = game.combat;
@@ -2038,7 +2039,7 @@ Hooks.on('renderCombatTracker', (async () => {
   // Update the value of the tracker.
   $escalationDiv.attr('data-value', escalation);
   $escalationDiv.find('.ed-number').text(escalation);
-}));
+})); */
 
 /* ---------------------------------------------- */
 
