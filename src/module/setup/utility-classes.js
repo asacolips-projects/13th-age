@@ -751,6 +751,64 @@ export class MacroUtils {
   }
 
   /**
+   * Check whether a token is currently displaying a macro-provided appearance,
+   * ie. whether transformToken() was used on it and restoreToken() wasn't.
+   */
+  static isTokenTransformed(token) {
+    const doc = token?.document ?? token;
+    return Boolean(doc?.getFlag('archmage', 'originalAppearance'));
+  }
+
+  /**
+   * Swap a token's artwork and scale, remembering what was there before so that
+   * restoreToken() can put it back.
+   */
+  static async transformToken(token, src, scale=1) {
+    const doc = token?.document ?? token;
+    if (!doc) return false;
+    // Don't overwrite a previously stored appearance with an already transformed one.
+    const original = doc.getFlag('archmage', 'originalAppearance') ?? {
+      src: doc.texture.src,
+      scaleX: doc.texture.scaleX,
+      scaleY: doc.texture.scaleY
+    };
+    await doc.update({
+      'texture.src': src,
+      'texture.scaleX': scale,
+      'texture.scaleY': scale,
+      'flags.archmage.originalAppearance': original
+    });
+    return true;
+  }
+
+  /**
+   * Put back the appearance stored by transformToken(). Falls back to the
+   * actor's prototype token for tokens transformed by other means, which is
+   * only meaningful for linked tokens.
+   */
+  static async restoreToken(token) {
+    const doc = token?.document ?? token;
+    if (!doc) return false;
+    let original = doc.getFlag('archmage', 'originalAppearance');
+    if (!original) {
+      const prototype = doc.actorLink ? doc.actor?.prototypeToken : null;
+      if (!prototype) return false;
+      original = {
+        src: prototype.texture.src,
+        scaleX: prototype.texture.scaleX,
+        scaleY: prototype.texture.scaleY
+      };
+    }
+    await doc.update({
+      'texture.src': original.src,
+      'texture.scaleX': original.scaleX ?? 1,
+      'texture.scaleY': original.scaleY ?? 1,
+      'flags.archmage.-=originalAppearance': null
+    });
+    return true;
+  }
+
+  /**
    * Scale dice up one size
    */
   static scaleDiceUp(expr) {
