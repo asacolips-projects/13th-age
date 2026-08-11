@@ -951,7 +951,7 @@ export class ItemArchmage extends Item {
 
       if (!game.user.hasPermission("MACRO_SCRIPT")) {
         ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
-        return false;
+        return macro_data;
       }
 
       // Add variables to the evaluation scope
