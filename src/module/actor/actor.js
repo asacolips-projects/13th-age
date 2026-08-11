@@ -453,7 +453,7 @@ export class ActorArchmage extends Actor {
       || (game.settings.get('archmage', 'secondEdition') ? 5 : 4);
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
-    data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
+    data.attributes.saves.deathFails.steps = Array(data.attributes.saves.deathFails.max).fill(false);
     for (let i = 0; i < deathCount; i++) {
       data.attributes.saves.deathFails.steps[i] = true;
     }
