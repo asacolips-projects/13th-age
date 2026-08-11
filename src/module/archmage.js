@@ -2085,7 +2085,7 @@ Hooks.on('deleteCombat', (combat) => {
           let updates = {};
           updates['system.attributes.hp.temp'] = 0;
           await actor.update(updates);
-          updatedActors[actor._id];
+          updatedActors[actor._id] = true;
         }
       }
     });
