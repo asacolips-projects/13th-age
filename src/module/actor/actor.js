@@ -930,7 +930,7 @@ export class ActorArchmage extends Actor {
         let effectData = CONFIG.statusEffects.find(x => x.id == "helpless");
         let createData = foundry.utils.deepClone(effectData);
         createData.name = game.i18n.localize(effectData.name);
-        createData["flags.core.statusId"] = effectData.id;
+        createData.statuses = [effectData.id];
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});
