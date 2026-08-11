@@ -448,7 +448,7 @@ export class ItemArchmage extends Item {
         }
 
         // Bravado
-        if (res.perCombat.bravado.enabled && num &&
+        else if (res.perCombat.bravado.enabled && num &&
             str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.bravado").toLowerCase()) {
           let path = 'system.resources.perCombat.bravado.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughBravado");

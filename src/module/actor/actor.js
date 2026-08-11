@@ -701,7 +701,7 @@ export class ActorArchmage extends Actor {
     let actor = this;
 
     // Use the current token if possible.
-    let token = canvas.tokens?.controlled?.find(t => t.actor._id == this._id);
+    let token = canvas.tokens?.controlled?.find(t => t.actor?._id == this._id);
     if (token) actor = token.actor;
 
     // Reapply post active effects.
