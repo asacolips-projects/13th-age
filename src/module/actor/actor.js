@@ -1909,7 +1909,7 @@ export class ActorArchmage extends Actor {
     // to compute it ourselves.
     // Retrieve a copy of the existing actor data.
     let newData = foundry.utils.flattenObject(data);
-    let oldData = foundry.utils.flattenObject(this);
+    let oldData = foundry.utils.flattenObject(this._source);
 
     // Limit data to just the new data.
     const diffData = foundry.utils.diffObject(oldData, newData);
@@ -2076,7 +2076,7 @@ export class ActorArchmage extends Actor {
       if (game.settings.get('archmage', 'secondEdition')) {
         if (this.system.attributes.hp.value > 0 && changes.system.attributes.hp.value <= 0) {
           if (!changes.system.attributes?.saves?.deathFails?.value) {
-            data.system.attributes.saves = this.system.attributes.saves;
+            data.system.attributes.saves = foundry.utils.deepClone(this.system.attributes.saves);
           }
           data.system.attributes.saves.deathFails.value += 1;
           for (let i = 0; i < data.system.attributes.saves.deathFails.value; i++) {
