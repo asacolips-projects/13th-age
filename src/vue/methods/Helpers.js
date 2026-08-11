@@ -35,6 +35,85 @@ export function concat(...args) {
 }
 
 /**
+ * Resolve a power usage to the class that colours a power row.
+ *
+ * Cyclic powers borrow the colour of whichever usage they currently behave as,
+ * which depends on the escalation die.
+ *
+ * @param {string} usage Power usage, such as 'once-per-battle'.
+ * @param {object|null} actor Actor the power belongs to, needed for cyclic powers.
+ *
+ * @returns {string}
+ */
+function powerUsageColorClass(usage, actor) {
+  let use = usage ? usage : 'other';
+  if (['daily', 'daily-desperate'].includes(use)) return 'daily';
+  if (['recharge', 'recharge-desperate'].includes(use)) return 'recharge';
+  if (use == 'cyclic') {
+    const escalation = actor?.system?.attributes?.escalation?.value ?? 0;
+    return (escalation > 0 && escalation % 2 == 0) ? 'at-will' : 'once-per-battle';
+  }
+  return use;
+}
+
+/**
+ * Compute the CSS classes for a power row, based on its usage.
+ *
+ * Some powers alternate between two usages: cyclic powers follow the escalation
+ * die, and powers with a secondary pool of uses fall back to it once the primary
+ * pool runs out, such as the paladin's Smite Evil ("once per battle, plus an
+ * additional [[@cha.mod]] times per day"). Those rows take the colour of the
+ * usage they're currently in, and mark the one they aren't with 'alt-usage',
+ * so the two swap over as the power changes mode.
+ *
+ * @param {object} power Power item data.
+ * @param {object|null} actor Actor the power belongs to.
+ *
+ * @returns {string}
+ */
+export function powerUsageClass(power, actor) {
+  const primaryUsage = power.system.powerUsage?.value;
+  const secondaryUsage = power.system.powerUsageSecondary?.value;
+  const hasSecondary = power.system.quantitySecondary?.value != null && !!secondaryUsage;
+  const onSecondary = hasSecondary && !(power.system.quantity?.value > 0);
+
+  const activeUsage = onSecondary ? secondaryUsage : primaryUsage;
+  const active = powerUsageColorClass(activeUsage, actor);
+  const classes = [active];
+  if (activeUsage == 'cyclic') classes.push('cyclic');
+
+  // Work out the usage the power isn't currently in, if it has one.
+  let inactive = null;
+  if (hasSecondary) {
+    inactive = powerUsageColorClass(onSecondary ? primaryUsage : secondaryUsage, actor);
+  }
+  else if (activeUsage == 'cyclic') {
+    // Cyclic powers alternate between behaving as at-will and once-per-battle.
+    inactive = active == 'at-will' ? 'once-per-battle' : 'at-will';
+  }
+  if (inactive && inactive != active) classes.push('alt-usage', `alt-usage--${inactive}`);
+
+  return classes.join(' ');
+}
+
+/**
+ * Compute the CSS class marking a power as spent.
+ *
+ * A power with a secondary pool of uses is only unavailable once both pools are
+ * empty.
+ *
+ * @param {object} power Power item data.
+ *
+ * @returns {string}
+ */
+export function powerAvailabilityClass(power) {
+  const primary = power.system?.quantity?.value;
+  const secondary = power.system?.quantitySecondary?.value;
+  if (primary == null && secondary == null) return '';
+  return ((primary ?? 0) + (secondary ?? 0)) === 0 ? 'unavailable' : '';
+}
+
+/**
  * Replace inline rolls with alternate formatting and wrap with an additional
  * span tag for formatting.
  *

@@ -525,7 +525,9 @@ Item:
         label: Uses
         value: null
       maxQuantity:
-        type: Number
+        # String rather than Number so that it can hold inline rolls, such as
+        # "[[@cha.mod]]". Resolved through ItemArchmage.resolveMaxQuantity().
+        type: String
         label: Max Uses
         value: null
     supportsMacro:
@@ -545,6 +547,24 @@ Item:
       - usable
       - supportsMacro
       - supportsSequencer
+    # Secondary usage, for powers that track two pools of uses at once, such as
+    # the paladin's Smite Evil ("once per battle, plus an additional
+    # [[@cha.mod]] times per day"). The secondary pool is only spent once the
+    # primary one has been exhausted.
+    powerUsageSecondary:
+      type: String
+      label: Secondary Power Usage
+      value: ''
+    quantitySecondary:
+      type: Number
+      label: Secondary Uses
+      value: null
+    maxQuantitySecondary:
+      # String rather than Number so that it can hold inline rolls, such as
+      # "[[@cha.mod]]". Resolved through ItemArchmage.resolveMaxQuantity().
+      type: String
+      label: Max Secondary Uses
+      value: null
     group:
       type: String
       label: Group

@@ -1414,7 +1414,7 @@ export class ActorArchmage extends Actor {
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
       let itemUpdateData = {};
-      let maxQuantity = item.system?.maxQuantity?.value ?? 1;
+      let maxQuantity = await item.resolveMaxQuantity() ?? 1;
       if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
         let rechAttempts = maxQuantity - item.system.quantity.value;
@@ -1452,6 +1452,34 @@ export class ActorArchmage extends Actor {
                 message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${rechValue})`
               });
             }
+          }
+        }
+      }
+      // Secondary usage, for powers tracking two pools of uses at once.
+      if (item.type == "power" && item.system.powerUsageSecondary?.value) {
+        let maxSecondary = await item.resolveMaxQuantity('maxQuantitySecondary') ?? 1;
+        let usageSecondary = item.system.powerUsageSecondary.value;
+        let currSecondary = item.system.quantitySecondary?.value ?? 0;
+        if ((['once-per-battle', 'cyclic'].includes(usageSecondary)
+          || (usageSecondary == 'at-will' && item.system.quantitySecondary?.value != null))
+          && currSecondary < maxSecondary) {
+          itemUpdateData['system.quantitySecondary.value'] = maxSecondary;
+          templateData.items.push({
+            key: item.name,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemResetSecondary")} ${maxSecondary}`
+          });
+        }
+        else if (['recharge', 'recharge-desperate'].includes(usageSecondary)) {
+          let rechValue = Number(item.system.recharge.value) || 16;
+          for (let j = 0; j < maxSecondary - currSecondary; j++) {
+            let roll = await this.items.get(item.id).recharge({createMessage: false, secondary: true});
+            rollsToAnimate.push(roll.roll);
+            templateData.items.push({
+              key: item.name,
+              message: roll.total >= rechValue
+                ? `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${rechValue})`
+                : `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${rechValue})`
+            });
           }
         }
       }
@@ -1577,7 +1605,7 @@ export class ActorArchmage extends Actor {
       let itemUpdateData = {};
       let usageArray = ['once-per-battle','daily','recharge', 'cyclic', 'recharge-desperate', 'daily-desperate'];
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
-      let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
+      let maxQuantity = await item.resolveMaxQuantity() ?? fallbackQuantity;
       if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
         && (item.system.quantity.value < maxQuantity || item.system.rechargeAttempts.value > 0)) {
         itemUpdateData['system.quantity'] = {value: maxQuantity};
@@ -1586,6 +1614,20 @@ export class ActorArchmage extends Actor {
           key: item.name,
           message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
         });
+      }
+      // Secondary usage, for powers tracking two pools of uses at once. The
+      // maximum is re-resolved here, so pools sized off an ability modifier
+      // follow the character as it levels up.
+      if (item.type == 'power') {
+        let maxSecondary = await item.resolveMaxQuantity('maxQuantitySecondary') ?? 1;
+        if (typeof maxSecondary === 'number' && usageArray.includes(item.system.powerUsageSecondary?.value)
+          && item.system.quantitySecondary?.value != maxSecondary) {
+          itemUpdateData['system.quantitySecondary.value'] = maxSecondary;
+          templateData.items.push({
+            key: item.name,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemResetSecondary")} ${maxSecondary}`
+          });
+        }
       }
       // Feats
       if (item.type == "power" && item.system.feats) {
@@ -1665,7 +1707,7 @@ export class ActorArchmage extends Actor {
       let item = items[i];
       if (!['power', 'equipment'].includes(item.type)) continue;
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
-      let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
+      let maxQuantity = await item.resolveMaxQuantity() ?? fallbackQuantity;
       // Re-use rechargeAttempts to store whether we already desperately recharged before
       let rechAttempts = maxQuantity - item.system.quantity.value;
       rechAttempts = Math.max(rechAttempts - item.system.rechargeAttempts.value, 0)
@@ -1679,6 +1721,20 @@ export class ActorArchmage extends Actor {
           templateData.items.push({
             key: item.name,
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
+          });
+        }
+      }
+      // Secondary usage, for powers tracking two pools of uses at once. The
+      // heal-up flag above already limits this to once per full heal up, so no
+      // attempt bookkeeping is needed for the secondary pool.
+      if (item.type == 'power' && item.system.quantitySecondary?.value !== null
+        && ['recharge-desperate', 'daily-desperate'].includes(item.system.powerUsageSecondary?.value)) {
+        let maxSecondary = await item.resolveMaxQuantity('maxQuantitySecondary') ?? 1;
+        if (maxSecondary && item.system.quantitySecondary.value < maxSecondary) {
+          await item.update({'system.quantitySecondary.value': maxSecondary});
+          templateData.items.push({
+            key: item.name,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemResetSecondary")} ${maxSecondary}`
           });
         }
       }

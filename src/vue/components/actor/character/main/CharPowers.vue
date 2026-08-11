@@ -71,7 +71,13 @@
             <div class="power-recharge" v-if="power.system.recharge.value && ['recharge', 'recharge-desperate'].includes(power.system.powerUsage.value)">
               <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.system.recharge.value) || 16}}+</Rollable>
             </div>
-            <div class="power-uses" :data-item-id="power._id" :data-quantity="power.system.quantity.value"><span v-if="power.system.quantity.value !== null">{{power.system.quantity.value}}</span></div>
+            <div class="power-uses">
+              <span v-if="power.system.quantity.value !== null" class="power-uses-primary" :data-item-id="power._id" :data-quantity="power.system.quantity.value">{{power.system.quantity.value}}</span>
+              <template v-if="hasSecondaryUses(power)">
+                <span v-if="power.system.quantity.value !== null" class="power-uses-separator">-</span>
+                <span class="power-uses-secondary" :data-item-id="power._id" :data-quantity="power.system.quantitySecondary.value">{{power.system.quantitySecondary.value}}</span>
+              </template>
+            </div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
@@ -91,7 +97,7 @@
 </template>
 
 <script>
-import { concat, getActor, localize } from '@/methods/Helpers';
+import { concat, getActor, localize, powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
 import Power from '@/components/parts/Power.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 export default {
@@ -476,23 +482,22 @@ export default {
      * Compute CSS class to assign based on special usage
      */
     powerUsageClass(power) {
-      let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
-      if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
-      if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
-      else if (use == 'cyclic') {
-        if (this.actor.system.attributes.escalation.value > 0
-          && this.actor.system.attributes.escalation.value % 2 == 0) {
-          use = 'at-will cyclic';
-        } else use = 'once-per-battle cyclic';
-      }
-      return use;
+      return powerUsageClass(power, this.actor);
     },
 
     /**
      * Compute CSS class to assign based on power availability
      */
     powerAvailabilityClass(power) {
-      return power.system?.quantity?.value === 0 ? 'unavailable' : '';
+      return powerAvailabilityClass(power);
+    },
+
+    /**
+     * Determine whether a power tracks a secondary pool of uses.
+     */
+    hasSecondaryUses(power) {
+      return power.system.quantitySecondary?.value !== null
+        && power.system.quantitySecondary?.value !== undefined;
     }
   },
   /**

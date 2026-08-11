@@ -69,13 +69,21 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
   /** @override */
   async _prepareContext(options) {
 
+    // Source data lacks the secondary usage fields on powers created before
+    // they existed, which the sheet inputs bind against. ItemArchmage's derived
+    // data has them defaulted, so fill any gaps from there.
+    const itemData = this.item.toObject();
+    for (const key of ['powerUsageSecondary', 'quantitySecondary', 'maxQuantitySecondary']) {
+      itemData.system[key] ??= foundry.utils.deepClone(this.item.system[key]);
+    }
+
     const context = {
       // Validates both permissions and compendium status
       editable: this.isEditable,
       owner: this.isOwner,
       limited: this.document.limited,
       // Add the item document.
-      item: this.item.toObject(),
+      item: itemData,
       actor: this.actor?.toObject() ?? false,
       // Adding system and flags for easier access
       system: this.item.system,

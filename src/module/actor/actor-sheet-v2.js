@@ -341,8 +341,10 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     html.on('click', '.rest', (event) => this._onRest(event));
 
     // Item listeners.
-    html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
-    html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
+    html.on('click', '.power-uses-primary, .equipment-quantity', (event) => this._updateQuantity(event, true));
+    html.on('contextmenu', '.power-uses-primary, .equipment-quantity', (event) => this._updateQuantity(event, false));
+    html.on('click', '.power-uses-secondary', (event) => this._updateQuantity(event, true, true));
+    html.on('contextmenu', '.power-uses-secondary', (event) => this._updateQuantity(event, false, true));
     html.on('click', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, true));
     html.on('contextmenu', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, false));
     html.on('click', '.feat-pip', (event) => this._updatePips(event));
@@ -1005,7 +1007,15 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     }
   }
 
-  async _updateQuantity(event, increase = true) {
+  /**
+   * Increase or decrease an item's remaining uses.
+   *
+   * @param {MouseEvent} event  The click (increase) or contextmenu (decrease) event.
+   * @param {Boolean} increase  Whether to add or remove a use.
+   * @param {Boolean} secondary  Target the power's secondary pool of uses
+   *   instead of the primary one.
+   */
+  async _updateQuantity(event, increase = true, secondary = false) {
     event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
@@ -1015,15 +1025,16 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
     let item = this.actor.items.get(itemId);
     if (item) {
-      if (item.system?.quantity?.value == null) return;
+      const quantityKey = secondary ? 'quantitySecondary' : 'quantity';
+      if (item.system?.[quantityKey]?.value == null) return;
       // Update the quantity.
-      let newQuantity = Number(item.system.quantity.value) ?? 0;
+      let newQuantity = Number(item.system[quantityKey].value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
 
       // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
-      let maxQuantity = item.system?.maxQuantity?.value ?? 99;
+      let maxQuantity = await item.resolveMaxQuantity(secondary ? 'maxQuantitySecondary' : 'maxQuantity') ?? 99;
 
-      await item.update({'system.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
+      await item.update({[`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
     }
   }
 

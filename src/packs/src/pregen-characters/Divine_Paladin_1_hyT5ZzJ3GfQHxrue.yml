@@ -22,8 +22,14 @@ flags:
           value: powerType
         sortBy:
           value: custom
+      triggers:
+        customGroups:
+          value: 'false'
     strongRecovery: false
     toughness: true
+    overridePowerLevel: false
+    implacable: false
+    showTriggersTab: false
 folder: null
 img: icons/equipment/shield/heater-steel-sword-yellow-black.webp
 items:
@@ -80,6 +86,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -290,472 +308,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.bR5V5eQy2pge4r0o'
-  - _id: QWDRnMwZjRtJJk3W
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/magic/light/beam-rays-yellow-blue-large.webp
-    name: (Smite Evil) Melee attack (Daily)
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: daily
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: 3
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: 3
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Paladin
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: (Smite Evil) Melee attack (Daily)
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: 1
-      actionType:
-        type: String
-        label: Action
-        value: standard
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: One enemy
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[1d12 + @wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: Half damage
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: ''
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: null
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats: null
-    type: power
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!hyT5ZzJ3GfQHxrue.QWDRnMwZjRtJJk3W'
-  - _id: I7MOn5fStDUsS84Q
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/magic/light/beam-rays-yellow-blue.webp
-    name: (Smite Evil) Melee attack (Per-Battle)
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: once-per-battle
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: 1
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: 1
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Paladin
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: (Smite Evil) Melee attack (Per-Battle)
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: 1
-      actionType:
-        type: String
-        label: Action
-        value: standard
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: One enemy
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[1d12 + @wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: Half damage
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: ''
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: null
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats: null
-    type: power
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!hyT5ZzJ3GfQHxrue.I7MOn5fStDUsS84Q'
   - _id: HOsiw60ALtCBKWQ5
     effects: []
     flags: {}
@@ -802,6 +354,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -1035,6 +599,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -1222,301 +798,6 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.FLzrZWqSWOdmFwP2'
-  - _id: GhNXhD5Yn6DpfD6U
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/magic/holy/projectiles-blades-salvo-yellow.webp
-    name: Smite Evil
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: other
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: class
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Paladin
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Smite Evil
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: standard
-      range:
-        type: String
-        label: Range
-        value: null
-      trigger:
-        type: String
-        label: Trigger
-        value: null
-      target:
-        type: String
-        label: Target
-        value: null
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: null
-      critMod:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: null
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: null
-      missEven:
-        type: String
-        label: Even Miss
-        value: null
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: null
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: null
-      castPower:
-        type: String
-        label: Cast for Power
-        value: null
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: null
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: null
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: >-
-          <p>You can use this talent once per battle, plus an additional
-          [[@cha.mod]] times per day.</p><p>As a free action before you make a
-          paladin melee attack roll, you can declare that you're using a Smite
-          Evil attack. Add 1d12 to the damage roll AND deal half damage with the
-          attack if it misses.</p>
-      spellLevel2:
-        hide: true
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        hide: true
-        type: String
-        label: 3rd Level Spell
-        value: null
-      spellLevel4:
-        hide: true
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        hide: true
-        type: String
-        label: 5th Level Spell
-        value: null
-      spellLevel6:
-        hide: true
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        hide: true
-        type: String
-        label: 7th Level Spell
-        value: null
-      spellLevel8:
-        hide: true
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        hide: true
-        type: String
-        label: 9th Level Spell
-        value: null
-      spellLevel10:
-        hide: true
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellLevel11:
-        hide: true
-        type: String
-        label: 11th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: null
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: null
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: <p>Your Smite Evil attacks gain a +4 attack bonus.</p>
-          isActive:
-            type: Boolean
-            value: false
-          maxQuantity:
-            type: Number
-            value: null
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          tier:
-            type: String
-            value: adventurer
-        '1':
-          description:
-            type: String
-            value: <p>Add 2d12 to the damage roll instead of 1d12.</p>
-          isActive:
-            type: Boolean
-            value: false
-          maxQuantity:
-            type: Number
-            value: null
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          tier:
-            type: String
-            value: champion
-        '2':
-          description:
-            type: String
-            value: <p>Add 4d12 to the damage roll instead of 2d12.</p>
-          isActive:
-            type: Boolean
-            value: false
-          maxQuantity:
-            type: Number
-            value: null
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          tier:
-            type: String
-            value: epic
-    type: power
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!hyT5ZzJ3GfQHxrue.GhNXhD5Yn6DpfD6U'
   - _id: iXw3ufn7zozwBnKy
     effects: []
     flags: {}
@@ -1563,6 +844,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -1857,6 +1150,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -2090,6 +1395,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -2389,6 +1706,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -2646,6 +1975,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -2943,6 +2284,18 @@ items:
         self: ''
         target: ''
         reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: ''
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: null
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: null
       group:
         type: String
         label: Group
@@ -3133,6 +2486,309 @@ items:
       duplicateSource: null
       exportSource: null
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.U8g1bJJTtmtr2QtJ'
+  - _id: zpz48FI7lA4Ni02G
+    effects: []
+    flags: {}
+    folder: null
+    img: icons/magic/holy/projectiles-blades-salvo-yellow.webp
+    name: Smite Evil
+    ownership:
+      default: 0
+      GgIxHh9diOAqs1gz: 3
+    sort: 0
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: once-per-battle
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: 1
+      maxQuantity:
+        type: String
+        label: Uses
+        value: '1'
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        ray: ''
+        self: ''
+        target: ''
+        reversed: false
+      powerUsageSecondary:
+        type: String
+        label: Secondary Power Usage
+        value: daily
+      quantitySecondary:
+        type: Number
+        label: Secondary Uses
+        value: 3
+      maxQuantitySecondary:
+        type: String
+        label: Max Secondary Uses
+        value: '[[@cha.mod]]'
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Paladin
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Smite Evil
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: 1
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: ''
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: One enemy
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20 + @str.mod + @std + @atk.m.bonus]] vs. AC'
+      critMod:
+        type: String
+        label: Attack
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: '[[1d12 + @wpn.m.dice + @str.dmg + @atk.m.bonus]] damage'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: Half damage
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        hide: true
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        hide: true
+        type: String
+        label: 3rd Level Spell
+        value: ''
+      spellLevel4:
+        hide: true
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        hide: true
+        type: String
+        label: 5th Level Spell
+        value: ''
+      spellLevel6:
+        hide: true
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        hide: true
+        type: String
+        label: 7th Level Spell
+        value: ''
+      spellLevel8:
+        hide: true
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        hide: true
+        type: String
+        label: 9th Level Spell
+        value: ''
+      spellLevel10:
+        hide: true
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellLevel11:
+        hide: true
+        type: String
+        label: 11th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: <p>Your Smite Evil attacks gain a +4 attack bonus.</p>
+          isActive:
+            type: Boolean
+            value: false
+          maxQuantity:
+            type: Number
+            value: null
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          tier:
+            type: String
+            value: adventurer
+        '1':
+          description:
+            type: String
+            value: <p>Add 2d12 to the damage roll instead of 1d12.</p>
+          isActive:
+            type: Boolean
+            value: false
+          maxQuantity:
+            type: Number
+            value: null
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          tier:
+            type: String
+            value: champion
+        '2':
+          description:
+            type: String
+            value: <p>Add 4d12 to the damage roll instead of 2d12.</p>
+          isActive:
+            type: Boolean
+            value: false
+          maxQuantity:
+            type: Number
+            value: null
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          tier:
+            type: String
+            value: epic
+    type: power
+    _stats:
+      coreVersion: '14.365'
+      systemId: archmage
+      systemVersion: 1.40.1
+      createdTime: 1786349365749
+      modifiedTime: 1786349365749
+      lastModifiedBy: GgIxHh9diOAqs1gz
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    _key: '!actors.items!hyT5ZzJ3GfQHxrue.zpz48FI7lA4Ni02G'
 name: Divine Paladin 1
 ownership:
   default: 0
@@ -3275,7 +2931,7 @@ system:
       deathFails:
         value: 0
         max: 4
-        maxOverride: 0
+        maxOverride: '0'
         steps:
           - false
           - false
@@ -3654,12 +3310,12 @@ system:
     endOfTurn: ''
 type: character
 _stats:
-  coreVersion: '14.364'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
+  coreVersion: '14.365'
+  systemId: archmage
+  systemVersion: 1.40.1
+  createdTime: 1786349416416
+  modifiedTime: 1786349416416
+  lastModifiedBy: GgIxHh9diOAqs1gz
   compendiumSource: null
   duplicateSource: null
   exportSource: null

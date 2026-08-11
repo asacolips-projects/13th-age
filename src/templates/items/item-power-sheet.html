@@ -158,7 +158,24 @@
 
                   <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}">
                       <label>{{localize 'ARCHMAGE.ITEM.usesMax'}}</label>
-                      <input type="text" name="system.maxQuantity.value" value="{{system.maxQuantity.value}}" data-dtype="{{system.maxQuantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}"/>
+                      <input type="text" name="system.maxQuantity.value" value="{{system.maxQuantity.value}}" data-dtype="{{system.maxQuantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesMaxPlaceholder'}}"/>
+                  </div>
+
+                  <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.powerUsageSecondaryHint'}}">
+                      <label>{{localize 'ARCHMAGE.ITEM.powerUsageSecondary'}}</label>
+                      <select name="system.powerUsageSecondary.value" data-dtype="{{system.powerUsageSecondary.type}}">
+                          {{selectOptions powerUsages selected=system.powerUsageSecondary.value localize=true blank='ARCHMAGE.noneOption'}}
+                      </select>
+                  </div>
+
+                  <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}">
+                      <label>{{localize 'ARCHMAGE.ITEM.usesRemainingSecondary'}}</label>
+                      <input type="text" name="system.quantitySecondary.value" value="{{system.quantitySecondary.value}}" data-dtype="{{system.quantitySecondary.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}"/>
+                  </div>
+
+                  <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}">
+                      <label>{{localize 'ARCHMAGE.ITEM.usesMaxSecondary'}}</label>
+                      <input type="text" name="system.maxQuantitySecondary.value" value="{{system.maxQuantitySecondary.value}}" data-dtype="{{system.maxQuantitySecondary.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesMaxPlaceholder'}}"/>
                   </div>
 
                   <div class="form-group">
