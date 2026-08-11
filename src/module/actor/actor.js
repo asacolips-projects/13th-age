@@ -244,7 +244,7 @@ export class ActorArchmage extends Actor {
           } else {
             // No other effect with this name exists, stack
             uniqueBonusLabels[change.key][change.name] = change;
-            if (change.value) uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a.value + b.value)).toString();
+            if (change.value) uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((acc, c) => acc + c.value, '')).toString();
             if (change.numeric) uniqueBonuses[change.key].numeric += change.numeric;
           }
         }
