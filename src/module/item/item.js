@@ -499,7 +499,7 @@ export class ItemArchmage extends Item {
   async _rollCritMod(itemToRender) {
     let res = 0;
     let mod = itemToRender.system.critMod?.value;
-    if (!mod) res;
+    if (!mod) return res;
 
     // Handle inline rolls
     let ir = INLINE_ROLL_REGEX.exec(mod);
