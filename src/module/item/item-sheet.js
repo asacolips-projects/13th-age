@@ -1,3 +1,5 @@
+import { roundOngoingDamage } from "../active-effects/ongoing-damage.mjs";
+
 /**
  * Override and extend the basic :class:`ItemSheet` implementation
  */
@@ -91,7 +93,7 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
         ? game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration])
         : false;
       context.effects[index].ongoingDamage = effect.flags?.archmage?.ongoingDamage
-        ? `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`
+        ? `${roundOngoingDamage(effect.flags.archmage.ongoingDamage)} ongoing ${effect.flags.archmage.ongoingDamageType} damage`
         : false;
       context.effects[index].bonuses = getChanges(effect);
       context.effects[index].img = effect?.img ?? effect?.icon;
