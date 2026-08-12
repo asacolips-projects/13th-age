@@ -200,7 +200,9 @@ export class ArchmagePrepopulate {
       })
       // Return a simplified data object.
       .map(async p => {
-        let chatData = await p.getChatData();
+        // The importer previews what a power can do rather than what it does at
+        // the level it's stored at, so it lists every per-level entry.
+        let chatData = await p.getChatData({}, false, {showAllLevels: true});
         chatData.feats.forEach(f => {
           f.isActive = true;
         });
