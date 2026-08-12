@@ -1042,6 +1042,7 @@ ARCHMAGE:
     errNoInitiativeOutsideCombat: Can't roll initiative without an encounter in the combat tracker.
     errOnlyTextRolltables: Only text Roll Tables are supported for now.
     infoDesperateTriggeredEmpty: You triggered your desperate recharge for this arc, but there was nothing to recharge.
+    infoDsNDefaultsApplied: Dice So Nice detected, applying system-specific defaults...
     warnStatusEffect: Effect data empty, can't apply this effect.
     warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
     warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.
