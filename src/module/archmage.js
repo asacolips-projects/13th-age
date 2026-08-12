@@ -638,8 +638,8 @@ Hooks.once('init', async function() {
   //Adding the colorblind mode class at startup
   $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
-  // Track whether we overrode DsN's default inline roll parsing
-  game.settings.register("archmage", "DsNInlineOverride", {
+  // Track whether we overrode DsN's default configuration
+  game.settings.register("archmage", "DsNDefaultConfigOverrides", {
     name: "DsN Override",
     scope: "world",
     config: false,
@@ -1231,11 +1231,16 @@ Hooks.on("renderSettings", async (app, html) => {
 Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
-  // Disable DsN's automatic parsing of inline rolls - let users enable it
-  if (foundry.utils.isNewerVersion(game.modules.get('dice-so-nice')?.version, "4.1.1")
-    && !game.settings.get("archmage", "DsNInlineOverride")) {
+  // Override some of DsN's defaults to better suit the system - let users change them back
+  if (game.user.isGM
+    && foundry.utils.isNewerVersion(game.modules.get('dice-so-nice')?.version, "4.1.1")
+    && !game.settings.get("archmage", "DsNDefaultConfigOverrides")) {
+    ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.infoDsNDefaultsApplied"));
+    // Disable DsN's automatic parsing of inline rolls
     game.settings.set("dice-so-nice", "animateInlineRoll", false);
-    game.settings.set("archmage", "DsNInlineOverride", true);
+    // Speed up the dice animation for everyone ("2" = 2x)
+    game.settings.set("dice-so-nice", "globalAnimationSpeed", "2");
+    game.settings.set("archmage", "DsNDefaultConfigOverrides", true);
   }
 
   dice3d.addTexture("archmagered", {
