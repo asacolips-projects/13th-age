@@ -62,6 +62,34 @@ export function filterFeats(feats) {
 }
 
 /**
+ * The bonuses a piece of equipment grants, keyed by what they apply to.
+ *
+ * Attack bonuses are unpacked from their sub-object, so that melee, ranged,
+ * arcane and divine sit alongside the rest. The keys are what the labels are
+ * looked up from, which is why 2e's disengage bonus is renamed: there it also
+ * applies to initiative, and says so.
+ *
+ * @param {object} equipment Equipment item data.
+ *
+ * @returns {object} Keyed bonus values, e.g. {ac: 1, disengageInit: 2}.
+ */
+export function equipmentBonuses(equipment) {
+  const bonuses = {};
+  for (let [prop, value] of Object.entries(equipment?.system?.attributes ?? {})) {
+    if (value.bonus) {
+      if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengageInit';
+      bonuses[prop] = value.bonus;
+    }
+    else if (prop == 'attack') {
+      for (const [atkProp, atkValue] of Object.entries(value)) {
+        if (atkValue.bonus) bonuses[atkProp] = atkValue.bonus;
+      }
+    }
+  }
+  return bonuses;
+}
+
+/**
  * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
  *
  * @param {string} actionType Action type, such as 'standard'.
