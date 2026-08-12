@@ -12,7 +12,7 @@
       </div>
       <template v-for="entry in group.levels" :key="entry.level">
         <h3 class="power-list-subtitle">{{localize('ARCHMAGE.level')}} {{entry.level}} {{localize(`ARCHMAGE.${group.type}s`)}}</h3>
-        <ul class="power-group-content flexcol">
+        <ul class="power-group-content power-import-list">
           <li v-for="row in entry.powers" :key="row.id" class="item power-item">
             <!-- Clickable power header, matching the character sheet's rows. -->
             <PowerSummaryRow :power="row.power" :active="!!expanded[row.id]" @toggle="toggle(row.id)">

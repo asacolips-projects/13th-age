@@ -22,10 +22,14 @@
     border-bottom: 1px dashed $ct-border;
   }
 
+  // Restated from the old importer, which called this out in a blue panel.
   .prepopulate-help {
     font-size: $font-xs;
-    font-style: italic;
-    margin: $padding-md 0;
+    margin: $padding-lg 0;
+    padding: $padding-lg;
+    background: $c-blue--25;
+    border: 1px solid $c-blue--dark;
+    border-radius: 5px;
   }
 
   .power-list-title {
@@ -34,10 +38,24 @@
   }
 
   .power-list-subtitle {
-    margin: $padding-md 0 $padding-sm;
+    margin: $padding-lg 0 $padding-md;
     font-size: $font-xs;
     font-family: $font-stack-label;
     text-transform: uppercase;
+  }
+
+  // Powers are laid out in two columns, as they were before the importer moved
+  // onto the sheet's components. Multi-column rather than a grid so that a long
+  // list balances itself, and so that a power expanded to show its text simply
+  // takes up more of its column.
+  .power-import-list {
+    columns: 400px 2;
+    column-gap: $padding-lg;
+
+    .power-item {
+      break-inside: avoid-column;
+      padding-bottom: $padding-md;
+    }
   }
 
   // Sits in the row's trailing column, where a power's controls would be.
