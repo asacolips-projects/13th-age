@@ -2,7 +2,7 @@ import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from '../rolls/Targeting.mjs';
 import Triggers from '../Triggers/Triggers.mjs';
 
-const REGEX_EXPANDED_INLINE_ROLL = /.*=\s(\d+)/gm;
+const REGEX_EXPANDED_INLINE_ROLL = /.*=\s(\d+)/m;
 
 export class DamageApplicator {
 
@@ -189,18 +189,19 @@ export class DamageApplicator {
           };
           const $attackRow = $(element.closest('.card-prop'));
           const targets = Targeting.getTargetsFromRowText(rowText, $attackRow, targetOptions.numTargets, targetOptions.cachedTargets);
-          let addEdToCritRange = false;
-          let addStokeToCritRange = false;
-          if (game.settings.get('archmage', 'secondEdition') && item) {
-            addEdToCritRange = item.system.breathWeapon?.value?.length > 0;
-            if (actor.system.details?.type?.value === 'dragon') {
-              const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
-              if (item.name.toLocaleLowerCase().includes(breathString)) {
-                  addStokeToCritRange = true;
-              }
-          }
-          }
-          const hitEvaluationResults = HitEvaluation.processRowText(rowText, targets, $attackRow, actor, addEdToCritRange, addStokeToCritRange);
+          // let addEdToCritRange = false;
+          // let addStokeToCritRange = false;
+          // if (game.settings.get('archmage', 'secondEdition') && item) {
+            // addEdToCritRange = item.system.breathWeapon?.value?.length > 0;
+            // if (actor.system.details?.type?.value === 'dragon') {
+              // const breathString = game.i18n.localize('ARCHMAGE.CHAT.breath').toLocaleLowerCase().trim();
+              // if (item.name.toLocaleLowerCase().includes(breathString)) {
+                  // addStokeToCritRange = true;
+              // }
+            // }
+          // }
+          // TODO: recompute crit mod - drop for now, better than an implicit 19
+          const hitEvaluationResults = HitEvaluation.processRowText(rowText, targets, $attackRow, actor, 0);
 
           if (hitEvaluationResults.defenses.length > 0) {
             // @todo Re-evaluate rolls here.

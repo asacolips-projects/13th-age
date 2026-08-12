@@ -244,7 +244,7 @@ export class ActorArchmage extends Actor {
           } else {
             // No other effect with this name exists, stack
             uniqueBonusLabels[change.key][change.name] = change;
-            if (change.value) uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a.value + b.value)).toString();
+            if (change.value) uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((acc, c) => acc + c.value, '')).toString();
             if (change.numeric) uniqueBonuses[change.key].numeric += change.numeric;
           }
         }
@@ -453,7 +453,7 @@ export class ActorArchmage extends Actor {
       || (game.settings.get('archmage', 'secondEdition') ? 5 : 4);
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
-    data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
+    data.attributes.saves.deathFails.steps = Array(data.attributes.saves.deathFails.max).fill(false);
     for (let i = 0; i < deathCount; i++) {
       data.attributes.saves.deathFails.steps[i] = true;
     }
@@ -701,7 +701,7 @@ export class ActorArchmage extends Actor {
     let actor = this;
 
     // Use the current token if possible.
-    let token = canvas.tokens?.controlled?.find(t => t.actor._id == this._id);
+    let token = canvas.tokens?.controlled?.find(t => t.actor?._id == this._id);
     if (token) actor = token.actor;
 
     // Reapply post active effects.
@@ -911,7 +911,7 @@ export class ActorArchmage extends Actor {
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
       if (success) {
-        if (this.system.attributes.hp.value <= 0) this.rollRecovery({}, true);
+        if (this.system.attributes.hp.value <= 0) await this.rollRecovery({createMessage: true});
       } else {
         await this.update({'system.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
         // Handle desperate recharge
@@ -930,7 +930,7 @@ export class ActorArchmage extends Actor {
         let effectData = CONFIG.statusEffects.find(x => x.id == "helpless");
         let createData = foundry.utils.deepClone(effectData);
         createData.name = game.i18n.localize(effectData.name);
-        createData["flags.core.statusId"] = effectData.id;
+        createData.statuses = [effectData.id];
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});
@@ -1909,7 +1909,7 @@ export class ActorArchmage extends Actor {
     // to compute it ourselves.
     // Retrieve a copy of the existing actor data.
     let newData = foundry.utils.flattenObject(data);
-    let oldData = foundry.utils.flattenObject(this);
+    let oldData = foundry.utils.flattenObject(this._source);
 
     // Limit data to just the new data.
     const diffData = foundry.utils.diffObject(oldData, newData);
@@ -2076,7 +2076,7 @@ export class ActorArchmage extends Actor {
       if (game.settings.get('archmage', 'secondEdition')) {
         if (this.system.attributes.hp.value > 0 && changes.system.attributes.hp.value <= 0) {
           if (!changes.system.attributes?.saves?.deathFails?.value) {
-            data.system.attributes.saves = this.system.attributes.saves;
+            data.system.attributes.saves = foundry.utils.deepClone(this.system.attributes.saves);
           }
           data.system.attributes.saves.deathFails.value += 1;
           for (let i = 0; i < data.system.attributes.saves.deathFails.value; i++) {
@@ -2140,7 +2140,7 @@ export class ActorArchmage extends Actor {
       if (newRec < 0) {
         const effectData = {
           name: negRecoveryLabel,
-          icon: "icons/svg/down.svg",
+          img: "icons/svg/down.svg",
           changes: [
             {key: "system.attributes.ac.value",value: newRec, type: "add"},
             {key: "system.attributes.pd.value", value: newRec, type: "add"},
@@ -2472,7 +2472,7 @@ export class ActorArchmage extends Actor {
           break;
         }
       }
-      if (alreadyConfigured) break;
+      if (alreadyConfigured || resId === undefined) continue;
 
       // Configure resource
       data.system.resources.spendable[resId] = {
@@ -2525,7 +2525,7 @@ export class ActorArchmage extends Actor {
    */
 
   async autoLevelActor(delta) {
-    if (!this.type == 'npc' || delta == 0) return false;
+    if (this.type !== 'npc' || delta == 0) return false;
     // Convert delta back to a number, and handle + characters.
     delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
 

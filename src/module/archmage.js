@@ -1257,26 +1257,6 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
     });
 });
 
-/* ---------------------------------------------- */
-Hooks.on('preCreateToken', async (scene, data, options, id) => {
-  let actorId = data.actorId;
-  // Attempt to get the actor.
-  let actor = game.actors.get(actorId);
-
-  // If there's an actor, set the token size.
-  if (actor) {
-    let size = actor.system.details.size?.value;
-    if (size == 'large' && data.height == 1 && data.width == 1) {
-      data.height = 2;
-      data.width = 2;
-    }
-    if (size == 'huge' && data.height == 1 && data.width == 1) {
-      data.height = 3;
-      data.width = 3;
-    }
-  }
-});
-
 /* -------------------------------------------- */
 
 Hooks.on("updateToken", (tokenDoc, changes, options, userId) => {
@@ -1804,7 +1784,7 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
 });
 
 function _handleCondButtonMsg(msg) {
-  if (!game.archmage.isSocketGM) return;
+  if (!game.archmage.isSocketGM()) return;
   const chatMessage = game.messages.get(msg.msg);
   if (chatMessage) {
     if (msg.disable) {
@@ -1858,7 +1838,7 @@ function _handleApplyDamageHealing(data) {
         updates[data.attr] = hp.temp;
       }
       // Apply the update, if any.
-      if (updates?.[data.attr]) {
+      if (updates?.[data.attr] !== undefined) {
         actor.update(updates);
       }
     }
@@ -2039,7 +2019,8 @@ Hooks.on('preDeleteCombat', preDeleteCombat);
 
 /* ---------------------------------------------- */
 
-// Update escalation die values on scene change.
+// DEPRECATED?
+/* // Update escalation die values on scene change.
 Hooks.on('renderCombatTracker', (async () => {
   // Handle non-gm users.
   let combat = game.combat;
@@ -2058,7 +2039,7 @@ Hooks.on('renderCombatTracker', (async () => {
   // Update the value of the tracker.
   $escalationDiv.attr('data-value', escalation);
   $escalationDiv.find('.ed-number').text(escalation);
-}));
+})); */
 
 /* ---------------------------------------------- */
 
@@ -2085,7 +2066,7 @@ Hooks.on('deleteCombat', (combat) => {
           let updates = {};
           updates['system.attributes.hp.temp'] = 0;
           await actor.update(updates);
-          updatedActors[actor._id];
+          updatedActors[actor._id] = true;
         }
       }
     });
@@ -2098,7 +2079,7 @@ Hooks.on('createCombatant', (document, data, options, id) => {
   // Add command points at start of combat.
   if (actor && actor.type == 'character') {
     let updates = {};
-    let hasStrategist = actor.items.find(i => i.system.name.label.safeCSSId().includes('strategist'));
+    let hasStrategist = actor.items.find(i => i.name.toLowerCase().includes(game.i18n.localize("ARCHMAGE.CHAT.strategist")));
     let basePoints = hasStrategist ? 2 : 1;
     // TODO: Add support for Forceful Command.
     updates['system.resources.perCombat.commandPoints.current'] = basePoints;
