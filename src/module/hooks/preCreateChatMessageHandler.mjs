@@ -13,23 +13,25 @@ export default class preCreateChatMessageHandler {
                 for (const match of conditionInstances.sort((a,b) => b.index - a.index)) {
                     const duration = ((val) => {
                         if (!val) return "Unknown";
+                        // Lowercased on both sides: some of these are title cased UI labels.
+                        const localize = (key) => game.i18n.localize(key).toLowerCase();
                         switch(val.toLowerCase()){
-                            case game.i18n.localize("ARCHMAGE.DURATION.SaveEnds"):
-                            case game.i18n.localize("ARCHMAGE.DURATION.NormalSaveEnds"):
+                            case localize("ARCHMAGE.DURATION.SaveEnds"):
+                            case localize("ARCHMAGE.DURATION.NormalSaveEnds"):
                                 return "NormalSaveEnds";
-                            case game.i18n.localize("ARCHMAGE.DURATION.HardSaveEnds"):
+                            case localize("ARCHMAGE.DURATION.HardSaveEnds"):
                                 return "HardSaveEnds";
-                            case game.i18n.localize("ARCHMAGE.DURATION.EasySaveEnds"):
+                            case localize("ARCHMAGE.DURATION.EasySaveEnds"):
                                 return "EasySaveEnds";
-                            case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextTurnFull"):
-                            case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextTurnFull2"):
+                            case localize("ARCHMAGE.DURATION.StartOfNextTurnFull"):
+                            case localize("ARCHMAGE.DURATION.StartOfNextTurnFull2"):
                                 return "StartOfNextTurn";
-                            case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextTurnFull"):
-                            case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextTurnFull2"):
+                            case localize("ARCHMAGE.DURATION.EndOfNextTurnFull"):
+                            case localize("ARCHMAGE.DURATION.EndOfNextTurnFull2"):
                                 return "EndOfNextTurn";
-                            case game.i18n.localize("ARCHMAGE.DURATION.StartOfNextSourceTurnFull"):
+                            case localize("ARCHMAGE.DURATION.StartOfNextSourceTurnFull"):
                                 return "StartOfNextSourceTurn";
-                            case game.i18n.localize("ARCHMAGE.DURATION.EndOfNextSourceTurnFull"):
+                            case localize("ARCHMAGE.DURATION.EndOfNextSourceTurnFull"):
                                 return "EndOfNextSourceTurn";
                             default:
                                 return "Unknown";
