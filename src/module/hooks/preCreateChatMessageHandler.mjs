@@ -80,18 +80,20 @@ export default class preCreateChatMessageHandler {
                     let damageValue = Number(ongoingEffect[2]);
                     let damageType = ongoingEffect[4];
                     if ( damageType ) damageType += " ";
-                    let savesEndsText = ongoingEffect[5];
-                    let saveEndsValue = ongoingEffect[6];
+                    // Undefined without a save ends clause, empty for a plain "(save ends)".
+                    let saveEndsValue = ongoingEffect[5]?.toLowerCase();
                     let saveEndsConfigValue = "NormalSaveEnds";
                     if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
                     else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
                     let source = uuid;
                     let message = `${damageValue} ongoing ${damageType}damage`;
+                    if ( saveEndsValue !== undefined ) {
+                        message += ` (${game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[saveEndsConfigValue])})`;
+                    }
                     let name = options.item.name;
                     // Replace any R: at the start of the name
                     name = name.replace(/^R: /, "");
                     let tooltip = message;
-                    if ( savesEndsText ) tooltip += " " + savesEndsText;
                     const img = damageValue >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
                     let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
                         data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
