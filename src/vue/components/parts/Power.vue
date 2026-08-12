@@ -8,7 +8,8 @@
       <em v-if="power.system.range.value">{{power.system.range.value}}</em>
       <div class="power-subheader flexrow">
         <strong v-if="power.system.actionType.value">{{localize(`ARCHMAGE.${power.system.actionType.value}`)}}</strong>
-        <strong v-if="power.system.powerUsage.value">{{localize(`ARCHMAGE.${power.system.powerUsage.value}`)}}<template v-if="power.system.powerUsageSecondary?.value"> / {{localize(`ARCHMAGE.${power.system.powerUsageSecondary.value}`)}}</template></strong>
+        <!-- Read from the config rather than localized here, so that 2e's "arc" is used in place of "daily". -->
+        <strong v-if="power.system.powerUsage.value">{{CONFIG.ARCHMAGE.powerUsages[power.system.powerUsage.value]}}<template v-if="power.system.powerUsageSecondary?.value"> / {{CONFIG.ARCHMAGE.powerUsages[power.system.powerUsageSecondary.value]}}</template></strong>
         <strong v-if="power.system.powerType.value">{{localize(`ARCHMAGE.${power.system.powerType.value}`)}}</strong>
         <strong v-if="power.system.embeddedMacro.value"><em>{{localize('ARCHMAGE.CHAT.embeddedMacro')}}</em></strong>
       </div>
