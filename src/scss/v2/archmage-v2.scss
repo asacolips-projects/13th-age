@@ -53,6 +53,7 @@
 
   &.archmage-dialog {
     @import 'components/compendium-browser/compendium-browser';
+    @import 'components/power-importer/power-importer';
 
     min-width: 960px;
   }

@@ -1,4 +1,5 @@
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
+import { ArchmagePowerImporterApplication } from '../applications/power-importer.js';
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
@@ -1353,78 +1354,13 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
   /*  Import Powers --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
   async _importPowers(event) {
-    let characterRace = this.actor.system.details.race.value;
-    let characterClasses = this.actor.system.details.detectedClasses ?? [];
-    let prepop = new ArchmagePrepopulate();
-    let classResults = await prepop.renderDialog(characterClasses, characterRace, this.actor);
-    if (!classResults) {
+    const characterRace = this.actor.system.details.race.value;
+    const characterClasses = this.actor.system.details.detectedClasses ?? [];
+    const prepop = new ArchmagePrepopulate();
+    const importData = await prepop.getImportData(characterClasses, characterRace, this.actor);
+    if (!importData?.tabs?.length) {
       return;
     }
-
-    let d = new Dialog({
-      title: game.i18n.localize("ARCHMAGE.import"),
-      content: classResults.content,
-      buttons: {
-        cancel: {
-          icon: '<i class="fas fa-times"></i>',
-          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => null
-        },
-        submit: {
-          icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize("ARCHMAGE.importSubmit"),
-          callback: dlg => this._onImportPower(dlg, this.actor, classResults.powers)
-        }
-      },
-      render: html => {
-        let tabs = new foundry.applications.ux.Tabs(classResults.tabs);
-        tabs.bind(html[0]);
-        html.find('.import-powers-item').addClass('collapsed');
-        html.find('.import-powers-item .item-summary').css('max-height', 0);
-        html.find('.import-powers-item .ability-usage').on('click', event => {
-          event.preventDefault();
-          let li = $(event.currentTarget).parents(".import-powers-item");
-          let summary = li.find('.item-summary');
-          li.toggleClass('collapsed');
-          if (li.hasClass('collapsed')) {
-            summary.css('max-height', 0);
-          }
-          else {
-            summary.css('max-height', summary.find('.card-content').outerHeight() + 40)
-          }
-        });
-      }
-    }, classResults.options);
-    d.render(true);
-  }
-
-  _onImportPower(dlg, actor, packData) {
-    let $selected = $(dlg[0]).find('input[type="checkbox"]:checked');
-
-    if ($selected.length <= 0) {
-      return;
-    }
-
-    if (packData) {
-      // Get the selected powers.
-      let powerIds = [];
-      $selected.each((index, element) => {
-        powerIds.push(element.dataset.uuid);
-      });
-
-      // Retrieve the item entities.
-      let powers = packData
-        // Filter down the power items by id.
-        .filter(p => {
-          return powerIds.includes(p._id)
-        })
-        // Prepare the items for saving.
-        .map(p => {
-          return foundry.utils.duplicate(p);
-        });
-
-      // Create the owned items.
-      actor.createEmbeddedDocuments('Item', powers);
-    }
+    new ArchmagePowerImporterApplication({actor: this.actor, importData: importData}).render(true);
   }
 }

@@ -22,7 +22,7 @@
         </Suspense>
       </div>
       <template v-for="field in powerDetailFields" :key="field">
-        <div v-if="isPowerFieldVisible(power, field, actor)" class="power-detail" :data-field="field">
+        <div v-if="allLevels || isPowerFieldVisible(power, field, actor)" class="power-detail" :data-field="field">
           <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
           <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
           <Suspense v-else>
@@ -57,7 +57,10 @@ import Enriched from '@/components/parts/Enriched.vue';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 export default {
   name: 'Power',
-  props: ['power', 'actor', 'context', 'include-title', 'enriched'],
+  // all-levels lists every per-level entry of a spell regardless of the power's
+  // level, for listings that preview what a power can do rather than what it
+  // currently does.
+  props: ['power', 'actor', 'context', 'include-title', 'enriched', 'all-levels'],
   components: {
     Enriched,
     PowerSummaryRow

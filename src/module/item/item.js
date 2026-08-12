@@ -1136,15 +1136,8 @@ export class ItemArchmage extends Item {
   /*  Chat Card Data
   /* -------------------------------------------- */
 
-  /**
-   * @param {object} htmlOptions Enrichment options for the description.
-   * @param {boolean} skipInlineRolls Leave the description unenriched.
-   * @param {object} [options] Passed through to the per-type chat data method.
-   * @param {boolean} [options.showAllLevels] Powers only: ignore the power's
-   *   level and list every one of its per-level entries.
-   */
-  async getChatData(htmlOptions, skipInlineRolls, options = {}) {
-    const data = this[`_${this.type}ChatData`](options);
+  async getChatData(htmlOptions, skipInlineRolls) {
+    const data = this[`_${this.type}ChatData`]();
     if (!skipInlineRolls) {
       htmlOptions = foundry.utils.mergeObject(htmlOptions ?? {}, { async: false});
       data.description.value = data.description.value !== undefined
@@ -1168,7 +1161,7 @@ export class ItemArchmage extends Item {
   }
 
 
-  _powerChatData({showAllLevels = false} = {}) {
+  _powerChatData() {
     const data = foundry.utils.duplicate(this.system);
     const tags = [
       {
@@ -1215,10 +1208,9 @@ export class ItemArchmage extends Item {
       });
     }
 
-    // Spell level entries are only shown once the power is high enough level,
-    // unless the caller wants to see everything the power can do.
+    // Spell level entries are only shown once the power is high enough level.
     const effectKeys = powerFieldKeys({group: 'effect'})
-      .filter(k => showAllLevels || isPowerFieldVisible({system: data}, k, this.actor));
+      .filter(k => isPowerFieldVisible({system: data}, k, this.actor));
 
     const effects = effectKeys.map(k => {
       return {

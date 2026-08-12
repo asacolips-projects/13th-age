@@ -1,9 +1,9 @@
 /**
  * Which text fields a power has, and the order every renderer shows them in.
  *
- * The same power is rendered in several places — the actor sheet and the item
- * sheet preview (both `Power.vue`), the chat card and the power importer (both
- * `templates/chat/power-card.html`) — and each of those used to carry its own
+ * The same power is rendered in several places — the actor sheet, the item sheet
+ * preview and the power importer (all `Power.vue`), and the chat card
+ * (`templates/chat/power-card.html`) — and each of those used to carry its own
  * copy of this list, in its own order, with its own rule for hiding spell
  * levels. This module is the single copy.
  *

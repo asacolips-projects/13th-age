@@ -1,0 +1,76 @@
+// The power importer reuses the character sheet's power rows, so it needs very
+// little of its own: room to scroll, headings between the groups, the checkbox
+// that marks a power for import, and a footer to confirm with.
+.power-importer-content {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.power-importer-class {
+  padding-right: $padding-md;
+
+  .power-group + .power-group {
+    margin-top: $padding-lg;
+  }
+
+  // The class' journal page, when the compendium has one.
+  .class-content {
+    font-size: $font-xs;
+    padding-bottom: $padding-md;
+    border-bottom: 1px dashed $ct-border;
+  }
+
+  .prepopulate-help {
+    font-size: $font-xs;
+    font-style: italic;
+    margin: $padding-md 0;
+  }
+
+  .power-list-title {
+    margin: 0;
+    border-bottom: 2px solid;
+  }
+
+  .power-list-subtitle {
+    margin: $padding-md 0 $padding-sm;
+    font-size: $font-xs;
+    font-family: $font-stack-label;
+    text-transform: uppercase;
+  }
+
+  // Sits in the row's trailing column, where a power's controls would be.
+  .power-import-select {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+      margin: 0;
+    }
+  }
+}
+
+.power-importer-footer {
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $padding-md;
+  padding-top: $padding-md;
+  border-top: 1px solid $ct-border;
+
+  .power-importer-count {
+    flex: 1;
+    font-size: $font-xs;
+    font-family: $font-stack-label;
+  }
+
+  button {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0 $padding-lg;
+  }
+}
