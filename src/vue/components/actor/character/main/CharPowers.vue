@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import { concat, getActor, localize, powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
+import { concat, filterFeats, getActionShort, getActor, hasFeats, localize, powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
 import Power from '@/components/parts/Power.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 export default {
@@ -106,6 +106,9 @@ export default {
   setup() {
     return {
       concat,
+      filterFeats,
+      getActionShort,
+      hasFeats,
       localize,
       CONFIG,
     }
@@ -264,41 +267,6 @@ export default {
      */
     cleanClassName(string) {
       return string ? string.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-    },
-    /**
-     * Determine if this power has one or more feats.
-     */
-    hasFeats(power) {
-      let hasFeats = false;
-      if (power && power.system && power.system.feats) {
-        for (let [id, feat] of Object.entries(power.system.feats)) {
-          if (feat.description.value || feat.isActive.value) {
-            hasFeats = true;
-            break;
-          }
-        }
-      }
-      return hasFeats;
-    },
-    /**
-     * Filter empty feats
-     */
-    filterFeats(feats) {
-      if (!feats) return {};
-      let res = {};
-      for (let [index, feat] of Object.entries(feats)) {
-        if (feat.description.value) res[index] = feat;
-      }
-      return res;
-    },
-    /**
-     * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
-     */
-    getActionShort(actionType) {
-      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
-        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
-      }
-      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
     },
     /**
      * Update the `powers` prop to be equal to a filtered version of the current

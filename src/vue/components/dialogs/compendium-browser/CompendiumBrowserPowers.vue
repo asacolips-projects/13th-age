@@ -116,7 +116,7 @@
                   <li v-for="(feat, tier) in filterFeats(entry.system.feats)" :key="tier" :class="`feat-pip active`"></li>
                 </ul>
               </div>
-              <div class="power-recharge" :data-tooltip="localize('ARCHMAGE.recharge')" v-if="entry.system.recharge.value && entry.system.powerUsage.value == 'recharge'">{{Number(entry.system.recharge.value) || 16}}+</div>
+              <div class="power-recharge" :data-tooltip="localize('ARCHMAGE.recharge')" v-if="entry.system.recharge.value && ['recharge', 'recharge-desperate'].includes(entry.system.powerUsage.value)">{{Number(entry.system.recharge.value) || 16}}+</div>
               <div class="power-action" :data-tooltip="localize('ARCHMAGE.CHAT.actionTYpe')" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
             </div>
           </div>
@@ -135,9 +135,13 @@ import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
 // Helper methods.
 import {
+  filterFeats,
+  getActionShort,
   getPackIndex,
+  hasFeats,
   localize,
   openDocument,
+  powerUsageClass,
   startDrag,
 } from '@/methods/Helpers.js';
 
@@ -152,6 +156,9 @@ export default {
   setup() {
     return {
       // Imported methods that need to be available in the <template>
+      filterFeats,
+      getActionShort,
+      hasFeats,
       localize,
       openDocument,
       startDrag,
@@ -228,55 +235,6 @@ export default {
       this.powerUsage = [];
       this.trigger = '';
       this.location = [];
-    },
-    /**
-     * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
-     */
-     getActionShort(actionType) {
-      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
-        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
-      }
-      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
-    },
-    /**
-     * Compute CSS class to assign based on special usage
-     */
-     powerUsageClass(power) {
-      let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
-      if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
-      else if (use == 'cyclic') {
-        if (this.escalation > 0
-          && this.escalation % 2 == 0) {
-          use = 'at-will cyclic';
-        } else use = 'once-per-battle cyclic';
-      }
-      return use;
-    },
-    /**
-     * Determine if this power has one or more feats.
-     */
-     hasFeats(power) {
-      let hasFeats = false;
-      if (power && power.system && power.system.feats) {
-        for (let [id, feat] of Object.entries(power.system.feats)) {
-          if (feat.description.value || feat.isActive.value) {
-            hasFeats = true;
-            break;
-          }
-        }
-      }
-      return hasFeats;
-    },
-    /**
-     * Filter empty feats
-     */
-    filterFeats(feats) {
-      if (!feats) return {};
-      let res = {};
-      for (let [index, feat] of Object.entries(feats)) {
-        if (feat.description.value) res[index] = feat;
-      }
-      return res;
     },
   },
   computed: {
@@ -407,6 +365,10 @@ export default {
       'system.powerType.value',
       'system.powerLevel.value',
       'system.powerUsage.value',
+      // Needed to colour powers that track a secondary pool of uses.
+      'system.powerUsageSecondary.value',
+      'system.quantity.value',
+      'system.quantitySecondary.value',
       'system.actionType.value',
       'system.recharge.value',
       'system.trigger.value',

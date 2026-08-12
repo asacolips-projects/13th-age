@@ -1,6 +1,8 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import { MacroUtils } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
+import { isPowerFieldVisible, powerFieldKeys } from "./power-fields.mjs";
+import { powerUsageColor } from "./power-usage.mjs";
 
 const RETAIN_FOCUS_REGEX = /retain focus.+(\d+)[^\d]+(\d+)/i;
 const INLINE_ROLL_REGEX = /(\[\[.+?\]\])/;
@@ -722,25 +724,9 @@ export class ItemArchmage extends Item {
   }
 
   _getUsageClass(item) {
-    // Powers with a secondary pool of uses show the usage of whichever pool is
-    // being drawn from, so the card matches the sheet's colouring.
-    let usage = item.system.powerUsage?.value;
-    if (item.type == 'power' && item.system.quantitySecondary?.value != null
-      && item.system.powerUsageSecondary?.value
-      && !(item.system.quantity?.value > 0)) {
-      usage = item.system.powerUsageSecondary.value;
-    }
-    let use = usage ? usage : 'other';
-    if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
-    if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
-    else if (use == 'cyclic') {
-      if (item?.actor?.system.attributes.escalation.value > 0
-        && item?.actor?.system.attributes.escalation.value % 2 == 0) {
-        // Cyclic power, E.D. even, at-will
-        use = 'at-will';
-      } else use = 'once-per-battle';
-    }
-    return use;
+    // The card colours by the usage of whichever pool of uses is being drawn
+    // from, so it matches the sheet.
+    return powerUsageColor(item, item?.actor);
   }
 
   async _rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token, rollContext = {}) {
@@ -1203,22 +1189,7 @@ export class ItemArchmage extends Item {
       }
     ];
 
-    const propKeys = [
-      'recharge',
-      'sustainOn',
-      'trigger',
-      'target',
-      'always',
-      'attack',
-      'hit',
-      'hitEven',
-      'hitOdd',
-      'crit',
-      'miss',
-      'missEven',
-      'missOdd',
-      'resources',
-    ];
+    const propKeys = powerFieldKeys({group: 'property'});
     const properties = propKeys.map(k => {
       return {
         label: data[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
@@ -1237,42 +1208,9 @@ export class ItemArchmage extends Item {
       });
     }
 
-    let effectKeys = [
-      'effect',
-      'castBroadEffect',
-      'castPower',
-      'sustainedEffect',
-      'finalVerse',
-      'spellLevel2',
-      'spellLevel3',
-      'spellLevel4',
-      'spellLevel5',
-      'spellLevel6',
-      'spellLevel7',
-      'spellLevel8',
-      'spellLevel9',
-      'spellLevel10',
-      'spellLevel11',
-      'spellChain',
-      'breathWeapon',
-      'special',
-    ];
-
-    // Add spell level entries only if the current spell level is high enough
-    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach(i => {
-      if (Number(data.powerLevel.value) < i) {
-        effectKeys = effectKeys.filter(field => field != `spellLevel${i}`);
-      }
-    });
-
-    // Also filter out manually hidden spells.
-    // Process in reverse to get the highest spellLevel that's not empty
-    let higherLevelEntry = true;
-    effectKeys = effectKeys.reverse().filter(field => {
-      let isHighestLevelEntry = higherLevelEntry && field.startsWith("spellLevel") && data[field].value;
-      if (isHighestLevelEntry) higherLevelEntry = false;
-      return !data[field]?.hide || isHighestLevelEntry;
-    }).reverse();
+    // Spell level entries are only shown once the power is high enough level.
+    const effectKeys = powerFieldKeys({group: 'effect'})
+      .filter(k => isPowerFieldVisible({system: data}, k, this.actor));
 
     const effects = effectKeys.map(k => {
       return {

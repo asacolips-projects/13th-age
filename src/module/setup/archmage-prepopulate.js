@@ -1,3 +1,5 @@
+import { powerUsageColor } from '../item/power-usage.mjs';
+
 /**
  * Class that can be used to query toolkit13.com.
  */
@@ -157,46 +159,6 @@ export class ArchmagePrepopulate {
   }
 
   /**
-   * Retrieve CSS classes for each power type.
-   *
-   * @param {string} inputString
-   *
-   * @returns {array}
-   *   Returns an array with key 0 as the usage string, and key 1 as the
-   *   recharge value.
-   */
-  getPowerClasses(inputString) {
-    // Get the appropriate usage.
-    let usage = 'other';
-    let recharge = 0;
-    let usageString = inputString !== null ? inputString.toLowerCase() : '';
-    if (usageString.includes('will')) {
-      usage = 'at-will';
-    }
-    else if (usageString.includes('recharge')) {
-      usage = 'recharge';
-      if (usageString.includes('16')) {
-        recharge = 16;
-      }
-      else if (usageString.includes('11')) {
-        recharge = 11;
-      }
-      else if (usageString.includes('6')) {
-        recharge = 6;
-      }
-    }
-    else if (usageString.includes('battle')
-      || usageString.includes('cyclic')) {
-      usage = 'once-per-battle';
-    }
-    else if (usageString.includes('daily')) {
-      usage = 'daily';
-    }
-
-    return [usage, recharge];
-  }
-
-  /**
    * Retrieve sorted powers from pack.
    *
    * @param {array} powersArray
@@ -247,7 +209,7 @@ export class ArchmagePrepopulate {
           uuid: p._id,
           title: p.name,
           usage: p.system.powerUsage.value,
-          usageClass: p.system.powerUsage.value ? this.getPowerClasses(p.system.powerUsage.value)[0] : 'other',
+          usageClass: powerUsageColor(p, p.actor),
           powerType: p.system.powerType.value,
           level: p.system.powerLevel.value,
           powerData: p,
