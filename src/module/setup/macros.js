@@ -29,7 +29,7 @@ export class ArchmageMacros {
       const effectData = {
         name: name,
         changes: effects,
-        icon: archmage.item.img
+        img: archmage.item.img
       };
       game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
       await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
@@ -59,7 +59,7 @@ export class ArchmageMacros {
 
     let effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [
         { key: "system.attributes.ac.value", value: penalty, type: "add" },
         { key: "system.attributes.pd.value", value: penalty, type: "add" }
@@ -89,7 +89,7 @@ export class ArchmageMacros {
     // Prepare effect data
     let effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.attackMod.value",
         value: 1,
@@ -137,7 +137,7 @@ export class ArchmageMacros {
     // Prepare effect data
     let effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.attackMod.value",
         value: bonus,
@@ -168,7 +168,7 @@ export class ArchmageMacros {
     const bonus = actor.isMulticlass() ? "d10" : "d12";
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: bonus ,
@@ -186,7 +186,7 @@ export class ArchmageMacros {
     }
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: bonus,
@@ -252,7 +252,7 @@ export class ArchmageMacros {
     // Make new effect
     let effectData = {
       name: name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [
         { key: "system.attributes.critMod.atk.value", value: bonus + prev, type: "add" },
       ]};
@@ -360,7 +360,7 @@ export class ArchmageMacros {
 
     const effectData = {
       name: name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: game.archmage.MacroUtils.scaleDiceUp(actor.system.attributes.weapon.melee.dice),
@@ -374,6 +374,45 @@ export class ArchmageMacros {
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
     await game.archmage.MacroUtils.transformToken(doc, dragonImg, dragonScale);
+  }
+
+  ////////////////////////////////////////////////
+  /**
+   * Ranger Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * Skirmisher.
+   */
+  static async rangerSkirmisher(speaker, actor, token, character, archmage) {
+    if (!actor) return;
+
+    // Only works during combat.
+    const combat = game.combat;
+    if (!combat) {
+      ui.notifications.warn(game.i18n.localize("COMBAT.NoneActive"));
+      return;
+    }
+
+    // Find this actor in the initiative order, counting any extra turn it already has.
+    // Bail out unless there's exactly one entry and it's the real combatant, which also
+    // stops the power from stacking with itself.
+    const entries = combat.combatants.filter(c =>
+      c.actor?.uuid === actor.uuid || c.flags.archmage?.skirmisherFor === actor.uuid);
+    if (entries.length !== 1 || !entries[0].actor) return;
+
+    const initiative = entries[0].initiative;
+    if (initiative === null || initiative === undefined) return;
+
+    // Add a pseudo-combatant rather than a copy of the real one, to avoid triggering
+    // per-combatant effects (command points, turn effects, lifecycle macros) twice.
+    game.archmage.MacroUtils.addPseudoCombatant({
+      name: `${actor.name} (${archmage.item.name})`,
+      img: archmage.item.img,
+      initiative: initiative / 2,
+      flags: {archmage: {skirmisherFor: actor.uuid}}
+    }, combat);
   }
 
   ////////////////////////////////////////////////
@@ -397,7 +436,7 @@ export class ArchmageMacros {
     bonus = Number(bonus[1]);
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.hp.extra",
         value: bonus,
@@ -451,7 +490,7 @@ export class ArchmageMacros {
     const rollData = actor.getRollData();
     const effectData = {
       name: archmage.item.name,
-      icon: archmage.item.img,
+      img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
         value: `+${rollData.lvl}-${rollData.atk.m.bonus}`, // replace item bonus with level

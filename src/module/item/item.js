@@ -221,7 +221,7 @@ export class ItemArchmage extends Item {
       const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower", {power: this.name, target: this.system.sustainOn.value});
       if (this.itemActor?.effects) {
         this.itemActor.effects.forEach(e => {
-          if (e.label == name) hasReminder = true;
+          if (e.name == name) hasReminder = true;
         });
       }
 
@@ -448,7 +448,7 @@ export class ItemArchmage extends Item {
         }
 
         // Bravado
-        if (res.perCombat.bravado.enabled && num &&
+        else if (res.perCombat.bravado.enabled && num &&
             str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.bravado").toLowerCase()) {
           let path = 'system.resources.perCombat.bravado.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughBravado");
@@ -499,7 +499,7 @@ export class ItemArchmage extends Item {
   async _rollCritMod(itemToRender) {
     let res = 0;
     let mod = itemToRender.system.critMod?.value;
-    if (!mod) res;
+    if (!mod) return res;
 
     // Handle inline rolls
     let ir = INLINE_ROLL_REGEX.exec(mod);
@@ -802,7 +802,7 @@ export class ItemArchmage extends Item {
     // Now create new AC bonus effect
     let effectData = {
       name: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
-      icon: "icons/svg/shield.svg",
+      img: "icons/svg/shield.svg",
       changes: [{
         key: "system.attributes.ac.value",
         value: bonusMagnitude,
@@ -951,7 +951,7 @@ export class ItemArchmage extends Item {
 
       if (!game.user.hasPermission("MACRO_SCRIPT")) {
         ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
-        return false;
+        return macro_data;
       }
 
       // Add variables to the evaluation scope
@@ -984,7 +984,7 @@ export class ItemArchmage extends Item {
    */
   async recharge({createMessage=true}={}) {
     // Only update for recharge powers/items.
-    if (!this.system?.powerUsage?.value == 'recharge') return;
+    if (this.system?.powerUsage?.value !== 'recharge') return;
     // Only update for owned items.
     if (!this.actor) return;
 
@@ -1014,7 +1014,7 @@ export class ItemArchmage extends Item {
       // Basic chat message data
       const chatData = {
         user: game.user.id,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        type: CONST.CHAT_MESSAGE_STYLES.ROLL,
         roll: roll,
         speaker: game.archmage.ArchmageUtility.getSpeaker(actor),
       };

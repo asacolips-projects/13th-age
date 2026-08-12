@@ -534,7 +534,7 @@ export class ArchmageUtility {
     }
     // Remove unnecessary newlines common to PDFs.
     let parsedText = pastedText.replace(/-[\r\n]+([^.])/g, '-$1'); // Hyphens get collapsed
-    parsedText = pastedText.replace(/[\r\n]+([^.])/g, ' $1'); // Other newlines get replaced with spaces
+    parsedText = parsedText.replace(/[\r\n]+([^.])/g, ' $1'); // Other newlines get replaced with spaces
     // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
     // "Natural __16__" and "Easy Save, __6__". It's messy, but it
     // prevents false positives in later steps.
@@ -725,6 +725,8 @@ export class MacroUtils {
     if (!game.combat) return res;
     const combatants = [...game.combat.combatants.values()];
     combatants.forEach(c => {
+      // Pseudo combatants have no token.
+      if (!c.token) return;
       if ((c.token.isLinked || c.token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY) && c.token.actor.uuid != selfUuid) {
         res.push(c.token);
       }
@@ -748,6 +750,39 @@ export class MacroUtils {
         t.actor.createEmbeddedDocuments("ActiveEffect", effects);
       });
     }
+  }
+
+  /**
+   * Add a pseudo-combatant - an entry in the initiative order with no actor or token
+   * behind it - to a combat, via a message to the GM's account to bypass permissions
+   * if needed. The entry is removed automatically at the end of the round it was
+   * created in.
+   */
+  static addPseudoCombatant(data, combat = game.combat) {
+    if (!combat) return false;
+    if (game.user.isGM) return MacroUtils.createPseudoCombatant(combat.id, data);
+    game.socket.emit('system.archmage', {
+      type: 'pseudoCombatant',
+      combatId: combat.id,
+      data: data
+    });
+    return true;
+  }
+
+  /**
+   * GM-side half of addPseudoCombatant(), actually creating the combatant.
+   */
+  static async createPseudoCombatant(combatId, data) {
+    const combat = game.combats.get(combatId);
+    if (!combat) return false;
+    const combatantData = foundry.utils.mergeObject({
+      actorId: null,
+      tokenId: null,
+      hidden: false
+    }, data);
+    // Expire at the end of the round it was created in.
+    foundry.utils.setProperty(combatantData, 'flags.archmage.expireAfterRound', combat.round);
+    return combat.createEmbeddedDocuments("Combatant", [combatantData]);
   }
 
   /**
