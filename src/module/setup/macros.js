@@ -336,8 +336,30 @@ export class ArchmageMacros {
    */
 
   static async paladinGreatDragonIncarnation(speaker, actor, token, character, archmage) {
+    if (!actor) return;
+    const name = archmage.item.name;
+    const dragonImg = "systems/archmage/assets/icons/tokens/monsters/dragon-gold.webp";
+    const dragonScale = 3;
+
+    // The macro may receive either a placeable or a token document.
+    const doc = token?.document ?? token ?? null;
+
+    // Toggling back: restore the token and clear the effect this macro created.
+    // The stored appearance is the source of truth, so this still works if the
+    // effect already expired at the end of combat. The texture check catches
+    // tokens transformed before the appearance was being recorded.
+    if (game.archmage.MacroUtils.isTokenTransformed(doc) || doc?.texture?.src == dragonImg) {
+      archmage.suppressMessage = true;
+      const aes = actor.effects.filter(e => e.name == name);
+      if (aes.length > 0) {
+        await actor.deleteEmbeddedDocuments("ActiveEffect", aes.map(e => e.id));
+      }
+      await game.archmage.MacroUtils.restoreToken(doc);
+      return;
+    }
+
     const effectData = {
-      name: archmage.item.name,
+      name: name,
       img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
@@ -351,6 +373,7 @@ export class ArchmageMacros {
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await game.archmage.MacroUtils.transformToken(doc, dragonImg, dragonScale);
   }
 
   ////////////////////////////////////////////////
