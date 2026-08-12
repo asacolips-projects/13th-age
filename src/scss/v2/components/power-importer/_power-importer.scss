@@ -1,14 +1,16 @@
 // The power importer reuses the character sheet's power rows, so it needs very
-// little of its own: room to scroll, headings between the groups, the checkbox
-// that marks a power for import, and a footer to confirm with.
+// little of its own: headings between the groups, the checkbox that marks a
+// power for import, and a footer to confirm with.
+
+// The tab inside this is a .container--bottom, which the sheet styles pin to
+// `height: 100%; overflow: hidden`. Scrolling therefore has to happen further
+// in, on the .section--main that each class' listing is, the same way the
+// compendium browser does it. All this needs is to be allowed to shrink.
 .power-importer-content {
-  overflow-y: auto;
-  flex: 1;
+  min-height: 0;
 }
 
 .power-importer-class {
-  padding-right: $padding-md;
-
   .power-group + .power-group {
     margin-top: $padding-lg;
   }

@@ -1,5 +1,5 @@
 <template>
-  <section class="section section--powers flexcol power-importer-class">
+  <section class="section section--powers section--main flexcol power-importer-class">
     <!-- The class' journal page, when there is one. -->
     <div v-if="tab.classContent" class="class-content" v-html="tab.classContent"></div>
 
