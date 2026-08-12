@@ -34,7 +34,7 @@
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
-      <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="`power-feat ${feat.isActive.value || includeTitle ? 'active' : ''}`">
+      <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="`power-feat ${feat.isActive.value || featsActive ? 'active' : ''}`">
         <strong class="feat-detail-label">{{localize(`ARCHMAGE.CHAT.${feat.tier?.value}`)}}:</strong>
         <div class="flexrow">
           <div v-if="enriched" class="power-detail-content" v-html="enriched[`feat.${index}`].enriched"></div>
@@ -58,10 +58,12 @@ import Enriched from '@/components/parts/Enriched.vue';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 export default {
   name: 'Power',
-  // all-levels lists every per-level entry of a spell regardless of the power's
-  // level, for listings that preview what a power can do rather than what it
-  // currently does.
-  props: ['power', 'actor', 'context', 'include-title', 'enriched', 'all-levels'],
+  // Listings that preview what a power can do, rather than what it currently
+  // does for its owner, have two things to say about that:
+  //   all-levels   lists every per-level entry of a spell, whatever its level.
+  //   feats-active renders every feat as though it had been taken, so that they
+  //                read as legibly as the rest of the power.
+  props: ['power', 'actor', 'context', 'include-title', 'enriched', 'all-levels', 'feats-active'],
   components: {
     Enriched,
     PowerSummaryRow

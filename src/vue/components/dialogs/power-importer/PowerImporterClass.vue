@@ -19,7 +19,7 @@
               <template #image>
                 <img :src="row.power.img" class="power-image" :alt="row.power.name"/>
               </template>
-              <PowerFeatPips v-if="hasFeats(row.power)" :feats="row.power.system.feats" :all-active="true"/>
+              <PowerFeatPips v-if="hasFeats(row.power)" :feats="row.power.system.feats"/>
               <div class="power-action" v-if="row.power.system.actionType.value">{{getActionShort(row.power.system.actionType.value)}}</div>
               <div class="power-recharge" v-if="row.power.system.recharge.value && ['recharge', 'recharge-desperate'].includes(row.power.system.powerUsage.value)">{{Number(row.power.system.recharge.value) || 16}}+</div>
               <div class="item-controls power-import-select">
@@ -31,7 +31,7 @@
             <!-- Expanded power content. -->
             <div class="power-content" :class="expanded[row.id] ? 'active' : ''">
               <Transition name="slide-fade">
-                <Power v-if="expanded[row.id]" :power="row.power" :actor="false" :context="context" :all-levels="true"/>
+                <Power v-if="expanded[row.id]" :power="row.power" :actor="false" :context="context" :all-levels="true" :feats-active="true"/>
               </Transition>
             </div>
           </li>

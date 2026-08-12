@@ -118,7 +118,7 @@
               <!-- Second row is supplemental info. -->
               <div class="grid power-grid">
                 <div v-if="entry.system.trigger.value" class="power-trigger"><strong>Trigger:</strong> {{ entry.system.trigger.value }}</div>
-                <PowerFeatPips v-if="hasFeats(entry)" :feats="entry.system.feats" :all-active="true"/>
+                <PowerFeatPips v-if="hasFeats(entry)" :feats="entry.system.feats"/>
                 <div class="power-recharge" :data-tooltip="localize('ARCHMAGE.recharge')" v-if="entry.system.recharge.value && ['recharge', 'recharge-desperate'].includes(entry.system.powerUsage.value)">{{Number(entry.system.recharge.value) || 16}}+</div>
                 <div class="power-action" :data-tooltip="localize('ARCHMAGE.CHAT.actionTYpe')" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
               </div>
