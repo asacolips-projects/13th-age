@@ -76,13 +76,7 @@ export default {
       CONFIG,
     }
   },
-  data() {
-    return {}
-  },
   computed: {
-    constants() {
-      return CONFIG.ARCHMAGE;
-    },
     diceFormulaMode() {
       return this.actor?.flags?.archmage?.diceFormulaMode ?? 'short';
     },
@@ -114,7 +108,6 @@ export default {
         return null;
       }
     }
-  },
-  async mounted() {}
+  }
 }
 </script>

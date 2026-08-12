@@ -170,8 +170,6 @@ export default {
       startDrag,
       // Foundry base props and methods.
       CONFIG,
-      game,
-      getDocumentClass
     }
   },
   data() {
@@ -248,9 +246,6 @@ export default {
       // List of locations from the selected entries
       const locations = new Set(this.packIndex.map(entry => entry.compendiumTitle));
       return Array.from(locations).sort();
-    },
-    nightmode() {
-      return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
     entries() {
       // Build our results array. Exit early if the length is 0.

@@ -31,7 +31,7 @@
 					</PowerSummaryRow>
 					<div class="power-content" :class="[$style.fullwidth, row.expanded ? 'active' : '']">
 						<Transition name="slide-fade">
-							<Power v-if="row.expanded" :actor="actor" :power="row.power" :context="context" :flags="flags"
+							<Power v-if="row.expanded" :actor="actor" :power="row.power" :context="context"
 								:ref="`power--${row.power._id}`" />
 						</Transition>
 					</div>

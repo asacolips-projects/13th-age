@@ -23,6 +23,8 @@ function escalationValue(actor, escalationDie) {
 /**
  * The usage a power is currently being used at.
  *
+ * Module-private: callers want a class, not a usage string.
+ *
  * Powers with a secondary pool of uses fall back to it once the primary pool
  * runs out, such as the paladin's Smite Evil ("once per battle, plus an
  * additional [[@cha.mod]] times per day").
@@ -31,7 +33,7 @@ function escalationValue(actor, escalationDie) {
  *
  * @returns {string|undefined}
  */
-export function activePowerUsage(power) {
+function activePowerUsage(power) {
   return hasSecondaryUsage(power) && !(power.system.quantity?.value > 0)
     ? power.system.powerUsageSecondary.value
     : power.system.powerUsage?.value;
@@ -62,7 +64,7 @@ export function hasSecondaryUsage(power) {
  *
  * @returns {string}
  */
-export function powerUsageColorClass(usage, actor = null, {escalationDie = null} = {}) {
+function powerUsageColorClass(usage, actor = null, {escalationDie = null} = {}) {
   let use = usage ? usage : 'other';
   if (['daily', 'daily-desperate'].includes(use)) return 'daily';
   if (['recharge', 'recharge-desperate'].includes(use)) return 'recharge';
@@ -113,7 +115,6 @@ export function powerUsageClass(power, actor = null, options = {}) {
 
   const active = powerUsageColorClass(activeUsage, actor, options);
   const classes = [active];
-  if (activeUsage == 'cyclic') classes.push('cyclic');
 
   // Work out the usage the power isn't currently in, if it has one.
   let inactive = null;

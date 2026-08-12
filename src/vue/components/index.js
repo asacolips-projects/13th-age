@@ -1,6 +1,4 @@
 export { default as Power } from '@/components/parts/Power.vue';
-export { default as PowerSummaryRow } from '@/components/parts/PowerSummaryRow.vue';
-export { default as PowerFeatPips } from '@/components/parts/PowerFeatPips.vue';
 export { default as Rollable } from '@/components/parts/Rollable.vue';
 export { default as Equipment } from '@/components/parts/Equipment.vue';
 export { default as Loot } from '@/components/parts/Loot.vue';
