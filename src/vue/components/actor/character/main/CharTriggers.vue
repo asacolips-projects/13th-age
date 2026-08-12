@@ -20,15 +20,15 @@
 				<div v-for="row in group.powerRows" :key="row.power._id" class="item power-item"
 					:class="`power-item--${row.power._id}`" :data-item-id="row.power._id" data-document-class="Item"
 					data-draggable="true" draggable="true">
-					<div :class="[$style.grid, ...row.classes]" class="power-summary">
-						<Rollable name="item" :hide-icon="true" type="item" :opt="row.power._id" class="flexrow">
-							<img :src="row.power.img" class="power-icon" />
-						</Rollable>
-						<a class="power-name" @click="row.expanded = !row.expanded">
-							<h3 class="power-title unit-subtitle" :class="$style.nowrap"> {{ row.power.name }} </h3>
-						</a>
+					<PowerSummaryRow :power="row.power" :actor="actor" :grid-class="$style.grid" :trigger="false"
+						:active="row.expanded" @toggle="row.expanded = !row.expanded">
+						<template #name>
+							<a class="power-name" @click="row.expanded = !row.expanded">
+								<h3 class="power-title unit-subtitle" :class="$style.nowrap"> {{ row.power.name }} </h3>
+							</a>
+						</template>
 						<a :class="$style.nowrap" @click="row.expanded = !row.expanded">{{ row.power.system.trigger.value }}</a>
-					</div>
+					</PowerSummaryRow>
 					<div class="power-content" :class="[$style.fullwidth, row.expanded ? 'active' : '']">
 						<Transition name="slide-fade">
 							<Power v-if="row.expanded" :actor="actor" :power="row.power" :context="context" :flags="flags"
@@ -44,8 +44,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
 import Power from '@/components/parts/Power.vue';
-import Rollable from '@/components/parts/Rollable.vue';
-import { powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
+import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 
 const props = defineProps(['actor', 'context', 'tab', 'flags'])
 
@@ -59,8 +58,7 @@ const powerRows = ref([]);
 watch(powersWithTriggers, (newPowers) => {
 	powerRows.value = newPowers.map(power => ({
 		power,
-		expanded: false,
-		classes: [powerUsageClass(power, props.actor), powerAvailabilityClass(power)]
+		expanded: false
 	}))
 }, { immediate: true })
 

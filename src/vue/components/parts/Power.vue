@@ -1,11 +1,7 @@
 <template>
   <section :class="`power ${includeTitle ? 'include-title': ''}`">
     <!-- Optionally show the title bar. -->
-    <div v-if="includeTitle" :class="`power-summary grid power-grid ${powerUsageClass(power)} ${power.system.trigger.value ? 'power-summary--trigger' : ''} active`">
-      <span class="power-name" :data-item-id="power._id">
-        <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>
-      </span>
-    </div>
+    <PowerSummaryRow v-if="includeTitle" :power="power" :actor="actor" :image="false" :active="true"/>
     <!-- Group, range, and quick info. -->
     <header class="power-header flexcol">
       <strong v-if="power.system.group.value">{{power.system.group.value}}</strong>
@@ -55,14 +51,16 @@
 </template>
 
 <script>
-import { filterFeats, localize, powerUsageClass } from '@/methods/Helpers';
+import { filterFeats, localize } from '@/methods/Helpers';
 import { isPowerFieldVisible, powerFieldKeys } from '@src/module/item/power-fields.mjs';
 import Enriched from '@/components/parts/Enriched.vue';
+import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 export default {
   name: 'Power',
   props: ['power', 'actor', 'context', 'include-title', 'enriched'],
   components: {
-    Enriched
+    Enriched,
+    PowerSummaryRow
   },
   setup() {
     return {
@@ -109,14 +107,6 @@ export default {
       catch (error) {
         return null;
       }
-    }
-  },
-  methods: {
-    /**
-     * Compute CSS class to assign based on special usage
-     */
-     powerUsageClass(power) {
-      return powerUsageClass(power, this.actor);
     }
   },
   async mounted() {}

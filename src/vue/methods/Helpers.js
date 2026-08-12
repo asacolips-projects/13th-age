@@ -78,6 +78,7 @@ export function getActionShort(actionType) {
 // same way. Re-exported here because Vue components import their helpers from
 // this module.
 export {
+  hasSecondaryUsage,
   powerAvailabilityClass,
   powerUsageClass,
 } from '@src/module/item/power-usage.mjs';

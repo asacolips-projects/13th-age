@@ -98,29 +98,33 @@
     <section class="section section--powers section--main flexcol">
       <ul v-if="loaded" class="compendium-browser-results compendium-browser-powers" :key="escalation">
         <!-- Individual powers entries. -->
-        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${powerUsageClass(entry)} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid, 'Item')" :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
+        <PowerSummaryRow v-for="(entry, entryKey) in entries" :key="entryKey"
+          tag="li" :power="entry" :escalation-die="escalation" :trigger="false" grid-class=""
+          :row-class="`compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`"
+          :data-document-id="entry._id" @click="openDocument(entry.uuid, 'Item')"
+          :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
           <!-- Both the image and title have drag events. These are primarily separated so that -->
           <!-- if a user drags the token, it will only show the token as their drag preview. -->
-          <img :src="entry.img" @dragstart="startDrag($event, entry, 'Item')" draggable="true"/>
-          <div class="flexcol power-contents" @dragstart="startDrag($event, entry, 'Item')" draggable="true">
-            <!-- First row is the title and class/source. -->
-            <div class="power-title-wrapper">
-              <strong class="power-title"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
-              <strong class="power-source" v-if="entry.system.powerSourceName.value">{{ entry.system.powerSourceName.value }}</strong>
-            </div>
-            <!-- Second row is supplemental info. -->
-            <div class="grid power-grid">
-              <div v-if="entry.system.trigger.value" class="power-trigger"><strong>Trigger:</strong> {{ entry.system.trigger.value }}</div>
-              <div class="power-feat-pips" :data-tooltip="localize('ARCHMAGE.feats')" v-if="hasFeats(entry)">
-                <ul class="feat-pips">
-                  <li v-for="(feat, tier) in filterFeats(entry.system.feats)" :key="tier" :class="`feat-pip active`"></li>
-                </ul>
+          <template #image>
+            <img :src="entry.img" @dragstart="startDrag($event, entry, 'Item')" draggable="true"/>
+          </template>
+          <template #name>
+            <div class="flexcol power-contents" @dragstart="startDrag($event, entry, 'Item')" draggable="true">
+              <!-- First row is the title and class/source. -->
+              <div class="power-title-wrapper">
+                <strong class="power-title"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
+                <strong class="power-source" v-if="entry.system.powerSourceName.value">{{ entry.system.powerSourceName.value }}</strong>
               </div>
-              <div class="power-recharge" :data-tooltip="localize('ARCHMAGE.recharge')" v-if="entry.system.recharge.value && ['recharge', 'recharge-desperate'].includes(entry.system.powerUsage.value)">{{Number(entry.system.recharge.value) || 16}}+</div>
-              <div class="power-action" :data-tooltip="localize('ARCHMAGE.CHAT.actionTYpe')" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
+              <!-- Second row is supplemental info. -->
+              <div class="grid power-grid">
+                <div v-if="entry.system.trigger.value" class="power-trigger"><strong>Trigger:</strong> {{ entry.system.trigger.value }}</div>
+                <PowerFeatPips v-if="hasFeats(entry)" :feats="entry.system.feats" :all-active="true"/>
+                <div class="power-recharge" :data-tooltip="localize('ARCHMAGE.recharge')" v-if="entry.system.recharge.value && ['recharge', 'recharge-desperate'].includes(entry.system.powerUsage.value)">{{Number(entry.system.recharge.value) || 16}}+</div>
+                <div class="power-action" :data-tooltip="localize('ARCHMAGE.CHAT.actionTYpe')" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
+              </div>
             </div>
-          </div>
-        </li>
+          </template>
+        </PowerSummaryRow>
       </ul>
       <div v-else class="compendium-browser-loading"><p><i class="fas fa-circle-notch fa-spin"></i>Please wait, loading...</p></div>
     </section>
@@ -135,28 +139,30 @@ import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
 // Helper methods.
 import {
-  filterFeats,
   getActionShort,
   getPackIndex,
   hasFeats,
   localize,
   openDocument,
-  powerUsageClass,
   startDrag,
 } from '@/methods/Helpers.js';
+// Local components.
+import PowerFeatPips from '@/components/parts/PowerFeatPips.vue';
+import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 
 export default {
   name: 'CompendiumBrowserPowers',
   props: ['tab', 'escalation'],
   // Imported components that need to be available in the <template>
   components: {
+    PowerFeatPips,
+    PowerSummaryRow,
     Slider,
     Multiselect
   },
   setup() {
     return {
       // Imported methods that need to be available in the <template>
-      filterFeats,
       getActionShort,
       hasFeats,
       localize,
