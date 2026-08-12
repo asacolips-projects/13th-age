@@ -149,7 +149,21 @@ export async function handleRoundEffects(combat, context, options) {
 }
 
 export async function combatRound(combat, context, options) {
+    await expirePseudoCombatants(combat, context);
     await combatTurn(combat, context, options);
+}
+
+/**
+ * Remove pseudo-combatants whose round has elapsed.
+ * Only the active GM performs the deletion, both for permissions and to avoid duplicate updates.
+ */
+export async function expirePseudoCombatants(combat, context) {
+    if (game.users.activeGM?.id !== game.user.id) return;
+    const expired = combat.combatants
+        .filter(c => typeof c.flags.archmage?.expireAfterRound === 'number'
+                  && c.flags.archmage.expireAfterRound < context.round)
+        .map(c => c.id);
+    if (expired.length) await combat.deleteEmbeddedDocuments("Combatant", expired);
 }
 
 export async function preDeleteCombat(combat, context, options) {
@@ -164,6 +178,9 @@ export async function preDeleteCombat(combat, context, options) {
 
     // Remove all battle effects
     for (const combatant of combat.combatants) {
+        // Pseudo combatants may not have an actor or a token.
+        if (!combatant.actor || !combatant.token) continue;
+
         let effectsToDelete = [];
 
         if (combatant.token.isLinked) {
@@ -305,6 +322,9 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
 }
 
 async function executeLifecycleMacro(combatant, hookName) {
+    // Pseudo combatants may not have an actor.
+    if (!combatant?.actor) return;
+
     // If this isn't the actor's player, emit a socket request for that player to execute the hook
     if (game.user?.character?.id !== combatant.actor?.id) {
         return game.socket.emit('system.archmage', {
