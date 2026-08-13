@@ -279,18 +279,24 @@
     // two swap over when the power changes mode. The 45 degree cut follows the
     // direction of the usage gradients themselves.
     //
-    // The band reaches far enough left for that cut to fall on the middle of
-    // the uses column: the item controls (64px, plus the 2px grid gap) and half
-    // of the 44px uses column, doubled because the mask below is centred on the
-    // element. So the cut passes through the "-" between a power's two pools of
-    // uses, or halves the single counter of a cyclic power.
-    //
     // The edge is a masked hard stop rather than a clip-path polygon so that it
     // stays a true 45 degrees whatever the row height works out to be.
     //
     // Drawn with ::before so the "spent" hatching on ::after still paints over
     // the whole row, band included.
     &.alt-usage {
+      // The cut is centred inside the 64px item controls column, short of the
+      // uses column, which starts 66px in (those controls, plus the 2px grid
+      // gap). Because the cut is a diagonal, its lower end reaches further left
+      // than its centre by half the row height, so the 63px here keeps even that
+      // end off the counters for rows up to 63px tall. Half-spent powers hatch
+      // the band, and the hatching has to stay clear of both pools of uses.
+      //
+      // Doubled for the width, as the mask below is centred on the element.
+      $band-cut: 63px;
+      $band-width: $band-cut * 2;
+      $band-mask: linear-gradient(135deg, transparent calc(50% - 0.5px), #000 calc(50% + 0.5px));
+
       &::before {
         display: block;
         content: '';
@@ -298,10 +304,29 @@
         top: 0;
         right: 0;
         bottom: 0;
-        width: (64px + 2px + 22px) * 2;
-        mask-image: linear-gradient(135deg, transparent calc(50% - 0.5px), #000 calc(50% + 0.5px));
-        -webkit-mask-image: linear-gradient(135deg, transparent calc(50% - 0.5px), #000 calc(50% + 0.5px));
+        width: $band-width;
+        mask-image: $band-mask;
+        -webkit-mask-image: $band-mask;
         pointer-events: none;
+      }
+
+      // A power that has run through its primary pool but still has secondary
+      // uses left is half spent: the row has swapped over to the secondary
+      // usage's colour, and the band now carries the exhausted primary usage's
+      // one. Hatch that band alone, by masking the row's hatching to the same
+      // shape. Everything outside the mask box is left unpainted, so the rest of
+      // the row stays clear until both pools run out and '.unavailable' hatches
+      // the lot.
+      &.alt-usage--spent:not(.unavailable)::after {
+        opacity: 0.3;
+        mask-image: $band-mask;
+        mask-size: $band-width 100%;
+        mask-position: right;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: $band-mask;
+        -webkit-mask-size: $band-width 100%;
+        -webkit-mask-position: right;
+        -webkit-mask-repeat: no-repeat;
       }
 
       &.alt-usage--at-will::before { background: $c-power-will; }
@@ -310,7 +335,8 @@
       &.alt-usage--recharge::before { background: $c-power-recharge; }
       &.alt-usage--other::before { background: $c-power-other; }
 
-      // The band now spans whole columns, so the cells it reaches have to paint
+      // The band spans the controls column, and would spill into the ones before
+      // it on an unusually tall row, so the cells it can reach have to paint
       // above it. Positioning them is enough: ::before comes first in tree
       // order. The name cell is deliberately left alone, as it relies on not
       // being a containing block when its title expands on hover.
