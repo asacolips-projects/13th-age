@@ -134,10 +134,12 @@ export function powerUsageClass(power, actor = null, options = {}) {
  * Compute the CSS class marking a power as spent.
  *
  * A power with a secondary pool of uses is only unavailable once both pools are
- * empty. Until then, running the primary pool dry marks it as half spent: the
- * row swaps over to the secondary usage's colour, and the band left carrying the
- * primary usage's colour takes the spent hatching on its own. Cyclic powers have
- * no second pool to fall back on, so they never reach this state.
+ * empty. Until then, emptying one of the two marks it as half spent: the row is
+ * coloured for the pool it's still drawing on, and the band carries the colour
+ * of the other one, so hatching the band alone reads as "the pool that one
+ * stands for is out". That holds whichever of the two ran dry, since the row and
+ * the band swap over when the primary pool empties. Cyclic powers have no second
+ * pool to fall back on, so they never reach this state.
  *
  * @param {object} power Power item data.
  *
@@ -148,6 +150,6 @@ export function powerAvailabilityClass(power) {
   const secondary = power.system?.quantitySecondary?.value;
   if (primary == null && secondary == null) return '';
   if (((primary ?? 0) + (secondary ?? 0)) === 0) return 'unavailable';
-  if (hasSecondaryUsage(power) && !(primary > 0)) return 'alt-usage--spent';
+  if (hasSecondaryUsage(power) && (!(primary > 0) || !(secondary > 0))) return 'alt-usage--spent';
   return '';
 }

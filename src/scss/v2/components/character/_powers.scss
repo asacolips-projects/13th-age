@@ -310,13 +310,12 @@
         pointer-events: none;
       }
 
-      // A power that has run through its primary pool but still has secondary
-      // uses left is half spent: the row has swapped over to the secondary
-      // usage's colour, and the band now carries the exhausted primary usage's
-      // one. Hatch that band alone, by masking the row's hatching to the same
-      // shape. Everything outside the mask box is left unpainted, so the rest of
-      // the row stays clear until both pools run out and '.unavailable' hatches
-      // the lot.
+      // A power that has emptied one of its two pools but not the other is half
+      // spent, and the band is always the one standing for the pool it isn't
+      // currently drawing on. So hatch the band alone, by masking the row's
+      // hatching to the same shape. Everything outside the mask box is left
+      // unpainted, so the rest of the row stays clear until both pools run out
+      // and '.unavailable' hatches the lot.
       &.alt-usage--spent:not(.unavailable)::after {
         opacity: 0.3;
         mask-image: $band-mask;
