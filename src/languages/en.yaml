@@ -239,8 +239,6 @@ ARCHMAGE:
     allowPasteParsingName: Paste Roll Parsing
     hideExtraRollsHint: If enabled, powers with multiple attack rolls will display at most one attack per targeted token if any is targeted.
     hideExtraRollsName: Limit extra rolls to targeted tokens
-    hideInsteadOfOpaqueHint: Enable this if you prefer not seeing inactive details at all.
-    hideInsteadOfOpaqueName: Hide inactive Features / Triggers instead of making them faded-out
     initiativeDexTiebreakerHint: If enabled initiative ties will be resolved using the initiative modifier; if not, monsters win by default.
     initiativeDexTiebreakerName: Initiative Modifier as Tiebreaker
     initiativeStaticNpcHint: If enabled NPC actors will always 'take 10' on initiative rolls.

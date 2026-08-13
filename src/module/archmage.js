@@ -428,15 +428,6 @@ Hooks.once('init', async function() {
     config: true
   });
 
-  game.settings.register("archmage", "hideInsteadOfOpaque", {
-    name: "ARCHMAGE.SETTINGS.hideInsteadOfOpaqueName",
-    hint: "ARCHMAGE.SETTINGS.hideInsteadOfOpaqueHint",
-    scope: "world",
-    type: Boolean,
-    default: false,
-    config: true
-  });
-
   game.settings.register("archmage", "enableOngoingEffectsMessages", {
     name: "ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesName",
     hint: "ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesHint",
@@ -1019,7 +1010,6 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
         'hideExtraRolls',
         'showDefensesInChat',
         'showVulnsInChat',
-        'hideInsteadOfOpaque',
         'roundUpDamageApplication',
         'allowTargetDamageApplication',
         'allowRerolls',
