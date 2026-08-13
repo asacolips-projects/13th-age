@@ -408,7 +408,7 @@ export class ArchmageMacros {
     // Add a pseudo-combatant rather than a copy of the real one, to avoid triggering
     // per-combatant effects (command points, turn effects, lifecycle macros) twice.
     game.archmage.MacroUtils.addPseudoCombatant({
-      name: `${actor.name} (${archmage.item.name})`,
+      name: `${token?.name || actor.name} (${archmage.item.name})`,
       img: archmage.item.img,
       initiative: initiative / 2,
       flags: {archmage: {skirmisherFor: actor.uuid}}
