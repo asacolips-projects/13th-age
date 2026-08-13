@@ -157,46 +157,6 @@ export class ArchmagePrepopulate {
   }
 
   /**
-   * Retrieve CSS classes for each power type.
-   *
-   * @param {string} inputString
-   *
-   * @returns {array}
-   *   Returns an array with key 0 as the usage string, and key 1 as the
-   *   recharge value.
-   */
-  getPowerClasses(inputString) {
-    // Get the appropriate usage.
-    let usage = 'other';
-    let recharge = 0;
-    let usageString = inputString !== null ? inputString.toLowerCase() : '';
-    if (usageString.includes('will')) {
-      usage = 'at-will';
-    }
-    else if (usageString.includes('recharge')) {
-      usage = 'recharge';
-      if (usageString.includes('16')) {
-        recharge = 16;
-      }
-      else if (usageString.includes('11')) {
-        recharge = 11;
-      }
-      else if (usageString.includes('6')) {
-        recharge = 6;
-      }
-    }
-    else if (usageString.includes('battle')
-      || usageString.includes('cyclic')) {
-      usage = 'once-per-battle';
-    }
-    else if (usageString.includes('daily')) {
-      usage = 'daily';
-    }
-
-    return [usage, recharge];
-  }
-
-  /**
    * Retrieve sorted powers from pack.
    *
    * @param {array} powersArray
@@ -236,22 +196,14 @@ export class ArchmagePrepopulate {
         ];
         return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
       })
-      // Return a simplified data object.
+      // Return a simplified data object. The power itself is passed along as
+      // plain data, which is what the sheets' power renderer takes.
       .map(async p => {
-        let chatData = await p.getChatData();
-        chatData.feats.forEach(f => {
-          f.isActive = true;
-        });
-
         return {
-          uuid: p._id,
-          title: p.name,
-          usage: p.system.powerUsage.value,
-          usageClass: p.system.powerUsage.value ? this.getPowerClasses(p.system.powerUsage.value)[0] : 'other',
+          id: p.id,
+          power: p.toObject(false),
           powerType: p.system.powerType.value,
           level: p.system.powerLevel.value,
-          powerData: p,
-          powerCard: chatData,
           // selected: p.system.powerType.value === 'feature'
             // && ['class', 'race'].includes(p.system.powerSource.value)
             // && !actorPowers.includes(p.system.powerOriginName.value)
@@ -263,18 +215,13 @@ export class ArchmagePrepopulate {
       })
     );
 
-    // Rearrange the powers into groups by type.
-    let powersByGroup = [];
-    powersByGroup = foundry.utils.duplicate(preSorted).reduce((powerGroup, power) => {
+    // Rearrange the powers into groups by type, then by level within a group.
+    const powersByGroup = preSorted.reduce((powerGroup, power) => {
       if (power.powerType) {
         let group = power.powerType ? power.powerType : 'other';
         let level = power.level ?? 1;
-        if (!powerGroup[group]) {
-          powerGroup[group] = [];
-        }
-        if (!powerGroup[group][level]) {
-          powerGroup[group][level] = [];
-        }
+        powerGroup[group] ??= {};
+        powerGroup[group][level] ??= [];
         powerGroup[group][level].push(power);
       }
       return powerGroup;
@@ -290,102 +237,68 @@ export class ArchmagePrepopulate {
       'other'
     ];
 
-    let sorted = Object.keys(powersByGroup)
-    // Sort them based on the sorting array.
-    .sort((a,b) => {
-      return groupSortingArray.indexOf(a) - groupSortingArray.indexOf(b);
-    })
-    // Build a new object from the sorted keys.
-    .reduce(
-      (obj, key) => {
-        obj[key] = powersByGroup[key];
-        return obj;
-      }, {}
-    );
-
-    return sorted;
+    return Object.keys(powersByGroup)
+      // Sort them based on the sorting array.
+      .sort((a, b) => groupSortingArray.indexOf(a) - groupSortingArray.indexOf(b))
+      // Flatten each group's levels into an ordered array, so that the listing
+      // doesn't have to walk a sparse object keyed by level.
+      .map(type => ({
+        type: type,
+        levels: Object.keys(powersByGroup[type])
+          .sort((a, b) => Number(a) - Number(b))
+          .map(level => ({level: Number(level), powers: powersByGroup[type][level]}))
+      }));
   }
 
   /**
-   * Render a class' power page.
-   *
-   * @param {object} classData
-   *   Object of class data with the keys powers, name, classContent, and
-   *   machineName.
-   *
-   * @returns {string}
-   *   Rendered template.
-   */
-  async renderPowerPage(classData) {
-    let template = `systems/archmage/templates/prepopulate/powers--list.html`;
-    let templateData = {
-      powers: classData.powers,
-      className: classData.name,
-      classContent: classData.classContent,
-      class: classData.machineName,
-      itemType: 'power'
-    };
-    return await foundry.applications.handlebars.renderTemplate(template, templateData);
-  }
-
-  /**
-   * Prepare data for rendered dialog.
+   * Gather everything the power importer needs to display.
    *
    * @param {array} classes
-   *   Array of classes to render the dialog content for, e.g. ['bard'].
+   *   Array of classes to gather powers for, e.g. ['bard'].
+   * @param {string} race
+   *   Character race.
+   * @param {object|null} actor
+   *   Actor the powers would be imported onto, used to preselect class features.
    *
-   * @returns {object|false}
-   *   Object with the keys powers, content, options, and tabs.
+   * @returns {object}
+   *   Object with a `tabs` array (one per class, each with its journal content
+   *   and its grouped powers) and a flat `powers` array of the compendium
+   *   documents the selection is resolved against.
    */
-  async renderDialog(classes = [], race = '', actor = null) {
-    let validClasses = Object.keys(CONFIG.ARCHMAGE.classList);
-    let compendiumClasses = classes.filter(a => validClasses.includes(a));
-    let classCompendiums = await this.getCompendiums(compendiumClasses, race);
+  async getImportData(classes = [], race = '', actor = null) {
+    const validClasses = Object.keys(CONFIG.ARCHMAGE.classList);
+    const compendiumClasses = classes.filter(a => validClasses.includes(a));
+    const classCompendiums = await this.getCompendiums(compendiumClasses, race);
+    const classJournals = await this.getJournals();
 
-    let classJournals = await this.getJournals();
-    let templateData = {
-      tabs: []
-    };
-
+    const tabs = [];
     for (let [classKey, classObject] of Object.entries(classCompendiums)) {
       classKey = this.cleanClassName(classKey);
-      let classPowerPage = await this.renderPowerPage({
-        powers: await this.getPowersFromPack(classObject.content, actor),
-        className: classObject.name,
-        classContent: classJournals[classKey],
-        machineName: classKey
-      });
-      templateData.tabs.push({
-        name: classObject.name,
+      tabs.push({
         key: classKey,
-        content: classPowerPage,
+        label: classObject.name,
+        classContent: classJournals[classKey] ?? '',
+        powerGroups: await this.getPowersFromPack(classObject.content, actor),
+        active: false,
+        opened: false
       });
     }
 
-    templateData.showTabs = templateData.tabs.length > 1;
+    // Prefer opening on a real class rather than a grab-bag tab such as the
+    // general feats.
+    const defaultTab = tabs[1] && !validClasses.includes(tabs[0].key)
+      ? tabs[1].key
+      : tabs[0]?.key;
+    // Marked here rather than left to the tab nav, which isn't rendered at all
+    // when there's only one class to show.
+    const initial = tabs.find(tab => tab.key === defaultTab);
+    if (initial) initial.active = true;
 
-    let template = `systems/archmage/templates/prepopulate/tabs-content.html`;
-    let content = await foundry.applications.handlebars.renderTemplate(template, templateData);
-    let options = {
-      width: 1080,
-      height: 1080,
-      resizable: true,
-      classes: ['archmage-prepopulate']
-    };
-    let powers = Object.values(classCompendiums).reduce((accumulator, current) => {
+    const powers = Object.values(classCompendiums).reduce((accumulator, current) => {
       return accumulator.concat(current.content);
     }, []);
-    return {
-      powers: powers,
-      content: content,
-      options: options,
-      tabs: {
-        navSelector: '.tabs-primary',
-        contentSelector: '.tabs-primary-content',
-        initial: templateData.tabs[1] && !validClasses.includes(templateData.tabs[0].key) ? templateData.tabs[1].key : templateData.tabs[0].key,
-        callback: () => {}
-      }
-    };
+
+    return {tabs, defaultTab, powers};
   }
 }
 

@@ -1,0 +1,96 @@
+// The power importer reuses the character sheet's power rows, so it needs very
+// little of its own: headings between the groups, the checkbox that marks a
+// power for import, and a footer to confirm with.
+
+// The tab inside this is a .container--bottom, which the sheet styles pin to
+// `height: 100%; overflow: hidden`. Scrolling therefore has to happen further
+// in, on the .section--main that each class' listing is, the same way the
+// compendium browser does it. All this needs is to be allowed to shrink.
+.power-importer-content {
+  min-height: 0;
+}
+
+.power-importer-class {
+  .power-group + .power-group {
+    margin-top: $padding-lg;
+  }
+
+  // The class' journal page, when the compendium has one.
+  .class-content {
+    font-size: $font-xs;
+    padding-bottom: $padding-md;
+    border-bottom: 1px dashed $ct-border;
+  }
+
+  // Restated from the old importer, which called this out in a blue panel.
+  .prepopulate-help {
+    font-size: $font-xs;
+    margin: $padding-lg 0;
+    padding: $padding-lg;
+    background: $c-blue--25;
+    border: 1px solid $c-blue--dark;
+    border-radius: 5px;
+  }
+
+  .power-list-title {
+    margin: 0;
+    border-bottom: 2px solid;
+  }
+
+  .power-list-subtitle {
+    margin: $padding-lg 0 $padding-md;
+    font-size: $font-xs;
+    font-family: $font-stack-label;
+    text-transform: uppercase;
+  }
+
+  // Powers are laid out in two columns, as they were before the importer moved
+  // onto the sheet's components. Multi-column rather than a grid so that a long
+  // list balances itself, and so that a power expanded to show its text simply
+  // takes up more of its column.
+  .power-import-list {
+    columns: 400px 2;
+    column-gap: $padding-lg;
+
+    .power-item {
+      break-inside: avoid-column;
+      padding-bottom: $padding-md;
+    }
+  }
+
+  // Sits in the row's trailing column, where a power's controls would be.
+  .power-import-select {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+      margin: 0;
+    }
+  }
+}
+
+.power-importer-footer {
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $padding-md;
+  padding-top: $padding-md;
+  border-top: 1px solid $ct-border;
+
+  .power-importer-count {
+    flex: 1;
+    font-size: $font-xs;
+    font-family: $font-stack-label;
+  }
+
+  button {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0 $padding-lg;
+  }
+}
