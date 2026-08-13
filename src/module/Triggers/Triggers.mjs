@@ -36,10 +36,10 @@ export default class Triggers {
         let triggers_on = trigger.triggersOn();
         let doesnt_trigger_on = trigger.doesntTriggerOn();
 
-        if (triggers_on.length === 0 && !triggers_on.filter(x => triggerText.includes(x)).length > 0) {
+        if (triggers_on.length > 0 && !triggers_on.some(x => triggerText.includes(x))) {
             continue;
         }
-        if (doesnt_trigger_on.length === 0 && doesnt_trigger_on.filter(x => triggerText.includes(x)).length > 0) {
+        if (doesnt_trigger_on.some(x => triggerText.includes(x))) {
             continue;
         }
 
