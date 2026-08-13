@@ -1,22 +1,12 @@
 import ITrigger from "./ITrigger.mjs";
 
-export default class HitTrigger extends ITrigger{
-    isActive(triggerText, rollResult, hitEvaluationResults) {
-        if (hitEvaluationResults == undefined) return undefined;
-        
-        if (hitEvaluationResults.hasHit) {
-            return true;
-        }
-        else {
-            return false;
-        }
+export default class HitTrigger extends ITrigger {
+    appliesTo(label) {
+        return ITrigger.mentions(label, ITrigger.word("hit"), ["s"]);
     }
 
-    triggersOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase() ];
-    }
-
-    doesntTriggerOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.even").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.odd").toLowerCase() ];
+    test(outcome) {
+        if (outcome.hit === undefined) return undefined;
+        return outcome.hit;
     }
 }

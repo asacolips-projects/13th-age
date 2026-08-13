@@ -2037,6 +2037,20 @@ option[selected] {
   text-decoration-color: $c-miss-underline;
 }
 
+// A row whose conditions might still apply, but where something needed to decide them is
+// unknown - most often hit/miss with no target selected. Same hue as an active trigger so it
+// reads as related, but with no fill and a dashed underline: present enough to draw the eye,
+// quiet enough that it can't be mistaken for a confirmed match.
+.trigger-unknown {
+  color: $c-hit;
+  background: none;
+  border-radius: 2px;
+  text-decoration: underline dashed;
+  text-decoration-color: $c-hit-underline;
+  text-underline-offset: 2px;
+  opacity: 0.8;
+}
+
 .trigger-inactive {
   opacity: 0.3;
 }
