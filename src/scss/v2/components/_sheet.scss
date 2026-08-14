@@ -117,14 +117,21 @@ img[data-edit="img"] {
 // left is the toolbar. Give the *active* editor its own floor, so the compact
 // display styles can stay compact.
 .editor.prosemirror {
+  display: flex;
+  flex-direction: column;
   min-height: 220px;
+  padding-top: 0;
 
   // Narrow columns (the One Unique Thing unit in the sidebar, the NPC header
-  // next to the portrait) can't fit the toolbar on one line, so let it wrap and
-  // grow instead of clipping the buttons. It stays outside the flex sizing
-  // below, so extra toolbar rows add height rather than stealing writing space.
+  // next to the portrait) can't fit the toolbar on one line. Core keeps it out
+  // of the flow at a fixed one-row height and offsets the content below it, so
+  // simply letting it wrap makes the extra rows sit on top of the text. Put it
+  // back in the flow instead, and drop the offset that compensated for it: as a
+  // plain flex item its rows push the writing area down rather than over it.
   > menu,
   .editor-menu {
+    position: relative;
+    inset: auto;
     flex: 0 0 auto;
     flex-wrap: wrap;
     height: auto;
@@ -133,6 +140,8 @@ img[data-edit="img"] {
   }
 
   .editor-container {
+    margin-top: 0;
+    padding-top: 0;
     flex: 1 1 auto;
     min-height: 180px;
     overflow-y: auto;
