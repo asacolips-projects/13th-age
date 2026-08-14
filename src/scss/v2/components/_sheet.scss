@@ -109,6 +109,27 @@ img[data-edit="img"] {
   border-radius: $padding-sm;
 }
 
+// Activating an editor makes ProseMirror restructure .editor into a menu bar
+// plus an .editor-container, where the container is `flex: 1 1 0%`. That means
+// the writing area only gets a height if something above it provides one: where
+// the read-only rendering is deliberately compact (the NPC flavor text zeroes
+// the wrapper's min-height) the container collapses to nothing and all that's
+// left is the toolbar. Give the *active* editor its own floor, so the compact
+// display styles can stay compact.
+.editor.prosemirror {
+  min-height: 220px;
+
+  .editor-container {
+    flex: 1 1 auto;
+    min-height: 180px;
+    overflow-y: auto;
+  }
+
+  .editor-content {
+    min-height: 100%;
+  }
+}
+
 .tox-tinymce,
 .tox-editor-container,
 .tox-sidebar-wrap,
