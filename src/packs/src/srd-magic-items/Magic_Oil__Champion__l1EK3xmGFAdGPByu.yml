@@ -12,7 +12,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/items/potions/major-green.jpg
     name: Magic Oil (Champion, Armor)
@@ -54,7 +53,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/items/potions/major-green.jpg
     name: Magic Oil (Champion, Melee Weapon)
@@ -96,7 +94,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/items/potions/major-green.jpg
     name: Magic Oil (Champion, Ranged Weapon)
@@ -138,7 +135,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/items/potions/major-green.jpg
     name: Magic Oil (Champion, Implement)

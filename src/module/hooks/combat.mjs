@@ -1,3 +1,5 @@
+import { prepareOngoingDamage } from '../active-effects/ongoing-damage.mjs';
+
 export async function combatStart(updateData) {
     // Ensure the start-of-turn hook fires for the first combatant, combatTurn doesn't fire here
     const firstCombatant = updateData.turns[0];
@@ -48,18 +50,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     for (const effect of combatant.actor.effects) {
         if (!effect.active) continue;
         // Handle ongoing.
-        const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
-        effect.isOngoing = isOngoing;
-        const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
-        effect.isCrit = isCrit;
-        effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
-        effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
-            damage: effect.ongoingDamage,
-            type: effect.flags.archmage?.ongoingDamageType ?? '',
-        });
-        if (isCrit) {
-            effect.ongoingDamage = effect.ongoingDamage * 2;
-        }
+        prepareOngoingDamage(effect);
         // Handle durations.
         if (effect.name === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead")) isDead = true;
         const duration = effect.flags.archmage?.duration || "Unknown";
@@ -86,18 +77,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         effectsToDelete = [];
         if (otherCombatant?.actor?.effects) {
             for (const effect of otherCombatant.actor.effects) {
-                const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;;
-                effect.isOngoing = isOngoing;
-                const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
-                effect.isCrit = isCrit;
-                effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
-                effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
-                    damage: effect.ongoingDamage,
-                    type: effect.flags.archmage?.ongoingDamageType ?? '',
-                });
-                if (isCrit) {
-                    effect.ongoingDamage = effect.ongoingDamage * 2;
-                }
+                prepareOngoingDamage(effect);
                 const duration = effect.flags.archmage?.duration || "Unknown";
                 if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
                     // Ensure it's the *next* turn
@@ -195,18 +175,7 @@ export async function preDeleteCombat(combat, context, options) {
 
             for (const effect of combatant.actor.effects) {
                 if (!effect.active) continue;
-                const isOngoing = effect.flags.archmage?.ongoingDamage ? true: false;
-                effect.isOngoing = isOngoing;
-                const isCrit = isOngoing && effect.flags.archmage?.ongoingDamageCrit === true;
-                effect.isCrit = isCrit;
-                effect.ongoingDamage = isOngoing ? Number(effect.flags.archmage.ongoingDamage) : 0;
-                effect.ongoingTooltip = game.i18n.format('ARCHMAGE.CHAT.ongoingDamageTooltip', {
-                    damage: effect.ongoingDamage,
-                    type: effect.flags.archmage?.ongoingDamageType ?? '',
-                });
-                if (isCrit) {
-                    effect.ongoingDamage = effect.ongoingDamage * 2;
-                }
+                prepareOngoingDamage(effect);
                 const duration = effect.flags.archmage?.duration || "Unknown";
                 // If duration is longer than battle skip
                 if (["Infinite", "EndOfArc"].includes(duration)) continue;

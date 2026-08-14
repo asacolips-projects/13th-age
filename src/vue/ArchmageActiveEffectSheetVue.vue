@@ -89,6 +89,7 @@ import {
 } from '@/components';
 import { computed, inject, reactive, toRaw, watch } from 'vue';
 import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { roundOngoingDamage } from '@src/module/active-effects/ongoing-damage.mjs';
 
 const props = defineProps(['context']);
 const foundryEffect = inject('itemDocument')
@@ -138,7 +139,7 @@ const duration = computed(() => {
 });
 
 const ongoingDamage = computed(() => {
-  const dmg = effect.value.flags.archmage.ongoingDamage || 0
+  const dmg = roundOngoingDamage(effect.value.flags.archmage.ongoingDamage || 0)
   const type = effect.value.flags.archmage.ongoingDamageType || ''
   return `${dmg} ongoing ${type} damage`;
 });
