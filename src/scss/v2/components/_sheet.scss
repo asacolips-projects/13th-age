@@ -119,6 +119,19 @@ img[data-edit="img"] {
 .editor.prosemirror {
   min-height: 220px;
 
+  // Narrow columns (the One Unique Thing unit in the sidebar, the NPC header
+  // next to the portrait) can't fit the toolbar on one line, so let it wrap and
+  // grow instead of clipping the buttons. It stays outside the flex sizing
+  // below, so extra toolbar rows add height rather than stealing writing space.
+  > menu,
+  .editor-menu {
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
   .editor-container {
     flex: 1 1 auto;
     min-height: 180px;
