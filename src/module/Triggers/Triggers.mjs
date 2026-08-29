@@ -61,6 +61,12 @@ export default class Triggers {
    * condition it mentions has to hold - and hold for the *same* roll, otherwise a row could go
    * active on one target's parity and another target's hit.
    *
+   * A power may roll several attacks, and they are alternatives: the row applies if *any* roll
+   * satisfies it. So one roll cannot rule the row out on its own - it is only inapplicable when
+   * every roll contradicts it. A roll that contradicts nothing but cannot be confirmed either
+   * (an even natural with no target to settle the hit) leaves the row undecided rather than
+   * inactive, which is what a bare "hit" row on the same attack already reports.
+   *
    * @param {string|null} label As returned by labelOf.
    * @param {object[]} rollOutcomes HitEvaluation's per-roll outcomes.
    * @returns {boolean|undefined} true when the row applies, false when it definitely does not,
@@ -73,12 +79,15 @@ export default class Triggers {
     const conditions = this.registeredTriggers.filter(trigger => trigger.appliesTo(label));
     if (conditions.length === 0) return undefined;
 
-    let anyRuledOut = false;
-    for (const outcome of rollOutcomes ?? []) {
+    const outcomes = rollOutcomes ?? [];
+    let anyUndecided = false;
+    for (const outcome of outcomes) {
       const verdicts = conditions.map(condition => condition.test(outcome, label));
       if (verdicts.every(verdict => verdict === true)) return true;
-      if (verdicts.some(verdict => verdict === false)) anyRuledOut = true;
+      // Nothing about this roll contradicts the row, so it may yet apply to it.
+      if (!verdicts.some(verdict => verdict === false)) anyUndecided = true;
     }
-    return anyRuledOut ? false : undefined;
+    if (outcomes.length === 0 || anyUndecided) return undefined;
+    return false;
   }
 }

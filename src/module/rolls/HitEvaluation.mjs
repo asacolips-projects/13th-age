@@ -101,10 +101,12 @@ export default class HitEvaluation {
             $rolls[roll_index] = $roll_self[0];
             $rolls[roll_index].d20result = rollResult;
 
-            // Record what we know about this roll on its own. Hit state is filled in below, and
-            // stays undefined when there is no target to resolve it against.
-            const outcome = {natural: rollResult, total: rollTotal, hit: undefined, crit: hasCrit,
-              fumble: hasFumbled, target: target, defense: undefined};
+            // Record what we know about this roll on its own. A crit hits whatever the target's
+            // defense turns out to be, so it settles the hit state by itself and a trigger row can
+            // rely on it with nothing targeted. Any other roll stays undefined until there is a
+            // target to resolve it against, below.
+            const outcome = {natural: rollResult, total: rollTotal, hit: hasCrit ? true : undefined,
+              crit: hasCrit, fumble: hasFumbled, target: target, defense: undefined};
             rollOutcomes.push(outcome);
 
             // Target analysis, only perform if we actually have targets
