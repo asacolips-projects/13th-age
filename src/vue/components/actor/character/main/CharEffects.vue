@@ -81,33 +81,7 @@ export default {
       this.effects = effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     };
     function getChanges(effect) {
-      let changes = [];
-      let modes = {
-        'custom': 'question',
-        'multiply': 'times',
-        'add': 'plus',
-        'subtract': 'minus',
-        'downgrade': 'angle-double-down',
-        'upgrade': 'angle-double-up',
-        'override': 'undo'
-      }
-      effect.changes.forEach(c => {
-        if (c.key && c.value != null) {
-          const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
-          let change = {
-            name: label,
-            img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-            mode: modes[c.type],
-            value: c.value
-          };
-          if (change.mode === "plus" && change.value < 0) {
-            change.mode = "minus";
-            change.value = Math.abs(change.value);
-          }
-          changes.push(change);
-        }
-      })
-      return changes;
+      return game.archmage.ArchmageUtility.getActiveEffectChanges(effect);
     }
 
     function getDuration(effect) {

@@ -55,35 +55,6 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
     context.sequencerEnabled = game.modules.get("sequencer")?.active;
 
     // Effects.
-    function getChanges(effect) {
-      let changes = [];
-      let modes = [
-        'question',
-        'times',
-        'plus',
-        "minus",
-        'angle-double-down',
-        'angle-double-up',
-        'undo'
-      ]
-      effect.changes.forEach(c => {
-        if (c.key && c.value) {
-          const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
-          let change = {
-            name: label,
-            img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-            mode: modes[c.mode],
-            value: c.value
-          };
-          if (change.mode === "plus" && change.value < 0) {
-            change.mode = "minus";
-            change.value = Math.abs(change.value);
-          }
-          changes.push(change);
-        }
-      })
-      return changes;
-    }
     context.effects = this.item.effects.toObject();
     context.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     for (let [index, effect] of context.effects.entries()) {
@@ -93,7 +64,7 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
       context.effects[index].ongoingDamage = effect.flags?.archmage?.ongoingDamage
         ? `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`
         : false;
-      context.effects[index].bonuses = getChanges(effect);
+      context.effects[index].bonuses = game.archmage.ArchmageUtility.getActiveEffectChanges(effect);
       context.effects[index].img = effect?.img ?? effect?.icon;
     }
 

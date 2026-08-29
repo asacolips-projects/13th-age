@@ -167,13 +167,16 @@ export class ActorArchmage extends Actor {
         // Use the default filter function defined prior to the switch statement.
         break;
     }
+    // Change types are declared in application order, so their position in the
+    // enum stands in for the numeric mode that used to set the priority.
+    const changeTypes = Object.values(CONST.ACTIVE_EFFECT_CHANGE_TYPES);
     const changes = this.effects.reduce((changes, e) => {
       if ( e.disabled ) return changes;
       return changes.concat(e.changes.map(c => {
         c = foundry.utils.duplicate(c);
         c.effect = e;
         c.name = e?.name;
-        c.priority = c.priority ?? (c.mode * 10);
+        c.priority = c.priority ?? (Math.max(changeTypes.indexOf(c.type), 0) * 10);
         return c;
       })).filter(relevant);
     }, []);
