@@ -141,7 +141,6 @@ export default class preCreateChatMessageHandler {
 
     static handle(data, options, userId) {
         let $content = $(`<div class="wrapper">${data.content}</div>`);
-        let $rolls = $content.find('.inline-result');
         let updated_content = null;
         let hitEvaluationResults = undefined;
         let targets = [...game.user.targets.values()]; // needed to checkRowText of npcs
@@ -202,6 +201,7 @@ export default class preCreateChatMessageHandler {
         let sequencerReversed = options.sequencer?.reversed;
 
         let highestPowerLevelToHighlight;
+        const triggers = new Triggers();
 
         if ($rows.length > 0) {
 
@@ -242,8 +242,6 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (hitEvaluationResults) {
-                    $rolls = hitEvaluationResults.$rolls;
-
                     // Append hit targets to text
                     if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.hit") + ':') && hitEvaluationResults.targetsHit.length > 0) {
                         $row_self.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
@@ -264,28 +262,19 @@ export default class preCreateChatMessageHandler {
                 }
 
                 // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
-                var triggerText = row_text.toLowerCase();
-                if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.natural").toLowerCase()) ||
-                    triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':') ||
-                    triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase() + ':') ||
-                    triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase() + ':') ||
-                    triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitEven").toLowerCase() + ':') ||
-                    triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitOdd").toLowerCase() + ':')) {
-                    let triggers = new Triggers();
-                    let active = triggers.evaluateRow(row_text, $rolls, hitEvaluationResults);
+                const row_label = Triggers.labelOf($row_self);
+                if (triggers.isTriggerRow(row_label)) {
+                    let active = triggers.evaluateRow(row_label, hitEvaluationResults?.rollOutcomes);
 
                     if (active == undefined) {
                         $row_self.addClass("trigger-unknown");
                     } else if (active) {
                         $row_self.addClass("trigger-active");
-                        if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':')) {
+                        if (row_label.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase())) {
                             $row_self.addClass("trigger-miss");
                         }
                     } else {
                         $row_self.addClass("trigger-inactive");
-                        if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
-                            $row_self.addClass("hide");
-                        }
                     }
                 }
 

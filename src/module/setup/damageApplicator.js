@@ -206,9 +206,9 @@ export class DamageApplicator {
           if (hitEvaluationResults.defenses.length > 0) {
             // @todo Re-evaluate rolls here.
             const rows = element.closest('.card-row').querySelectorAll('.card-prop');
+            const triggers = new Triggers();
             rows.forEach((rowSelf) => {
               let $rowSelf = $(rowSelf);
-              let rowSelfText = $rowSelf.html();
               const rowCleanText = $rowSelf.text();
 
               // Remove existing targets.
@@ -232,15 +232,9 @@ export class DamageApplicator {
                 $rowSelf.append("<span class='dc-target'> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
               }
 
-              let triggerText = rowSelfText.toLowerCase();
-              if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.natural").toLowerCase()) ||
-                triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':') ||
-                triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase() + ':') ||
-                triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase() + ':') ||
-                triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitEven").toLowerCase() + ':') ||
-                triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitOdd").toLowerCase() + ':')) {
-                let triggers = new Triggers();
-                let active = triggers.evaluateRow(rowSelfText, hitEvaluationResults.$rolls, hitEvaluationResults);
+              const rowLabel = Triggers.labelOf($rowSelf);
+              if (triggers.isTriggerRow(rowLabel)) {
+                let active = triggers.evaluateRow(rowLabel, hitEvaluationResults.rollOutcomes);
 
                 // Remove previous classes.
                 $rowSelf.removeClass('trigger-unknown')
@@ -252,14 +246,11 @@ export class DamageApplicator {
                   $rowSelf.addClass("trigger-unknown");
                 } else if (active) {
                   $rowSelf.addClass("trigger-active");
-                  if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':')) {
+                  if (rowLabel.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase())) {
                     $rowSelf.addClass("trigger-miss");
                   }
                 } else {
                   $rowSelf.addClass("trigger-inactive");
-                  if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
-                    $rowSelf.addClass("hide");
-                  }
                 }
               }
             });
