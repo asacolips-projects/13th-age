@@ -65,8 +65,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
             // Ensure it's the *next* turn
-            if (combat.round  > effect.start.round
-            || (combat.round == effect.start.round && combat.turn > effect.start.turn)) {
+            if (startedBefore(effect, combat)) {
                 currentCombatantEffectData.selfEnded.push(effect);
                 effectsToDelete.push(effect.id);
             }
@@ -101,8 +100,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
                 const duration = effect.flags.archmage?.duration || "Unknown";
                 if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
                     // Ensure it's the *next* turn
-                    if (combat.round  > effect.duration.startRound
-                    || (combat.round == effect.duration.startRound && combat.turn > effect.duration.startTurn)) {
+                    if (startedBefore(effect, combat)) {
                         effect.otherName = otherCombatant.actor.name;
                         currentCombatantEffectData.otherEnded.push(effect);
                         effectsToDelete.push(effect.id);
@@ -268,6 +266,22 @@ async function cleanupStoke(combat, context, options) {
             });
         }
     }
+}
+
+/* -------------------------------------------- */
+
+/**
+ * Whether an effect started before the combat's current turn, and so is due to
+ * expire on it. Effects applied outside of combat record no start, and count as
+ * having started before it so that they expire during the first round.
+ * @param {ActiveEffect} effect  The effect to check.
+ * @param {Combat} combat  The combat to check it against.
+ * @returns {boolean}
+ */
+function startedBefore(effect, combat) {
+    const round = effect.start?.round ?? -1;
+    const turn = effect.start?.turn ?? -1;
+    return combat.round > round || (combat.round === round && combat.turn > turn);
 }
 
 /* -------------------------------------------- */
