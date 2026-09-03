@@ -583,6 +583,13 @@ ARCHMAGE.effectDurationTypes = {
   'StartOfEachTurn': 'ARCHMAGE.DURATION.StartOfEachTurn'
 };
 
+// Damage multipliers for the first tick of an ongoing damage effect.
+ARCHMAGE.ongoingDamageMultipliers = {
+  1: 'ARCHMAGE.ITEM.ongoingDamageMultiplierx1',
+  2: 'ARCHMAGE.ITEM.ongoingDamageMultiplierx2',
+  3: 'ARCHMAGE.ITEM.ongoingDamageMultiplierx3'
+};
+
 ARCHMAGE.creatureTypes = {
   'aberration': 'ARCHMAGE.CREATURETYPES.aberration',
   'beast': 'ARCHMAGE.CREATURETYPES.beast',

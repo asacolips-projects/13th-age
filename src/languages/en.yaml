@@ -668,7 +668,10 @@ ARCHMAGE:
     meleeBonus: Melee Attack Bonus
     meleeWeaponDamageBonus: Melee Weapon Damage Bonus
     ongoingDamage: Ongoing Damage
-    ongoingDamageCrit: Ongoing Damage is from a critical hit
+    ongoingDamageMultiplier: Ongoing Damage multiplier (first tick only)
+    ongoingDamageMultiplierx1: Normal damage (x1)
+    ongoingDamageMultiplierx2: Double damage (x2)
+    ongoingDamageMultiplierx3: Triple damage (x3)
     otherBonuses: Other Bonuses
     pdBonus: PD Bonus
     price: Price
@@ -833,6 +836,9 @@ ARCHMAGE:
     odd: odd
     ongoingDamageTooltip: '{damage} ongoing {type} damage'
     ongoingDamage: '{target} takes [[{damage}]] ongoing {type}damage due to {source}'
+    ongoingHalfDamage: Half damage
+    ongoingDoubleDamage: 2x damage (1st tick only)
+    ongoingTripleDamage: 3x damage (1st tick only)
     ongoingSelfEnded: The following Effects <strong>have ended on this</strong> Actor
     ongoingOtherEnded: The following Effects <strong>have ended on another</strong> Actor
     ongoingSaveEnds: The following Effects <strong>require a Save</strong> to end

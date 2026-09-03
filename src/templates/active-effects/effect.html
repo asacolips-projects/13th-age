@@ -199,8 +199,10 @@
                     </div>
 
                     <div class="settings-group">
-                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.ongoingDamageCrit'}}</strong>
-                        <input class="attribute-input" name="ongoingDamageCrit" type="checkbox" {{checked ongoingDamageCrit}}/>
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.ongoingDamageMultiplier'}}</strong>
+                        <select class="attribute-input" name="ongoingDamageMultiplier" data-dtype="Number">
+                            {{selectOptions ongoingDamageMultipliers selected=ongoingDamageMultiplier localize=true}}
+                        </select>
                     </div>
 
                     <div class="settings-group form-group" style="padding-top: 10px;">
