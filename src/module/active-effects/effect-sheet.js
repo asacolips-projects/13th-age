@@ -1,3 +1,5 @@
+import { getOngoingDamageMultiplier } from "./ongoing-damage.mjs";
+
 export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffectConfig {
 
   /** @override */
@@ -50,7 +52,9 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
     context.duration = context.effect.flags.archmage?.duration || "Unknown";
     context.ongoingDamage = context.effect.flags.archmage?.ongoingDamage || 0;
     context.ongoingDamageType = context.effect.flags.archmage?.ongoingDamageType || "";
-    context.ongoingDamageCrit = context.effect.flags.archmage?.ongoingDamageCrit || false;
+    // Stringified so that it matches the select option keys.
+    context.ongoingDamageMultiplier = String(getOngoingDamageMultiplier(context.effect));
+    context.ongoingDamageMultipliers = CONFIG.ARCHMAGE.ongoingDamageMultipliers;
     context.stacksAlways = context.effect.flags.archmage?.stacksAlways || false;
 
     return context;
@@ -93,7 +97,7 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
       duration: formData.duration,
       ongoingDamage: formData.ongoingDamage,
       ongoingDamageType: formData.ongoingDamageType,
-      ongoingDamageCrit: formData.ongoingDamageCrit,
+      ongoingDamageMultiplier: Number(formData.ongoingDamageMultiplier) || 1,
       stacksAlways: formData.stacksAlways,
     };
 

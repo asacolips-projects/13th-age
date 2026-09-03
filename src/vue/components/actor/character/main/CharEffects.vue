@@ -61,6 +61,7 @@
 
 <script>
 import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { roundOngoingDamage } from '@src/module/active-effects/ongoing-damage.mjs';
 import { reactive, computed, toRefs } from 'vue';
 // This component includes an example of using the composition API
 // https://www.vuemastery.com/pdf/Vue-3-Cheat-Sheet.pdf
@@ -89,7 +90,7 @@ export default {
     }
 
     function getOngoingDamage(effect) {
-      return `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
+      return `${roundOngoingDamage(effect.flags.archmage.ongoingDamage)} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
     }
 
     // Return our custom data, methods, and any imported methods.

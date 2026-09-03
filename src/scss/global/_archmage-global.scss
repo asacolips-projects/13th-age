@@ -256,6 +256,19 @@ option[selected] {
     border-radius: 4px;
   }
 
+  // An active ProseMirror editor is a menu bar plus an .editor-container sized
+  // `flex: 1 1 0%`, so it only has a writing area if an ancestor supplies a
+  // height. Guarantee one rather than relying on each layout to do it.
+  .editor.prosemirror {
+    min-height: 220px;
+
+    .editor-container {
+      flex: 1 1 auto;
+      min-height: 180px;
+      overflow-y: auto;
+    }
+  }
+
   .tox-tinymce,
   .tox-editor-container,
   .tox-sidebar-wrap,
@@ -2035,6 +2048,20 @@ option[selected] {
   border-radius: 2px;
   text-decoration: underline;
   text-decoration-color: $c-miss-underline;
+}
+
+// A row whose conditions might still apply, but where something needed to decide them is
+// unknown - most often hit/miss with no target selected. Same hue as an active trigger so it
+// reads as related, but with no fill and a dashed underline: present enough to draw the eye,
+// quiet enough that it can't be mistaken for a confirmed match.
+.trigger-unknown {
+  color: $c-hit;
+  background: none;
+  border-radius: 2px;
+  text-decoration: underline dashed;
+  text-decoration-color: $c-hit-underline;
+  text-underline-offset: 2px;
+  opacity: 0.8;
 }
 
 .trigger-inactive {

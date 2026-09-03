@@ -44,7 +44,7 @@
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
-        <li v-for="(equipment, equipmentKey) in equipmentGroups[groupKey]" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" data-draggable="true" draggable="true">
+        <li v-for="equipment in equipmentGroups[groupKey]" :key="equipment._id" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" data-document-class="Item" data-draggable="true" draggable="true">
           <!-- Clickable equipment header. -->
           <div class="equipment-summary grid equipment-grid equipment">
             <Rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></Rollable>
@@ -204,6 +204,10 @@ export default {
           return 0;
         });
       }
+      else {
+        // Custom order: honour the `sort` value that drag and drop writes.
+        equipment = equipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+      }
       equipment.forEach(i => {
         if (this.activeEquipment[i._id] == undefined) {
           // this.$set(this.activeEquipment, i._id, {value: false});
@@ -256,6 +260,12 @@ export default {
       }
     },
     'searchValue': {
+      deep: false,
+      handler() {
+        this.getEquipment();
+      }
+    },
+    'sortBy': {
       deep: false,
       handler() {
         this.getEquipment();

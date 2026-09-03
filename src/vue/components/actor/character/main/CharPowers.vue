@@ -25,11 +25,21 @@
       </div>
     </header>
     <!-- Powers, by group. -->
-    <section v-for="(group, groupKey) in filterGroupsForDisplay(actor, groups, powerGroups)" :key="groupKey" class="power-group">
+    <section v-for="{key: groupKey, label: group} in displayGroups" :key="groupKey"
+      :class="groupClasses(groupKey)"
+      @dragover="onGroupDragOver($event, groupKey)"
+      @dragleave="onGroupDragLeave($event, groupKey)"
+      @drop="onGroupDrop($event, groupKey)">
       <div class="power-group-header">
         <!-- Group title and add button. -->
         <div class="power-header-title grid power-grid">
-          <h2 class="power-group-title unit-title">{{localize(CONFIG.ARCHMAGE.is2e && group === 'ARCHMAGE.daily' ? 'ARCHMAGE.arc' : group)}}</h2>
+          <h2 class="power-group-title unit-title"
+            :draggable="canReorderGroups"
+            @dragstart="onGroupDragStart($event, groupKey)"
+            @dragend="onGroupDragEnd">
+            <i v-if="canReorderGroups" class="fas fa-grip-lines power-group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
+            {{localize(CONFIG.ARCHMAGE.is2e && group === 'ARCHMAGE.daily' ? 'ARCHMAGE.arc' : group)}}
+          </h2>
           <div class="item-controls">
             <a class="item-control item-create" data-item-type="power" :data-group-type="groupBy" :data-power-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
@@ -45,7 +55,7 @@
         </div>
       </div>
       <ul class="power-group-content flexcol">
-        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-document-class="Item" data-draggable="true" draggable="true">
+        <li v-for="power in powerGroups[groupKey]" :key="power._id" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-document-class="Item" data-draggable="true" draggable="true">
           <!-- Clickable power header. -->
           <div :class="`power-summary grid power-grid ${powerUsageClass(power)} ${powerAvailabilityClass(power)} ${power.system.trigger.value ? 'power-summary--trigger' : ''} ${activePowers[power._id] ? 'active' : ''}`">
             <Rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></Rollable>
@@ -81,7 +91,7 @@
 </template>
 
 <script>
-import { concat, localize } from '@/methods/Helpers';
+import { concat, getActor, localize } from '@/methods/Helpers';
 import Power from '@/components/parts/Power.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 export default {
@@ -116,7 +126,13 @@ export default {
       groupBy: 'powerType',
       sortBy: 'custom',
       searchValue: null,
-      activePowers: {}
+      activePowers: {},
+      sectionClasses: [],
+      // Persisted group ordering for the current groupBy mode, plus transient
+      // state for the group drag interaction.
+      groupOrder: [],
+      draggedGroup: null,
+      dragOverGroup: null
     }
   },
   computed: {
@@ -165,7 +181,13 @@ export default {
      * Computed class string for the main powers section element.
      */
     classes() {
-      return `section section--powers flexcol`;
+      // return `section section--powers flexcol ${this.sectionClasses.join(' ')}`;
+      return [
+        'section',
+        'section--powers',
+        'flexcol',
+        ...this.sectionClasses,
+      ].join(' ');
     },
     /**
      * Computed power groups. Takes the entire powers item array and reduces it
@@ -178,9 +200,6 @@ export default {
         'powerUsage',
         'actionType'
       ];
-
-      // Re-sort the powers.
-      this.getPowers();
 
       let powersByGroup = this.powers.reduce((powerGroup, power) => {
         let group = 'power';
@@ -207,6 +226,30 @@ export default {
       }, {});
 
       return powersByGroup;
+    },
+    /**
+     * The groups actually rendered, in the order they should appear: empty
+     * groups filtered out, then the user's saved group order applied, with any
+     * group the saved order doesn't know about appended in its natural spot.
+     *
+     * Returned as an array rather than a keyed object because object key order
+     * isn't ours to control - an integer-like group key would be hoisted to the
+     * front and silently defeat the ordering.
+     */
+    displayGroups() {
+      const groups = this.filterGroupsForDisplay(this.actor, this.groups, this.powerGroups);
+      const keys = Object.keys(groups);
+      const order = Array.isArray(this.groupOrder) ? this.groupOrder : [];
+      return order.filter(key => keys.includes(key))
+        .concat(keys.filter(key => !order.includes(key)))
+        .map(key => ({key, label: groups[key]}));
+    },
+    /**
+     * Group reordering is only offered when the sheet is editable and the actor
+     * isn't a compendium entry (where flags can't be written).
+     */
+    canReorderGroups() {
+      return this.context?.editable === true && !this.actor?.pack;
     },
   },
   methods: {
@@ -334,10 +377,94 @@ export default {
       }
 
       if (Object.keys(out).length < 1 && Object.keys(groups).length > 0) {
-        out[key] = Object.values(groups)[0];
+        const firstKey = Object.keys(groups)[0];
+        out[firstKey] = groups[firstKey];
       }
 
       return out;
+    },
+    /**
+     * Classes for a group section, including drag feedback.
+     */
+    groupClasses(groupKey) {
+      let classes = 'power-group';
+      if (this.draggedGroup === groupKey) classes += ' power-group--dragging';
+      if (this.dragOverGroup === groupKey) classes += ' power-group--drop-target';
+      return classes;
+    },
+    /**
+     * Read the saved group order for the current groupBy mode. Each mode keeps
+     * its own order so switching grouping doesn't clobber the others.
+     */
+    loadGroupOrder() {
+      const stored = this.flags?.sheetDisplay?.powers?.groupOrder?.[this.groupBy];
+      const order = Array.isArray(stored) ? [...stored] : [];
+      // The flags prop is rebuilt on every sheet render, so bail out when the
+      // stored order hasn't actually changed to avoid pointless re-renders.
+      const current = this.groupOrder ?? [];
+      if (order.length === current.length && order.every((key, i) => key === current[i])) return;
+      this.groupOrder = order;
+    },
+    onGroupDragStart(event, groupKey) {
+      if (!this.canReorderGroups) return;
+      this.draggedGroup = groupKey;
+      this.sectionClasses.push('dragging');
+      event.dataTransfer.effectAllowed = 'move';
+      // Tag the payload so nothing downstream mistakes this for an item drag.
+      event.dataTransfer.setData('text/plain', JSON.stringify({
+        type: 'ArchmagePowerGroup',
+        groupKey
+      }));
+      // Don't let the sheet's item drag handling see this.
+      event.stopPropagation();
+    },
+    onGroupDragOver(event, groupKey) {
+      if (!this.draggedGroup) return;
+      event.preventDefault();
+      event.stopPropagation();
+      this.dragOverGroup = groupKey === this.draggedGroup ? null : groupKey;
+    },
+    onGroupDragLeave(event, groupKey) {
+      if (this.dragOverGroup !== groupKey) return;
+      // dragleave also fires when moving between children of the section, so
+      // only clear the highlight once the cursor has actually left it.
+      if (event.currentTarget.contains(event.relatedTarget)) return;
+      this.dragOverGroup = null;
+    },
+    async onGroupDrop(event, groupKey) {
+      // @todo make this remove only 'dragging' instead of nuking it.
+      this.sectionClasses = [];
+      if (!this.draggedGroup) return;
+      // A group is being reordered, so keep this away from item sorting.
+      event.preventDefault();
+      event.stopPropagation();
+
+      const source = this.draggedGroup;
+      this.draggedGroup = null;
+      this.dragOverGroup = null;
+      if (source === groupKey) return;
+
+      // Rebuild the full order from what's currently displayed, dropping above
+      // or below the target based on where the cursor was released.
+      const order = this.displayGroups.map(g => g.key).filter(key => key !== source);
+      const index = order.indexOf(groupKey);
+      if (index < 0) return;
+      const rect = event.currentTarget.getBoundingClientRect();
+      const before = (event.clientY - rect.top) < (rect.height / 2);
+      order.splice(before ? index : index + 1, 0, source);
+
+      this.groupOrder = order;
+      await this.saveGroupOrder(order);
+    },
+    onGroupDragEnd() {
+      this.draggedGroup = null;
+      this.dragOverGroup = null;
+    },
+    async saveGroupOrder(order) {
+      if (!this.canReorderGroups) return;
+      const actor = await getActor(this.actor);
+      if (!actor) return;
+      await actor.setFlag('archmage', `sheetDisplay.powers.groupOrder.${this.groupBy}`, order);
     },
     shouldDisplayImportButton(actor) {
       if (actor?.flags?.archmage?.hideImportPowers === true && !game.user.isGM) {
@@ -383,12 +510,34 @@ export default {
       handler() {
         this.getPowers();
       }
+    },
+    // The powers list used to be rebuilt as a side effect of the powerGroups
+    // computed, which made that computed invalidate itself on every evaluation.
+    // Re-sort explicitly when the sort changes instead.
+    'sortBy': {
+      deep: false,
+      handler() {
+        this.getPowers();
+      }
+    },
+    'groupBy': {
+      deep: false,
+      handler() {
+        this.loadGroupOrder();
+      }
+    },
+    'flags': {
+      deep: true,
+      handler() {
+        this.loadGroupOrder();
+      }
     }
   },
   async mounted() {
     this.groupBy = this.flags.sheetDisplay.powers.groupBy.value ? this.flags.sheetDisplay.powers.groupBy.value : 'powerType';
     this.sortBy = this.flags.sheetDisplay.powers.sortBy.value ? this.flags.sheetDisplay.powers.sortBy.value : 'custom';
 
+    this.loadGroupOrder();
     this.getPowers();
   }
 }
