@@ -256,6 +256,19 @@ option[selected] {
     border-radius: 4px;
   }
 
+  // An active ProseMirror editor is a menu bar plus an .editor-container sized
+  // `flex: 1 1 0%`, so it only has a writing area if an ancestor supplies a
+  // height. Guarantee one rather than relying on each layout to do it.
+  .editor.prosemirror {
+    min-height: 220px;
+
+    .editor-container {
+      flex: 1 1 auto;
+      min-height: 180px;
+      overflow-y: auto;
+    }
+  }
+
   .tox-tinymce,
   .tox-editor-container,
   .tox-sidebar-wrap,

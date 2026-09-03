@@ -395,6 +395,15 @@
       margin: 0.2em 0;
     }
 
+    // The compact rules above are for the rendered flavor text. Once the editor
+    // is activated it needs to read as an editable field again - and it must
+    // come after them, since the specificity is identical.
+    .editor.prosemirror .editor-content {
+      background: $c-black--05;
+      border-radius: $padding-sm;
+      padding: $padding-sm;
+      min-height: 100%;
+    }
   }
 
   .toggle-header {
