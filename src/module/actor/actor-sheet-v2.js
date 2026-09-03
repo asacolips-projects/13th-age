@@ -1151,11 +1151,17 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
    * @param {jQuery} html
    */
   _dragHandler(html) {
-    let dragHandler = event => this._onDragStart(event);
-    html.find('.item[data-draggable="true"]').each((i, li) => {
-      li.setAttribute('draggable', true);
-      li.addEventListener('dragstart', dragHandler, false);
-    });
+    // Vue owns the rows inside this form and recreates them whenever the
+    // context is refreshed, so per-element listeners would only cover the rows
+    // that happened to exist the one time this ran. Delegate from the form
+    // instead so rows added later (new powers, new equipment) are draggable.
+    const form = html instanceof jQuery ? html[0] : html;
+    if (!form || form.dataset.archmageDragBound === 'true') return;
+    form.dataset.archmageDragBound = 'true';
+    form.addEventListener('dragstart', event => {
+      if (!event.target.closest('.item[data-draggable="true"]')) return;
+      this._onDragStart(event);
+    }, false);
   }
 
   /**
@@ -1164,8 +1170,11 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
    * @protected
    */
   _onDragStart(event) {
-    const li = event.currentTarget;
-    if ("link" in event.target.dataset) return;
+    // Resolve the row being dragged. This is delegated from the form, so
+    // event.currentTarget is not the row itself.
+    const li = event.target.closest?.('.item[data-draggable="true"]') ?? event.currentTarget;
+    if (!li) return;
+    if (event.target.dataset && "link" in event.target.dataset) return;
 
     let dragData = null;
 
@@ -1176,17 +1185,100 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
         dragData = effect.toDragData();
       }
     }
-    else if (li.dataset.documentClass === 'Item') {
-      if (li.dataset.itemId) {
-        const item = this.actor.items.get(li.dataset.itemId);
-        dragData = item.toDragData();
-      }
+    // Treat a row that carries an item id as an Item even if the markup forgot
+    // to declare the document class - without drag data the drop is a silent
+    // no-op, which is a very confusing way for a missing attribute to fail.
+    else if (li.dataset.itemId) {
+      const item = this.actor.items.get(li.dataset.itemId);
+      if (item) dragData = item.toDragData();
     }
 
     if (!dragData) return;
 
     // Set data transfer
     event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+  }
+
+  /**
+   * Sort items on drop.
+   *
+   * Overrides ActorSheet._onSortItem(). Core resolves the drop target with
+   * `event.target.closest('[data-item-id]')`, which is unsafe here: several
+   * elements *inside* an item row also carry `data-item-id` (the name link, the
+   * uses/quantity counter, the feat pips, the edit and delete controls). When
+   * the cursor was over any of those, core resolved the drop target to that
+   * inner element and then scanned `dropTarget.parentElement.children` for
+   * siblings, collecting the row's own inner divs instead of the neighbouring
+   * rows. The resulting sort value was computed against a bogus sibling list,
+   * which is why drops appeared to do nothing, land in the wrong place, or
+   * shuffle unrelated items.
+   *
+   * @param {DragEvent} event   The drop event.
+   * @param {object} itemData   Dropped item data.
+   * @protected
+   */
+  _onSortItem(event, itemData) {
+    const items = this.actor.items;
+    const source = items.get(itemData._id);
+    if (!source) return;
+
+    // Always resolve the drop target to the item row, never a descendant.
+    const dropTarget = event.target.closest('.item[data-item-id]');
+    if (!dropTarget) return;
+    const target = items.get(dropTarget.dataset.itemId);
+    if (!target || source.id === target.id) return;
+
+    // Work out whether the drop crossed into another group. The rendered lists
+    // are the groups, so ask the destination list whether it holds the source
+    // row rather than trying to re-derive the grouping from item data. Scoping
+    // the lookup to that list also keeps it correct for items that appear in
+    // more than one list (a power with a trigger shows up on both tabs).
+    const crossGroup = !dropTarget.parentElement
+      .querySelector(`:scope > .item[data-item-id="${source.id}"]`);
+    const groupBy = this.actor.flags?.archmage?.sheetDisplay?.powers?.groupBy?.value ?? 'powerType';
+
+    // A drop into another group is only meaningful for custom power groups,
+    // where the group is free text stored on the power. Under the built-in
+    // groupings the group is derived from the power's own data, so the row would
+    // snap straight back to where it started with a new and meaningless sort
+    // value - which read as "nothing moved". Ignore those drops instead.
+    const regroup = crossGroup && source.type === 'power' && target.type === 'power' && groupBy === 'group';
+    if (crossGroup && !regroup) return;
+
+    // Identify sibling rows from the list the drop target lives in, skipping
+    // anything that isn't itself an item row.
+    const siblings = [];
+    for (const el of dropTarget.parentElement.children) {
+      if (!el.matches('.item[data-item-id]')) continue;
+      const siblingId = el.dataset.itemId;
+      if (!siblingId || siblingId === source.id) continue;
+      const sibling = items.get(siblingId);
+      if (sibling) siblings.push(sibling);
+    }
+
+    // Drop into the half of the row the cursor is actually over so the item
+    // lands where it was released, rather than always above the target. Measure
+    // against the summary line rather than the whole row: an expanded row is
+    // mostly detail content, which would push the midpoint far off screen.
+    const rect = (dropTarget.firstElementChild ?? dropTarget).getBoundingClientRect();
+    const sortBefore = (event.clientY - rect.top) < (rect.height / 2);
+
+    // Perform the sort.
+    const sortUpdates = SortingHelpers.performIntegerSort(source, {target, siblings, sortBefore});
+    const updateData = sortUpdates.map(u => {
+      const update = u.update;
+      update._id = u.target._id;
+      return update;
+    });
+
+    // Adopt the destination group. The target row already lives there, so its
+    // own group value is the label to copy.
+    if (regroup) {
+      const sourceUpdate = updateData.find(u => u._id === source.id);
+      if (sourceUpdate) sourceUpdate['system.group.value'] = target.system.group?.value ?? '';
+    }
+
+    return this.actor.updateEmbeddedDocuments('Item', updateData);
   }
 
   /** @override */

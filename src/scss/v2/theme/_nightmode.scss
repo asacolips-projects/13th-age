@@ -95,6 +95,12 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       }
     }
 
+    .section--powers {
+      .power-group--drop-target > .power-group-header {
+        background: #111111;
+      }
+    }
+
     .unit,
     .power-filters,
     .equipment-filters,
