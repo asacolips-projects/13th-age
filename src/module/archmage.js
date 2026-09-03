@@ -20,6 +20,7 @@ import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
+import { resetOngoingDamageMultiplier } from "./active-effects/ongoing-damage.mjs";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
@@ -1402,7 +1403,7 @@ async function _applyAE(actor, data) {
         archmage: {
           ongoingDamage: data.value,
           ongoingDamageType: data.damageType,
-          ongoingDamageCrit: false,
+          ongoingDamageMultiplier: 1,
           duration: data.ends,
           tooltip: data.tooltip
         }
@@ -1454,7 +1455,8 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
             duration = html.find('[name="duration"]:checked').val();
             const ongoing = {
               half: html.find('[name="ongoingHalf"]')?.is(":checked") ?? false,
-              crit: html.find('[name="ongoingCrit"]')?.is(":checked") ?? false,
+              double: html.find('[name="ongoingDouble"]')?.is(":checked") ?? false,
+              triple: html.find('[name="ongoingTriple"]')?.is(":checked") ?? false,
             };
             if ( !duration ) duration = "Unknown";
             let options = {};
@@ -1465,11 +1467,11 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
               options = {round: game.combat?.round || 1};
             }
             if (ongoing.half) {
-              effectData.flags.archmage.ongoingDamage = Math.floor(Number(effectData.flags.archmage.ongoingDamage) / 2);
+              // Kept fractional, it's rounded up when the damage is dealt.
+              effectData.flags.archmage.ongoingDamage = Number(effectData.flags.archmage.ongoingDamage) / 2;
             }
-            if (ongoing.crit) {
-              effectData.flags.archmage.ongoingDamageCrit = true;
-            }
+            if (ongoing.triple) effectData.flags.archmage.ongoingDamageMultiplier = 3;
+            else if (ongoing.double) effectData.flags.archmage.ongoingDamageMultiplier = 2;
             game.archmage.MacroUtils.setDuration(effectData, duration, options);
             return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           }
@@ -1479,7 +1481,14 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
           callback: () => {}
         },
       },
-      default: 'apply'
+      default: 'apply',
+      render: (html) => {
+        // The damage multiplier checkboxes are mutually exclusive.
+        const multipliers = $(html).find('[name="ongoingDouble"], [name="ongoingTriple"]');
+        multipliers.on('change', (event) => {
+          if (event.currentTarget.checked) multipliers.not(event.currentTarget).prop('checked', false);
+        });
+      }
     }).render(true);
   });
 }
@@ -1727,10 +1736,8 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
         await actor.update({ "system.attributes.hp.value": base - value });
         if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
         else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectApplied.${effectId}`});
-        // Unset crit flag on ongoing damage if needed.
-        if (effect?.flags?.archmage?.ongoingDamageCrit === true) {
-          await effect.update({'flags.archmage.ongoingDamageCrit': false});
-        }
+        // Ongoing damage is only multiplied on its first tick, revert to x1.
+        await resetOngoingDamageMultiplier(effect);
         break;
       case "save":
         const duration = parent.dataset.save;
