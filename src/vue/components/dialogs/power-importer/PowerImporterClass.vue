@@ -15,7 +15,12 @@
         <ul class="power-group-content power-import-list">
           <li v-for="row in entry.powers" :key="row.id" class="item power-item">
             <!-- Clickable power header, matching the character sheet's rows. -->
-            <PowerSummaryRow :power="row.power" :active="!!expanded[row.id]" @toggle="toggle(row.id)">
+            <!-- The trigger goes in a Foundry tooltip rather than the row's own
+                 hover box: that box is absolutely positioned inside the row,
+                 and so is fragmented by the multi-column list, which makes the
+                 columns rebalance the moment it appears. -->
+            <PowerSummaryRow :power="row.power" :active="!!expanded[row.id]" @toggle="toggle(row.id)"
+              :trigger="false" :data-tooltip="triggerTooltip(row)" data-tooltip-direction="DOWN">
               <template #image>
                 <img :src="row.power.img" class="power-image" :alt="row.power.name"/>
               </template>
@@ -78,6 +83,18 @@ export default {
   methods: {
     toggle(id) {
       this.expanded[id] = !this.expanded[id];
+    },
+    /**
+     * A power's trigger text, as tooltip markup, or undefined for powers
+     * without one, and for powers already expanded to show their full text.
+     * Foundry renders tooltips in its own layer at the root of the document, so
+     * this costs the list no layout.
+     */
+    triggerTooltip(row) {
+      const trigger = row.power.system.trigger?.value;
+      if (!trigger || this.expanded[row.id]) return undefined;
+      const escaped = trigger.replace(/[&<>"]/g, char => `&#${char.charCodeAt(0)};`);
+      return `<p style="text-align: left; margin: 0;"><strong>${localize('ARCHMAGE.CHAT.trigger')}:</strong> ${escaped}</p>`;
     }
   },
   async mounted() {
