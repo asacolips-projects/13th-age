@@ -29,7 +29,7 @@ const release_data = {
 
 // /**
 //  * Reimplements Foundry's isNumeric() function.
-//  * 
+//  *
 //  * Test whether a value is numeric.
 //  * This is the highest performing algorithm currently available, per https://jsperf.com/isnan-vs-typeof/5
 //  * @memberof Number
@@ -74,7 +74,7 @@ const release_data = {
 
 // ====== END OBSOLETE =============================
 
-const response = await fetch("https://api.foundryvtt.com/_api/packages/release_version/", {
+const response = await fetch("https://foundryvtt.com/_api/packages/release_version/", {
   headers: {
     'Content-Type': 'application/json',
     'Authorization': `${argv.fvtt_token}`
