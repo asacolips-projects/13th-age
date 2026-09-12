@@ -1542,10 +1542,10 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
           const button = event?.target ?? event?.currentTarget;
           if (button?.dataset?.target) {
             // Deactivate the other target type.
-            const activeButtons = inlineRoll.find('button[data-target].active');
+            const activeButtons = $('#context-menu2').find('button[data-target].active');
             activeButtons.removeClass('active');
             // Set the target type on the menu for later reference.
-            const menu = inlineRoll.find('#context-menu2')[0];
+            const menu = $('#context-menu2')[0];
             if (menu) {
               menu.dataset.target = button.dataset.target;
             }
@@ -1584,10 +1584,10 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
           const button = event?.target ?? event?.currentTarget;
           if (button?.dataset?.mod) {
             // Deactivate the other target type.
-            const activeButtons = inlineRoll.find('button[data-mod].active');
+            const activeButtons = $('#context-menu2').find('button[data-mod].active');
             activeButtons.removeClass('active');
             // Set the target type on the menu for later reference.
-            const menu = inlineRoll.find('#context-menu2')[0];
+            const menu = $('#context-menu2')[0];
             if (menu) {
               menu.dataset.mod = button.dataset.mod;
             }
@@ -1605,7 +1605,7 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
           id: 'damage',
           icon: '<i class="fas fa-tint"></i>',
           callback: (inlineRoll, event) => {
-            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const menu = $('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
             const mod = menu?.dataset?.mod ? Number(menu.dataset.mod) : 1;
             new DamageApplicator().asDamage(getRollFromElement(inlineRoll), mod, targetType);
@@ -1616,7 +1616,7 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
           id: 'healing',
           icon: '<i class="fas fa-medkit"></i>',
           callback: (inlineRoll, event) => {
-            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const menu = $('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
             const mod = menu?.dataset?.mod ? Number(menu.dataset.mod) : 1;
             new DamageApplicator().asHealing(getRollFromElement(inlineRoll), mod, targetType);
@@ -1627,7 +1627,7 @@ Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
           id: 'temp-healing',
           icon: '<i class="fas fa-heart"></i>',
           callback: (inlineRoll, event) => {
-            const menu = inlineRoll.find('#context-menu2')?.[0];
+            const menu = $('#context-menu2')?.[0];
             const targetType = menu?.dataset?.target ?? 'selected';
             const mod = menu?.dataset?.mod ? Number(menu.dataset.mod) : 1;
             new DamageApplicator().asTempHealth(getRollFromElement(inlineRoll), mod, targetType);
