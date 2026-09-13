@@ -151,7 +151,14 @@ export class ArchmagePrepopulate {
     }
     let content = {};
     for (let i = 0; i < entries.length; i++) {
-      content[this.cleanClassName(entries[i].name)] = Array.from(entries[i].pages)[1]?.text?.content;
+      const page = Array.from(entries[i].pages)[1];
+      if (!page?.text?.content) continue;
+      // Journal text is stored raw, so its @UUID links and other enrichers have
+      // to be resolved here: the importer drops this straight into the DOM.
+      content[this.cleanClassName(entries[i].name)] = await foundry.applications.ux.TextEditor.implementation.enrichHTML(page.text.content, {
+        secrets: false,
+        relativeTo: page
+      });
     }
     return content;
   }
