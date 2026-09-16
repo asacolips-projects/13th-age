@@ -45,6 +45,7 @@
 import { computed, ref, watch } from 'vue';
 import Power from '@/components/parts/Power.vue';
 import Rollable from '@/components/parts/Rollable.vue';
+import { powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
 
 const props = defineProps(['actor', 'context', 'tab', 'flags'])
 
@@ -59,7 +60,7 @@ watch(powersWithTriggers, (newPowers) => {
 	powerRows.value = newPowers.map(power => ({
 		power,
 		expanded: false,
-		classes: [powerUsageClass(power), powerAvailabilityClass(power)]
+		classes: [powerUsageClass(power, props.actor), powerAvailabilityClass(power)]
 	}))
 }, { immediate: true })
 
@@ -92,25 +93,6 @@ const groups = computed(() => {
 	}))
 })
 
-/**
- * Compute CSS class to assign based on special usage
- */
-function powerUsageClass(power) {
-	let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
-	if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
-	if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
-	else if (use == 'cyclic') {
-		if (props.actor.system.attributes.escalation.value > 0
-			&& props.actor.system.attributes.escalation.value % 2 == 0) {
-			use = 'at-will cyclic';
-		} else use = 'once-per-battle cyclic';
-	}
-	return use;
-}
-
-function powerAvailabilityClass(power) {
-	return power.system?.quantity?.value === 0 ? 'unavailable' : '';
-}
 </script>
 
 <style module lang="scss">

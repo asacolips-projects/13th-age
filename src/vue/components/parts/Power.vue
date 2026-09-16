@@ -12,7 +12,7 @@
       <em v-if="power.system.range.value">{{power.system.range.value}}</em>
       <div class="power-subheader flexrow">
         <strong v-if="power.system.actionType.value">{{localize(`ARCHMAGE.${power.system.actionType.value}`)}}</strong>
-        <strong v-if="power.system.powerUsage.value">{{localize(`ARCHMAGE.${power.system.powerUsage.value}`)}}</strong>
+        <strong v-if="power.system.powerUsage.value">{{localize(`ARCHMAGE.${power.system.powerUsage.value}`)}}<template v-if="power.system.powerUsageSecondary?.value"> / {{localize(`ARCHMAGE.${power.system.powerUsageSecondary.value}`)}}</template></strong>
         <strong v-if="power.system.powerType.value">{{localize(`ARCHMAGE.${power.system.powerType.value}`)}}</strong>
         <strong v-if="power.system.embeddedMacro.value"><em>{{localize('ARCHMAGE.CHAT.embeddedMacro')}}</em></strong>
       </div>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { localize } from '@/methods/Helpers';
+import { localize, powerUsageClass } from '@/methods/Helpers';
 import Enriched from '@/components/parts/Enriched.vue';
 export default {
   name: 'Power',
@@ -169,16 +169,7 @@ export default {
      * Compute CSS class to assign based on special usage
      */
      powerUsageClass(power) {
-      let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
-      if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
-      if (['recharge', 'recharge-desperate'].includes(use)) use = 'recharge';
-      else if (use == 'cyclic') {
-        if (this.actor && this.actor?.system.attributes.escalation?.value > 0
-          && this.actor?.system.attributes.escalation.value % 2 == 0) {
-          use = 'at-will cyclic';
-        } else use = 'once-per-battle cyclic';
-      }
-      return use;
+      return powerUsageClass(power, this.actor);
     },
     /**
      * Determine if a character is high enough level to cast a spell.

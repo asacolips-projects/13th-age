@@ -4035,7 +4035,7 @@ items:
       resources:
         type: String
         label: Resources
-        value: '-Momentum'
+        value: -Momentum
       castBroadEffect:
         type: String
         label: Cast for Broad Effect
