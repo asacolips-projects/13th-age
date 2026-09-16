@@ -60,7 +60,7 @@
         <legend>{{ game.i18n.localize('Preview') }}</legend>
         <div class="archmage-v2 sheet">
           <section class="section--powers">
-            <Power :power="context.item" :actor="context.actor" :context="context" include-title="true" :enriched="context.editors"/>
+            <Power :power="context.item" :actor="context.actor" :context="context" include-title="true" :feats-active="true" :enriched="context.editors"/>
           </section>
         </div>
       </fieldset>

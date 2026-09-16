@@ -1,18 +1,15 @@
 <template>
   <section :class="`power ${includeTitle ? 'include-title': ''}`">
     <!-- Optionally show the title bar. -->
-    <div v-if="includeTitle" :class="`power-summary grid power-grid ${powerUsageClass(power)} ${power.system.trigger.value ? 'power-summary--trigger' : ''} active`">
-      <span class="power-name" :data-item-id="power._id">
-        <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>
-      </span>
-    </div>
+    <PowerSummaryRow v-if="includeTitle" :power="power" :actor="actor" :image="false" :active="true"/>
     <!-- Group, range, and quick info. -->
     <header class="power-header flexcol">
       <strong v-if="power.system.group.value">{{power.system.group.value}}</strong>
       <em v-if="power.system.range.value">{{power.system.range.value}}</em>
       <div class="power-subheader flexrow">
         <strong v-if="power.system.actionType.value">{{localize(`ARCHMAGE.${power.system.actionType.value}`)}}</strong>
-        <strong v-if="power.system.powerUsage.value">{{localize(`ARCHMAGE.${power.system.powerUsage.value}`)}}<template v-if="power.system.powerUsageSecondary?.value"> / {{localize(`ARCHMAGE.${power.system.powerUsageSecondary.value}`)}}</template></strong>
+        <!-- Read from the config rather than localized here, so that 2e's "arc" is used in place of "daily". -->
+        <strong v-if="power.system.powerUsage.value">{{CONFIG.ARCHMAGE.powerUsages[power.system.powerUsage.value]}}<template v-if="power.system.powerUsageSecondary?.value"> / {{CONFIG.ARCHMAGE.powerUsages[power.system.powerUsageSecondary.value]}}</template></strong>
         <strong v-if="power.system.powerType.value">{{localize(`ARCHMAGE.${power.system.powerType.value}`)}}</strong>
         <strong v-if="power.system.embeddedMacro.value"><em>{{localize('ARCHMAGE.CHAT.embeddedMacro')}}</em></strong>
       </div>
@@ -22,27 +19,27 @@
       <div v-if="power.system.description.value" class="power-detail power-detail--description">
         <span v-if="enriched" class="power-detail-value" v-html="enriched['system.description.value'].enriched"></span>
         <Suspense v-else>
-          <Enriched tag="span" class="power-detail-value" :text="power.system.description.value" :diceFormulaMode="diceFormulaMode" />
+          <Enriched tag="span" class="power-detail-value" :text="power.system.description.value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" field="description" :enrichmentOptions="enrichmentOptions" />
         </Suspense>
       </div>
       <template v-for="field in powerDetailFields" :key="field">
-        <div v-if="canCastSpell(field)" class="power-detail" :data-field="field">
+        <div v-if="allLevels || isPowerFieldVisible(power, field, actor)" class="power-detail" :data-field="field">
           <strong class="power-detail-label">{{localize(`ARCHMAGE.CHAT.${field}`)}}:</strong>
           <span v-if="enriched" class="power-detail-value" v-html="enriched[field].enriched"></span>
           <Suspense v-else>
-            <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field"/>
+            <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field" :enrichmentOptions="enrichmentOptions"/>
           </Suspense>
         </div>
       </template>
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
-      <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="`power-feat ${feat.isActive.value || includeTitle ? 'active' : ''}`">
+      <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="`power-feat ${feat.isActive.value || featsActive ? 'active' : ''}`">
         <strong class="feat-detail-label">{{localize(`ARCHMAGE.CHAT.${feat.tier?.value}`)}}:</strong>
         <div class="flexrow">
           <div v-if="enriched" class="power-detail-content" v-html="enriched[`feat.${index}`].enriched"></div>
           <Suspense v-else>
-            <Enriched tag="div" class="power-detail-content" :text="feat.description.value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData"/>
+            <Enriched tag="div" class="power-detail-content" :text="feat.description.value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :enrichmentOptions="enrichmentOptions"/>
           </Suspense>
           <div class="feat-uses" v-if="feat.isActive.value">
             <a class="rollable" data-roll-type="feat" :data-roll-opt="power._id" :data-roll-opt2="index"></a>
@@ -55,151 +52,62 @@
 </template>
 
 <script>
-import { localize, powerUsageClass } from '@/methods/Helpers';
+import { filterFeats, localize } from '@/methods/Helpers';
+import { isPowerFieldVisible, powerFieldKeys } from '@src/module/item/power-fields.mjs';
 import Enriched from '@/components/parts/Enriched.vue';
+import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 export default {
   name: 'Power',
-  props: ['power', 'actor', 'context', 'include-title', 'enriched'],
+  // Listings that preview what a power can do, rather than what it currently
+  // does for its owner, have two things to say about that:
+  //   all-levels   lists every per-level entry of a spell, whatever its level.
+  //   feats-active renders every feat as though it had been taken, so that they
+  //                read as legibly as the rest of the power.
+  props: ['power', 'actor', 'context', 'include-title', 'enriched', 'all-levels', 'feats-active'],
   components: {
-    Enriched
+    Enriched,
+    PowerSummaryRow
   },
   setup() {
     return {
+      filterFeats,
+      isPowerFieldVisible,
       localize,
       CONFIG,
     }
   },
-  data() {
-    return {}
-  },
   computed: {
-    constants() {
-      return CONFIG.ARCHMAGE;
-    },
     diceFormulaMode() {
       return this.actor?.flags?.archmage?.diceFormulaMode ?? 'short';
     },
     powerDetailFields() {
-      const spellFields = game.settings.get("archmage", "secondEdition")
-        ? [
-          'spellLevel2',
-          'spellLevel3',
-          'spellLevel4',
-          'spellLevel5',
-          'spellLevel6',
-          'spellLevel7',
-          'spellLevel8',
-          'spellLevel9',
-          'spellLevel10',
-          'spellLevel11',
-        ]
-        : [
-          'spellLevel3',
-          'spellLevel5',
-          'spellLevel7',
-          'spellLevel9',
-        ]
-      let powerFields = [
-        'trigger',
-        'sustainOn',
-        'target',
-        'always',
-        'attack',
-        'hit',
-        'hitEven',
-        'hitOdd',
-        'crit',
-        'miss',
-        'missEven',
-        'missOdd',
-        'resources',
-        'castBroadEffect',
-        'castPower',
-        'sustainedEffect',
-        'finalVerse',
-        'special',
-        'effect',
-        ...spellFields,
-        'spellChain',
-        'breathWeapon',
-        'recharge',
-      ];
-
-      powerFields = powerFields.filter(p => this.power.system[p].value);
-      return powerFields;
+      return powerFieldKeys().filter(key => this.power.system[key]?.value);
+    },
+    /**
+     * Enrichment options matching the ones the item sheet enriches with, so the
+     * same power reads the same way on both.
+     */
+    enrichmentOptions() {
+      return {
+        secrets: this.actor?.owner ?? false,
+        rollData: this.context?.rollData ?? {},
+        relativeTo: this.itemDocument
+      };
+    },
+    /**
+     * The power's document, when it can be resolved. Enrichment needs it to
+     * resolve relative UUID links, such as @UUID[.someId].
+     */
+    itemDocument() {
+      const uuid = this.actor?.dragData?.uuid;
+      if (!uuid || !this.power?._id) return null;
+      try {
+        return fromUuidSync(uuid)?.items?.get(this.power._id) ?? null;
+      }
+      catch (error) {
+        return null;
+      }
     }
-  },
-  methods: {
-    /**
-     * Determine if this power has one or more feats.
-     */
-     hasFeats(power) {
-      let hasFeats = false;
-      if (power && power.system && power.system.feats) {
-        for (let [id, feat] of Object.entries(power.system.feats)) {
-          if (feat.description.value || feat.isActive.value) {
-            hasFeats = true;
-            break;
-          }
-        }
-      }
-      return hasFeats;
-    },
-    /**
-     * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
-     */
-    getActionShort(actionType) {
-      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
-        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
-      }
-      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
-    },
-    /**
-     * Filter empty feats
-     */
-    filterFeats(featObj) {
-      if (!featObj) return {};
-      let res = {};
-      for (let [tier, feat] of Object.entries(featObj)) {
-        if (feat.description.value) res[tier] = feat;
-      }
-      return res;
-    },
-    /**
-     * Compute CSS class to assign based on special usage
-     */
-     powerUsageClass(power) {
-      return powerUsageClass(power, this.actor);
-    },
-    /**
-     * Determine if a character is high enough level to cast a spell.
-     * 
-     * @param {string} field Field name, such as "spellLevel1".
-     * @returns {boolean} True if the power's current (or overridden) level
-     *   is greater than or equal to this particular field's level.
-     */
-    canCastSpell(field) {
-      if (!field.includes('spellLevel')) return true;
-
-      const overridePowerLevel = this.actor?.flags?.archmage.overridePowerLevel ?? false;
-      const actorLevel = Number(this.actor?.system?.attributes?.level?.value ?? 1);
-      const powerLevel = Number(this.power.system.powerLevel.value ?? 1);
-      const fieldLevel = Number(field.match(/\d+/g)?.[0] ?? 0);
-      const overriddenLevel = overridePowerLevel
-        ? Math.max(actorLevel, powerLevel)
-        : (powerLevel ?? 1);
-
-      if (this.power.system[field]?.hide && overriddenLevel !== fieldLevel) {
-        // @todo This is an OK-ish solution to handling hidden spells in 1e, but
-        // it needs to be improved.
-        if (fieldLevel > overriddenLevel) return false;
-        if (fieldLevel < overriddenLevel - 1) return false;
-        return !this.power.system[`spellLevel${fieldLevel + 1}`].value ? true : false;
-      }
-
-      return overriddenLevel >= fieldLevel;
-    }
-  },
-  async mounted() {}
+  }
 }
 </script>

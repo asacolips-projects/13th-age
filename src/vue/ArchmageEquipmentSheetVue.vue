@@ -91,7 +91,7 @@ import {
   Rollable
 } from '@/components';
 import { inject, reactive, toRaw, computed } from 'vue';
-import { concat, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
 
 const props = defineProps(['context']);
 // Convert the tabs into a new reactive variable so that they
@@ -104,21 +104,5 @@ const itemDocument = inject('itemDocument');
 
 const equipment = computed(() => props.context.item);
 
-const bonuses = computed(() => {
-  let bonuses = {};
-  for (let [prop, value] of Object.entries(equipment.value.system.attributes)) {
-    if (value.bonus) {
-      if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengage&initiative';
-      bonuses[prop] = value.bonus;
-    }
-    else if (prop == 'attack') {
-      for (let [atkProp, atkValue] of Object.entries(value)) {
-        if (atkValue.bonus) {
-          bonuses[atkProp] = atkValue.bonus;
-        }
-      }
-    }
-  }
-  return bonuses;
-})
+const bonuses = computed(() => equipmentBonuses(equipment.value));
 </script>
