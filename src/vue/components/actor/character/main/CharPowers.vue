@@ -57,23 +57,15 @@
       <ul class="power-group-content flexcol">
         <li v-for="power in powerGroups[groupKey]" :key="power._id" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-document-class="Item" data-draggable="true" draggable="true">
           <!-- Clickable power header. -->
-          <div :class="`power-summary grid power-grid ${powerUsageClass(power)} ${powerAvailabilityClass(power)} ${power.system.trigger.value ? 'power-summary--trigger' : ''} ${activePowers[power._id] ? 'active' : ''}`">
-            <Rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></Rollable>
-            <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
-              <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>
-            </a>
-            <div class="power-feat-pips" v-if="hasFeats(power)">
-              <ul class="feat-pips">
-                <li v-for="(feat, tier) in filterFeats(power.system.feats)" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power._id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
-              </ul>
-            </div>
+          <PowerSummaryRow :power="power" :actor="actor" :active="!!activePowers[power._id]" @toggle="togglePower">
+            <PowerFeatPips v-if="hasFeats(power)" :feats="power.system.feats" :item-id="power._id"/>
             <div class="power-action" v-if="power.system.actionType.value">{{getActionShort(power.system.actionType.value)}}</div>
             <div class="power-recharge" v-if="power.system.recharge.value && ['recharge', 'recharge-desperate'].includes(power.system.powerUsage.value)">
               <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.system.recharge.value) || 16}}+</Rollable>
             </div>
             <div class="power-uses">
               <span v-if="power.system.quantity.value !== null" class="power-uses-primary" :data-item-id="power._id" :data-quantity="power.system.quantity.value">{{power.system.quantity.value}}</span>
-              <template v-if="hasSecondaryUses(power)">
+              <template v-if="hasSecondaryUsage(power)">
                 <span v-if="power.system.quantity.value !== null" class="power-uses-separator">-</span>
                 <span class="power-uses-secondary" :data-item-id="power._id" :data-quantity="power.system.quantitySecondary.value">{{power.system.quantitySecondary.value}}</span>
               </template>
@@ -82,8 +74,7 @@
               <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
             </div>
-            <div v-if="power.system.trigger.value" class="power-trigger power-trigger-tooltip"><strong>{{localize('ARCHMAGE.CHAT.trigger')}}:</strong> {{power.system.trigger.value}}</div>
-          </div>
+          </PowerSummaryRow>
           <!-- Expanded power content. -->
           <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))">
             <Transition name="slide-fade">
@@ -97,8 +88,10 @@
 </template>
 
 <script>
-import { concat, getActor, localize, powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
+import { concat, getActionShort, getActor, hasFeats, hasSecondaryUsage, localize } from '@/methods/Helpers';
 import Power from '@/components/parts/Power.vue';
+import PowerFeatPips from '@/components/parts/PowerFeatPips.vue';
+import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 export default {
   name: 'CharPowers',
@@ -106,12 +99,17 @@ export default {
   setup() {
     return {
       concat,
+      getActionShort,
+      hasFeats,
+      hasSecondaryUsage,
       localize,
       CONFIG,
     }
   },
   components: {
     Power,
+    PowerFeatPips,
+    PowerSummaryRow,
     Rollable
   },
   data() {
@@ -266,41 +264,6 @@ export default {
       return string ? string.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
     },
     /**
-     * Determine if this power has one or more feats.
-     */
-    hasFeats(power) {
-      let hasFeats = false;
-      if (power && power.system && power.system.feats) {
-        for (let [id, feat] of Object.entries(power.system.feats)) {
-          if (feat.description.value || feat.isActive.value) {
-            hasFeats = true;
-            break;
-          }
-        }
-      }
-      return hasFeats;
-    },
-    /**
-     * Filter empty feats
-     */
-    filterFeats(feats) {
-      if (!feats) return {};
-      let res = {};
-      for (let [index, feat] of Object.entries(feats)) {
-        if (feat.description.value) res[index] = feat;
-      }
-      return res;
-    },
-    /**
-     * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
-     */
-    getActionShort(actionType) {
-      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
-        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
-      }
-      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
-    },
-    /**
      * Update the `powers` prop to be equal to a filtered version of the current
      * powers on the actor. Filters by type and search keys.
      */
@@ -349,10 +312,7 @@ export default {
     /**
      * Toggle power display (click event).
      */
-    togglePower(event) {
-      let target = event.currentTarget;
-      let dataset = target.dataset;
-      let id = dataset.itemId;
+    togglePower(id) {
       if (id) {
         // Toggle the state if the power is currently being tracked.
         if (this.activePowers[id] !== undefined) {
@@ -477,27 +437,6 @@ export default {
         return false;
       }
       return true;
-    },
-    /**
-     * Compute CSS class to assign based on special usage
-     */
-    powerUsageClass(power) {
-      return powerUsageClass(power, this.actor);
-    },
-
-    /**
-     * Compute CSS class to assign based on power availability
-     */
-    powerAvailabilityClass(power) {
-      return powerAvailabilityClass(power);
-    },
-
-    /**
-     * Determine whether a power tracks a secondary pool of uses.
-     */
-    hasSecondaryUses(power) {
-      return power.system.quantitySecondary?.value !== null
-        && power.system.quantitySecondary?.value !== undefined;
     }
   },
   /**

@@ -44,8 +44,6 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/archmage/templates/items/item-tool-sheet.html",
     "systems/archmage/templates/items/item-trait-sheet.html",
 
-    "systems/archmage/templates/prepopulate/powers--list.html",
-    "systems/archmage/templates/prepopulate/tabs-content.html",
 
     "systems/archmage/templates/sidebar/apps/archmage-help.html",
     "systems/archmage/templates/sidebar/apps/a11y-preview.html"

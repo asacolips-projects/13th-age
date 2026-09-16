@@ -412,11 +412,13 @@ export class ArchmageUtility {
   }
 
   static localizeEquipmentBonus(bonusProp) {
-    const keys = [
-      "ARCHMAGE." + bonusProp.toLowerCase() + "Short",
-      "ARCHMAGE." + bonusProp.toLowerCase(),
-      "ARCHMAGE." + bonusProp.toLowerCase() + ".key"
-    ];
+    // Most bonus properties are lowercase already, but some are camelCase and
+    // can only be reached by their own spelling.
+    const keys = [bonusProp, bonusProp.toLowerCase()].flatMap(prop => [
+      `ARCHMAGE.${prop}Short`,
+      `ARCHMAGE.${prop}`,
+      `ARCHMAGE.${prop}.key`
+    ]);
     for (const key of keys) {
       if (game.i18n.localize(key) !== key) {
         return game.i18n.localize(key);

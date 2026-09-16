@@ -132,7 +132,7 @@
                 {{ CONFIG.ARCHMAGE.featTiers[equipment.system.tier] }}
               </div>
               <div class="equipment-bonus flexrow" :data-tooltip="localize('ARCHMAGE.bonuses')" data-tooltip-direction="RIGHT" v-if="equipment.system.attributes">
-                <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
+                <span class="bonus" v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp">
                   <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
                   <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
                 </span>
@@ -158,6 +158,7 @@ import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
 // Helper methods.
 import {
+  equipmentBonuses,
   getPackIndex,
   localize,
   localizeEquipmentBonus,
@@ -177,6 +178,7 @@ export default {
   setup() {
     return {
       // Imported methods that need to be available in the <template>
+      equipmentBonuses,
       localize,
       localizeEquipmentBonus,
       numberFormat,
@@ -261,22 +263,6 @@ export default {
       this.powerUsage = [];
       this.source = [];
       this.location = [];
-    },
-    getBonuses(equipment) {
-      let bonuses = {};
-      for (let [prop, value] of Object.entries(equipment.system.attributes)) {
-        if (value.bonus) {
-          bonuses[prop] = value.bonus
-        }
-        else if (prop == 'attack') {
-          for (let [atkProp, atkValue] of Object.entries(value)) {
-            if (atkValue.bonus) {
-              bonuses[atkProp] = atkValue.bonus;
-            }
-          }
-        }
-      }
-      return bonuses;
     },
     /**
      * Tooltip for a publication source, which may be translated
