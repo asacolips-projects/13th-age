@@ -61,6 +61,7 @@
 
 <script>
 import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { roundOngoingDamage } from '@src/module/active-effects/ongoing-damage.mjs';
 import { reactive, computed, toRefs } from 'vue';
 // This component includes an example of using the composition API
 // https://www.vuemastery.com/pdf/Vue-3-Cheat-Sheet.pdf
@@ -81,33 +82,7 @@ export default {
       this.effects = effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
     };
     function getChanges(effect) {
-      let changes = [];
-      let modes = {
-        'custom': 'question',
-        'multiply': 'times',
-        'add': 'plus',
-        'subtract': 'minus',
-        'downgrade': 'angle-double-down',
-        'upgrade': 'angle-double-up',
-        'override': 'undo'
-      }
-      effect.changes.forEach(c => {
-        if (c.key && c.value != null) {
-          const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
-          let change = {
-            name: label,
-            img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-            mode: modes[c.type],
-            value: c.value
-          };
-          if (change.mode === "plus" && change.value < 0) {
-            change.mode = "minus";
-            change.value = Math.abs(change.value);
-          }
-          changes.push(change);
-        }
-      })
-      return changes;
+      return game.archmage.ArchmageUtility.getActiveEffectChanges(effect);
     }
 
     function getDuration(effect) {
@@ -115,7 +90,7 @@ export default {
     }
 
     function getOngoingDamage(effect) {
-      return `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
+      return `${roundOngoingDamage(effect.flags.archmage.ongoingDamage)} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
     }
 
     // Return our custom data, methods, and any imported methods.

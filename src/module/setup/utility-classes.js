@@ -411,6 +411,51 @@ export class ArchmageUtility {
     return "fas fa-question";
   }
 
+  /**
+   * Icons for each Active Effect change type, keyed by the type's value.
+   */
+  static ACTIVE_EFFECT_CHANGE_ICONS = {
+    'custom': 'question',
+    'multiply': 'times',
+    'add': 'plus',
+    'subtract': 'minus',
+    'downgrade': 'angle-double-down',
+    'upgrade': 'angle-double-up',
+    'override': 'undo'
+  };
+
+  /**
+   * Describe an Active Effect's changes for display in an effect list.
+   *
+   * A zero add or subtract is a no-op and not worth a row, but a zero
+   * override, multiply or up/downgrade is meaningful - blocking the escalation
+   * die, for one, is an override to 0.
+   *
+   * @param {ActiveEffect|object} effect  The effect whose changes to describe.
+   * @returns {{name: string, img: string, mode: string, value: *}[]}
+   */
+  static getActiveEffectChanges(effect) {
+    const changes = [];
+    for (const c of effect?.changes ?? []) {
+      const additive = ['add', 'subtract'].includes(c.type);
+      if (!c.key || c.value == null || (additive && Number(c.value) === 0)) continue;
+      const label = this.cleanActiveEffectLabel(c.key);
+      const change = {
+        name: label,
+        img: this.getActiveEffectLabelIcon(label),
+        mode: this.ACTIVE_EFFECT_CHANGE_ICONS[c.type],
+        value: c.value
+      };
+      // A negative bonus reads better as a subtraction.
+      if (change.mode === 'plus' && change.value < 0) {
+        change.mode = 'minus';
+        change.value = Math.abs(change.value);
+      }
+      changes.push(change);
+    }
+    return changes;
+  }
+
   static localizeEquipmentBonus(bonusProp) {
     const keys = [
       "ARCHMAGE." + bonusProp.toLowerCase() + "Short",

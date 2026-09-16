@@ -62,8 +62,9 @@ export class ContextMenu2 {
         // Remove existing context UI
         $('.context').removeClass("context");
   
-        // Close the current context
-        if ( $.contains(parent[0], menu[0]) ) this.close();
+        // Close the current context if it belongs to this same target. The menu is no longer
+        // rendered inside the target (see _setPosition), so containment can't be used here.
+        if ( menu.length && this._target && this._target[0] === parent[0] ) this.close();
   
         // If the new target element is different
         else {
@@ -83,6 +84,7 @@ export class ContextMenu2 {
       await this._animateClose(menu);
       menu.remove();
       $('.context').removeClass("context");
+      this._target = null;
       delete ui.context;
     }
   
@@ -109,6 +111,7 @@ export class ContextMenu2 {
      */
     render(target) {
       let html = $("#context-menu2").length ? $("#context-menu2") : $('<nav id="context-menu2" data-mod="1"></nav>');
+      html.empty().removeClass("expand-up").removeClass("expand-down");
       let ol = $('<ol class="context-items"></ol>');
       html.append($(`<h2>${game.i18n.localize('ARCHMAGE.UI.applyChanges')}</h2>`));
       html.append(ol);
@@ -175,29 +178,61 @@ export class ContextMenu2 {
      * @private
      */
     _setPosition(html, target) {
-      const targetRect = target[0].getBoundingClientRect();
-      const parentRect = target[0].parentElement.getBoundingClientRect();
-  
-      // Append to target and get the context bounds
-      target.css('position', 'relative');
-      html.css("visibility", "hidden");
-      target.append(html);
-      const contextRect = html[0].getBoundingClientRect();
-  
-      // Determine whether to expand down or expand up
-      const bottomHalf = targetRect.bottom > (window.innerHeight / 2);
-      this._expandUp = bottomHalf && ((parentRect.bottom - targetRect.bottom) < contextRect.height);
+      // Anchor the menu outside of any faded ancestor. Rows we evaluated as inapplicable are
+      // dimmed rather than hidden precisely because the evaluation can be wrong, so the menu has
+      // to stay fully usable - and opacity on an ancestor would composite the menu along with it.
+      const anchor = this._getAnchor(target[0]);
+      if (getComputedStyle(anchor).position === 'static') anchor.style.position = 'relative';
 
-      // Shift left if needed to avoid overflowing
-      const horizontalOverflow = parentRect.right - contextRect.right;
-      if (horizontalOverflow < 0) {
-        html.css("left", Math.floor(horizontalOverflow));
-      }
-  
-      // Display the menu
+      const targetRect = target[0].getBoundingClientRect();
+      const anchorRect = anchor.getBoundingClientRect();
+
+      // Append to the anchor and get the context bounds. Width matches what the menu used to get
+      // from the target it was nested in.
+      html.css({visibility: "hidden", width: Math.min(360, Math.max(200, targetRect.width))});
+      anchor.appendChild(html[0]);
+      const contextRect = html[0].getBoundingClientRect();
+
+      // Determine whether to expand down or expand up.
+      const bottomHalf = targetRect.bottom > (window.innerHeight / 2);
+      this._expandUp = bottomHalf && ((window.innerHeight - targetRect.bottom) < contextRect.height);
+
+      // Position relative to the anchor, shifting left if needed to avoid overflowing it.
+      let left = targetRect.left - anchorRect.left;
+      const horizontalOverflow = anchorRect.width - (left + contextRect.width);
+      if (horizontalOverflow < 0) left = Math.max(0, left + horizontalOverflow);
+      const top = this._expandUp
+        ? targetRect.top - anchorRect.top - contextRect.height - 2
+        : targetRect.bottom - anchorRect.top + 2;
+
+      // Display the menu.
       html.addClass(this._expandUp ? "expand-up" : "expand-down");
-      html.css("visibility", "");
+      html.css({left: Math.floor(left), top: Math.floor(top), bottom: "auto", visibility: ""});
+      this._target = target;
       target.addClass("context");
+    }
+
+    /* -------------------------------------------- */
+
+    /**
+     * Find the closest ancestor that isn't inside a faded (opacity < 1) element, so the menu can
+     * be positioned against it without inheriting that fading. Never walks past the chat message
+     * or application window the target belongs to, which keeps the menu glued to the target while
+     * its container scrolls.
+     * @param {HTMLElement} target
+     * @returns {HTMLElement}
+     * @private
+     */
+    _getAnchor(target) {
+      const boundary = target.closest('.chat-message, .application, .window-app') ?? document.body;
+      let anchor = target;
+      let node = target;
+      while (node) {
+        if (Number(getComputedStyle(node).opacity) < 1 && node.parentElement) anchor = node.parentElement;
+        if (node === boundary) break;
+        node = node.parentElement;
+      }
+      return anchor;
     }
   
     /* -------------------------------------------- */

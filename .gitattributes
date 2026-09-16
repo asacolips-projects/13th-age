@@ -1,0 +1,10 @@
+# Text files are stored and checked out with LF endings, so that editors on Windows
+# don't leave whole-file diffs behind. Most of the repo is already LF.
+* text=auto eol=lf
+
+# Assets git shouldn't inspect or convert.
+*.jpg binary
+*.png binary
+*.webp binary
+*.otf binary
+*.zip binary

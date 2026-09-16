@@ -89,6 +89,7 @@ import {
 } from '@/components';
 import { computed, inject, reactive, toRaw, watch } from 'vue';
 import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { roundOngoingDamage } from '@src/module/active-effects/ongoing-damage.mjs';
 
 const props = defineProps(['context']);
 const foundryEffect = inject('itemDocument')
@@ -101,36 +102,7 @@ const tabs = reactive({ ...rawTabs });
 
 const effect = computed(() => props.context.document);
 
-const modes = {
-  'custom': 'question',
-  'multiply': 'times',
-  'add': 'plus',
-  'subtract': 'minus',
-  'downgrade': 'angle-double-down',
-  'upgrade': 'angle-double-up',
-  'override': 'undo'
-}
-
-const changes = computed(() => {
-  const changesArray = [];
-  effect.value.changes.forEach(c => {
-    if (c.key && c.value != null) {
-      const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
-      let change = {
-        name: label,
-        img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
-        mode: modes[c.type],
-        value: c.value
-      };
-      if (change.mode === "plus" && change.value < 0) {
-        change.mode = "minus";
-        change.value = Math.abs(change.value);
-      }
-      changesArray.push(change);
-    }
-  });
-  return changesArray;
-});
+const changes = computed(() => game.archmage.ArchmageUtility.getActiveEffectChanges(effect.value));
 
 const duration = computed(() => {
   const rawDuration = effect.value.flags.archmage.duration
@@ -138,7 +110,7 @@ const duration = computed(() => {
 });
 
 const ongoingDamage = computed(() => {
-  const dmg = effect.value.flags.archmage.ongoingDamage || 0
+  const dmg = roundOngoingDamage(effect.value.flags.archmage.ongoingDamage || 0)
   const type = effect.value.flags.archmage.ongoingDamageType || ''
   return `${dmg} ongoing ${type} damage`;
 });

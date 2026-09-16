@@ -45,7 +45,7 @@ export class ItemArchmage extends Item {
     // For powers with a level, show a dialog to set level and consume-usage.
     const rollOptions = await this._rollTemporaryOverrides();
     if (!rollOptions) return;
-    const { overrides: tempOverrides, consumeUsage, consumeResources } = rollOptions;
+    const { overrides: tempOverrides, consumeUsage, consumeResources, modified } = rollOptions;
 
     // Check remaining uses, honoring the consume-usage choice from the dialog.
     let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode, consumeUsage);
@@ -83,7 +83,7 @@ export class ItemArchmage extends Item {
     let token = this._rollGetToken(itemToRender);
 
     // Render the chat card.
-    let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token, { tempOverrides, consumeUsage, consumeResources });
+    let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token, { modified });
 
     // Evaluate outcomes and prepare animations.
     let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {
@@ -274,8 +274,15 @@ export class ItemArchmage extends Item {
 
   async _rollTemporaryOverrides() {
     let overrides = {};
-    if (this.type != 'power') return { overrides, consumeUsage: true };
-    let baseLvl = this.system.powerLevel?.value ?? 0;
+    // Descriptions of what the *user* deliberately changed, for the "(modified)" label on the
+    // chat card. Only the dialog below writes to this. Automatic adjustments - the "Cast at
+    // Actor Level" flag in particular - are not modifications and must never land here, which is
+    // why this is recorded at the point of choice instead of inferred later by comparing levels.
+    let modified = [];
+    if (this.type != 'power') return { overrides, consumeUsage: true, consumeResources: true, modified };
+    // Powers store their level as a number or a numeric string, so normalize before comparing.
+    let baseLvl = Number(this.system.powerLevel?.value ?? 0);
+    if (!Number.isFinite(baseLvl)) baseLvl = 0;
     if (this.itemActor?.getFlag("archmage", "overridePowerLevel")) {
       baseLvl = Math.max(this.itemActor.system.attributes.level.value, baseLvl);
     }
@@ -293,7 +300,7 @@ export class ItemArchmage extends Item {
     // Skip the dialog if alt isn't held, or there's nothing for it to display.
     if (!event?.altKey || (!hasSpellLevels && !hasUses && !hasResources)) {
       overrides['system.powerLevel.value'] = baseLvl;
-      return { overrides, consumeUsage: true, consumeResources: true };
+      return { overrides, consumeUsage: true, consumeResources: true, modified };
     }
 
     const content = `
@@ -324,8 +331,16 @@ export class ItemArchmage extends Item {
         const consume = hasUses ? form.consumeUsage.checked : true;
         const consumeRes = hasResources ? form.consumeResources.checked : true;
         overrides['system.powerLevel.value'] = finalLvl;
+        // Compared against the level the dialog defaulted to, not the one stored on the power:
+        // the question is whether the user picked something other than what would have happened
+        // anyway. Both sides are numbers by this point.
+        if (finalLvl !== baseLvl) {
+          modified.push(game.i18n.format("ARCHMAGE.CHAT.modifiedLevel", { level: finalLvl }));
+        }
+        if (!consume) modified.push(game.i18n.localize("ARCHMAGE.CHAT.modifiedNoUsage"));
+        if (!consumeRes) modified.push(game.i18n.localize("ARCHMAGE.CHAT.modifiedNoResources"));
         resolved = true;
-        resolve({ overrides, consumeUsage: consume, consumeResources: consumeRes });
+        resolve({ overrides, consumeUsage: consume, consumeResources: consumeRes, modified });
       };
 
       let buttons;
@@ -658,17 +673,8 @@ export class ItemArchmage extends Item {
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
 
-    // Build a list of human-readable override descriptions for the "(modified)" tooltip.
-    const modifiedParts = [];
-    const { tempOverrides = {}, consumeUsage = true, consumeResources = true } = rollContext;
-    const origLvl = this.system.powerLevel?.value;
-    const newLvl = tempOverrides['system.powerLevel.value'];
-    // tempOverrides will set the new level to 0 even when the power doesn't have a level set
-    if (newLvl !== undefined && newLvl !== "" && newLvl !== (origLvl || 0)) {
-      modifiedParts.push(game.i18n.format("ARCHMAGE.CHAT.modifiedLevel", { level: newLvl }));
-    }
-    if (!consumeUsage) modifiedParts.push(game.i18n.localize("ARCHMAGE.CHAT.modifiedNoUsage"));
-    if (!consumeResources) modifiedParts.push(game.i18n.localize("ARCHMAGE.CHAT.modifiedNoResources"));
+    // The roll dialog reports what the user changed; we don't try to infer it from the values.
+    const { modified = [] } = rollContext;
 
     const templateData = {
       actor: this.itemActor,
@@ -676,7 +682,7 @@ export class ItemArchmage extends Item {
       item: itemToRender,
       data: await itemToRender.getChatData({ rollData: rollData }, true),
       usageClass: this._getUsageClass(itemToRender),
-      modifiedTooltip: modifiedParts.length ? modifiedParts.join(", ") : null
+      modifiedTooltip: modified.length ? modified.join(", ") : null
     };
 
     // Basic chat message data

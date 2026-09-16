@@ -1,20 +1,15 @@
 import ITrigger from "./ITrigger.mjs";
 
-export default class CritTrigger extends ITrigger{
-    isActive(triggerText, rollResult, hitEvaluationResults) {
-        let active = undefined;
-
-        if (rollResult == undefined) return active;
-
-        // TODO: Handle expanded crit range
-        return rollResult == 20;
+export default class CritTrigger extends ITrigger {
+    appliesTo(label) {
+        return ITrigger.mentions(label, ITrigger.word("crit"), ["s", "ical", "icals"]);
     }
 
-    triggersOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase() ];
-    }
-
-    doesntTriggerOn() {
-        return [ ];
+    // The crit range is not fixed at 20: it moves with the optional 18+ rule, with attacker and
+    // target crit modifiers, and with the 1e barbarian's double-crit. HitEvaluation already
+    // resolves all of that per roll, so we just read its verdict.
+    test(outcome) {
+        if (outcome.crit === undefined) return undefined;
+        return outcome.crit;
     }
 }

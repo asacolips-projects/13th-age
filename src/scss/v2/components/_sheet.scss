@@ -109,6 +109,49 @@ img[data-edit="img"] {
   border-radius: $padding-sm;
 }
 
+// Activating an editor makes ProseMirror restructure .editor into a menu bar
+// plus an .editor-container, where the container is `flex: 1 1 0%`. That means
+// the writing area only gets a height if something above it provides one: where
+// the read-only rendering is deliberately compact (the NPC flavor text zeroes
+// the wrapper's min-height) the container collapses to nothing and all that's
+// left is the toolbar. Give the *active* editor its own floor, so the compact
+// display styles can stay compact.
+.editor.prosemirror {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding-top: 0;
+
+  // Narrow columns (the One Unique Thing unit in the sidebar, the NPC header
+  // next to the portrait) can't fit the toolbar on one line. Core keeps it out
+  // of the flow at a fixed one-row height and offsets the content below it, so
+  // simply letting it wrap makes the extra rows sit on top of the text. Put it
+  // back in the flow instead, and drop the offset that compensated for it: as a
+  // plain flex item its rows push the writing area down rather than over it.
+  > menu,
+  .editor-menu {
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .editor-container {
+    margin-top: 0;
+    padding-top: 0;
+    flex: 1 1 auto;
+    min-height: 180px;
+    overflow-y: auto;
+  }
+
+  .editor-content {
+    min-height: 100%;
+  }
+}
+
 .tox-tinymce,
 .tox-editor-container,
 .tox-sidebar-wrap,

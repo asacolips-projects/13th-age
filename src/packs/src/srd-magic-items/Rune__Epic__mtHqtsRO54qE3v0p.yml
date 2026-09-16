@@ -12,7 +12,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
     name: Magic Rune (Epic, Armor)
@@ -54,7 +53,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
     name: Magic Rune (Epic, Melee Weapon)
@@ -96,7 +94,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
     name: Magic Rune (Epic, Ranged Weapon)
@@ -138,7 +135,6 @@ effects:
       archmage:
         duration: EndOfCombat
         ongoingDamage: 0
-        ongoingDamageCrit: false
         ongoingDamageType: ''
     img: systems/archmage/assets/icons/spells/runes-blue-3.jpg
     name: Magic Rune (Epic, Implement)
