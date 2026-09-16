@@ -13,6 +13,10 @@ export default class HitEvaluation {
         let vulnerabilities = new Set();
         let hasHit = undefined;
         let hasMissed = undefined;
+        // One entry per d20 roll, in roll order. Unlike the targetsHit/targetsMissed pairs below,
+        // this keeps each roll's natural value, crit state and hit state together, which is what
+        // trigger rows need to evaluate conditions like "natural even hit" against a single roll.
+        let rollOutcomes = [];
 
         let targetedDefenses = HitEvaluation._getTargetDefenses(row_text);
         const baseCritrange = game.settings.get("archmage", "optionalBaseCritRange") ? 18 : 20;
@@ -22,6 +26,11 @@ export default class HitEvaluation {
         if ($rolls.length == 0) {
           // No rolls means it's an auto-hit
           targetsHit = targets;
+          hasHit = true;
+          hasMissed = false;
+          // A rollless outcome: enough to resolve "hit"/"miss" rows, not the roll-dependent ones.
+          rollOutcomes.push({natural: undefined, total: undefined, hit: true, crit: undefined,
+            fumble: undefined, target: undefined, defense: undefined});
         } else {
           let targetsToProcess = Math.min($rolls.length, targets.length);
           $rolls.each(function (roll_index) {
@@ -92,11 +101,28 @@ export default class HitEvaluation {
             $rolls[roll_index] = $roll_self[0];
             $rolls[roll_index].d20result = rollResult;
 
+            // Record what we know about this roll on its own. A crit hits whatever the target's
+            // defense turns out to be, so it settles the hit state by itself and a trigger row can
+            // rely on it with nothing targeted. Any other roll stays undefined until there is a
+            // target to resolve it against, below.
+            const outcome = {natural: rollResult, total: rollTotal, hit: hasCrit ? true : undefined,
+              crit: hasCrit, fumble: hasFumbled, target: target, defense: undefined};
+            rollOutcomes.push(outcome);
+
             // Target analysis, only perform if we actually have targets
             if (roll_index >= targetsToProcess) return;
             var targetDefense = HitEvaluation._getTargetDefenseValue(target, targetedDefenses);
+            outcome.defense = targetDefense;
             if (targetDefense != undefined) {
-              var hit = rollTotal >= targetDefense;
+              // The natural roll can override the arithmetic in both directions: a crit always
+              // counts as a hit even when the total falls short of the defense, and a natural 1
+              // always misses however high the total gets. Without this a natural 20 that doesn't
+              // beat the defense reads as a crit *and* a miss, lighting up a "Crit:" and a
+              // "Miss:" row off the same roll.
+              // Note this only decides hit/miss. What a fumble does to miss damage is left to the
+              // GM, like the rest of damage application.
+              var hit = (rollTotal >= targetDefense || hasCrit) && !hasFumbled;
+              outcome.hit = hit;
               if (hit) {
                 targetsHit.push(target);
                 targetsCrit.push(hasCrit);
@@ -128,6 +154,7 @@ export default class HitEvaluation {
             targetsFumbled: targetsFumbled,
             hasHit: hasHit,
             hasMissed: hasMissed,
+            rollOutcomes: rollOutcomes,
             defenses: defenses,
             vulnerabilities: Array.from(vulnerabilities),
             $rolls: $rolls

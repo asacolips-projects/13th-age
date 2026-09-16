@@ -14,7 +14,7 @@
             </div>
           </div>
           <ul class="action-group-content flexcol">
-            <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" data-document-class="Item" data-draggable="true" draggable="true">
+            <li v-for="action in actionGroups[groupKey]" :key="action._id" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" data-document-class="Item" data-draggable="true" draggable="true">
               <!-- Clickable action header. -->
               <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
                 <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">
@@ -172,6 +172,10 @@ export default {
           return 0;
         });
       }
+      else {
+        // Custom order: honour the `sort` value that drag and drop writes.
+        actions = actions.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+      }
       actions.forEach(i => {
         if (this.activeActions[i._id] == undefined) {
           // this.$set(this.activeActions, i._id, {value: false});
@@ -226,6 +230,12 @@ export default {
       }
     },
     'searchValue': {
+      deep: false,
+      handler() {
+        this.getActions();
+      }
+    },
+    'sortBy': {
       deep: false,
       handler() {
         this.getActions();

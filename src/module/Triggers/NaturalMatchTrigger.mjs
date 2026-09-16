@@ -1,30 +1,25 @@
 import ITrigger from "./ITrigger.mjs";
 
-export default class NaturalMatchTrigger extends ITrigger{
-    isActive(triggerText, rollResult, hitEvaluationResults) {
-        let active = undefined;
-
-        // This regex just finds any numbers in the string, and we use the first one
-        var regex = new RegExp("\\d+");
-        var scoreToBeatArray = regex.exec(triggerText);
-        if (scoreToBeatArray && scoreToBeatArray.length == 1) {
-            var scoreToBeat = parseInt(scoreToBeatArray[0]);
-            if (rollResult >= scoreToBeat) {
-                active = true;
-            }
-            else {
-                active = false;
-            }
-        }
-
-        return active;
+/**
+ * "Natural 16+" - the natural roll has to meet or beat a threshold.
+ *
+ * The threshold is read as "a number immediately followed by a +", rather than from a bare "+"
+ * anywhere in the row: the latter also matched plus signs coming from damage formulas.
+ */
+export default class NaturalMatchTrigger extends ITrigger {
+    appliesTo(label) {
+        return this._threshold(label) !== undefined;
     }
 
-    triggersOn() {
-        return [ "+" ];
+    test(outcome, label) {
+        if (outcome.natural === undefined) return undefined;
+        const threshold = this._threshold(label);
+        if (threshold === undefined) return undefined;
+        return outcome.natural >= threshold;
     }
 
-    doesntTriggerOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() ];
+    _threshold(label) {
+        const match = label.match(/(\d+)\s*\+/);
+        return match ? parseInt(match[1]) : undefined;
     }
 }
