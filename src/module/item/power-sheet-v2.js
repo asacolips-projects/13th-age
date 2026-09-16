@@ -1,5 +1,6 @@
 import { ArchmageBaseItemSheetV2 } from "./base-item-sheet-v2.js";
 import { wrapRolls } from "./_item-sheet-helpers.mjs";
+import { powerFieldKeys } from "./power-fields.mjs";
 
 import VueRenderingMixin from "./_vue-application-mixin.mjs";
 import { ArchmagePowerSheetVue } from "../../vue/components.vue.es.js";
@@ -69,13 +70,21 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
   /** @override */
   async _prepareContext(options) {
 
+    // Source data lacks the secondary usage fields on powers created before
+    // they existed, which the sheet inputs bind against. ItemArchmage's derived
+    // data has them defaulted, so fill any gaps from there.
+    const itemData = this.item.toObject();
+    for (const key of ['powerUsageSecondary', 'quantitySecondary', 'maxQuantitySecondary']) {
+      itemData.system[key] ??= foundry.utils.deepClone(this.item.system[key]);
+    }
+
     const context = {
       // Validates both permissions and compendium status
       editable: this.isEditable,
       owner: this.isOwner,
       limited: this.document.limited,
       // Add the item document.
-      item: this.item.toObject(),
+      item: itemData,
       actor: this.actor?.toObject() ?? false,
       // Adding system and flags for easier access
       system: this.item.system,
@@ -174,51 +183,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
    * @param {object} editorOptions 
    */
   async _enrichPowers(context, enrichmentOptions, editorOptions) {
-    // Enrich other fields.
-    const spellFields = CONFIG.ARCHMAGE.is2e ? [
-      'spellLevel2',
-      'spellLevel3',
-      'spellLevel4',
-      'spellLevel5',
-      'spellLevel6',
-      'spellLevel7',
-      'spellLevel8',
-      'spellLevel9',
-      'spellLevel10',
-      'spellLevel11',
-    ] : [
-      'spellLevel3',
-      'spellLevel5',
-      'spellLevel7',
-      'spellLevel9',
-    ];
-    const powerFields = [
-      'trigger',
-      'sustainOn',
-      'target',
-      'always',
-      'attack',
-      'hit',
-      'hitEven',
-      'hitOdd',
-      'crit',
-      'miss',
-      'missEven',
-      'missOdd',
-      'resources',
-      'castBroadEffect',
-      'castPower',
-      'sustainedEffect',
-      'finalVerse',
-      'special',
-      'effect',
-      ...spellFields,
-      'spellChain',
-      'breathWeapon',
-      'recharge',
-    ];
-
-    for (let field of powerFields) {
+    for (let field of powerFieldKeys()) {
       context.editors[field] = {
         // @todo write a power enricher.
         enriched: await wrapRolls(this.item.system[field].value ?? '', [], 'short', {}, field, enrichmentOptions),

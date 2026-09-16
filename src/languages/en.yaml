@@ -61,6 +61,7 @@ ARCHMAGE:
   details: Details
   disengage: Disengage
   disengageShort: Disengage
+  disengageInitShort: Disengage & Init.
   disengageAdjustment: Disengage Adjustment
   divine: Divine
   dragToReorderGroup: Drag to reorder this group
@@ -84,6 +85,7 @@ ARCHMAGE:
   free-short: Free
   groupBy: Group by
   health: Health
+  hpShort: HP
   helpCompact: '<p><a href="javascript:void(0)" click="preventDefault" role="button" tabindex="-1" class="archmage-rolls-reference">Inline rolls</a> allowed here.</p>'
   helpDetailed: '<p class="hint">Use <a href="javascript:void(0)" click="preventDefault" role="button" tabindex="-1" class="archmage-rolls-reference">inline rolls</a> such as <strong>[[d20+@str.mod+@std+@atk.a.bonus]] vs AC</strong> to insert dice rolls wherever you need them. Any roll formula will work!</p>'
   hit: Hit
@@ -158,6 +160,8 @@ ARCHMAGE:
   recharge-desperate: Recharge/Desperate
   recoveries: Recoveries
   recovery: Recovery
+  rerollAcShort: Reroll vs. AC
+  rerollSaveShort: Reroll Save
   recoveryAdventurer: Potion (Adv.)
   recoveryAdventurerFull: Adventurer Potion
   recoveryApplyHealingLabel: Apply healing?
@@ -559,7 +563,8 @@ ARCHMAGE:
       title: 13th Age Community Use Policy
       content: "This system for Foundry VTT uses trademarks and/or copyrights owned by Fire Opal Media Inc., which are used under the Fire Opal Media Inc., 13th Age Community Use Policy. We are expressly prohibited from charging you to use or access this content. This system for Foundry VTT is not published, endorsed, or specifically approved by Fire Opal Media."
   PREPOPULATE:
-    help: "Click the checkboxes to the left of any powers you would like to add, and then click submit to add them to your character. You can click any power's name to expand it and view its text and available feats."
+    help: "Tick the box to the right of any powers you would like to add, and then click import to add them to your character. You can click any power's name to expand it and view its text and available feats."
+    selected: selected
   COMPENDIUMBROWSER:
     title: 'Compendium Browser'
     tabs:
@@ -689,10 +694,18 @@ ARCHMAGE:
     saveBonusHPTreshold: Save Bonus HP Threshold
     stackingBehavior: Stacking Behavior
     stacksAlways: Always stacks
+    powerUsageSecondary: Secondary Usage
+    powerUsageSecondaryHint: Optional second pool of uses, only spent once the
+      first one runs out. For example, a power usable once per battle plus an
+      additional few times per arc.
     usesMax: Maximum Uses
-    usesMaxHint: Number of uses per battle/day, usually 1
+    usesMaxHint: Number of uses per battle/arc, usually 1. Accepts inline rolls,
+      such as [[@cha.mod]]
+    usesMaxPlaceholder: 1 or [[@cha.mod]]
+    usesMaxSecondary: Maximum Secondary Uses
     usesRemaining: Uses Remaining
     usesRemainingHint: Number of remaining uses, usually the same as Max Uses
+    usesRemainingSecondary: Secondary Uses Remaining
     wisBonus: Wisdom checks bonus
   CHAKRA:
     armor: Armor, robe, shirt, tunic
@@ -814,6 +827,7 @@ ARCHMAGE:
     HP: HP
     iconic: Zenith Feat
     ItemReset: uses restored to
+    ItemResetSecondary: secondary uses restored to
     KiReset: reset to
     embeddedMacro: Embedded Macro
     embeddedMacroSummary: Edit the embedded macro that will be run on use.

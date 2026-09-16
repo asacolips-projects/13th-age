@@ -1,4 +1,5 @@
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
+import { ArchmagePowerImporterApplication } from '../applications/power-importer.js';
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
@@ -341,8 +342,10 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     html.on('click', '.rest', (event) => this._onRest(event));
 
     // Item listeners.
-    html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
-    html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
+    html.on('click', '.power-uses-primary, .equipment-quantity', (event) => this._updateQuantity(event, true));
+    html.on('contextmenu', '.power-uses-primary, .equipment-quantity', (event) => this._updateQuantity(event, false));
+    html.on('click', '.power-uses-secondary', (event) => this._updateQuantity(event, true, true));
+    html.on('contextmenu', '.power-uses-secondary', (event) => this._updateQuantity(event, false, true));
     html.on('click', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, true));
     html.on('contextmenu', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, false));
     html.on('click', '.feat-pip', (event) => this._updatePips(event));
@@ -1005,7 +1008,15 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     }
   }
 
-  async _updateQuantity(event, increase = true) {
+  /**
+   * Increase or decrease an item's remaining uses.
+   *
+   * @param {MouseEvent} event  The click (increase) or contextmenu (decrease) event.
+   * @param {Boolean} increase  Whether to add or remove a use.
+   * @param {Boolean} secondary  Target the power's secondary pool of uses
+   *   instead of the primary one.
+   */
+  async _updateQuantity(event, increase = true, secondary = false) {
     event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
@@ -1015,15 +1026,16 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
     let item = this.actor.items.get(itemId);
     if (item) {
-      if (item.system?.quantity?.value == null) return;
+      const quantityKey = secondary ? 'quantitySecondary' : 'quantity';
+      if (item.system?.[quantityKey]?.value == null) return;
       // Update the quantity.
-      let newQuantity = Number(item.system.quantity.value) ?? 0;
+      let newQuantity = Number(item.system[quantityKey].value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
 
       // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
-      let maxQuantity = item.system?.maxQuantity?.value ?? 99;
+      let maxQuantity = await item.resolveMaxQuantity(secondary ? 'maxQuantitySecondary' : 'maxQuantity') ?? 99;
 
-      await item.update({'system.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
+      await item.update({[`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
     }
   }
 
@@ -1342,78 +1354,13 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
   /*  Import Powers --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
   async _importPowers(event) {
-    let characterRace = this.actor.system.details.race.value;
-    let characterClasses = this.actor.system.details.detectedClasses ?? [];
-    let prepop = new ArchmagePrepopulate();
-    let classResults = await prepop.renderDialog(characterClasses, characterRace, this.actor);
-    if (!classResults) {
+    const characterRace = this.actor.system.details.race.value;
+    const characterClasses = this.actor.system.details.detectedClasses ?? [];
+    const prepop = new ArchmagePrepopulate();
+    const importData = await prepop.getImportData(characterClasses, characterRace, this.actor);
+    if (!importData?.tabs?.length) {
       return;
     }
-
-    let d = new Dialog({
-      title: game.i18n.localize("ARCHMAGE.import"),
-      content: classResults.content,
-      buttons: {
-        cancel: {
-          icon: '<i class="fas fa-times"></i>',
-          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => null
-        },
-        submit: {
-          icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize("ARCHMAGE.importSubmit"),
-          callback: dlg => this._onImportPower(dlg, this.actor, classResults.powers)
-        }
-      },
-      render: html => {
-        let tabs = new foundry.applications.ux.Tabs(classResults.tabs);
-        tabs.bind(html[0]);
-        html.find('.import-powers-item').addClass('collapsed');
-        html.find('.import-powers-item .item-summary').css('max-height', 0);
-        html.find('.import-powers-item .ability-usage').on('click', event => {
-          event.preventDefault();
-          let li = $(event.currentTarget).parents(".import-powers-item");
-          let summary = li.find('.item-summary');
-          li.toggleClass('collapsed');
-          if (li.hasClass('collapsed')) {
-            summary.css('max-height', 0);
-          }
-          else {
-            summary.css('max-height', summary.find('.card-content').outerHeight() + 40)
-          }
-        });
-      }
-    }, classResults.options);
-    d.render(true);
-  }
-
-  _onImportPower(dlg, actor, packData) {
-    let $selected = $(dlg[0]).find('input[type="checkbox"]:checked');
-
-    if ($selected.length <= 0) {
-      return;
-    }
-
-    if (packData) {
-      // Get the selected powers.
-      let powerIds = [];
-      $selected.each((index, element) => {
-        powerIds.push(element.dataset.uuid);
-      });
-
-      // Retrieve the item entities.
-      let powers = packData
-        // Filter down the power items by id.
-        .filter(p => {
-          return powerIds.includes(p._id)
-        })
-        // Prepare the items for saving.
-        .map(p => {
-          return foundry.utils.duplicate(p);
-        });
-
-      // Create the owned items.
-      actor.createEmbeddedDocuments('Item', powers);
-    }
+    new ArchmagePowerImporterApplication({actor: this.actor, importData: importData}).render(true);
   }
 }

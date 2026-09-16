@@ -57,7 +57,7 @@
               </ul>
             </div>
             <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
-              <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
+              <span class="bonus" v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp">
                 <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
                 <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
               </span>
@@ -76,7 +76,7 @@
           <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))">
             <Transition name="slide-fade">
               <template v-if="activeEquipment[equipment._id]">
-                <Equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
+                <Equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="equipmentBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
                 <Loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"/>
               </template>
             </Transition>
@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import { concat, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
 import Equipment from '@/components/parts/Equipment.vue';
 import Loot from '@/components/parts/Loot.vue';
 import Rollable from '@/components/parts/Rollable.vue';
@@ -118,6 +118,7 @@ export default {
   setup() {
     return {
       concat,
+      equipmentBonuses,
       localize,
       localizeEquipmentBonus,
       numberFormat
@@ -182,7 +183,7 @@ export default {
           let haystack = `${i.name}${i.system.chackra ? i.system.chackra : ''}`;
 
           if (i.type == 'equipment') {
-            let bonuses = this.getBonuses(i);
+            let bonuses = equipmentBonuses(i);
             for (let [k,v] of Object.entries(bonuses)) {
               haystack = `${haystack}${k}${v}`;
             }
@@ -215,23 +216,6 @@ export default {
         }
       });
       this.equipment = equipment;
-    },
-    getBonuses(equipment) {
-      let bonuses = {};
-      for (let [prop, value] of Object.entries(equipment.system.attributes)) {
-        if (value.bonus) {
-          if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengage&initiative';
-          bonuses[prop] = value.bonus;
-        }
-        else if (prop == 'attack') {
-          for (let [atkProp, atkValue] of Object.entries(value)) {
-            if (atkValue.bonus) {
-              bonuses[atkProp] = atkValue.bonus;
-            }
-          }
-        }
-      }
-      return bonuses;
     },
     /**
      * Toggle equipment display (click event).

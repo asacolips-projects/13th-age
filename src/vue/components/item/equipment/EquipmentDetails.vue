@@ -56,8 +56,8 @@
         <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')" />
       </label>
       <div class="field">
-        <input type="number" name="system.maxQuantity.value" v-model="item.system.maxQuantity.value"
-          :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')" />
+        <input type="text" name="system.maxQuantity.value" v-model="item.system.maxQuantity.value"
+          :placeholder="game.i18n.localize('ARCHMAGE.ITEM.usesMaxPlaceholder')" />
       </div>
     </div>
   </fieldset>
