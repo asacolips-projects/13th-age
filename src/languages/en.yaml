@@ -688,10 +688,18 @@ ARCHMAGE:
     saveBonusHPTreshold: Save Bonus HP Threshold
     stackingBehavior: Stacking Behavior
     stacksAlways: Always stacks
+    powerUsageSecondary: Secondary Usage
+    powerUsageSecondaryHint: Optional second pool of uses, only spent once the
+      first one runs out. For example, a power usable once per battle plus an
+      additional few times per arc.
     usesMax: Maximum Uses
-    usesMaxHint: Number of uses per battle/day, usually 1
+    usesMaxHint: Number of uses per battle/arc, usually 1. Accepts inline rolls,
+      such as [[@cha.mod]]
+    usesMaxPlaceholder: 1 or [[@cha.mod]]
+    usesMaxSecondary: Maximum Secondary Uses
     usesRemaining: Uses Remaining
     usesRemainingHint: Number of remaining uses, usually the same as Max Uses
+    usesRemainingSecondary: Secondary Uses Remaining
     wisBonus: Wisdom checks bonus
   CHAKRA:
     armor: Armor, robe, shirt, tunic
@@ -813,6 +821,7 @@ ARCHMAGE:
     HP: HP
     iconic: Zenith Feat
     ItemReset: uses restored to
+    ItemResetSecondary: secondary uses restored to
     KiReset: reset to
     embeddedMacro: Embedded Macro
     embeddedMacroSummary: Edit the embedded macro that will be run on use.

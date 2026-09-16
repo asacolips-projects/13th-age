@@ -135,9 +135,46 @@
         <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')"/>
       </label>
       <div class="field">
-        <input type="number" name="system.maxQuantity.value" 
+        <input type="text" name="system.maxQuantity.value"
           v-model="item.system.maxQuantity.value"
+          :placeholder="game.i18n.localize('ARCHMAGE.ITEM.usesMaxPlaceholder')"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{game.i18n.localize('ARCHMAGE.ITEM.powerUsageSecondary')}}</label>
+      <div class="field">
+        <select name="system.powerUsageSecondary.value" v-model="item.system.powerUsageSecondary.value">
+          <option value="">{{ game.i18n.localize('ARCHMAGE.noneOption') }}</option>
+          <option v-for="(label, value) in CONFIG.ARCHMAGE.powerUsages" :key="value" :value="value">{{ label }}</option>
+        </select>
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.powerUsageSecondaryHint')"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.ITEM.usesRemainingSecondary') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')"/>
+      </label>
+      <div class="field">
+        <input type="number" name="system.quantitySecondary.value"
+          v-model="item.system.quantitySecondary.value"
           :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        {{ game.i18n.localize('ARCHMAGE.ITEM.usesMaxSecondary') }}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')"/>
+      </label>
+      <div class="field">
+        <input type="text" name="system.maxQuantitySecondary.value"
+          v-model="item.system.maxQuantitySecondary.value"
+          :placeholder="game.i18n.localize('ARCHMAGE.ITEM.usesMaxPlaceholder')"
         />
       </div>
     </div>
