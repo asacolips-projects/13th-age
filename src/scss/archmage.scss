@@ -52,11 +52,14 @@
   border-radius: 5px;
   color: #EEE;
   z-index: 31;
+  // The menu is parented to the body, so it inherits no font sizing from what it was opened on.
+  font-size: 14px;
 
   h2 {
     color: #EEE;
     font-family: $font-stack-base;
-    line-height: 44px;
+    font-size: 16px;
+    line-height: 32px;
     padding: 0 5px;
     margin-bottom: 0.5rem;
     border-bottom: 1px solid $c-blue-dark;

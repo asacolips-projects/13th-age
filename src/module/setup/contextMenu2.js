@@ -178,32 +178,36 @@ export class ContextMenu2 {
      * @private
      */
     _setPosition(html, target) {
-      // Anchor the menu outside of any faded ancestor. Rows we evaluated as inapplicable are
-      // dimmed rather than hidden precisely because the evaluation can be wrong, so the menu has
-      // to stay fully usable - and opacity on an ancestor would composite the menu along with it.
-      const anchor = this._getAnchor(target[0]);
-      if (getComputedStyle(anchor).position === 'static') anchor.style.position = 'relative';
-
+      // The menu lives on the body rather than inside the target: rows we evaluated as inapplicable
+      // are dimmed rather than hidden (the evaluation can be wrong), and opacity on an ancestor
+      // would composite the menu along with it. It also keeps the menu from being clipped by the
+      // scrolling chat log, so it can overlay the canvas when the chat column is too narrow for it.
       const targetRect = target[0].getBoundingClientRect();
-      const anchorRect = anchor.getBoundingClientRect();
-
-      // Append to the anchor and get the context bounds. Width matches what the menu used to get
-      // from the target it was nested in.
-      html.css({visibility: "hidden", width: Math.min(360, Math.max(200, targetRect.width))});
-      anchor.appendChild(html[0]);
+      html.css({
+        visibility: "hidden",
+        position: "fixed",
+        width: Math.min(360, Math.max(200, targetRect.width)),
+        zIndex: 9999
+      });
+      document.body.appendChild(html[0]);
       const contextRect = html[0].getBoundingClientRect();
 
-      // Determine whether to expand down or expand up.
-      const bottomHalf = targetRect.bottom > (window.innerHeight / 2);
-      this._expandUp = bottomHalf && ((window.innerHeight - targetRect.bottom) < contextRect.height);
+      // The menu has to stay wholly on screen.
+      const margin = 4;
+      const maxLeft = Math.max(window.innerWidth - contextRect.width - margin, margin);
+      const maxTop = Math.max(window.innerHeight - contextRect.height - margin, margin);
 
-      // Position relative to the anchor, shifting left if needed to avoid overflowing it.
-      let left = targetRect.left - anchorRect.left;
-      const horizontalOverflow = anchorRect.width - (left + contextRect.width);
-      if (horizontalOverflow < 0) left = Math.max(0, left + horizontalOverflow);
-      const top = this._expandUp
-        ? targetRect.top - anchorRect.top - contextRect.height - 2
-        : targetRect.bottom - anchorRect.top + 2;
+      // Expand upward when the menu doesn't fit below the target but has more room above it.
+      const spaceBelow = window.innerHeight - margin - targetRect.bottom - 2;
+      const spaceAbove = targetRect.top - margin - 2;
+      this._expandUp = (spaceBelow < contextRect.height) && (spaceAbove > spaceBelow);
+
+      // Always extend leftward from the target: the menu is wider than most of what it is opened
+      // on, and everything it's opened on sits in the right-hand chat column.
+      let left = Math.min(Math.max(targetRect.right - contextRect.width, margin), maxLeft);
+
+      let top = this._expandUp ? targetRect.top - contextRect.height - 2 : targetRect.bottom + 2;
+      top = Math.min(Math.max(top, margin), maxTop);
 
       // Display the menu.
       html.addClass(this._expandUp ? "expand-up" : "expand-down");
@@ -214,32 +218,13 @@ export class ContextMenu2 {
 
     /* -------------------------------------------- */
 
-    /**
-     * Find the closest ancestor that isn't inside a faded (opacity < 1) element, so the menu can
-     * be positioned against it without inheriting that fading. Never walks past the chat message
-     * or application window the target belongs to, which keeps the menu glued to the target while
-     * its container scrolls.
-     * @param {HTMLElement} target
-     * @returns {HTMLElement}
-     * @private
-     */
-    _getAnchor(target) {
-      const boundary = target.closest('.chat-message, .application, .window-app') ?? document.body;
-      let anchor = target;
-      let node = target;
-      while (node) {
-        if (Number(getComputedStyle(node).opacity) < 1 && node.parentElement) anchor = node.parentElement;
-        if (node === boundary) break;
-        node = node.parentElement;
-      }
-      return anchor;
-    }
-  
-    /* -------------------------------------------- */
-  
     static eventListeners() {
       document.addEventListener("click", ev => {
         if ( ui.context ) ui.context.close();
       });
+      // The menu is positioned against the viewport, so it can't follow a target that scrolls away.
+      document.addEventListener("scroll", ev => {
+        if ( ui.context ) ui.context.close();
+      }, true);
     };
   }
