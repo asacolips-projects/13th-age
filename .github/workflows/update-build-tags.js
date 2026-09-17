@@ -1,4 +1,4 @@
-const yargs = require('yargs');
+const yargs = require('yargs/yargs')(process.argv.slice(2));
 const fs = require('fs');
 
 const argv = yargs
