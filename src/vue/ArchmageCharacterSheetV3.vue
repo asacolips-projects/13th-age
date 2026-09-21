@@ -5,7 +5,7 @@
 
     <!-- Body placeholder -->
     <section class="sheet-body flexcol">
-      <p class="placeholder-title">{{ localize('ARCHMAGE.underConstruction') }}</p>
+      <p class="placeholder-title">(WIP)</p>
       <p class="placeholder-hint">{{ context.actor?.name }} &mdash; {{ context.actor?.type }}</p>
     </section>
   </div>
