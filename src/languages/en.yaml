@@ -193,6 +193,7 @@ ARCHMAGE:
   sharePlayers: Show Players
   sheetActiveEffect: 13th Age Active Effect Sheet
   sheetCharacter: Character Sheet
+  sheetCharacterV3: Character Sheet V3
   sheetItem: Item Sheet
   sheetItemV2: Item Sheet V2
   sheetNPC: NPC Sheet
@@ -215,6 +216,7 @@ ARCHMAGE:
   traits: Traits
   triggers: Triggers
   type: Type
+  underConstruction: This sheet is under construction.
   uses: Uses
   vulnerability: Vulnerability
   # Settings
