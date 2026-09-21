@@ -19,27 +19,19 @@
   </main>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import { localize } from '@/methods/Helpers';
 
-export default {
-  name: 'CharMainV3',
-  props: ['context'],
-  data() {
-    return {
-      activeTab: 'details',
-      tabs: [
-        { id: 'details' },
-        { id: 'powers' },
-        { id: 'inventory' },
-        { id: 'effects' }
-      ]
-    }
-  },
-  methods: {
-    localize
-  }
-}
+defineProps(['context']);
+
+const activeTab = ref('details');
+const tabs = [
+  { id: 'details' },
+  { id: 'powers' },
+  { id: 'inventory' },
+  { id: 'effects' }
+];
 </script>
 
 <style scoped lang="scss">
@@ -60,12 +52,12 @@ export default {
     border-bottom: 2px solid transparent;
     background: none;
     font-weight: 600;
-    color: var(--color-text-dark-secondary, #7a7971);
+    // color: var(--color-text-dark-secondary, #7a7971);
     cursor: pointer;
 
     &.active {
       border-bottom-color: var(--color-border-dark, #0003);
-      color: var(--color-text-dark-primary, #191813);
+      // color: var(--color-text-dark-primary, #191813);
     }
   }
 
@@ -84,6 +76,6 @@ export default {
 
   .filler {
     margin: 0;
-    color: var(--color-text-dark-secondary, #7a7971);
+    // color: var(--color-text-dark-secondary, #7a7971);
   }
 </style>

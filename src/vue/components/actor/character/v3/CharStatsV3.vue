@@ -26,16 +26,10 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import { localize } from '@/methods/Helpers';
 
-export default {
-  name: 'CharStatsV3',
-  props: ['actor', 'editable'],
-  methods: {
-    localize
-  }
-}
+defineProps(['actor', 'editable']);
 </script>
 
 <style scoped lang="scss">

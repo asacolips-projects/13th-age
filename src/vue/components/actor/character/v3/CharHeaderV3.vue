@@ -38,43 +38,28 @@
   </header>
 </template>
 
-<script>
+<script setup>
+import { ref, computed } from 'vue';
 import { localize, tooltip, stripHtml } from '@/methods/Helpers';
 
-export default {
-  name: 'CharHeaderV3',
-  props: ['actor', 'editable'],
-  data() {
-    return {
-      editing: false
-    }
-  },
-  computed: {
-    secondEdition() {
-      return game.settings.get('archmage', 'secondEdition') === true;
-    },
-    kinLabel() {
-      return this.secondEdition ? this.localize('ARCHMAGE.kin') : this.localize('ARCHMAGE.race');
-    },
-    subtitle() {
-      const parts = [
-        this.actor?.system?.details?.race?.value,
-        this.actor?.system?.details?.class?.value,
-        this.actor?.system?.attributes?.level?.value
-      ].filter(part => part !== undefined && part !== null && part !== '');
-      return parts.join(' · ');
-    },
-    outPlainText() {
-      return stripHtml(this.actor?.system?.details?.out?.value);
-    }
-  },
-  methods: {
-    localize,
-    tooltip,
-    toggleEdit() {
-      this.editing = !this.editing;
-    }
-  }
+const props = defineProps(['actor', 'editable']);
+
+const editing = ref(false);
+
+const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
+const kinLabel = computed(() => secondEdition.value ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
+const subtitle = computed(() => {
+  const parts = [
+    props.actor?.system?.details?.race?.value,
+    props.actor?.system?.details?.class?.value,
+    props.actor?.system?.attributes?.level?.value
+  ].filter(part => part !== undefined && part !== null && part !== '');
+  return parts.join(' · ');
+});
+const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?.value));
+
+function toggleEdit() {
+  editing.value = !editing.value;
 }
 </script>
 

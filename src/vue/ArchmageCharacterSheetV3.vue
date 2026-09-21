@@ -14,22 +14,13 @@
   </div>
 </template>
 
-<script>
-  import { localize } from '@/methods/Helpers';
+<script setup>
   import CharHeaderV3 from '@/components/actor/character/v3/CharHeaderV3.vue';
   import CharStatsV3 from '@/components/actor/character/v3/CharStatsV3.vue';
   import CharSidebarV3 from '@/components/actor/character/v3/CharSidebarV3.vue';
   import CharMainV3 from '@/components/actor/character/v3/CharMainV3.vue';
 
-  export default {
-    name: 'ArchmageCharacterSheetV3',
-    props: ['context'],
-    inject: ['actorDocument'],
-    components: { CharHeaderV3, CharStatsV3, CharSidebarV3, CharMainV3 },
-    methods: {
-      localize
-    }
-  }
+  defineProps(['context']);
 </script>
 
 <style scoped lang="scss">
