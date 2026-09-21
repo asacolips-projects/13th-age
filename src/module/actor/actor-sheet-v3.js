@@ -19,7 +19,7 @@ export class ActorArchmageSheetV3 extends VueRenderingMixin(
   /** @override */
   static DEFAULT_OPTIONS = {
     classes: ['archmage-v3', 'actor', 'character-sheet'],
-    position: { width: 825, height: 750 },
+    position: { width: 925, height: 800 },
     window: { resizable: true },
     tag: 'form',
     form: {

@@ -126,22 +126,7 @@ function iconSymbol(relationship) {
 
   .ability-button,
   .background-button {
-    display: flex;
-    align-items: baseline;
-    justify-content: left;
-    gap: 0.375rem;
     width: 100%;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid var(--color-border-dark, #0003);
-    border-radius: 3px;
-    background: var(--color-bg-option, transparent);
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0 0 5px var(--color-shadow-primary, #0003);
-    }
   }
 
   .ability-button {
