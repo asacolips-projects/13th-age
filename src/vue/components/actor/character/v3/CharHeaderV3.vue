@@ -26,6 +26,7 @@
 
     <!-- One Unique Thing -->
     <div class="header-out">
+      <h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
       <p class="out-text" v-if="!editing">{{ outPlainText }}</p>
       <textarea v-else name="system.details.out.value" v-model="actor.system.details.out.value" :placeholder="localize('ARCHMAGE.oneUniqueThing')"></textarea>
     </div>
@@ -147,9 +148,19 @@ export default {
     max-height: 100px;
     overflow-y: auto;
 
+    .out-label {
+      margin: 0 0 0.25rem;
+      font-size: var(--font-size-12, 0.75rem);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-dark-secondary, #7a7971);
+    }
+
     .out-text {
       margin: 0;
       white-space: normal;
+      font-style: italic;
     }
 
     textarea {
