@@ -90,6 +90,8 @@ function toggleEdit() {
 
     .char-name {
       margin: 0;
+      font-family: $font-stack-secondary;
+      font-weight: normal;
       font-size: var(--font-size-24, 1.5rem);
       white-space: nowrap;
       overflow: hidden;
@@ -108,6 +110,8 @@ function toggleEdit() {
       display: block;
       width: 100%;
       margin-bottom: 0.25rem;
+      font-family: $font-stack-secondary;
+      font-weight: normal;
     }
 
     .edit-row {
@@ -135,8 +139,9 @@ function toggleEdit() {
 
     .out-label {
       margin: 0 0 0.25rem;
+      font-family: $font-stack-secondary;
       font-size: var(--font-size-12, 0.75rem);
-      font-weight: 600;
+      font-weight: normal;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--color-text-dark-secondary, #7a7971);

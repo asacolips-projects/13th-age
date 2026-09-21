@@ -111,8 +111,9 @@ function iconSymbol(relationship) {
 
   .unit-title {
     margin: 0 0 0.25rem;
+    font-family: $font-stack-secondary;
     font-size: var(--font-size-12, 0.75rem);
-    font-weight: 600;
+    font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
