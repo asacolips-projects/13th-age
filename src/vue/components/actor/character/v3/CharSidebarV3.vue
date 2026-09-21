@@ -95,7 +95,7 @@ function iconSymbol(relationship) {
 
 <style scoped lang="scss">
   .sheet-sidebar {
-    flex: 0 0 300px;
+    flex: 0 0 250px;
     overflow-y: auto;
     border-right: 1px solid var(--color-border-dark, #0003);
   }
@@ -127,6 +127,7 @@ function iconSymbol(relationship) {
   .background-button {
     display: flex;
     align-items: baseline;
+    justify-content: left;
     gap: 0.375rem;
     width: 100%;
     padding: 0.25rem 0.5rem;
@@ -166,7 +167,6 @@ function iconSymbol(relationship) {
   }
 
   .background-bonus {
-    flex: 0 0 2.25rem;
     text-align: right;
   }
 
