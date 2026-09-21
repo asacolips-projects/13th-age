@@ -3,10 +3,10 @@ import chokidar from 'chokidar';
 import { WATCH_GLOBS } from '../../scripts/build/constants.mjs';
 import { runBuildTasks, runDevTasks } from '../../scripts/build/index.mjs';
 import { compileImages, compileSvg } from '../../scripts/build/assets.mjs';
-import { copyFiles } from '../../scripts/build/copy.mjs';
+import { copyChangedPaths } from '../../scripts/build/copy.mjs';
 import { compileScss } from '../../scripts/build/scss.mjs';
 import { compileYaml } from '../../scripts/build/yaml.mjs';
-import { log, resolveFromRoot } from '../../scripts/build/utils.mjs';
+import { log, matchesGlobs, resolveFromRoot } from '../../scripts/build/utils.mjs';
 
 const DEBOUNCE_MS = 150;
 
@@ -68,49 +68,51 @@ export function foundrySystemBuild(options = {}) {
       }
     }, DEBOUNCE_MS);
 
+    const pendingCopy = new Set();
     const runCopy = debounce(async () => {
+      const changed = [...pendingCopy];
+      pendingCopy.clear();
       try {
-        await copyFiles({ prod });
+        await copyChangedPaths(changed, { prod });
       } catch (error) {
         log('watch:copy', error.message);
       }
     }, DEBOUNCE_MS);
 
-    watcher = chokidar.watch([
-      ...WATCH_GLOBS.scss,
-      ...WATCH_GLOBS.yaml,
-      ...WATCH_GLOBS.images,
-      ...WATCH_GLOBS.svg,
-      ...WATCH_GLOBS.copy,
-    ].map((pattern) => path.join(resolveFromRoot('.'), pattern)), {
+    // chokidar 4+ no longer expands globs, so watching the glob patterns from
+    // WATCH_GLOBS directly matches nothing. Watch the src tree instead and let
+    // matchesGlobs below decide which task (if any) a change belongs to.
+    watcher = chokidar.watch([path.join(resolveFromRoot('.'), 'src')], {
       ignoreInitial: true,
-      ignored: (watchPath) => watchPath.includes(`${path.sep}dist${path.sep}`),
     });
 
-    watcher.on('all', (_event, filePath) => {
+    watcher.on('all', (event, filePath) => {
       const relativePath = path.relative(resolveFromRoot('.'), filePath).replaceAll('\\', '/');
 
-      if (WATCH_GLOBS.scss.some((pattern) => matchGlob(relativePath, pattern))) {
+      if (event === 'addDir' || event === 'unlinkDir') return;
+
+      if (matchesGlobs(relativePath, WATCH_GLOBS.scss)) {
         runScss();
         return;
       }
 
-      if (WATCH_GLOBS.yaml.some((pattern) => matchGlob(relativePath, pattern))) {
+      if (matchesGlobs(relativePath, WATCH_GLOBS.yaml)) {
         runYaml();
         return;
       }
 
-      if (WATCH_GLOBS.images.some((pattern) => matchGlob(relativePath, pattern))) {
+      if (matchesGlobs(relativePath, WATCH_GLOBS.images)) {
         runImages();
         return;
       }
 
-      if (WATCH_GLOBS.svg.some((pattern) => matchGlob(relativePath, pattern))) {
+      if (matchesGlobs(relativePath, WATCH_GLOBS.svg)) {
         runSvg();
         return;
       }
 
-      if (WATCH_GLOBS.copy.some((pattern) => matchGlob(relativePath, pattern))) {
+      if (matchesGlobs(relativePath, WATCH_GLOBS.copy)) {
+        if (event === 'add' || event === 'change') pendingCopy.add(filePath);
         runCopy();
       }
     });
@@ -143,20 +145,4 @@ export function foundrySystemBuild(options = {}) {
       }
     },
   };
-}
-
-function matchGlob(filePath, pattern) {
-  if (pattern.startsWith('!')) return false;
-
-  const regex = new RegExp(
-    `^${pattern
-      .replaceAll('/', '\\/')
-      .replaceAll('**', '.*')
-      .replaceAll('*', '[^/]*')
-      .replaceAll('{', '(')
-      .replaceAll('}', ')')
-      .replaceAll(',', '|')}$`,
-  );
-
-  return regex.test(filePath);
 }
