@@ -1,10 +1,7 @@
 <template>
   <div class="archmage-v3-vue character flexcol" :class="context.cssClass">
     <!-- Header -->
-    <header class="sheet-header">
-      <img class="profile-img" :src="context.actor?.img" :title="context.actor?.name" height="60" width="60" />
-      <h1 class="sheet-name">{{ context.actor?.name }}</h1>
-    </header>
+    <CharHeaderV3 :actor="context.actor" :editable="context.editable" />
 
     <!-- Body placeholder -->
     <section class="sheet-body flexcol">
@@ -16,11 +13,13 @@
 
 <script>
   import { localize } from '@/methods/Helpers';
+  import CharHeaderV3 from '@/components/actor/character/v3/CharHeaderV3.vue';
 
   export default {
     name: 'ArchmageCharacterSheetV3',
     props: ['context'],
     inject: ['actorDocument'],
+    components: { CharHeaderV3 },
     methods: {
       localize
     }
@@ -28,27 +27,6 @@
 </script>
 
 <style scoped lang="scss">
-  .sheet-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--color-border-dark, #0003);
-
-    .profile-img {
-      border-radius: 4px;
-      object-fit: cover;
-    }
-
-    .sheet-name {
-      margin: 0;
-      font-size: var(--font-size-24, 1.5rem);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-
   .sheet-body {
     flex: 1;
     align-items: center;

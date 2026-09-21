@@ -1,4 +1,5 @@
 import VueRenderingMixin from '../item/_vue-application-mixin.mjs';
+import { ActorHelpersV2 } from './helpers/actor-helpers-v2.js';
 import { ArchmageCharacterSheetV3 } from '../../vue/components.vue.es.js';
 
 export class ActorArchmageSheetV3 extends VueRenderingMixin(
@@ -25,8 +26,58 @@ export class ActorArchmageSheetV3 extends VueRenderingMixin(
       submitOnChange: true,
       submitOnClose: true,
       closeOnSubmit: false
+    },
+    actions: {
+      onEditImage: this._onEditImage
     }
   };
+
+  /**
+   * Handle changing the actor's image, e.g. via the FilePicker.
+   *
+   * Adapted from the item sheet's handler (base-item-sheet-v2.js); the update
+   * flows back through _prepareContext, so the Vue header refreshes on its own.
+   *
+   * @this ActorArchmageSheetV3
+   * @param {PointerEvent} event   The originating click event
+   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+   * @returns {Promise}
+   * @protected
+   */
+  static async _onEditImage(event, target) {
+    if (!this.isEditable) return false;
+    const attr = target.dataset.edit;
+    const current = foundry.utils.getProperty(this.document, attr);
+    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+    const fp = new foundry.applications.apps.FilePicker.implementation({
+      current,
+      type: "image",
+      redirectToRoot: img ? [img] : [],
+      callback: path => {
+        target.src = path;
+        this.document.update({[attr]: path});
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10
+    });
+    return fp.browse();
+  }
+
+  /**
+   * Bind the portrait context menu once.
+   *
+   * _onRender fires after every context update (every save) while the Vue DOM
+   * persists, so binding unguarded would stack a listener per save.
+   *
+   * @override
+   */
+  _onRender(context, options) {
+    super._onRender(context, options);
+    if (this._portraitMenuEl !== this.element) {
+      this._portraitMenuEl = this.element;
+      ActorHelpersV2._activatePortraitArtContextMenu(this, this.element);
+    }
+  }
 
   /**
    * Prepare the context passed into the Vue application.

@@ -7,6 +7,23 @@ export function localize(key) {
   return game.i18n.localize(key);
 }
 
+/**
+ * Strip HTML from a string and collapse whitespace, for plain-text display of
+ * enriched values.
+ *
+ * Uses DOMParser rather than a temp element, so the content is parsed without
+ * executing it.
+ *
+ * @param {string} html HTML string, e.g. a stored enriched editor value.
+ *
+ * @returns {string} Plain text.
+ */
+export function stripHtml(html) {
+  if (!html) return '';
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent.replace(/\s+/g, ' ').trim();
+}
+
 export function localizeEquipmentBonus(bonusProp) {
   return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
 }

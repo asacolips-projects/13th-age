@@ -86,9 +86,15 @@ export class ActorHelpersV2 {
   }
 
   static _activatePortraitArtContextMenu(app, element) {
-    foundry.applications.ux.ContextMenu.implementation.create(app, element[0], '.profile-img', [
+    // Accept either a jQuery wrapper or a raw element.
+    const target = element instanceof HTMLElement ? element : (element?.[0] ?? element);
+    // Note: ContextMenu.implementation.create() is AppV1-only (it throws for
+    // ApplicationV2), so bind the menu by constructing it directly. The menu
+    // callbacks close over `app`, so it isn't passed to the menu itself.
+    const MenuClass = foundry.applications.ux.ContextMenu.implementation;
+    new MenuClass(target, '.profile-img', [
       {
-        name: game.i18n.localize('ARCHMAGE.CHARACTER.showPortrait'),
+        label: game.i18n.localize('ARCHMAGE.CHARACTER.showPortrait'),
         icon: '<i class="fa fa-image-portrait"></i>',
         callback: () => {
           new foundry.applications.apps.ImagePopout({
@@ -100,7 +106,7 @@ export class ActorHelpersV2 {
         }
       },
       {
-        name: game.i18n.localize('ARCHMAGE.CHARACTER.showToken'),
+        label: game.i18n.localize('ARCHMAGE.CHARACTER.showToken'),
         icon: '<i class="fas fa-circle-user"></i>',
         callback: () => {
           new foundry.applications.apps.ImagePopout({
@@ -111,6 +117,6 @@ export class ActorHelpersV2 {
           }).render(true);
         }
       }
-    ], {jQuery: false})
+    ], {jQuery: false});
   }
 }
