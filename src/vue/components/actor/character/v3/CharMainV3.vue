@@ -26,12 +26,12 @@
 <script setup>
 import { ref } from 'vue';
 import { localize } from '@/methods/Helpers';
-import CharActionPlanV3 from './CharActionPlanV3.vue';
-import CharTriggersV3 from './CharTriggersV3.vue';
-import CharCatalogV3 from './CharCatalogV3.vue';
-import CharEffectsV3 from './CharEffectsV3.vue';
-import CharLoadoutV3 from './CharLoadoutV3.vue';
-import CharAdvancementV3 from './CharAdvancementV3.vue';
+import CharActionPlanV3 from './tabs/CharActionPlanV3.vue';
+import CharTriggersV3 from './tabs/CharTriggersV3.vue';
+import CharCatalogV3 from './tabs/CharCatalogV3.vue';
+import CharEffectsV3 from './tabs/CharEffectsV3.vue';
+import CharLoadoutV3 from './tabs/CharLoadoutV3.vue';
+import CharAdvancementV3 from './tabs/CharAdvancementV3.vue';
 
 defineProps(['context']);
 
