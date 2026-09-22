@@ -37,6 +37,22 @@ const toggle = () => {
 };
 </script>
 
+<style scoped lang="scss">
+// The row wrapper keeps a positioning context for the summary's hover
+// title and tooltip, and the content pane clips the slide-fade transition.
+// The kind-specific classes are built from the baseClass prop, whose two
+// values in use are 'power' and 'equipment'.
+.power-item,
+.equipment-item {
+  position: relative;
+}
+
+.power-content,
+.equipment-content {
+  overflow: hidden;
+}
+</style>
+
 <style>
 /*
   Enter and leave animations can use different

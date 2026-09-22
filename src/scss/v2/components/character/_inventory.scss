@@ -45,10 +45,18 @@
     flex: 0 0 64px;
   }
 
-  .equipment-title,
   .equipment-group-title {
     border: 0;
     text-align: left;
+  }
+
+  // The compendium browser renders its own equipment-summary rows through its
+  // item list, so the shared summary presentation stays here rather than
+  // living only in EquipmentSummaryRow.
+  .equipment-title {
+    border: 0;
+    text-align: left;
+    margin: 0;
   }
 
   .equipment-group-content {
@@ -63,10 +71,6 @@
     h2 {
       margin: 0;
     }
-  }
-
-  .equipment-title {
-    margin: 0;
   }
 
   .equipment-header-labels {
@@ -104,7 +108,6 @@
       justify-content: center;
     }
 
-    .equipment-name,
     .equipment-group-title {
       text-align: left;
       justify-content: flex-start;
@@ -112,70 +115,6 @@
 
     .equipment-group-title {
       grid-column: 1 / 5;
-    }
-
-    .equipment-name {
-      font-size: $font-xs;
-      font-family: $font-stack-secondary;
-      overflow: hidden;
-      padding-left: $padding-sm;
-
-      &:hover {
-        ~ .equipment-feat-pips,
-        ~ .equipment-action {
-          opacity: 0.25;
-        }
-
-        .equipment-title {
-          position: absolute;
-          overflow: visible;
-          padding-right: $padding-md;
-          z-index: 10;
-        }
-      }
-    }
-
-    .equipment-title {
-      white-space: nowrap;
-      position: relative;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: $font-xs;
-    }
-
-    .rollable--item {
-      position: relative;
-
-      &::before {
-        content: fa-content($fa-var-book);
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        margin: auto;
-        line-height: 1;
-        font-size: $font-lg;
-        width: $font-lg;
-        height: $font-lg;
-        display: block;
-        opacity: 0;
-        transition: all ease-in-out 0.25s;
-      }
-
-      img {
-        transition: all ease-in-out 0.25s;
-      }
-
-      &:hover {
-        &::before {
-          opacity: 1;
-        }
-
-        img {
-          opacity: 0;
-        }
-      }
     }
 
     .equipment-name { grid-column-start: 2; }
@@ -195,6 +134,9 @@
     width: 100%;
   }
 
+  // See the note at .equipment-title: the compendium browser's hand-rolled
+  // rows share this presentation with EquipmentSummaryRow, which carries its
+  // own copy for the sheets that don't nest these rules.
   .equipment-summary {
     color: $c-white;
     text-shadow: 0 0 10px $c-black--50;

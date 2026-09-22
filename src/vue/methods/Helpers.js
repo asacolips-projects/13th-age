@@ -146,6 +146,102 @@ export async function getActor(actorData) {
 }
 
 /**
+ * The actions an item row offers for its item. Each resolves the actor
+ * document from the sheet's actor data, so rows own their interactions without
+ * reaching back into the sheet's delegated listeners.
+ */
+
+/**
+ * Open one of the actor's items on the actor for editing.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ */
+export async function editItem(actorData, itemId) {
+  const actor = await getActor(actorData);
+  actor?.items.get(itemId)?.sheet.render(true);
+}
+
+/**
+ * Delete one of the actor's items, confirming first unless bypassed.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ * @param {boolean} bypass Skip the confirmation, e.g. for shift-clicks.
+ */
+export async function deleteItem(actorData, itemId, bypass = false) {
+  const actor = await getActor(actorData);
+  const item = actor?.items.get(itemId);
+  if (!item) return;
+
+  if (bypass) {
+    await item.delete();
+    return;
+  }
+
+  const confirmed = await foundry.applications.api.DialogV2.confirm({
+    window: {title: localize('ARCHMAGE.CHAT.DeleteConfirmTitle')},
+    content: `<p>${localize('ARCHMAGE.CHAT.DeleteConfirm')}</p>`,
+    confirm: {label: localize('ARCHMAGE.CHAT.Delete')},
+    cancel: {label: localize('ARCHMAGE.CHAT.Cancel')}
+  });
+  if (confirmed) await item.delete();
+}
+
+/**
+ * Increase or decrease one of an actor item's remaining uses.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ * @param {boolean} increase Whether to add or remove a use.
+ * @param {boolean} secondary Target the item's secondary pool of uses instead
+ *   of the primary one.
+ */
+export async function changeQuantity(actorData, itemId, increase = true, secondary = false) {
+  const actor = await getActor(actorData);
+  const item = actor?.items.get(itemId);
+  if (!item) return;
+
+  const quantityKey = secondary ? 'quantitySecondary' : 'quantity';
+  if (item.system?.[quantityKey]?.value == null) return;
+  let quantity = Number(item.system[quantityKey].value);
+  quantity = increase ? quantity + 1 : quantity - 1;
+
+  // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
+  let maxQuantity = await item.resolveMaxQuantity(secondary ? 'maxQuantitySecondary' : 'maxQuantity') ?? 99;
+
+  await item.update({[`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, quantity) : Math.max(0, quantity)});
+}
+
+/**
+ * Toggle one of an actor item's pips: a power feat's taken state, or an
+ * equipment item's active state.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ * @param {string} tier For power feats, the feat's tier (e.g. '1st'). Ignored
+ *   for equipment items, which carry a single active pip.
+ */
+export async function togglePip(actorData, itemId, tier = null) {
+  const actor = await getActor(actorData);
+  const item = actor?.items.get(itemId);
+  if (!item) return;
+
+  let updateData = {};
+  if (item.type === 'power') {
+    if (!tier) return;
+    let isActive = item.system.feats[tier].isActive.value;
+    updateData[`system.feats.${tier}.isActive.value`] = !isActive;
+  }
+  else if (item.type === 'equipment') {
+    updateData['system.isActive'] = !item.system.isActive;
+  }
+  else return;
+
+  await item.update(updateData);
+}
+
+/**
  * Retrieve module art for an actor
  *
  * @param {object} actor Index version of an actor document from a compendium.

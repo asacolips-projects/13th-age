@@ -45,8 +45,8 @@
       </div>
       <ul class="equipment-group-content flexcol">
         <template v-for="equipment in equipmentGroups[groupKey]" :key="equipment._id">
-          <ExpandableEquipment v-if="equipment.type == 'equipment'" :equipment="equipment"/>
-          <ExpandableLoot v-else :equipment="equipment"/>
+          <ExpandableEquipment v-if="equipment.type == 'equipment'" :equipment="equipment" :actor="actor"/>
+          <ExpandableLoot v-else :equipment="equipment" :actor="actor"/>
         </template>
       </ul>
     </section>
