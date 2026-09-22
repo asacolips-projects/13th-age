@@ -17,7 +17,7 @@
  * full details, with the expand state held by ExpandableItem. Legacy 'tool'
  * items are rendered here too.
  */
-import ExpandableItem from '@/components/parts/ExpandableItem.vue';
+import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
 import Loot from '@/components/parts/Loot.vue';
 import EquipmentSummaryRow from '@/components/parts/EquipmentSummaryRow.vue';
 

@@ -26,9 +26,9 @@
 <script setup>
 import { computed } from 'vue';
 import { localize } from '@/methods/Helpers';
-import ExpandablePower from '@/components/parts/ExpandablePower.vue';
-import ExpandableEquipment from '@/components/parts/ExpandableEquipment.vue';
-import ExpandableLoot from '@/components/parts/ExpandableLoot.vue';
+import ExpandablePower from '@/components/parts/expandable/ExpandablePower.vue';
+import ExpandableEquipment from '@/components/parts/expandable/ExpandableEquipment.vue';
+import ExpandableLoot from '@/components/parts/expandable/ExpandableLoot.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 

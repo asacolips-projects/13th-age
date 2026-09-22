@@ -34,7 +34,7 @@
  * full details, with the expand state held by ExpandableItem.
  */
 import { getActionShort, hasFeats, hasSecondaryUsage } from '@/methods/Helpers';
-import ExpandableItem from '@/components/parts/ExpandableItem.vue';
+import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
 import Power from '@/components/parts/Power.vue';
 import PowerFeatPips from '@/components/parts/PowerFeatPips.vue';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';

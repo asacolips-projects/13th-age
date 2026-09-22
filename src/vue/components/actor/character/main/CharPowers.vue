@@ -63,7 +63,7 @@
 
 <script>
 import { concat, getActor, localize } from '@/methods/Helpers';
-import ExpandablePower from '@/components/parts/ExpandablePower.vue';
+import ExpandablePower from '@/components/parts/expandable/ExpandablePower.vue';
 export default {
   name: 'CharPowers',
   props: ['actor', 'context', 'tab', 'flags'],

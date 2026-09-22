@@ -55,8 +55,8 @@
 
 <script>
 import { concat, equipmentBonuses, localize } from '@/methods/Helpers';
-import ExpandableEquipment from '@/components/parts/ExpandableEquipment.vue';
-import ExpandableLoot from '@/components/parts/ExpandableLoot.vue';
+import ExpandableEquipment from '@/components/parts/expandable/ExpandableEquipment.vue';
+import ExpandableLoot from '@/components/parts/expandable/ExpandableLoot.vue';
 export default {
   name: 'CharInventory',
   props: ['actor', 'tab', 'flags'],

@@ -17,7 +17,7 @@
  * item's full details, with the expand state held by ExpandableItem.
  */
 import { equipmentBonuses } from '@/methods/Helpers';
-import ExpandableItem from '@/components/parts/ExpandableItem.vue';
+import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
 import Equipment from '@/components/parts/Equipment.vue';
 import EquipmentSummaryRow from '@/components/parts/EquipmentSummaryRow.vue';
 
