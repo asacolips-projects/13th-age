@@ -13,8 +13,12 @@
     </nav>
 
     <div class="tab-content">
-      <p class="placeholder">(WIP) &mdash; {{ localize(`ARCHMAGE.${activeTab}`) }}</p>
-      <p v-for="n in 30" :key="n" class="filler">...</p>
+      <CharActionPlanV3 v-if="activeTab === 'actionPlan'" :actor="context.actor" :editable="context.editable" />
+      <CharTriggersV3 v-else-if="activeTab === 'triggers'" :actor="context.actor" :editable="context.editable" />
+      <CharCatalogV3 v-else-if="activeTab === 'catalog'" :actor="context.actor" :editable="context.editable" />
+      <CharEffectsV3 v-else-if="activeTab === 'effects'" :actor="context.actor" :editable="context.editable" />
+      <CharLoadoutV3 v-else-if="activeTab === 'loadout'" :actor="context.actor" :editable="context.editable" />
+      <CharAdvancementV3 v-else :actor="context.actor" :editable="context.editable" />
     </div>
   </main>
 </template>
@@ -22,15 +26,23 @@
 <script setup>
 import { ref } from 'vue';
 import { localize } from '@/methods/Helpers';
+import CharActionPlanV3 from './CharActionPlanV3.vue';
+import CharTriggersV3 from './CharTriggersV3.vue';
+import CharCatalogV3 from './CharCatalogV3.vue';
+import CharEffectsV3 from './CharEffectsV3.vue';
+import CharLoadoutV3 from './CharLoadoutV3.vue';
+import CharAdvancementV3 from './CharAdvancementV3.vue';
 
 defineProps(['context']);
 
-const activeTab = ref('details');
+const activeTab = ref('actionPlan');
 const tabs = [
-  { id: 'details' },
-  { id: 'powers' },
-  { id: 'inventory' },
-  { id: 'effects' }
+  { id: 'actionPlan' },
+  { id: 'triggers' },
+  { id: 'catalog' },
+  { id: 'effects' },
+  { id: 'loadout' },
+  { id: 'advancement' }
 ];
 </script>
 
@@ -66,16 +78,5 @@ const tabs = [
     min-height: 0;
     overflow-y: auto;
     padding: 0.75rem;
-  }
-
-  .placeholder {
-    margin: 0 0 0.5rem;
-    font-style: italic;
-    color: var(--color-text-dark-secondary, #7a7971);
-  }
-
-  .filler {
-    margin: 0;
-    // color: var(--color-text-dark-secondary, #7a7971);
   }
 </style>

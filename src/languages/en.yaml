@@ -4,8 +4,10 @@ ARCHMAGE:
   abilityScore: Ability Score
   act: Act.
   action: Action
+  actionPlan: Action Plan
   actions: Actions
   activeEffects: Active Effects
+  advancement: Advancement
   add: Add
   adventurer: Adventurer
   arc: Arc
@@ -31,6 +33,7 @@ ARCHMAGE:
   byType: Group by Power Type
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
+  catalog: Catalog
   chakra: Chakra
   champion: Champion
   checkBackground: Background Check
@@ -112,6 +115,7 @@ ARCHMAGE:
   kin: Kin
   level: Level
   levelFormat: "{level} level"
+  loadout: Loadout
   location: Location
   loot: Loot
   lvl: Lvl
