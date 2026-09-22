@@ -30,21 +30,17 @@
       <p class="out-text" v-if="!editing">{{ outPlainText }}</p>
       <textarea v-else name="system.details.out.value" v-model="actor.system.details.out.value" :placeholder="localize('ARCHMAGE.oneUniqueThing')"></textarea>
     </div>
-
-    <!-- Edit toggle -->
-    <button v-if="editable" type="button" class="header-edit-toggle" :title="localize('ARCHMAGE.edit')" @click="toggleEdit">
-      <i :class="editing ? 'fas fa-check' : 'fas fa-pen-to-square'"></i>
-    </button>
   </header>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, inject } from 'vue';
 import { localize, tooltip, stripHtml } from '@/methods/Helpers';
 
-const props = defineProps(['actor', 'editable']);
+const props = defineProps(['actor']);
 
-const editing = ref(false);
+// Edit mode is owned by the sheet root and broadcast via provide/inject.
+const editing = inject('editMode', ref(false));
 
 const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
 const kinLabel = computed(() => secondEdition.value ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
@@ -57,10 +53,6 @@ const subtitle = computed(() => {
   return parts.join(' · ');
 });
 const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?.value));
-
-function toggleEdit() {
-  editing.value = !editing.value;
-}
 </script>
 
 <style scoped lang="scss">
@@ -158,10 +150,5 @@ function toggleEdit() {
       height: 100%;
       resize: none;
     }
-  }
-
-  .header-edit-toggle {
-    flex: 0 0 auto;
-    padding: 0.25rem 0.5rem;
   }
 </style>
