@@ -44,54 +44,19 @@
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
-        <li v-for="equipment in equipmentGroups[groupKey]" :key="equipment._id" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" data-document-class="Item" data-draggable="true" draggable="true">
-          <!-- Clickable equipment header. -->
-          <div class="equipment-summary grid equipment-grid equipment">
-            <Rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></Rollable>
-            <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
-              <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
-            </a>
-            <div class="equipment-feat-pips" v-if="groupKey === 'equipment'">
-              <ul class="feat-pips">
-                <li :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.system.isActive}}</div></li>
-              </ul>
-            </div>
-            <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
-              <span class="bonus" v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp">
-                <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
-                <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
-              </span>
-            </div>
-            <div class="equipment-chakra" v-if="equipment.system.chackra">{{localize(concat('ARCHMAGE.CHAKRA.', equipment.system.chackra, "Label"))}}</div>
-            <div class="equipment-recharge" v-if="equipment.system.recharge && equipment.system.recharge.value && equipment.system.powerUsage.value == 'recharge'">
-              <Rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.system.recharge.value) || 16}}+</Rollable>
-            </div>
-            <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.system.quantity.value"><span>{{equipment.system.quantity.value}}</span></div>
-            <div class="item-controls">
-              <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
-              <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>
-            </div>
-          </div>
-          <!-- Expanded equipment content. -->
-          <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))">
-            <Transition name="slide-fade">
-              <template v-if="activeEquipment[equipment._id]">
-                <Equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="equipmentBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
-                <Loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"/>
-              </template>
-            </Transition>
-          </div>
-        </li>
+        <template v-for="equipment in equipmentGroups[groupKey]" :key="equipment._id">
+          <ExpandableEquipment v-if="equipment.type == 'equipment'" :equipment="equipment"/>
+          <ExpandableLoot v-else :equipment="equipment"/>
+        </template>
       </ul>
     </section>
   </section>
 </template>
 
 <script>
-import { concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
-import Equipment from '@/components/parts/Equipment.vue';
-import Loot from '@/components/parts/Loot.vue';
-import Rollable from '@/components/parts/Rollable.vue';
+import { concat, equipmentBonuses, localize } from '@/methods/Helpers';
+import ExpandableEquipment from '@/components/parts/ExpandableEquipment.vue';
+import ExpandableLoot from '@/components/parts/ExpandableLoot.vue';
 export default {
   name: 'CharInventory',
   props: ['actor', 'tab', 'flags'],
@@ -106,7 +71,6 @@ export default {
       groupBy: 'equipment',
       sortBy: 'custom',
       searchValue: null,
-      activeEquipment: {},
       currency: [
         'platinum',
         'gold',
@@ -118,16 +82,12 @@ export default {
   setup() {
     return {
       concat,
-      equipmentBonuses,
-      localize,
-      localizeEquipmentBonus,
-      numberFormat
+      localize
     }
   },
   components: {
-    Equipment,
-    Loot,
-    Rollable
+    ExpandableEquipment,
+    ExpandableLoot
   },
   computed: {
     classes() {
@@ -209,31 +169,7 @@ export default {
         // Custom order: honour the `sort` value that drag and drop writes.
         equipment = equipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));
       }
-      equipment.forEach(i => {
-        if (this.activeEquipment[i._id] == undefined) {
-          // this.$set(this.activeEquipment, i._id, {value: false});
-          this.activeEquipment[i._id] = false;
-        }
-      });
       this.equipment = equipment;
-    },
-    /**
-     * Toggle equipment display (click event).
-     */
-    toggleEquipment(event) {
-      let target = event.currentTarget;
-      let dataset = target.dataset;
-      let id = dataset.itemId;
-      if (id) {
-        // Toggle the state if the equipment is currently being tracked.
-        if (this.activeEquipment[id] !== undefined) {
-          this.activeEquipment[id] = !this.activeEquipment[id];
-        }
-        // Otherwise, assume it should be open since this was click event.
-        else {
-          this.activeEquipment[id] = true;
-        }
-      }
     },
   },
   watch: {
@@ -262,22 +198,3 @@ export default {
   }
 }
 </script>
-
-<style>
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
-.slide-fade-enter-active {
-  transition: all 0.2s ease-in-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateY(-60%);
-}
-</style>

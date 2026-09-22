@@ -55,62 +55,27 @@
         </div>
       </div>
       <ul class="power-group-content flexcol">
-        <li v-for="power in powerGroups[groupKey]" :key="power._id" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" data-document-class="Item" data-draggable="true" draggable="true">
-          <!-- Clickable power header. -->
-          <PowerSummaryRow :power="power" :actor="actor" :active="!!activePowers[power._id]" @toggle="togglePower">
-            <PowerFeatPips v-if="hasFeats(power)" :feats="power.system.feats" :item-id="power._id"/>
-            <div class="power-action" v-if="power.system.actionType.value">{{getActionShort(power.system.actionType.value)}}</div>
-            <div class="power-recharge" v-if="power.system.recharge.value && ['recharge', 'recharge-desperate'].includes(power.system.powerUsage.value)">
-              <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.system.recharge.value) || 16}}+</Rollable>
-            </div>
-            <div class="power-uses">
-              <span v-if="power.system.quantity.value !== null" class="power-uses-primary" :data-item-id="power._id" :data-quantity="power.system.quantity.value">{{power.system.quantity.value}}</span>
-              <template v-if="hasSecondaryUsage(power)">
-                <span v-if="power.system.quantity.value !== null" class="power-uses-separator">-</span>
-                <span class="power-uses-secondary" :data-item-id="power._id" :data-quantity="power.system.quantitySecondary.value">{{power.system.quantitySecondary.value}}</span>
-              </template>
-            </div>
-            <div class="item-controls">
-              <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
-              <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
-            </div>
-          </PowerSummaryRow>
-          <!-- Expanded power content. -->
-          <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))">
-            <Transition name="slide-fade">
-              <Power v-if="activePowers[power._id]" :power="power" :actor="actor" :context="context" :ref="concat('power--', power._id)"/>
-            </Transition>
-          </div>
-        </li>
+        <ExpandablePower v-for="power in powerGroups[groupKey]" :key="power._id" :power="power" :actor="actor" :context="context"/>
       </ul>
     </section>
   </section>
 </template>
 
 <script>
-import { concat, getActionShort, getActor, hasFeats, hasSecondaryUsage, localize } from '@/methods/Helpers';
-import Power from '@/components/parts/Power.vue';
-import PowerFeatPips from '@/components/parts/PowerFeatPips.vue';
-import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
-import Rollable from '@/components/parts/Rollable.vue';
+import { concat, getActor, localize } from '@/methods/Helpers';
+import ExpandablePower from '@/components/parts/ExpandablePower.vue';
 export default {
   name: 'CharPowers',
   props: ['actor', 'context', 'tab', 'flags'],
   setup() {
     return {
       concat,
-      getActionShort,
-      hasFeats,
-      hasSecondaryUsage,
       localize,
       CONFIG,
     }
   },
   components: {
-    Power,
-    PowerFeatPips,
-    PowerSummaryRow,
-    Rollable
+    ExpandablePower
   },
   data() {
     return {
@@ -130,7 +95,6 @@ export default {
       groupBy: 'powerType',
       sortBy: 'custom',
       searchValue: null,
-      activePowers: {},
       sectionClasses: [],
       // Persisted group ordering for the current groupBy mode, plus transient
       // state for the group drag interaction.
@@ -301,28 +265,7 @@ export default {
       else {
         powers = powers.sort((a,b) => (a.sort || 0) - (b.sort || 0));
       }
-      powers.forEach(i => {
-        if (this.activePowers[i._id] == undefined) {
-          // this.activePowers[i._id] = {value: false};
-          this.activePowers[i._id] = false;
-        }
-      });
       this.powers = powers;
-    },
-    /**
-     * Toggle power display (click event).
-     */
-    togglePower(id) {
-      if (id) {
-        // Toggle the state if the power is currently being tracked.
-        if (this.activePowers[id] !== undefined) {
-          this.activePowers[id] = !this.activePowers[id];
-        }
-        // Otherwise, assume it should be open since this was click event.
-        else {
-          this.activePowers[id] = true;
-        }
-      }
     },
     /**
      * Filter which power groups are displayed:
@@ -486,22 +429,3 @@ export default {
   }
 }
 </script>
-
-<style>
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
-.slide-fade-enter-active {
-  transition: all 0.2s ease-in-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateY(-60%);
-}
-</style>
