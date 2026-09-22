@@ -4,7 +4,8 @@
       <h2 class="unit-title">{{ localize('ARCHMAGE.abilities') }}</h2>
       <div class="ability-grid">
         <template v-for="(ability, key) in abilities" :key="`ability-${key}`">
-          <button v-if="!editing" class="ability-button" type="button" @click="rollAbility(key)">
+          <button v-if="!editing" class="ability-button" type="button" @click="rollAbility(key)"
+            :data-tooltip="`${ability.value} / ${formatBonus(ability.mod)}`">
             <span class="ability-abbr">{{ abilityAbbr(ability.label) }}</span>
             <span class="ability-bonus">{{ formatBonus(ability.lvl) }}</span>
           </button>
@@ -20,14 +21,15 @@
       <h2 class="unit-title">{{ localize('ARCHMAGE.backgrounds') }}</h2>
       <ul v-if="backgrounds.length" class="background-list">
         <li v-for="background in backgrounds" :key="background.key">
-          <button v-if="!editing" class="background-button" type="button"
-                  @click="rollBackground(background.name)">
+          <button v-if="!editing" class="background-button" type="button" @click="rollBackground(background.name)">
             <span class="background-bonus">{{ formatBonus(background.bonus) }}</span>
             {{ background.name }}
           </button>
           <div v-else class="background-edit">
-            <input type="number" :name="`system.backgrounds.${background.key}.bonus.value`" v-model="background.raw.bonus.value">
-            <input type="text" :name="`system.backgrounds.${background.key}.name.value`" v-model="background.raw.name.value">
+            <input type="number" :name="`system.backgrounds.${background.key}.bonus.value`"
+              v-model="background.raw.bonus.value">
+            <input type="text" :name="`system.backgrounds.${background.key}.name.value`"
+              v-model="background.raw.name.value">
           </div>
         </li>
       </ul>
@@ -47,13 +49,16 @@
             </span>
           </template>
           <template v-else>
-            <select class="icon-edit icon-edit--relationship" :name="`system.icons.${icon.key}.relationship.value`" v-model="icon.raw.relationship.value">
+            <select class="icon-edit icon-edit--relationship" :name="`system.icons.${icon.key}.relationship.value`"
+              v-model="icon.raw.relationship.value">
               <option value="Positive">{{ localize('ARCHMAGE.Positive') }}</option>
               <option value="Negative">{{ localize('ARCHMAGE.Negative') }}</option>
               <option value="Conflicted">{{ localize('ARCHMAGE.Conflicted') }}</option>
             </select>
-            <input type="number" class="icon-edit icon-edit--bonus" :name="`system.icons.${icon.key}.bonus.value`" v-model="icon.raw.bonus.value">
-            <input type="text" class="icon-edit icon-edit--name" :name="`system.icons.${icon.key}.name.value`" v-model="icon.raw.name.value">
+            <input type="number" class="icon-edit icon-edit--bonus" :name="`system.icons.${icon.key}.bonus.value`"
+              v-model="icon.raw.bonus.value">
+            <input type="text" class="icon-edit icon-edit--name" :name="`system.icons.${icon.key}.name.value`"
+              v-model="icon.raw.name.value">
           </template>
         </li>
       </ul>
@@ -117,152 +122,160 @@ function iconSymbol(relationship) {
 </script>
 
 <style scoped lang="scss">
-  .sheet-sidebar {
-    flex: 0 0 250px;
-    overflow-y: auto;
-    border-right: 1px solid var(--color-border-dark, #0003);
+.sheet-sidebar {
+  flex: 0 0 250px;
+  overflow-y: auto;
+  border-right: 1px solid var(--color-border-dark, #0003);
+}
+
+.unit {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border-dark, #0003);
+
+  &:last-child {
+    border-bottom: none;
   }
+}
 
-  .unit {
-    padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid var(--color-border-dark, #0003);
+.unit-title {
+  margin: 0 0 0.25rem;
+  font-family: $font-stack-secondary;
+  font-size: var(--font-size-12, 0.75rem);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
-    &:last-child {
-      border-bottom: none;
-    }
-  }
+.ability-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.25rem;
+}
 
-  .unit-title {
-    margin: 0 0 0.25rem;
-    font-family: $font-stack-secondary;
-    font-size: var(--font-size-12, 0.75rem);
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
+.ability-button,
+.background-button {
+  width: 100%;
+}
 
-  .ability-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.25rem;
-  }
+.ability-button {
+  justify-content: center;
+}
 
-  .ability-button,
-  .background-button {
+.ability-edit {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  input[type='number'] {
+    flex: 1 1 auto;
+    min-width: 0;
     width: 100%;
-  }
-
-  .ability-button {
-    justify-content: center;
-  }
-
-  .ability-edit {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-
-    input[type='number'] {
-      flex: 1 1 auto;
-      min-width: 0;
-      width: 100%;
-      padding: 0 0.25rem;
-      text-align: center;
-    }
-  }
-
-  .ability-abbr {
+    padding: 0 0.25rem;
     text-align: center;
   }
+}
 
-  .ability-bonus {
-    flex: 0 0 3ch;
-    text-align: center;
-    font-variant-numeric: tabular-nums;
-  }
+.ability-abbr {
+  text-align: center;
+}
 
-  .background-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
+.ability-bonus {
+  flex: 0 0 3ch;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
 
-  .background-bonus {
-    text-align: right;
-  }
+.background-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-  .background-edit {
-    display: flex;
-    gap: 0.25rem;
+.background-bonus {
+  text-align: right;
+}
 
-    input[type='number'] {
-      flex: 0 0 3rem;
-      padding: 0 0.25rem;
-      text-align: center;
-    }
+.background-edit {
+  display: flex;
+  gap: 0.25rem;
 
-    input[type='text'] {
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-  }
-
-  .icon-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .icon-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.375rem;
-    padding: 0.25rem 0.5rem;
-  }
-
-  .icon-roll {
-    align-self: center;
-  }
-
-  .icon-name {
-    flex: 1;
-  }
-
-  .icon-pips {
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-
-    &.icon-pips--positive { color: var(--c-hit, #023602); }
-    &.icon-pips--negative { color: var(--c-red, #e01616); }
-    &.icon-pips--conflicted { color: var(--c-yellow, #ddb20b); }
-  }
-
-  .icon-edit--relationship {
-    flex: 0 0 auto;
-  }
-
-  .icon-edit--bonus {
+  input[type='number'] {
     flex: 0 0 3rem;
     padding: 0 0.25rem;
     text-align: center;
   }
 
-  .icon-edit--name {
+  input[type='text'] {
     flex: 1 1 auto;
     min-width: 0;
   }
+}
 
-  .placeholder {
-    margin: 0;
-    font-style: italic;
-    color: var(--color-text-dark-secondary, #7a7971);
+.icon-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.icon-roll {
+  align-self: center;
+}
+
+.icon-name {
+  flex: 1;
+}
+
+.icon-pips {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+
+  &.icon-pips--positive {
+    color: var(--c-hit, #023602);
   }
 
-  .filler {
-    margin: 0;
-    color: var(--color-text-dark-secondary, #7a7971);
+  &.icon-pips--negative {
+    color: var(--c-red, #e01616);
   }
+
+  &.icon-pips--conflicted {
+    color: var(--c-yellow, #ddb20b);
+  }
+}
+
+.icon-edit--relationship {
+  flex: 0 0 auto;
+}
+
+.icon-edit--bonus {
+  flex: 0 0 3rem;
+  padding: 0 0.25rem;
+  text-align: center;
+}
+
+.icon-edit--name {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.placeholder {
+  margin: 0;
+  font-style: italic;
+  color: var(--color-text-dark-secondary, #7a7971);
+}
+
+.filler {
+  margin: 0;
+  color: var(--color-text-dark-secondary, #7a7971);
+}
 </style>

@@ -1,17 +1,19 @@
 <template>
   <main class="sheet-main flexcol">
-    <!-- Placeholder tab strip. Deliberately not parts/Tabs.vue: its styling is
+    <!-- Foundry-native tab strip. Deliberately not parts/Tabs.vue: its styling is
          nested under .archmage-v2 and its mounted() hook needs the V2 root's
          merged-defaults flags computed plus game.i18n persistence under
          archmage.sheetDisplay.tabs.<group>.value. A V3 tabs part is future work. -->
-    <nav class="tab-strip flexrow">
-      <button v-for="tab in tabs" :key="tab.id" type="button"
-        class="tab-link" :class="{ active: activeTab === tab.id }"
-        :title="tab.icon ? localize(`ARCHMAGE.${tab.id}`) : undefined"
+    <nav class="sheet-tabs tabs">
+      <a v-for="tab in tabs" :key="tab.id" class="tab-link"
+        :class="{ active: activeTab === tab.id }"
+        :data-tab="tab.id"
+        :data-tooltip="tab.icon ? localize(`ARCHMAGE.${tab.id}`) : undefined"
+        data-tooltip-direction="UP"
         @click="activeTab = tab.id">
         <i v-if="tab.icon" :class="`fas ${tab.icon}`"></i>
-        <template v-else>{{ localize(`ARCHMAGE.${tab.id}`) }}</template>
-      </button>
+        <span v-else>{{ localize(`ARCHMAGE.${tab.id}`) }}</span>
+      </a>
     </nav>
 
     <div class="tab-content">
@@ -58,24 +60,8 @@ const tabs = [
     min-height: 0;
   }
 
-  .tab-strip {
-    flex: 0 0 auto;
-    border-bottom: 1px solid var(--color-border-dark, #0003);
-  }
-
-  .tab-link {
-    padding: 0.375rem 0.75rem;
-    border: none;
-    border-bottom: 2px solid transparent;
-    background: none;
-    font-weight: 600;
-    // color: var(--color-text-dark-secondary, #7a7971);
-    cursor: pointer;
-
-    &.active {
-      border-bottom-color: var(--color-border-dark, #0003);
-      // color: var(--color-text-dark-primary, #191813);
-    }
+  .sheet-tabs .tab-link {
+    padding: 0.25rem;
   }
 
   .tab-content {
