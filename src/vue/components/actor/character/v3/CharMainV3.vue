@@ -7,18 +7,21 @@
     <nav class="tab-strip flexrow">
       <button v-for="tab in tabs" :key="tab.id" type="button"
         class="tab-link" :class="{ active: activeTab === tab.id }"
+        :title="tab.icon ? localize(`ARCHMAGE.${tab.id}`) : undefined"
         @click="activeTab = tab.id">
-        {{ localize(`ARCHMAGE.${tab.id}`) }}
+        <i v-if="tab.icon" :class="`fas ${tab.icon}`"></i>
+        <template v-else>{{ localize(`ARCHMAGE.${tab.id}`) }}</template>
       </button>
     </nav>
 
     <div class="tab-content">
+      <CharCatalogV3 v-if="activeTab === 'catalog'" :actor="context.actor" :editable="context.editable" />
       <CharActionPlanV3 v-if="activeTab === 'actionPlan'" :actor="context.actor" :editable="context.editable" />
-      <CharTriggersV3 v-else-if="activeTab === 'triggers'" :actor="context.actor" :editable="context.editable" />
-      <CharCatalogV3 v-else-if="activeTab === 'catalog'" :actor="context.actor" :editable="context.editable" />
-      <CharEffectsV3 v-else-if="activeTab === 'effects'" :actor="context.actor" :editable="context.editable" />
-      <CharLoadoutV3 v-else-if="activeTab === 'loadout'" :actor="context.actor" :editable="context.editable" />
-      <CharAdvancementV3 v-else :actor="context.actor" :editable="context.editable" />
+      <CharTriggersV3 v-if="activeTab === 'triggers'" :actor="context.actor" :editable="context.editable" />
+      <CharEffectsV3 v-if="activeTab === 'effects'" :actor="context.actor" :editable="context.editable" />
+      <CharLoadoutV3 v-if="activeTab === 'loadout'" :actor="context.actor" :editable="context.editable" />
+      <CharAdvancementV3 v-if="activeTab === 'advancement'" :actor="context.actor" :editable="context.editable" />
+      <CharNotesV3 v-if="activeTab === 'notes'" :actor="context.actor" :editable="context.editable" />
     </div>
   </main>
 </template>
@@ -32,17 +35,19 @@ import CharCatalogV3 from './tabs/CharCatalogV3.vue';
 import CharEffectsV3 from './tabs/CharEffectsV3.vue';
 import CharLoadoutV3 from './tabs/CharLoadoutV3.vue';
 import CharAdvancementV3 from './tabs/CharAdvancementV3.vue';
+import CharNotesV3 from './tabs/CharNotesV3.vue';
 
 defineProps(['context']);
 
-const activeTab = ref('actionPlan');
+const activeTab = ref('catalog');
 const tabs = [
+  { id: 'catalog' },
   { id: 'actionPlan' },
   { id: 'triggers' },
-  { id: 'catalog' },
   { id: 'effects' },
   { id: 'loadout' },
-  { id: 'advancement' }
+  { id: 'advancement' },
+  { id: 'notes', icon: 'fa-note-sticky' }
 ];
 </script>
 
@@ -76,6 +81,8 @@ const tabs = [
   .tab-content {
     flex: 1;
     min-height: 0;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
     padding: 0.75rem;
   }
