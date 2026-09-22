@@ -17,7 +17,7 @@
     </nav>
 
     <div class="tab-content">
-      <CharCatalogV3 v-if="activeTab === 'catalog'" :actor="context.actor" :editable="context.editable" />
+      <CharCatalogV3 v-if="activeTab === 'catalog'" :actor="context.actor" :editable="context.editable" :context="context" />
       <CharActionPlanV3 v-if="activeTab === 'actionPlan'" :actor="context.actor" :editable="context.editable" />
       <CharTriggersV3 v-if="activeTab === 'triggers'" :actor="context.actor" :editable="context.editable" />
       <CharEffectsV3 v-if="activeTab === 'effects'" :actor="context.actor" :editable="context.editable" />
