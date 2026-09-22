@@ -7,10 +7,6 @@
         <span class="defense"><span class="defense-label">PD</span> {{ actor?.system?.attributes?.pd?.value }}</span>
         <span class="defense"><span class="defense-label">MD</span> {{ actor?.system?.attributes?.md?.value }}</span>
       </p>
-      <p class="unit-subrow">
-        <a class="rollable rollable--disengage" @click="rollDisengage">{{ disengageValue }}+ {{
-          localize('ARCHMAGE.SAVE.disengage') }}</a>
-      </p>
     </div>
 
     <div class="stats-unit stats-unit--hp">
@@ -46,6 +42,8 @@
         <a class="rollable rollable--save" @click="rollSave('normal')">11+ ({{ localize('ARCHMAGE.SAVE.normalShort')
           }})</a>
         <a class="rollable rollable--save" @click="rollSave('hard')">16+ ({{ localize('ARCHMAGE.SAVE.hardShort') }})</a>
+        <a class="rollable rollable--save" @click="rollDisengage">{{ disengageValue }}+ {{
+          localize('ARCHMAGE.SAVE.disengage') }}</a>
       </p>
     </div>
 
