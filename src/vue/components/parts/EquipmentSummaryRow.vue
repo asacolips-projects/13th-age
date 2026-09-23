@@ -110,6 +110,37 @@ defineEmits(['toggle', 'edit', 'delete', 'change-quantity', 'toggle-pip']);
   }
 }
 
+// The row's grid, matching the inventory tab's columns. The portrait column
+// is what sizes the row images: they flex-shrink to fit it.
+.equipment-grid {
+  grid-template-columns: 32px auto 36px 130px 60px 60px 36px 56px;
+  gap: 2px;
+  font-size: $font-tiny;
+  font-family: $font-stack-label;
+  text-align: center;
+
+  > * {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .equipment-name {
+    grid-column-start: 2;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .equipment-feat-pips { grid-column-start: 3; }
+  .equipment-bonus { grid-column-start: 4; }
+  .equipment-chakra { grid-column-start: 5; }
+  .equipment-recharge { grid-column-start: 6; }
+  .equipment-quantity { grid-column-start: 7; }
+  .item-controls { grid-column-start: 8; }
+  .item-control { width: 28px; }
+}
+
 // The name cell: its typography and the way the trailing cells dim while the
 // name is hovered. The trailing cells are the row's own summary slot content,
 // hence :deep().

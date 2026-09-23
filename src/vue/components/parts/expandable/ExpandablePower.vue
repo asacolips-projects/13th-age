@@ -52,6 +52,38 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
+// The summary row's grid: the same columns as the powers tab's rows. The
+// grid class and the portrait and name cells are PowerSummaryRow's, hence
+// :deep() there; the other cells are slotted from this component's template.
+.power-grid {
+  // The uses column holds two counters for powers with a secondary usage.
+  grid-template-columns: 32px auto 36px 44px 60px 44px 64px;
+  gap: 2px;
+  font-size: $font-tiny;
+  font-family: $font-stack-label;
+  text-align: center;
+
+  > :deep(*) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :deep(.power-name) {
+    grid-column-start: 2;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .power-feat-pips { grid-column-start: 3; }
+  .power-action { grid-column-start: 4; }
+  .power-recharge { grid-column-start: 5; }
+  .power-uses { grid-column-start: 6; }
+  .item-controls { grid-column-start: 7; }
+  .item-control { width: 28px; }
+}
+
 // The uses column holds one counter per pool, separated by a dash.
 .power-uses {
   gap: 1px;
