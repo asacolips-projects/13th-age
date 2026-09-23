@@ -16,6 +16,8 @@
         <span class="value-separator">/</span>
         <input type="number" name="system.attributes.hp.max" v-model="actor.system.attributes.hp.max">
       </p>
+      <Progress name="hp" :current="actor.system.attributes.hp.value" :max="actor.system.attributes.hp.max"
+        :temp="actor.system.attributes.hp.temp" />
       <p class="unit-subrow flexrow">
         <label for="system.attributes.hp.temp">{{ localize('ARCHMAGE.tempHp') }}</label>
         <input type="number" name="system.attributes.hp.temp" v-model="actor.system.attributes.hp.temp">
@@ -30,6 +32,8 @@
         <span class="value-separator">/</span>
         <input type="number" name="system.attributes.recoveries.max" v-model="actor.system.attributes.recoveries.max">
       </p>
+      <Progress name="recoveries" :current="actor.system.attributes.recoveries.value"
+        :max="actor.system.attributes.recoveries.max" />
       <p class="unit-subrow">
         <a class="rollable rollable--recovery" @click="rollRecovery">{{ recoveryFormula }}</a>
       </p>
@@ -69,6 +73,7 @@
 <script setup>
 import { computed, inject } from 'vue';
 import { localize } from '@/methods/Helpers';
+import Progress from '@/components/parts/Progress.vue';
 
 const props = defineProps(['actor', 'editable']);
 
@@ -222,5 +227,53 @@ input[type='number'] {
   flex-direction: column;
   justify-content: space-between;
   gap: 0.25rem;
+}
+
+// Mirror of src/scss/v2/components/_progress-bar.scss, which is nested
+// under .archmage-v2 and doesn't reach the V3 sheet.
+:deep(.progress-bar) {
+  width: 100%;
+  height: 8px;
+  margin: 0.25rem 0;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--c-black--50, #00000080);
+
+  .progress-track,
+  .progress-current,
+  .progress-temp {
+    background: var(--c-black--15, #00000026);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .progress-current,
+  .progress-temp {
+    right: auto;
+    width: 100%;
+    transition: all ease-in-out 0.25s;
+    background-color: var(--c-progress-full, #41c179);
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 3;
+    border-right: 1px solid var(--c-black--50, #00000080);
+
+    &.progress-hurt {
+      background-color: var(--c-progress-hurt, #f7d601);
+    }
+
+    &.progress-staggered {
+      background-color: var(--c-progress-staggered, #f78c01);
+    }
+
+    &.progress-dire {
+      background-color: var(--c-progress-dire, #ca0000);
+    }
+  }
 }
 </style>
