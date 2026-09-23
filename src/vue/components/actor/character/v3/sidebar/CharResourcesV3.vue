@@ -61,6 +61,29 @@
     </div>
   </section>
 
+  <!-- Rerolls: derived from equipped items, so both values are display-only
+       and spending happens through the rollable titles. -->
+  <section v-if="rerolls?.enabled" class="unit unit--rerolls">
+    <h2 class="unit-title">
+      <RollableV3 name="reroll" @click="rollReroll('AC')">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
+    </h2>
+    <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
+    <div class="resource-row">
+      <span class="resource-value">{{ rerolls.AC.current }}</span>
+      <span class="resource-separator">/</span>
+      <span class="resource-value">{{ rerolls.AC.max }}</span>
+    </div>
+    <h2 class="unit-title">
+      <RollableV3 name="reroll" @click="rollReroll('save')">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
+    </h2>
+    <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
+    <div class="resource-row">
+      <span class="resource-value">{{ rerolls.save.current }}</span>
+      <span class="resource-separator">/</span>
+      <span class="resource-value">{{ rerolls.save.max }}</span>
+    </div>
+  </section>
+
   <!-- Custom resources: enabled per-actor in the settings tab, tracked here. -->
   <section v-for="resource in customResources" :key="resource.key" class="unit unit--custom">
     <h2 v-if="!editing" class="unit-title">{{ resource.label }}</h2>
@@ -104,6 +127,10 @@ const secondEdition = computed(() => game.settings.get('archmage', 'secondEditio
 
 const perCombat = computed(() => props.actor?.system?.resources?.perCombat ?? {});
 
+// Reroll uses are derived from equipped items in prepareDerivedData(), so they
+// arrive with the context clone like the other computed attributes.
+const rerolls = computed(() => props.actor?.system?.resources?.spendable?.rerolls);
+
 const customResources = computed(() =>
   Object.entries(props.actor?.system?.resources?.spendable ?? {})
     .filter(([key, resource]) => key.includes('custom') && resource.enabled)
@@ -123,6 +150,39 @@ function rhythmLabel(current) {
 function toggleResource(key) {
   const current = perCombat.value[key]?.current === true;
   actorDocument?.update({ [`system.resources.perCombat.${key}.current`]: !current });
+}
+
+// Spend an AC or save reroll: decrement the equipped item that grants it and
+// post the reroll card to chat. Mirrors the V2 sheet's _onRerollRoll.
+async function rollReroll(kind) {
+  if (!actorDocument) return;
+  const res = actorDocument.system.resources.spendable.rerolls[kind];
+  if (!res || res.current <= 0) return;
+
+  // We have uses to spend, find source item.
+  const prop = kind === 'AC' ? 'rerollAc' : 'rerollSave';
+  actorDocument.items.forEach(item => {
+    if (item.type === 'equipment' && item.system.isActive && item.system.attributes[prop].current > 0) {
+      const itemUpdateData = { '_id': item.id };
+      itemUpdateData[`system.attributes.${prop}.current`] = res.current - 1;
+      actorDocument.updateEmbeddedDocuments('Item', [itemUpdateData]);
+    }
+  });
+
+  const token = actorDocument.token;
+  const chatData = {
+    user: game.user.id,
+    speaker: game.archmage.ArchmageUtility.getSpeaker(actorDocument),
+    title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
+    desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
+  };
+  const templateData = {
+    actor: actorDocument,
+    tokenId: token ? `${token.id}` : null,
+    data: chatData
+  };
+  chatData.content = await foundry.applications.handlebars.renderTemplate('systems/archmage/templates/chat/reroll-card.html', templateData);
+  await game.archmage.ArchmageUtility.createChatMessage(chatData);
 }
 </script>
 
