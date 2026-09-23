@@ -7,8 +7,8 @@
         <span class="resource-value">{{ perCombat.commandPoints.current }}</span>
         <div class="command-rolls">
           <!-- TODO: Add support for epic feat to bump to d6. -->
-          <a class="rollable" data-roll-type="command" data-roll-opt="d4">d4</a>
-          <a class="rollable" data-roll-type="command" data-roll-opt="d3">d3</a>
+          <RollableV3 data-roll-type="command" data-roll-opt="d4">d4</RollableV3>
+          <RollableV3 data-roll-type="command" data-roll-opt="d3">d3</RollableV3>
         </div>
       </template>
       <input v-else type="number" name="system.resources.perCombat.commandPoints.current"
@@ -87,6 +87,7 @@
 import { ref, computed, inject } from 'vue';
 import { localize } from '@/methods/Helpers';
 import Progress from '@/components/parts/Progress.vue';
+import RollableV3 from '../RollableV3.vue';
 
 const props = defineProps(['actor']);
 

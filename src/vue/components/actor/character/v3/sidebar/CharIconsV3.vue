@@ -4,7 +4,7 @@
     <ul v-if="icons.length" class="icon-list">
       <li v-for="icon in icons" :key="icon.key" class="icon-row">
         <template v-if="!editing">
-          <span class="rollable icon-roll" data-roll-type="icon" :data-roll-opt="icon.key"></span>
+          <RollableV3 class="icon-roll" data-roll-type="icon" :data-roll-opt="icon.key" />
           <span class="icon-name">{{ icon.name }}</span>
           <span class="icon-pips" :class="`icon-pips--${icon.relationship.toLowerCase()}`">
             <template v-if="icon.bonus > 0">{{ iconSymbol(icon.relationship).repeat(icon.bonus) }}</template>
@@ -32,6 +32,7 @@
 <script setup>
 import { ref, computed, inject } from 'vue';
 import { localize } from '@/methods/Helpers';
+import RollableV3 from '../RollableV3.vue';
 
 const props = defineProps(['actor']);
 

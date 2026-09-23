@@ -35,32 +35,32 @@
       <Progress name="recoveries" :current="actor.system.attributes.recoveries.value"
         :max="actor.system.attributes.recoveries.max" />
       <p class="unit-subrow">
-        <a class="rollable rollable--recovery" @click="rollRecovery">{{ recoveryFormula }}</a>
+        <RollableV3 name="recovery" @click="rollRecovery">{{ recoveryFormula }}</RollableV3>
       </p>
     </div>
 
     <div class="stats-unit stats-unit--saves">
       <h2 class="unit-title">{{ localize('ARCHMAGE.saves') }}</h2>
       <p class="unit-value unit-value--stacked">
-        <a class="rollable rollable--save" @click="rollSave('easy')">6+ ({{ localize('ARCHMAGE.SAVE.easyShort') }})</a>
-        <a class="rollable rollable--save" @click="rollSave('normal')">11+ ({{ localize('ARCHMAGE.SAVE.normalShort')
-          }})</a>
-        <a class="rollable rollable--save" @click="rollSave('hard')">16+ ({{ localize('ARCHMAGE.SAVE.hardShort') }})</a>
-        <a class="rollable rollable--save" @click="rollDisengage">{{ disengageValue }}+ {{
-          localize('ARCHMAGE.SAVE.disengage') }}</a>
+        <RollableV3 name="save" @click="rollSave('easy')">6+ ({{ localize('ARCHMAGE.SAVE.easyShort') }})</RollableV3>
+        <RollableV3 name="save" @click="rollSave('normal')">11+ ({{ localize('ARCHMAGE.SAVE.normalShort')
+          }})</RollableV3>
+        <RollableV3 name="save" @click="rollSave('hard')">16+ ({{ localize('ARCHMAGE.SAVE.hardShort') }})</RollableV3>
+        <RollableV3 name="save" @click="rollDisengage">{{ disengageValue }}+ {{ localize('ARCHMAGE.SAVE.disengage')
+          }}</RollableV3>
       </p>
     </div>
 
     <div class="stats-unit stats-unit--death">
       <div class="death-saves">
-        <a class="rollable rollable--save" @click="rollSave('death')">{{ localize('ARCHMAGE.SAVE.death') }}</a>
+        <RollableV3 name="save" @click="rollSave('death')">{{ localize('ARCHMAGE.SAVE.death') }}</RollableV3>
         <p class="unit-subrow attempts flexrow">
           <input type="checkbox" v-for="step in deathFails.max" :key="`death-${step}`"
             :checked="step <= deathFails.value" @change="updateFails('deathFails', step)" />
         </p>
       </div>
       <div class="last-gasp-saves">
-        <a class="rollable rollable--save" @click="rollSave('lastGasp')">{{ localize('ARCHMAGE.SAVE.lastGasp') }}</a>
+        <RollableV3 name="save" @click="rollSave('lastGasp')">{{ localize('ARCHMAGE.SAVE.lastGasp') }}</RollableV3>
         <p class="unit-subrow attempts flexrow">
           <input type="checkbox" v-for="step in lastGaspFails.max" :key="`lastgasp-${step}`"
             :checked="step <= lastGaspFails.value" @change="updateFails('lastGaspFails', step)" />
@@ -74,6 +74,7 @@
 import { computed, inject } from 'vue';
 import { localize } from '@/methods/Helpers';
 import Progress from '@/components/parts/Progress.vue';
+import RollableV3 from './RollableV3.vue';
 
 const props = defineProps(['actor', 'editable']);
 
@@ -188,14 +189,6 @@ input[type='number'] {
 
 .value-separator {
   color: var(--color-text-dark-secondary, #7a7971);
-}
-
-.rollable {
-  cursor: pointer;
-
-  &:hover {
-    text-shadow: 0 0 5px var(--color-shadow-primary, #0003);
-  }
 }
 
 .defense {
