@@ -55,9 +55,13 @@ const tabs = [
 
 <style scoped lang="scss">
   .sheet-main {
+    /* Grow to fill the right column beneath the stats header. Explicit flex
+       so this doesn't depend on Foundry's .flexcol utility. */
     flex: 1 1 0;
     min-width: 0;
     min-height: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .sheet-tabs .tab-link {

@@ -14,6 +14,6 @@ defineProps(['actor', 'editable']);
   .placeholder {
     margin: 0;
     font-style: italic;
-    color: var(--color-text-dark-secondary, #7a7971);
+    color: $c-gray;
   }
 </style>

@@ -55,36 +55,38 @@ const subtitle = computed(() => {
 const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?.value));
 </script>
 
+<!-- Laid out vertically: it lives at the top of the narrow sidebar column
+     rather than spanning the sheet width. -->
 <style scoped lang="scss">
   .sheet-header {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    flex-direction: column;
+    gap: 0.5rem;
     padding: 0.75rem;
-    border-bottom: 1px solid var(--color-border-dark, #0003);
+    border-bottom: 1px solid $ct-border;
   }
 
   .header-portrait {
-    flex: 0 0 auto;
+    align-self: center;
 
     img {
       height: 100px;
       width: auto;
-      max-width: 150px;
+      max-width: 100%;
       object-fit: contain;
       border-radius: 4px;
     }
   }
 
   .header-id {
-    flex: 1 1 auto;
     min-width: 0;
+    text-align: center;
 
     .char-name {
       margin: 0;
       font-family: $font-stack-secondary;
       font-weight: normal;
-      font-size: var(--font-size-24, 1.5rem);
+      font-size: $font-lg;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -92,7 +94,7 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
 
     .char-subtitle {
       margin: 0;
-      color: var(--color-text-dark-secondary, #7a7971);
+      color: $c-gray;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -108,35 +110,30 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
 
     .edit-row {
       display: flex;
-      gap: 0.5rem;
+      flex-direction: column;
+      gap: 0.25rem;
 
       input {
-        flex: 1 1 auto;
         min-width: 0;
         margin-bottom: 0;
-      }
-
-      input[type='number'] {
-        flex: 0 0 4rem;
       }
     }
   }
 
   .header-out {
-    flex: 0 0 35%;
-    border-left: 1px solid var(--color-border-dark, #0003);
-    padding-left: 0.5rem;
+    border-top: 1px solid $ct-border;
+    padding-top: 0.5rem;
     max-height: 100px;
     overflow-y: auto;
 
     .out-label {
       margin: 0 0 0.25rem;
       font-family: $font-stack-secondary;
-      font-size: var(--font-size-12, 0.75rem);
+      font-size: $font-tiny;
       font-weight: normal;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--color-text-dark-secondary, #7a7971);
+      color: $c-gray;
     }
 
     .out-text {
@@ -147,7 +144,7 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
 
     textarea {
       width: 100%;
-      height: 100%;
+      min-height: 3rem;
       resize: none;
     }
   }
