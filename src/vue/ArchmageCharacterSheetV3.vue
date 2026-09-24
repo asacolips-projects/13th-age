@@ -64,6 +64,11 @@
     --v3-negative: var(--c-red);
     --v3-conflicted: var(--c-yellow);
 
+    /* Effect summaries use the system-wide power gradient so colorblind
+       modes keep flowing through; themes can override this token. */
+    --v3-effect-bg: var(--c-power-other);
+    --v3-chip-bg: var(--c-black--25);
+
     --v3-font-display: #{$font-stack-secondary};
     --v3-font-label: #{$font-stack-label};
     --v3-font-size-title: #{$font-tiny};
