@@ -19,8 +19,12 @@ defineProps(['actor']);
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
   font-size: var(--v3-font-size-label);
+
+  span {
+    text-align: center;
+  }
 }
 
 .defense-label {

@@ -21,11 +21,10 @@
       <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.focus') }}</h2>
       <div class="resource-row">
         <!-- Binary state stays toggleable in view mode, like the death saves. -->
-        <a v-if="!editing" class="resource-value resource-toggle"
+        <a class="resource-value resource-toggle"
           :class="{ 'resource-value--on': perCombat.focus.current }" @click="toggleResource('focus')">
           {{ perCombat.focus.current ? '✓' : '–' }}
         </a>
-        <input v-else type="checkbox" name="system.resources.perCombat.focus.current" v-model="perCombat.focus.current">
       </div>
     </section>
 
@@ -61,21 +60,22 @@
       </div>
     </section>
 
-    <!-- Rerolls: derived from equipped items, so both values are display-only
-         and spending happens through the rollable labels. Each group is one
-         line to keep the bar short. -->
+    <!-- Rerolls: derived from equipped items, so max is display-only and the
+         current count writes through to the granting item. Spending happens
+         through the rollable labels; each group is one line to keep the bar
+         short. -->
     <section v-if="rerolls?.enabled" class="unit unit--rerolls">
       <div class="reroll-group">
         <RollableV3 name="reroll" @click="rollReroll('AC')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
         <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
-        <span class="resource-value">{{ rerolls.AC.current }}</span>
+        <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
         <span class="resource-separator">/</span>
         <span class="resource-value">{{ rerolls.AC.max }}</span>
       </div>
       <div class="reroll-group">
         <RollableV3 name="reroll" @click="rollReroll('save')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
         <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
-        <span class="resource-value">{{ rerolls.save.current }}</span>
+        <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
         <span class="resource-separator">/</span>
         <span class="resource-value">{{ rerolls.save.max }}</span>
       </div>
@@ -152,6 +152,23 @@ function rhythmLabel(current) {
 function toggleResource(key) {
   const current = perCombat.value[key]?.current === true;
   actorDocument?.update({ [`system.resources.perCombat.${key}.current`]: !current });
+}
+
+// Set a reroll pool's count from view mode: write through to the equipped
+// item(s) that grant it, matching how rollReroll spends them. The actor-level
+// value is derived in prepareDerivedData(), so there is nothing to update
+// there.
+function setReroll(kind, event) {
+  if (!actorDocument) return;
+  const value = Number(event.target.value) || 0;
+  const prop = kind === 'AC' ? 'rerollAc' : 'rerollSave';
+  const updates = [];
+  actorDocument.items.forEach(item => {
+    if (item.type === 'equipment' && item.system.isActive && item.system.attributes[prop]?.bonus > 0) {
+      updates.push({ '_id': item.id, [`system.attributes.${prop}.current`]: value });
+    }
+  });
+  if (updates.length) actorDocument.updateEmbeddedDocuments('Item', updates);
 }
 
 // Spend an AC or save reroll: decrement the equipped item that grants it and
@@ -256,21 +273,22 @@ async function rollReroll(kind) {
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
+}
 
-  /* Compact numeric boxes: room for three digits at the row's own font (the
-     global input style would otherwise force 20px), with a trimmed height and
-     line-height so the tiles stay short. */
-  input[type='number'] {
-    flex: 0 1 auto;
-    min-width: 0;
-    width: calc(3ch + 0.5rem);
-    height: 1.25rem;
-    padding: 0 0.25rem;
-    line-height: 1.25rem;
-    font-size: inherit;
-    font-variant-numeric: tabular-nums;
-    text-align: center;
-  }
+/* Compact numeric boxes: room for three digits at the row's own font (the
+   global input style would otherwise force 20px), with a trimmed height and
+   line-height so the tiles stay short. */
+.resource-row input[type='number'],
+.reroll-group input[type='number'] {
+  flex: 0 1 auto;
+  min-width: 0;
+  width: calc(3ch + 0.5rem);
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  line-height: 1.25rem;
+  font-size: inherit;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
 }
 
 .resource-value {

@@ -33,6 +33,8 @@ ARCHMAGE:
   byType: Group by Power Type
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
+  calculatedHPMaxHint: Max HP is calculated automatically from base HP, the CON modifier, level, and the HP adjustment.
+  calculatedRecoveriesMaxHint: Max recoveries is calculated automatically from the base recoveries value.
   catalog: Catalog
   chakra: Chakra
   champion: Champion

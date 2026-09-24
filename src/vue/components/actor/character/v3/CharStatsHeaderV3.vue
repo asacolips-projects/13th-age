@@ -6,30 +6,35 @@
         <h2 class="unit-title">{{ localize('ARCHMAGE.hitPoints') }}</h2>
         <Progress name="hp" :current="actor.system.attributes.hp.value" :max="actor.system.attributes.hp.max"
           :temp="actor.system.attributes.hp.temp" />
-        <!-- Current + temp stay editable in play; max only changes in edit
-             mode, so it renders as plain text otherwise. -->
+        <!-- Current + temp stay editable in play. Max is editable in edit
+             mode, except when it's calculated automatically from level/CON. -->
         <p class="unit-value">
           <input type="number" name="system.attributes.hp.value" v-model="actor.system.attributes.hp.value">
           <span class="value-separator">+</span>
           <input type="number" name="system.attributes.hp.temp" placeholder="temp" v-model="actor.system.attributes.hp.temp">
           <span class="value-separator">/</span>
-          <input v-if="editing" type="number" name="system.attributes.hp.max" v-model="actor.system.attributes.hp.max">
+          <input v-if="editing" type="number" name="system.attributes.hp.max"
+            v-model="actor.system.attributes.hp.max" :disabled="actor.system.attributes.hp.automatic"
+            :data-tooltip="actor.system.attributes.hp.automatic ? localize('ARCHMAGE.calculatedHPMaxHint') : null">
           <span v-else class="value-static">{{ actor.system.attributes.hp.max }}</span>
         </p>
       </div>
 
       <div class="stats-unit stats-unit--recoveries">
-        <h2 class="unit-title">{{ localize('ARCHMAGE.recoveries') }}</h2>
+        <h2 class="unit-title">
+          {{ localize('ARCHMAGE.recoveries') }}
+            <RollableV3 name="recovery" @click="rollRecovery">{{ recoveryFormula }}</RollableV3>
+        </h2>
           <Progress name="recoveries" :current="actor.system.attributes.recoveries.value"
             :max="actor.system.attributes.recoveries.max" />
         <p class="unit-value">
           <input type="number" name="system.attributes.recoveries.value"
             v-model="actor.system.attributes.recoveries.value">
           <span class="value-separator">/</span>
-          <input type="number" name="system.attributes.recoveries.max" v-model="actor.system.attributes.recoveries.max">
-          <p class="unit-subrow">
-            <RollableV3 name="recovery" @click="rollRecovery">{{ recoveryFormula }}</RollableV3>
-          </p>
+          <input v-if="editing" type="number" name="system.attributes.recoveries.max"
+            v-model="actor.system.attributes.recoveries.max" :disabled="actor.system.attributes.recoveries.automatic"
+            :data-tooltip="actor.system.attributes.recoveries.automatic ? localize('ARCHMAGE.calculatedRecoveriesMaxHint') : null">
+          <span v-else class="value-static">{{ actor.system.attributes.recoveries.max }}</span>
         </p>
       </div>
 
@@ -165,6 +170,7 @@ function updateFails(saveType, opt) {
   margin: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
   font-size: var(--v3-font-size-value);
 }
