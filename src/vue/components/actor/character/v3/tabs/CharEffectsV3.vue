@@ -1,7 +1,6 @@
 <template>
   <section class="tab-effects">
     <header class="effects-header">
-      <h2 class="effects-title">{{localize('ARCHMAGE.effects')}}</h2>
       <div v-if="editable" class="effect-controls">
         <a class="effect-control" :title="localize('ARCHMAGE.EFFECT.AE.new')" @click="createEffect"><i class="fas fa-plus"></i></a>
       </div>
