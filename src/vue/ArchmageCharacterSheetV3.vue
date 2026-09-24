@@ -64,6 +64,15 @@
     --v3-negative: var(--c-red);
     --v3-conflicted: var(--c-yellow);
 
+    /* Power usage colours: the system-wide gradients, which the colour-blind
+       modes override through their body classes. Aliased so a theme only has
+       to override this block to retint them. */
+    --v3-power-will: var(--c-power-will);
+    --v3-power-battle: var(--c-power-battle);
+    --v3-power-daily: var(--c-power-daily);
+    --v3-power-recharge: var(--c-power-recharge);
+    --v3-power-other: var(--c-power-other);
+
     /* Effect summaries use the system-wide power gradient so colorblind
        modes keep flowing through; themes can override this token. */
     --v3-effect-bg: var(--c-power-other);
