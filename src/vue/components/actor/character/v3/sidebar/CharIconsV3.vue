@@ -89,15 +89,15 @@ function iconSymbol(relationship) {
   white-space: nowrap;
 
   &.icon-pips--positive {
-    color: var(--c-hit, #023602);
+    color: var(--v3-positive);
   }
 
   &.icon-pips--negative {
-    color: var(--c-red, #e01616);
+    color: var(--v3-negative);
   }
 
   &.icon-pips--conflicted {
-    color: var(--c-yellow, #ddb20b);
+    color: var(--v3-conflicted);
   }
 }
 

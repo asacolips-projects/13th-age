@@ -63,7 +63,7 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.75rem;
-    border-bottom: 1px solid $ct-border;
+    border-bottom: 1px solid var(--v3-border);
   }
 
   .header-portrait {
@@ -84,9 +84,9 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
 
     .char-name {
       margin: 0;
-      font-family: $font-stack-secondary;
+      font-family: var(--v3-font-display);
       font-weight: normal;
-      font-size: $font-lg;
+      font-size: var(--v3-font-size-name);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -94,7 +94,7 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
 
     .char-subtitle {
       margin: 0;
-      color: $c-gray;
+      color: var(--v3-text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -104,7 +104,7 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
       display: block;
       width: 100%;
       margin-bottom: 0.25rem;
-      font-family: $font-stack-secondary;
+      font-family: var(--v3-font-display);
       font-weight: normal;
     }
 
@@ -121,19 +121,19 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
   }
 
   .header-out {
-    border-top: 1px solid $ct-border;
+    border-top: 1px solid var(--v3-border);
     padding-top: 0.5rem;
     max-height: 100px;
     overflow-y: auto;
 
     .out-label {
       margin: 0 0 0.25rem;
-      font-family: $font-stack-secondary;
-      font-size: $font-tiny;
+      font-family: var(--v3-font-display);
+      font-size: var(--v3-font-size-title);
       font-weight: normal;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: $c-gray;
+      color: var(--v3-text-muted);
     }
 
     .out-text {

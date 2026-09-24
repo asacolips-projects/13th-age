@@ -32,12 +32,11 @@ defineProps(['actor']);
      at its content height and overflow-y never engages. */
   height: 100%;
   overflow-y: auto;
-  border-right: 1px solid $ct-border;
+  border-right: 1px solid var(--v3-border);
 
   .unit {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid $ct-border;
-
+    border-bottom: 1px solid var(--v3-border);
     &:last-child {
       border-bottom: none;
     }
@@ -45,8 +44,8 @@ defineProps(['actor']);
 
   .unit-title {
     margin: 0 0 0.25rem;
-    font-family: $font-stack-secondary;
-    font-size: $font-tiny;
+    font-family: var(--v3-font-display);
+    font-size: var(--v3-font-size-title);
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -55,20 +54,20 @@ defineProps(['actor']);
   .placeholder {
     margin: 0;
     font-style: italic;
-    color: $c-gray;
+    color: var(--v3-text-muted);
   }
 
   .rollable {
     cursor: pointer;
 
     &:hover {
-      text-shadow: 0 0 5px $c-black--25;
+      text-shadow: 0 0 5px var(--v3-hover-glow);
     }
   }
 
   .filler {
     margin: 0;
-    color: $c-gray;
+    color: var(--v3-text-muted);
   }
 }
 </style>

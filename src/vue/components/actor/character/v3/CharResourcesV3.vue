@@ -203,14 +203,14 @@ async function rollReroll(kind) {
   min-width: 0;
   display: flex;
   align-items: stretch;
-  border-top: 1px solid $ct-border;
+  border-top: 1px solid var(--v3-border);
 }
 
 .unit {
   flex: 1 1 0;
   min-width: 0;
   padding: 0.375rem 0.75rem;
-  border-right: 1px solid $ct-border;
+  border-right: 1px solid var(--v3-border);
 
   &:last-child {
     border-right: none;
@@ -219,8 +219,8 @@ async function rollReroll(kind) {
 
 .unit-title {
   margin: 0 0 0.25rem;
-  font-family: $font-stack-secondary;
-  font-size: $font-tiny;
+  font-family: var(--v3-font-display);
+  font-size: var(--v3-font-size-title);
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -239,7 +239,7 @@ async function rollReroll(kind) {
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: $font-tiny;
+  font-size: var(--v3-font-size-title);
   white-space: nowrap;
 
   .reroll-label {
@@ -278,7 +278,7 @@ async function rollReroll(kind) {
   font-variant-numeric: tabular-nums;
 
   &.resource-value--on {
-    color: var(--c-hit, #023602);
+    color: var(--v3-positive);
   }
 }
 
@@ -286,12 +286,12 @@ async function rollReroll(kind) {
   cursor: pointer;
 
   &:hover {
-    text-shadow: 0 0 5px $c-black--25;
+    text-shadow: 0 0 5px var(--v3-hover-glow);
   }
 }
 
 .resource-separator {
-  color: $c-gray;
+  color: var(--v3-text-muted);
 }
 
 .command-rolls {
@@ -305,8 +305,8 @@ async function rollReroll(kind) {
   width: 100%;
   margin-bottom: 0.25rem;
   padding: 0 0.25rem;
-  font-family: $font-stack-secondary;
-  font-size: $font-tiny;
+  font-family: var(--v3-font-display);
+  font-size: var(--v3-font-size-title);
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;

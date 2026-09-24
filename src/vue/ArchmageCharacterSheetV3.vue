@@ -35,6 +35,27 @@
 
 <style scoped lang="scss">
   .archmage-v3-vue {
+    /* Theme tokens: every color and font the V3 sheet uses resolves through
+       one of these custom properties, so a theme only has to override this
+       block (e.g. by scoping new values to a theme class on this root).
+       Defaults alias the global palette/typography variables so color modes
+       and night mode keep flowing through unchanged. */
+    --v3-border: var(--c-black--25);
+    --v3-border-header: var(--c-white--25);
+    --v3-text-muted: var(--c-gray);
+    --v3-rollable: var(--c-blue);
+    --v3-rollable-glow: var(--c-blue--50);
+    --v3-hover-glow: var(--c-black--25);
+    --v3-positive: var(--c-hit);
+    --v3-negative: var(--c-red);
+    --v3-conflicted: var(--c-yellow);
+
+    --v3-font-display: #{$font-stack-secondary};
+    --v3-font-size-title: #{$font-tiny};
+    --v3-font-size-label: #{$font-xxs};
+    --v3-font-size-value: #{$font-xs};
+    --v3-font-size-name: #{$font-lg};
+
     height: 100%;
     position: relative;
     flex: 1;

@@ -31,12 +31,12 @@ const modifiers = computed(() => [
     @include fa-icon;
     content: fa-content($fa-var-dice-d20);
     margin-right: $padding-sm;
-    color: $c-blue;
+    color: var(--v3-rollable);
   }
 
   &:hover {
-    color: $c-blue;
-    text-shadow: 0 0 5px $c-blue--50;
+    color: var(--v3-rollable);
+    text-shadow: 0 0 5px var(--v3-rollable-glow);
   }
 
   &.hide-icon::before {

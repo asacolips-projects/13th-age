@@ -20,12 +20,12 @@ defineProps(['actor']);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: $font-xxs;
+  font-size: var(--v3-font-size-label);
 }
 
 .defense-label {
   margin-right: 0.25rem;
   font-weight: 600;
-  color: $c-gray;
+  color: var(--v3-text-muted);
 }
 </style>

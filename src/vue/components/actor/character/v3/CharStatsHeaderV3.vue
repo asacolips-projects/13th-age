@@ -133,7 +133,7 @@ function updateFails(saveType, opt) {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid $ct-border-night;
+  border-bottom: 1px solid var(--v3-border-header);
 }
 
 .stats-row {
@@ -146,7 +146,7 @@ function updateFails(saveType, opt) {
   flex: 1 1 0;
   min-width: 0;
   padding: 0.375rem 0.75rem;
-  border-right: 1px solid $ct-border-night;
+  border-right: 1px solid var(--v3-border-header);
 
   &:last-child {
     border-right: none;
@@ -155,8 +155,8 @@ function updateFails(saveType, opt) {
 
 .unit-title {
   margin: 0 0 0.25rem;
-  font-family: $font-stack-secondary;
-  font-size: $font-tiny;
+  font-family: var(--v3-font-display);
+  font-size: var(--v3-font-size-title);
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -167,7 +167,7 @@ function updateFails(saveType, opt) {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: $font-xs;
+  font-size: var(--v3-font-size-value);
 }
 
 .unit-subrow {
@@ -175,7 +175,7 @@ function updateFails(saveType, opt) {
   align-items: center;
   gap: 0.375rem;
   margin: 0.25rem 0 0;
-  font-size: $font-tiny;
+  font-size: var(--v3-font-size-title);
 
   /* Slim the progress bars into the subrow line. */
   .progress-bar {
@@ -190,7 +190,7 @@ function updateFails(saveType, opt) {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  font-size: var(--font-size-12, 0.75rem);
+  font-size: var(--v3-font-size-title);
 }
 
 .save-track {
