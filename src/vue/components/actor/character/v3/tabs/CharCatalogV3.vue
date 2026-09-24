@@ -20,10 +20,10 @@
       </div>
     </header>
 
-    <section v-if="powers.length" class="catalog-group">
-      <h2 class="catalog-group-title unit-title">{{ localize('ARCHMAGE.powers') }}</h2>
+    <section v-for="group in powerGroups" :key="group.key" class="catalog-group">
+      <h2 class="catalog-group-title unit-title">{{ localize(group.labelKey) }}</h2>
       <ul class="catalog-list flexcol">
-        <ExpandablePower v-for="power in powers" :key="power._id" :power="power" :actor="actor" :context="context"/>
+        <ExpandablePower v-for="power in group.members" :key="power._id" :power="power" :actor="actor" :context="context"/>
       </ul>
     </section>
 
@@ -52,7 +52,14 @@ import ExpandableLoot from '@/components/parts/expandable/ExpandableLoot.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 
-// Grouping is handled on a different tab, so this control is display-only.
+// Powers are grouped by the selected mode; equipment and loot always keep
+// their own sections.
+const GROUP_MODES = {
+  powerType: 'powerTypes',
+  powerUsage: 'powerUsages',
+  powerSource: 'powerSources',
+};
+
 const groupOptions = [
   { value: 'powerType' },
   { value: 'powerUsage' },
@@ -70,8 +77,19 @@ const sortBy = ref('name');
 const searchValue = ref(null);
 
 const byName = (a, b) => a.name.localeCompare(b.name);
-const byLevel = (a, b) => Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
 const byCustom = (a, b) => (a.sort || 0) - (b.sort || 0);
+
+const TIER_ORDER = { adventurer: 0, champion: 1, epic: 2 };
+const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
+
+const byLevel = (a, b) => {
+  // Powers sort by level, equipment by tier, loot has no level so it falls
+  // back to name.
+  if (a.type === 'equipment') return byTier(a, b);
+  if (['loot', 'tool'].includes(a.type)) return byName(a, b);
+  return Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
+};
+
 const sortFns = { name: byName, level: byLevel, custom: byCustom };
 
 const matchesSearch = (item) => {
@@ -89,6 +107,60 @@ const powers = computed(() => catalogItems(['power']));
 const equipment = computed(() => catalogItems(['equipment']));
 // Legacy 'tool' items are catalogued as loot, matching the inventory tab.
 const loot = computed(() => catalogItems(['loot', 'tool']));
+
+/**
+ * Clean a free-text group name for usage as a group key.
+ */
+const cleanGroupKey = (string) => string ? string.toLowerCase().replace(/[^a-zA-Z\d]/g, '') : '';
+
+/**
+ * Read an item's value for a built-in grouping mode, with fallbacks matching
+ * the powers tab.
+ */
+const groupValue = (item, mode) => {
+  let value = item.system?.[mode]?.value || 'other';
+  // Override legacy 'maneuver' with 'flexible'.
+  return value === 'maneuver' ? 'flexible' : value;
+};
+
+/**
+ * Non-empty power groups for the current groupBy mode, in display order:
+ * canonical config order for built-in modes, first-appearance order for
+ * custom groups. Each group is {key, labelKey, members}.
+ */
+const powerGroups = computed(() => {
+  const items = powers.value;
+  const configKey = GROUP_MODES[groupBy.value];
+
+  if (configKey) {
+    const mode = groupBy.value;
+    const groups = [];
+    for (const key of Object.keys(CONFIG.ARCHMAGE[configKey])) {
+      const members = items.filter(i => groupValue(i, mode) === key);
+      if (!members.length) continue;
+      // powerType labels are pluralized keys, e.g. ARCHMAGE.talents.
+      const labelKey = configKey === 'powerTypes' ? concat('ARCHMAGE.', key, 's') : concat('ARCHMAGE.', key);
+      groups.push({ key, labelKey, members });
+    }
+    return groups;
+  }
+
+  // Custom groups come from the item's free-text group field; ungrouped
+  // powers collect under the default group.
+  const groups = [];
+  const byKey = new Map();
+  for (const item of items) {
+    const raw = item.system?.group?.value;
+    const key = raw ? cleanGroupKey(raw) : 'power';
+    if (!byKey.has(key)) {
+      const group = { key, labelKey: raw || 'ARCHMAGE.power', members: [] };
+      byKey.set(key, group);
+      groups.push(group);
+    }
+    byKey.get(key).members.push(item);
+  }
+  return groups;
+});
 </script>
 
 <style scoped lang="scss">
