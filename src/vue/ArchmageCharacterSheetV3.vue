@@ -42,7 +42,7 @@
        and night mode keep flowing through unchanged. */
     --v3-border: var(--c-black--25);
     --v3-border-header: var(--c-white--25);
-    --v3-text-muted: var(--c-gray);
+    --v3-text-muted: var(--c-white--50);
     --v3-rollable: var(--c-blue);
     --v3-rollable-glow: var(--c-blue--50);
     --v3-hover-glow: var(--c-black--25);
@@ -103,11 +103,9 @@
     flex-direction: column;
     align-items: stretch;
   }
-</style>
 
-<!-- Window-level rules: the window frame and form sit above the component
-     root, so scoped selectors can't reach them. -->
-<style lang="scss">
+  /* Window-level rules: the window frame and form sit above the component
+     root, so scoped selectors can't reach them. */
   .archmage-v3.character-sheet {
     .window-content {
       padding: 0;
@@ -116,11 +114,6 @@
     .window-content > form {
       height: 100%;
       overflow: hidden;
-    }
-
-    /* Keep the stats header's content clear of the floating edit toggle. */
-    .sheet-stats-header {
-      padding-right: 2.75rem;
     }
   }
 </style>
