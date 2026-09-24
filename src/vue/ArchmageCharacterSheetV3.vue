@@ -33,7 +33,7 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .archmage-v3-vue {
     /* Theme tokens: every color and font the V3 sheet uses resolves through
        one of these custom properties, so a theme only has to override this
@@ -51,10 +51,16 @@
     --v3-conflicted: var(--c-yellow);
 
     --v3-font-display: #{$font-stack-secondary};
+    --v3-font-label: #{$font-stack-label};
     --v3-font-size-title: #{$font-tiny};
     --v3-font-size-label: #{$font-xxs};
     --v3-font-size-value: #{$font-xs};
     --v3-font-size-name: #{$font-lg};
+
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--v3-font-display);
+    }
 
     height: 100%;
     position: relative;

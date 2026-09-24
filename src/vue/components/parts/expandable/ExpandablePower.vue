@@ -59,8 +59,8 @@ defineProps({
   // The uses column holds two counters for powers with a secondary usage.
   grid-template-columns: 32px auto 36px 44px 60px 44px 64px;
   gap: 2px;
-  font-size: $font-tiny;
-  font-family: $font-stack-label;
+  font-size: var(--v3-font-size-title);
+  font-family: var(--v3-font-label);
   text-align: center;
 
   > :deep(*) {
