@@ -5,16 +5,15 @@
     <section v-if="perCombat.commandPoints?.enabled" class="unit unit--command-points">
       <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.commandPoints') }}</h2>
       <div class="resource-row">
-        <template v-if="!editing">
-          <span class="resource-value">{{ perCombat.commandPoints.current }}</span>
-          <div class="command-rolls">
-            <!-- TODO: Add support for epic feat to bump to d6. -->
-            <RollableV3 data-roll-type="command" data-roll-opt="d4">d4</RollableV3>
-            <RollableV3 data-roll-type="command" data-roll-opt="d3">d3</RollableV3>
-          </div>
-        </template>
-        <input v-else type="number" name="system.resources.perCombat.commandPoints.current"
+        <!-- Current stays editable in play, like the hp row above; the named
+             input persists via the sheet's submitOnChange. -->
+        <input type="number" name="system.resources.perCombat.commandPoints.current"
           v-model="perCombat.commandPoints.current">
+        <div v-if="!editing" class="command-rolls">
+          <!-- TODO: Add support for epic feat to bump to d6. -->
+          <RollableV3 data-roll-type="command" data-roll-opt="d4">d4</RollableV3>
+          <RollableV3 data-roll-type="command" data-roll-opt="d3">d3</RollableV3>
+        </div>
       </div>
     </section>
 
@@ -58,8 +57,7 @@
     <section v-if="perCombat.bravado?.enabled && secondEdition" class="unit unit--bravado">
       <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.bravado') }}</h2>
       <div class="resource-row">
-        <span v-if="!editing" class="resource-value">{{ perCombat.bravado.current }}</span>
-        <input v-else type="number" name="system.resources.perCombat.bravado.current" v-model="perCombat.bravado.current">
+        <input type="number" name="system.resources.perCombat.bravado.current" v-model="perCombat.bravado.current">
       </div>
     </section>
 
@@ -90,17 +88,13 @@
         v-model="resource.raw.label" :placeholder="localize(`ARCHMAGE.CHARACTER.RESOURCES.${resource.key}`)">
       <Progress :name="resource.key" :current="resource.raw.current" :max="resource.raw.max" />
       <div class="resource-row">
-        <template v-if="!editing">
-          <span class="resource-value">{{ resource.raw.current }}</span>
-          <span class="resource-separator">/</span>
-          <span class="resource-value">{{ resource.raw.max }}</span>
-        </template>
-        <template v-else>
-          <input type="number" :name="`system.resources.spendable.${resource.key}.current`"
-            v-model="resource.raw.current">
-          <span class="resource-separator">/</span>
-          <input type="number" :name="`system.resources.spendable.${resource.key}.max`" v-model="resource.raw.max">
-        </template>
+        <!-- Current stays editable in play; max only changes in edit mode. -->
+        <input type="number" :name="`system.resources.spendable.${resource.key}.current`"
+          v-model="resource.raw.current">
+        <span class="resource-separator">/</span>
+        <input v-if="editing" type="number" :name="`system.resources.spendable.${resource.key}.max`"
+          v-model="resource.raw.max">
+        <span v-else class="resource-value">{{ resource.raw.max }}</span>
       </div>
     </section>
   </div>
@@ -260,19 +254,28 @@ async function rollReroll(kind) {
 .resource-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
 
+  /* Compact numeric boxes: room for three digits at the row's own font (the
+     global input style would otherwise force 20px), with a trimmed height and
+     line-height so the tiles stay short. */
   input[type='number'] {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-width: 0;
-    width: 100%;
+    width: calc(3ch + 0.5rem);
+    height: 1.25rem;
     padding: 0 0.25rem;
+    line-height: 1.25rem;
+    font-size: inherit;
+    font-variant-numeric: tabular-nums;
     text-align: center;
   }
 }
 
 .resource-value {
-  flex: 1 1 auto;
+  flex: 0;
+  margin: 0 0.25em;
   min-width: 0;
   text-align: center;
   font-variant-numeric: tabular-nums;
@@ -292,6 +295,7 @@ async function rollReroll(kind) {
 
 .resource-separator {
   color: var(--v3-text-muted);
+  margin: 0 0.25em;
 }
 
 .command-rolls {
