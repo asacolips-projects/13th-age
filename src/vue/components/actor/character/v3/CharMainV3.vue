@@ -24,7 +24,7 @@
         <CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" />
       </div>
       <div v-show="activeTab === 'actionPlan'" class="tab-body">
-        <CharActionPlanV3 :actor="context.actor" :editable="context.editable" />
+        <CharActionPlanV3 :actor="context.actor" :editable="context.editable" :context="context" />
       </div>
       <div v-show="activeTab === 'triggers'" class="tab-body">
         <CharTriggersV3 :actor="context.actor" :editable="context.editable" />
