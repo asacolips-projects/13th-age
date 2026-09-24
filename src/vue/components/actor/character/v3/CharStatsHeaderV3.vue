@@ -34,12 +34,11 @@
       </div>
 
       <div class="stats-unit stats-unit--saves">
-        <h2 class="unit-title">{{ localize('ARCHMAGE.saves') }}</h2>
         <!-- Disengage roll plus the in-play fail tracks, stacked vertically.
              Difficulty saves (easy/normal/hard) live in the sidebar. -->
         <div class="saves-stack">
-          <RollableV3 name="save" @click="rollDisengage">{{ disengageValue }}+ ({{
-            localize('ARCHMAGE.SAVE.disengage') }})</RollableV3>
+          <RollableV3 name="save" @click="rollDisengage">{{
+            localize('ARCHMAGE.SAVE.disengage') }} {{ disengageValue }}+</RollableV3>
           <span class="save-track">
             <RollableV3 name="save" @click="rollSave('death')">{{ localize('ARCHMAGE.SAVE.death') }}</RollableV3>
             <input type="checkbox" v-for="step in deathFails.max" :key="`death-${step}`"
@@ -185,24 +184,38 @@ function updateFails(saveType, opt) {
   }
 }
 
-/* Disengage roll + fail tracks, stacked vertically. */
+/* Disengage roll + fail tracks, stacked vertically and spread evenly
+   across the row height. */
+.stats-unit--saves {
+  display: flex;
+  flex-direction: column;
+}
+
 .saves-stack {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
+  justify-content: space-evenly;
+  gap: 0.125rem; /* minimum spacing; justify-content does the spreading */
+  flex: 1 1 auto;
   font-size: var(--v3-font-size-title);
 }
 
 .save-track {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
   white-space: nowrap;
 
+  .rollable {
+    flex: 1;
+  }
+
+  /* Auto margin on the first checkbox shoves the fail-track group to the
+     right edge; the rest sit 1px apart. */
   input[type='checkbox'] {
     width: 0.875rem;
     height: 0.875rem;
-    margin: 0;
+    flex: 0;
+    margin: 0 0 0 5px;
   }
 }
 
