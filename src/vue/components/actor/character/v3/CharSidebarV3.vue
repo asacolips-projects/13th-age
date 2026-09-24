@@ -3,9 +3,9 @@
     <CharHeaderV3 :actor="actor" />
     <CharAbilitiesV3 :actor="actor" />
     <CharDefensesV3 :actor="actor" />
+    <CharSavesV3 :actor="actor" />
     <CharBackgroundsV3 :actor="actor" />
     <CharIconsV3 :actor="actor" />
-    <CharSavesV3 :actor="actor" />
   </aside>
 </template>
 

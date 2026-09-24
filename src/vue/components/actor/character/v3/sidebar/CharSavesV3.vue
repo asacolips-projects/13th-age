@@ -3,9 +3,9 @@
     <h2 class="unit-title">{{ localize('ARCHMAGE.saves') }}</h2>
     <!-- Disengage lives with the death/last-gasp tracks in the top bar. -->
     <p class="saves-list">
-      <RollableV3 name="save" @click="rollSave('easy')">{{ localize('ARCHMAGE.SAVE.easyShort') }} (6+)</RollableV3>
-      <RollableV3 name="save" @click="rollSave('normal')">{{ localize('ARCHMAGE.SAVE.normalShort') }} (11+)</RollableV3>
-      <RollableV3 name="save" @click="rollSave('hard')">{{ localize('ARCHMAGE.SAVE.hardShort') }} (16+)</RollableV3>
+      <button @click="rollSave('easy')">{{ localize('ARCHMAGE.SAVE.easyShort') }} 6+</button>
+      <button @click="rollSave('normal')">{{ localize('ARCHMAGE.SAVE.normalShort') }} 11+</button>
+      <button @click="rollSave('hard')">{{ localize('ARCHMAGE.SAVE.hardShort') }} 16+</button>
     </p>
   </section>
 </template>
@@ -30,9 +30,15 @@ function rollSave(difficulty) {
 .saves-list {
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   gap: 0.25rem;
   font-size: var(--font-size-14, 0.875rem);
+
+  button {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+  }
 }
 </style>
