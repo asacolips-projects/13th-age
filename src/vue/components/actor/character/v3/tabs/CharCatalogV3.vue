@@ -21,21 +21,21 @@
     </header>
 
     <section v-for="group in powerGroups" :key="group.key" class="catalog-group">
-      <h2 class="catalog-group-title unit-title">{{ localize(group.labelKey) }}</h2>
+      <h4 class="catalog-group-title unit-title">{{ localize(group.labelKey) }}</h4>
       <ul class="catalog-list flexcol">
         <ExpandablePower v-for="power in group.members" :key="power._id" :power="power" :actor="actor" :context="context"/>
       </ul>
     </section>
 
     <section v-if="equipment.length" class="catalog-group">
-      <h2 class="catalog-group-title unit-title">{{ localize('ARCHMAGE.INVENTORY.equipment') }}</h2>
+      <h4 class="catalog-group-title unit-title">{{ localize('ARCHMAGE.INVENTORY.equipment') }}</h4>
       <ul class="catalog-list flexcol">
         <ExpandableEquipment v-for="item in equipment" :key="item._id" :equipment="item" :actor="actor"/>
       </ul>
     </section>
 
     <section v-if="loot.length" class="catalog-group">
-      <h2 class="catalog-group-title unit-title">{{ localize('ARCHMAGE.INVENTORY.loot') }}</h2>
+      <h4 class="catalog-group-title unit-title">{{ localize('ARCHMAGE.INVENTORY.loot') }}</h4>
       <ul class="catalog-list flexcol">
         <ExpandableLoot v-for="item in loot" :key="item._id" :equipment="item" :actor="actor"/>
       </ul>
