@@ -1,9 +1,15 @@
 <template>
   <div class="archmage-v3-vue character flexrow" :class="context.cssClass">
-    <!-- Edit toggle: owned at the sheet level, broadcast to children via provide/inject -->
-    <button v-if="context.editable" type="button" class="sheet-edit-toggle" :title="localize('ARCHMAGE.edit')" @click="toggleEdit">
-      <i :class="editing ? 'fas fa-check' : 'fas fa-pen-to-square'"></i>
-    </button>
+    <!-- Top-left control cluster: the edit toggle (owned at the sheet level,
+         broadcast to children via provide/inject) and the settings cog. -->
+    <div v-if="context.editable" class="sheet-controls">
+      <button type="button" class="sheet-edit-toggle" :title="localize('ARCHMAGE.edit')" @click="toggleEdit">
+        <i :class="editing ? 'fas fa-check' : 'fas fa-pen-to-square'"></i>
+      </button>
+      <button type="button" class="sheet-settings-toggle" :title="localize('ARCHMAGE.CHARACTERSETTINGS.settings')" @click="openSettings">
+        <i class="fas fa-gear"></i>
+      </button>
+    </div>
 
     <!-- Full-height sidebar: identity, defenses, abilities -->
     <CharSidebarV3 :actor="context.actor" />
@@ -30,6 +36,14 @@
 
   function toggleEdit() {
     editing.value = !editing.value;
+  }
+
+  function openSettings() {
+    new foundry.applications.api.DialogV2({
+      window: { title: localize('ARCHMAGE.CHARACTERSETTINGS.settings') },
+      content: '',
+      buttons: [{}]
+    }).render({ force: true });
   }
 </script>
 
@@ -78,12 +92,25 @@
     flex-direction: row;
     align-items: stretch;
 
-    .sheet-edit-toggle {
+    .sheet-controls {
       position: absolute;
       top: 0.5rem;
       left: 0.5rem;
       z-index: 5;
-      padding: 0.25rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.25rem;
+        padding: 0;
+        font-size: var(--v3-font-size-title);
+        line-height: 1;
+      }
     }
   }
 
