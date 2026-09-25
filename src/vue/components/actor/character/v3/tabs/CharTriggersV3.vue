@@ -1,19 +1,16 @@
 <template>
   <section class="tab-triggers">
-    <!-- Toggle for grouping by the powers' free-text group field. -->
-    <header class="trigger-filters">
-      <label class="filter-custom-groups">
-        <input type="checkbox" v-model="useCustomGroups">
-        <span>Custom Groups</span>
-      </label>
-    </header>
-
     <template v-if="powersWithTriggers.length">
-      <!-- Column labels, on the same grid as the rows. -->
+      <!-- Column labels on the same grid as the rows, with the grouping
+           toggle at the right-hand end. -->
       <header class="trigger-columns">
         <h2 class="column-label"></h2>
         <h2 class="column-label">{{ localize('ARCHMAGE.power') }}</h2>
         <h2 class="column-label">{{ localize('ARCHMAGE.CHAT.trigger') }}</h2>
+        <label class="filter-custom-groups">
+          <input type="checkbox" v-model="useCustomGroups">
+          <span>Custom Groups</span>
+        </label>
       </header>
 
       <section v-for="group in groups" :key="group.title" class="trigger-group">
@@ -78,25 +75,27 @@ const groups = computed(() => {
 </script>
 
 <style scoped lang="scss">
-  .trigger-filters {
-    padding-bottom: 0.375rem;
-    border-bottom: 1px solid var(--v3-border);
-    font-size: var(--v3-font-size-label);
-
-    .filter-custom-groups {
-      display: flex;
-      align-items: center;
-      gap: 0.375rem;
-    }
-  }
-
   // The label row sits on the same columns as TriggerRowV3's summary grid,
   // with matching horizontal padding so the labels line up with the cells.
+  // A trailing auto column holds the grouping toggle at the right edge; the
+  // 1fr trigger column still starts level with the rows' trigger text.
   .trigger-columns {
     display: grid;
-    grid-template-columns: 2rem minmax(6rem, 10rem) minmax(0, 1fr);
+    grid-template-columns: 2rem minmax(6rem, 10rem) minmax(0, 1fr) auto;
     gap: 0.75rem;
+    align-items: center;
     padding: 0.5rem 0.375rem 0.25rem;
+    border-bottom: 1px solid var(--v3-border);
+    font-family: var(--v3-font-label);
+    font-size: var(--v3-font-size-label);
+  }
+
+  .filter-custom-groups {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    white-space: nowrap;
   }
 
   .column-label {
