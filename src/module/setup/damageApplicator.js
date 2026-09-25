@@ -38,7 +38,7 @@ export class DamageApplicator {
     let toApply = this.getRollValue(roll);
 
     // Always round to the greater absolute value, as per 2e
-    toApply = (toApply < 0) ? -1 * toApply : toApply;
+    toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
 
     const targets = this.getTargets(targetType);
     // Apply damage if user is a GM.
@@ -66,7 +66,7 @@ export class DamageApplicator {
     let toApply = this.getRollValue(roll);
 
     // Always round to the greater absolute value, as per 2e
-    toApply = (toApply < 0) ? -1 * toApply : toApply;
+    toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
 
     const targets = this.getTargets(targetType);
     // Apply damage if user is a GM.
@@ -94,7 +94,7 @@ export class DamageApplicator {
     let toApply = this.getRollValue(roll);
 
     // Always round to the greater absolute value, as per 2e
-    toApply = (toApply < 0) ? -1 * toApply : toApply;
+    toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
 
     const targets = this.getTargets(targetType);
     // Apply damage if user is a GM.
