@@ -438,15 +438,6 @@ Hooks.once('init', async function() {
     config: true
   });
 
-  game.settings.register('archmage', 'roundUpDamageApplication', {
-    name: "ARCHMAGE.SETTINGS.RoundUpDamageApplicationName",
-    hint: "ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint",
-    scope: 'world',
-    config: true,
-    default: true,
-    type: Boolean
-  });
-
   game.settings.register('archmage', 'allowTargetDamageApplication', {
     name: 'ARCHMAGE.SETTINGS.allowTargetDamageApplicationName',
     hint: 'ARCHMAGE.SETTINGS.allowTargetDamageApplicationHint',

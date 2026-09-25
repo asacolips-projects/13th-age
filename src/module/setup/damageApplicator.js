@@ -37,12 +37,8 @@ export class DamageApplicator {
   asDamage(roll, modifier = 1, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
 
-    if (game.settings.get('archmage', 'roundUpDamageApplication')) {
-      toApply = Math.ceil(toApply * modifier);
-    }
-    else {
-      toApply = Math.floor(toApply * modifier);
-    }
+    // Always round to the greater absolute value, as per 2e
+    toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
 
     const targets = this.getTargets(targetType);
     // Apply damage if user is a GM.
@@ -69,12 +65,8 @@ export class DamageApplicator {
   asHealing(roll, modifier = 1, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
 
-    if (game.settings.get('archmage', 'roundUpDamageApplication')) {
-      toApply = Math.ceil(toApply * modifier);
-    }
-    else {
-      toApply = Math.floor(toApply * modifier);
-    }
+    // Always round to the greater absolute value, as per 2e
+    toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
 
     const targets = this.getTargets(targetType);
     // Apply damage if user is a GM.
@@ -100,12 +92,10 @@ export class DamageApplicator {
 
   asTempHealth(roll, modifier = 1, targetType = 'selected') {
     let toApply = this.getRollValue(roll);
-    if (game.settings.get('archmage', 'roundUpDamageApplication')) {
-      toApply = Math.ceil(toApply * modifier);
-    }
-    else {
-      toApply = Math.floor(toApply * modifier);
-    }
+
+    // Always round to the greater absolute value, as per 2e
+    toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
+
     const targets = this.getTargets(targetType);
     // Apply damage if user is a GM.
     if (game.user.isGM || targetType === 'selected') {
