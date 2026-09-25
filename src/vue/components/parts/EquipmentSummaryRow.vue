@@ -99,13 +99,13 @@ function activateItem() {
   }
 }
 
-// The row's grid, matching the inventory tab's columns. The portrait column
-// is what sizes the row images: they flex-shrink to fit it.
+// The row's grid, matching the inventory tab's columns. The typography is
+// the shared V3 row tokens, the same ones the power rows standardise.
 .equipment-grid {
   grid-template-columns: 32px auto 36px 130px 60px 60px 36px 56px;
   gap: 2px;
-  font-size: $font-tiny;
-  font-family: $font-stack-label;
+  font-size: var(--v3-font-size-title);
+  font-family: var(--v3-font-label);
   text-align: center;
 
   > * {
@@ -113,6 +113,14 @@ function activateItem() {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+
+  // The portrait, kept inside the standard 32px column like the power rows.
+  .equipment-image {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 0.25rem;
   }
 
   .equipment-name {
@@ -164,7 +172,8 @@ function activateItem() {
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: $font-xs;
+  // The same size the power rows' titles read at.
+  font-size: var(--v3-font-size-label);
 }
 
 .equipment-bonus {
