@@ -40,15 +40,17 @@ const toggle = () => {
 <style scoped lang="scss">
 // The row wrapper keeps a positioning context for the summary's hover
 // title and tooltip, and the content pane clips the slide-fade transition.
-// The kind-specific classes are built from the baseClass prop, whose two
-// values in use are 'power' and 'equipment'.
+// The kind-specific classes are built from the baseClass prop, whose values
+// in use are 'power', 'equipment' and 'trigger'.
 .power-item,
-.equipment-item {
+.equipment-item,
+.trigger-item {
   position: relative;
 }
 
 .power-content,
-.equipment-content {
+.equipment-content,
+.trigger-content {
   overflow: hidden;
 }
 </style>

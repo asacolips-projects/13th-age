@@ -1,7 +1,8 @@
 <template>
   <div class="equipment-summary grid equipment-grid equipment">
-    <!-- Portrait, which rolls the item. -->
-    <Rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></Rollable>
+    <!-- Portrait, which activates the item; .stop keeps the click from also
+         reaching the sheet's delegated roll listener. -->
+    <RollableV3 :overlay="true" @click.stop="activateItem"><img :src="equipment.img" class="equipment-image"/></RollableV3>
     <!-- Name, which expands the item. -->
     <a class="equipment-name" @click="$emit('toggle')" :data-item-id="equipment._id">
       <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
@@ -39,21 +40,39 @@
  *
  * Interactions are reported to the listing that renders the row — expanding,
  * editing, deleting, spending uses and toggling the active pip — rather than
- * handled here, since only the listing knows the owning actor.
+ * handled here, since only the listing knows the owning actor. The portrait is
+ * the exception: it activates the item directly through the injected actor
+ * document.
  */
+import { inject } from 'vue';
 import { concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
 import Rollable from '@/components/parts/Rollable.vue';
+import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 
-defineProps({
+const props = defineProps({
   equipment: {type: Object, required: true},
 });
 
 defineEmits(['toggle', 'edit', 'delete', 'change-quantity', 'toggle-pip']);
+
+// DiceArchmage and the roll methods live on the real document, which the
+// listing's context only carries as a prepared clone. The sheet provides the
+// document for injection.
+const actorDocument = inject('actorDocument', null);
+
+/**
+ * Activate the item: its roll() is the same entry point the sheet's delegated
+ * roll listener used for the portrait.
+ */
+function activateItem() {
+  actorDocument?.items?.get(props.equipment._id)?.roll();
+}
 </script>
 
 <style scoped lang="scss">
 // The row itself: white text over the equipment colour, links that glow on
-// hover, and a portrait that fades out to the roll icon beneath it.
+// hover. The portrait is RollableV3's overlay mode: the icon fades in over
+// the image on hover.
 .equipment-summary {
   color: $c-white;
   text-shadow: 0 0 10px $c-black--50;
@@ -74,39 +93,9 @@ defineEmits(['toggle', 'edit', 'delete', 'change-quantity', 'toggle-pip']);
     }
   }
 
-  .rollable--item {
-    position: relative;
-
-    &::before {
-      content: fa-content($fa-var-book);
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-      line-height: 1;
-      font-size: $font-lg;
-      width: $font-lg;
-      height: $font-lg;
-      display: block;
-      opacity: 0;
-      transition: all ease-in-out 0.25s;
-    }
-
-    img {
-      transition: all ease-in-out 0.25s;
-    }
-
-    &:hover {
-      &::before {
-        opacity: 1;
-      }
-
-      img {
-        opacity: 0;
-      }
-    }
+  // Equipment portraits show a book rather than the die.
+  .rollable::before {
+    content: fa-content($fa-var-book);
   }
 }
 

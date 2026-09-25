@@ -1,10 +1,11 @@
 <template>
   <component :is="tag" :class="classes">
-    <!-- Portrait, which rolls the power. -->
+    <!-- Portrait, which activates the power; .stop keeps the click from also
+         reaching the sheet's delegated roll listener. -->
     <slot name="image">
-      <Rollable v-if="image" name="item" :hide-icon="true" type="item" :opt="power._id">
+      <RollableV3 v-if="image" :overlay="true" @click.stop="activatePower">
         <img :src="power.img" class="power-image"/>
-      </Rollable>
+      </RollableV3>
     </slot>
     <!-- Name, which expands the power. -->
     <slot name="name">
@@ -29,8 +30,8 @@
  * sheet's preview, which each add their own trailing cells through the default
  * slot but agree on what a power row is and how it's coloured.
  */
-import { computed } from 'vue';
-import Rollable from '@/components/parts/Rollable.vue';
+import { computed, inject } from 'vue';
+import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 import { localize, powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
 
 const props = defineProps({
@@ -56,6 +57,18 @@ const props = defineProps({
 
 defineEmits(['toggle']);
 
+// DiceArchmage and the roll methods live on the real document; props.actor is
+// the context's prepared clone. The sheet provides the document for injection.
+const actorDocument = inject('actorDocument', null);
+
+/**
+ * Activate the power: its roll() runs the usage dialog, spends uses and
+ * resources, and posts the card to chat.
+ */
+function activatePower() {
+  actorDocument?.items?.get(props.power._id)?.roll();
+}
+
 const showTriggerTooltip = computed(() => props.trigger && !!props.power.system.trigger?.value);
 
 const classes = computed(() => [
@@ -71,8 +84,8 @@ const classes = computed(() => [
 
 <style scoped lang="scss">
 // The row itself: white text over the usage colour, links that glow on hover,
-// a portrait that fades out to the roll icon beneath it, and the hatching for
-// powers that are spent.
+// and the hatching for powers that are spent. The portrait is RollableV3's
+// overlay mode: the icon fades in over the image on hover.
 .power-summary {
   color: $c-white;
   text-shadow: 0 0 10px $c-black--50;
@@ -91,40 +104,6 @@ const classes = computed(() => [
 
     &::before {
       color: $c-white;
-    }
-  }
-
-  .rollable--item {
-    position: relative;
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-      line-height: 1;
-      font-size: $font-lg;
-      width: $font-lg;
-      height: $font-lg;
-      display: block;
-      opacity: 0;
-      transition: all ease-in-out 0.25s;
-    }
-
-    img {
-      transition: all ease-in-out 0.25s;
-    }
-
-    &:hover {
-      &::before {
-        opacity: 1;
-      }
-
-      img {
-        opacity: 0;
-      }
     }
   }
 

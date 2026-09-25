@@ -76,15 +76,15 @@ const groups = computed(() => {
 
 <style scoped lang="scss">
   // The label row sits on the same columns as TriggerRowV3's summary grid,
-  // with matching horizontal padding so the labels line up with the cells.
-  // A trailing auto column holds the grouping toggle at the right edge; the
-  // 1fr trigger column still starts level with the rows' trigger text.
+  // a PowerSummaryRow with the trigger text in its own trailing column. The
+  // rows carry no horizontal padding of their own, so none here either; a
+  // trailing auto column holds the grouping toggle at the right edge.
   .trigger-columns {
     display: grid;
-    grid-template-columns: 2rem minmax(6rem, 10rem) minmax(0, 1fr) auto;
-    gap: 0.75rem;
+    grid-template-columns: 32px minmax(6rem, 10rem) minmax(0, 1fr) auto;
+    gap: 2px;
     align-items: center;
-    padding: 0.5rem 0.375rem 0.25rem;
+    padding: 0.5rem 0 0.25rem;
     border-bottom: 1px solid var(--v3-border);
     font-family: var(--v3-font-label);
     font-size: var(--v3-font-size-label);

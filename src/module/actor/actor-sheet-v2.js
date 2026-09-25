@@ -152,6 +152,9 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
           }
         }
       });
+      // Expose the actor document for components that inject it, matching the
+      // Vue application mixin's documentProvideKey.
+      this.vueApp.provide('actorDocument', this.actor);
     }
     // Otherwise, perform update routines on the app.
     else {
