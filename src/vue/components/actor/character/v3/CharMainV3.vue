@@ -1,53 +1,40 @@
 <template>
   <main class="sheet-main flexcol">
-    <!-- Foundry-native tab strip. Deliberately not parts/Tabs.vue: its styling is
-         nested under .archmage-v2 and its mounted() hook needs the V2 root's
-         merged-defaults flags computed plus game.i18n persistence under
-         archmage.sheetDisplay.tabs.<group>.value. A V3 tabs part is future work. -->
-    <nav class="sheet-tabs tabs">
-      <a v-for="tab in tabs" :key="tab.id" class="tab-link"
-        :class="{ active: activeTab === tab.id }"
-        :data-tab="tab.id"
-        :data-tooltip="tab.icon ? localize(`ARCHMAGE.${tab.id}`) : undefined"
-        data-tooltip-direction="UP"
-        @click="setTab(tab.id)">
-        <i v-if="tab.icon" :class="`fas ${tab.icon}`"></i>
-        <span v-else>{{ localize(`ARCHMAGE.${tab.id}`) }}</span>
-      </a>
-    </nav>
+    <Tabs group="v3" :tabs="tabs" :actor="context.actor" :flags="flags" no-span="true" />
 
-    <!-- Every tab is mounted for the sheet's lifetime; v-show just hides the
-         inactive ones. Keeping them live preserves component state and, because
-         each tab-body is its own scroll container, per-tab scroll positions. -->
+    <!-- Every tab is mounted for the sheet's lifetime; the <Tab> wrapper only
+         toggles visibility, which preserves component state and, because each
+         tab-body is its own scroll container, per-tab scroll positions. -->
     <div class="tab-content">
-      <div v-show="activeTab === 'catalog'" class="tab-body">
+      <Tab group="v3" :tab="tabs.catalog" classes="tab-body">
         <CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" />
-      </div>
-      <div v-show="activeTab === 'actionPlan'" class="tab-body">
+      </Tab>
+      <Tab group="v3" :tab="tabs.actionPlan" classes="tab-body">
         <CharActionPlanV3 :actor="context.actor" :editable="context.editable" :context="context" />
-      </div>
-      <div v-show="activeTab === 'triggers'" class="tab-body">
+      </Tab>
+      <Tab group="v3" :tab="tabs.triggers" classes="tab-body">
         <CharTriggersV3 :actor="context.actor" :editable="context.editable" :context="context" />
-      </div>
-      <div v-show="activeTab === 'effects'" class="tab-body">
+      </Tab>
+      <Tab group="v3" :tab="tabs.effects" classes="tab-body">
         <CharEffectsV3 :actor="context.actor" :editable="context.editable" />
-      </div>
-      <div v-show="activeTab === 'loadout'" class="tab-body">
+      </Tab>
+      <Tab group="v3" :tab="tabs.loadout" classes="tab-body">
         <CharLoadoutV3 :actor="context.actor" :editable="context.editable" />
-      </div>
-      <div v-show="activeTab === 'advancement'" class="tab-body">
+      </Tab>
+      <Tab group="v3" :tab="tabs.advancement" classes="tab-body">
         <CharAdvancementV3 :actor="context.actor" :editable="context.editable" />
-      </div>
-      <div v-show="activeTab === 'notes'" class="tab-body">
+      </Tab>
+      <Tab group="v3" :tab="tabs.notes" classes="tab-body">
         <CharNotesV3 :actor="context.actor" :editable="context.editable" />
-      </div>
+      </Tab>
     </div>
   </main>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { localize, getActor } from '@/methods/Helpers';
+import { reactive } from 'vue';
+import { localize } from '@/methods/Helpers';
+import { Tabs, Tab } from '@/components';
 import CharActionPlanV3 from './tabs/CharActionPlanV3.vue';
 import CharTriggersV3 from './tabs/CharTriggersV3.vue';
 import CharCatalogV3 from './tabs/CharCatalogV3.vue';
@@ -58,32 +45,34 @@ import CharNotesV3 from './tabs/CharNotesV3.vue';
 
 const props = defineProps(['context']);
 
-const tabs = [
-  { id: 'catalog' },
-  { id: 'actionPlan' },
-  { id: 'triggers' },
-  { id: 'effects' },
-  { id: 'loadout' },
-  { id: 'advancement' },
-  { id: 'notes', icon: 'fa-note-sticky' }
-];
+// Tab definitions for parts/Tabs.vue: the object keys are the tab ids, and the
+// component flips `active` on the objects on click, which drives the matching
+// <Tab> wrappers above. reactive() so those mutations propagate; the object is
+// built once so actor updates never rebuild it.
+const rawTabs = {
+  catalog: { key: 'catalog', label: localize('ARCHMAGE.catalog'), active: true },
+  actionPlan: { key: 'actionPlan', label: localize('ARCHMAGE.actionPlan') },
+  triggers: { key: 'triggers', label: localize('ARCHMAGE.triggers') },
+  effects: { key: 'effects', label: localize('ARCHMAGE.effects') },
+  loadout: { key: 'loadout', label: localize('ARCHMAGE.loadout') },
+  advancement: { key: 'advancement', label: localize('ARCHMAGE.advancement') },
+  notes: { key: 'notes', label: localize('ARCHMAGE.notes'), icon: 'fa-note-sticky', hideLabel: true }
+};
+const tabs = reactive(rawTabs);
 
-// The last-open tab persists under archmage.sheetDisplay.tabs.v3.value like
-// the V2 Tabs part (its own group so stale V2 values can't collide). Fall back
-// to the default when unset or pointing at a tab that no longer exists.
-const activeTab = ref('catalog');
+// parts/Tabs.vue restores the last-open tab from this blob in mounted() and
+// persists clicks through the actor prop (pack actors are skipped there) under
+// archmage.sheetDisplay.tabs.v3.value like before — its own group so stale V2
+// values can't collide. A stored value pointing at a tab that no longer exists
+// would crash its mounted() lookup, so sanitize it back to the default.
 const storedTab = props.context.actor?.flags?.archmage?.sheetDisplay?.tabs?.v3?.value;
-if (tabs.some(tab => tab.id === storedTab)) activeTab.value = storedTab;
-
-function setTab(id) {
-  activeTab.value = id;
-  // Pack actors have no setFlag; getActor resolves the live document from the
-  // context actor's drag data.
-  if (props.context.actor?.pack) return;
-  getActor(props.context.actor).then(actor => {
-    actor?.setFlag('archmage', 'sheetDisplay.tabs.v3.value', id);
-  });
-}
+const flags = {
+  sheetDisplay: {
+    tabs: {
+      v3: { value: Object.hasOwn(rawTabs, storedTab) ? storedTab : undefined }
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -97,8 +86,17 @@ function setTab(id) {
     flex-direction: column;
   }
 
-  .sheet-tabs .tab-link {
-    padding: 0.25rem;
+  /* Local styles for parts/Tabs.vue: its own SCSS is nested under .archmage-v2,
+     which the V3 sheet root doesn't have (same situation as RollableV3.vue),
+     so keep the strip Foundry-native with just the tweak the hand-rolled
+     version had. The section wrapper is the component's root, so :deep()
+     reaches the links inside. */
+  .section--tabs {
+    flex: 0 0 auto;
+
+    :deep(.tab-link) {
+      padding: 0.25rem;
+    }
   }
 
   .tab-content {
@@ -108,15 +106,23 @@ function setTab(id) {
     flex-direction: column;
   }
 
-  /* Each tab owns its scroll container so switching tabs (v-show only toggles
-     display) leaves every tab's scrollTop intact. Mirrors the old .tab-content
-     sizing so tab layouts are unchanged. */
+  /* Each tab owns its scroll container so switching tabs (visibility only)
+     leaves every tab's scrollTop intact. Mirrors the old .tab-body sizing so
+     tab layouts are unchanged. Toggled explicitly off the active flag rather
+     than relying on core's .tab display rules. */
   .tab-body {
     flex: 1;
     min-height: 0;
+    padding: 0.75rem;
+  }
+
+  .tab-body.active {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    padding: 0.75rem;
+  }
+
+  .tab-body:not(.active) {
+    display: none;
   }
 </style>
