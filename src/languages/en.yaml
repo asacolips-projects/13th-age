@@ -4,8 +4,10 @@ ARCHMAGE:
   abilityScore: Ability Score
   act: Act.
   action: Action
+  actionPlan: Action Plan
   actions: Actions
   activeEffects: Active Effects
+  advancement: Advancement
   add: Add
   adventurer: Adventurer
   arc: Arc
@@ -31,6 +33,9 @@ ARCHMAGE:
   byType: Group by Power Type
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
+  calculatedHPMaxHint: Max HP is calculated automatically from base HP, the CON modifier, level, and the HP adjustment.
+  calculatedRecoveriesMaxHint: Max recoveries is calculated automatically from the base recoveries value.
+  catalog: Catalog
   chakra: Chakra
   champion: Champion
   checkBackground: Background Check
@@ -112,6 +117,7 @@ ARCHMAGE:
   kin: Kin
   level: Level
   levelFormat: "{level} level"
+  loadout: Loadout
   location: Location
   loot: Loot
   lvl: Lvl
@@ -133,6 +139,7 @@ ARCHMAGE:
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
+  notes: Notes
   Negative: Negative
   newItem: New {item}
   noneOption: "- None -"
@@ -193,6 +200,7 @@ ARCHMAGE:
   sharePlayers: Show Players
   sheetActiveEffect: 13th Age Active Effect Sheet
   sheetCharacter: Character Sheet
+  sheetCharacterV3: Character Sheet V3
   sheetItem: Item Sheet
   sheetItemV2: Item Sheet V2
   sheetNPC: NPC Sheet
@@ -397,6 +405,23 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+    tabs:
+      core: Core
+      flags: Flags
+      hooks: Hooks
+      resources: Resources
+      weapons: Weapons
+    groups:
+      adjustments: Adjustments
+      defenses: Defenses & Health
+      flags: Character Flags
+      hooks: Lifecycle Hooks
+      modifiers: Modifiers
+      resourcesCustom: Custom Resources
+      resourcesPerCombat: Per-Combat Resources
+      resourcesSpendable: Spendable Resources
+      stances: Stances
+      weaponDice: Weapon Dice
   RACES:
     aasimar: Aasimar
     darkelf: Dark Elf

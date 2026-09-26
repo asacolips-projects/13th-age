@@ -152,6 +152,9 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
           }
         }
       });
+      // Expose the actor document for components that inject it, matching the
+      // Vue application mixin's documentProvideKey.
+      this.vueApp.provide('actorDocument', this.actor);
     }
     // Otherwise, perform update routines on the app.
     else {
@@ -342,13 +345,10 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     html.on('click', '.rest', (event) => this._onRest(event));
 
     // Item listeners.
-    html.on('click', '.power-uses-primary, .equipment-quantity', (event) => this._updateQuantity(event, true));
-    html.on('contextmenu', '.power-uses-primary, .equipment-quantity', (event) => this._updateQuantity(event, false));
-    html.on('click', '.power-uses-secondary', (event) => this._updateQuantity(event, true, true));
-    html.on('contextmenu', '.power-uses-secondary', (event) => this._updateQuantity(event, false, true));
+    // Uses and quantity counters, feat pips, and the expandable item rows'
+    // edit/delete controls are handled by their own Vue components.
     html.on('click', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, true));
     html.on('contextmenu', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, false));
-    html.on('click', '.feat-pip', (event) => this._updatePips(event));
   }
 
   /**
@@ -1009,36 +1009,11 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
   }
 
   /**
-   * Increase or decrease an item's remaining uses.
+   * Increase or decrease a power feat's remaining uses.
    *
    * @param {MouseEvent} event  The click (increase) or contextmenu (decrease) event.
    * @param {Boolean} increase  Whether to add or remove a use.
-   * @param {Boolean} secondary  Target the power's secondary pool of uses
-   *   instead of the primary one.
    */
-  async _updateQuantity(event, increase = true, secondary = false) {
-    event.preventDefault();
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-    let itemId = dataset.itemId;
-
-    if (!itemId) return;
-
-    let item = this.actor.items.get(itemId);
-    if (item) {
-      const quantityKey = secondary ? 'quantitySecondary' : 'quantity';
-      if (item.system?.[quantityKey]?.value == null) return;
-      // Update the quantity.
-      let newQuantity = Number(item.system[quantityKey].value) ?? 0;
-      newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
-
-      // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
-      let maxQuantity = await item.resolveMaxQuantity(secondary ? 'maxQuantitySecondary' : 'maxQuantity') ?? 99;
-
-      await item.update({[`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
-    }
-  }
-
   async _updateFeatQuantity(event, increase = true) {
     event.preventDefault();
     let target = event.currentTarget;
@@ -1065,33 +1040,6 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     updateData[`system.feats.${featIndex}.quantity.value`] = increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity);
 
     await item.update(updateData, {});
-  }
-
-  async _updatePips(event) {
-    event.preventDefault();
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-    let itemId = dataset.itemId;
-
-    if (!itemId) return;
-
-    let item = this.actor.items.get(itemId);
-    if (item) {
-      let updateData = {};
-
-      if (item.type == "power") {
-        let tier = dataset.tier ?? null;
-        if (!tier) return;
-        let isActive = item.system.feats[tier].isActive.value;
-        updateData[`system.feats.${tier}.isActive.value`] = !isActive;
-      }
-      else if (item.type == "equipment") {
-        let isActive = item.system.isActive;
-        updateData["system.isActive"] = !isActive;
-      }
-
-      await item.update(updateData, {});
-    }
   }
 
   /**

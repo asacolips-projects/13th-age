@@ -3,6 +3,7 @@ import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorTabFocusSheet } from './actor/actor-tab-focus-sheet.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
+import { ActorArchmageSheetV3 } from './actor/actor-sheet-v3.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
 import { ArchmagePowerSheetV2 } from './item/power-sheet-v2.js';
@@ -25,6 +26,7 @@ import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
+import { ArchmageCharacterSettingsApp } from './applications/character-settings.js';
 import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
 import { baselineMonsterDialog } from './actor/baseline-monster.js';
 
@@ -147,6 +149,7 @@ Hooks.once('init', async function() {
     rollItemMacro,
     ActorHelpersV2,
     ArchmageCompendiumBrowserApplication,
+    ArchmageCharacterSettingsApp,
     isSocketGM: () => game.users.activeGM.id === game.user.id,
     system: {
       moduleArt: {
@@ -339,6 +342,13 @@ Hooks.once('init', async function() {
     label: 'ARCHMAGE.sheetCharacter',
     types: ["character"],
     makeDefault: true
+  });
+
+  // V3 actor sheet shell (ApplicationV2 + Vue). Opt-in until it replaces the V2 (ApplicationV1) sheet.
+  foundry.documents.collections.Actors.registerSheet("archmage", ActorArchmageSheetV3, {
+    label: 'ARCHMAGE.sheetCharacterV3',
+    types: ["character"],
+    makeDefault: false
   });
 
   /* -------------------------------------------- */

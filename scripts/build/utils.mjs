@@ -78,3 +78,37 @@ export function getFvttCommand() {
 export async function runParallel(tasks) {
   await Promise.all(tasks.map((task) => task()));
 }
+
+function globToRegExp(pattern) {
+  return new RegExp(
+    `^${pattern
+      .replaceAll('/', '\\/')
+      .replaceAll('**', '.*')
+      .replaceAll('*', '[^/]*')
+      .replaceAll('{', '(')
+      .replaceAll('}', ')')
+      .replaceAll(',', '|')}$`,
+  );
+}
+
+/**
+ * Match a path against an ordered glob list with `!` negations, mirroring
+ * how `globFiles` evaluates include/exclude patterns.
+ *
+ * @param {string} filePath  Path to test, relative to the project root.
+ * @param {string[]} patterns  Glob patterns; entries starting with `!` exclude.
+ * @returns {boolean}
+ */
+export function matchesGlobs(filePath, patterns) {
+  let included = false;
+
+  for (const pattern of patterns) {
+    if (pattern.startsWith('!')) {
+      if (globToRegExp(pattern.slice(1)).test(filePath)) included = false;
+    } else if (globToRegExp(pattern).test(filePath)) {
+      included = true;
+    }
+  }
+
+  return included;
+}

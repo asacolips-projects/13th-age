@@ -31,6 +31,10 @@ export { default as ActionAttack } from '@/components/item/action/ActionAttack.v
 
 export { default as CharHeader } from '@/components/actor/character/top/CharHeader.vue';
 export { default as CharAttributes } from '@/components/actor/character/top/CharAttributes.vue';
+export { default as CharHeaderV3 } from '@/components/actor/character/v3/CharHeaderV3.vue';
+export { default as CharStatsHeaderV3 } from '@/components/actor/character/v3/CharStatsHeaderV3.vue';
+export { default as CharSidebarV3 } from '@/components/actor/character/v3/CharSidebarV3.vue';
+export { default as CharMainV3 } from '@/components/actor/character/v3/CharMainV3.vue';
 
 export { default as CharAbilities } from '@/components/actor/character/sidebar/CharAbilities.vue';
 export { default as CharBackgrounds } from '@/components/actor/character/sidebar/CharBackgrounds.vue';

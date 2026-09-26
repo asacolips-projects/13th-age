@@ -3,7 +3,7 @@
     <ul class="feat-pips">
       <li v-for="(feat, tier) in filterFeats(feats)" :key="tier"
         :class="`feat-pip${feat.isActive?.value ? ' active' : ''}`"
-        :data-item-id="itemId" :data-tier="tier"><div class="hide">{{tier}}</div></li>
+        :data-item-id="itemId" :data-tier="tier" @click="$emit('toggle-pip', tier)"><div class="hide">{{tier}}</div></li>
     </ul>
   </div>
 </template>
@@ -14,7 +14,8 @@
  *
  * A filled pip means the feat has been taken. Listings of powers nobody owns
  * yet therefore show them all hollow, which is the truth: the power has feats
- * and none of them are active.
+ * and none of them are active. Clicking a pip asks the owning row to toggle
+ * the feat; the row decides whether that's possible.
  */
 import { filterFeats, localize } from '@/methods/Helpers';
 
@@ -23,4 +24,12 @@ defineProps({
   // Powers on an actor toggle their feats by clicking a pip.
   itemId: {type: String, default: null},
 });
+
+defineEmits(['toggle-pip']);
 </script>
+
+<style scoped lang="scss">
+.feat-pip {
+  cursor: pointer;
+}
+</style>
