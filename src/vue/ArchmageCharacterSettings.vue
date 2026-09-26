@@ -216,28 +216,6 @@
       </fieldset>
     </Tab>
 
-    <!-- Backgrounds and icons -->
-    <Tab group="primary" :tab="tabs.primary.toggles">
-      <fieldset>
-        <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.backgrounds') }}</legend>
-        <div v-for="(background, b) in actor.system.backgrounds" :key="b" class="form-group" :data-key="b">
-          <label>{{ localize(concat('ARCHMAGE.CHARACTERSETTINGS.', b)) }}</label>
-          <div class="field">
-            <input type="checkbox" :name="concat('system.backgrounds.', b, '.isActive.value')" v-model="background.isActive.value" />
-          </div>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.icons') }}</legend>
-        <div v-for="(icon, i) in actor.system.icons" :key="i" class="form-group" :data-key="i">
-          <label>{{ localize(concat('ARCHMAGE.CHARACTERSETTINGS.', i)) }}</label>
-          <div class="field">
-            <input type="checkbox" :name="concat('system.icons.', i, '.isActive.value')" v-model="icon.isActive.value" />
-          </div>
-        </div>
-      </fieldset>
-    </Tab>
-
     <!-- Resources -->
     <Tab group="primary" :tab="tabs.primary.resources">
       <fieldset>

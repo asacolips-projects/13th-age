@@ -410,15 +410,12 @@ ARCHMAGE:
       flags: Flags
       hooks: Hooks
       resources: Resources
-      toggles: Backgrounds & Icons
       weapons: Weapons
     groups:
       adjustments: Adjustments
-      backgrounds: Backgrounds
       defenses: Defenses & Health
       flags: Character Flags
       hooks: Lifecycle Hooks
-      icons: Icons
       modifiers: Modifiers
       resourcesCustom: Custom Resources
       resourcesPerCombat: Per-Combat Resources

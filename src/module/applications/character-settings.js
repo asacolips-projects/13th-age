@@ -72,7 +72,6 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
         core: { key: 'core', label: localize('core'), active: true },
         weapons: { key: 'weapons', label: localize('weapons'), active: false },
         flags: { key: 'flags', label: localize('flags'), active: false },
-        toggles: { key: 'toggles', label: localize('toggles'), active: false },
         resources: { key: 'resources', label: localize('resources'), active: false },
         hooks: { key: 'hooks', label: localize('hooks'), active: false }
       }

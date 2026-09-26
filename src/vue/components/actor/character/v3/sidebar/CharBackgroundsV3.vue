@@ -16,6 +16,10 @@
       </li>
     </ul>
     <p v-else class="placeholder">None</p>
+    <div v-if="editing" class="background-controls">
+      <button type="button" class="background-toggle" :disabled="!nextBgKey" @click="enableNextBackground">+</button>
+      <button type="button" class="background-toggle" :disabled="!lastEnabledKey" @click="disableLastBackground">-</button>
+    </div>
   </section>
 </template>
 
@@ -38,6 +42,36 @@ const backgrounds = computed(() =>
     .filter(([_, bg]) => bg.isActive.value === true && (editing.value || bg.bonus.value || bg.name.value))
     .map(([key, bg]) => ({ key, raw: bg, name: bg.name.value, bonus: bg.bonus.value }))
 );
+
+const allBackgrounds = computed(() =>
+  Object.entries(props.actor?.system?.backgrounds ?? {})
+);
+
+// The next background to enable is the first inactive one; the last enabled
+// background is the last active one in the system.backgrounds order.
+const nextBgKey = computed(() =>
+  allBackgrounds.value.find(([_, bg]) => bg.isActive?.value !== true)?.[0] ?? null
+);
+
+const lastEnabledKey = computed(() => {
+  let key = null;
+  for (const [k, bg] of allBackgrounds.value) {
+    if (bg.isActive?.value === true) key = k;
+  }
+  return key;
+});
+
+function enableNextBackground() {
+  if (nextBgKey.value) {
+    actorDocument?.update({[`system.backgrounds.${nextBgKey.value}.isActive.value`]: true});
+  }
+}
+
+function disableLastBackground() {
+  if (lastEnabledKey.value) {
+    actorDocument?.update({[`system.backgrounds.${lastEnabledKey.value}.isActive.value`]: false});
+  }
+}
 
 function formatBonus(bonus) {
   return bonus >= 0 ? `+${bonus}` : `${bonus}`;
@@ -70,7 +104,7 @@ function rollBackground(name) {
   gap: 0.25rem;
 
   input[type='number'] {
-    flex: 0 0 3rem;
+    flex: 0 0 2rem;
     padding: 0 0.25rem;
     text-align: center;
   }
@@ -78,6 +112,16 @@ function rollBackground(name) {
   input[type='text'] {
     flex: 1 1 auto;
     min-width: 0;
+  }
+}
+
+.background-controls {
+  display: flex;
+  gap: 0.25rem;
+  padding-top: 0.25rem;
+
+  .background-toggle {
+    flex: 1;
   }
 }
 </style>
