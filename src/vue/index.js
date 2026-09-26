@@ -8,3 +8,4 @@ export { default as ArchmageEquipmentSheetVue } from './ArchmageEquipmentSheetVu
 export { default as ArchmageActionSheetVue } from './ArchmageActionSheetVue.vue';
 export { default as ArchmageActiveEffectSheetVue } from './ArchmageActiveEffectSheetVue.vue';
 export { default as ArchmageCharacterSheetV3 } from './ArchmageCharacterSheetV3.vue';
+export { default as ArchmageCharacterSettings } from './ArchmageCharacterSettings.vue';

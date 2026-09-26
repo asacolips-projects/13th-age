@@ -405,6 +405,26 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+    tabs:
+      core: Core
+      flags: Flags
+      hooks: Hooks
+      resources: Resources
+      toggles: Backgrounds & Icons
+      weapons: Weapons
+    groups:
+      adjustments: Adjustments
+      backgrounds: Backgrounds
+      defenses: Defenses & Health
+      flags: Character Flags
+      hooks: Lifecycle Hooks
+      icons: Icons
+      modifiers: Modifiers
+      resourcesCustom: Custom Resources
+      resourcesPerCombat: Per-Combat Resources
+      resourcesSpendable: Spendable Resources
+      stances: Stances
+      weaponDice: Weapon Dice
   RACES:
     aasimar: Aasimar
     darkelf: Dark Elf

@@ -26,6 +26,7 @@ import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
+import { ArchmageCharacterSettingsApp } from './applications/character-settings.js';
 import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
 import { baselineMonsterDialog } from './actor/baseline-monster.js';
 
@@ -148,6 +149,7 @@ Hooks.once('init', async function() {
     rollItemMacro,
     ActorHelpersV2,
     ArchmageCompendiumBrowserApplication,
+    ArchmageCharacterSettingsApp,
     isSocketGM: () => game.users.activeGM.id === game.user.id,
     system: {
       moduleArt: {

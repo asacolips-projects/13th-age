@@ -24,12 +24,12 @@
 
 <script setup>
   import { ref, provide } from 'vue';
-  import { localize } from '@/methods/Helpers';
+  import { localize, getActor } from '@/methods/Helpers';
   import CharSidebarV3 from '@/components/actor/character/v3/CharSidebarV3.vue';
   import CharStatsHeaderV3 from '@/components/actor/character/v3/CharStatsHeaderV3.vue';
   import CharMainV3 from '@/components/actor/character/v3/CharMainV3.vue';
 
-  defineProps(['context']);
+  const props = defineProps(['context']);
 
   const editing = ref(false);
   provide('editMode', editing);
@@ -38,12 +38,15 @@
     editing.value = !editing.value;
   }
 
-  function openSettings() {
-    new foundry.applications.api.DialogV2({
-      window: { title: localize('ARCHMAGE.CHARACTERSETTINGS.settings') },
-      content: '',
-      buttons: [{}]
-    }).render({ force: true });
+  // Opens the per-character settings window. The AppV2 class lives in the
+  // module bundle (exposed on game.archmage) to keep the module -> vue bundle
+  // dependency one-directional.
+  async function openSettings() {
+    const App = game.archmage?.ArchmageCharacterSettingsApp;
+    if (!App || props.context.actor?.pack) return;
+    const actor = await getActor(props.context.actor);
+    if (!actor) return;
+    App.show(actor);
   }
 </script>
 
