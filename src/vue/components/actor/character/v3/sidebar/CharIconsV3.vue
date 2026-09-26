@@ -2,7 +2,7 @@
   <section class="unit unit--icons">
     <h2 class="unit-title">{{ localize('ARCHMAGE.iconRelationships') }}</h2>
     <ul v-if="icons.length" class="icon-list">
-      <li v-for="icon in icons" :key="icon.key" class="icon-row">
+      <li v-for="icon in icons" :key="icon.key" class="icon-row" :class="{ 'icon-row--edit': editing }">
         <template v-if="!editing">
           <RollableV3 class="icon-roll" data-roll-type="icon" :data-roll-opt="icon.key" />
           <span class="icon-name">{{ icon.name }}</span>
@@ -13,10 +13,10 @@
         </template>
         <template v-else>
           <select class="icon-edit icon-edit--relationship" :name="`system.icons.${icon.key}.relationship.value`"
-            v-model="icon.raw.relationship.value">
-            <option value="Positive">{{ localize('ARCHMAGE.Positive') }}</option>
-            <option value="Negative">{{ localize('ARCHMAGE.Negative') }}</option>
-            <option value="Conflicted">{{ localize('ARCHMAGE.Conflicted') }}</option>
+            v-model="icon.raw.relationship.value" :title="localize(`ARCHMAGE.${icon.raw.relationship.value}`)">
+            <option value="Positive" :title="localize('ARCHMAGE.Positive')">+</option>
+            <option value="Negative" :title="localize('ARCHMAGE.Negative')">-</option>
+            <option value="Conflicted" :title="localize('ARCHMAGE.Conflicted')">±</option>
           </select>
           <input type="number" class="icon-edit icon-edit--bonus" :name="`system.icons.${icon.key}.bonus.value`"
             v-model="icon.raw.bonus.value">
@@ -55,7 +55,7 @@ function iconSymbol(relationship) {
   const symbols = {
     'Positive': '+',
     'Negative': '-',
-    'Conflicted': '~'
+    'Conflicted': '±'
   };
   return symbols[relationship] ?? '?';
 }
@@ -103,6 +103,7 @@ function iconSymbol(relationship) {
 
 .icon-edit--relationship {
   flex: 0 0 auto;
+  text-align: center;
 }
 
 .icon-edit--bonus {
@@ -114,5 +115,25 @@ function iconSymbol(relationship) {
 .icon-edit--name {
   flex: 1 1 auto;
   min-width: 0;
+}
+
+/* Edit controls don't fit the 250px sidebar on one line: the symbol
+   select and bonus input split the first row evenly, the name input
+   wraps to a full-width second row, and a row gap separates the groups. */
+.icon-row--edit {
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  border: 1px solid var(--v3-border-header);
+  border-radius: 3px;
+  padding: 0.375rem 0.5rem;
+
+  .icon-edit--relationship,
+  .icon-edit--bonus {
+    flex: 1 1 0;
+  }
+
+  .icon-edit--name {
+    flex: 1 1 100%;
+  }
 }
 </style>
