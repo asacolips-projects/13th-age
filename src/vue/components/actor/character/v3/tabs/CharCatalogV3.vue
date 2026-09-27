@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { concat, getActor, localize } from '@/methods/Helpers';
 import ExpandablePower from '@/components/parts/expandable/ExpandablePower.vue';
 import ExpandableEquipment from '@/components/parts/expandable/ExpandableEquipment.vue';
@@ -72,8 +72,12 @@ const sortOptions = [
   { value: 'custom' },
 ];
 
-const groupBy = ref('powerType');
-const sortBy = ref('name');
+// Grouping and sorting are persisted to the actor flag paths the v2 sheet
+// uses, so both sheets agree; the sort falls back to 'custom' like v2 does,
+// since drag-to-reorder writes item sort values that only that mode honors.
+const displayFlags = computed(() => props.actor?.flags?.archmage?.sheetDisplay?.powers ?? {});
+const groupBy = ref(displayFlags.value.groupBy?.value ?? 'powerType');
+const sortBy = ref(displayFlags.value.sortBy?.value ?? 'custom');
 const searchValue = ref(null);
 
 // Group reordering, mirroring the v2 powers tab. The drag state is transient;
@@ -85,6 +89,21 @@ const dragOverGroup = ref(null);
 // Group reordering is only offered when the sheet is editable and the actor
 // isn't a compendium entry (where flags can't be written).
 const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
+
+// Persist display preference changes through the live actor document;
+// props.actor is a data clone whose flag updates wouldn't round-trip. Writing
+// only when the stored value differs avoids a re-render loop from the update.
+const saveDisplayPref = async (path, value) => {
+  if (!canReorderGroups.value) return;
+  const actor = await getActor(props.actor);
+  const current = foundry.utils.getProperty(displayFlags.value, path);
+  if (actor && current !== value) {
+    await actor.setFlag('archmage', `sheetDisplay.powers.${path}`, value);
+  }
+};
+
+watch(groupBy, value => saveDisplayPref('groupBy.value', value));
+watch(sortBy, value => saveDisplayPref('sortBy.value', value));
 
 const byName = (a, b) => a.name.localeCompare(b.name);
 const byCustom = (a, b) => (a.sort || 0) - (b.sort || 0);
