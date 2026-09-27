@@ -1,14 +1,22 @@
 <template>
   <section class="unit unit--icons">
-    <h2 class="unit-title">{{ localize('ARCHMAGE.iconRelationships') }}</h2>
+    <div class="unit-header">
+      <h2 class="unit-title">{{ localize('ARCHMAGE.iconRelationships') }}</h2>
+      <RollableV3 class="icon-roll" data-roll-type="icon" @click="rollIcons" />
+    </div>
     <ul v-if="icons.length" class="icon-list">
       <li v-for="icon in icons" :key="icon.key" class="icon-row" :class="{ 'icon-row--edit': editing }">
         <template v-if="!editing">
-          <RollableV3 class="icon-roll" data-roll-type="icon" :data-roll-opt="icon.key" />
-          <span class="icon-name">{{ icon.name }}</span>
-          <span class="icon-pips" :class="`icon-pips--${icon.relationship.toLowerCase()}`">
-            <template v-if="icon.bonus > 0">{{ iconSymbol(icon.relationship).repeat(icon.bonus) }}</template>
-            <template v-else>–</template>
+          <span class="icon-name">
+            {{ iconSymbol(icon.relationship) }}
+            {{ icon.raw.bonus.value }}
+            {{ icon.name }}
+          </span>
+          <span class="icon-dice">
+            <button v-for="die in dice(icon)" :key="die.index" type="button" class="icon-die"
+              :data-tooltip="dieTooltip(die.value)" @click="cycleDie(icon, die.index)">
+              {{ dieLabel(die.value) }}
+            </button>
           </span>
         </template>
         <template v-else>
@@ -90,9 +98,69 @@ function iconSymbol(relationship) {
   const symbols = {
     'Positive': '+',
     'Negative': '-',
-    'Conflicted': '±'
+    'Conflicted': '~'
   };
   return symbols[relationship] ?? '?';
+}
+
+// Die display settings; game settings aren't reactive, but the sections
+// re-render with the actor context.
+const is2e = CONFIG.ARCHMAGE.is2e;
+const altIconRolling = game.settings.get('archmage', 'alternateIconRollingMethod');
+
+// One box per relationship point; the value comes from the icon's results
+// array (0 = empty, 5/6 = rolled results).
+function dice(icon) {
+  return Array.from({length: icon.bonus}, (_, index) => ({
+    index,
+    value: icon.raw.results?.[index] ?? 0
+  }));
+}
+
+// Mirror the V2 icon display's text mapping for rolled values; manually
+// claimed states pass through as-is.
+function dieLabel(value) {
+  const labels = {5: '5', 6: '6'};
+  if (altIconRolling) {
+    delete labels[5];
+    labels[6] = '⨉';
+  } else if (is2e) {
+    labels[5] = '~';
+    labels[6] = '+';
+  }
+  // Empty boxes render a no-break space so the button keeps the same line
+  // box (and height) as a filled one.
+  return (labels[value] ?? value) || '\u00a0';
+}
+
+function dieTooltip(value) {
+  const keys = {};
+  if (altIconRolling) {
+    keys[6] = 'ARCHMAGE.ICONROLLS.tooltip2ealt6';
+  } else if (is2e) {
+    keys[5] = 'ARCHMAGE.ICONROLLS.tooltip2e5';
+    keys[6] = 'ARCHMAGE.ICONROLLS.tooltip2e6';
+  } else {
+    keys[5] = 'ARCHMAGE.ICONROLLS.tooltip1e5';
+    keys[6] = 'ARCHMAGE.ICONROLLS.tooltip1e6';
+  }
+  return keys[value] ? localize(keys[value]) : '';
+}
+
+// Clicking a die box cycles its result through the edition's states and back
+// to empty: 5 -> 6 -> empty (1e), + -> ~ -> empty (2e), x -> empty (2e alt).
+function cycleDie(icon, index) {
+  const cycle = altIconRolling ? [6, 0] : is2e ? [6, 5, 0] : [5, 6, 0];
+  const results = [...(icon.raw.results ?? [])];
+  while (results.length < icon.bonus) results.push(0);
+  const pos = cycle.indexOf(results[index]);
+  results[index] = cycle[(pos + 1) % cycle.length];
+  actorDocument?.update({[`system.icons.${icon.key}.results`]: results});
+}
+
+// Open the icon roll dialog: roll one icon at a time, or all at once.
+function rollIcons() {
+  actorDocument?.rollIconsDialog();
 }
 </script>
 
@@ -110,30 +178,54 @@ function iconSymbol(relationship) {
   padding: 0.25rem 0.5rem;
 }
 
+/* The die button floats to the right of the section title. */
+.unit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .icon-roll {
-  align-self: center;
+  line-height: 1;
 }
 
 .icon-name {
   flex: 1;
 }
 
-.icon-pips {
+.icon-symbol {
+  flex: 0 0 auto;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
 
-  &.icon-pips--positive {
+  &.icon-symbol--positive {
     color: var(--v3-positive);
   }
 
-  &.icon-pips--negative {
+  &.icon-symbol--negative {
     color: var(--v3-negative);
   }
 
-  &.icon-pips--conflicted {
+  &.icon-symbol--conflicted {
     color: var(--v3-conflicted);
   }
+}
+
+.icon-dice {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 0 0 auto;
+}
+
+/* Per-die checkbox: mimics the native checkbox look, shows the die's state
+   (empty, rolled 5/6) and cycles it on click. Fixed 1:1 size regardless of
+   content so rows don't shift when a box empties. */
+.icon-die {
+  width: 1.5em;
+  border: 1px solid var(--v3-border-header);
+  border-radius: 2px;
+  background: transparent;
+  font-size: 0.7em;
 }
 
 .icon-edit--relationship {

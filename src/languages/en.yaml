@@ -572,6 +572,8 @@ ARCHMAGE:
     rollone: "{name} Only"
     rollall: Roll All
     rollDialogHint: "Roll dice for <strong>{name}</strong> only, or for all icons?"
+    rollDiceHint: Roll all of your icon dice, or just one?
+    rollDieNumbered: "{name} ({die})"
     noDiceLeft: You have no icon dice left to roll.
     chatCardTitle: Icon Relationship Roll
   COINS:

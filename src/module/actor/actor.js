@@ -944,6 +944,190 @@ export class ActorArchmage extends Actor {
     }
   }
 
+  /**
+   * Open the icon relationship roll dialog for one icon.
+   *
+   * @param {string} iconIndex | Index, such as i1 or i2
+   */
+  rollIconDialog(iconIndex) {
+    const actorData = this.system;
+    if (!actorData.icons[iconIndex]) {
+      return;
+    }
+
+    const icon = actorData.icons[iconIndex];
+    return new Dialog({
+      title: game.i18n.localize('ARCHMAGE.ICONROLLS.rolldialogtitle'),
+      content: `<p>${game.i18n.format('ARCHMAGE.ICONROLLS.rollDialogHint', { name: icon.name.value })}</p>`,
+      buttons: {
+        singleicon: {
+          label: game.i18n.format('ARCHMAGE.ICONROLLS.rollone', { name: icon.name.value }),
+          callback: () => {
+            this.rollAndDisplayIconDice([iconIndex]);
+          }
+        },
+        allicons: {
+          label: game.i18n.localize('ARCHMAGE.ICONROLLS.rollall'),
+          callback: () => {
+            this.rollAndDisplayIconDice(Object.keys(actorData.icons));
+          }
+        },
+        cancel: {
+          label: game.i18n.localize('ARCHMAGE.CHAT.Cancel'),
+          callback: () => {}
+        }
+      },
+      default: 'apply'
+    }).render(true);
+  }
+
+  /**
+   * Roll icon relationship dice for the given icons, persist the results and
+   * post the chat card.
+   *
+   * @param {string[]} iconIndexes | Indexes, such as ['i1', 'i2']
+   * @param {number|null} diceOverride | Roll exactly this many dice per icon
+   *   instead of each icon's full bonus (used by single-die rolls).
+   * @returns object | Chat message
+   */
+  async rollAndDisplayIconDice(iconIndexes, diceOverride = null) {
+    const actorData = this.system;
+
+    const is2e = CONFIG.ARCHMAGE.is2e;
+    const is2eAlt = game.settings.get("archmage", "alternateIconRollingMethod");
+
+    // Gather the rolling inputs
+    const inputs = iconIndexes.map(iconIndex => {
+      const icon = actorData.icons[iconIndex];
+
+      let numberOfDice = diceOverride ?? icon.bonus.value;
+      // If this is the 2e alt method, we only roll dice that haven't already been used
+      if (is2eAlt) {
+        const actorIconResults = actorData.icons?.[iconIndex]?.results || [];
+        const usedDice = actorIconResults.filter(x => x > 0).length;
+        numberOfDice = Math.min(numberOfDice, icon.bonus.value - usedDice);
+      }
+
+      return { iconIndex, icon, numberOfDice };
+    }).filter(x => x.numberOfDice > 0);
+
+    if (inputs.length === 0) {
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
+      return;
+    }
+
+    // Roll the dice
+    const rollTerms = inputs.map(input => `${input.numberOfDice}d6`)
+    const roll = await new Roll(`{${rollTerms.join(",")}}`).roll();
+
+    // Calculate the results and build up an actor-update object
+    const actorUpdate = {};
+    inputs.forEach((input, i) => {
+      const results = roll.terms[0].rolls[i].terms[0].results.map(x => x.result);
+      input.results = results;
+
+      actorUpdate[`system.icons.${input.iconIndex}.results`] = [];
+      if (is2eAlt) {
+        // For 2e alt, we count 4, 5, and 6 as successes, and we do not replace the existing results
+        input.fives = 0;
+        input.sixes = results.filter(x => [4, 5, 6].includes(x)).length;
+        actorUpdate[`system.icons.${input.iconIndex}.results`] = actorData.icons?.[input.iconIndex]?.results || [];
+      } else if (is2e) {
+        // For 2e standard, we count 5 and 6 as successes and reset all dice
+        input.fives = 0;
+        input.sixes = results.filter(x => [5, 6].includes(x)).length;
+      } else {
+        // For 1e, we count 5 and 6 separately and reset all dice
+        input.fives = results.filter(x => x === 5).length;
+        input.sixes = results.filter(x => x === 6).length;
+      }
+
+      const replaceFirstZero = (arr, value) => {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === 0) {
+            arr[i] = value;
+            return;
+          }
+        }
+        arr.push(value); // If no zero found, append the value
+      };
+      if (input.numberOfDice > 0) {
+        for (let i = 0; i < input.fives; i++) {
+          replaceFirstZero( actorUpdate[`system.icons.${input.iconIndex}.results`], 5 );
+        }
+        for (let i = 0; i < input.sixes; i++) {
+          replaceFirstZero( actorUpdate[`system.icons.${input.iconIndex}.results`], 6 );
+        }
+      }
+    });
+
+    // Update the actor
+    await this.update(actorUpdate);
+
+    // Display the message
+    const template = `systems/archmage/templates/chat/icon-relationship-card.html`;
+    const token = this.token;
+    const templateData = {
+      actor: this,
+      tokenId: token ? `${token.id}` : null,
+      is2e,
+      is2eAlt,
+      inputs
+    };
+    const chatData = {
+      user: game.user.id,
+      roll: roll,  // TODO: fix template to use rolls prop
+      rolls: [roll],
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this),
+      content: await foundry.applications.handlebars.renderTemplate(template, templateData)
+    };
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
+  }
+
+  /**
+   * Open a dialog prompting how to roll the active icon relationships: roll
+   * all of their dice in one combined roll, or roll a single die of a chosen
+   * icon. Multi-die icons get one button per die, e.g. "Lich King (2)".
+   */
+  rollIconsDialog() {
+    const activeIcons = Object.entries(this.system.icons ?? {})
+      .filter(([_, icon]) => icon.isActive?.value === true);
+
+    if (activeIcons.length === 0) {
+      ui.notifications.warn(game.i18n.localize('ARCHMAGE.ICONROLLS.noDiceLeft'));
+      return;
+    }
+
+    const buttons = [{
+      action: 'allAtOnce',
+      label: game.i18n.localize('ARCHMAGE.ICONROLLS.rollall'),
+      default: true,
+      callback: () => this.rollAndDisplayIconDice(activeIcons.map(([key]) => key))
+    }];
+
+    for (const [key, icon] of activeIcons) {
+      const name = icon.name.value;
+      const dice = Number(icon.bonus.value) || 0;
+      for (let die = 1; die <= dice; die++) {
+        // Single-die icons are labeled with their name alone; multi-die
+        // icons get one numbered button per die.
+        buttons.push({
+          action: `die-${key}-${die}`,
+          label: dice > 1
+            ? game.i18n.format('ARCHMAGE.ICONROLLS.rollDieNumbered', { name, die })
+            : name,
+          callback: () => this.rollAndDisplayIconDice([key], 1)
+        });
+      }
+    }
+
+    return new foundry.applications.api.DialogV2({
+      window: { title: game.i18n.localize('ARCHMAGE.ICONROLLS.rolldialogtitle') },
+      content: `<p>${game.i18n.localize('ARCHMAGE.ICONROLLS.rollDiceHint')}</p>`,
+      buttons
+    }).render({ force: true });
+  }
+
   async rollDisengage() {
     const target = 11;
 
