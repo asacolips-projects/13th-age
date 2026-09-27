@@ -1,11 +1,11 @@
 <template>
   <component :is="tag" :class="classes">
-    <!-- Portrait, which activates the power; .stop keeps the click from also
-         reaching the sheet's delegated roll listener. -->
+    <!-- Portrait, which rolls the power. Callers that activate the power
+         instead (the V3 rows) supply their own through this slot. -->
     <slot name="image">
-      <RollableV3 v-if="image" :overlay="true" @click.stop="activatePower">
+      <Rollable v-if="image" name="item" :hide-icon="true" type="item" :opt="power._id">
         <img :src="power.img" class="power-image"/>
-      </RollableV3>
+      </Rollable>
     </slot>
     <!-- Name, which expands the power. -->
     <slot name="name">
@@ -30,8 +30,8 @@
  * sheet's preview, which each add their own trailing cells through the default
  * slot but agree on what a power row is and how it's coloured.
  */
-import { computed, inject } from 'vue';
-import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
+import { computed } from 'vue';
+import Rollable from '@/components/parts/Rollable.vue';
 import { localize, powerAvailabilityClass, powerUsageClass } from '@/methods/Helpers';
 
 const props = defineProps({
@@ -57,18 +57,6 @@ const props = defineProps({
 
 defineEmits(['toggle']);
 
-// DiceArchmage and the roll methods live on the real document; props.actor is
-// the context's prepared clone. The sheet provides the document for injection.
-const actorDocument = inject('actorDocument', null);
-
-/**
- * Activate the power: its roll() runs the usage dialog, spends uses and
- * resources, and posts the card to chat.
- */
-function activatePower() {
-  actorDocument?.items?.get(props.power._id)?.roll();
-}
-
 const showTriggerTooltip = computed(() => props.trigger && !!props.power.system.trigger?.value);
 
 const classes = computed(() => [
@@ -84,8 +72,9 @@ const classes = computed(() => [
 
 <style scoped lang="scss">
 // The row itself: white text over the usage colour, links that glow on hover,
-// and the hatching for powers that are spent. The portrait is RollableV3's
-// overlay mode: the icon fades in over the image on hover.
+// and the hatching for powers that are spent. The V2 SCSS bundle carries the
+// same rules nested under .archmage-v2 for the V2 sheet; these stand alone so
+// the V3 rows (whose root lacks that class) are styled too.
 .power-summary {
   color: $c-white;
   text-shadow: 0 0 10px $c-black--50;
@@ -254,7 +243,9 @@ const classes = computed(() => [
   margin: 0;
   border: 0;
   text-align: left;
-  font-size: var(--v3-font-size-label);
+  // The V2 sheet doesn't define the V3 token, so fall back to the size the V2
+  // SCSS uses for these titles.
+  font-size: var(--v3-font-size-label, $font-xs);
 }
 
 // The trigger read as a tooltip hanging off the row.

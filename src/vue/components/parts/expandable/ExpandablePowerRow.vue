@@ -4,6 +4,13 @@
       <!-- Clickable power header, laid out on the columns this listing passes in. -->
       <PowerSummaryRow :power="power" :actor="actor" :active="active" :trigger="trigger"
         :style="{ gridTemplateColumns: columns }" @toggle="toggle">
+        <!-- The portrait, which activates the power; .stop keeps the click from
+             also reaching the sheet's delegated roll listener. -->
+        <template #image>
+          <RollableV3 :overlay="true" @click.stop="activatePower">
+            <img :src="power.img" class="power-image"/>
+          </RollableV3>
+        </template>
         <!-- The header cells after the name, defaulting to the catalog row's
              feat pips, action, recharge, uses and controls. -->
         <slot name="cells" :toggle="toggle">
@@ -49,14 +56,16 @@
  * the catalog row's) and the expanded body through the `details` slot
  * (defaulting to the full item view).
  */
+import { inject } from 'vue';
 import { changeQuantity, deleteItem, editItem, getActionShort, hasFeats, hasSecondaryUsage, togglePip } from '@/methods/Helpers';
 import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
 import Power from '@/components/parts/Power.vue';
 import PowerFeatPips from '@/components/parts/PowerFeatPips.vue';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 import Rollable from '@/components/parts/Rollable.vue';
+import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 
-defineProps({
+const props = defineProps({
   power: {type: Object, required: true},
   actor: {type: [Object, Boolean], default: null},
   context: {type: Object, default: null},
@@ -69,15 +78,27 @@ defineProps({
   // trigger a cell of its own turn this off.
   trigger: {type: Boolean, default: true},
 });
+
+// DiceArchmage and the roll methods live on the real document; props.actor is
+// the context's prepared clone. The sheet provides the document for injection.
+const actorDocument = inject('actorDocument', null);
+
+/**
+ * Activate the power: its roll() runs the usage dialog, spends uses and
+ * resources, and posts the card to chat.
+ */
+function activatePower() {
+  actorDocument?.items?.get(props.power._id)?.roll();
+}
 </script>
 
 <style scoped lang="scss">
 // The summary row's shared grid: typography, the cell centring, the
 // portrait's size and the standard cells' column assignments. The column
 // template itself arrives inline from the `columns` prop, since that is what
-// differs between listings. The grid class and the portrait and name cells
-// are PowerSummaryRow's, hence :deep() there; the other cells are slotted,
-// from here or the caller, and carry the scope that defined them.
+// differs between listings. The name cell is PowerSummaryRow's, hence :deep()
+// there; the other cells are slotted, from here or the caller, and carry the
+// scope that defined them.
 .power-grid {
   gap: 2px;
   font-size: var(--v3-font-size-title);
@@ -98,7 +119,7 @@ defineProps({
   }
 
   // The portrait, kept inside the standard 32px column.
-  :deep(.power-image) {
+  .power-image {
     width: 25px;
     height: 25px;
     object-fit: cover;
