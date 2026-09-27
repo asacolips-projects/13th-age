@@ -8,7 +8,7 @@
       <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
     </a>
     <!-- Active pip, equipment only. -->
-    <div class="equipment-feat-pips" v-if="equipment.type === 'equipment'">
+    <div class="equipment-feat-pips" :data-tooltip="localize('ARCHMAGE.ITEM.active')" v-if="equipment.type === 'equipment'">
       <ul class="feat-pips">
         <li :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id" @click="$emit('toggle-pip')"><div class="hide">{{equipment.system.isActive}}</div></li>
       </ul>
@@ -204,8 +204,33 @@ function activateItem() {
   cursor: pointer;
 }
 
-.feat-pip {
-  cursor: pointer;
+// The active pip, mirrored from PowerFeatPips.vue (and behind that, the V2
+// SCSS bundle's _feats.scss, which the V3 sheet root never matches), so the
+// pip reads as the power rows' feat pips do on either sheet.
+.feat-pips {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  .feat-pip {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid $c-white;
+    margin: 0 1px;
+    padding: 0;
+    cursor: pointer;
+
+    &.active {
+      background: $c-white;
+    }
+  }
 }
 
 .item-control {

@@ -126,9 +126,10 @@ const sections = computed(() => {
     .sort(byName).sort(byTier);
   const powers = items.filter(i => i.type === 'power').sort(byName);
 
-  // Magic item slots: the level total, no tier split. Each higher-tier
-  // attunement burns two.
-  const itemsConsumed = magicItems.reduce((sum, item) => sum + itemCost(item, charTier), 0);
+  // Magic item slots: the level total, no tier split. Only attuned items —
+  // the ones with their active pip filled — consume slots, and each
+  // higher-tier attunement burns two.
+  const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? itemCost(item, charTier) : 0), 0);
 
   const featsForTier = (tier) => powers.flatMap(power =>
     Object.entries(filterFeats(power.system?.feats))
@@ -212,6 +213,11 @@ const sections = computed(() => {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+
+    // The label takes the rest of the row, pushing the pip tracks to the end.
+    .section-label {
+      flex: 1;
+    }
   }
 
   // The section's pip tracks: one for magic items, one per feat tier.
@@ -239,7 +245,7 @@ const sections = computed(() => {
     border-radius: 0.25rem;
     background: var(--v3-chip-bg);
     font-family: var(--v3-font-display);
-    font-size: var(--v3-font-size-title);
+    font-size: var(--v3-font-size-label);
   }
 
   // The slot pips, mirrored from PowerFeatPips: hollow circles, filled when
@@ -258,8 +264,8 @@ const sections = computed(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     background: transparent;
     border-radius: 50%;
     border: 2px solid $c-white;
@@ -272,7 +278,7 @@ const sections = computed(() => {
 
     // A slot a lower-tier feat spent: the arrow marks the down-spend.
     &.borrowed i {
-      font-size: 6px;
+      font-size: 10px;
       line-height: 0;
       color: var(--c-black);
     }
@@ -287,7 +293,7 @@ const sections = computed(() => {
   // The tier letter an unplaceable feat wears on its alert square.
   .overflow-letter {
     font-family: var(--v3-font-label);
-    font-size: 6px;
+    font-size: 10px;
     line-height: 0;
     color: var(--c-white);
   }

@@ -38,8 +38,10 @@ const powers = computed(() => (props.actor?.items ?? [])
   .filter(i => i.type === 'power')
   .sort(byName));
 
+// Only magic items with a power usage set appear here; a usage of none
+// (the sheet's unset option) means there's no action to take.
 const equipment = computed(() => (props.actor?.items ?? [])
-  .filter(i => i.type === 'equipment')
+  .filter(i => i.type === 'equipment' && i.system?.powerUsage?.value)
   .sort(byName));
 
 // Group reordering, mirroring the v2 powers tab. The drag state is transient;
