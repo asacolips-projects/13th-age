@@ -206,6 +206,7 @@ function activateItem() {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-basis: 50px;
 }
 
 .bonus-label {
