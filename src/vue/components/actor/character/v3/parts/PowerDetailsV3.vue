@@ -25,11 +25,18 @@
 
     <!-- Feats. Feats not yet taken read muted. -->
     <section v-if="feats.length" class="details-feats">
-      <div v-for="(feat, index) in feats" :key="index" class="power-feat" :class="{active: feat.isActive.value}">
+      <div v-for="{key, feat} in feats" :key="key" class="power-feat" :class="{active: feat.isActive.value}">
         <strong class="detail-label">{{ localize(`ARCHMAGE.CHAT.${feat.tier?.value}`) }}:</strong>
         <Enriched tag="div" class="detail-value" :text="feat.description.value" :replacements="[]"
           :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData"
           :enrichment-options="enrichmentOptions"/>
+        <!-- The die rolls the feat and spends a use; the count is
+             click/contextmenu to give one back or take one away. -->
+        <div v-if="feat.isActive.value" class="feat-uses">
+          <RollableV3 @click="rollFeat(key)"/>
+          <span v-if="feat.quantity?.value != null" class="feat-uses-count"
+            @click="changeFeatUses(key, true)" @contextmenu.prevent="changeFeatUses(key, false)">{{ feat.quantity?.value }}</span>
+        </div>
       </div>
     </section>
   </article>
@@ -41,11 +48,12 @@
  * description, primary properties and feats, all enriched like the item
  * sheet enriches them.
  */
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 import { filterFeats, localize } from '@/methods/Helpers';
 import { isPowerFieldVisible, powerFieldKeys } from '@src/module/item/power-fields.mjs';
 import { powerUsageColor } from '@src/module/item/power-usage.mjs';
 import Enriched from '@/components/parts/Enriched.vue';
+import RollableV3 from '../RollableV3.vue';
 
 const props = defineProps({
   power: { type: Object, required: true },
@@ -59,7 +67,35 @@ const detailFields = computed(() => powerFieldKeys()
   .filter(key => props.power.system[key]?.value)
   .filter(key => isPowerFieldVisible(props.power, key, props.actor)));
 
-const feats = computed(() => Object.values(filterFeats(props.power.system.feats)));
+const feats = computed(() => Object.entries(filterFeats(props.power.system.feats))
+  .map(([key, feat]) => ({key, feat})));
+
+// DiceArchmage and the roll methods live on the real document; props.actor is
+// the context's prepared clone. The sheet provides the document for injection.
+const actorDocument = inject('actorDocument', null);
+
+/**
+ * Roll a feat: rolls and spends one of its uses, per the item's rollFeat().
+ */
+function rollFeat(featKey) {
+  actorDocument?.items?.get(props.power._id)?.rollFeat(featKey);
+}
+
+/**
+ * Give a feat's remaining uses one back (click) or take one away
+ * (contextmenu), within its max, the same way the V2 sheet's
+ * .feat-uses-rollable behaves.
+ */
+async function changeFeatUses(featKey, increase = true) {
+  const item = actorDocument?.items?.get(props.power._id);
+  const feat = item?.system?.feats?.[featKey];
+  if (!feat) return;
+
+  const current = Number(feat.quantity?.value) || 0;
+  const max = feat.maxQuantity?.value ?? 99;
+  const next = increase ? Math.min(max, current + 1) : Math.max(0, current - 1);
+  await item.update({[`system.feats.${featKey}.quantity.value`]: next});
+}
 
 const usageLabel = computed(() => {
   const usage = props.power.system.powerUsage?.value;
@@ -167,6 +203,19 @@ const enrichmentOptions = computed(() => ({
 
     &:not(.active) .detail-value {
       color: var(--v3-text-muted);
+    }
+
+    // The die icon rolls the feat; the count beside it is the uses left.
+    .feat-uses {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 0.125rem;
+    }
+
+    .feat-uses-count {
+      cursor: pointer;
+      font-family: var(--v3-font-label);
     }
   }
 </style>

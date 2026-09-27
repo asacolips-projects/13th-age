@@ -1,6 +1,13 @@
 <template>
   <ExpandablePowerRow :power="power" :actor="actor" :context="context"
-    columns="32px auto 36px 44px 60px 44px 64px"/>
+    columns="32px auto 36px 44px 60px 44px 64px">
+    <!-- Expanded power details: the V3 read view, with the feats' die icon
+         and uses. The shared row's default is the V2 Power, whose rollable
+         icons don't style under the V3 sheet root. -->
+    <template #details="{active}">
+      <PowerDetailsV3 v-if="active" :power="power" :actor="actor" :context="context"/>
+    </template>
+  </ExpandablePowerRow>
 </template>
 
 <script setup>
@@ -12,6 +19,7 @@
  * instance exists to name the tab's column set.
  */
 import ExpandablePowerRow from './ExpandablePowerRow.vue';
+import PowerDetailsV3 from '@/components/actor/character/v3/parts/PowerDetailsV3.vue';
 
 defineProps({
   power: {type: Object, required: true},
