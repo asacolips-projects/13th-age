@@ -118,6 +118,43 @@ export function getActionShort(actionType) {
     ?? CONFIG.ARCHMAGE.actionTypesShort['standard'];
 }
 
+// The character tiers, keyed by the values featTiers and system.tier use. 'Z'
+// is the data's 'iconic' tier, localized as Zenith. Shared by the loadout's
+// slot bookkeeping and the equipment row's attunement pips. firstSlot is the
+// level the tier's slots begin at; cap is how many the tier grants across its
+// levels.
+export const TIERS = [
+  { key: 'adventurer', letter: 'A', firstSlot: 1, cap: 4 },
+  { key: 'champion', letter: 'C', firstSlot: 5, cap: 3 },
+  { key: 'epic', letter: 'E', firstSlot: 8, cap: 3 },
+  { key: 'iconic', letter: 'Z', firstSlot: 10, cap: 1 },
+];
+
+export const TIER_ORDER = Object.fromEntries(TIERS.map((tier, i) => [tier.key, i]));
+
+/**
+ * The character's tier index, from the same tier starts the feats use.
+ *
+ * @param {number} level The character's level.
+ *
+ * @returns {number} Index into TIERS.
+ */
+export const characterTierIndex = (level) =>
+  TIERS.reduce((index, tier, i) => level >= tier.firstSlot ? i : index, 0);
+
+/**
+ * Attunement cost against the level limit: an item at or below your tier
+ * counts as one; the rules let you attune one tier above and price that at
+ * two. (Anything higher can't be attuned at all; it still counts as two.)
+ *
+ * @param {object} item The magic item.
+ * @param {number} charTier The character's tier index.
+ *
+ * @returns {number} Slots the item consumes when attuned.
+ */
+export const attunementCost = (item, charTier) =>
+  (TIER_ORDER[item.system?.tier] ?? 0) > charTier ? 2 : 1;
+
 // Power usage colouring lives with the item code, so the actor sheets, the chat
 // cards, the compendium browser and the power importer all colour a power the
 // same way. Re-exported here because Vue components import their helpers from

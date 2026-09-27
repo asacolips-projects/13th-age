@@ -41,9 +41,9 @@
                 <img :src="feat.power.img" class="feat-power-image"/>
                 <h3 class="feat-power-name">{{ feat.power.name }}</h3>
                 <span class="tier-letter feat-tier" :data-tier="feat.tier.key">{{ feat.tier.letter }}</span>
-                <i class="fas fa-check feat-active" :class="{taken: feat.feat.isActive.value}"
+                <span class="feat-active" :class="{taken: feat.feat.isActive.value}"
                   :title="localize('ARCHMAGE.ITEM.active')"
-                  @click.stop="togglePip(actor, feat.power._id, feat.key)"></i>
+                  @click.stop="togglePip(actor, feat.power._id, feat.key)"></span>
               </a>
             </template>
             <template #content="{active}">
@@ -68,34 +68,14 @@
  * components; feats toggle through the same pips the powers tab uses.
  */
 import { computed } from 'vue';
-import { filterFeats, localize, togglePip } from '@/methods/Helpers';
+import { attunementCost, characterTierIndex, filterFeats, localize, TIERS as TIER_SLOTS, togglePip, TIER_ORDER } from '@/methods/Helpers';
 import ExpandableEquipment from '@/components/parts/expandable/ExpandableEquipment.vue';
 import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 
-// The tiers, keyed by the values featTiers and system.tier use. 'Z' is the
-// data's 'iconic' tier, localized as Zenith. firstSlot is the level the
-// tier's slots begin at; cap is how many the tier grants across its levels.
-const TIER_SLOTS = [
-  { key: 'adventurer', letter: 'A', firstSlot: 1, cap: 4 },
-  { key: 'champion', letter: 'C', firstSlot: 5, cap: 3 },
-  { key: 'epic', letter: 'E', firstSlot: 8, cap: 3 },
-  { key: 'iconic', letter: 'Z', firstSlot: 10, cap: 1 },
-];
-const TIER_ORDER = Object.fromEntries(TIER_SLOTS.map((tier, i) => [tier.key, i]));
-
 const byName = (a, b) => a.name.localeCompare(b.name);
 const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
-
-// The character's tier index, from the same tier starts the feats use.
-const tierIndexFor = (level) =>
-  TIER_SLOTS.reduce((index, tier, i) => level >= tier.firstSlot ? i : index, 0);
-
-// Attunement cost against the level limit: an item at or below your tier
-// counts as one; the rules let you attune one tier above and price that at
-// two. (Anything higher can't be attuned at all; it still counts as two.)
-const itemCost = (item, charTier) => (TIER_ORDER[item.system?.tier] ?? 0) > charTier ? 2 : 1;
 
 /**
  * Slot bookkeeping for one track: filled pips up to the allowance, squared
@@ -118,7 +98,7 @@ const slotTrack = (key, consumed, slots) => ({
 const sections = computed(() => {
   const items = props.actor?.items ?? [];
   const level = Number(props.actor?.system?.attributes?.level?.value) || 0;
-  const charTier = tierIndexFor(level);
+  const charTier = characterTierIndex(level);
 
   // Tier first, then name; the stable sort needs the minor key applied first.
   const magicItems = items
@@ -129,7 +109,7 @@ const sections = computed(() => {
   // Magic item slots: the level total, no tier split. Only attuned items —
   // the ones with their active pip filled — consume slots, and each
   // higher-tier attunement burns two.
-  const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? itemCost(item, charTier) : 0), 0);
+  const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? attunementCost(item, charTier) : 0), 0);
 
   const featsForTier = (tier) => powers.flatMap(power =>
     Object.entries(filterFeats(power.system?.feats))
@@ -344,15 +324,21 @@ const sections = computed(() => {
       opacity: 0.6;
     }
 
-    // Whether the feat is taken; click to toggle, like the feat pips.
+    // Whether the feat is taken: the same open/filled pip the attunement
+    // pip is, click to toggle.
     .feat-active {
       flex: 0 0 auto;
-      opacity: 0.25;
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: transparent;
+      border-radius: 50%;
+      border: 2px solid $c-white;
+      padding: 0;
       cursor: pointer;
 
       &.taken {
-        opacity: 1;
-        color: var(--v3-positive);
+        background: $c-white;
       }
     }
   }

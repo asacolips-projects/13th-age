@@ -7,10 +7,11 @@
     <a class="equipment-name" @click="$emit('toggle')" :data-item-id="equipment._id">
       <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
     </a>
-    <!-- Active pip, equipment only. -->
-    <div class="equipment-feat-pips" :data-tooltip="localize('ARCHMAGE.ITEM.active')" v-if="equipment.type === 'equipment'">
-      <ul class="feat-pips">
-        <li :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id" @click="$emit('toggle-pip')"><div class="hide">{{equipment.system.isActive}}</div></li>
+    <!-- Active pip, equipment only. Two stacked pips mark an item above the
+         character's tier: attuning it spends two slots. -->
+    <div class="equipment-feat-pips" :data-tooltip="pipTooltip" v-if="equipment.type === 'equipment'">
+      <ul class="feat-pips" :class="{double: costsTwo}">
+        <li v-for="n in (costsTwo ? 2 : 1)" :key="n" :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id" @click="$emit('toggle-pip')"><div class="hide">{{equipment.system.isActive}}</div></li>
       </ul>
     </div>
     <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
@@ -44,16 +45,29 @@
  * the exception: it activates the item directly through the injected actor
  * document.
  */
-import { inject } from 'vue';
-import { concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { inject, computed } from 'vue';
+import { attunementCost, characterTierIndex, concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
 import Rollable from '@/components/parts/Rollable.vue';
 import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 
 const props = defineProps({
   equipment: {type: Object, required: true},
+  actor: {type: [Object, Boolean], default: null},
 });
 
 defineEmits(['toggle', 'edit', 'delete', 'change-quantity', 'toggle-pip']);
+
+// An item above the character's tier attunes as two slots, which the row
+// marks with two stacked pips. No actor (loot rows, shared lists) means the
+// single pip: the cost can't be judged.
+const costsTwo = computed(() => {
+  if (!props.actor) return false;
+  const level = Number(props.actor?.system?.attributes?.level?.value) || 0;
+  return attunementCost(props.equipment, characterTierIndex(level)) > 1;
+});
+
+const pipTooltip = computed(() =>
+  localize(costsTwo.value ? 'ARCHMAGE.ITEM.attunesTwo' : 'ARCHMAGE.ITEM.active'));
 
 // DiceArchmage and the roll methods live on the real document, which the
 // listing's context only carries as a prepared clone. The sheet provides the
@@ -187,8 +201,8 @@ function activateItem() {
 .bonus {
   background: $c-black--25;
   border-radius: $padding-sm;
-  margin: 4px 2px;
-  font-size: $font-tiny;
+  margin: 1px 2px;
+  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,6 +243,16 @@ function activateItem() {
 
     &.active {
       background: $c-white;
+    }
+  }
+
+  // Two pips, stacked, for an item that attunes as two slots.
+  &.double {
+    flex-direction: column;
+    gap: 2px;
+
+    .feat-pip {
+      margin: 0;
     }
   }
 }

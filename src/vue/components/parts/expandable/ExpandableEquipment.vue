@@ -2,7 +2,7 @@
   <ExpandableItem :item="equipment" base-class="equipment">
     <template #summary="{toggle}">
       <!-- Clickable equipment header. -->
-      <EquipmentSummaryRow :equipment="equipment" @toggle="toggle"
+      <EquipmentSummaryRow :equipment="equipment" :actor="actor" @toggle="toggle"
         @edit="editItem(actor, equipment._id)"
         @delete="shiftKey => deleteItem(actor, equipment._id, shiftKey)"
         @change-quantity="increase => changeQuantity(actor, equipment._id, increase)"
