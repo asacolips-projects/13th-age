@@ -55,6 +55,35 @@
       </div>
     </section>
 
+    <!-- Ki: monk's daily spendable, max only changes in edit mode. -->
+    <section v-if="ki?.enabled" class="unit unit--ki">
+      <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.ki') }}</h2>
+      <Progress name="ki" :current="ki.current" :max="ki.max" />
+      <div class="resource-row">
+        <input type="number" name="system.resources.spendable.ki.current" v-model="ki.current">
+        <span class="resource-separator">/</span>
+        <input v-if="editing" type="number" name="system.resources.spendable.ki.max" v-model="ki.max">
+        <span v-else class="resource-value">{{ ki.max }}</span>
+      </div>
+    </section>
+
+    <!-- Custom resources: enabled per-actor in the settings tab, tracked here. -->
+    <section v-for="resource in customResources" :key="resource.key" class="unit unit--custom">
+      <h2 v-if="!editing" class="unit-title">{{ resource.label }}</h2>
+      <input v-else type="text" :name="`system.resources.spendable.${resource.key}.label`" class="resource-label"
+        v-model="resource.raw.label" :placeholder="localize(`ARCHMAGE.CHARACTER.RESOURCES.${resource.key}`)">
+      <Progress :name="resource.key" :current="resource.raw.current" :max="resource.raw.max" />
+      <div class="resource-row">
+        <!-- Current stays editable in play; max only changes in edit mode. -->
+        <input type="number" :name="`system.resources.spendable.${resource.key}.current`"
+          v-model="resource.raw.current">
+        <span class="resource-separator">/</span>
+        <input v-if="editing" type="number" :name="`system.resources.spendable.${resource.key}.max`"
+          v-model="resource.raw.max">
+        <span v-else class="resource-value">{{ resource.raw.max }}</span>
+      </div>
+    </section>
+
     <!-- Rerolls: derived from equipped items, so max is display-only and the
          current count writes through to the granting item. Spending happens
          through the rollable labels; each group is one line to keep the bar
@@ -73,23 +102,6 @@
         <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
         <span class="resource-separator">/</span>
         <span class="resource-value">{{ rerolls.save.max }}</span>
-      </div>
-    </section>
-
-    <!-- Custom resources: enabled per-actor in the settings tab, tracked here. -->
-    <section v-for="resource in customResources" :key="resource.key" class="unit unit--custom">
-      <h2 v-if="!editing" class="unit-title">{{ resource.label }}</h2>
-      <input v-else type="text" :name="`system.resources.spendable.${resource.key}.label`" class="resource-label"
-        v-model="resource.raw.label" :placeholder="localize(`ARCHMAGE.CHARACTER.RESOURCES.${resource.key}`)">
-      <Progress :name="resource.key" :current="resource.raw.current" :max="resource.raw.max" />
-      <div class="resource-row">
-        <!-- Current stays editable in play; max only changes in edit mode. -->
-        <input type="number" :name="`system.resources.spendable.${resource.key}.current`"
-          v-model="resource.raw.current">
-        <span class="resource-separator">/</span>
-        <input v-if="editing" type="number" :name="`system.resources.spendable.${resource.key}.max`"
-          v-model="resource.raw.max">
-        <span v-else class="resource-value">{{ resource.raw.max }}</span>
       </div>
     </section>
   </div>
@@ -120,6 +132,9 @@ const perCombat = computed(() => props.actor?.system?.resources?.perCombat ?? {}
 // arrive with the context clone like the other computed attributes.
 const rerolls = computed(() => props.actor?.system?.resources?.spendable?.rerolls);
 
+// Ki is the monk's daily pool; gated by the settings tab like the other resources.
+const ki = computed(() => props.actor?.system?.resources?.spendable?.ki);
+
 const customResources = computed(() =>
   Object.entries(props.actor?.system?.resources?.spendable ?? {})
     .filter(([key, resource]) => key.includes('custom') && resource.enabled)
@@ -134,6 +149,7 @@ const customResources = computed(() =>
 // leave an empty flex unit behind.
 const hasUnits = computed(() =>
   Object.values(perCombat.value).some(resource => resource?.enabled)
+  || ki.value?.enabled === true
   || rerolls.value?.enabled === true
   || customResources.value.length > 0
 );
