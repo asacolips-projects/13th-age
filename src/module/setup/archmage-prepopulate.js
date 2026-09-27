@@ -241,14 +241,10 @@ export class ArchmagePrepopulate {
     // plain data, which is what the sheets' power renderer takes. A row's key
     // is the path of UUIDs from the top, since a power granted by two others
     // is listed under each.
-    //
-    // Children follow their parent's tick, but only up to the actor's level:
-    // a power that grants its higher level versions shouldn't bring them all
-    // along at once. Children without a level always follow.
     const actorLevel = Number(actor?.system?.attributes?.level?.value);
     const withinLevel = doc => {
       const level = Number(doc.system.powerLevel?.value);
-      return !level || !Number.isFinite(actorLevel) || level <= actorLevel;
+      return !level || !Number.isFinite(actorLevel) || level <= Math.max(actorLevel, level);
     };
     const toRow = (doc, parentKey = null, parentSelected = false, lineage = []) => {
       const key = parentKey ? `${parentKey}>${doc.uuid}` : doc.uuid;
