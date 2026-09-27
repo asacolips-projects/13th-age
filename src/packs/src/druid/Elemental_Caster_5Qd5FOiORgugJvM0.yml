@@ -33,6 +33,11 @@ system:
     label: Cast for Power
     type: String
     value: ''
+  children:
+  - Compendium.archmage.druid.Item.r19unP39ugV3KwLK
+  - Compendium.archmage.druid.Item.eMa4hO6RMP5ftKtW
+  - Compendium.archmage.druid.Item.qdFE7tw6InSoOIz5
+  - Compendium.archmage.druid.Item.SoZUhz6j4tPBimUr
   crit:
     label: Crit
     type: String
@@ -121,7 +126,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: 1
+    value: '1'
+  maxQuantitySecondary:
+    label: Max Secondary Uses
+    type: String
+    value: ''
   miss:
     label: Miss
     type: String
@@ -161,10 +170,18 @@ system:
     label: Power Usage
     type: String
     value: ''
+  powerUsageSecondary:
+    label: Secondary Power Usage
+    type: String
+    value: ''
   quantity:
     label: Uses
     type: Number
     value: 1
+  quantitySecondary:
+    label: Secondary Uses
+    type: Number
+    value: null
   range:
     label: Range
     type: String
@@ -251,7 +268,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String

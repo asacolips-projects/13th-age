@@ -33,6 +33,7 @@ system:
     label: Cast for Power
     type: String
     value: ''
+  children: []
   crit:
     label: Crit
     type: String
@@ -82,7 +83,11 @@ system:
   maxQuantity:
     label: Max Uses
     type: Number
-    value: null
+    value: ''
+  maxQuantitySecondary:
+    label: Max Secondary Uses
+    type: String
+    value: ''
   miss:
     label: Miss
     type: String
@@ -122,8 +127,16 @@ system:
     label: Power Usage
     type: String
     value: other
+  powerUsageSecondary:
+    label: Secondary Power Usage
+    type: String
+    value: ''
   quantity:
     label: Uses
+    type: Number
+    value: null
+  quantitySecondary:
+    label: Secondary Uses
     type: Number
     value: null
   range:
@@ -154,8 +167,8 @@ system:
   special:
     label: Special
     type: String
-    value: <p>You must have the adventurer feat of <em>General Slays the Hordes (Way
-      of the Metallic Dragon)</em> to use this power.</p>
+    value: <p>You must have the adventurer feat of <em>General Slays the Hordes</em>
+      to use this power.</p>
   spellChain:
     label: Chain Spell
     type: String

@@ -67,6 +67,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -132,6 +133,10 @@ items:
       label: Uses
       type: Number
       value: 1
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -171,10 +176,18 @@ items:
       label: Power Usage
       type: String
       value: once-per-battle
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 1
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -310,6 +323,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -366,6 +380,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -405,8 +423,16 @@ items:
       label: Power Usage
       type: String
       value: ''
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -544,6 +570,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -593,6 +620,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -632,8 +663,16 @@ items:
       label: Power Usage
       type: String
       value: ''
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -771,6 +810,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -816,6 +856,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -855,8 +899,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -994,6 +1046,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -1040,6 +1093,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -1079,8 +1136,16 @@ items:
       label: Power Usage
       type: String
       value: other
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -1218,6 +1283,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -1263,6 +1329,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -1302,8 +1372,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -1441,6 +1519,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -1509,6 +1588,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -1548,8 +1631,16 @@ items:
       label: Power Usage
       type: String
       value: other
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -1687,6 +1778,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -1737,6 +1829,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -1776,8 +1872,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -1915,6 +2019,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -1962,6 +2067,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -2001,8 +2110,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -2140,6 +2257,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -2190,6 +2308,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -2229,8 +2351,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -2368,6 +2498,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -2418,6 +2549,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -2457,8 +2592,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -2596,6 +2739,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -2647,6 +2791,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -2686,8 +2834,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -2825,6 +2981,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -2872,6 +3029,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -2911,8 +3072,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -3050,6 +3219,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -3102,6 +3272,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -3141,8 +3315,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -3280,6 +3462,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -3327,6 +3510,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -3366,8 +3553,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -3505,6 +3700,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -3554,6 +3750,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -3593,8 +3793,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -3733,6 +3941,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -3785,6 +3994,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -3824,8 +4037,16 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -3966,6 +4187,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -4012,6 +4234,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -4051,8 +4277,16 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -4192,6 +4426,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -4241,6 +4476,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -4280,8 +4519,16 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -4425,6 +4672,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -4532,6 +4780,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -4571,8 +4823,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -4710,6 +4970,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -4808,6 +5069,10 @@ items:
       label: Uses
       type: Number
       value: 4
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -4847,10 +5112,18 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 4
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -4986,6 +5259,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -5062,6 +5336,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -5101,8 +5379,16 @@ items:
       label: Power Usage
       type: String
       value: ''
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -5240,6 +5526,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -5293,6 +5580,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -5332,8 +5623,16 @@ items:
       label: Power Usage
       type: String
       value: ''
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -5471,6 +5770,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -5524,6 +5824,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -5563,8 +5867,16 @@ items:
       label: Power Usage
       type: String
       value: at-will
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -5702,6 +6014,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -5788,6 +6101,10 @@ items:
       label: Uses
       type: Number
       value: 1
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -5827,10 +6144,18 @@ items:
       label: Power Usage
       type: String
       value: once-per-battle
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 1
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -5966,6 +6291,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -6011,6 +6337,10 @@ items:
       label: Uses
       type: Number
       value: 1
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -6051,10 +6381,18 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 1
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -6194,6 +6532,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -6240,6 +6579,10 @@ items:
       label: Uses
       type: Number
       value: 1
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -6279,10 +6622,18 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 1
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -6419,6 +6770,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -6468,6 +6820,10 @@ items:
       label: Uses
       type: Number
       value: 1
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -6509,10 +6865,18 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 1
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -6650,6 +7014,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -6699,6 +7064,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -6738,8 +7107,16 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -6879,6 +7256,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -6929,6 +7307,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -6968,8 +7350,16 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -7107,6 +7497,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -7154,6 +7545,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -7193,8 +7588,16 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -7333,6 +7736,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -7437,6 +7841,10 @@ items:
       label: Uses
       type: Number
       value: 1
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -7476,10 +7884,18 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 1
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -7615,6 +8031,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -7661,6 +8078,10 @@ items:
       label: Uses
       type: Number
       value: 1
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -7700,10 +8121,18 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
       type: Number
       value: 1
+    quantitySecondary:
+      label: Secondary Uses
+      type: Number
+      value: null
     range:
       label: Range
       type: String
@@ -7845,6 +8274,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -7892,6 +8322,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -7931,8 +8365,16 @@ items:
       label: Power Usage
       type: String
       value: daily
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -8070,6 +8512,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -8161,6 +8604,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -8200,8 +8647,16 @@ items:
       label: Power Usage
       type: String
       value: ''
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:
@@ -8339,6 +8794,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -8404,6 +8860,10 @@ items:
       label: Uses
       type: Number
       value: null
+    maxQuantitySecondary:
+      label: Max Secondary Uses
+      type: String
+      value: null
     miss:
       label: Miss
       type: String
@@ -8443,8 +8903,16 @@ items:
       label: Power Usage
       type: String
       value: ''
+    powerUsageSecondary:
+      label: Secondary Power Usage
+      type: String
+      value: ''
     quantity:
       label: Uses
+      type: Number
+      value: null
+    quantitySecondary:
+      label: Secondary Uses
       type: Number
       value: null
     range:

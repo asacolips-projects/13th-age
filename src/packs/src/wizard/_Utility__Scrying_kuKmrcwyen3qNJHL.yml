@@ -33,6 +33,7 @@ system:
     label: Cast for Power
     type: String
     value: ''
+  children: []
   crit:
     label: Crit
     type: String
@@ -84,6 +85,10 @@ system:
     label: Uses
     type: Number
     value: null
+  maxQuantitySecondary:
+    label: Max Secondary Uses
+    type: String
+    value: null
   miss:
     label: Miss
     type: String
@@ -123,8 +128,16 @@ system:
     label: Power Usage
     type: String
     value: daily
+  powerUsageSecondary:
+    label: Secondary Power Usage
+    type: String
+    value: ''
   quantity:
     label: Uses
+    type: Number
+    value: null
+  quantitySecondary:
+    label: Secondary Uses
     type: Number
     value: null
   range:

@@ -33,6 +33,8 @@ system:
     label: Cast for Power
     type: String
     value: ''
+  children:
+  - Compendium.archmage.monk.Item.42C85PHABYqqaxE6
   crit:
     label: Crit
     type: String
@@ -139,7 +141,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: null
+    value: ''
+  maxQuantitySecondary:
+    label: Max Secondary Uses
+    type: String
+    value: ''
   miss:
     label: Miss
     type: String
@@ -179,8 +185,16 @@ system:
     label: Power Usage
     type: String
     value: ''
+  powerUsageSecondary:
+    label: Secondary Power Usage
+    type: String
+    value: ''
   quantity:
     label: Uses
+    type: Number
+    value: null
+  quantitySecondary:
+    label: Secondary Uses
     type: Number
     value: null
   range:
@@ -211,8 +225,7 @@ system:
   special:
     label: Special
     type: String
-    value: '<p><strong>Ki Power</strong> (<em>The Willow Bends</em>): You can spend
-      1 point of ki to turn a failed Spinning Willow Style save into a success.</p>'
+    value: ''
   spellChain:
     label: Chain Spell
     type: String
@@ -270,7 +283,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String

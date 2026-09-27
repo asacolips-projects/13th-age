@@ -69,6 +69,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -329,6 +330,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -564,6 +566,7 @@ items:
       label: Cast for Power
       type: String
       value: null
+    children: []
     crit:
       label: Crit
       type: String
@@ -799,6 +802,7 @@ items:
       label: Cast for Power
       type: String
       value: null
+    children: []
     crit:
       label: Crit
       type: String
@@ -1094,6 +1098,7 @@ items:
       label: Cast for Power
       type: String
       value: null
+    children: []
     crit:
       label: Crit
       type: String
@@ -1335,6 +1340,7 @@ items:
       label: Cast for Power
       type: String
       value: null
+    children: []
     crit:
       label: Crit
       type: String
@@ -1630,6 +1636,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -1888,6 +1895,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -2183,6 +2191,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String
@@ -2420,6 +2429,7 @@ items:
       label: Cast for Power
       type: String
       value: ''
+    children: []
     crit:
       label: Crit
       type: String

@@ -54,6 +54,7 @@ system:
     wis:
       bonus: 0
   chackra: wand
+  children: []
   description:
     label: Description
     type: String

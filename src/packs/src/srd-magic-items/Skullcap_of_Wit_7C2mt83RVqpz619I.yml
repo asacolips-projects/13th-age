@@ -54,6 +54,7 @@ system:
     wis:
       bonus: 0
   chackra: helmet
+  children: []
   description:
     label: Description
     type: String

@@ -33,6 +33,8 @@ system:
     label: Cast for Power
     type: String
     value: ''
+  children:
+  - Compendium.archmage.monk.Item.6xm6SbmsiTHR8OQj
   crit:
     label: Crit
     type: String
@@ -82,7 +84,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: 1
+    value: '1'
+  maxQuantitySecondary:
+    label: Max Secondary Uses
+    type: String
+    value: ''
   miss:
     label: Miss
     type: String
@@ -122,10 +128,18 @@ system:
     label: Power Usage
     type: String
     value: once-per-battle
+  powerUsageSecondary:
+    label: Secondary Power Usage
+    type: String
+    value: ''
   quantity:
     label: Uses
     type: Number
     value: 1
+  quantitySecondary:
+    label: Secondary Uses
+    type: Number
+    value: null
   range:
     label: Range
     type: String
@@ -154,8 +168,7 @@ system:
   special:
     label: Special
     type: String
-    value: '<p><strong>Ki Power</strong> (<em>Ludicrous Improbability Maneuver</em>):
-      You can spend 1 ki point to use Improbable Stunt again this battle.</p>'
+    value: ''
   spellChain:
     label: Chain Spell
     type: String
@@ -213,7 +226,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String

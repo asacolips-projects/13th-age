@@ -33,6 +33,7 @@ system:
     label: Cast for Power
     type: String
     value: ''
+  children: []
   crit:
     label: Crit
     type: String
@@ -82,7 +83,11 @@ system:
   maxQuantity:
     label: Max Uses
     type: Number
-    value: 1
+    value: '1'
+  maxQuantitySecondary:
+    label: Max Secondary Uses
+    type: String
+    value: ''
   miss:
     label: Miss
     type: String
@@ -122,10 +127,18 @@ system:
     label: Power Usage
     type: String
     value: daily
+  powerUsageSecondary:
+    label: Secondary Power Usage
+    type: String
+    value: ''
   quantity:
     label: Uses
     type: Number
     value: 1
+  quantitySecondary:
+    label: Secondary Uses
+    type: Number
+    value: null
   range:
     label: Range
     type: String
@@ -154,10 +167,8 @@ system:
   special:
     label: Special
     type: String
-    value: '<p>You must have the epic feat of <em>Ghostwalk of the Fallen King (Death&rsquo;s
-      Quivering Shadow)</em> to use this power.</p>
-
-      <p>&nbsp;</p>'
+    value: "<p>You must have the epic feat of <em>Ghostwalk of the Fallen King</em>\
+      \ to use this power.</p><p>\_</p>"
   spellChain:
     label: Chain Spell
     type: String

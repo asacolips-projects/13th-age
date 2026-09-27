@@ -72,6 +72,8 @@ system:
     label: Cast for Power
     type: String
     value: ''
+  children:
+  - Compendium.archmage.monk.Item.mNSt13T0PuXSjBYy
   crit:
     label: Crit
     type: String
@@ -117,7 +119,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: 1
+    value: '1'
+  maxQuantitySecondary:
+    label: Max Secondary Uses
+    type: String
+    value: ''
   miss:
     label: Miss
     type: String
@@ -157,10 +163,18 @@ system:
     label: Power Usage
     type: String
     value: daily
+  powerUsageSecondary:
+    label: Secondary Power Usage
+    type: String
+    value: ''
   quantity:
     label: Uses
     type: Number
     value: 1
+  quantitySecondary:
+    label: Secondary Uses
+    type: Number
+    value: null
   range:
     label: Range
     type: String
@@ -189,9 +203,7 @@ system:
   special:
     label: Special
     type: String
-    value: '<p><strong>Ki Power </strong>(<em>Perfect Breath</em>): Once per day when
-      you are healing using a recovery, you can spend 1 point of ki to heal using
-      a second recovery as well. The second recovery is a free.</p>'
+    value: ''
   spellChain:
     label: Chain Spell
     type: String
@@ -249,7 +261,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String
