@@ -10,7 +10,7 @@
     </template>
     <!-- Expanded equipment content. -->
     <template #content="{active}">
-      <Equipment v-if="active" :equipment="equipment" :bonuses="equipmentBonuses(equipment)"/>
+      <EquipmentDetailsV3 v-if="active" :equipment="equipment" :actor="actor" :context="context"/>
     </template>
   </ExpandableItem>
 </template>
@@ -23,13 +23,14 @@
  * the active pip — resolving the actor document from the actor data the sheet
  * passes down.
  */
-import { changeQuantity, deleteItem, editItem, equipmentBonuses, togglePip } from '@/methods/Helpers';
+import { changeQuantity, deleteItem, editItem, togglePip } from '@/methods/Helpers';
 import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
-import Equipment from '@/components/parts/Equipment.vue';
+import EquipmentDetailsV3 from '@/components/actor/character/v3/parts/EquipmentDetailsV3.vue';
 import EquipmentSummaryRow from '@/components/parts/EquipmentSummaryRow.vue';
 
 defineProps({
   equipment: {type: Object, required: true},
   actor: {type: [Object, Boolean], default: null},
+  context: {type: Object, default: null},
 });
 </script>

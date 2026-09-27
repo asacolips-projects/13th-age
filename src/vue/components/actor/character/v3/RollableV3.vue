@@ -11,13 +11,16 @@ const props = defineProps({
   // Suppress the die icon when the link shows other visual content.
   hideIcon: { type: Boolean, default: false },
   // Centre the die icon over the slotted image; the two crossfade on hover.
-  overlay: { type: Boolean, default: false }
+  overlay: { type: Boolean, default: false },
+  // Read inert: muted die, no pointer or glow, and clicks don't land.
+  disabled: { type: Boolean, default: false }
 });
 
 const modifiers = computed(() => [
   props.name ? `rollable--${props.name}` : '',
   props.hideIcon ? 'hide-icon' : '',
-  props.overlay ? 'overlay' : ''
+  props.overlay ? 'overlay' : '',
+  props.disabled ? 'disabled' : ''
 ]);
 </script>
 
@@ -44,6 +47,16 @@ const modifiers = computed(() => [
 
   &.hide-icon::before {
     display: none;
+  }
+
+  // Disabled rollables read inert: the die mutes and no click can land.
+  &.disabled {
+    pointer-events: none;
+    cursor: default;
+
+    &::before {
+      color: var(--v3-text-muted);
+    }
   }
 
   // Overlay mode: the die icon is centred over the slotted image and the two

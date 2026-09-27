@@ -10,35 +10,41 @@
       <span v-if="power.system.powerType.value" class="meta-item">{{ localize(`ARCHMAGE.${power.system.powerType.value}`) }}</span>
     </header>
 
-    <!-- Description, then the primary properties (attack, hit, effect, ...). -->
-    <div v-if="power.system.description.value" class="power-detail power-detail--description">
+    <!-- Description, then the primary properties (attack, hit, effect, ...),
+         then feats: sectioned like the item sheet's fieldsets for readability. -->
+    <fieldset v-if="power.system.description.value" class="fieldset-description">
+      <legend>{{ localize('ARCHMAGE.description') }}</legend>
       <Enriched tag="div" class="detail-value" :text="power.system.description.value" :replacements="[]"
         :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" field="description"
         :enrichment-options="enrichmentOptions"/>
-    </div>
-    <div v-for="field in detailFields" :key="field" class="power-detail" :data-field="field">
-      <strong class="detail-label">{{ localize(`ARCHMAGE.CHAT.${field}`) }}:</strong>
-      <Enriched tag="div" class="detail-value" :text="power.system[field].value" :replacements="[]"
-        :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" :field="field"
-        :enrichment-options="enrichmentOptions"/>
-    </div>
+    </fieldset>
+    <fieldset v-if="detailFields.length" class="fieldset-details">
+      <legend>{{ localize('ARCHMAGE.details') }}</legend>
+      <div v-for="field in detailFields" :key="field" class="power-detail" :data-field="field">
+        <strong class="detail-label">{{ localize(`ARCHMAGE.CHAT.${field}`) }}:</strong>
+        <Enriched tag="div" class="detail-value" :text="power.system[field].value" :replacements="[]"
+          :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" :field="field"
+          :enrichment-options="enrichmentOptions"/>
+      </div>
+    </fieldset>
 
-    <!-- Feats. Feats not yet taken read muted. -->
-    <section v-if="feats.length" class="details-feats">
+    <!-- Feats. Feats not yet taken read muted. Each row is a grid: the tier
+         letter with the die icon that rolls it (and spends a use), the uses
+         left beside it — click/contextmenu to give one back or take one away
+         — and the description filling the remainder. -->
+    <fieldset v-if="feats.length" class="fieldset-feats">
+      <legend>{{ localize('ARCHMAGE.feats') }}</legend>
       <div v-for="{key, feat} in feats" :key="key" class="power-feat" :class="{active: feat.isActive.value}">
-        <strong class="detail-label">{{ localize(`ARCHMAGE.CHAT.${feat.tier?.value}`) }}:</strong>
+        <RollableV3 class="feat-tier" :disabled="!feat.isActive.value" @click="rollFeat(key)">
+          <span class="feat-tier-letter">{{ tierLetter(feat) }}</span>
+        </RollableV3>
+        <span v-if="feat.isActive.value && feat.quantity?.value != null" class="feat-uses-count"
+          @click="changeFeatUses(key, true)" @contextmenu.prevent="changeFeatUses(key, false)">{{ feat.quantity?.value }}</span>
         <Enriched tag="div" class="detail-value" :text="feat.description.value" :replacements="[]"
           :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData"
           :enrichment-options="enrichmentOptions"/>
-        <!-- The die rolls the feat and spends a use; the count is
-             click/contextmenu to give one back or take one away. -->
-        <div v-if="feat.isActive.value" class="feat-uses">
-          <RollableV3 @click="rollFeat(key)"/>
-          <span v-if="feat.quantity?.value != null" class="feat-uses-count"
-            @click="changeFeatUses(key, true)" @contextmenu.prevent="changeFeatUses(key, false)">{{ feat.quantity?.value }}</span>
-        </div>
       </div>
-    </section>
+    </fieldset>
   </article>
 </template>
 
@@ -69,6 +75,14 @@ const detailFields = computed(() => powerFieldKeys()
 
 const feats = computed(() => Object.entries(filterFeats(props.power.system.feats))
   .map(([key, feat]) => ({key, feat})));
+
+/**
+ * Single-letter prefix of a feat's tier: A for adventurer, C for champion,
+ * E for epic.
+ */
+function tierLetter(feat) {
+  return feat.tier?.value?.charAt(0).toUpperCase() ?? '';
+}
 
 // DiceArchmage and the roll methods live on the real document; props.actor is
 // the context's prepared clone. The sheet provides the document for injection.
@@ -170,6 +184,24 @@ const enrichmentOptions = computed(() => ({
     &.other { background: var(--v3-power-other); }
   }
 
+  // Readability sectioning in the mould of the item sheet's fieldsets: a
+  // hairline across each section and a small-caps legend naming it.
+  fieldset {
+    margin: 0.375rem 0 0;
+    padding: 0.25rem 0 0;
+    border: none;
+    border-top: 1px solid var(--v3-border);
+  }
+
+  legend {
+    padding: 0;
+    font-family: var(--v3-font-label);
+    font-size: var(--v3-font-size-title);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--v3-text-muted);
+  }
+
   .power-detail {
     display: flex;
     gap: 0.375rem;
@@ -190,29 +222,40 @@ const enrichmentOptions = computed(() => ({
     }
   }
 
-  .details-feats {
-    margin-top: 0.5rem;
-    padding-top: 0.25rem;
-    border-top: 1px solid var(--v3-border);
-  }
-
   .power-feat {
-    display: flex;
+    display: grid;
+    // Fixed widths for the tier and uses cells so the description column
+    // starts at the same offset on every row.
+    grid-template-columns: 2.25rem 1.5rem 1fr;
     gap: 0.375rem;
+    align-items: baseline;
     margin: 0.25rem 0;
+    // The V2 feat treatment: untaken feats dim to a quarter strength.
+    opacity: 0.25;
 
-    &:not(.active) .detail-value {
-      color: var(--v3-text-muted);
+    &.active {
+      opacity: 1;
     }
 
-    // The die icon rolls the feat; the count beside it is the uses left.
-    .feat-uses {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: baseline;
-      gap: 0.125rem;
+    // The description always occupies the third column — rows without a use
+    // count would otherwise shift it into the count's column — and it alone
+    // carries the V2 feat gradient.
+    .detail-value {
+      grid-column: 3;
+      background: var(--v3-feat);
+      padding: 0.375rem 0.75rem;
     }
 
+    // The die icon rolls the feat and spends a use; the letter is the tier.
+    .feat-tier {
+      font-family: var(--v3-font-label);
+    }
+
+    .feat-tier-letter {
+      text-transform: uppercase;
+    }
+
+    // The uses left: click to give one back, contextmenu to take one away.
     .feat-uses-count {
       cursor: pointer;
       font-family: var(--v3-font-label);

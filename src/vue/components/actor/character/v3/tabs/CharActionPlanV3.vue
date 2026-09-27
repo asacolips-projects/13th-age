@@ -14,7 +14,7 @@
       </h4>
       <ul class="plan-list flexcol">
         <ExpandablePower v-for="power in group.powers" :key="power._id" :power="power" :actor="actor" :context="context"/>
-        <ExpandableEquipment v-for="item in group.equipment" :key="item._id" :equipment="item" :actor="actor"/>
+        <ExpandableEquipment v-for="item in group.equipment" :key="item._id" :equipment="item" :actor="actor" :context="context"/>
       </ul>
     </section>
   </section>

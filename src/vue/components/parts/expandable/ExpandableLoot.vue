@@ -9,7 +9,7 @@
     </template>
     <!-- Expanded loot content. -->
     <template #content="{active}">
-      <Loot v-if="active" :equipment="equipment"/>
+      <LootDetailsV3 v-if="active" :equipment="equipment" :actor="actor" :context="context"/>
     </template>
   </ExpandableItem>
 </template>
@@ -24,11 +24,12 @@
  */
 import { changeQuantity, deleteItem, editItem } from '@/methods/Helpers';
 import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
-import Loot from '@/components/parts/Loot.vue';
+import LootDetailsV3 from '@/components/actor/character/v3/parts/LootDetailsV3.vue';
 import EquipmentSummaryRow from '@/components/parts/EquipmentSummaryRow.vue';
 
 defineProps({
   equipment: {type: Object, required: true},
   actor: {type: [Object, Boolean], default: null},
+  context: {type: Object, default: null},
 });
 </script>

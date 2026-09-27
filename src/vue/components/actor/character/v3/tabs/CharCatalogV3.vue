@@ -35,8 +35,8 @@
       <ul class="catalog-list flexcol">
         <template v-for="item in section.members" :key="item._id">
           <ExpandablePower v-if="section.kind === 'power'" :power="item" :actor="actor" :context="context"/>
-          <ExpandableEquipment v-else-if="section.kind === 'equipment'" :equipment="item" :actor="actor"/>
-          <ExpandableLoot v-else :equipment="item" :actor="actor"/>
+          <ExpandableEquipment v-else-if="section.kind === 'equipment'" :equipment="item" :actor="actor" :context="context"/>
+          <ExpandableLoot v-else :equipment="item" :actor="actor" :context="context"/>
         </template>
       </ul>
     </section>

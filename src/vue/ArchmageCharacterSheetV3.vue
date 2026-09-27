@@ -81,6 +81,9 @@
     --v3-effect-bg: var(--c-power-other);
     --v3-chip-bg: var(--c-black--25);
 
+    /* Feat rows carry the system-wide feat gradient, same deal. */
+    --v3-feat: var(--c-feat);
+
     --v3-font-display: #{$font-stack-secondary};
     --v3-font-label: #{$font-stack-label};
     --v3-font-size-title: #{$font-tiny};
