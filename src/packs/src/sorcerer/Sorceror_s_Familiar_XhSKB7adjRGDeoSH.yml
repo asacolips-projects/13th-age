@@ -20,20 +20,21 @@ system:
   attack:
     label: Attack
     type: String
-    value: null
+    value: ''
   breathWeapon:
     label: Breath Weapon
     type: String
-    value: null
+    value: ''
   castBroadEffect:
     label: Cast for Broad Effect
     type: String
-    value: null
+    value: ''
   castPower:
     label: Cast for Power
     type: String
-    value: null
-  children: []
+    value: ''
+  children:
+  - Compendium.archmage.sorcerer.Item.eihswcxtHp6rhV9M
   crit:
     label: Crit
     type: String
@@ -122,7 +123,7 @@ system:
   finalVerse:
     label: Final Verse
     type: String
-    value: null
+    value: ''
   group:
     label: Group
     type: String
@@ -130,7 +131,7 @@ system:
   hit:
     label: Hit
     type: String
-    value: null
+    value: ''
   hitEven:
     label: Natural Even Hit
     type: String
@@ -142,30 +143,30 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: null
+    value: ''
   maxQuantitySecondary:
     label: Max Secondary Uses
     type: String
-    value: null
+    value: ''
   miss:
     label: Miss
     type: String
-    value: null
+    value: ''
   missEven:
     label: Even Miss
     type: String
-    value: null
+    value: ''
   missOdd:
     label: Odd Miss
     type: String
-    value: null
+    value: ''
   name:
     label: Name
     type: String
   powerLevel:
     label: Level
     type: Number
-    value: '1'
+    value: 1
   powerOriginName:
     label: Power Original Name
     type: String
@@ -201,7 +202,7 @@ system:
   range:
     label: Range
     type: String
-    value: null
+    value: ''
   recharge:
     label: Recharge
     type: Number
@@ -230,7 +231,7 @@ system:
   spellChain:
     label: Chain Spell
     type: String
-    value: null
+    value: ''
   spellLevel10:
     hide: true
     label: 10th Level Spell
@@ -250,7 +251,7 @@ system:
     hide: true
     label: 3rd Level Spell
     type: String
-    value: null
+    value: ''
   spellLevel4:
     hide: true
     label: 4th Level Spell
@@ -260,7 +261,7 @@ system:
     hide: true
     label: 5th Level Spell
     type: String
-    value: null
+    value: ''
   spellLevel6:
     hide: true
     label: 6th Level Spell
@@ -270,7 +271,7 @@ system:
     hide: true
     label: 7th Level Spell
     type: String
-    value: null
+    value: ''
   spellLevel8:
     hide: true
     label: 8th Level Spell
@@ -280,21 +281,21 @@ system:
     hide: true
     label: 9th Level Spell
     type: String
-    value: null
+    value: ''
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String
-    value: null
+    value: ''
   target:
     label: Target
     type: String
-    value: null
+    value: ''
   trigger:
     label: Trigger
     type: String
-    value: null
+    value: ''
 type: power

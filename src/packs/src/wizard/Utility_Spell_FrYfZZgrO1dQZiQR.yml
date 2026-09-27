@@ -33,7 +33,15 @@ system:
     label: Cast for Power
     type: String
     value: ''
-  children: []
+  children:
+  - Compendium.archmage.wizard.Item.KHGhu7Xl6bo1IfS3
+  - Compendium.archmage.wizard.Item.4T6ZX1vrodiD7rUy
+  - Compendium.archmage.wizard.Item.eFVMSK48tAJD0oAO
+  - Compendium.archmage.wizard.Item.jkcJIDSjKulW8mSi
+  - Compendium.archmage.wizard.Item.VTWsVSkMbDSaKROz
+  - Compendium.archmage.wizard.Item.lqYNLFXU6J6EokZ8
+  - Compendium.archmage.wizard.Item.RyIsBF4AiacLxdoo
+  - Compendium.archmage.wizard.Item.kuKmrcwyen3qNJHL
   crit:
     label: Crit
     type: String
@@ -115,7 +123,7 @@ system:
   group:
     label: Group
     type: String
-    value: null
+    value: ''
   hit:
     label: Hit
     type: String
@@ -131,11 +139,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: 1
+    value: '1'
   maxQuantitySecondary:
     label: Max Secondary Uses
     type: String
-    value: null
+    value: ''
   miss:
     label: Miss
     type: String
@@ -273,7 +281,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String

@@ -33,7 +33,13 @@ system:
     label: Cast for Power
     type: String
     value: ''
-  children: []
+  children:
+  - Compendium.archmage.animal-companion.Item.SHlqrDFKKgJUtdI7
+  - Compendium.archmage.animal-companion.Item.iW7Z1JPKLZ866jGn
+  - Compendium.archmage.animal-companion.Item.9UIknBPrGKauOmIo
+  - Compendium.archmage.animal-companion.Item.4WPbXyrW2Yb7cwGH
+  - Compendium.archmage.animal-companion.Item.B3WICVRQAa60EucH
+  - Compendium.archmage.animal-companion.Item.8q5RUM7JejU4mviH
   crit:
     label: Crit
     type: String
@@ -276,11 +282,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: null
+    value: ''
   maxQuantitySecondary:
     label: Max Secondary Uses
     type: String
-    value: null
+    value: ''
   miss:
     label: Miss
     type: String
@@ -418,7 +424,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String

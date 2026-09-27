@@ -24,16 +24,17 @@ system:
   breathWeapon:
     label: Breath Weapon
     type: String
-    value: null
+    value: ''
   castBroadEffect:
     label: Cast for Broad Effect
     type: String
-    value: null
+    value: ''
   castPower:
     label: Cast for Power
     type: String
-    value: null
-  children: []
+    value: ''
+  children:
+  - Compendium.archmage.rogue.Item.ileicnlIMJES6PTI
   crit:
     label: Crit
     type: String
@@ -58,7 +59,7 @@ system:
   finalVerse:
     label: Final Verse
     type: String
-    value: null
+    value: ''
   group:
     label: Group
     type: String
@@ -79,11 +80,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: null
+    value: ''
   maxQuantitySecondary:
     label: Max Secondary Uses
     type: String
-    value: null
+    value: ''
   miss:
     label: Miss
     type: String
@@ -91,18 +92,18 @@ system:
   missEven:
     label: Even Miss
     type: String
-    value: null
+    value: ''
   missOdd:
     label: Odd Miss
     type: String
-    value: null
+    value: ''
   name:
     label: Name
     type: String
   powerLevel:
     label: Level
     type: Number
-    value: '3'
+    value: 3
   powerOriginName:
     label: Power Original Name
     type: String
@@ -167,7 +168,7 @@ system:
   spellChain:
     label: Chain Spell
     type: String
-    value: null
+    value: ''
   spellLevel10:
     hide: true
     label: 10th Level Spell
@@ -187,7 +188,7 @@ system:
     hide: true
     label: 3rd Level Spell
     type: String
-    value: null
+    value: ''
   spellLevel4:
     hide: true
     label: 4th Level Spell
@@ -197,7 +198,7 @@ system:
     hide: true
     label: 5th Level Spell
     type: String
-    value: null
+    value: ''
   spellLevel6:
     hide: true
     label: 6th Level Spell
@@ -207,7 +208,7 @@ system:
     hide: true
     label: 7th Level Spell
     type: String
-    value: null
+    value: ''
   spellLevel8:
     hide: true
     label: 8th Level Spell
@@ -217,15 +218,15 @@ system:
     hide: true
     label: 9th Level Spell
     type: String
-    value: null
+    value: ''
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String
-    value: null
+    value: ''
   target:
     label: Target
     type: String
@@ -233,5 +234,5 @@ system:
   trigger:
     label: Trigger
     type: String
-    value: null
+    value: ''
 type: power
