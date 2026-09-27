@@ -38,6 +38,14 @@ function withDescendants(row) {
   return [row, ...row.children.flatMap(withDescendants)];
 }
 
+/**
+ * A child row and the rows below it that its tick carries to, or nothing if
+ * it's above the actor's level.
+ */
+function withinLevel(row) {
+  return row.withinLevel ? [row, ...row.children.flatMap(withinLevel)] : [];
+}
+
 export default {
   name: 'ArchmagePowerImporter',
   props: ['context'],
@@ -93,11 +101,13 @@ export default {
   methods: {
     /**
      * Tick or untick a row. What a power grants follows it, and can then be
-     * unticked on its own.
+     * changed on its own. Ticking only reaches children within the actor's
+     * level, and not past them; unticking reaches everything below.
      */
     toggleSelection(row) {
       const select = !this.selection.includes(row.key);
-      for (const {key} of withDescendants(row)) {
+      const rows = select ? [row, ...row.children.flatMap(withinLevel)] : withDescendants(row);
+      for (const {key} of rows) {
         const index = this.selection.indexOf(key);
         if (select && index < 0) this.selection.push(key);
         else if (!select && index >= 0) this.selection.splice(index, 1);
