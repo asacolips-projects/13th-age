@@ -31,6 +31,13 @@ import Tabs from '@/components/parts/Tabs.vue';
 import Tab from '@/components/parts/Tab.vue';
 import PowerImporterClass from '@/components/dialogs/power-importer/PowerImporterClass.vue';
 
+/**
+ * A row followed by all the rows below it.
+ */
+function withDescendants(row) {
+  return [row, ...row.children.flatMap(withDescendants)];
+}
+
 export default {
   name: 'ArchmagePowerImporter',
   props: ['context'],
@@ -51,13 +58,16 @@ export default {
       tabs: {
         primary: this.context.tabs
       },
-      // Ids of the powers to import. Class features start out ticked.
+      // Keys of the rows to import. Class features, and what they grant,
+      // start out ticked.
       selection: this.context.tabs
         .flatMap(tab => tab.powerGroups)
         .flatMap(group => group.levels)
-        .flatMap(level => level.powers)
+        .flatMap(level => level.groups)
+        .flatMap(group => group.powers)
+        .flatMap(row => withDescendants(row))
         .filter(row => row.selected)
-        .map(row => row.id)
+        .map(row => row.key)
     }
   },
   computed: {
@@ -81,10 +91,17 @@ export default {
     }
   },
   methods: {
-    toggleSelection(id) {
-      const index = this.selection.indexOf(id);
-      if (index < 0) this.selection.push(id);
-      else this.selection.splice(index, 1);
+    /**
+     * Tick or untick a row. What a power grants follows it, and can then be
+     * unticked on its own.
+     */
+    toggleSelection(row) {
+      const select = !this.selection.includes(row.key);
+      for (const {key} of withDescendants(row)) {
+        const index = this.selection.indexOf(key);
+        if (select && index < 0) this.selection.push(key);
+        else if (!select && index >= 0) this.selection.splice(index, 1);
+      }
     }
   },
   async mounted() {

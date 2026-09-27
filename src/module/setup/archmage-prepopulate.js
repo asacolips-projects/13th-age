@@ -166,70 +166,109 @@ export class ArchmagePrepopulate {
   /**
    * Retrieve sorted powers from pack.
    *
+   * Powers another power in the same list grants (`system.children`) are
+   * listed under that power rather than on their own. Anything that would
+   * leave a power out of the listing altogether, such as two powers granting
+   * each other, puts it back at the top.
+   *
    * @param {array} powersArray
    *   Array of compendium pack content.
    * @param {object} actor
    *   Actor document to evaluate for power filtering.
+   * @param {Map<string, Item>} docs
+   *   Filled with every document listed, by UUID, including children from
+   *   other packs, so that the selection can be resolved against it.
    *
    * @returns {array}
-   *   Nested array of powers sorted by level, type, and name, grouped within
-   *   power type. Each power has a simplified data structure compared to its
-   *   compendium equivalent.
+   *   Power types, each with its levels, each with its custom groups, each
+   *   with its rows sorted by name. Each row has a simplified data structure
+   *   compared to its compendium equivalent, and its children's rows.
    */
-  async getPowersFromPack(powersArray, actor = null) {
+  async getPowersFromPack(powersArray, actor = null, docs = new Map()) {
     // Get an array of powers currently on the actor. This is used later to preselect class features.
     let actorPowers = actor?.items ? actor.items.filter(i => i.type == 'power').map(i => i.system.powerOriginName.value) : [];
-    // Presort all of the powers by level, type, and name.
-    let preSorted = await Promise.all(
-      powersArray.sort((a, b) => {
-        function sortTest(a, b) {
-          if (a < b) {
-            return -1;
-          }
-          if (a > b) {
-            return 1;
-          }
-          return 0;
-        }
-        let aSort = [
-          a.system.powerType.value,
-          a.system.powerLevel.value,
-          a.name
-        ];
-        let bSort = [
-          b.system.powerType.value,
-          b.system.powerLevel.value,
-          b.name
-        ];
-        return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
-      })
-      // Return a simplified data object. The power itself is passed along as
-      // plain data, which is what the sheets' power renderer takes.
-      .map(async p => {
-        return {
-          id: p.id,
-          power: p.toObject(false),
-          powerType: p.system.powerType.value,
-          level: p.system.powerLevel.value,
-          // selected: p.system.powerType.value === 'feature'
-            // && ['class', 'race'].includes(p.system.powerSource.value)
-            // && !actorPowers.includes(p.system.powerOriginName.value)
-          selected: p.system.powerType.value === 'feature'
-            && !p.name.toLocaleLowerCase().startsWith(game.i18n.localize('ARCHMAGE.classFeat').toLocaleLowerCase())
-            && actorPowers.length == 0
-            && p.system.powerSource.value === 'class'
-        };
-      })
-    );
+    const classFeat = game.i18n.localize('ARCHMAGE.classFeat').toLocaleLowerCase();
+    const preselect = p => p.system.powerType?.value === 'feature'
+      && !p.name.toLocaleLowerCase().startsWith(classFeat)
+      && actorPowers.length == 0
+      && p.system.powerSource?.value === 'class';
 
-    // Rearrange the powers into groups by type, then by level within a group.
-    const powersByGroup = preSorted.reduce((powerGroup, power) => {
+    // Presort all of the powers by level, type, and name.
+    const sortTest = (a, b) => a < b ? -1 : (a > b ? 1 : 0);
+    const sorted = powersArray.sort((a, b) => {
+      return sortTest(a.system.powerType.value, b.system.powerType.value)
+        || sortTest(a.system.powerLevel.value, b.system.powerLevel.value)
+        || sortTest(a.name, b.name);
+    });
+    for (const p of sorted) docs.set(p.uuid, p);
+
+    // Children, as listed on each power, resolved once each.
+    const childrenOf = new Map();
+    const resolve = async (doc) => {
+      if (childrenOf.has(doc.uuid)) return childrenOf.get(doc.uuid);
+      const children = [];
+      childrenOf.set(doc.uuid, children);
+      for (const uuid of doc.system.children ?? []) {
+        const child = docs.get(uuid) ?? await fromUuid(uuid);
+        if (!(child instanceof Item)) continue;
+        docs.set(child.uuid, child);
+        children.push(child);
+        await resolve(child);
+      }
+      return children;
+    };
+    for (const p of sorted) await resolve(p);
+
+    // A power is listed at the top unless one of the other powers here grants
+    // it. Then any power still out of reach of the top ones is put back.
+    const listed = new Set(sorted.map(p => p.uuid));
+    const granted = new Set(sorted.flatMap(p => childrenOf.get(p.uuid)).map(c => c.uuid).filter(u => listed.has(u)));
+    const roots = sorted.filter(p => !granted.has(p.uuid));
+    const reachable = new Set();
+    const reach = (doc) => {
+      if (reachable.has(doc.uuid)) return;
+      reachable.add(doc.uuid);
+      childrenOf.get(doc.uuid)?.forEach(reach);
+    };
+    roots.forEach(reach);
+    for (const p of sorted) {
+      if (reachable.has(p.uuid)) continue;
+      roots.push(p);
+      reach(p);
+    }
+
+    // Return a simplified data object. The power itself is passed along as
+    // plain data, which is what the sheets' power renderer takes. A row's key
+    // is the path of UUIDs from the top, since a power granted by two others
+    // is listed under each.
+    const toRow = (doc, parentKey = null, parentSelected = false, lineage = []) => {
+      const key = parentKey ? `${parentKey}>${doc.uuid}` : doc.uuid;
+      const selected = parentSelected || preselect(doc);
+      return {
+        key: key,
+        uuid: doc.uuid,
+        power: doc.toObject(false),
+        powerType: doc.system.powerType?.value,
+        level: doc.system.powerLevel?.value,
+        group: doc.system.group?.value ?? '',
+        selected: selected,
+        children: (childrenOf.get(doc.uuid) ?? [])
+          .filter(child => child.uuid !== doc.uuid && !lineage.includes(child.uuid))
+          .map(child => toRow(child, key, selected, [...lineage, doc.uuid]))
+      };
+    };
+    const rows = roots.map(p => toRow(p));
+
+    // Rearrange the powers into groups by type, then by level within a type,
+    // then by custom group within a level.
+    const powersByGroup = rows.reduce((powerGroup, power) => {
       if (power.powerType) {
         let group = power.powerType ? power.powerType : 'other';
         let level = power.level ?? 1;
         powerGroup[group] ??= {};
-        powerGroup[group][level] ??= [];
-        powerGroup[group][level].push(power);
+        powerGroup[group][level] ??= {};
+        powerGroup[group][level][power.group] ??= [];
+        powerGroup[group][level][power.group].push(power);
       }
       return powerGroup;
     }, {});
@@ -247,13 +286,19 @@ export class ArchmagePrepopulate {
     return Object.keys(powersByGroup)
       // Sort them based on the sorting array.
       .sort((a, b) => groupSortingArray.indexOf(a) - groupSortingArray.indexOf(b))
-      // Flatten each group's levels into an ordered array, so that the listing
-      // doesn't have to walk a sparse object keyed by level.
+      // Flatten each group's levels and custom groups into ordered arrays, so
+      // that the listing doesn't have to walk sparse objects. Powers without a
+      // custom group come first.
       .map(type => ({
         type: type,
         levels: Object.keys(powersByGroup[type])
           .sort((a, b) => Number(a) - Number(b))
-          .map(level => ({level: Number(level), powers: powersByGroup[type][level]}))
+          .map(level => ({
+            level: Number(level),
+            groups: Object.keys(powersByGroup[type][level])
+              .sort((a, b) => a === '' ? -1 : (b === '' ? 1 : a.localeCompare(b)))
+              .map(name => ({name: name, powers: powersByGroup[type][level][name]}))
+          }))
       }));
   }
 
@@ -269,8 +314,8 @@ export class ArchmagePrepopulate {
    *
    * @returns {object}
    *   Object with a `tabs` array (one per class, each with its journal content
-   *   and its grouped powers) and a flat `powers` array of the compendium
-   *   documents the selection is resolved against.
+   *   and its grouped powers) and a `docs` map of the compendium documents
+   *   the selection is resolved against, by UUID.
    */
   async getImportData(classes = [], race = '', actor = null) {
     const validClasses = Object.keys(CONFIG.ARCHMAGE.classList);
@@ -279,13 +324,14 @@ export class ArchmagePrepopulate {
     const classJournals = await this.getJournals();
 
     const tabs = [];
+    const docs = new Map();
     for (let [classKey, classObject] of Object.entries(classCompendiums)) {
       classKey = this.cleanClassName(classKey);
       tabs.push({
         key: classKey,
         label: classObject.name,
         classContent: classJournals[classKey] ?? '',
-        powerGroups: await this.getPowersFromPack(classObject.content, actor),
+        powerGroups: await this.getPowersFromPack(classObject.content, actor, docs),
         active: false,
         opened: false
       });
@@ -301,11 +347,7 @@ export class ArchmagePrepopulate {
     const initial = tabs.find(tab => tab.key === defaultTab);
     if (initial) initial.active = true;
 
-    const powers = Object.values(classCompendiums).reduce((accumulator, current) => {
-      return accumulator.concat(current.content);
-    }, []);
-
-    return {tabs, defaultTab, powers};
+    return {tabs, defaultTab, docs};
   }
 }
 

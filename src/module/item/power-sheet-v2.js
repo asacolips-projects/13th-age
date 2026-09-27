@@ -67,6 +67,12 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
 
   /* -------------------------------------------- */
 
+  /** @inheritDoc */
+  _onRender(context, options) {
+    super._onRender(context, options);
+    this._bindDragDrop();
+  }
+
   /** @override */
   async _prepareContext(options) {
 
@@ -122,9 +128,16 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
             key: 'effects',
             label: game.i18n.localize('ARCHMAGE.effects'),
             active: false,
+          },
+          children: {
+            key: 'children',
+            label: game.i18n.localize('ARCHMAGE.ITEM.children'),
+            active: false,
           }
         },
       },
+      // Items added and removed along with this one.
+      children: await this._prepareChildren(),
       // Force re-renders. Defined in the vue mixin.
       _renderKey: this._renderKey ?? 0,
       // @todo add this after switching to DataModel

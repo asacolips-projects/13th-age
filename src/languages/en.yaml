@@ -643,6 +643,13 @@ ARCHMAGE:
     tool: Tools
   ITEM:
     acBonus: AC Bonus
+    children: Includes
+    childrenHint: Items added along with this one, and removed along with it. Drop items here to include them.
+    childrenEmpty: Nothing included yet. Drop items here to include them.
+    childrenMissing: "{count} included item(s) could not be found, and were not added."
+    childMissing: Missing item
+    grantedBy: "Included by {names}"
+    removeChild: Remove from includes
     active: Active
     arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
@@ -785,6 +792,7 @@ ARCHMAGE:
     critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
+    DeleteConfirmChildren: "It will also delete the items it includes:"
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
     disengage: Disengage Check

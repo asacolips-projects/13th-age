@@ -49,7 +49,7 @@
           <div class="equipment-summary grid equipment-grid equipment">
             <Rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></Rollable>
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
-              <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
+              <h3 class="equipment-title unit-subtitle">{{equipment.name}}<i v-if="equipment.grantedBy" class="fas fa-link item-granted" :data-tooltip="localize('ARCHMAGE.ITEM.grantedBy', {names: equipment.grantedBy})"></i></h3>
             </a>
             <div class="equipment-feat-pips" v-if="groupKey === 'equipment'">
               <ul class="feat-pips">
@@ -75,10 +75,8 @@
           <!-- Expanded equipment content. -->
           <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))">
             <Transition name="slide-fade">
-              <template v-if="activeEquipment[equipment._id]">
-                <Equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="equipmentBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
-                <Loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"/>
-              </template>
+              <Equipment v-if="activeEquipment[equipment._id] && equipment.type == 'equipment'" :equipment="equipment" :bonuses="equipmentBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
+              <Loot v-else-if="activeEquipment[equipment._id]" :equipment="equipment" :ref="concat('equipment--', equipment._id)"/>
             </Transition>
           </div>
         </li>

@@ -1,5 +1,6 @@
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 import { ArchmagePowerImporterApplication } from '../applications/power-importer.js';
+import { parentNamesById } from '../item/item-relations.mjs';
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
@@ -106,6 +107,12 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     // Sort items.
     context.actor.items = actorData.items;
     context.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+
+    // Mark the items that came along with another one.
+    const parentNames = parentNamesById(this.actor);
+    for (const item of context.actor.items) {
+      if (parentNames.has(item._id)) item.grantedBy = parentNames.get(item._id).join(', ');
+    }
 
     // Sort effects.
     context.actor.effects = actorData.effects;
@@ -494,11 +501,20 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
       return;
     }
 
+    // Items this one brought along are deleted with it, so list them.
+    let content = game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm");
+    const progeny = (await this.actor.items.get(itemId)?.gatherChildren() ?? [])
+      .filter(child => child.parent === this.actor);
+    if (progeny.length) {
+      const names = progeny.map(child => `<li>${foundry.utils.escapeHTML(child.name)}</li>`).join('');
+      content += `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmChildren")}</p><ul>${names}</ul>`;
+    }
+
     // Delete the item from the actor object.
     let del = false;
     new Dialog({
       title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
-      content: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+      content: content,
       buttons: {
         del: {
           label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
