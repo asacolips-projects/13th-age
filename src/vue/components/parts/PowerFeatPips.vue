@@ -29,7 +29,33 @@ defineEmits(['toggle-pip']);
 </script>
 
 <style scoped lang="scss">
-.feat-pip {
-  cursor: pointer;
+// The pips' presentation, mirrored from the V2 SCSS bundle
+// (components/character/_feats.scss), which the V3 sheet root never matches.
+// These stand alone so the pips read as they do on the V2 sheet, in either
+// one; the bundle keeps its copy for the hand-rolled equipment rows.
+.feat-pips {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  .feat-pip {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid $c-white;
+    margin: 0 1px;
+    padding: 0;
+    cursor: pointer;
+
+    &.active {
+      background: $c-white;
+    }
+  }
 }
 </style>
