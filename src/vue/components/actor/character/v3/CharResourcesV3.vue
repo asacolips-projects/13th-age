@@ -20,23 +20,17 @@
     <section v-if="perCombat.focus?.enabled" class="unit unit--focus">
       <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.focus') }}</h2>
       <div class="resource-row">
-        <!-- Binary state stays toggleable in view mode, like the death saves. -->
-        <a class="resource-value resource-toggle"
-          :class="{ 'resource-value--on': perCombat.focus.current }" @click="toggleResource('focus')">
-          {{ perCombat.focus.current ? '✓' : '–' }}
-        </a>
+        <!-- Binary state persists via the sheet's submitOnChange. -->
+        <input type="checkbox" name="system.resources.perCombat.focus.current"
+          v-model="perCombat.focus.current">
       </div>
     </section>
 
     <section v-if="perCombat.momentum?.enabled" class="unit unit--momentum">
       <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.momentum') }}</h2>
       <div class="resource-row">
-        <!-- Binary state stays toggleable in view mode, like the death saves. -->
-        <a v-if="!editing" class="resource-value resource-toggle"
-          :class="{ 'resource-value--on': perCombat.momentum.current }" @click="toggleResource('momentum')">
-          {{ perCombat.momentum.current ? '✓' : '–' }}
-        </a>
-        <input v-else type="checkbox" name="system.resources.perCombat.momentum.current"
+        <!-- Binary state persists via the sheet's submitOnChange. -->
+        <input type="checkbox" name="system.resources.perCombat.momentum.current"
           v-model="perCombat.momentum.current">
       </div>
     </section>
@@ -44,8 +38,9 @@
     <section v-if="perCombat.rhythm?.enabled && secondEdition" class="unit unit--rhythm">
       <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm') }}</h2>
       <div class="resource-row">
-        <span v-if="!editing" class="resource-value">{{ rhythmLabel(perCombat.rhythm.current) }}</span>
-        <select v-else name="system.resources.perCombat.rhythm.current" v-model="perCombat.rhythm.current">
+        <!-- Rhythm stays switchable in play, like the hp row above; the named
+             select persists via the sheet's submitOnChange. -->
+        <select name="system.resources.perCombat.rhythm.current" v-model="perCombat.rhythm.current">
           <option value="none">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.none') }}</option>
           <option value="offense">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense') }}</option>
           <option value="defense">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense') }}</option>
@@ -142,17 +137,6 @@ const hasUnits = computed(() =>
   || rerolls.value?.enabled === true
   || customResources.value.length > 0
 );
-
-function rhythmLabel(current) {
-  return localize(`ARCHMAGE.CHARACTER.RHYTHMCHOICES.${current || 'none'}`);
-}
-
-// Flip a binary per-combat resource straight to the document so it persists
-// from view mode, where there is no named input for the form to submit.
-function toggleResource(key) {
-  const current = perCombat.value[key]?.current === true;
-  actorDocument?.update({ [`system.resources.perCombat.${key}.current`]: !current });
-}
 
 // Set a reroll pool's count from view mode: write through to the equipped
 // item(s) that grant it, matching how rollReroll spends them. The actor-level
@@ -297,18 +281,6 @@ async function rollReroll(kind) {
   min-width: 0;
   text-align: center;
   font-variant-numeric: tabular-nums;
-
-  &.resource-value--on {
-    color: var(--v3-positive);
-  }
-}
-
-.resource-toggle {
-  cursor: pointer;
-
-  &:hover {
-    text-shadow: 0 0 5px var(--v3-hover-glow);
-  }
 }
 
 .resource-separator {

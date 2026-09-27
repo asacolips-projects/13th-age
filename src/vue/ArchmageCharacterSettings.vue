@@ -204,14 +204,16 @@
       <fieldset v-for="(groupFlags, section) in flagGroups" :key="section">
         <legend>{{ section }}</legend>
         <div v-for="flag in groupFlags" :key="flag.key" class="form-group" :data-key="flag.key">
-          <label>{{ localize(flag.name) }}</label>
-          <div class="field">
+          <div class="flexcol">
+            <label>{{ localize(flag.name) }}</label>
+            <p class="hint">{{ localize(flag.hint) }}</p>
+          </div>
+          <div class="field field-narrow">
             <input v-if="!flag.options" type="checkbox" :name="concat('flags.archmage.', flag.key)" v-model="flag.value" />
             <select v-else :name="concat('flags.archmage.', flag.key)" v-model="flag.value">
               <option v-for="(option, o) in flag.options" :key="o" :value="o">{{ localize(option) }}</option>
             </select>
           </div>
-          <p class="hint">{{ localize(flag.hint) }}</p>
         </div>
       </fieldset>
     </Tab>
@@ -222,7 +224,7 @@
         <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesCustom') }}</legend>
         <div v-for="(resource, r) in resourcesCustom" :key="r" class="form-group" :data-key="r">
           <label>{{ localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r)) }}</label>
-          <div class="field">
+          <div class="field field-narrow">
             <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled" />
           </div>
           <p class="hint flexrow">
@@ -243,9 +245,6 @@
             <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled" />
           </div>
         </div>
-      </fieldset>
-      <fieldset>
-        <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesSpendable') }}</legend>
         <div v-for="(resource, r) in resourcesSpendable" :key="r" class="form-group" :data-key="r">
           <label>{{ localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r)) }}</label>
           <div class="field">
@@ -262,14 +261,14 @@
           {{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.hooks') }}
           <InfoBubble :tooltip="localize('ARCHMAGE.SETTINGS.lifecycleHooks.hint')" />
         </legend>
-        <div class="form-group stacked">
+        <div class="flexcol">
           <label>{{ localize('ARCHMAGE.SETTINGS.lifecycleHooks.startOfTurn') }}</label>
           <CodemirrorWrapper class="attribute-value"
             name="system.lifecycleHooks.startOfTurn"
             :value="actor.system.lifecycleHooks?.startOfTurn"
             :disable-paste-parsing="true" />
         </div>
-        <div class="form-group stacked">
+        <div class="flexcol">
           <label>{{ localize('ARCHMAGE.SETTINGS.lifecycleHooks.endOfTurn') }}</label>
           <CodemirrorWrapper class="attribute-value"
             name="system.lifecycleHooks.endOfTurn"
@@ -338,7 +337,7 @@
 
   const resourcesCustom = computed(() => filterResources(actor.value.system.resources.spendable, key => key.includes('custom')));
   const resourcesPerCombat = computed(() => filterResources(actor.value.system.resources.perCombat, () => true));
-  const resourcesSpendable = computed(() => filterResources(actor.value.system.resources.spendable, key => !key.includes('custom')));
+  const resourcesSpendable = computed(() => filterResources(actor.value.system.resources.spendable, key => !key.includes('custom') && !key.includes('reroll')));
 
   function isOverridden(path) {
     return Object.keys(props.context.actor.overrides ?? {}).includes(path);
@@ -349,5 +348,15 @@
 /* Column-size adjustment, overrides standard foundry styles */
 .standard-form .form-group > * {
   flex: 1;
+}
+
+/* Narrower control columns: flag fields (label + hint dominate) and
+   resource checkboxes */
+.standard-form .form-group > .field-half {
+  flex: 0.5;
+}
+
+.standard-form .form-group > .field-narrow {
+  flex: 0.2;
 }
 </style>
