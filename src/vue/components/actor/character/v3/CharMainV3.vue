@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { computed, reactive, watchEffect } from 'vue';
 import { localize } from '@/methods/Helpers';
 import { Tabs, Tab } from '@/components';
 import CharActionPlanV3 from './tabs/CharActionPlanV3.vue';
@@ -44,6 +44,12 @@ import CharAdvancementV3 from './tabs/CharAdvancementV3.vue';
 import CharNotesV3 from './tabs/CharNotesV3.vue';
 
 const props = defineProps(['context']);
+
+// The triggers tab only earns its strip slot when the PC has at least one
+// power with trigger text, using the same filter as CharTriggersV3. Reactive
+// because the sheet app swaps context.actor on every Foundry render.
+const hasTriggers = computed(() => (props.context.actor?.items ?? [])
+  .some(x => x.type === 'power' && x.system.trigger?.value));
 
 // Tab definitions for parts/Tabs.vue: the object keys are the tab ids, and the
 // component flips `active` on the objects on click, which drives the matching
@@ -59,6 +65,20 @@ const rawTabs = {
   notes: { key: 'notes', label: localize('ARCHMAGE.notes'), icon: 'fa-note-sticky', hideLabel: true }
 };
 const tabs = reactive(rawTabs);
+
+// Runs immediately (so the first render already has the flag) and again
+// whenever the actor's items change. If the triggers tab is open when its last
+// trigger disappears, move the active tab to the first visible one.
+watchEffect(() => {
+  tabs.triggers.hidden = !hasTriggers.value;
+  if (tabs.triggers.hidden && tabs.triggers.active) {
+    const next = Object.values(tabs).find(t => !t.hidden);
+    if (next) {
+      tabs.triggers.active = false;
+      next.active = true;
+    }
+  }
+});
 
 // parts/Tabs.vue restores the last-open tab from this blob in mounted() and
 // persists clicks through the actor prop (pack actors are skipped there) under
