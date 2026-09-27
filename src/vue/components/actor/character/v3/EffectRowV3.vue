@@ -183,7 +183,7 @@ async function deleteEffect(bypass = false) {
         padding: 0 0.25rem;
         background: var(--v3-chip-bg);
         border-radius: 6px;
-        font-size: var(--v3-font-size-title);
+        font-size: 10px;
         white-space: nowrap;
 
         .bonus-label {
