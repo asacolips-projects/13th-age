@@ -152,4 +152,103 @@ function activatePower() {
 .item-control {
   cursor: pointer;
 }
+
+// The expanded power details. Power.vue ships no styles of its own: the V2
+// sheet dresses it through .archmage-v2.sheet .power in the SCSS bundle
+// (components/character/_powers.scss), which the V3 sheet root never matches.
+// Mirror those rules here so the expanded body reads as it does on the V2
+// sheet, right down to the base typography the V2 root supplies there. The
+// .power root is slot content rendered from this component, so it carries
+// this scope; everything inside belongs to Power.vue, hence :deep() below.
+.power {
+  font-family: $font-stack-base;
+  font-size: $font-xs;
+  line-height: 1.3;
+  padding: 0 0 $padding-md 0;
+
+  // The quick facts line, its entries separated by middots.
+  :deep(.power-subheader) {
+    justify-content: flex-start;
+
+    > * {
+      flex: 0 1 auto;
+      padding-right: 12px;
+      position: relative;
+
+      + * {
+        &::before {
+          display: block;
+          content: '·';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -8px;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  :deep(.power-details),
+  :deep(.power-feats) {
+    p {
+      margin: 0;
+
+      + p {
+        margin-top: $padding-md;
+      }
+    }
+  }
+
+  :deep(.power-header),
+  :deep(.power-details) {
+    margin: $padding-sm $padding-md;
+  }
+
+  :deep(.power-detail-label) {
+    margin-right: $padding-sm;
+  }
+
+  :deep(.power-detail-value),
+  :deep(.power-detail-content) {
+    > * {
+      padding-left: $padding-md;
+    }
+
+    > ul {
+      padding: 0 0 0 1.5em;
+      margin-left: 1em;
+    }
+
+    > .expression {
+      padding-left: 0;
+    }
+  }
+
+  :deep(.feat-uses) {
+    flex: 0 0 32px;
+  }
+
+  :deep(.power-detail--description) {
+    margin: $padding-md 0;
+
+    .power-detail-value {
+      > * {
+        padding-left: 0;
+      }
+    }
+  }
+
+  // Untaken feats read muted; taken ones at full strength.
+  :deep(.power-feat) {
+    background: $c-feat;
+    margin-bottom: 2px;
+    opacity: 0.25;
+    padding: $padding-sm $padding-md;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
 </style>
