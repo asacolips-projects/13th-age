@@ -15,7 +15,9 @@
                 <li v-for="n in track.borrowed" :key="`borrowed-${n}`" class="slot-pip filled borrowed">
                   <i class="fas fa-arrow-down"></i>
                 </li>
-                <li v-for="n in track.overflow" :key="`overflow-${n}`" class="slot-pip overflow"></li>
+                <li v-for="(letter, n) in track.overflow" :key="`overflow-${n}`" class="slot-pip overflow">
+                  <span v-if="letter" class="overflow-letter">{{ letter }}</span>
+                </li>
                 <li v-for="n in track.free" :key="`free-${n}`" class="slot-pip"></li>
               </ul>
             </span>
@@ -97,12 +99,13 @@ const itemCost = (item, charTier) => (TIER_ORDER[item.system?.tier] ?? 0) > char
 
 /**
  * Slot bookkeeping for one track: filled pips up to the allowance, squared
- * alert pips past it, hollow pips for what's left.
+ * alert pips past it, hollow pips for what's left. The alert pips carry the
+ * tier letter that overran, or none for the tierless magic item track.
  */
 const slotTrack = (key, consumed, slots) => ({
   key,
   filled: Math.min(consumed, slots),
-  overflow: Math.max(consumed - slots, 0),
+  overflow: Array(Math.max(consumed - slots, 0)).fill(null),
   free: Math.max(slots - consumed, 0),
   shown: slots > 0 || consumed > 0,
 });
@@ -141,32 +144,39 @@ const sections = computed(() => {
   // Feat slots: each level grants a slot in its tier's track — one per level
   // 1-4 for A, 5-7 for C, 8-10 for E — plus the single Z slot at 10th. A
   // tier's own feats fill its slots first; past that, feats spend the next
-  // tier up, and the borrowed pips wear the down-arrow. Whatever the
-  // cascade can't place alerts on the last track that shows.
+  // tier up, and the borrowed pips wear the down-arrow. Whatever the cascade
+  // can't place alerts on its own tier's track, each square wearing that
+  // tier's letter — which is why a track also shows when it has overflow.
   const takenByTier = new Map(TIER_SLOTS.map(tier =>
     [tier.key, featsForTier(tier).filter(({feat}) => feat.isActive.value).length]));
 
-  let spill = 0;
+  // Feats still unplaced, by origin tier letter.
+  let spill = [];
   const featTracks = TIER_SLOTS.map(tier => {
     const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap);
     const own = takenByTier.get(tier.key);
-    const demand = own + spill;
+    const demand = own + spill.length;
     const filled = Math.min(demand, allowance);
     const ownFilled = Math.min(own, filled);
-    spill = demand - filled;
+    // Own feats place first; what they leave, the carried feats and the
+    // tier's own unplaced ones spill upward, keeping their letters.
+    spill = spill.slice(filled - ownFilled).concat(Array(own - ownFilled).fill(tier.letter));
     return {
       key: tier.key,
       letter: tier.letter,
       filled: ownFilled,
       borrowed: filled - ownFilled,
-      overflow: 0,
+      overflow: [],
       free: allowance - filled,
       shown: allowance > 0 || filled > 0,
     };
   });
-  if (spill > 0) {
-    const lastShown = featTracks.findLast(track => track.shown);
-    if (lastShown) lastShown.overflow = spill;
+  for (const letter of spill) {
+    const track = featTracks.find(track => track.letter === letter);
+    if (track) {
+      track.overflow.push(letter);
+      track.shown = true;
+    }
   }
 
   return [
@@ -272,6 +282,14 @@ const sections = computed(() => {
       background: var(--v3-negative);
       border-color: var(--v3-negative);
     }
+  }
+
+  // The tier letter an unplaceable feat wears on its alert square.
+  .overflow-letter {
+    font-family: var(--v3-font-label);
+    font-size: 6px;
+    line-height: 0;
+    color: var(--c-white);
   }
 
   .loadout-list {
