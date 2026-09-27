@@ -20,24 +20,24 @@
       </div>
     </header>
 
-    <section v-for="group in powerGroups" :key="group.key" class="catalog-group">
-      <h4 class="catalog-group-title unit-title">{{ localize(group.labelKey) }}</h4>
+    <section v-for="section in catalogSections" :key="section.key" class="catalog-group"
+      :class="groupClasses(section.key)"
+      @dragover="onGroupDragOver($event, section.key)"
+      @dragleave="onGroupDragLeave($event, section.key)"
+      @drop="onGroupDrop($event, section.key)">
+      <h4 class="catalog-group-title unit-title"
+        :draggable="canReorderGroups"
+        @dragstart="onGroupDragStart($event, section.key)"
+        @dragend="onGroupDragEnd">
+        <i v-if="canReorderGroups" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
+        {{ localize(section.labelKey) }}
+      </h4>
       <ul class="catalog-list flexcol">
-        <ExpandablePower v-for="power in group.members" :key="power._id" :power="power" :actor="actor" :context="context"/>
-      </ul>
-    </section>
-
-    <section v-if="equipment.length" class="catalog-group">
-      <h4 class="catalog-group-title unit-title">{{ localize('ARCHMAGE.INVENTORY.equipment') }}</h4>
-      <ul class="catalog-list flexcol">
-        <ExpandableEquipment v-for="item in equipment" :key="item._id" :equipment="item" :actor="actor"/>
-      </ul>
-    </section>
-
-    <section v-if="loot.length" class="catalog-group">
-      <h4 class="catalog-group-title unit-title">{{ localize('ARCHMAGE.INVENTORY.loot') }}</h4>
-      <ul class="catalog-list flexcol">
-        <ExpandableLoot v-for="item in loot" :key="item._id" :equipment="item" :actor="actor"/>
+        <template v-for="item in section.members" :key="item._id">
+          <ExpandablePower v-if="section.kind === 'power'" :power="item" :actor="actor" :context="context"/>
+          <ExpandableEquipment v-else-if="section.kind === 'equipment'" :equipment="item" :actor="actor"/>
+          <ExpandableLoot v-else :equipment="item" :actor="actor"/>
+        </template>
       </ul>
     </section>
   </section>
@@ -45,15 +45,15 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-import { concat, localize } from '@/methods/Helpers';
+import { concat, getActor, localize } from '@/methods/Helpers';
 import ExpandablePower from '@/components/parts/expandable/ExpandablePower.vue';
 import ExpandableEquipment from '@/components/parts/expandable/ExpandableEquipment.vue';
 import ExpandableLoot from '@/components/parts/expandable/ExpandableLoot.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 
-// Powers are grouped by the selected mode; equipment and loot always keep
-// their own sections.
+// Powers are grouped by the selected mode; equipment and loot keep their own
+// sections but share the ordering with the power groups.
 const GROUP_MODES = {
   powerType: 'powerTypes',
   powerUsage: 'powerUsages',
@@ -75,6 +75,16 @@ const sortOptions = [
 const groupBy = ref('powerType');
 const sortBy = ref('name');
 const searchValue = ref(null);
+
+// Group reordering, mirroring the v2 powers tab. The drag state is transient;
+// the ordering itself persists to the actor flag shared with v2 (per groupBy
+// mode) so the two sheets agree.
+const draggedGroup = ref(null);
+const dragOverGroup = ref(null);
+
+// Group reordering is only offered when the sheet is editable and the actor
+// isn't a compendium entry (where flags can't be written).
+const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
 
 const byName = (a, b) => a.name.localeCompare(b.name);
 const byCustom = (a, b) => (a.sort || 0) - (b.sort || 0);
@@ -124,9 +134,30 @@ const groupValue = (item, mode) => {
 };
 
 /**
- * Non-empty power groups for the current groupBy mode, in display order:
+ * Saved group order for the current groupBy mode. Each mode keeps its own
+ * order so switching grouping doesn't clobber the others.
+ */
+const savedGroupOrder = computed(() => {
+  const stored = props.actor?.flags?.archmage?.sheetDisplay?.powers?.groupOrder?.[groupBy.value];
+  return Array.isArray(stored) ? stored : [];
+});
+
+/**
+ * Apply the saved group order to a list of groups, with any group the saved
+ * order doesn't know about appended in its natural spot.
+ */
+const orderedGroups = (groups) => {
+  const order = savedGroupOrder.value;
+  if (!order.length) return groups;
+  const byKey = new Map(groups.map(g => [g.key, g]));
+  return order.filter(key => byKey.has(key)).map(key => byKey.get(key))
+    .concat(groups.filter(g => !order.includes(g.key)));
+};
+
+/**
+ * Non-empty power groups for the current groupBy mode, in natural order:
  * canonical config order for built-in modes, first-appearance order for
- * custom groups. Each group is {key, labelKey, members}.
+ * custom groups. Each group is {key, labelKey, kind, members}.
  */
 const powerGroups = computed(() => {
   const items = powers.value;
@@ -140,7 +171,7 @@ const powerGroups = computed(() => {
       if (!members.length) continue;
       // powerType labels are pluralized keys, e.g. ARCHMAGE.talents.
       const labelKey = configKey === 'powerTypes' ? concat('ARCHMAGE.', key, 's') : concat('ARCHMAGE.', key);
-      groups.push({ key, labelKey, members });
+      groups.push({ key, labelKey, kind: 'power', members });
     }
     return groups;
   }
@@ -153,7 +184,7 @@ const powerGroups = computed(() => {
     const raw = item.system?.group?.value;
     const key = raw ? cleanGroupKey(raw) : 'power';
     if (!byKey.has(key)) {
-      const group = { key, labelKey: raw || 'ARCHMAGE.power', members: [] };
+      const group = { key, labelKey: raw || 'ARCHMAGE.power', kind: 'power', members: [] };
       byKey.set(key, group);
       groups.push(group);
     }
@@ -161,6 +192,98 @@ const powerGroups = computed(() => {
   }
   return groups;
 });
+
+// Keys for the inventory sections. The 'inventory-' prefix can't collide with
+// a custom power group, whose key is a stripped copy of its free-text name.
+const INVENTORY_SECTIONS = [
+  { key: 'inventory-equipment', labelKey: 'ARCHMAGE.INVENTORY.equipment', kind: 'equipment', items: equipment },
+  { key: 'inventory-loot', labelKey: 'ARCHMAGE.INVENTORY.loot', kind: 'loot', items: loot },
+];
+
+/**
+ * Every catalog section in display order: the power groups for the current
+ * groupBy mode, then the equipment and loot sections (when non-empty), with
+ * the saved group order applied so the inventory sections can interleave
+ * with the power groups.
+ */
+const catalogSections = computed(() => orderedGroups([
+  ...powerGroups.value,
+  ...INVENTORY_SECTIONS
+    .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value }))
+    .filter(section => section.members.length),
+]));
+
+/**
+ * Classes for a group section, including drag feedback.
+ */
+const groupClasses = (groupKey) => ({
+  'catalog-group--dragging': draggedGroup.value === groupKey,
+  'catalog-group--drop-target': dragOverGroup.value === groupKey,
+});
+
+const onGroupDragStart = (event, groupKey) => {
+  if (!canReorderGroups.value) return;
+  draggedGroup.value = groupKey;
+  event.dataTransfer.effectAllowed = 'move';
+  // Tag the payload so nothing downstream mistakes this for an item drag.
+  event.dataTransfer.setData('text/plain', JSON.stringify({
+    type: 'ArchmagePowerGroup',
+    groupKey
+  }));
+  // Don't let the sheet's item drag handling see this.
+  event.stopPropagation();
+};
+
+const onGroupDragOver = (event, groupKey) => {
+  if (!draggedGroup.value) return;
+  event.preventDefault();
+  event.stopPropagation();
+  dragOverGroup.value = groupKey === draggedGroup.value ? null : groupKey;
+};
+
+const onGroupDragLeave = (event, groupKey) => {
+  if (dragOverGroup.value !== groupKey) return;
+  // dragleave also fires when moving between children of the section, so
+  // only clear the highlight once the cursor has actually left it.
+  if (event.currentTarget.contains(event.relatedTarget)) return;
+  dragOverGroup.value = null;
+};
+
+const onGroupDrop = async (event, groupKey) => {
+  if (!draggedGroup.value) return;
+  // A group is being reordered, so keep this away from item sorting.
+  event.preventDefault();
+  event.stopPropagation();
+
+  const source = draggedGroup.value;
+  draggedGroup.value = null;
+  dragOverGroup.value = null;
+  if (source === groupKey) return;
+
+  // Rebuild the full order from what's currently displayed, dropping above
+  // or below the target based on where the cursor was released.
+  const order = catalogSections.value.map(g => g.key).filter(key => key !== source);
+  const index = order.indexOf(groupKey);
+  if (index < 0) return;
+  const rect = event.currentTarget.getBoundingClientRect();
+  const before = (event.clientY - rect.top) < (rect.height / 2);
+  order.splice(before ? index : index + 1, 0, source);
+
+  await saveGroupOrder(order);
+};
+
+const onGroupDragEnd = () => {
+  draggedGroup.value = null;
+  dragOverGroup.value = null;
+};
+
+const saveGroupOrder = async (order) => {
+  if (!canReorderGroups.value) return;
+  // Pack actors have no setFlag; getActor resolves the live document from
+  // the context actor's drag data.
+  const actor = await getActor(props.actor);
+  await actor?.setFlag('archmage', `sheetDisplay.powers.groupOrder.${groupBy.value}`, order);
+};
 </script>
 
 <style scoped lang="scss">
@@ -207,6 +330,35 @@ const powerGroups = computed(() => {
 
   .catalog-group-title {
     margin: 0 0 0.25rem;
+
+    // Group reordering affordances.
+    &[draggable="true"] {
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    &:hover .group-grip {
+      opacity: 1;
+    }
+  }
+
+  .group-grip {
+    font-size: var(--v3-font-size-label);
+    margin-right: $padding-sm;
+    opacity: 0.35;
+  }
+
+  .catalog-group--dragging {
+    opacity: 0.5;
+  }
+
+  .catalog-group--drop-target > .catalog-group-title {
+    outline: 2px dashed;
+    outline-offset: 2px;
+    margin-left: 4px;
   }
 
   .catalog-list {
