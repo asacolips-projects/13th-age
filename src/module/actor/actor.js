@@ -988,9 +988,11 @@ export class ActorArchmage extends Actor {
    * @param {string[]} iconIndexes | Indexes, such as ['i1', 'i2']
    * @param {number|null} diceOverride | Roll exactly this many dice per icon
    *   instead of each icon's full bonus (used by single-die rolls).
+   * @param {number|null} dieSlot | With diceOverride, the 0-based results slot
+   *   the rolled die belongs to; other dice are left untouched.
    * @returns object | Chat message
    */
-  async rollAndDisplayIconDice(iconIndexes, diceOverride = null) {
+  async rollAndDisplayIconDice(iconIndexes, diceOverride = null, dieSlot = null) {
     const actorData = this.system;
 
     const is2e = CONFIG.ARCHMAGE.is2e;
@@ -1026,7 +1028,25 @@ export class ActorArchmage extends Actor {
       const results = roll.terms[0].rolls[i].terms[0].results.map(x => x.result);
       input.results = results;
 
-      actorUpdate[`system.icons.${input.iconIndex}.results`] = [];
+      const updateKey = `system.icons.${input.iconIndex}.results`;
+
+      if (dieSlot !== null) {
+        // Per-die roll: write the rolled die into its own slot and leave the
+        // other dice untouched. Only high rolls fill the slot; anything else
+        // empties it (the alt method counts 4+ and marks the slot with a 6).
+        input.fives = (!is2e && !is2eAlt && results[0] === 5) ? 1 : 0;
+        input.sixes = is2eAlt ? (results[0] >= 4 ? 1 : 0)
+          : is2e ? (results[0] >= 5 ? 1 : 0)
+          : (results[0] === 6 ? 1 : 0);
+        const success = input.sixes > 0 || input.fives > 0;
+        const current = [...(actorData.icons?.[input.iconIndex]?.results || [])];
+        while (current.length < input.icon.bonus.value) current.push(0);
+        current[dieSlot] = success ? (is2eAlt ? 6 : results[0]) : 0;
+        actorUpdate[updateKey] = current;
+        return;
+      }
+
+      actorUpdate[updateKey] = [];
       if (is2eAlt) {
         // For 2e alt, we count 4, 5, and 6 as successes, and we do not replace the existing results
         input.fives = 0;
@@ -1110,13 +1130,14 @@ export class ActorArchmage extends Actor {
       const dice = Number(icon.bonus.value) || 0;
       for (let die = 1; die <= dice; die++) {
         // Single-die icons are labeled with their name alone; multi-die
-        // icons get one numbered button per die.
+        // icons get one numbered button per die. Each rolls into its own
+        // results slot.
         buttons.push({
           action: `die-${key}-${die}`,
           label: dice > 1
             ? game.i18n.format('ARCHMAGE.ICONROLLS.rollDieNumbered', { name, die })
             : name,
-          callback: () => this.rollAndDisplayIconDice([key], 1)
+          callback: () => this.rollAndDisplayIconDice([key], 1, die - 1)
         });
       }
     }
