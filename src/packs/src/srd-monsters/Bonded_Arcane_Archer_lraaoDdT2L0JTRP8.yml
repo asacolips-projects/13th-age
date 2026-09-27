@@ -1,4 +1,5 @@
 _id: lraaoDdT2L0JTRP8
+_key: '!actors!lraaoDdT2L0JTRP8'
 effects: []
 flags:
   archmage:
@@ -7,327 +8,272 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/construct.webp
 items:
-  - _id: rFkkPwvAfBWvzeOH
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/target.svg
-    name: Fast strike
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[40]] damage and the bonded makes an *arrows of fate* attack as a
-          quick action
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!lraaoDdT2L0JTRP8.rFkkPwvAfBWvzeOH'
-  - _id: XvPD7c9G0kweAOXq
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/target.svg
-    name: 'R: Arrows of fate'
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          [[40]] force damage, and the arcane archer can make another *arrows of
-          fate* attack as a quick action. Each enemy can only be targeted once
-          by an arrows of fate attack on each of the bonded’s turns.
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!lraaoDdT2L0JTRP8.XvPD7c9G0kweAOXq'
-  - _id: Gxujha3rqWFAqAwz
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/target.svg
-    name: '(NS) C: Overwatch shot'
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. AC (the triggering enemy)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[60]] force damage and the target loses the rest of its move action'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!lraaoDdT2L0JTRP8.Gxujha3rqWFAqAwz'
-  - _id: 5jlT7LmuBDJnAABi
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/poison.svg
-    name: Doesn’t provoke
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>This bonded can make ranged attacks in melee and not provoke
-          attacks from those that it is engaged with. When leaving engagement
-          the bonded does not provoke attacks.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: nastierSpecial
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!lraaoDdT2L0JTRP8.5jlT7LmuBDJnAABi'
-  - _id: uHWBWaiPCZJLxKvw
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/poison.svg
-    name: Overwatch
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>As a move action, if the bonded isn&rsquo;t engaged, it can declare
-          a creature or item or point on the battlefield to be the target of its
-          overwatch. If before its next turn an enemy moves close to the focus
-          of the overwatch, the bonded can make the *overwatch shot* attack on
-          the triggering enemy.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: nastierSpecial
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!lraaoDdT2L0JTRP8.uHWBWaiPCZJLxKvw'
+- _id: rFkkPwvAfBWvzeOH
+  _key: '!actors.items!lraaoDdT2L0JTRP8.rFkkPwvAfBWvzeOH'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Fast strike
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 13]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[40]] damage and the bonded makes an *arrows of fate* attack as a quick
+        action'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: XvPD7c9G0kweAOXq
+  _key: '!actors.items!lraaoDdT2L0JTRP8.XvPD7c9G0kweAOXq'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'R: Arrows of fate'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 13]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: "[[40]] force damage, and the arcane archer can make another *arrows\
+        \ of fate* attack as a quick action. Each enemy can only be targeted once\
+        \ by an arrows of fate attack on each of the bonded\u2019s turns."
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Gxujha3rqWFAqAwz
+  _key: '!actors.items!lraaoDdT2L0JTRP8.Gxujha3rqWFAqAwz'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '(NS) C: Overwatch shot'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 12]] vs. AC (the triggering enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[60]] force damage and the target loses the rest of its move action'
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 5jlT7LmuBDJnAABi
+  _key: '!actors.items!lraaoDdT2L0JTRP8.5jlT7LmuBDJnAABi'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: "Doesn\u2019t provoke"
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>This bonded can make ranged attacks in melee and not provoke attacks
+        from those that it is engaged with. When leaving engagement the bonded does
+        not provoke attacks.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: uHWBWaiPCZJLxKvw
+  _key: '!actors.items!lraaoDdT2L0JTRP8.uHWBWaiPCZJLxKvw'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Overwatch
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>As a move action, if the bonded isn&rsquo;t engaged, it can declare
+        a creature or item or point on the battlefield to be the target of its overwatch.
+        If before its next turn an enemy moves close to the focus of the overwatch,
+        the bonded can make the *overwatch shot* attack on the triggering enemy.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
 name: Bonded Arcane Archer
 ownership:
   default: 0
@@ -339,6 +285,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
+  depth: 1
   detectionModes: {}
   displayBars: 0
   displayName: 0
@@ -409,10 +356,15 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
-  depth: 1
 sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 21
     attackMod:
       type: Number
       value: 0
@@ -423,76 +375,72 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 21
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 310
-      min: 0
-      max: 310
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 15
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 310
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 310
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 15
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 7
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 19
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 19
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: archer
@@ -506,80 +454,67 @@ system:
       value: triple
     type:
       value: construct
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
+        enabled: false
 type: npc
-_stats:
-  coreVersion: '14.364'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-_key: '!actors!lraaoDdT2L0JTRP8'

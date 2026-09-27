@@ -1,4 +1,5 @@
 _id: FkrblWloZj1stnIF
+_key: '!actors!FkrblWloZj1stnIF'
 effects: []
 flags:
   archmage:
@@ -7,288 +8,243 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
 items:
-  - _id: TjI0BZRhlCcUoFPv
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/target.svg
-    name: Claws that burrow under your skin
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 8]] vs. PD'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[8]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural even hit
-        value: >-
-          The xombie spider is under the target’s skin. The target takes [[8]]
-          damage if it disengages from the spider.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!FkrblWloZj1stnIF.TjI0BZRhlCcUoFPv'
-  - _id: 5eqchhO1pbA2jAWi
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/target.svg
-    name: 'C: Chittering call'
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 +7]] vs. MD (one nearby or faraway enemy)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          The target can’t willingly engage a xombie spider or any other spider
-          (save ends). Creatures immune to fear are immune to this effect.
-      hit1:
-        type: String
-        label: Hit
-        name: Limited use
-        value: >-
-          1/round, as a quick action. In addition, once a creature has saved
-          against the effect, it can’t be targeted by chittering call attacks
-          again this battle.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!FkrblWloZj1stnIF.5eqchhO1pbA2jAWi'
-  - _id: Zq8CQXR5jDDT73yN
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/regen.svg
-    name: Group ability
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>For every three star-mask spiders in the battle (round up), one of
-          them can use tendril web once during the battle.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: trait
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!FkrblWloZj1stnIF.Zq8CQXR5jDDT73yN'
-  - _id: lhvJYFsJPVXWcR13
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/target.svg
-    name: '[Group ability] Tendril web'
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 7]] vs. PD ([[1d3]] enemies engaged with it)'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: >-
-          The target is *stuck* (save ends); until the target saves, the xombie
-          spider gains a +1 attack bonus against it
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!FkrblWloZj1stnIF.lhvJYFsJPVXWcR13'
+- _id: TjI0BZRhlCcUoFPv
+  _key: '!actors.items!FkrblWloZj1stnIF.TjI0BZRhlCcUoFPv'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Claws that burrow under your skin
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 8]] vs. PD'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[8]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: String
+      value: "The xombie spider is under the target\u2019s skin. The target takes\
+        \ [[8]] damage if it disengages from the spider."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: 5eqchhO1pbA2jAWi
+  _key: '!actors.items!FkrblWloZj1stnIF.5eqchhO1pbA2jAWi'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: 'C: Chittering call'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 +7]] vs. MD (one nearby or faraway enemy)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: "The target can\u2019t willingly engage a xombie spider or any other\
+        \ spider (save ends). Creatures immune to fear are immune to this effect."
+    hit1:
+      label: Hit
+      name: Limited use
+      type: String
+      value: "1/round, as a quick action. In addition, once a creature has saved against\
+        \ the effect, it can\u2019t be targeted by chittering call attacks again this\
+        \ battle."
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: Zq8CQXR5jDDT73yN
+  _key: '!actors.items!FkrblWloZj1stnIF.Zq8CQXR5jDDT73yN'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Group ability
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>For every three star-mask spiders in the battle (round up), one of
+        them can use tendril web once during the battle.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: lhvJYFsJPVXWcR13
+  _key: '!actors.items!FkrblWloZj1stnIF.lhvJYFsJPVXWcR13'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: '[Group ability] Tendril web'
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 7]] vs. PD ([[1d3]] enemies engaged with it)'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: The target is *stuck* (save ends); until the target saves, the xombie
+        spider gains a +1 attack bonus against it
+    hit1:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
 name: Xombie Spiders
 ownership:
   default: 0
@@ -300,6 +256,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
+  depth: 1
   detectionModes: {}
   displayBars: 0
   displayName: 0
@@ -370,10 +327,15 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
-  depth: 1
 sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 17
     attackMod:
       type: Number
       value: 0
@@ -384,76 +346,72 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 17
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 11
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 15
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 46
-      min: 0
-      max: 46
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 10
-    level:
-      type: Number
-      label: Level
-      value: 3
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 46
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 46
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 10
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 3
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 15
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 11
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: blocker
@@ -467,80 +425,67 @@ system:
       value: normal
     type:
       value: aberration
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
+        enabled: false
 type: npc
-_stats:
-  coreVersion: '14.364'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-_key: '!actors!FkrblWloZj1stnIF'
