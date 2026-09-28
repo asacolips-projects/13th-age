@@ -27,6 +27,7 @@ import { TokenArchmage } from './actor/token.js';
 import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 import { ArchmageCharacterSettingsApp } from './applications/character-settings.js';
+import { ArchmagePowerImporterApplication } from './applications/power-importer.js';
 import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
 import { baselineMonsterDialog } from './actor/baseline-monster.js';
 
@@ -150,6 +151,7 @@ Hooks.once('init', async function() {
     ActorHelpersV2,
     ArchmageCompendiumBrowserApplication,
     ArchmageCharacterSettingsApp,
+    ArchmagePowerImporterApplication,
     isSocketGM: () => game.users.activeGM.id === game.user.id,
     system: {
       moduleArt: {

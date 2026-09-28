@@ -18,6 +18,9 @@
         <label for="catalog-filter">{{localize('ARCHMAGE.filter')}}</label>
         <input type="text" name="catalog-filter" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
       </div>
+      <div class="import-catalog" v-if="canImport">
+        <button type="button" class="catalog-import" :title="localize('ARCHMAGE.import')" @click="importPowers"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
+      </div>
     </header>
 
     <section v-for="section in catalogSections" :key="section.key" class="catalog-group"
@@ -89,6 +92,16 @@ const dragOverGroup = ref(null);
 // Group reordering is only offered when the sheet is editable and the actor
 // isn't a compendium entry (where flags can't be written).
 const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
+
+// The import button opens the power importer for the live actor. Like the v2
+// sheet, non-GM users who turned it off in the character settings don't see it.
+const canImport = computed(() =>
+  !(props.actor?.flags?.archmage?.hideImportPowers === true && !game.user.isGM));
+
+const importPowers = async () => {
+  const actor = await getActor(props.actor);
+  await game.archmage?.ArchmagePowerImporterApplication?.open(actor);
+};
 
 // Persist display preference changes through the live actor document;
 // props.actor is a data clone whose flag updates wouldn't round-trip. Writing
@@ -336,6 +349,18 @@ const saveGroupOrder = async (order) => {
       font-family: $font-stack-label;
       text-align: left;
       font-weight: normal;
+    }
+  }
+
+  // Import button, aligned to the control row (no label above it).
+  .import-catalog {
+    align-self: flex-end;
+
+    button {
+      height: var(--input-height);
+      font-size: var(--v3-font-size-title);
+      border-radius: 3px;
+      background: transparent;
     }
   }
 

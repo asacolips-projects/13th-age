@@ -1,6 +1,7 @@
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmagePowerImporter } from "../../vue/components.vue.es.js";
+import { ArchmagePrepopulate } from "../setup/archmage-prepopulate.js";
 
 /**
  * Application class for the power importer.
@@ -13,6 +14,23 @@ import { ArchmagePowerImporter } from "../../vue/components.vue.es.js";
  * @extends {Application}
  */
 export class ArchmagePowerImporterApplication extends Application {
+  /**
+   * Gather the import data for an actor and open the importer, mirroring the
+   * v2 sheet's _importPowers flow. Static so the Vue sheet can call it through
+   * game.archmage without the vue bundle importing module internals.
+   *
+   * @param {Actor} actor   The character actor to import powers onto.
+   * @returns {Promise<Application>|undefined}
+   */
+  static async open(actor) {
+    if (!actor || actor.pack) return;
+    const characterRace = actor.system.details.race.value;
+    const characterClasses = actor.system.details.detectedClasses ?? [];
+    const importData = await new ArchmagePrepopulate().getImportData(characterClasses, characterRace, actor);
+    if (!importData?.tabs?.length) return;
+    return new ArchmagePowerImporterApplication({actor, importData}).render(true);
+  }
+
   /** @override */
   constructor(options = {}) {
     super(options);
