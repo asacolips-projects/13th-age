@@ -302,7 +302,7 @@
     Object.fromEntries(
       Object.entries(CONFIG.Actor.characterFlags).map(([key, flag]) => {
         const value = props.context.actor.flags?.archmage?.[key] ?? null;
-        return [key, { ...flag, value }];
+        return [key, { ...flag, key, value }];
       })
     )
   );

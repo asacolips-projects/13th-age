@@ -55,6 +55,7 @@ const actorDocument = inject('actorDocument');
 const icons = computed(() =>
   Object.entries(props.actor?.system?.icons ?? {})
     .filter(([_, icon]) => icon.isActive.value === true)
+    .filter(([_, icon]) => editing.value || Number(icon.bonus.value) > 1)
     .map(([key, icon]) => ({
       key,
       raw: icon,
