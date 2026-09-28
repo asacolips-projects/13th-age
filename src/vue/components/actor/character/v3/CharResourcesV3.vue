@@ -89,14 +89,14 @@
          through the rollable labels; each group is one line to keep the bar
          short. -->
     <section v-if="rerolls?.enabled" class="unit unit--rerolls">
-      <div class="reroll-group">
+      <div v-if="rerolls.AC.max > 0" class="reroll-group">
         <RollableV3 name="reroll" @click="rollReroll('AC')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
         <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
         <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
         <span class="resource-separator">/</span>
         <span class="resource-value">{{ rerolls.AC.max }}</span>
       </div>
-      <div class="reroll-group">
+      <div v-if="rerolls.save.max > 0" class="reroll-group">
         <RollableV3 name="reroll" @click="rollReroll('save')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
         <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
         <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
