@@ -46,9 +46,9 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
 import { concat, getActor, localize } from '@/methods/Helpers';
-import ExpandablePower from '@/components/parts/expandable/ExpandablePower.vue';
-import ExpandableEquipment from '@/components/parts/expandable/ExpandableEquipment.vue';
-import ExpandableLoot from '@/components/parts/expandable/ExpandableLoot.vue';
+import ExpandablePower from '@/components/actor/character/v3/parts/expandable/ExpandablePower.vue';
+import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
+import ExpandableLoot from '@/components/actor/character/v3/parts/expandable/ExpandableLoot.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 

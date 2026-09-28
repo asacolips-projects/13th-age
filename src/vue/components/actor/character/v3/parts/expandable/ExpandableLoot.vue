@@ -23,7 +23,7 @@
  * data the sheet passes down.
  */
 import { changeQuantity, deleteItem, editItem } from '@/methods/Helpers';
-import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
+import ExpandableItem from './ExpandableItem.vue';
 import LootDetailsV3 from '@/components/actor/character/v3/parts/LootDetailsV3.vue';
 import EquipmentSummaryRow from '@/components/parts/EquipmentSummaryRow.vue';
 

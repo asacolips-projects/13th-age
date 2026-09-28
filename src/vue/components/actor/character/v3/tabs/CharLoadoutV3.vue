@@ -69,8 +69,8 @@
  */
 import { computed } from 'vue';
 import { attunementCost, characterTierIndex, filterFeats, localize, TIERS as TIER_SLOTS, togglePip, TIER_ORDER } from '@/methods/Helpers';
-import ExpandableEquipment from '@/components/parts/expandable/ExpandableEquipment.vue';
-import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
+import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
+import ExpandableItem from '@/components/actor/character/v3/parts/expandable/ExpandableItem.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 

@@ -58,7 +58,7 @@
  */
 import { inject } from 'vue';
 import { changeQuantity, deleteItem, editItem, getActionShort, hasFeats, hasSecondaryUsage, togglePip } from '@/methods/Helpers';
-import ExpandableItem from '@/components/parts/expandable/ExpandableItem.vue';
+import ExpandableItem from './ExpandableItem.vue';
 import Power from '@/components/parts/Power.vue';
 import PowerFeatPips from '@/components/parts/PowerFeatPips.vue';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';

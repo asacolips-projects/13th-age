@@ -22,7 +22,7 @@
  * and controls. The expand state belongs to ExpandableItem, keyed to the
  * power by the caller's v-for key.
  */
-import ExpandablePowerRow from '@/components/parts/expandable/ExpandablePowerRow.vue';
+import ExpandablePowerRow from './expandable/ExpandablePowerRow.vue';
 import PowerDetailsV3 from './PowerDetailsV3.vue';
 
 defineProps({
