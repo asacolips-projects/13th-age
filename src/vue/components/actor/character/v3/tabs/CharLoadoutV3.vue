@@ -31,25 +31,32 @@
           <ExpandableEquipment v-for="item in section.members" :key="item._id" :equipment="item" :actor="actor"/>
         </template>
 
-        <!-- Feats. The row is the feat, but the item is the power it belongs
-             to, so data-item-id stays truthful for drag and the sheet's
-             delegated listeners; the entry's key drives the pip toggle. -->
+        <!-- Feats, grouped into tiers, each group under its own separator.
+             The row is the feat, but the item is the power it belongs to, so
+             data-item-id stays truthful for drag and the sheet's delegated
+             listeners; the entry's key drives the pip toggle. -->
         <template v-else>
-          <ExpandableItem v-for="feat in section.members" :key="feat.id" :item="feat.power" base-class="feat">
-            <template #summary="{toggle}">
-              <a class="feat-summary" @click="toggle">
-                <img :src="feat.power.img" class="feat-power-image"/>
-                <h3 class="feat-power-name">{{ feat.power.name }}</h3>
-                <span class="tier-letter feat-tier" :data-tier="feat.tier.key">{{ feat.tier.letter }}</span>
-                <span class="feat-active" :class="{taken: feat.feat.isActive.value}"
-                  :title="localize('ARCHMAGE.ITEM.active')"
-                  @click.stop="togglePip(actor, feat.power._id, feat.key)"></span>
-              </a>
-            </template>
-            <template #content="{active}">
-              <div v-if="active" class="feat-description" v-html="feat.feat.description.value"></div>
-            </template>
-          </ExpandableItem>
+          <template v-for="group in section.tierGroups" :key="group.tier.key">
+            <li class="feat-tier-separator">
+              <span class="tier-letter" :data-tier="group.tier.key">{{ group.tier.letter }}</span>
+              <span class="separator-line" aria-hidden="true"></span>
+            </li>
+            <ExpandableItem v-for="feat in group.members" :key="feat.id" :item="feat.power" base-class="feat">
+              <template #summary="{toggle}">
+                <a class="feat-summary" @click="toggle">
+                  <img :src="feat.power.img" class="feat-power-image"/>
+                  <h3 class="feat-power-name">{{ feat.power.name }}</h3>
+                  <span class="tier-letter feat-tier" :data-tier="feat.tier.key">{{ feat.tier.letter }}</span>
+                  <span class="feat-active" :class="{taken: feat.feat.isActive.value}"
+                    :title="localize('ARCHMAGE.ITEM.active')"
+                    @click.stop="togglePip(actor, feat.power._id, feat.key)"></span>
+                </a>
+              </template>
+              <template #content="{active}">
+                <div v-if="active" class="feat-description" v-html="feat.feat.description.value"></div>
+              </template>
+            </ExpandableItem>
+          </template>
         </template>
 
         <li v-if="!section.members.length" class="loadout-empty">&mdash;</li>
@@ -160,6 +167,12 @@ const sections = computed(() => {
     }
   }
 
+  // Feats grouped by their tier for the separator rows; tiers with no
+  // feats under them get no separator.
+  const tierGroups = TIER_SLOTS
+    .map(tier => ({ tier, members: featsForTier(tier) }))
+    .filter(group => group.members.length);
+
   return [
     {
       key: 'equipment',
@@ -172,7 +185,8 @@ const sections = computed(() => {
       key: 'feats',
       kind: 'feats',
       labelKey: 'ARCHMAGE.feats',
-      members: TIER_SLOTS.flatMap(featsForTier),
+      members: tierGroups.flatMap(group => group.members),
+      tierGroups,
       tracks: featTracks,
     },
   ];
@@ -318,10 +332,9 @@ const sections = computed(() => {
       white-space: nowrap;
     }
 
-    // The feat's tier, quieter than the header chips.
+    // The feat's tier, same chip as the separator and the header tracks.
     .feat-tier {
       flex: 0 0 auto;
-      opacity: 0.6;
     }
 
     // Whether the feat is taken: the same open/filled pip the attunement
@@ -343,14 +356,29 @@ const sections = computed(() => {
     }
   }
 
-  .feat-content {
-    overflow: hidden;
+  // Between tier groups of feats: the tier's letter chip on a hairline that
+  // runs to the end of the row.
+  .feat-tier-separator {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin: 0.375rem 0 0.125rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    .separator-line {
+      flex: 1;
+      height: 1px;
+      background: var(--v3-border);
+    }
   }
 
   .feat-description {
-    padding: 0.25rem 0.5rem 0.25rem 2rem;
+    background: var(--v3-feat);
+    padding: 0.375rem 0.75rem 0.375rem 2rem;
     font-size: var(--v3-font-size-label);
-    color: var(--v3-text-muted);
 
     :deep(p) {
       margin: 0;
