@@ -33,7 +33,8 @@
         @dragstart="onGroupDragStart($event, section.key)"
         @dragend="onGroupDragEnd">
         <i v-if="canReorderGroups" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
-        {{ localize(section.labelKey) }}
+        <span class="group-title-label">{{ localize(section.labelKey) }}</span>
+        <a v-if="editable" class="group-add" :title="addTitle(section)" @click.stop="createGroupItem(section)"><i class="fas fa-plus"></i></a>
       </h4>
       <ul class="catalog-list flexcol">
         <template v-for="item in section.members" :key="item._id">
@@ -47,13 +48,16 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, inject, ref, watch } from 'vue';
 import { concat, getActor, localize } from '@/methods/Helpers';
 import ExpandablePower from '@/components/actor/character/v3/parts/expandable/ExpandablePower.vue';
 import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
 import ExpandableLoot from '@/components/actor/character/v3/parts/expandable/ExpandableLoot.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
+
+// Creation writes go through the real actor document; props.actor is a clone.
+const actorDocument = inject('actorDocument');
 
 // Powers are grouped by the selected mode; equipment and loot keep their own
 // sections but share the ordering with the power groups.
@@ -187,9 +191,10 @@ const orderedGroups = (groups) => {
 };
 
 /**
- * Non-empty power groups for the current groupBy mode, in natural order:
- * canonical config order for built-in modes, first-appearance order for
- * custom groups. Each group is {key, labelKey, kind, members}.
+ * Power groups for the current groupBy mode, in natural order: canonical
+ * config order for built-in modes, first-appearance order for custom groups.
+ * Groups are always shown, empty or not, so their "+" button has a home.
+ * Each group is {key, labelKey, raw, kind, members}.
  */
 const powerGroups = computed(() => {
   const items = powers.value;
@@ -200,7 +205,6 @@ const powerGroups = computed(() => {
     const groups = [];
     for (const key of Object.keys(CONFIG.ARCHMAGE[configKey])) {
       const members = items.filter(i => groupValue(i, mode) === key);
-      if (!members.length) continue;
       // powerType labels are pluralized keys, e.g. ARCHMAGE.talents.
       const labelKey = configKey === 'powerTypes' ? concat('ARCHMAGE.', key, 's') : concat('ARCHMAGE.', key);
       groups.push({ key, labelKey, kind: 'power', members });
@@ -209,18 +213,23 @@ const powerGroups = computed(() => {
   }
 
   // Custom groups come from the item's free-text group field; ungrouped
-  // powers collect under the default group.
+  // powers collect under the default group, which is always shown so its
+  // "+" can create the first power in an empty catalog. `raw` keeps the
+  // group's display name for pre-filling new items.
   const groups = [];
   const byKey = new Map();
   for (const item of items) {
     const raw = item.system?.group?.value;
     const key = raw ? cleanGroupKey(raw) : 'power';
     if (!byKey.has(key)) {
-      const group = { key, labelKey: raw || 'ARCHMAGE.power', kind: 'power', members: [] };
+      const group = { key, labelKey: raw || 'ARCHMAGE.power', raw: raw || '', kind: 'power', members: [] };
       byKey.set(key, group);
       groups.push(group);
     }
     byKey.get(key).members.push(item);
+  }
+  if (!byKey.has('power')) {
+    groups.push({ key: 'power', labelKey: 'ARCHMAGE.power', raw: '', kind: 'power', members: [] });
   }
   return groups;
 });
@@ -234,15 +243,13 @@ const INVENTORY_SECTIONS = [
 
 /**
  * Every catalog section in display order: the power groups for the current
- * groupBy mode, then the equipment and loot sections (when non-empty), with
- * the saved group order applied so the inventory sections can interleave
- * with the power groups.
+ * groupBy mode, then the equipment and loot sections. Sections always show,
+ * even when empty, so their "+" buttons can fill them.
  */
 const catalogSections = computed(() => orderedGroups([
   ...powerGroups.value,
   ...INVENTORY_SECTIONS
-    .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value }))
-    .filter(section => section.members.length),
+    .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value })),
 ]));
 
 /**
@@ -316,6 +323,42 @@ const saveGroupOrder = async (order) => {
   const actor = await getActor(props.actor);
   await actor?.setFlag('archmage', `sheetDisplay.powers.groupOrder.${groupBy.value}`, order);
 };
+
+/**
+ * Title for a section's "+" button.
+ */
+const addTitle = (section) => game.i18n.format('ARCHMAGE.addToGroup', {
+  group: localize(section.labelKey)
+});
+
+/**
+ * Item data for a section's "+" button, pre-filled so the new item lands in
+ * the group it was added from: built-in group modes set the mode's system
+ * field (e.g. system.powerUsage.value), custom groups set the free-text group
+ * (the default group leaves it empty), inventory sections just use their type.
+ */
+const groupCreateData = (section) => {
+  if (section.kind !== 'power') return { type: section.kind, system: {} };
+  if (groupBy.value === 'group') {
+    return { type: 'power', system: section.raw ? { group: { value: section.raw } } : {} };
+  }
+  return { type: 'power', system: { [groupBy.value]: { value: section.key } } };
+};
+
+/**
+ * Create a new item from a section's "+" button, named and imaged like the
+ * v2 sheet's add buttons.
+ */
+const createGroupItem = async (section) => {
+  if (!actorDocument) return;
+  const { type, system } = groupCreateData(section);
+  await actorDocument.createEmbeddedDocuments('Item', [{
+    name: game.archmage.ArchmageUtility.formatNewItemName(type),
+    type,
+    img: CONFIG.ARCHMAGE.defaultTokens[type] ?? CONFIG.DEFAULT_TOKEN,
+    system
+  }]);
+};
 </script>
 
 <style scoped lang="scss">
@@ -374,6 +417,22 @@ const saveGroupOrder = async (order) => {
 
   .catalog-group-title {
     margin: 0 0 0.25rem;
+    display: flex;
+    align-items: center;
+
+    .group-title-label {
+      flex: 1;
+      text-align: left;
+    }
+
+    .group-add {
+      cursor: pointer;
+      font-size: var(--v3-font-size-label);
+
+      &:hover {
+        text-shadow: 0 0 5px var(--v3-hover-glow);
+      }
+    }
 
     // Group reordering affordances.
     &[draggable="true"] {
