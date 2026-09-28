@@ -18,7 +18,6 @@
         :enrichment-options="enrichmentOptions"/>
     </fieldset>
     <fieldset v-if="detailFields.length" class="fieldset-details">
-      <legend>{{ localize('ARCHMAGE.details') }}</legend>
       <div v-for="field in detailFields" :key="field" class="power-detail" :data-field="field">
         <strong class="detail-label">{{ localize(`ARCHMAGE.CHAT.${field}`) }}:</strong>
         <Enriched tag="div" class="detail-value" :text="power.system[field].value" :replacements="[]"
@@ -53,7 +52,7 @@
  * sheet enriches them.
  */
 import { computed, inject } from 'vue';
-import { filterFeats, localize } from '@/methods/Helpers';
+import { filterFeats, localize, TIERS } from '@/methods/Helpers';
 import { isPowerFieldVisible, powerFieldKeys } from '@src/module/item/power-fields.mjs';
 import { powerUsageColor } from '@src/module/item/power-usage.mjs';
 import Enriched from '@/components/parts/Enriched.vue';
@@ -75,11 +74,11 @@ const feats = computed(() => Object.entries(filterFeats(props.power.system.feats
   .map(([key, feat]) => ({key, feat})));
 
 /**
- * Single-letter prefix of a feat's tier: A for adventurer, C for champion,
- * E for epic.
+ * Single-letter tier label: A for adventurer, C for champion, E for epic,
+ * Z for zenith (the data's 'iconic' tier).
  */
 function tierLetter(feat) {
-  return feat.tier?.value?.charAt(0).toUpperCase() ?? '';
+  return TIERS.find(tier => tier.key === feat.tier?.value)?.letter ?? '';
 }
 
 // DiceArchmage and the roll methods live on the real document; props.actor is
