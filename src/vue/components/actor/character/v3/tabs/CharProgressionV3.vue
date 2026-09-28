@@ -1,6 +1,6 @@
 <template>
-  <section class="tab-advancement">
-    <p class="placeholder">(WIP) &mdash; {{ localize('ARCHMAGE.advancement') }}</p>
+  <section class="tab-progression">
+    <p class="placeholder">(WIP) &mdash; {{ localize('ARCHMAGE.progression') }}</p>
   </section>
 </template>
 

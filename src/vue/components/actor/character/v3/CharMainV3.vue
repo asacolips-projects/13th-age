@@ -21,8 +21,8 @@
       <Tab group="v3" :tab="tabs.loadout" classes="tab-body">
         <CharLoadoutV3 :actor="context.actor" :editable="context.editable" />
       </Tab>
-      <Tab group="v3" :tab="tabs.advancement" classes="tab-body">
-        <CharAdvancementV3 :actor="context.actor" :editable="context.editable" />
+      <Tab group="v3" :tab="tabs.progression" classes="tab-body">
+        <CharProgressionV3 :actor="context.actor" :editable="context.editable" />
       </Tab>
       <Tab group="v3" :tab="tabs.notes" classes="tab-body">
         <CharNotesV3 :actor="context.actor" :editable="context.editable" />
@@ -40,7 +40,7 @@ import CharTriggersV3 from './tabs/CharTriggersV3.vue';
 import CharCatalogV3 from './tabs/CharCatalogV3.vue';
 import CharEffectsV3 from './tabs/CharEffectsV3.vue';
 import CharLoadoutV3 from './tabs/CharLoadoutV3.vue';
-import CharAdvancementV3 from './tabs/CharAdvancementV3.vue';
+import CharProgressionV3 from './tabs/CharProgressionV3.vue';
 import CharNotesV3 from './tabs/CharNotesV3.vue';
 
 const props = defineProps(['context']);
@@ -61,7 +61,7 @@ const rawTabs = {
   triggers: { key: 'triggers', label: localize('ARCHMAGE.triggers') },
   effects: { key: 'effects', label: localize('ARCHMAGE.effects') },
   loadout: { key: 'loadout', label: localize('ARCHMAGE.loadout') },
-  advancement: { key: 'advancement', label: localize('ARCHMAGE.advancement') },
+  progression: { key: 'progression', label: localize('ARCHMAGE.progression') },
   notes: { key: 'notes', label: localize('ARCHMAGE.notes'), icon: 'fa-note-sticky', hideLabel: true }
 };
 const tabs = reactive(rawTabs);

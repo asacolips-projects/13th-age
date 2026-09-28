@@ -7,7 +7,6 @@ ARCHMAGE:
   actionPlan: Action Plan
   actions: Actions
   activeEffects: Active Effects
-  advancement: Advancement
   add: Add
   addToGroup: Add to {group}
   adventurer: Adventurer
@@ -155,6 +154,7 @@ ARCHMAGE:
   powerName: Power Name
   powers: Powers
   preview: Preview
+  progression: Progression
   punchWeaponDice: PUNCH Weapon Dice
   QCK: QCK
   quantity: Quantity
