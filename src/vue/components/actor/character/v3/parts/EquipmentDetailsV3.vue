@@ -8,7 +8,6 @@
     <!-- Bonuses, then the chakra slot, then the description: sectioned like
          the item sheet's fieldsets for readability. -->
     <fieldset v-if="bonusEntries.length" class="fieldset-bonuses">
-      <legend>{{ localize('ARCHMAGE.bonuses') }}</legend>
       <div v-for="[key, value] in bonusEntries" :key="key" class="equipment-detail">
         <strong class="detail-label">{{ localizeEquipmentBonus(key) }}:</strong>
         <span class="detail-value">{{ numberFormat(value, 0, true) }}</span>
@@ -16,7 +15,6 @@
     </fieldset>
 
     <fieldset v-if="chakraLabel" class="fieldset-details">
-      <legend>{{ localize('ARCHMAGE.details') }}</legend>
       <div class="equipment-detail">
         <strong class="detail-label">{{ localize('ARCHMAGE.ITEM.chakraSlot') }}:</strong>
         <span class="detail-value">{{ chakraLabel }}</span>
@@ -24,7 +22,6 @@
     </fieldset>
 
     <fieldset v-if="equipment.system.description.value" class="fieldset-description">
-      <legend>{{ localize('ARCHMAGE.description') }}</legend>
       <Enriched tag="div" class="detail-value" :text="equipment.system.description.value" :replacements="[]"
         :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" field="description"
         :enrichment-options="enrichmentOptions"/>

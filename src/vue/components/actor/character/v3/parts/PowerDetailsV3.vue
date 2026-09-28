@@ -13,7 +13,6 @@
     <!-- Description, then the primary properties (attack, hit, effect, ...),
          then feats: sectioned like the item sheet's fieldsets for readability. -->
     <fieldset v-if="power.system.description.value" class="fieldset-description">
-      <legend>{{ localize('ARCHMAGE.description') }}</legend>
       <Enriched tag="div" class="detail-value" :text="power.system.description.value" :replacements="[]"
         :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" field="description"
         :enrichment-options="enrichmentOptions"/>
@@ -33,7 +32,6 @@
          left beside it — click/contextmenu to give one back or take one away
          — and the description filling the remainder. -->
     <fieldset v-if="feats.length" class="fieldset-feats">
-      <legend>{{ localize('ARCHMAGE.feats') }}</legend>
       <div v-for="{key, feat} in feats" :key="key" class="power-feat" :class="{active: feat.isActive.value}">
         <RollableV3 class="feat-tier" :disabled="!feat.isActive.value" @click="rollFeat(key)">
           <span class="feat-tier-letter">{{ tierLetter(feat) }}</span>

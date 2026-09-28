@@ -3,7 +3,6 @@
     <!-- Description: sectioned like the item sheet's fieldsets for
          readability. -->
     <fieldset v-if="equipment.system.description.value" class="fieldset-description">
-      <legend>{{ localize('ARCHMAGE.description') }}</legend>
       <Enriched tag="div" class="detail-value" :text="equipment.system.description.value" :replacements="[]"
         :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" field="description"
         :enrichment-options="enrichmentOptions"/>
