@@ -99,7 +99,7 @@ function iconSymbol(relationship) {
   const symbols = {
     'Positive': '+',
     'Negative': '-',
-    'Conflicted': '~'
+    'Conflicted': '±'
   };
   return symbols[relationship] ?? '?';
 }
