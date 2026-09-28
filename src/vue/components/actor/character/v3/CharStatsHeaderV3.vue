@@ -89,7 +89,11 @@ const disengageValue = computed(() => {
 
 const recoveryFormula = computed(() => {
   const recoveries = props.actor?.system?.attributes?.recoveries;
-  if (recoveries?.formula && recoveries?.avg) return recoveries.formula; //`${recoveries.formula} (${recoveries.avg})`;
+  // The averageRecoveries flag swaps the formula display for the pre-rolled average.
+  if (props.actor?.flags?.archmage?.averageRecoveries && recoveries?.avg) {
+    return String(recoveries.avg);
+  }
+  if (recoveries?.formula && recoveries?.avg) return recoveries.formula;
   return localize('ARCHMAGE.recoveryRoll');
 });
 
@@ -164,6 +168,17 @@ function updateFails(saveType, opt) {
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Recoveries: push the roll link to the right edge of the unit title. */
+.stats-unit--recoveries .unit-title {
+  display: flex;
+  align-items: baseline;
+
+  .rollable {
+    margin-left: auto;
+    text-transform: none;
+  }
 }
 
 .unit-value {
