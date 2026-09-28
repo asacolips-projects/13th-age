@@ -29,7 +29,8 @@
     <!-- Feats. Feats not yet taken read muted. Each row is a grid: the tier
          letter with the die icon that rolls it (and spends a use), the uses
          left beside it — click/contextmenu to give one back or take one away
-         — and the description filling the remainder. -->
+         — the description filling the remainder, and the pip toggling the
+         feat's taken state at the row's right edge. -->
     <fieldset v-if="feats.length" class="fieldset-feats">
       <div v-for="{key, feat} in feats" :key="key" class="power-feat" :class="{active: feat.isActive.value}">
         <RollableV3 class="feat-tier" :disabled="!feat.isActive.value" @click="rollFeat(key)">
@@ -40,6 +41,8 @@
         <Enriched tag="div" class="detail-value" :text="feat.description.value" :replacements="[]"
           :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData"
           :enrichment-options="enrichmentOptions"/>
+        <span class="feat-active-pip" :class="{active: feat.isActive.value}" :data-tooltip="localize('ARCHMAGE.feats')"
+          @click="toggleFeat(key)"></span>
       </div>
     </fieldset>
   </article>
@@ -90,6 +93,18 @@ const actorDocument = inject('actorDocument', null);
  */
 function rollFeat(featKey) {
   actorDocument?.items?.get(props.power._id)?.rollFeat(featKey);
+}
+
+/**
+ * Toggle a feat's taken state: the same flip the power rows' feat pips and
+ * the item sheet's checkbox make.
+ */
+async function toggleFeat(featKey) {
+  const item = actorDocument?.items?.get(props.power._id);
+  const feat = item?.system?.feats?.[featKey];
+  if (!feat) return;
+
+  await item.update({[`system.feats.${featKey}.isActive.value`]: !feat.isActive?.value});
 }
 
 /**
@@ -222,16 +237,20 @@ const enrichmentOptions = computed(() => ({
   .power-feat {
     display: grid;
     // Fixed widths for the tier and uses cells so the description column
-    // starts at the same offset on every row.
-    grid-template-columns: 2.25rem 1.5rem 1fr;
+    // starts at the same offset on every row; the last column holds the
+    // feat's toggle pip at the row's right edge.
+    grid-template-columns: 2.25rem 1.5rem 1fr 1rem;
     gap: 0.375rem;
     align-items: baseline;
     margin: 0.25rem 0;
-    // The V2 feat treatment: untaken feats dim to a quarter strength.
-    opacity: 0.25;
 
-    &.active {
-      opacity: 1;
+    // The V2 feat treatment: untaken feats dim to a quarter strength. The
+    // dim sits on the content cells rather than the row, so the pip that
+    // takes the feat stays clickable at full strength.
+    &:not(.active) .feat-tier,
+    &:not(.active) .feat-uses-count,
+    &:not(.active) .detail-value {
+      opacity: 0.25;
     }
 
     // The description always occupies the third column — rows without a use
@@ -256,6 +275,24 @@ const enrichmentOptions = computed(() => ({
     .feat-uses-count {
       cursor: pointer;
       font-family: var(--v3-font-label);
+    }
+
+    // The taken-state toggle, mirrored from PowerFeatPips.vue so a feat's pip
+    // reads the same here as it does on the power rows. Hollow until taken,
+    // filled once it is.
+    .feat-active-pip {
+      align-self: center;
+      justify-self: end;
+      box-sizing: border-box;
+      width: 8px;
+      height: 8px;
+      border: 2px solid $c-white;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &.active {
+        background: $c-white;
+      }
     }
   }
 </style>
