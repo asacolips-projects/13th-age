@@ -14,7 +14,15 @@
         <!-- The header cells after the name, defaulting to the catalog row's
              feat pips, action, recharge, uses and controls. -->
         <slot name="cells" :toggle="toggle">
-          <PowerFeatPips v-if="hasFeats(power)" :feats="power.system.feats" :item-id="power._id" @toggle-pip="tier => togglePip(actor, power._id, tier)"/>
+          <!-- The feat tiers as display-only letters: bright when taken, dim
+               when not. A feat's taken state is toggled from its row in the
+               expanded details. -->
+          <div class="power-feat-pips" v-if="hasFeats(power)" :data-tooltip="localize('ARCHMAGE.feats')">
+            <ul class="feat-letters">
+              <li v-for="{key, letter, active} in featLetters(power)" :key="key"
+                :class="{active}">{{letter}}</li>
+            </ul>
+          </div>
           <div class="power-action" v-if="power.system.actionType.value">{{getActionShort(power.system.actionType.value)}}</div>
           <div class="power-recharge" v-if="power.system.recharge.value && ['recharge', 'recharge-desperate'].includes(power.system.powerUsage.value)">
             <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.system.recharge.value) || 16}}+</Rollable>
@@ -57,10 +65,9 @@
  * (defaulting to the full item view).
  */
 import { inject } from 'vue';
-import { changeQuantity, deleteItem, editItem, getActionShort, hasFeats, hasSecondaryUsage, togglePip } from '@/methods/Helpers';
+import { changeQuantity, deleteItem, editItem, filterFeats, getActionShort, hasFeats, hasSecondaryUsage, localize, TIERS } from '@/methods/Helpers';
 import ExpandableItem from './ExpandableItem.vue';
 import Power from '@/components/parts/Power.vue';
-import PowerFeatPips from '@/components/parts/PowerFeatPips.vue';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
@@ -82,6 +89,19 @@ const props = defineProps({
 // DiceArchmage and the roll methods live on the real document; props.actor is
 // the context's prepared clone. The sheet provides the document for injection.
 const actorDocument = inject('actorDocument', null);
+
+/**
+ * Each of the power's feats as its tier letter plus its taken state, in tier
+ * order: A for adventurer, C for champion, E for epic, Z for zenith.
+ */
+function featLetters(power) {
+  return Object.entries(filterFeats(power.system.feats))
+    .map(([key, feat]) => ({
+      key,
+      letter: TIERS.find(tier => tier.key === feat.tier?.value)?.letter ?? '',
+      active: feat.isActive?.value ?? false,
+    }));
+}
 
 /**
  * Activate the power: its roll() runs the usage dialog, spends uses and
@@ -132,6 +152,28 @@ function activatePower() {
   .power-uses { grid-column-start: 6; }
   .item-controls { grid-column-start: 7; }
   .item-control { width: 28px; }
+}
+
+// The feat tier letters: one glyph per feat, bright when taken, dim
+// otherwise, in the spirit of the V2 sheet's feat pips.
+.feat-letters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    font-family: $font-stack-label;
+    text-transform: uppercase;
+    opacity: 0.35;
+
+    &.active {
+      opacity: 1;
+    }
+  }
 }
 
 // The uses column holds one counter per pool, separated by a dash.
