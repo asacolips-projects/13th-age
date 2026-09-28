@@ -22,7 +22,7 @@
     </div>
     <div class="equipment-chakra" v-if="equipment.system.chackra">{{localize(concat('ARCHMAGE.CHAKRA.', equipment.system.chackra, "Label"))}}</div>
     <div class="equipment-recharge" v-if="equipment.system.recharge && equipment.system.recharge.value && equipment.system.powerUsage.value == 'recharge'">
-      <Rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.system.recharge.value) || 16}}+</Rollable>
+      <RollableV3 name="recharge" @click="rechargeItem">{{Number(equipment.system.recharge.value) || 16}}+</RollableV3>
     </div>
     <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.system.quantity.value"
       @click="$emit('change-quantity', true)" @contextmenu.prevent="$emit('change-quantity', false)"><span>{{equipment.system.quantity.value}}</span></div>
@@ -47,7 +47,6 @@
  */
 import { inject, computed } from 'vue';
 import { attunementCost, characterTierIndex, concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
-import Rollable from '@/components/parts/Rollable.vue';
 import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 
 const props = defineProps({
@@ -81,6 +80,14 @@ const actorDocument = inject('actorDocument', null);
 function activateItem() {
   actorDocument?.items?.get(props.equipment._id)?.roll();
 }
+
+/**
+ * Roll the item's recharge: its recharge() is the same entry point the V2
+ * sheet's delegated listener used for the recharge cell.
+ */
+function rechargeItem() {
+  actorDocument?.items?.get(props.equipment._id)?.recharge();
+}
 </script>
 
 <style scoped lang="scss">
@@ -105,11 +112,6 @@ function activateItem() {
     &::before {
       color: $c-white;
     }
-  }
-
-  // Equipment portraits show a book rather than the die.
-  .rollable::before {
-    content: fa-content($fa-var-book);
   }
 }
 
