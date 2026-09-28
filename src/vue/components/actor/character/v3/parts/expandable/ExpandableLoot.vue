@@ -25,7 +25,7 @@
 import { changeQuantity, deleteItem, editItem } from '@/methods/Helpers';
 import ExpandableItem from './ExpandableItem.vue';
 import LootDetailsV3 from '@/components/actor/character/v3/parts/LootDetailsV3.vue';
-import EquipmentSummaryRow from '@/components/parts/EquipmentSummaryRow.vue';
+import EquipmentSummaryRow from '@/components/actor/character/v3/parts/EquipmentSummaryRow.vue';
 
 defineProps({
   equipment: {type: Object, required: true},
