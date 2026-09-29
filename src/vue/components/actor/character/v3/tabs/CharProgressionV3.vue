@@ -20,12 +20,24 @@
       </div>
     </section>
 
-    <!-- Incremental advances: (WIP) -->
-    <section class="progression-section">
+    <!-- Incremental advances: one chip per advance, ordered by edition. Each
+         is a plain boolean at system.incrementals; the per-character hide
+         flag is owned by the settings app, so the section just renders away. -->
+    <section class="progression-section" v-if="!actor.flags.archmage?.hideIncrementals">
       <h4 class="progression-section-title unit-title">
         <span class="section-label">{{ localize('ARCHMAGE.incrementalAdvances') }}</span>
       </h4>
-      <p class="placeholder">&mdash;</p>
+      <ul class="incremental-grid">
+        <li v-for="inc in incrementals" :key="inc.key" class="incremental"
+          :class="{'incremental--taken': inc.checked}">
+          <label>
+            <input type="checkbox" :checked="inc.checked" :disabled="!editable"
+              @change="toggleIncremental(inc)">
+            <span>{{ localize(inc.labelKey) }}</span>
+          </label>
+          <p class="incremental-hint">{{ localize(inc.hintKey) }}</p>
+        </li>
+      </ul>
     </section>
 
     <!-- Level-up: (WIP) -->
@@ -44,10 +56,10 @@
  * sections. The rest buttons drive the same actor methods as the V2
  * resources strip, with the confirmation dialog ported over.
  */
-import { inject } from 'vue';
+import { computed, inject } from 'vue';
 import { localize, tooltip } from '@/methods/Helpers';
 
-defineProps(['actor', 'editable']);
+const props = defineProps(['actor', 'editable']);
 
 // Updates from view mode (toggles) go through the real actor document;
 // props.actor is the context's toObject() clone.
@@ -78,6 +90,44 @@ async function rest(type, bypass = false) {
   }
 
   await (type === 'quick' ? actorDocument.restQuick() : actorDocument.restFull());
+}
+
+// Incremental advance order differs by edition, mirroring the V2 sidebar
+// list. The ability score bonus has a separate 2e hint since the wording
+// changed between editions.
+const INCREMENTALS_1E = ['abilityScoreBonus', 'skills', 'extraMagicItem', 'feat', 'talent',
+  'hp', 'iconRelationshipPoint', 'powerSpell1', 'powerSpell2', 'powerSpell3', 'powerSpell4'];
+const INCREMENTALS_2E = ['abilityScoreBonus', 'classFeature', 'feat', 'hp', 'extraMagicItem',
+  'md', 'pd', 'powerSpell1', 'skillInitiative', 'talent', 'abilMultiplier'];
+
+// Chips for the current edition, with the state read off the actor clone.
+// The power/spell advances are interchangeable, so checked ones stay visible
+// while unchecked ones collapse into a single "next slot" that advances each
+// time one is taken.
+const incrementals = computed(() => {
+  const secondEdition = game.settings.get('archmage', 'secondEdition') === true;
+  const keys = secondEdition ? INCREMENTALS_2E : INCREMENTALS_1E;
+  const taken = props.actor?.system?.incrementals ?? {};
+  const chips = keys.map(key => ({
+    key,
+    checked: taken[key] === true,
+    labelKey: `ARCHMAGE.INCREMENTALS.${key}Name`,
+    hintKey: `ARCHMAGE.INCREMENTALS.${secondEdition && key === 'abilityScoreBonus' ? 'abilityScoreBonus2e' : key}Hint`
+  }));
+  let nextPowerRevealed = false;
+  return chips.filter(chip => {
+    if (!chip.key.startsWith('powerSpell')) return true;
+    if (chip.checked) return true;
+    if (nextPowerRevealed) return false;
+    nextPowerRevealed = true;
+    return true;
+  });
+});
+
+// Toggles go through the real actor document; props.actor is a data clone
+// whose updates wouldn't round-trip.
+function toggleIncremental(inc) {
+  actorDocument?.update({[`system.incrementals.${inc.key}`]: !inc.checked});
 }
 </script>
 
@@ -113,6 +163,76 @@ async function rest(type, bypass = false) {
       align-items: center;
       justify-content: center;
       gap: 0.375rem;
+    }
+  }
+
+  // One chip per advance in a fixed two-column grid; the hint text sits
+  // under the toggle row inside the chip so the advance descriptions are
+  // visible without hunting for tooltips. Taken advances get the positive
+  // accent so progress reads at a glance.
+  .incremental-grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+  }
+
+  .incremental {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--v3-border);
+    border-radius: 0.25rem;
+
+    &:hover {
+      box-shadow: 0 0 0 1px var(--v3-hover-glow);
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: var(--v3-font-size-label);
+      cursor: pointer;
+    }
+
+    input[type='checkbox'] {
+      flex: 0 0 auto;
+      margin: 0;
+    }
+
+    span {
+      min-width: 0;
+    }
+
+    .incremental-hint {
+      margin: 0.125rem 0 0;
+      padding-left: 1.5rem; // line up under the label, clear of the checkbox
+      font-size: var(--v3-font-size-label);
+      color: var(--v3-text-muted);
+      cursor: default;
+    }
+
+    &.incremental--taken {
+      border-color: var(--button-border-color);
+
+      label span {
+        color: var(--button-border-color);
+      }
+    }
+
+    // Locked out of edit mode: keep the chips readable but obviously inert.
+    &:has(input:disabled) {
+      cursor: default;
+      opacity: 0.6;
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      label {
+        cursor: default;
+      }
     }
   }
 </style>

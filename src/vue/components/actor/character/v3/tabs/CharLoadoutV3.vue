@@ -87,7 +87,8 @@
  * and an extra-slots number — persisted to the sheetDisplay.loadout flags.
  * Extras join the level's magic item slots; for feats they are slots of the
  * highest tier the character's level has reached, since a bonus feat slot
- * has to belong to some tier.
+ * has to belong to some tier. The feat and magic item incremental advances
+ * (progression tab) each add a slot on the same terms.
  */
 import { computed, inject, ref } from 'vue';
 import { attunementCost, characterTierIndex, filterFeats, getActor, localize, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
@@ -165,6 +166,11 @@ const sections = computed(() => {
   const level = Number(props.actor?.system?.attributes?.level?.value) || 0;
   const charTier = characterTierIndex(level);
 
+  // The feat and magic item incremental advances each add a bonus slot: one
+  // more magic item, and one feat slot of the highest tier the level has
+  // reached — the same tier the edit-mode extra slots join.
+  const incrementals = props.actor?.system?.incrementals ?? {};
+
   // Tier first, then name; the stable sort needs the minor key applied first.
   const magicItems = items
     .filter(i => i.type === 'equipment' && TIER_ORDER[i.system?.tier] !== undefined)
@@ -176,6 +182,7 @@ const sections = computed(() => {
   // consume slots, and each higher-tier attunement burns two.
   const itemsConfig = sectionConfig('equipment');
   const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? attunementCost(item, charTier) : 0), 0);
+  const itemAllowance = level + itemsConfig.extraSlots + (incrementals.extraMagicItem === true ? 1 : 0);
 
   // The feats a tier's track counts: the tier's taken feats with text.
   const takenFeatsForTier = (tier) => powers.flatMap(power =>
@@ -195,10 +202,12 @@ const sections = computed(() => {
   let spill = [];
   const featsConfig = sectionConfig('feats');
   const featTracks = TIER_SLOTS.map(tier => {
-    // The level's grant, capped, with the section's extra slots joining the
-    // highest tier the level has reached — past the cap, since they're a
-    // bonus.
-    const extraSlots = tier.key === TIER_SLOTS[charTier].key ? featsConfig.extraSlots : 0;
+    // The level's grant, capped, with the section's extra slots and the feat
+    // incremental joining the highest tier the level has reached — past the
+    // cap, since they're a bonus.
+    const extraSlots = tier.key === TIER_SLOTS[charTier].key
+      ? featsConfig.extraSlots + (incrementals.feat === true ? 1 : 0)
+      : 0;
     const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap) + extraSlots;
     const own = takenByTier.get(tier.key);
     const demand = own + spill.length;
@@ -239,7 +248,7 @@ const sections = computed(() => {
       labelKey: 'ARCHMAGE.INVENTORY.equipment',
       members: magicItems,
       config: itemsConfig,
-      tracks: [slotTrack('items', itemsConsumed, level + itemsConfig.extraSlots, itemsConfig)],
+      tracks: [slotTrack('items', itemsConsumed, itemAllowance, itemsConfig)],
     },
     {
       key: 'feats',
