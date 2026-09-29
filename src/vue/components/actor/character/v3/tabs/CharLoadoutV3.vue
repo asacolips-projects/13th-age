@@ -31,31 +31,25 @@
           <ExpandableEquipment v-for="item in section.members" :key="item._id" :equipment="item" :actor="actor"/>
         </template>
 
-        <!-- Feats, grouped into tiers, each group under its own separator.
-             The row is the feat, but the item is the power it belongs to, so
+        <!-- Feats grouped under their power. The power gets the catalog's
+             collapsible row, expanding to its read view minus the feats;
+             beneath it, indented, the read view's feat rows: rollable tier
+             and uses at left, description in the middle, taken pip at
+             right. The wrapper's item is the power the feats belong to, so
              data-item-id stays truthful for drag and the sheet's delegated
-             listeners; the entry's key drives the pip toggle. -->
+             listeners. -->
         <template v-else>
-          <template v-for="group in section.tierGroups" :key="group.tier.key">
-            <li class="feat-tier-separator">
-              <span class="tier-letter" :data-tier="group.tier.key">{{ group.tier.letter }}</span>
-              <span class="separator-line" aria-hidden="true"></span>
+          <template v-for="power in section.members" :key="power._id">
+            <ExpandablePowerRow :power="power" :actor="actor" :context="context"
+              columns="32px auto 36px 44px 60px 44px 64px">
+              <template #details="{active}">
+                <PowerDetailsV3 v-if="active" :power="power" :actor="actor" :context="context" :show-feats="false"/>
+              </template>
+            </ExpandablePowerRow>
+            <li class="item feat-item" :data-item-id="power._id"
+              data-document-class="Item" data-draggable="true" draggable="true">
+              <PowerFeatsV3 :power="power" :actor="actor" :context="context"/>
             </li>
-            <ExpandableItem v-for="feat in group.members" :key="feat.id" :item="feat.power" base-class="feat">
-              <template #summary="{toggle}">
-                <a class="feat-summary" @click="toggle">
-                  <img :src="feat.power.img" class="feat-power-image"/>
-                  <h3 class="feat-power-name">{{ feat.power.name }}</h3>
-                  <span class="tier-letter feat-tier" :data-tier="feat.tier.key">{{ feat.tier.letter }}</span>
-                  <span class="feat-active" :class="{taken: feat.feat.isActive.value}"
-                    :title="localize('ARCHMAGE.ITEM.active')"
-                    @click.stop="togglePip(actor, feat.power._id, feat.key)"></span>
-                </a>
-              </template>
-              <template #content="{active}">
-                <div v-if="active" class="feat-description" v-html="feat.feat.description.value"></div>
-              </template>
-            </ExpandableItem>
           </template>
         </template>
 
@@ -71,13 +65,17 @@
  * with slot tracks in the section headers: filled pips for consumed, hollow
  * for free, squares in the alert colour for slots used beyond the
  * allowance, and filled pips wearing a down-arrow where a feat spent a
- * higher tier's slot. Rows own their expand state via the shared expandable
- * components; feats toggle through the same pips the powers tab uses.
+ * higher tier's slot. Feats group under their power: the power is a
+ * collapsible catalog-style row whose expanded view is the read view minus
+ * the feats, with the read view's feat rows — always expanded — indented
+ * beneath it; the pips and rolls are the same flips the powers tab makes.
  */
 import { computed } from 'vue';
-import { attunementCost, characterTierIndex, filterFeats, localize, TIERS as TIER_SLOTS, togglePip, TIER_ORDER } from '@/methods/Helpers';
+import { attunementCost, characterTierIndex, filterFeats, localize, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
 import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
-import ExpandableItem from '@/components/actor/character/v3/parts/expandable/ExpandableItem.vue';
+import ExpandablePowerRow from '@/components/actor/character/v3/parts/expandable/ExpandablePowerRow.vue';
+import PowerDetailsV3 from '@/components/actor/character/v3/parts/PowerDetailsV3.vue';
+import PowerFeatsV3 from '@/components/actor/character/v3/parts/PowerFeatsV3.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 
@@ -118,16 +116,10 @@ const sections = computed(() => {
   // higher-tier attunement burns two.
   const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? attunementCost(item, charTier) : 0), 0);
 
-  const featsForTier = (tier) => powers.flatMap(power =>
-    Object.entries(filterFeats(power.system?.feats))
-      .filter(([, feat]) => feat.tier?.value === tier.key)
-      .map(([key, feat]) => ({
-        key,
-        id: `${power._id}.${key}`,
-        power,
-        feat,
-        tier,
-      })));
+  // The feats a tier's track counts: the tier's taken feats with text.
+  const takenFeatsForTier = (tier) => powers.flatMap(power =>
+    Object.values(filterFeats(power.system?.feats))
+      .filter(feat => feat.tier?.value === tier.key && feat.isActive.value));
 
   // Feat slots: each level grants a slot in its tier's track — one per level
   // 1-4 for A, 5-7 for C, 8-10 for E — plus the single Z slot at 10th. A
@@ -136,7 +128,7 @@ const sections = computed(() => {
   // can't place alerts on its own tier's track, each square wearing that
   // tier's letter — which is why a track also shows when it has overflow.
   const takenByTier = new Map(TIER_SLOTS.map(tier =>
-    [tier.key, featsForTier(tier).filter(({feat}) => feat.isActive.value).length]));
+    [tier.key, takenFeatsForTier(tier).length]));
 
   // Feats still unplaced, by origin tier letter.
   let spill = [];
@@ -167,11 +159,10 @@ const sections = computed(() => {
     }
   }
 
-  // Feats grouped by their tier for the separator rows; tiers with no
-  // feats under them get no separator.
-  const tierGroups = TIER_SLOTS
-    .map(tier => ({ tier, members: featsForTier(tier) }))
-    .filter(group => group.members.length);
+  // The section's rows: every power with feats, in name order, its feats
+  // rendered beneath it by the read view's feat rows.
+  const featPowers = powers
+    .filter(power => Object.keys(filterFeats(power.system?.feats)).length);
 
   return [
     {
@@ -185,8 +176,7 @@ const sections = computed(() => {
       key: 'feats',
       kind: 'feats',
       labelKey: 'ARCHMAGE.feats',
-      members: tierGroups.flatMap(group => group.members),
-      tierGroups,
+      members: featPowers,
       tracks: featTracks,
     },
   ];
@@ -298,91 +288,19 @@ const sections = computed(() => {
     list-style: none;
   }
 
-  // The feat row's summary: the parent power's portrait and name stand in for
-  // the feat's, since the feat has no name of its own.
-  .feat-item {
-    position: relative;
-  }
-
-  .feat-summary {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.125rem 0.25rem;
-    cursor: pointer;
-    font-family: var(--v3-font-label);
-    font-size: var(--v3-font-size-title);
-
-    .feat-power-image {
-      width: 25px;
-      height: 25px;
-      object-fit: cover;
-      border-radius: 0.25rem;
-    }
-
-    .feat-power-name {
-      flex: 1 1 auto;
-      min-width: 0;
-      margin: 0;
-      font-family: var(--v3-font-display);
-      font-size: var(--v3-font-size-value);
-      font-weight: normal;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    // The feat's tier, same chip as the separator and the header tracks.
-    .feat-tier {
-      flex: 0 0 auto;
-    }
-
-    // Whether the feat is taken: the same open/filled pip the attunement
-    // pip is, click to toggle.
-    .feat-active {
-      flex: 0 0 auto;
-      display: block;
-      width: 8px;
-      height: 8px;
-      background: transparent;
-      border-radius: 50%;
-      border: 1px solid $c-white;
-      padding: 0;
-      cursor: pointer;
-
-      &.taken {
-        background: $c-white;
-      }
-    }
-  }
-
-  // Between tier groups of feats: the tier's letter chip on a hairline that
-  // runs to the end of the row.
-  .feat-tier-separator {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    margin: 0.375rem 0 0.125rem;
+  // The power rows that group the feats: spaced apart as their own groups.
+  .power-item {
+    margin-top: 0.5rem;
 
     &:first-child {
       margin-top: 0;
     }
-
-    .separator-line {
-      flex: 1;
-      height: 1px;
-      background: var(--v3-border);
-    }
   }
 
-  .feat-description {
-    background: var(--v3-feat);
-    padding: 0.375rem 0.75rem 0.375rem 2rem;
-    font-size: var(--v3-font-size-label);
-
-    :deep(p) {
-      margin: 0;
-    }
+  // The wrapper beneath each power row holding its feat rows, indented to
+  // sit under the power's name.
+  .feat-item {
+    margin-left: 2rem;
   }
 
   .loadout-empty {
