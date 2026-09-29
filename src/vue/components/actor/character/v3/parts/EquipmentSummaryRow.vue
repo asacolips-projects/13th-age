@@ -239,7 +239,7 @@ function rechargeItem() {
     height: 8px;
     background: transparent;
     border-radius: 50%;
-    border: 2px solid $c-white;
+    border: 1px solid $c-white;
     margin: 0 1px;
     padding: 0;
     cursor: pointer;

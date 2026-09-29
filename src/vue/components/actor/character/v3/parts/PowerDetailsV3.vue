@@ -286,7 +286,7 @@ const enrichmentOptions = computed(() => ({
       box-sizing: border-box;
       width: 8px;
       height: 8px;
-      border: 2px solid $c-white;
+      border: 1px solid $c-white;
       border-radius: 50%;
       cursor: pointer;
 
