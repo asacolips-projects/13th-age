@@ -88,7 +88,8 @@
  * Extras join the level's magic item slots; for feats they are slots of the
  * highest tier the character's level has reached, since a bonus feat slot
  * has to belong to some tier. The feat and magic item incremental advances
- * (progression tab) each add a slot on the same terms.
+ * (progression tab) each add a slot too — the feat one in the tier of the
+ * PC's next level, the magic item one on the tierless track.
  */
 import { computed, inject, ref } from 'vue';
 import { attunementCost, characterTierIndex, filterFeats, getActor, localize, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
@@ -167,8 +168,7 @@ const sections = computed(() => {
   const charTier = characterTierIndex(level);
 
   // The feat and magic item incremental advances each add a bonus slot: one
-  // more magic item, and one feat slot of the highest tier the level has
-  // reached — the same tier the edit-mode extra slots join.
+  // more magic item, and one feat slot in the tier of the PC's next level.
   const incrementals = props.actor?.system?.incrementals ?? {};
 
   // Tier first, then name; the stable sort needs the minor key applied first.
@@ -201,14 +201,18 @@ const sections = computed(() => {
   // Feats still unplaced, by origin tier letter.
   let spill = [];
   const featsConfig = sectionConfig('feats');
+  // The feat incremental's bonus slot belongs to the tier of the PC's next
+  // level — a 4th-level PC's lands on C — clamped at 10th since the tiers
+  // run out there. It's a bonus, so it rides past the tier cap.
+  const featIncrementalTier = TIER_SLOTS[characterTierIndex(Math.min(level + 1, 10))].key;
+  const featIncrementalSlot = incrementals.feat === true ? 1 : 0;
   const featTracks = TIER_SLOTS.map(tier => {
-    // The level's grant, capped, with the section's extra slots and the feat
-    // incremental joining the highest tier the level has reached — past the
-    // cap, since they're a bonus.
-    const extraSlots = tier.key === TIER_SLOTS[charTier].key
-      ? featsConfig.extraSlots + (incrementals.feat === true ? 1 : 0)
-      : 0;
-    const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap) + extraSlots;
+    // The level's grant, capped, with the section's extra slots joining the
+    // highest tier the level has reached and the feat incremental's slot the
+    // next level's tier — both past the cap, since they're bonuses.
+    const extraSlots = tier.key === TIER_SLOTS[charTier].key ? featsConfig.extraSlots : 0;
+    const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap)
+      + extraSlots + (tier.key === featIncrementalTier ? featIncrementalSlot : 0);
     const own = takenByTier.get(tier.key);
     const demand = own + spill.length;
     const filled = Math.min(demand, allowance);
