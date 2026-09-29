@@ -6,6 +6,19 @@
     <section v-for="section in sections" :key="section.key" class="loadout-section">
       <h4 class="loadout-section-title unit-title">
         <span class="section-label">{{ localize(section.labelKey) }}</span>
+        <!-- Edit mode only: per-section tracker config, persisted to the
+             sheetDisplay.loadout flags. The checkbox hides the section's
+             tracks; the number grants slots beyond the level's allowance -->
+        <template v-if="editing">
+          <label class="track-config" :title="localize('ARCHMAGE.enableTracker')">
+            <input type="checkbox" :checked="section.config.enabled"
+              @change="saveSectionFlag(section.key, 'enabled', $event.target.checked)">
+          </label>
+          <label class="track-config" :title="localize('ARCHMAGE.extraSlots')">
+            <input type="number" min="0" :value="section.config.extraSlots"
+              @change="saveExtraSlots(section.key, $event)">
+          </label>
+        </template>
         <span class="slot-tracks">
           <template v-for="track in section.tracks" :key="track.key">
             <span v-if="track.shown" class="tier-track" :data-tier="track.key">
@@ -69,9 +82,15 @@
  * collapsible catalog-style row whose expanded view is the read view minus
  * the feats, with the read view's feat rows — always expanded — indented
  * beneath it; the pips and rolls are the same flips the powers tab makes.
+ *
+ * In edit mode each header grows a tracker config pair — an enable checkbox
+ * and an extra-slots number — persisted to the sheetDisplay.loadout flags.
+ * Extras join the level's magic item slots; for feats they are slots of the
+ * highest tier the character's level has reached, since a bonus feat slot
+ * has to belong to some tier.
  */
-import { computed } from 'vue';
-import { attunementCost, characterTierIndex, filterFeats, localize, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
+import { computed, inject, ref } from 'vue';
+import { attunementCost, characterTierIndex, filterFeats, getActor, localize, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
 import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
 import ExpandablePowerRow from '@/components/actor/character/v3/parts/expandable/ExpandablePowerRow.vue';
 import PowerDetailsV3 from '@/components/actor/character/v3/parts/PowerDetailsV3.vue';
@@ -79,20 +98,61 @@ import PowerFeatsV3 from '@/components/actor/character/v3/parts/PowerFeatsV3.vue
 
 const props = defineProps(['actor', 'editable', 'context']);
 
+// Edit mode is owned by the sheet root and broadcast via provide/inject.
+const editing = inject('editMode', ref(false));
+
 const byName = (a, b) => a.name.localeCompare(b.name);
 const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
 
 /**
+ * One section's tracker config from its display flag: the enable checkbox
+ * (default on) and the extra-slot grant (default none, floored at zero).
+ */
+const sectionConfig = (key) => {
+  const raw = props.actor?.flags?.archmage?.sheetDisplay?.loadout?.[key] ?? {};
+  return {
+    enabled: raw.enabled !== false,
+    extraSlots: Math.max(Number(raw.extraSlots) || 0, 0),
+  };
+};
+
+/**
+ * Persist one config value through the live actor document; props.actor is a
+ * data clone whose flag updates wouldn't round-trip. Writing only when the
+ * stored value differs avoids a re-render loop from the update. Pack actors
+ * have no setFlag; getActor resolves the live document from the context
+ * actor's drag data.
+ */
+const saveSectionFlag = async (key, path, value) => {
+  if (props.actor?.pack) return;
+  const actor = await getActor(props.actor);
+  const current = foundry.utils.getProperty(
+    props.actor?.flags?.archmage?.sheetDisplay?.loadout?.[key] ?? {}, path);
+  if (actor && current !== value) {
+    await actor.setFlag('archmage', `sheetDisplay.loadout.${key}.${path}`, value);
+  }
+};
+
+/** Clamp the extra-slots entry to a non-negative integer, then persist it. */
+const saveExtraSlots = (key, event) => {
+  const value = Math.max(Math.trunc(Number(event.target.value)) || 0, 0);
+  if (String(event.target.value) !== String(value)) event.target.value = value;
+  saveSectionFlag(key, 'extraSlots', value);
+};
+
+/**
  * Slot bookkeeping for one track: filled pips up to the allowance, squared
  * alert pips past it, hollow pips for what's left. The alert pips carry the
- * tier letter that overran, or none for the tierless magic item track.
+ * tier letter that overran, or none for the tierless magic item track. A
+ * disabled config hides the track; edit mode reveals it so the config pair
+ * always has its target on screen.
  */
-const slotTrack = (key, consumed, slots) => ({
+const slotTrack = (key, consumed, slots, config = {}) => ({
   key,
   filled: Math.min(consumed, slots),
   overflow: Array(Math.max(consumed - slots, 0)).fill(null),
   free: Math.max(slots - consumed, 0),
-  shown: slots > 0 || consumed > 0,
+  shown: config.enabled !== false && (slots > 0 || consumed > 0 || editing.value),
 });
 
 /**
@@ -111,9 +171,10 @@ const sections = computed(() => {
     .sort(byName).sort(byTier);
   const powers = items.filter(i => i.type === 'power').sort(byName);
 
-  // Magic item slots: the level total, no tier split. Only attuned items —
-  // the ones with their active pip filled — consume slots, and each
-  // higher-tier attunement burns two.
+  // Magic item slots: the level total plus the section's extra slots, no
+  // tier split. Only attuned items — the ones with their active pip filled —
+  // consume slots, and each higher-tier attunement burns two.
+  const itemsConfig = sectionConfig('equipment');
   const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? attunementCost(item, charTier) : 0), 0);
 
   // The feats a tier's track counts: the tier's taken feats with text.
@@ -132,8 +193,13 @@ const sections = computed(() => {
 
   // Feats still unplaced, by origin tier letter.
   let spill = [];
+  const featsConfig = sectionConfig('feats');
   const featTracks = TIER_SLOTS.map(tier => {
-    const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap);
+    // The level's grant, capped, with the section's extra slots joining the
+    // highest tier the level has reached — past the cap, since they're a
+    // bonus.
+    const extraSlots = tier.key === TIER_SLOTS[charTier].key ? featsConfig.extraSlots : 0;
+    const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap) + extraSlots;
     const own = takenByTier.get(tier.key);
     const demand = own + spill.length;
     const filled = Math.min(demand, allowance);
@@ -148,14 +214,16 @@ const sections = computed(() => {
       borrowed: filled - ownFilled,
       overflow: [],
       free: allowance - filled,
-      shown: allowance > 0 || filled > 0,
+      shown: featsConfig.enabled !== false && (allowance > 0 || filled > 0 || editing.value),
     };
   });
   for (const letter of spill) {
     const track = featTracks.find(track => track.letter === letter);
     if (track) {
       track.overflow.push(letter);
-      track.shown = true;
+      // Overflow only forces an otherwise-hidden track out when the section
+      // is enabled; a disabled tracker stays dark.
+      if (featsConfig.enabled !== false) track.shown = true;
     }
   }
 
@@ -170,13 +238,15 @@ const sections = computed(() => {
       kind: 'equipment',
       labelKey: 'ARCHMAGE.INVENTORY.equipment',
       members: magicItems,
-      tracks: [slotTrack('items', itemsConsumed, level)],
+      config: itemsConfig,
+      tracks: [slotTrack('items', itemsConsumed, level + itemsConfig.extraSlots, itemsConfig)],
     },
     {
       key: 'feats',
       kind: 'feats',
       labelKey: 'ARCHMAGE.feats',
       members: featPowers,
+      config: featsConfig,
       tracks: featTracks,
     },
   ];
@@ -210,6 +280,30 @@ const sections = computed(() => {
     // The label takes the rest of the row, pushing the pip tracks to the end.
     .section-label {
       flex: 1;
+    }
+  }
+
+  // The edit-mode tracker config pair in the header: the enable checkbox and
+  // the extra-slots entry, compact to sit beside the pip tracks without
+  // widening the sticky header.
+  .track-config {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+
+    input[type='checkbox'] {
+      margin: 0;
+    }
+
+    input[type='number'] {
+      min-width: 0;
+      width: calc(3ch + 0.5rem);
+      height: 1.25rem;
+      padding: 0 0.25rem;
+      line-height: 1.25rem;
+      font-size: var(--v3-font-size-label);
+      font-variant-numeric: tabular-nums;
+      text-align: center;
     }
   }
 
