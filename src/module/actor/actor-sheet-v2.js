@@ -510,26 +510,35 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
       content += `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmChildren")}</p><ul>${names}</ul>`;
     }
 
-    // Delete the item from the actor object.
+    // Delete the item from the actor object. An item that includes others can
+    // also be deleted alone, which leaves what it included as ordinary items.
     let del = false;
+    let withChildren = true;
+    const buttons = {
+      del: {
+        label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+        callback: () => {del = true;}
+      }
+    };
+    if (progeny.length) {
+      buttons.delOnly = {
+        label: game.i18n.localize("ARCHMAGE.CHAT.DeleteOnlyThis"),
+        callback: () => {del = true; withChildren = false;}
+      };
+    }
+    buttons.cancel = {
+      label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+      callback: () => {}
+    };
     new Dialog({
       title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
       content: content,
-      buttons: {
-        del: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
-          callback: () => {del = true;}
-        },
-        cancel: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => {}
-        }
-      },
+      buttons: buttons,
       default: 'cancel',
       close: html => {
         if (del) {
           let item = this.actor.items.get(itemId);
-          item.delete();
+          item.delete(withChildren ? {} : {archmageChildren: false});
         }
       }
     }).render(true);

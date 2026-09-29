@@ -792,7 +792,8 @@ ARCHMAGE:
     critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
-    DeleteConfirmChildren: "It will also delete the items it includes:"
+    DeleteConfirmChildren: "It includes these items, which will be deleted alongside it:"
+    DeleteOnlyThis: Delete only this
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
     disengage: Disengage Check
