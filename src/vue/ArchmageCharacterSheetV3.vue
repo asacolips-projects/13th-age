@@ -97,6 +97,7 @@
     --v3-font-size-name: #{$font-lg};
 
 
+    font-family: $font-stack-base;
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--v3-font-display);
     }

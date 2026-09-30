@@ -146,10 +146,6 @@ const enrichmentOptions = computed(() => ({
     }
 
     // The die icon rolls the feat and spends a use; the letter is the tier.
-    .feat-tier {
-      font-family: var(--v3-font-label);
-    }
-
     .feat-tier-letter {
       text-transform: uppercase;
     }
@@ -157,7 +153,6 @@ const enrichmentOptions = computed(() => ({
     // The uses left: click to give one back, contextmenu to take one away.
     .feat-uses-count {
       cursor: pointer;
-      font-family: var(--v3-font-label);
     }
 
     // The taken-state toggle, mirrored from PowerFeatPips.vue so a feat's pip

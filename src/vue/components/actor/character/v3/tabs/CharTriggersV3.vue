@@ -86,7 +86,6 @@ const groups = computed(() => {
     align-items: center;
     padding: 0.5rem 0 0.25rem;
     border-bottom: 1px solid var(--v3-border);
-    font-family: var(--v3-font-label);
     font-size: var(--v3-font-size-label);
   }
 

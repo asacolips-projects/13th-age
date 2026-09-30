@@ -60,22 +60,12 @@ const enrichmentOptions = computed(() => ({
     font-size: var(--v3-font-size-label);
   }
 
-  // Readability sectioning in the mould of the item sheet's fieldsets: a
-  // hairline across each section and a small-caps legend naming it.
+  // Readability sectioning in the mould of the item sheet's fieldsets
   fieldset {
     margin: 0.375rem 0 0;
     padding: 0.25rem 0 0;
     border: none;
     border-top: 1px solid var(--v3-border);
-  }
-
-  legend {
-    padding: 0;
-    font-family: var(--v3-font-label);
-    font-size: var(--v3-font-size-title);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--v3-text-muted);
   }
 
   .detail-value {
