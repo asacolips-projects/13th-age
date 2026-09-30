@@ -314,7 +314,7 @@ const sections = computed(() => {
       height: 1.25rem;
       padding: 0 0.25rem;
       line-height: 1.25rem;
-      font-size: var(--v3-font-size-label);
+      font-size: var(--v3-font-size-xxs);
       font-variant-numeric: tabular-nums;
       text-align: center;
     }
@@ -345,7 +345,7 @@ const sections = computed(() => {
     border-radius: 0.25rem;
     background: var(--v3-chip-bg);
     font-family: var(--v3-font-display);
-    font-size: var(--v3-font-size-label);
+    font-size: var(--v3-font-size-xxs);
   }
 
   // The slot pips, mirrored from PowerFeatPips: hollow circles, filled when

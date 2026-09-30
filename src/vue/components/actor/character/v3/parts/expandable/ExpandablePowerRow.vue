@@ -121,7 +121,7 @@ function activatePower() {
 // scope that defined them.
 .power-grid {
   gap: 2px;
-  font-size: var(--v3-font-size-title);
+  font-size: var(--v3-font-size-tiny);
   font-family: var(--v3-font-label);
   text-align: center;
 

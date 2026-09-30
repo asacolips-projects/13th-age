@@ -33,7 +33,7 @@ function rollSave(difficulty) {
   flex-direction: row;
   align-items: flex-start;
   gap: 0.25rem;
-  font-size: var(--v3-font-size-label);
+  font-size: var(--v3-font-size-xxs);
 
   button {
     flex: 1 1 0;

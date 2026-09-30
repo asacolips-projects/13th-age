@@ -120,7 +120,7 @@ function rechargeItem() {
 .equipment-grid {
   grid-template-columns: 32px auto 36px 130px 60px 60px 36px 56px;
   gap: 2px;
-  font-size: var(--v3-font-size-title);
+  font-size: var(--v3-font-size-tiny);
   font-family: var(--v3-font-label);
   text-align: center;
 
@@ -189,7 +189,7 @@ function rechargeItem() {
   overflow: hidden;
   text-overflow: ellipsis;
   // The same size the power rows' titles read at.
-  font-size: var(--v3-font-size-label);
+  font-size: var(--v3-font-size-xxs);
 }
 
 .equipment-bonus {

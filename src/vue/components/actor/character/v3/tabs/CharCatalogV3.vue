@@ -401,7 +401,7 @@ const createGroupItem = async (section) => {
 
     button {
       height: var(--input-height);
-      font-size: var(--v3-font-size-title);
+      font-size: var(--v3-font-size-tiny);
       border-radius: 3px;
       background: transparent;
     }
@@ -427,7 +427,7 @@ const createGroupItem = async (section) => {
 
     .group-add {
       cursor: pointer;
-      font-size: var(--v3-font-size-label);
+      font-size: var(--v3-font-size-xxs);
 
       &:hover {
         text-shadow: 0 0 5px var(--v3-hover-glow);
@@ -449,7 +449,7 @@ const createGroupItem = async (section) => {
   }
 
   .group-grip {
-    font-size: var(--v3-font-size-label);
+    font-size: var(--v3-font-size-xxs);
     margin-right: $padding-sm;
     opacity: 0.35;
   }

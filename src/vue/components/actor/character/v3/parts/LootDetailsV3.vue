@@ -57,7 +57,7 @@ const enrichmentOptions = computed(() => ({
 <style scoped lang="scss">
   .loot-details {
     padding: 0.375rem 0.375rem 0.25rem;
-    font-size: var(--v3-font-size-label);
+    font-size: var(--v3-font-size-xxs);
   }
 
   // Readability sectioning in the mould of the item sheet's fieldsets

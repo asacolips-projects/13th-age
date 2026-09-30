@@ -86,7 +86,7 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
       margin: 0;
       font-family: var(--v3-font-display);
       font-weight: normal;
-      font-size: var(--v3-font-size-name);
+      font-size: var(--v3-font-size-lg);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -129,7 +129,7 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
     .out-label {
       margin: 0 0 0.25rem;
       font-family: var(--v3-font-display);
-      font-size: var(--v3-font-size-title);
+      font-size: var(--v3-font-size-tiny);
       font-weight: normal;
       text-transform: uppercase;
       letter-spacing: 0.05em;

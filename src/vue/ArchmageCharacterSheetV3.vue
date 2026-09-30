@@ -63,9 +63,7 @@
     --v3-rollable: var(--c-blue);
     --v3-rollable-glow: var(--c-blue--50);
     --v3-hover-glow: var(--c-black--25);
-    --v3-positive: var(--c-hit);
     --v3-negative: var(--c-red);
-    --v3-conflicted: var(--c-yellow);
     /* Inline-roll expressions ([[...]]), which the enrichment helpers behind
        Enriched wrap in .expression spans. Copied from the V2 sheet's rule in
        the SCSS bundle (v2/layout/_layout.scss), which is nested under
@@ -91,11 +89,10 @@
 
     --v3-font-display: #{$font-stack-secondary};
     --v3-font-label: #{$font-stack-label};
-    --v3-font-size-title: #{$font-tiny};
-    --v3-font-size-label: #{$font-xxs};
-    --v3-font-size-value: #{$font-xs};
-    --v3-font-size-name: #{$font-lg};
-
+    --v3-font-size-tiny: #{$font-tiny};
+    --v3-font-size-xxs: #{$font-xxs};
+    --v3-font-size-xs: #{$font-xs};
+    --v3-font-size-lg: #{$font-lg};
 
     font-family: $font-stack-base;
     h1, h2, h3, h4, h5, h6 {
@@ -142,7 +139,7 @@
         width: 1.25rem;
         height: 1.25rem;
         padding: 0;
-        font-size: var(--v3-font-size-title);
+        font-size: var(--v3-font-size-tiny);
         line-height: 1;
       }
     }

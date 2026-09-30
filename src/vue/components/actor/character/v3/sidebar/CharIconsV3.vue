@@ -194,23 +194,6 @@ function rollIcons() {
   flex: 1;
 }
 
-.icon-symbol {
-  flex: 0 0 auto;
-  font-weight: 600;
-
-  &.icon-symbol--positive {
-    color: var(--v3-positive);
-  }
-
-  &.icon-symbol--negative {
-    color: var(--v3-negative);
-  }
-
-  &.icon-symbol--conflicted {
-    color: var(--v3-conflicted);
-  }
-}
-
 .icon-dice {
   display: flex;
   align-items: center;

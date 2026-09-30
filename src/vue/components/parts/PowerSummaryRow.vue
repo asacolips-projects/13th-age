@@ -245,7 +245,7 @@ const classes = computed(() => [
   text-align: left;
   // The V2 sheet doesn't define the V3 token, so fall back to the size the V2
   // SCSS uses for these titles.
-  font-size: var(--v3-font-size-label, $font-xs);
+  font-size: var(--v3-font-size-xxs, $font-xs);
 }
 
 // The trigger read as a tooltip hanging off the row.

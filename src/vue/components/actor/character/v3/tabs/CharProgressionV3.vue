@@ -192,7 +192,7 @@ function toggleIncremental(inc) {
       display: flex;
       align-items: center;
       gap: 0.375rem;
-      font-size: var(--v3-font-size-label);
+      font-size: var(--v3-font-size-xxs);
       cursor: pointer;
     }
 
@@ -208,7 +208,7 @@ function toggleIncremental(inc) {
     .incremental-hint {
       margin: 0.125rem 0 0;
       padding-left: 1.5rem; // line up under the label, clear of the checkbox
-      font-size: var(--v3-font-size-label);
+      font-size: var(--v3-font-size-xxs);
       color: var(--v3-text-muted);
       cursor: default;
     }
