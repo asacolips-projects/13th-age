@@ -66,6 +66,11 @@
     --v3-positive: var(--c-hit);
     --v3-negative: var(--c-red);
     --v3-conflicted: var(--c-yellow);
+    /* Inline-roll expressions ([[...]]), which the enrichment helpers behind
+       Enriched wrap in .expression spans. Copied from the V2 sheet's rule in
+       the SCSS bundle (v2/layout/_layout.scss), which is nested under
+       .archmage-v2 and so never matches this root. */
+    --v3-expression: #ff7b7b;
 
     /* Power usage colours: the system-wide gradients, which the colour-blind
        modes override through their body classes. Aliased so a theme only has
@@ -94,6 +99,14 @@
 
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--v3-font-display);
+    }
+
+    /* Inline-roll expressions, styled sheet-wide like the V2 sheet does; the
+       spans arrive through v-html in child components, which the root's
+       unscoped styles reach without :deep(). */
+    .expression {
+      color: var(--v3-expression);
+      font-weight: bold;
     }
 
     height: 100%;
