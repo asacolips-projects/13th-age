@@ -1,7 +1,9 @@
 <template>
-  <div class="archmage-v3-vue character flexrow" :class="context.cssClass">
-    <!-- Top-left control cluster: the edit toggle (owned at the sheet level,
-         broadcast to children via provide/inject) and the settings cog. -->
+  <div ref="rootEl" class="archmage-v3-vue character flexrow" :class="[context.cssClass, { 'is-narrow': narrow }]">
+    <!-- Control cluster: the edit toggle (owned at the sheet level, broadcast
+         to children via provide/inject) and the settings cog. Absolutely
+         positioned in both layouts — over the sidebar's top-left corner in
+         the wide layout, over the command bar's right edge in narrow. -->
     <div v-if="context.editable" class="sheet-controls">
       <button type="button" class="sheet-edit-toggle" :title="localize('ARCHMAGE.edit')" @click="toggleEdit">
         <i :class="editing ? 'fas fa-check' : 'fas fa-pen-to-square'"></i>
@@ -11,21 +13,38 @@
       </button>
     </div>
 
-    <!-- Full-height sidebar: identity, defenses, abilities -->
-    <CharSidebarV3 :actor="context.actor" />
+    <!-- Wide layout: full-height sidebar (identity, defenses, abilities) over
+         to a right column with a fixed stats header and the tabbed main. -->
+    <template v-if="!narrow">
+      <CharSidebarV3 :actor="context.actor" />
 
-    <!-- Right column: fixed-height stats header over the tabbed main zone -->
-    <section class="sheet-right flexcol">
+      <section class="sheet-right flexcol">
+        <CharStatsHeaderV3 :actor="context.actor" :editable="context.editable" />
+        <CharMainV3 :context="context" />
+      </section>
+    </template>
+
+    <!-- Narrow layout: single column. Identity condenses into a command bar,
+         the vitals stay pinned beneath it, and the sidebar's units re-home
+         into a character tab inside CharMainV3. -->
+    <template v-else>
+      <header class="sheet-command-bar">
+        <CharIdentityV3 :actor="context.actor" />
+      </header>
+
       <CharStatsHeaderV3 :actor="context.actor" :editable="context.editable" />
-      <CharMainV3 :context="context" />
-    </section>
+      <!-- Bound explicitly: a bare `narrow` attribute would arrive as ""
+           (falsy) because array-declared props get no boolean casting. -->
+      <CharMainV3 :context="context" :narrow="narrow" />
+    </template>
   </div>
 </template>
 
 <script setup>
-  import { ref, provide } from 'vue';
+  import { ref, provide, onMounted, onBeforeUnmount } from 'vue';
   import { localize, getActor } from '@/methods/Helpers';
   import CharSidebarV3 from '@/components/actor/character/v3/CharSidebarV3.vue';
+  import CharIdentityV3 from '@/components/actor/character/v3/CharIdentityV3.vue';
   import CharStatsHeaderV3 from '@/components/actor/character/v3/CharStatsHeaderV3.vue';
   import CharMainV3 from '@/components/actor/character/v3/CharMainV3.vue';
 
@@ -37,6 +56,24 @@
   function toggleEdit() {
     editing.value = !editing.value;
   }
+
+  // Narrow layout switch: key off the sheet's own width rather than the
+  // viewport, because a Foundry window resizes independently of the device.
+  // Below the breakpoint the root renders the single-column arrangement.
+  const NARROW_BREAKPOINT = 720;
+
+  const rootEl = ref(null);
+  const narrow = ref(false);
+  let resizeObserver = null;
+
+  onMounted(() => {
+    resizeObserver = new ResizeObserver(entries => {
+      narrow.value = entries[0].contentRect.width < NARROW_BREAKPOINT;
+    });
+    resizeObserver.observe(rootEl.value);
+  });
+
+  onBeforeUnmount(() => resizeObserver?.disconnect());
 
   // Opens the per-character settings window. The AppV2 class lives in the
   // module bundle (exposed on game.archmage) to keep the module -> vue bundle
@@ -141,6 +178,124 @@
         padding: 0;
         font-size: var(--v3-font-size-tiny);
         line-height: 1;
+      }
+    }
+
+    /* Narrow layout: single column beneath the command bar. The structural
+       swap (sidebar -> tab) happens in the templates; everything here is
+       reflow and restyling. These global rules out-specify the children's
+       scoped styles (class count beats class + attribute). */
+    &.is-narrow {
+      flex-direction: column;
+
+      /* Controls relocate over the command bar's right edge and grow to
+         touch-friendly size. */
+      .sheet-controls {
+        top: 0.5rem;
+        left: auto;
+        right: 0.5rem;
+        flex-direction: row;
+
+        button {
+          width: 1.75rem;
+          height: 1.75rem;
+          font-size: var(--v3-font-size-xs);
+        }
+      }
+
+      /* The identity block doubles as the command bar: one row with the
+         portrait shrunk, the name/subtitle left-aligned, and One Unique
+         Thing clamped to a couple of lines (edit mode still opens the full
+         ProseMirror allowance). */
+      .sheet-command-bar {
+        flex: 0 0 auto;
+        border-bottom: 1px solid var(--v3-border);
+
+        .sheet-header {
+          flex-direction: row;
+          align-items: center;
+          gap: 0.625rem;
+          padding: 0.375rem 4.5rem 0.375rem 0.5rem;
+          border-bottom: none;
+
+          .header-portrait {
+            align-self: center;
+
+            img {
+              height: 2.25rem;
+            }
+          }
+
+          .header-id {
+            flex: 1 1 auto;
+            text-align: left;
+          }
+
+          .header-out {
+            flex: 0 1 12rem;
+            max-height: none;
+            border-top: none;
+            padding-top: 0;
+
+            .out-label {
+              display: none;
+            }
+
+            .out-text {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+            }
+
+            &.header-out--editing {
+              max-height: 240px;
+
+              .out-text {
+                display: block;
+                overflow-y: auto;
+              }
+            }
+          }
+        }
+      }
+
+      /* Vitals: HP and recoveries split the first row; the save tracks wrap
+         onto their own row beneath. */
+      .sheet-stats-header .stats-row {
+        flex-wrap: wrap;
+      }
+
+      .sheet-stats-header .stats-unit--saves {
+        flex-basis: 100%;
+        border-right: none;
+        border-top: 1px solid var(--v3-border-header);
+      }
+
+      /* Resource tiles wrap into their own rows instead of squeezing onto a
+         single line; each tile carries its own top border so wrapped rows
+         stay separated. */
+      .sheet-stats-header .stats-resources {
+        flex-wrap: wrap;
+        border-top: none;
+
+        .unit {
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: 10rem;
+          border-top: 1px solid var(--v3-border);
+        }
+      }
+
+      /* Tab strip: icon-only (labels are dropped via the tabs data in
+         CharMainV3, tooltips survive through hideLabel) and scrollable for
+         very small windows; links grow to touch-friendly size. */
+      .sheet-main .section--tabs {
+        overflow-x: auto;
+      }
+
+      .sheet-main .tab-link {
+        padding: 0.5rem 0.625rem;
       }
     }
   }

@@ -1,30 +1,22 @@
 <template>
   <aside class="sheet-sidebar">
     <CharIdentityV3 :actor="actor" />
-    <CharAbilitiesV3 :actor="actor" />
-    <CharDefensesV3 :actor="actor" />
-    <CharInitiativeV3 :actor="actor" />
-    <CharSavesV3 :actor="actor" />
-    <CharBackgroundsV3 :actor="actor" />
-    <CharIconsV3 :actor="actor" />
+    <CharSidebarBodyV3 :actor="actor" />
   </aside>
 </template>
 
 <script setup>
 import CharIdentityV3 from './CharIdentityV3.vue';
-import CharDefensesV3 from './sidebar/CharDefensesV3.vue';
-import CharInitiativeV3 from './sidebar/CharInitiativeV3.vue';
-import CharAbilitiesV3 from './sidebar/CharAbilitiesV3.vue';
-import CharBackgroundsV3 from './sidebar/CharBackgroundsV3.vue';
-import CharIconsV3 from './sidebar/CharIconsV3.vue';
-import CharSavesV3 from './sidebar/CharSavesV3.vue';
+import CharSidebarBodyV3 from './CharSidebarBodyV3.vue';
 
 defineProps(['actor']);
 </script>
 
 <!-- Unscoped: the shared unit scaffolding must reach into the child
      components, which scoped selectors on this component cannot. Each child
-     owns its own internal styles. -->
+     owns its own internal styles. The scaffolding selectors also cover
+     .sidebar-units, the wrapper the narrow layout's character tab uses when
+     it re-homes the same body units. -->
 <style lang="scss">
 .sheet-sidebar {
   flex: 0 0 250px;
@@ -35,7 +27,9 @@ defineProps(['actor']);
   height: 100%;
   overflow-y: auto;
   border-right: 1px solid var(--v3-border);
+}
 
+.sheet-sidebar, .sidebar-units {
   .unit {
     padding: 0.5rem 0.75rem;
     border-bottom: 1px solid var(--v3-border);
