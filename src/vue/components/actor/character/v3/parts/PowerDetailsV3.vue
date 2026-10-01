@@ -8,6 +8,7 @@
       <!-- Read from the config rather than localized here, so that 2e's "arc" is used in place of "daily". -->
       <span v-if="usageLabel" class="meta-item meta-usage" :class="usageColorClass">{{ usageLabel }}</span>
       <span v-if="power.system.powerType.value" class="meta-item">{{ localize(`ARCHMAGE.${power.system.powerType.value}`) }}</span>
+      <span v-if="power.system.embeddedMacro.value" class="meta-item meta-macro"><em>{{ localize('ARCHMAGE.CHAT.embeddedMacro') }}</em></span>
     </header>
 
     <!-- Description, then the primary properties (attack, hit, effect, ...),
