@@ -307,9 +307,13 @@
     )
   );
 
+  // Flags that only apply to the V2 sheet, hidden from the V3 settings.
+  const hiddenFlags = ['hideSettingsTab', 'showTriggersTab'];
+
   const flagGroups = computed(() => {
     const groups = {};
     for (const flag of Object.values(flagState)) {
+      if (hiddenFlags.includes(flag.key)) continue;
       const section = flag.section ?? '';
       (groups[section] ??= []).push(flag);
     }
