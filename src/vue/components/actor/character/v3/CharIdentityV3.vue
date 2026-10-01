@@ -25,22 +25,27 @@
     </div>
 
     <!-- One Unique Thing -->
-    <div class="header-out">
+    <div class="header-out" :class="{ 'header-out--editing': editing }">
       <h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
-      <p class="out-text" v-if="!editing">{{ outPlainText }}</p>
-      <textarea v-else name="system.details.out.value" v-model="actor.system.details.out.value" :placeholder="localize('ARCHMAGE.oneUniqueThing')"></textarea>
+      <!-- Display shows the enriched HTML; edit mode swaps in a full
+           ProseMirror editor (same mechanism as the notes tab). -->
+      <div class="out-text" v-if="!editing" v-html="outEnriched"></div>
+      <div class="out-editor" v-else ref="outEditorHost"></div>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, computed, inject } from 'vue';
-import { localize, tooltip, stripHtml } from '@/methods/Helpers';
+import { ref, computed, inject, watch, nextTick } from 'vue';
+import { localize, tooltip } from '@/methods/Helpers';
 
 const props = defineProps(['actor']);
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject('editMode', ref(false));
+
+// The real document provides a UUID for ProseMirror's relative links.
+const actorDocument = inject('actorDocument');
 
 const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
 const kinLabel = computed(() => secondEdition.value ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
@@ -52,7 +57,49 @@ const subtitle = computed(() => {
   ].filter(part => part !== undefined && part !== null && part !== '');
   return parts.join(' · ');
 });
-const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?.value));
+const outRaw = computed(() => props.actor?.system?.details?.out?.value ?? '');
+const outEnriched = ref('');
+
+// One Unique Thing: display shows enriched HTML; edit mode swaps the field for
+// a full ProseMirror editor bound to the document field (created on demand via
+// the edit-mode watch). Its change event on blur flows through the enclosing
+// form's submitOnChange, so no explicit save wiring is needed. Enrichment is
+// async-only, so the rendered HTML lives in a ref fed by a watcher.
+const outEditorHost = ref(null);
+const outField = 'system.details.out.value';
+
+async function enrichOut(raw) {
+  return foundry.applications.ux.TextEditor.implementation.enrichHTML(raw, {
+    secrets: props.actor?.owner,
+    documents: true,
+    links: true,
+    rolls: true,
+    rollData: {},
+    async: false
+  });
+}
+
+watch(outRaw, async raw => {
+  const enriched = await enrichOut(raw);
+  // Skip stale resolutions if the value changed while enriching.
+  if (outRaw.value === raw) outEnriched.value = enriched;
+}, { immediate: true });
+
+async function mountOutEditor() {
+  const raw = outRaw.value;
+  const editor = foundry.applications.elements.HTMLProseMirrorElement.create({
+    name: outField,
+    value: raw,
+    enriched: await enrichOut(raw),
+    toggled: false,
+    documentUUID: actorDocument?.uuid
+  });
+  outEditorHost.value.replaceChildren(editor);
+}
+
+watch(editing, value => {
+  if (value) nextTick(mountOutEditor);
+});
 
 // Portrait treatment flags (same ones the V2 sheets honor).
 const archmageFlags = computed(() => props.actor?.flags?.archmage ?? {});
@@ -141,6 +188,12 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
     max-height: 100px;
     overflow-y: auto;
 
+    /* Editing needs room for the editor's menu bar plus a usable writing
+       area, which the display mode's compact cap can't provide. */
+    &.header-out--editing {
+      max-height: 240px;
+    }
+
     .out-label {
       margin: 0 0 0.25rem;
       font-family: var(--v3-font-display);
@@ -154,13 +207,46 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
     .out-text {
       margin: 0;
       white-space: normal;
-      font-style: italic;
+
+      /* Enriched HTML arrives wrapped in <p>; the browser's default margins
+         would pad the tight header block. */
+      :deep(p) {
+        margin: 0;
+      }
     }
 
-    textarea {
-      width: 100%;
-      min-height: 3rem;
-      resize: none;
+    /* Activating a ProseMirror editor restructures .editor into a menu bar
+       plus an .editor-container (whose flex basis collapses without help).
+       Same narrow-column treatment as the V2 sheet's rules in
+       _sheet.scss: keep the menu in the flow, wrap it, and give the writing
+       area its own floor. */
+    :deep(prose-mirror.editor) {
+      display: flex;
+      flex-direction: column;
+      min-height: 7rem;
+
+      > menu,
+      .editor-menu {
+        position: relative;
+        inset: auto;
+        flex: 0 0 auto;
+        flex-wrap: wrap;
+        height: auto;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .editor-container {
+        margin-top: 0;
+        padding-top: 0;
+        flex: 1 1 auto;
+        min-height: 3rem;
+        overflow-y: auto;
+      }
+
+      .editor-content {
+        min-height: 100%;
+      }
     }
   }
 </style>
