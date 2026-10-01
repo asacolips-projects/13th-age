@@ -17,9 +17,9 @@
       <template v-else>
         <input type="text" name="name" v-model="actor.name" :placeholder="localize('ARCHMAGE.name')">
         <div class="edit-row">
-          <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :placeholder="kinLabel">
-          <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :placeholder="localize('ARCHMAGE.class')">
-          <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" min="0" max="10">
+          <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
+          <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
+          <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
         </div>
       </template>
     </div>
@@ -37,7 +37,7 @@
 
 <script setup>
 import { ref, computed, inject, watch, nextTick } from 'vue';
-import { localize, tooltip } from '@/methods/Helpers';
+import { isBlank, isZeroish, localize, tooltip } from '@/methods/Helpers';
 
 const props = defineProps(['actor']);
 
@@ -49,6 +49,7 @@ const actorDocument = inject('actorDocument');
 
 const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
 const kinLabel = computed(() => secondEdition.value ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
+
 const subtitle = computed(() => {
   const parts = [
     props.actor?.system?.details?.race?.value,

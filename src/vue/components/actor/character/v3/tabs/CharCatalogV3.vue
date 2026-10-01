@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="import-catalog" v-if="canImport">
-        <button type="button" class="catalog-import" :title="localize('ARCHMAGE.import')" @click="importPowers"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
+        <button type="button" class="catalog-import" :class="{ 'catalog-import--pulse': isEmptyCharacter }" :disabled="missingKinClass" :data-tooltip="importTooltip" @click="importPowers"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
       </div>
     </header>
 
@@ -120,6 +120,25 @@ const canReorderGroups = computed(() => props.editable === true && !props.actor?
 // sheet, non-GM users who turned it off in the character settings don't see it.
 const canImport = computed(() =>
   !(props.actor?.flags?.archmage?.hideImportPowers === true && !game.user.isGM));
+
+// The importer builds its tabs from the character's kin and class, so with
+// neither set it would just silently do nothing; the button disables itself
+// with an explanatory tooltip instead.
+const missingKinClass = computed(() => {
+  const details = props.actor?.system?.details ?? {};
+  return !details.race?.value && !details.class?.value;
+});
+
+const kinLabel = computed(() =>
+  game.settings.get('archmage', 'secondEdition') === true ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
+
+const importTooltip = computed(() => missingKinClass.value
+  ? game.i18n.format('ARCHMAGE.importNeedsKinClass', { kin: kinLabel.value })
+  : localize('ARCHMAGE.import'));
+
+// The button pulses while the character has no items, advertising where a
+// new character's powers come from.
+const isEmptyCharacter = computed(() => (props.actor?.items ?? []).length === 0);
 
 // Coin purses edited in place, like the v2 inventory tab's currency strip;
 // the character settings flag hides the whole row. The named inputs persist
@@ -548,6 +567,17 @@ const createGroupItem = async (section) => {
       font-size: var(--v3-font-size-tiny);
       border-radius: 3px;
       background: transparent;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      // Empty-catalog attention pulse, same accent as the identity fields'
+      // (charms even while disabled — the tooltip explains why).
+      &.catalog-import--pulse {
+        animation: v3-empty-pulse 2s ease-in-out infinite;
+      }
     }
   }
 
@@ -612,5 +642,15 @@ const createGroupItem = async (section) => {
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  /* Empty-field attention pulse (shared look with the identity fields). */
+  @keyframes v3-empty-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+    50% {
+      box-shadow: 0 0 0 2px var(--v3-hint);
+    }
   }
 </style>

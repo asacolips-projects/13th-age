@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-  import { ref, provide, onMounted, onBeforeUnmount } from 'vue';
+  import { ref, computed, provide, onMounted, onBeforeUnmount } from 'vue';
   import { localize, getActor } from '@/methods/Helpers';
   import CharSidebarV3 from '@/components/actor/character/v3/CharSidebarV3.vue';
   import CharIdentityV3 from '@/components/actor/character/v3/CharIdentityV3.vue';
@@ -57,6 +57,15 @@
     editing.value = !editing.value;
   }
 
+  // First-run experience. A character with neither kin nor class filled in is
+  // presumed brand new, so the sheet opens straight into edit mode once; the
+  // blank fields then pulse for attention (CharIdentityV3), since the power
+  // importer depends on both.
+  const missingKinClass = computed(() => {
+    const details = props.context.actor?.system?.details ?? {};
+    return !details.race?.value && !details.class?.value;
+  });
+
   // Narrow layout switch: key off the sheet's own width rather than the
   // viewport, because a Foundry window resizes independently of the device.
   // Below the breakpoint the root renders the single-column arrangement.
@@ -71,6 +80,13 @@
       narrow.value = entries[0].contentRect.width < NARROW_BREAKPOINT;
     });
     resizeObserver.observe(rootEl.value);
+
+    // Open a character missing its kin and class straight into edit mode,
+    // once per mount — filling them in later shouldn't hijack the user's
+    // cursor.
+    if (props.context.editable && !props.context.actor?.pack && missingKinClass.value) {
+      editing.value = true;
+    }
   });
 
   onBeforeUnmount(() => resizeObserver?.disconnect());
@@ -124,6 +140,9 @@
     /* Feat rows carry the system-wide feat gradient, same deal. */
     --v3-feat: var(--c-feat);
 
+    /* Empty-field pulse accent (first-run attention on name/kin/class). */
+    --v3-hint: var(--c-yellow);
+
     --v3-font-display: #{$font-stack-secondary};
     --v3-font-label: #{$font-stack-label};
     --v3-font-base: #{$font-stack-base};
@@ -143,6 +162,15 @@
     .expression {
       color: var(--v3-expression);
       font-weight: bold;
+    }
+
+    /* Placeholder prompts, sheet-wide: brighter than the browser default and
+       italic, and right-aligned while shown — i.e. while the field is empty.
+       Typing restores the input's own text alignment; centered number inputs
+       keep their own rules where more specific. */
+    input::placeholder {
+      color: var(--c-white--75);
+      font-style: italic;
     }
 
     height: 100%;

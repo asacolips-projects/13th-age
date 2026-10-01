@@ -9,9 +9,11 @@
         </button>
         <div v-else class="background-edit">
           <input type="number" :name="`system.backgrounds.${background.key}.bonus.value`"
-            v-model="background.raw.bonus.value">
+            v-model="background.raw.bonus.value" placeholder="0"
+            :class="{ 'field-empty': isZeroish(background.raw.bonus.value) }">
           <input type="text" :name="`system.backgrounds.${background.key}.name.value`"
-            v-model="background.raw.name.value">
+            v-model="background.raw.name.value" :placeholder="localize('ARCHMAGE.backgroundName')"
+            :class="{ 'field-empty': isBlank(background.raw.name.value) }">
         </div>
       </li>
     </ul>
@@ -25,7 +27,7 @@
 
 <script setup>
 import { ref, computed, inject } from 'vue';
-import { localize } from '@/methods/Helpers';
+import { isBlank, isZeroish, localize } from '@/methods/Helpers';
 import { DiceArchmage } from '@src/module/actor/dice.js';
 
 const props = defineProps(['actor']);

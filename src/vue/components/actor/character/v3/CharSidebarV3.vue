@@ -66,4 +66,33 @@ defineProps(['actor']);
     color: var(--v3-text-muted);
   }
 }
+
+/* Attention pulse on empty entry fields: background and icon entries pulse
+   while blank (or zero), and the identity's kin/class/level while blank (or
+   level zero) — the same cue the sheet-wide placeholder styling gives those
+   fields. Calms to a steady glow while focused so it doesn't fight typing.
+   The class is bound per field in the child components (CSS can't see a
+   number input's zero). The command bar is the narrow layout's re-home of
+   the identity fields. */
+.sheet-sidebar,
+.sidebar-units,
+.sheet-command-bar {
+  .field-empty {
+    animation: v3-empty-pulse 2s ease-in-out infinite;
+
+    &:focus {
+      animation: none;
+      box-shadow: 0 0 0 1px var(--v3-hint);
+    }
+  }
+}
+
+@keyframes v3-empty-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 2px var(--v3-hint);
+  }
+}
 </style>

@@ -20,6 +20,7 @@ ARCHMAGE:
   avatarAlt: Character profile image
   background: Background
   backgrounds: Backgrounds
+  backgroundName: Background Name
   baseAC: Base AC
   baseHP: Base HP
   baseMD: Base MD
@@ -104,6 +105,7 @@ ARCHMAGE:
   iconic: Zenith
   iconRelationships: Icon Relationships
   import: Import Powers
+  importNeedsKinClass: "Set this character's {kin} and Class before importing powers."
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment

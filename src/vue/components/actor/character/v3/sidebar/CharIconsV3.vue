@@ -20,16 +20,19 @@
           </span>
         </template>
         <template v-else>
-          <select class="icon-edit icon-edit--relationship" :name="`system.icons.${icon.key}.relationship.value`"
+          <select class="icon-edit icon-edit--relationship" :class="{ 'field-empty': isBlank(icon.raw.relationship.value) }"
+            :name="`system.icons.${icon.key}.relationship.value`"
             v-model="icon.raw.relationship.value" :title="localize(`ARCHMAGE.${icon.raw.relationship.value}`)">
             <option value="Positive" :title="localize('ARCHMAGE.Positive')">+</option>
             <option value="Negative" :title="localize('ARCHMAGE.Negative')">-</option>
             <option value="Conflicted" :title="localize('ARCHMAGE.Conflicted')">±</option>
           </select>
-          <input type="number" class="icon-edit icon-edit--bonus" :name="`system.icons.${icon.key}.bonus.value`"
-            v-model="icon.raw.bonus.value">
-          <input type="text" class="icon-edit icon-edit--name" :name="`system.icons.${icon.key}.name.value`"
-            v-model="icon.raw.name.value">
+          <input type="number" class="icon-edit icon-edit--bonus" :class="{ 'field-empty': isZeroish(icon.raw.bonus.value) }"
+            :name="`system.icons.${icon.key}.bonus.value`"
+            v-model="icon.raw.bonus.value" placeholder="0">
+          <input type="text" class="icon-edit icon-edit--name" :class="{ 'field-empty': isBlank(icon.raw.name.value) }"
+            :name="`system.icons.${icon.key}.name.value`"
+            v-model="icon.raw.name.value" :placeholder="localize('ARCHMAGE.icon')">
         </template>
       </li>
     </ul>
@@ -43,7 +46,7 @@
 
 <script setup>
 import { ref, computed, inject } from 'vue';
-import { localize } from '@/methods/Helpers';
+import { isBlank, isZeroish, localize } from '@/methods/Helpers';
 import RollableV3 from '../RollableV3.vue';
 
 const props = defineProps(['actor']);

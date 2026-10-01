@@ -52,6 +52,30 @@ export function concat(...args) {
 }
 
 /**
+ * Whether a field value is blank: null, undefined, or whitespace-only text.
+ * Used for the empty-field attention pulse.
+ *
+ * @param {*} value Field value.
+ *
+ * @returns {boolean}
+ */
+export function isBlank(value) {
+  return (value ?? '').toString().trim() === '';
+}
+
+/**
+ * Whether a numeric field value is blank or zero (Number(''), Number(null)
+ * and Number('0') are all 0). Used for the empty-field attention pulse.
+ *
+ * @param {*} value Field value.
+ *
+ * @returns {boolean}
+ */
+export function isZeroish(value) {
+  return !value || Number(value) === 0;
+}
+
+/**
  * Whether a power has one or more feats worth showing pips for.
  *
  * @param {object} power Power item data.
