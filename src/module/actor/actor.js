@@ -1033,7 +1033,9 @@ export class ActorArchmage extends Actor {
       if (dieSlot !== null) {
         // Per-die roll: write the rolled die into its own slot and leave the
         // other dice untouched. Only high rolls fill the slot; anything else
-        // empties it (the alt method counts 4+ and marks the slot with a 6).
+        // empties it. Both 2e methods mark a success slot with a 6 (standard
+        // 2e records 5s as plain benefits, the twist is rolled at usage
+        // time); 1e keeps the raw 5/6 distinction.
         input.fives = (!is2e && !is2eAlt && results[0] === 5) ? 1 : 0;
         input.sixes = is2eAlt ? (results[0] >= 4 ? 1 : 0)
           : is2e ? (results[0] >= 5 ? 1 : 0)
@@ -1041,7 +1043,7 @@ export class ActorArchmage extends Actor {
         const success = input.sixes > 0 || input.fives > 0;
         const current = [...(actorData.icons?.[input.iconIndex]?.results || [])];
         while (current.length < input.icon.bonus.value) current.push(0);
-        current[dieSlot] = success ? (is2eAlt ? 6 : results[0]) : 0;
+        current[dieSlot] = success ? (is2e || is2eAlt ? 6 : results[0]) : 0;
         actorUpdate[updateKey] = current;
         return;
       }
