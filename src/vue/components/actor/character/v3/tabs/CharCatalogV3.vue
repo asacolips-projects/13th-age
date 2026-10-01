@@ -120,6 +120,10 @@ const CURRENCY = ['platinum', 'gold', 'silver', 'copper'];
 const showCurrency = computed(() => props.actor?.flags?.archmage?.hideCurrency !== true);
 const coins = computed(() => props.actor?.system?.coins ?? {});
 
+// The character settings flag shared with the v2 powers tab; when set, empty
+// power groups collapse instead of staying visible for their "+" button.
+const hideEmptyPowerGroups = computed(() => props.actor?.flags?.archmage?.hideEmptyPowerGroups === true);
+
 const importPowers = async () => {
   const actor = await getActor(props.actor);
   await game.archmage?.ArchmagePowerImporterApplication?.open(actor);
@@ -211,8 +215,8 @@ const orderedGroups = (groups) => {
 /**
  * Power groups for the current groupBy mode, in natural order: canonical
  * config order for built-in modes, first-appearance order for custom groups.
- * Groups are always shown, empty or not, so their "+" button has a home.
- * Each group is {key, labelKey, raw, kind, members}.
+ * Empty groups are trimmed at display time when the hideEmptyPowerGroups
+ * flag is set. Each group is {key, labelKey, raw, kind, members}.
  */
 const powerGroups = computed(() => {
   const items = powers.value;
@@ -271,16 +275,29 @@ const CURRENCY_SECTION = {
 /**
  * Every catalog section in display order: the power groups for the current
  * groupBy mode, then the equipment and loot sections, then the currency
- * group. Sections always show, even when empty, so their "+" buttons can
- * fill them. Currency is a draggable group like the rest, so its position
- * persists alongside them in the per-mode group order flag.
+ * group. With the hideEmptyPowerGroups flag set, empty power groups drop out
+ * — except when every power group is empty, where the first one stays so its
+ * "+" button still has a home — matching the v2 powers tab. Inventory
+ * sections always show so their "+" buttons can fill them. Currency is a
+ * draggable group like the rest, so its position persists alongside them in
+ * the per-mode group order flag.
  */
-const catalogSections = computed(() => orderedGroups([
-  ...powerGroups.value,
-  ...INVENTORY_SECTIONS
-    .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value })),
-  ...(showCurrency.value ? [CURRENCY_SECTION] : []),
-]));
+const catalogSections = computed(() => {
+  const sections = [
+    ...powerGroups.value,
+    ...INVENTORY_SECTIONS
+      .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value })),
+    ...(showCurrency.value ? [CURRENCY_SECTION] : []),
+  ];
+  const visible = hideEmptyPowerGroups.value
+    ? sections.filter(section => section.kind !== 'power' || section.members.length > 0)
+    : sections;
+  if (hideEmptyPowerGroups.value && !visible.some(section => section.kind === 'power')) {
+    const first = sections.find(section => section.kind === 'power');
+    if (first) visible.push(first);
+  }
+  return orderedGroups(visible);
+});
 
 /**
  * Classes for a group section, including drag feedback.
