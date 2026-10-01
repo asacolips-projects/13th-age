@@ -669,6 +669,7 @@ ARCHMAGE:
     level: Level
     name: Name
   INVENTORY:
+    currency: Currency
     equipment: Magic Items
     loot: Loot
     tool: Tools

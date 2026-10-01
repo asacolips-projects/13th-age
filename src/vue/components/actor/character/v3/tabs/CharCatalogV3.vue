@@ -23,6 +23,8 @@
       </div>
     </header>
 
+    <!-- Sections are the reorderable groups; the currency group renders its
+         coin purses in place of an item list. -->
     <section v-for="section in catalogSections" :key="section.key" class="catalog-group"
       :class="groupClasses(section.key)"
       @dragover="onGroupDragOver($event, section.key)"
@@ -34,9 +36,18 @@
         @dragend="onGroupDragEnd">
         <i v-if="canReorderGroups" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
         <span class="group-title-label">{{ localize(section.labelKey) }}</span>
-        <a v-if="editable" class="group-add" :title="addTitle(section)" @click.stop="createGroupItem(section)"><i class="fas fa-plus"></i></a>
+        <a v-if="editable && section.kind !== 'currency'" class="group-add" :title="addTitle(section)" @click.stop="createGroupItem(section)"><i class="fas fa-plus"></i></a>
       </h4>
-      <ul class="catalog-list flexcol">
+      <!-- Coin purses, matching the v2 inventory tab; the named inputs
+           persist via the sheet's submitOnChange, like the resource units
+           in the stats header. -->
+      <div v-if="section.kind === 'currency'" class="catalog-currency flexrow">
+        <div v-for="type in CURRENCY" :key="type" :class="concat('currency-unit currency-unit-', type)">
+          <label :for="concat('catalog-coin-', type)">{{localize(concat('ARCHMAGE.COINS.', type))}}</label>
+          <input type="number" :id="concat('catalog-coin-', type)" :name="concat('system.coins.', type, '.value')" v-model="coins[type].value" placeholder="0">
+        </div>
+      </div>
+      <ul v-else class="catalog-list flexcol">
         <template v-for="item in section.members" :key="item._id">
           <ExpandablePower v-if="section.kind === 'power'" :power="item" :actor="actor" :context="context"/>
           <ExpandableEquipment v-else-if="section.kind === 'equipment'" :equipment="item" :actor="actor" :context="context"/>
@@ -101,6 +112,13 @@ const canReorderGroups = computed(() => props.editable === true && !props.actor?
 // sheet, non-GM users who turned it off in the character settings don't see it.
 const canImport = computed(() =>
   !(props.actor?.flags?.archmage?.hideImportPowers === true && !game.user.isGM));
+
+// Coin purses edited in place, like the v2 inventory tab's currency strip;
+// the character settings flag hides the whole row. The named inputs persist
+// through the sheet's submitOnChange, like the stats header's resource units.
+const CURRENCY = ['platinum', 'gold', 'silver', 'copper'];
+const showCurrency = computed(() => props.actor?.flags?.archmage?.hideCurrency !== true);
+const coins = computed(() => props.actor?.system?.coins ?? {});
 
 const importPowers = async () => {
   const actor = await getActor(props.actor);
@@ -241,15 +259,27 @@ const INVENTORY_SECTIONS = [
   { key: 'inventory-loot', labelKey: 'ARCHMAGE.INVENTORY.loot', kind: 'loot', items: loot },
 ];
 
+// The currency group holds the coin purse inputs rather than items; it is
+// gated by the hideCurrency flag and defaults to the end of the catalog.
+const CURRENCY_SECTION = {
+  key: 'inventory-currency',
+  labelKey: 'ARCHMAGE.INVENTORY.currency',
+  kind: 'currency',
+  members: [],
+};
+
 /**
  * Every catalog section in display order: the power groups for the current
- * groupBy mode, then the equipment and loot sections. Sections always show,
- * even when empty, so their "+" buttons can fill them.
+ * groupBy mode, then the equipment and loot sections, then the currency
+ * group. Sections always show, even when empty, so their "+" buttons can
+ * fill them. Currency is a draggable group like the rest, so its position
+ * persists alongside them in the per-mode group order flag.
  */
 const catalogSections = computed(() => orderedGroups([
   ...powerGroups.value,
   ...INVENTORY_SECTIONS
     .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value })),
+  ...(showCurrency.value ? [CURRENCY_SECTION] : []),
 ]));
 
 /**
@@ -392,6 +422,40 @@ const createGroupItem = async (section) => {
       font-family: $font-stack-label;
       text-align: left;
       font-weight: normal;
+    }
+  }
+
+  // Coin purses, styled like the filter controls (label above slim input).
+  // Units share the row evenly; gold/silver/copper copy the v2 sheet's
+  // denomination text colors (platinum keeps the default color there too).
+  .catalog-currency {
+    gap: 2em;
+
+    > div {
+      text-align: center;
+
+      &.currency-unit-gold {
+        color: #efc44a;
+      }
+
+      &.currency-unit-silver {
+        color: #888;
+      }
+
+      &.currency-unit-copper {
+        color: #c17a58;
+      }
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      font-weight: bold;
+      text-align: center;
     }
   }
 
