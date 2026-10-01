@@ -3,7 +3,7 @@
     <!-- Portrait. The profile-img class goes on the wrapper div, matching the
          V2 sheets: ContextMenu injects the menu into the matched element, and
          an img can't render children. -->
-    <div class="header-portrait profile-img">
+    <div class="header-portrait profile-img" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame }">
       <img :src="actor?.img" :alt="localize('ARCHMAGE.avatarAlt')" :title="actor?.name"
         data-edit="img" data-action="onEditImage" :data-tooltip="tooltip('portrait')" />
     </div>
@@ -53,6 +53,11 @@ const subtitle = computed(() => {
   return parts.join(' · ');
 });
 const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?.value));
+
+// Portrait treatment flags (same ones the V2 sheets honor).
+const archmageFlags = computed(() => props.actor?.flags?.archmage ?? {});
+const portraitRound = computed(() => archmageFlags.value.portraitRound === true);
+const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true);
 </script>
 
 <!-- Laid out vertically: it lives at the top of the narrow sidebar column
@@ -75,6 +80,16 @@ const outPlainText = computed(() => stripHtml(props.actor?.system?.details?.out?
       max-width: 100%;
       object-fit: contain;
       border-radius: 4px;
+    }
+
+    &.portrait--round,
+    &.portrait--round img {
+      border-radius: 50%;
+    }
+
+    &.portrait--frame {
+      border: 2px solid var(--c-white--75);
+      padding: 2px;
     }
   }
 
