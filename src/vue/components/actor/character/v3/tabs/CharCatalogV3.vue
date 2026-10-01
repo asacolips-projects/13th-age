@@ -16,7 +16,10 @@
       </div>
       <div class="filter-search-catalog">
         <label for="catalog-filter">{{localize('ARCHMAGE.filter')}}</label>
-        <input type="text" name="catalog-filter" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
+        <div class="search-catalog-input">
+          <input type="text" name="catalog-filter" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
+          <button v-if="searchValue" type="button" class="search-catalog-clear" :title="localize('ARCHMAGE.clear')" @click="clearSearch"><i class="fas fa-times"></i></button>
+        </div>
       </div>
       <div class="import-catalog" v-if="canImport">
         <button type="button" class="catalog-import" :title="localize('ARCHMAGE.import')" @click="importPowers"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
@@ -60,7 +63,7 @@
 
 <script setup>
 import { computed, inject, ref, watch } from 'vue';
-import { concat, getActor, localize } from '@/methods/Helpers';
+import { concat, equipmentBonuses, getActor, localize } from '@/methods/Helpers';
 import ExpandablePower from '@/components/actor/character/v3/parts/expandable/ExpandablePower.vue';
 import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
 import ExpandableLoot from '@/components/actor/character/v3/parts/expandable/ExpandableLoot.vue';
@@ -97,6 +100,11 @@ const displayFlags = computed(() => props.actor?.flags?.archmage?.sheetDisplay?.
 const groupBy = ref(displayFlags.value.groupBy?.value ?? 'powerType');
 const sortBy = ref(displayFlags.value.sortBy?.value ?? 'custom');
 const searchValue = ref(null);
+
+// The filter box's clear widget; resetting to null also hides the button.
+const clearSearch = () => {
+  searchValue.value = null;
+};
 
 // Group reordering, mirroring the v2 powers tab. The drag state is transient;
 // the ordering itself persists to the actor flag shared with v2 (per groupBy
@@ -160,10 +168,38 @@ const byLevel = (a, b) => {
 
 const sortFns = { name: byName, level: byLevel, custom: byCustom };
 
+// Strip enriched-HTML markup so descriptions index as plain text; searching
+// raw HTML would match tag names and miss matches split across tags.
+const stripHtml = (text) => text.replace(/<[^>]+>/g, '');
+
+// Searchable text for an item: what the v2 inventory tab matches (name,
+// chakra, equipment's bonus keys and values) plus the fields only the
+// expanded row shows — every type's description, a power's custom group and
+// its feats' text.
+const searchText = (item) => {
+  let text = `${item.name ?? ''}${item.system?.chackra ?? ''}`;
+  if (item.type === 'equipment') {
+    const bonuses = equipmentBonuses(item);
+    for (const [key, value] of Object.entries(bonuses)) {
+      text = `${text}${key}${value}`;
+    }
+  }
+  text += item.system?.description?.value ?? '';
+  if (item.type === 'power') {
+    text += item.system?.group?.value ?? '';
+    for (const feat of Object.values(item.system?.feats ?? {})) {
+      text += feat.description?.value ?? '';
+    }
+  }
+  return stripHtml(text);
+};
+
 const matchesSearch = (item) => {
-  const needle = (searchValue.value ?? '').trim().toLowerCase();
+  // Both sides are stripped to alphanumerics like the v2 inventory filter, so
+  // punctuation and spacing don't need to match exactly.
+  const needle = cleanGroupKey(searchValue.value ?? '');
   if (!needle) return true;
-  return (item.name ?? '').toLowerCase().includes(needle);
+  return cleanGroupKey(searchText(item)).includes(needle);
 };
 
 const catalogItems = (types) => (props.actor?.items ?? [])
@@ -425,6 +461,33 @@ const createGroupItem = async (section) => {
 
       &.filter-search-catalog {
         flex: 1;
+
+        // Clear widget sits at the input's right edge, inside it.
+        .search-catalog-input {
+          position: relative;
+
+          input[type="text"] {
+            width: 100%;
+            padding-right: 1.5em;
+          }
+
+          .search-catalog-clear {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: inherit;
+            font-size: var(--v3-font-size-tiny);
+            line-height: 1;
+
+            &:hover {
+              text-shadow: 0 0 5px var(--v3-hover-glow);
+            }
+          }
+        }
       }
     }
 
