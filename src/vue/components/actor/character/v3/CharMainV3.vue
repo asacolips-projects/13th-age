@@ -4,11 +4,17 @@
 
     <!-- Every tab is mounted for the sheet's lifetime; the <Tab> wrapper only
          toggles visibility, which preserves component state and, because each
-         tab-body is its own scroll container, per-tab scroll positions. -->
+         tab-body is its own scroll container, per-tab scroll positions.
+         Exception: the narrow-only character tab below is conditional, since
+         its body would duplicate the sidebar's named form inputs. -->
     <div class="tab-content">
       <!-- Narrow layout only: the sidebar's units re-homed as a tab (the
-           identity lives in the command bar instead). -->
-      <Tab group="v3" :tab="tabs.character" classes="tab-body">
+           identity lives in the command bar instead). Conditional on narrow
+           rather than visibility-hidden: these inputs carry the same name=
+           attributes as the sidebar's, and both copies mounted at once would
+           make Foundry's form submit collect each field twice as an array
+           (e.g. bonus.value = [1, 1]). -->
+      <Tab v-if="narrow" group="v3" :tab="tabs.character" classes="tab-body">
         <div class="sidebar-units">
           <CharSidebarBodyV3 :actor="context.actor" />
         </div>
