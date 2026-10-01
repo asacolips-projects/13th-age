@@ -1,6 +1,6 @@
 <template>
   <aside class="sheet-sidebar">
-    <CharHeaderV3 :actor="actor" />
+    <CharIdentityV3 :actor="actor" />
     <CharAbilitiesV3 :actor="actor" />
     <CharDefensesV3 :actor="actor" />
     <CharInitiativeV3 :actor="actor" />
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import CharHeaderV3 from './CharHeaderV3.vue';
+import CharIdentityV3 from './CharIdentityV3.vue';
 import CharDefensesV3 from './sidebar/CharDefensesV3.vue';
 import CharInitiativeV3 from './sidebar/CharInitiativeV3.vue';
 import CharAbilitiesV3 from './sidebar/CharAbilitiesV3.vue';
