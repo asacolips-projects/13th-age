@@ -126,6 +126,7 @@
 
     --v3-font-display: #{$font-stack-secondary};
     --v3-font-label: #{$font-stack-label};
+    --v3-font-base: #{$font-stack-base};
     --v3-font-size-tiny: #{$font-tiny};
     --v3-font-size-xxs: #{$font-xxs};
     --v3-font-size-xs: #{$font-xs};

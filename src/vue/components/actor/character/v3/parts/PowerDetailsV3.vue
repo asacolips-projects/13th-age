@@ -20,7 +20,7 @@
     </fieldset>
     <fieldset v-if="detailFields.length" class="fieldset-details">
       <div v-for="field in detailFields" :key="field" class="power-detail" :data-field="field">
-        <strong class="detail-label">{{ localize(`ARCHMAGE.CHAT.${field}`) }}:</strong>
+        <h4 class="detail-label">{{ localize(`ARCHMAGE.CHAT.${field}`) }}</h4>
         <Enriched tag="div" class="detail-value" :text="power.system[field].value" :replacements="[]"
           :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" :field="field"
           :enrichment-options="enrichmentOptions"/>
@@ -151,17 +151,17 @@ const enrichmentOptions = computed(() => ({
   }
 
   .power-detail {
-    display: flex;
-    gap: 0.375rem;
     margin: 0.25rem 0;
   }
 
   .detail-label {
-    flex: 0 0 auto;
+    margin: 0;
+    font-size: var(--v3-font-size-xs);
+    font-family: var(--v3-font-base);
   }
 
   .detail-value {
-    flex: 1 1 auto;
+    padding: 0 0.5rem;
     min-width: 0;
   }
 </style>
