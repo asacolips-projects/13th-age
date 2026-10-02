@@ -209,7 +209,7 @@ const classes = computed(() => [
 // belong to the caller's summary slot, hence :deep().
 .power-grid {
   .power-name {
-    font-size: var(--font-size-10);
+    font-size: var(--font-size-12);
     font-family: $font-stack-secondary;
     overflow: hidden;
     padding-left: $padding-sm;
@@ -243,9 +243,7 @@ const classes = computed(() => [
   margin: 0;
   border: 0;
   text-align: left;
-  // The V2 sheet doesn't define the V3 token, so fall back to the size the V2
-  // SCSS uses for these titles.
-  font-size: var(--font-size-14, $font-xs);
+  font-size: var(--font-size-18);
 }
 
 // The trigger read as a tooltip hanging off the row.

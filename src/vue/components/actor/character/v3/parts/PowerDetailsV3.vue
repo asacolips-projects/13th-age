@@ -108,7 +108,7 @@ const enrichmentOptions = computed(() => ({
 <style scoped lang="scss">
   .power-details {
     padding: 0.375rem 0.375rem 0.25rem;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-15);
   }
 
   .details-meta {
