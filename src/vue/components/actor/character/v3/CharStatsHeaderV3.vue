@@ -253,6 +253,7 @@ function updateFails(saveType, opt) {
   line-height: 1;
   font-size: var(--font-size-14);
   cursor: pointer;
+  text-shadow: 0 0 5px var(--c-black);
 
   &.is-failed {
     border-color: transparent;
