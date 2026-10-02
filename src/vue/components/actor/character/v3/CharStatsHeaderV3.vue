@@ -42,18 +42,25 @@
         <!-- Disengage roll plus the in-play fail tracks, stacked vertically.
              Difficulty saves (easy/normal/hard) live in the sidebar. -->
         <div class="saves-stack">
-          <RollableV3 name="save" @click="rollDisengage">{{
-            localize('ARCHMAGE.SAVE.disengage') }} {{ disengageValue }}+</RollableV3>
           <span class="save-track">
             <RollableV3 name="save" @click="rollSave('death')">{{ localize('ARCHMAGE.SAVE.death') }}</RollableV3>
-            <input type="checkbox" v-for="step in deathFails.max" :key="`death-${step}`"
-              :checked="step <= deathFails.value" @change="updateFails('deathFails', step)" />
+            <!-- 2e calls these failures "skulls": render them as such. -->
+            <template v-for="step in deathFails.max" :key="`death-${step}`">
+              <input v-if="!secondEdition" type="checkbox"
+                :checked="step <= deathFails.value" @change="updateFails('deathFails', step)" />
+              <button v-else type="button" class="skull-step" :class="{ 'is-failed': step <= deathFails.value }"
+                :aria-pressed="step <= deathFails.value"
+                :aria-label="`${localize('ARCHMAGE.SAVE.death')} ${step}`"
+                @click="updateFails('deathFails', step)">💀</button>
+            </template>
           </span>
           <span class="save-track">
             <RollableV3 name="save" @click="rollSave('lastGasp')">{{ localize('ARCHMAGE.SAVE.lastGasp') }}</RollableV3>
             <input type="checkbox" v-for="step in lastGaspFails.max" :key="`lastgasp-${step}`"
               :checked="step <= lastGaspFails.value" @change="updateFails('lastGaspFails', step)" />
           </span>
+          <RollableV3 name="save" @click="rollDisengage">{{
+            localize('ARCHMAGE.SAVE.disengage') }} {{ disengageValue }}+</RollableV3>
         </div>
       </div>
     </div>
@@ -79,6 +86,9 @@ const actorDocument = inject('actorDocument');
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject('editMode', ref(false));
+
+// 2e rules swap the death save fail track's checkmarks for skulls.
+const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
 
 const disengageValue = computed(() => {
   const attrs = props.actor?.system?.attributes;
@@ -236,6 +246,29 @@ function updateFails(saveType, opt) {
     height: 0.875rem;
     flex: 0;
     margin: 0 0 0 5px;
+  }
+}
+
+/* 2e fail track: unchecked skulls sit dimmed and gray, checked ones pop.
+   height/min-height reset Foundry's global button sizing (28px) that
+   would otherwise double the track height. */
+.skull-step {
+  background: none;
+  border: none;
+  padding: 0;
+  flex: 0 0 var(--font-size-14);
+  margin: 0 0 0 3px;
+  height: auto;
+  min-height: 0;
+  line-height: 1;
+  font-size: var(--font-size-14);
+  cursor: pointer;
+  opacity: 0.25;
+  filter: grayscale(1);
+
+  &.is-failed {
+    opacity: 1;
+    filter: none;
   }
 }
 
