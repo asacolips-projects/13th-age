@@ -3,7 +3,7 @@ _key: '!items!3KzjWAEbXiaYQBSr'
 effects: []
 flags: {}
 folder: null
-img: icons/svg/d20.svg
+img: systems/archmage/assets/icons/skills/blood_04.jpg
 name: "That\u2019s Your Best Shot?"
 ownership:
   default: 0
@@ -99,11 +99,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: 1
+    value: '1'
   maxQuantitySecondary:
     label: Max Secondary Uses
     type: String
-    value: null
+    value: ''
   miss:
     label: Miss
     type: String
@@ -122,7 +122,7 @@ system:
   powerLevel:
     label: Level
     type: Number
-    value: '1'
+    value: 1
   powerOriginName:
     label: Power Original Name
     type: String
@@ -241,7 +241,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String

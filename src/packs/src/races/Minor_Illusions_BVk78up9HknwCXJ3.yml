@@ -3,7 +3,7 @@ _key: '!items!BVk78up9HknwCXJ3'
 effects: []
 flags: {}
 folder: null
-img: icons/svg/d20.svg
+img: icons/magic/perception/orb-crystal-ball-scrying-blue.webp
 name: Minor Illusions
 ownership:
   default: 0
@@ -80,11 +80,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: null
+    value: ''
   maxQuantitySecondary:
     label: Max Secondary Uses
     type: String
-    value: null
+    value: ''
   miss:
     label: Miss
     type: String
@@ -103,7 +103,7 @@ system:
   powerLevel:
     label: Level
     type: Number
-    value: '1'
+    value: 1
   powerOriginName:
     label: Power Original Name
     type: String
@@ -222,7 +222,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String
