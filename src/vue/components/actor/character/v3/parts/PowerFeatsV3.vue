@@ -164,12 +164,12 @@ const enrichmentOptions = computed(() => ({
       box-sizing: border-box;
       width: 8px;
       height: 8px;
-      border: 1px solid $c-white;
+      border: 1px solid var(--color-text-primary);
       border-radius: 50%;
       cursor: pointer;
 
       &.active {
-        background: $c-white;
+        background: var(--color-text-primary);
       }
     }
   }

@@ -239,13 +239,13 @@ function rechargeItem() {
     height: 8px;
     background: transparent;
     border-radius: 50%;
-    border: 1px solid $c-white;
+    border: 1px solid var(--color-text-primary);
     margin: 0 1px;
     padding: 0;
     cursor: pointer;
 
     &.active {
-      background: $c-white;
+      background: var(--color-text-primary);
     }
   }
 

@@ -707,19 +707,19 @@ const saveRowOrder = async (order) => {
     height: 12px;
     background: transparent;
     border-radius: 50%;
-    border: 1px solid $c-white;
+    border: 1px solid var(--color-text-primary);
     margin: 0 1px;
     padding: 0;
 
     &.filled {
-      background: $c-white;
+      background: var(--color-text-primary);
     }
 
     // A slot a lower-tier feat spent: the arrow marks the down-spend.
     &.borrowed i {
       font-size: var(--font-size-10);
       line-height: 0;
-      color: var(--c-black);
+      color: var(--color-fieldset-border);
     }
 
     &.overflow {
@@ -734,7 +734,7 @@ const saveRowOrder = async (order) => {
     font-family: var(--v3-font-label);
     font-size: var(--font-size-10);
     line-height: 0;
-    color: var(--c-white);
+    color: var(--color-light-1);
   }
 
   .loadout-list {
