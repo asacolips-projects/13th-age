@@ -7,17 +7,30 @@
       <h4 class="loadout-section-title unit-title">
         <span class="section-label">{{ localize(section.labelKey) }}</span>
         <!-- Edit mode only: per-section tracker config, persisted to the
-             sheetDisplay.loadout flags. The checkbox hides the section's
-             tracks; the number grants slots beyond the level's allowance -->
+             sheetDisplay.loadout flags, tucked behind a cog. The popover's
+             checkbox hides the section's tracks; the number grants slots
+             beyond the level's allowance -->
         <template v-if="editing">
-          <label class="track-config" :title="localize('ARCHMAGE.enableTracker')">
-            <input type="checkbox" :checked="section.config.enabled"
-              @change="saveSectionFlag(section.key, 'enabled', $event.target.checked)">
-          </label>
-          <label class="track-config" :title="localize('ARCHMAGE.extraSlots')">
-            <input type="number" min="0" :value="section.config.extraSlots"
-              @change="saveExtraSlots(section.key, $event)">
-          </label>
+          <span class="track-config-menu">
+            <button type="button" class="track-config-toggle"
+              :class="{ open: openConfig === section.key }"
+              :title="localize('ARCHMAGE.trackerSettings')"
+              @click="toggleConfig(section.key)">
+              <i class="fas fa-gear"></i>
+            </button>
+            <div v-if="openConfig === section.key" class="track-config-popover">
+              <label class="track-config-option">
+                <span class="option-label">{{ localize('ARCHMAGE.enableTracker') }}</span>
+                <input type="checkbox" :checked="section.config.enabled"
+                  @change="saveSectionFlag(section.key, 'enabled', $event.target.checked)">
+              </label>
+              <label class="track-config-option">
+                <span class="option-label">{{ localize('ARCHMAGE.extraSlots') }}</span>
+                <input type="number" min="0" :value="section.config.extraSlots"
+                  @change="saveExtraSlots(section.key, $event)">
+              </label>
+            </div>
+          </span>
         </template>
         <span class="slot-tracks">
           <template v-for="track in section.tracks" :key="track.key">
@@ -103,8 +116,10 @@
  * the feats, with the read view's feat rows — always expanded — indented
  * beneath it; the pips and rolls are the same flips the powers tab makes.
  *
- * In edit mode each header grows a tracker config pair — an enable checkbox
- * and an extra-slots number — persisted to the sheetDisplay.loadout flags.
+ * In edit mode each header grows a cog button whose popover holds the
+ * tracker config pair — an enable checkbox and an extra-slots number,
+ * labeled now that they have room — persisted to the sheetDisplay.loadout
+ * flags.
  * Extras join the level's magic item slots; for feats they are slots of the
  * highest tier the character's level has reached, since a bonus feat slot
  * has to belong to some tier. The feat and magic item incremental advances
@@ -115,7 +130,7 @@
  * a power's feat block drags with it, while the feats' own order stays the
  * author's.
  */
-import { computed, inject, ref } from 'vue';
+import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { attunementCost, characterTierIndex, filterFeats, getActor, localize, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
 import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
 import ExpandablePowerRow from '@/components/actor/character/v3/parts/expandable/ExpandablePowerRow.vue';
@@ -126,6 +141,35 @@ const props = defineProps(['actor', 'editable', 'context']);
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject('editMode', ref(false));
+
+// Tracker config popovers: one open at a time, keyed by section key. The
+// toggle flips it; a document click outside the open menu or Escape closes
+// it, and leaving edit mode takes the cogs (and any open popover) with it.
+const openConfig = ref(null);
+
+const toggleConfig = (key) => {
+  openConfig.value = openConfig.value === key ? null : key;
+};
+
+const onDocClick = (event) => {
+  if (openConfig.value && !event.target.closest?.('.track-config-menu')) openConfig.value = null;
+};
+
+const onDocKeydown = (event) => {
+  if (event.key === 'Escape') openConfig.value = null;
+};
+
+onMounted(() => {
+  document.addEventListener('click', onDocClick);
+  document.addEventListener('keydown', onDocKeydown);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', onDocClick);
+  document.removeEventListener('keydown', onDocKeydown);
+});
+
+watch(editing, () => { openConfig.value = null; });
 
 const byName = (a, b) => a.name.localeCompare(b.name);
 const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
@@ -474,27 +518,72 @@ const saveRowOrder = async (order) => {
     }
   }
 
-  // The edit-mode tracker config pair in the header: the enable checkbox and
-  // the extra-slots entry, compact to sit beside the pip tracks without
-  // widening the sticky header.
-  .track-config {
+  // The edit-mode tracker config in the header: a cog button opening a small
+  // popover holding the labeled enable checkbox and the extra-slots entry.
+  // The popover hangs from the cog, absolute so it doesn't widen the sticky
+  // header, and reads as a little panel over the rows beneath.
+  .track-config-menu {
+    position: relative;
     display: flex;
     align-items: center;
     flex: 0 0 auto;
+  }
 
-    input[type='checkbox'] {
-      margin: 0;
+  .track-config-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    font-size: var(--font-size-10);
+    line-height: 1;
+
+    // Lit while its popover is open.
+    &.open i {
+      color: var(--v3-rollable);
     }
+  }
 
-    input[type='number'] {
-      min-width: 0;
-      width: calc(3ch + 0.5rem);
-      height: 1.25rem;
-      padding: 0 0.25rem;
-      line-height: 1.25rem;
-      font-size: var(--font-size-14);
-      font-variant-numeric: tabular-nums;
-      text-align: center;
+  .track-config-popover {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    right: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding: 0.5rem 0.625rem;
+    background: var(--c-black--75);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 8px var(--c-black--50);
+
+    .track-config-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .option-label {
+        font-family: var(--v3-font-label);
+        font-size: var(--font-size-12);
+        white-space: nowrap;
+      }
+
+      input[type='checkbox'] {
+        margin: 0;
+      }
+
+      input[type='number'] {
+        min-width: 0;
+        width: calc(3ch + 0.5rem);
+        height: 1.25rem;
+        padding: 0 0.25rem;
+        line-height: 1.25rem;
+        font-size: var(--font-size-14);
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+      }
     }
   }
 
