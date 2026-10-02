@@ -314,7 +314,7 @@ const sections = computed(() => {
       height: 1.25rem;
       padding: 0 0.25rem;
       line-height: 1.25rem;
-      font-size: var(--v3-font-size-xxs);
+      font-size: var(--font-size-14);
       font-variant-numeric: tabular-nums;
       text-align: center;
     }
@@ -345,7 +345,7 @@ const sections = computed(() => {
     border-radius: 0.25rem;
     background: var(--v3-chip-bg);
     font-family: var(--v3-font-display);
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
   }
 
   // The slot pips, mirrored from PowerFeatPips: hollow circles, filled when
@@ -378,7 +378,7 @@ const sections = computed(() => {
 
     // A slot a lower-tier feat spent: the arrow marks the down-spend.
     &.borrowed i {
-      font-size: 10px;
+      font-size: var(--font-size-10);
       line-height: 0;
       color: var(--c-black);
     }
@@ -393,7 +393,7 @@ const sections = computed(() => {
   // The tier letter an unplaceable feat wears on its alert square.
   .overflow-letter {
     font-family: var(--v3-font-label);
-    font-size: 10px;
+    font-size: var(--font-size-10);
     line-height: 0;
     color: var(--c-white);
   }

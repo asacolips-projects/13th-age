@@ -108,7 +108,7 @@ const enrichmentOptions = computed(() => ({
 <style scoped lang="scss">
   .power-details {
     padding: 0.375rem 0.375rem 0.25rem;
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
   }
 
   .details-meta {
@@ -118,7 +118,7 @@ const enrichmentOptions = computed(() => ({
     gap: 0.125rem 0.75rem;
     margin-bottom: 0.375rem;
     font-family: var(--v3-font-label);
-    font-size: var(--v3-font-size-tiny);
+    font-size: var(--font-size-12);
     color: var(--v3-text-muted);
   }
 
@@ -156,7 +156,7 @@ const enrichmentOptions = computed(() => ({
 
   .detail-label {
     margin: 0;
-    font-size: var(--v3-font-size-xs);
+    font-size: var(--font-size-16);
     font-family: var(--v3-font-base);
   }
 

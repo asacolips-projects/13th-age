@@ -121,7 +121,7 @@ function activatePower() {
 // scope that defined them.
 .power-grid {
   gap: 2px;
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
   font-family: var(--v3-font-label);
   text-align: center;
 
@@ -204,7 +204,7 @@ function activatePower() {
 // this scope; everything inside belongs to Power.vue, hence :deep() below.
 .power {
   font-family: $font-stack-base;
-  font-size: $font-xs;
+  font-size: var(--font-size-14);
   line-height: 1.3;
   padding: 0 0 $padding-md 0;
 

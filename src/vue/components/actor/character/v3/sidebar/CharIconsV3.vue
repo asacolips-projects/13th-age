@@ -211,7 +211,7 @@ function rollIcons() {
   border: 1px solid var(--color-border);
   border-radius: 2px;
   background: transparent;
-  font-size: 0.7em;
+  font-size: var(--font-size-10);
 }
 
 .icon-edit--relationship {

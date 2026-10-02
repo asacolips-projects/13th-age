@@ -20,7 +20,7 @@ defineProps(['actor']);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: var(--v3-font-size-xxs);
+  font-size: var(--font-size-14);
 
   span {
     text-align: center;

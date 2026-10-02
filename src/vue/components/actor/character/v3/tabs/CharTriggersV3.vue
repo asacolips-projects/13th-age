@@ -86,7 +86,7 @@ const groups = computed(() => {
     align-items: center;
     padding: 0.5rem 0 0.25rem;
     border-bottom: 1px solid var(--color-border);
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
   }
 
   .filter-custom-groups {
@@ -99,7 +99,7 @@ const groups = computed(() => {
 
   .column-label {
     margin: 0;
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -113,7 +113,7 @@ const groups = computed(() => {
   .group-title {
     margin: 0 0 0.25rem;
     font-family: var(--v3-font-display);
-    font-size: var(--v3-font-size-xs);
+    font-size: var(--font-size-16);
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.05em;

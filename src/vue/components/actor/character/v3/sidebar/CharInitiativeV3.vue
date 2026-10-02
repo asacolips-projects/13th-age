@@ -70,7 +70,7 @@ async function rollInitiative() {
 
 <style scoped lang="scss">
 .unit--initiative {
-  font-size: var(--v3-font-size-xxs);
+  font-size: var(--font-size-14);
   font-family: var(--v3-font-display);
   text-align: center;
   padding: 0 !important;

@@ -262,7 +262,7 @@ async function rollReroll(kind) {
 .unit-title {
   margin: 0 0 0.25rem;
   font-family: var(--v3-font-display);
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -282,7 +282,7 @@ async function rollReroll(kind) {
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
   white-space: nowrap;
 
   .reroll-label {
@@ -318,7 +318,6 @@ async function rollReroll(kind) {
   height: 1.25rem;
   padding: 0 0.25rem;
   line-height: 1.25rem;
-  font-size: inherit;
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
@@ -348,7 +347,7 @@ async function rollReroll(kind) {
   margin-bottom: 0.25rem;
   padding: 0 0.25rem;
   font-family: var(--v3-font-display);
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;

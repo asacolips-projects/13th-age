@@ -37,7 +37,7 @@ defineProps(['actor']);
   .unit-title {
     margin: 0 0 0.25rem;
     font-family: var(--v3-font-display);
-    font-size: var(--v3-font-size-tiny);
+    font-size: var(--font-size-12);
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.05em;

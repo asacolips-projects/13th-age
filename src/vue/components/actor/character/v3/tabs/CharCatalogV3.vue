@@ -466,7 +466,7 @@ const createGroupItem = async (section) => {
 <style scoped lang="scss">
   .catalog-filters {
     font-family: $font-stack-label;
-    font-size: $font-tiny;
+    font-size: var(--font-size-10);
     padding: $padding-sm 0 $padding-md;
     border-bottom: 1px dashed var(--color-border);
 
@@ -499,7 +499,7 @@ const createGroupItem = async (section) => {
             background: transparent;
             cursor: pointer;
             color: inherit;
-            font-size: var(--v3-font-size-tiny);
+            font-size: var(--font-size-12);
             line-height: 1;
 
             &:hover {
@@ -517,7 +517,7 @@ const createGroupItem = async (section) => {
     }
 
     input[type="text"] {
-      font-size: $font-tiny;
+      font-size: var(--font-size-10);
       font-family: $font-stack-label;
       text-align: left;
       font-weight: normal;
@@ -564,7 +564,7 @@ const createGroupItem = async (section) => {
 
     button {
       height: var(--input-height);
-      font-size: var(--v3-font-size-tiny);
+      font-size: var(--font-size-12);
       border-radius: 3px;
       background: transparent;
 
@@ -601,7 +601,7 @@ const createGroupItem = async (section) => {
 
     .group-add {
       cursor: pointer;
-      font-size: var(--v3-font-size-xxs);
+      font-size: var(--font-size-14);
 
       &:hover {
         text-shadow: 0 0 5px var(--v3-hover-glow);
@@ -623,7 +623,7 @@ const createGroupItem = async (section) => {
   }
 
   .group-grip {
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
     margin-right: $padding-sm;
     opacity: 0.35;
   }

@@ -120,7 +120,7 @@ function rechargeItem() {
 .equipment-grid {
   grid-template-columns: 32px auto 36px 130px 60px 60px 36px 56px;
   gap: 2px;
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
   font-family: var(--v3-font-label);
   text-align: center;
 
@@ -158,7 +158,7 @@ function rechargeItem() {
 // name is hovered. The trailing cells are the row's own summary slot content,
 // hence :deep().
 .equipment-name {
-  font-size: $font-xs;
+  font-size: var(--font-size-14);
   font-family: $font-stack-secondary;
   overflow: hidden;
   padding-left: $padding-sm;
@@ -189,7 +189,7 @@ function rechargeItem() {
   overflow: hidden;
   text-overflow: ellipsis;
   // The same size the power rows' titles read at.
-  font-size: var(--v3-font-size-xxs);
+  font-size: var(--font-size-14);
 }
 
 .equipment-bonus {
@@ -204,7 +204,7 @@ function rechargeItem() {
   background: $c-black--25;
   border-radius: $padding-sm;
   margin: 1px 2px;
-  font-size: 10px;
+  font-size: var(--font-size-10);
   display: flex;
   align-items: center;
   justify-content: center;

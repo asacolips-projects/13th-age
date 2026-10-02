@@ -195,7 +195,7 @@ const saveGroupOrder = async (order) => {
   }
 
   .group-grip {
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
     margin-right: $padding-sm;
     opacity: 0.35;
   }

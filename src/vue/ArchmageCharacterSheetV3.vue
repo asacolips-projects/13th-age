@@ -146,10 +146,6 @@
     --v3-font-display: #{$font-stack-secondary};
     --v3-font-label: #{$font-stack-label};
     --v3-font-base: #{$font-stack-base};
-    --v3-font-size-tiny: #{$font-tiny};
-    --v3-font-size-xxs: #{$font-xxs};
-    --v3-font-size-xs: #{$font-xs};
-    --v3-font-size-lg: #{$font-lg};
 
     font-family: $font-stack-base;
     h1, h2, h3, h4, h5, h6 {
@@ -205,7 +201,7 @@
         width: 1.25rem;
         height: 1.25rem;
         padding: 0;
-        font-size: var(--v3-font-size-tiny);
+        font-size: var(--font-size-10);
         line-height: 1;
       }
     }
@@ -228,7 +224,7 @@
         button {
           width: 1.75rem;
           height: 1.75rem;
-          font-size: var(--v3-font-size-xs);
+          font-size: var(--font-size-16);
         }
       }
 

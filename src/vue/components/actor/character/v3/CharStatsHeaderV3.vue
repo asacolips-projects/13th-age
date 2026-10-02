@@ -163,7 +163,7 @@ function updateFails(saveType, opt) {
 .unit-title {
   margin: 0 0 0.25rem;
   font-family: var(--v3-font-display);
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -186,7 +186,7 @@ function updateFails(saveType, opt) {
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
-  font-size: var(--v3-font-size-xs);
+  font-size: var(--font-size-16);
 }
 
 .unit-subrow {
@@ -194,7 +194,7 @@ function updateFails(saveType, opt) {
   align-items: center;
   gap: 0.375rem;
   margin: 0.25rem 0 0;
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
 
   /* Slim the progress bars into the subrow line. */
   .progress-bar {
@@ -217,7 +217,7 @@ function updateFails(saveType, opt) {
   justify-content: space-evenly;
   gap: 0.125rem; /* minimum spacing; justify-content does the spreading */
   flex: 1 1 auto;
-  font-size: var(--v3-font-size-tiny);
+  font-size: var(--font-size-12);
 }
 
 .save-track {

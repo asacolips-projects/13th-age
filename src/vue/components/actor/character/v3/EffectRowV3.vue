@@ -129,7 +129,7 @@ async function deleteEffect(bypass = false) {
     gap: 0.375rem;
     padding: 0 0.25rem;
     font-family: var(--v3-font-label);
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
     color: var(--c-white);
     text-shadow: 0 0 10px var(--c-black--50);
     background: var(--v3-effect-bg);
@@ -157,7 +157,7 @@ async function deleteEffect(bypass = false) {
       .effect-name-value {
         margin: 0;
         font-family: var(--v3-font-display);
-        font-size: var(--v3-font-size-xs);
+        font-size: var(--font-size-16);
         font-weight: normal;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -183,7 +183,7 @@ async function deleteEffect(bypass = false) {
         padding: 0 0.25rem;
         background: var(--v3-chip-bg);
         border-radius: 6px;
-        font-size: 10px;
+        font-size: var(--font-size-10);
         white-space: nowrap;
 
         .bonus-label {
@@ -200,7 +200,7 @@ async function deleteEffect(bypass = false) {
 
         .bonus-mode {
           margin: 0 6px;
-          font-size: 0.75em;
+          font-size: var(--font-size-10);
 
           i {
             color: var(--c-white);
@@ -237,7 +237,7 @@ async function deleteEffect(bypass = false) {
 
   .effect-description {
     padding: 0.25rem 0.5rem 0 2rem;
-    font-size: var(--v3-font-size-xxs);
+    font-size: var(--font-size-14);
     color: var(--v3-text-muted);
   }
 
