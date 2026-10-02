@@ -44,20 +44,20 @@
         <div class="saves-stack">
           <span class="save-track">
             <RollableV3 name="save" @click="rollSave('death')">{{ localize('ARCHMAGE.SAVE.death') }}</RollableV3>
-            <!-- 2e calls these failures "skulls": render them as such. -->
-            <template v-for="step in deathFails.max" :key="`death-${step}`">
-              <input v-if="!secondEdition" type="checkbox"
-                :checked="step <= deathFails.value" @change="updateFails('deathFails', step)" />
-              <button v-else type="button" class="skull-step" :class="{ 'is-failed': step <= deathFails.value }"
-                :aria-pressed="step <= deathFails.value"
-                :aria-label="`${localize('ARCHMAGE.SAVE.death')} ${step}`"
-                @click="updateFails('deathFails', step)">💀</button>
-            </template>
+          <!-- Death fail track: failed steps show skulls in 2e, X's in 1e. -->
+          <button v-for="step in deathFails.max" :key="`death-${step}`" type="button" class="fail-step"
+            :class="{ 'is-failed': step <= deathFails.value }"
+            :aria-pressed="step <= deathFails.value"
+            :aria-label="`${localize('ARCHMAGE.SAVE.death')} ${step}`"
+            @click="updateFails('deathFails', step)">{{ step <= deathFails.value ? (secondEdition ? '💀' : '❌') : '' }}</button>
           </span>
           <span class="save-track">
             <RollableV3 name="save" @click="rollSave('lastGasp')">{{ localize('ARCHMAGE.SAVE.lastGasp') }}</RollableV3>
-            <input type="checkbox" v-for="step in lastGaspFails.max" :key="`lastgasp-${step}`"
-              :checked="step <= lastGaspFails.value" @change="updateFails('lastGaspFails', step)" />
+            <button v-for="step in lastGaspFails.max" :key="`lastgasp-${step}`" type="button" class="fail-step"
+              :class="{ 'is-failed': step <= lastGaspFails.value }"
+              :aria-pressed="step <= lastGaspFails.value"
+              :aria-label="`${localize('ARCHMAGE.SAVE.lastGasp')} ${step}`"
+              @click="updateFails('lastGaspFails', step)">{{ step <= lastGaspFails.value ? '❌' : '' }}</button>
           </span>
           <RollableV3 name="save" @click="rollDisengage">{{
             localize('ARCHMAGE.SAVE.disengage') }} {{ disengageValue }}+</RollableV3>
@@ -87,7 +87,7 @@ const actorDocument = inject('actorDocument');
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject('editMode', ref(false));
 
-// 2e rules swap the death save fail track's checkmarks for skulls.
+// 2e death saves mark failures with skulls; 1e uses X's.
 const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
 
 const disengageValue = computed(() => {
@@ -238,37 +238,31 @@ function updateFails(saveType, opt) {
   .rollable {
     flex: 1;
   }
-
-  /* Auto margin on the first checkbox shoves the fail-track group to the
-     right edge; the rest sit 1px apart. */
-  input[type='checkbox'] {
-    width: 0.875rem;
-    height: 0.875rem;
-    flex: 0;
-    margin: 0 0 0 5px;
-  }
 }
 
-/* 2e fail track: unchecked skulls sit dimmed and gray, checked ones pop.
+/* Fail tracks: unfilled steps are empty boxes; failed ones show a glyph
+   (skull for 2e death saves, an X for last-gasp saves).
    height/min-height reset Foundry's global button sizing (28px) that
    would otherwise double the track height. */
-.skull-step {
+.fail-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
-  border: none;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
   padding: 0;
   flex: 0 0 var(--font-size-14);
   margin: 0 0 0 3px;
-  height: auto;
+  width: var(--font-size-14);
+  height: var(--font-size-14);
   min-height: 0;
   line-height: 1;
   font-size: var(--font-size-14);
   cursor: pointer;
-  opacity: 0.25;
-  filter: grayscale(1);
 
   &.is-failed {
-    opacity: 1;
-    filter: none;
+    border-color: transparent;
   }
 }
 
