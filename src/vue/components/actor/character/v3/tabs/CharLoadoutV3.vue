@@ -41,7 +41,13 @@
       <ul class="loadout-list flexcol">
         <!-- Magic items, with the full equipment row treatment. -->
         <template v-if="section.kind === 'equipment'">
-          <ExpandableEquipment v-for="item in section.members" :key="item._id" :equipment="item" :actor="actor"/>
+          <ExpandableEquipment v-for="item in section.members" :key="item._id" :equipment="item" :actor="actor"
+            :class="rowClasses(item._id)"
+            @dragstart="onRowDragStart($event, section.key, item._id)"
+            @dragover="onRowDragOver($event, section.key, item._id)"
+            @dragleave="onRowDragLeave($event, item._id)"
+            @drop="onRowDrop($event, section, item._id)"
+            @dragend="onRowDragEnd"/>
         </template>
 
         <!-- Feats grouped under their power. The power gets the catalog's
@@ -50,17 +56,31 @@
              and uses at left, description in the middle, taken pip at
              right. The wrapper's item is the power the feats belong to, so
              data-item-id stays truthful for drag and the sheet's delegated
-             listeners. -->
+             listeners. The block drags with its power — hovering it targets
+             the power row, and the feats' own order is the author's, never
+             reordered here. -->
         <template v-else>
           <template v-for="power in section.members" :key="power._id">
             <ExpandablePowerRow :power="power" :actor="actor" :context="context"
-              columns="32px auto 36px 44px 60px 44px 64px">
+              columns="32px auto 36px 44px 60px 44px 64px"
+              :class="rowClasses(power._id)"
+              @dragstart="onRowDragStart($event, section.key, power._id)"
+              @dragover="onRowDragOver($event, section.key, power._id)"
+              @dragleave="onRowDragLeave($event, power._id)"
+              @drop="onRowDrop($event, section, power._id)"
+              @dragend="onRowDragEnd">
               <template #details="{active}">
                 <PowerDetailsV3 v-if="active" :power="power" :actor="actor" :context="context" :show-feats="false"/>
               </template>
             </ExpandablePowerRow>
-            <li class="item feat-item" :data-item-id="power._id"
-              data-document-class="Item" data-draggable="true" draggable="true">
+            <li class="item feat-item" :class="{'loadout-row--dragging': draggedRow === power._id}"
+              :data-item-id="power._id"
+              data-document-class="Item" data-draggable="true" draggable="true"
+              @dragstart="onRowDragStart($event, section.key, power._id)"
+              @dragover="onFeatBlockDragOver($event, section.key, power._id)"
+              @dragleave="onRowDragLeave($event, power._id)"
+              @drop="onFeatBlockDrop($event, section, power._id)"
+              @dragend="onRowDragEnd">
               <PowerFeatsV3 :power="power" :actor="actor" :context="context"/>
             </li>
           </template>
@@ -90,6 +110,10 @@
  * has to belong to some tier. The feat and magic item incremental advances
  * (progression tab) each add a slot too — the feat one in the tier of the
  * PC's next level, the magic item one on the tierless track.
+ *
+ * Rows reorder by drag, persisting to the sheetDisplay.loadout.rowOrder flag;
+ * a power's feat block drags with it, while the feats' own order stays the
+ * author's.
  */
 import { computed, inject, ref } from 'vue';
 import { attunementCost, characterTierIndex, filterFeats, getActor, localize, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
@@ -105,6 +129,33 @@ const editing = inject('editMode', ref(false));
 
 const byName = (a, b) => a.name.localeCompare(b.name);
 const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
+
+// Row reordering, shared by both sections: magic items and the powers in the
+// feats section (each dragging its feat block with it — the feats themselves
+// keep the order their author wrote). The order persists to this tab's own
+// flag: the catalog's custom order lives in the items' sort values, shared
+// with the v2 sheet, and must not move because the loadout was tidied.
+const savedRowOrder = computed(() => {
+  const stored = props.actor?.flags?.archmage?.sheetDisplay?.loadout?.rowOrder;
+  return Array.isArray(stored) ? stored : [];
+});
+
+/**
+ * Apply the saved row order to a section's rows; rows the saved order
+ * doesn't know about (new items) keep their natural sort.
+ */
+const orderedRows = (rows) => {
+  const positions = new Map(savedRowOrder.value.map((id, index) => [id, index]));
+  if (!positions.size) return rows;
+  return [...rows].sort((a, b) => {
+    const ai = positions.get(a._id);
+    const bi = positions.get(b._id);
+    if (ai === undefined && bi === undefined) return 0;
+    if (ai === undefined) return 1;
+    if (bi === undefined) return -1;
+    return ai - bi;
+  });
+};
 
 /**
  * One section's tracker config from its display flag: the enable checkbox
@@ -240,8 +291,9 @@ const sections = computed(() => {
     }
   }
 
-  // The section's rows: every power with feats, in name order, its feats
-  // rendered beneath it by the read view's feat rows.
+  // The section's rows: every power with feats, in the saved row order
+  // falling back to name order, its feats rendered beneath it by the read
+  // view's feat rows.
   const featPowers = powers
     .filter(power => Object.keys(filterFeats(power.system?.feats)).length);
 
@@ -250,7 +302,7 @@ const sections = computed(() => {
       key: 'equipment',
       kind: 'equipment',
       labelKey: 'ARCHMAGE.INVENTORY.equipment',
-      members: magicItems,
+      members: orderedRows(magicItems),
       config: itemsConfig,
       tracks: [slotTrack('items', itemsConsumed, itemAllowance, itemsConfig)],
     },
@@ -258,12 +310,138 @@ const sections = computed(() => {
       key: 'feats',
       kind: 'feats',
       labelKey: 'ARCHMAGE.feats',
-      members: featPowers,
+      members: orderedRows(featPowers),
       config: featsConfig,
       tracks: featTracks,
     },
   ];
 });
+
+// Reordering is only offered when the sheet is editable and the actor isn't
+// a compendium entry (where flags can't be written).
+const canReorder = computed(() => props.editable === true && !props.actor?.pack);
+
+const draggedRow = ref(null);
+const draggedRowSection = ref(null);
+const dragOverRow = ref(null);
+const dropAfter = ref(false);
+
+/**
+ * Classes for a row, including drag feedback.
+ */
+const rowClasses = (rowId) => ({
+  'loadout-row--dragging': draggedRow.value === rowId,
+  'loadout-row--drop-above': dragOverRow.value === rowId && !dropAfter.value,
+  'loadout-row--drop-below': dragOverRow.value === rowId && dropAfter.value,
+});
+
+const onRowDragStart = (event, sectionKey, rowId) => {
+  if (!canReorder.value) return;
+  draggedRow.value = rowId;
+  draggedRowSection.value = sectionKey;
+  // Deliberately no stopPropagation: the sheet's dragstart still arms the
+  // item payload, so dropping the row outside this tab sorts or drags as
+  // usual. Only the drops below keep the two apart.
+};
+
+const onRowDragOver = (event, sectionKey, rowId) => {
+  if (!draggedRow.value) return;
+  // A row drag stays ours end to end: keep it away from the sheet's item
+  // sorting even over the other section's rows, where the drop is a no-op.
+  event.preventDefault();
+  event.stopPropagation();
+  event.dataTransfer.dropEffect = 'move';
+  if (draggedRowSection.value !== sectionKey || rowId === draggedRow.value) return;
+  const rect = event.currentTarget.getBoundingClientRect();
+  dropAfter.value = (event.clientY - rect.top) >= (rect.height / 2);
+  dragOverRow.value = rowId;
+};
+
+const onRowDragLeave = (event, rowId) => {
+  if (dragOverRow.value !== rowId) return;
+  // dragleave also fires when moving between the row's children, so only
+  // clear the indicator once the cursor has actually left the row.
+  if (event.currentTarget.contains(event.relatedTarget)) return;
+  dragOverRow.value = null;
+};
+
+const onRowDrop = async (event, section, targetId) => {
+  if (!draggedRow.value) return;
+  // A row is being reordered, so keep this away from item sorting.
+  event.preventDefault();
+  event.stopPropagation();
+
+  const sourceId = draggedRow.value;
+  const sourceSection = draggedRowSection.value;
+  const after = dropAfter.value;
+  clearRowDrag();
+  // Cross-section drops do nothing: the two inventories hold different items.
+  if (sourceSection !== section.key || sourceId === targetId) return;
+  await insertRow(section, sourceId, targetId, after);
+};
+
+const onRowDragEnd = () => clearRowDrag();
+
+const clearRowDrag = () => {
+  draggedRow.value = null;
+  draggedRowSection.value = null;
+  dragOverRow.value = null;
+  dropAfter.value = false;
+};
+
+/**
+ * The feat block beneath a power row drags with its power: hovering it
+ * targets the power row itself, and since the block sits below that row, a
+ * drop there always means after that power.
+ */
+const onFeatBlockDragOver = (event, sectionKey, powerId) => {
+  if (!draggedRow.value) return;
+  event.preventDefault();
+  event.stopPropagation();
+  event.dataTransfer.dropEffect = 'move';
+  if (draggedRowSection.value !== sectionKey || draggedRow.value === powerId) return;
+  dropAfter.value = true;
+  dragOverRow.value = powerId;
+};
+
+const onFeatBlockDrop = async (event, section, powerId) => {
+  if (!draggedRow.value) return;
+  event.preventDefault();
+  event.stopPropagation();
+
+  const sourceId = draggedRow.value;
+  const sourceSection = draggedRowSection.value;
+  clearRowDrag();
+  if (sourceSection !== section.key || sourceId === powerId) return;
+  await insertRow(section, sourceId, powerId, true);
+};
+
+/**
+ * Rebuild a section's order from what's currently displayed, inserting above
+ * or below the target based on where the cursor was released.
+ */
+const insertRow = async (section, sourceId, targetId, after) => {
+  const ids = section.members.map(row => row._id).filter(id => id !== sourceId);
+  const index = ids.indexOf(targetId);
+  if (index < 0) return;
+  ids.splice(after ? index + 1 : index, 0, sourceId);
+
+  // Keep the other section's entries (pruning deleted items) and append this
+  // section's slice: position within the flat array only matters relative to
+  // an item's own section, since the order is applied per section.
+  const memberIds = new Set(section.members.map(row => row._id));
+  const itemIds = new Set((props.actor?.items ?? []).map(item => item._id));
+  const rest = savedRowOrder.value.filter(id => !memberIds.has(id) && itemIds.has(id));
+  await saveRowOrder([...rest, ...ids]);
+};
+
+const saveRowOrder = async (order) => {
+  if (!canReorder.value) return;
+  // Pack actors have no setFlag; getActor resolves the live document from
+  // the context actor's drag data.
+  const actor = await getActor(props.actor);
+  await actor?.setFlag('archmage', 'sheetDisplay.loadout.rowOrder', order);
+};
 </script>
 
 <style scoped lang="scss">
@@ -423,5 +601,20 @@ const sections = computed(() => {
     margin: 0;
     padding: 0 0.25rem;
     color: var(--v3-text-muted);
+  }
+
+  // Row reordering feedback, matching the other v3 tabs: the dragged row
+  // dims (a power's feat block dims with it), the hovered row shows an
+  // insertion edge on the side the drop would land.
+  .loadout-row--dragging {
+    opacity: 0.5;
+  }
+
+  .loadout-row--drop-above {
+    box-shadow: inset 0 2px 0 var(--color-border);
+  }
+
+  .loadout-row--drop-below {
+    box-shadow: inset 0 -2px 0 var(--color-border);
   }
 </style>
