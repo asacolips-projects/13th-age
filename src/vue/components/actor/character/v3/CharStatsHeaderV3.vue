@@ -60,7 +60,7 @@
               @click="updateFails('lastGaspFails', step)">{{ step <= lastGaspFails.value ? '❌' : '' }}</button>
           </span>
           <RollableV3 name="save" @click="rollDisengage">{{
-            localize('ARCHMAGE.SAVE.disengage') }} {{ disengageValue }}+</RollableV3>
+            localize('ARCHMAGE.SAVE.disengage') }}</RollableV3>
         </div>
       </div>
     </div>
@@ -89,13 +89,6 @@ const editing = inject('editMode', ref(false));
 
 // 2e death saves mark failures with skulls; 1e uses X's.
 const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
-
-const disengageValue = computed(() => {
-  const attrs = props.actor?.system?.attributes;
-  return (Number(attrs?.disengage) || 0)
-    + (Number(attrs?.disengageBonus) || 0)
-    + (Number(attrs?.saves?.disengageBonus) || 0);
-});
 
 const recoveryFormula = computed(() => {
   const recoveries = props.actor?.system?.attributes?.recoveries;
