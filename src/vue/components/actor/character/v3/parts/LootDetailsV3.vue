@@ -65,7 +65,7 @@ const enrichmentOptions = computed(() => ({
     margin: 0.375rem 0 0;
     padding: 0.25rem 0 0;
     border: none;
-    border-top: 1px solid var(--v3-border);
+    border-top: 1px solid var(--color-border);
   }
 
   .detail-value {

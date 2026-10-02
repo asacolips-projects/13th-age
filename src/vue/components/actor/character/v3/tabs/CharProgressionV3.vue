@@ -181,7 +181,7 @@ function toggleIncremental(inc) {
 
   .incremental {
     padding: 0.25rem 0.5rem;
-    border: 1px solid var(--v3-border);
+    border: 1px solid var(--color-border);
     border-radius: 0.25rem;
 
     &:hover {

@@ -141,7 +141,6 @@ function updateFails(saveType, opt) {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid var(--v3-border-header);
 }
 
 .stats-row {
@@ -154,7 +153,7 @@ function updateFails(saveType, opt) {
   flex: 1 1 0;
   min-width: 0;
   padding: 0.375rem 0.75rem;
-  border-right: 1px solid var(--v3-border-header);
+  border-right: 1px solid var(--color-border);
 
   &:last-child {
     border-right: none;

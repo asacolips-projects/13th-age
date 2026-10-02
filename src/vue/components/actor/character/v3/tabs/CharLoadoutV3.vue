@@ -341,7 +341,7 @@ const sections = computed(() => {
     justify-content: center;
     width: 1.4em;
     height: 1.4em;
-    border: 1px solid var(--v3-border);
+    border: 1px solid var(--color-border);
     border-radius: 0.25rem;
     background: var(--v3-chip-bg);
     font-family: var(--v3-font-display);

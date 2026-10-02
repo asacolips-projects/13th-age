@@ -208,7 +208,7 @@ function rollIcons() {
    content so rows don't shift when a box empties. */
 .icon-die {
   width: 1.5em;
-  border: 1px solid var(--v3-border-header);
+  border: 1px solid var(--color-border);
   border-radius: 2px;
   background: transparent;
   font-size: 0.7em;
@@ -247,7 +247,7 @@ function rollIcons() {
 .icon-row--edit {
   flex-wrap: wrap;
   row-gap: 0.5rem;
-  border: 1px solid var(--v3-border-header);
+  border: 1px solid var(--color-border);
   border-radius: 3px;
   padding: 0.375rem 0.5rem;
 

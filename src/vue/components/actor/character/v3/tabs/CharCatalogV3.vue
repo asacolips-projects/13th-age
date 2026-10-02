@@ -468,7 +468,7 @@ const createGroupItem = async (section) => {
     font-family: $font-stack-label;
     font-size: $font-tiny;
     padding: $padding-sm 0 $padding-md;
-    border-bottom: 1px dashed $ct-border;
+    border-bottom: 1px dashed var(--color-border);
 
     > div {
       flex: 0 auto;

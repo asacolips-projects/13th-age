@@ -238,7 +238,7 @@
          ProseMirror allowance). */
       .sheet-command-bar {
         flex: 0 0 auto;
-        border-bottom: 1px solid var(--v3-border);
+        border-bottom: 1px solid var(--color-border);
 
         .sheet-header {
           flex-direction: row;
@@ -298,7 +298,7 @@
       .sheet-stats-header .stats-unit--saves {
         flex-basis: 100%;
         border-right: none;
-        border-top: 1px solid var(--v3-border-header);
+        border-top: 1px solid var(--color-border);
       }
 
       /* Resource tiles wrap into their own rows instead of squeezing onto a
@@ -312,7 +312,7 @@
           flex-grow: 1;
           flex-shrink: 1;
           flex-basis: 10rem;
-          border-top: 1px solid var(--v3-border);
+          border-top: 1px solid var(--color-border);
         }
       }
 

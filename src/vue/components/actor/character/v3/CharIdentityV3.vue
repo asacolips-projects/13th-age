@@ -116,7 +116,6 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.75rem;
-    border-bottom: 1px solid var(--v3-border);
   }
 
   .header-portrait {
@@ -184,8 +183,9 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
   }
 
   .header-out {
-    border-top: 1px solid var(--v3-border);
-    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem;
     max-height: 100px;
     overflow-y: auto;
 

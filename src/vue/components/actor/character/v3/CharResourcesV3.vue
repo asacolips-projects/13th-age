@@ -214,8 +214,8 @@ async function rollReroll(kind) {
   min-width: 0;
   display: flex;
   align-items: stretch;
-  border-top: 1px solid var(--v3-border);
   justify-content: space-evenly;
+  border-top: 1px solid var(--color-border);
 }
 
 .unit {
@@ -223,7 +223,7 @@ async function rollReroll(kind) {
   min-width: 0;
   max-width: 33%;
   padding: 0.375rem 0.75rem;
-  border-right: 1px solid var(--v3-border);
+  border-right: 1px solid var(--color-border);
 
   &:last-child {
     border-right: none;

@@ -26,16 +26,12 @@ defineProps(['actor']);
      at its content height and overflow-y never engages. */
   height: 100%;
   overflow-y: auto;
-  border-right: 1px solid var(--v3-border);
+  border-right: 1px solid var(--color-border);
 }
 
 .sheet-sidebar, .sidebar-units {
   .unit {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid var(--v3-border);
-    &:last-child {
-      border-bottom: none;
-    }
   }
 
   .unit-title {

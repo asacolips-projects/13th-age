@@ -49,7 +49,7 @@ async function createEffect() {
     align-items: baseline;
     justify-content: space-between;
     padding-bottom: 0.25rem;
-    border-bottom: 1px solid var(--v3-border);
+    border-bottom: 1px solid var(--color-border);
 
     .effects-title {
       margin: 0;
