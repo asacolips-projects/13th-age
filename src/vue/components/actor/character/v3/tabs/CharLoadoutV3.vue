@@ -501,13 +501,13 @@ const saveRowOrder = async (order) => {
     // Sticky against the tab's scroll container: the header pins to the top
     // of the view while its section is in view, then gets pushed out by the
     // section's end. The opaque backdrop is what masks the rows scrolling
-    // beneath it, and matches the window so it reads as part of the frame.
+    // beneath it; --v3-surface matches the window frame in both themes.
     position: sticky;
     top: -12px;
     z-index: 10;
     margin: 0 0 0.25rem;
     padding: 0.25rem 0;
-    background: var(--c-black--75);
+    background: var(--v3-surface);
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -554,7 +554,7 @@ const saveRowOrder = async (order) => {
     flex-direction: column;
     gap: 0.375rem;
     padding: 0.5rem 0.625rem;
-    background: var(--c-black--75);
+    background: var(--v3-surface);
     border: 1px solid var(--color-border);
     border-radius: 0.25rem;
     box-shadow: 0 2px 8px var(--c-black--50);

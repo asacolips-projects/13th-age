@@ -140,6 +140,25 @@
     /* Feat rows carry the system-wide feat gradient, same deal. */
     --v3-feat: var(--c-feat);
 
+    /* Surface for the elements that mask rows passing beneath them: the
+       loadout's sticky section headers and its tracker popover. The default
+       aliases core's --background so dark mode tracks the window frame
+       exactly. But core's light-mode value for it is the parchment texture,
+       and a url() inside a var() resolves against whichever stylesheet uses
+       the variable — from the vue bundle that's under /systems/archmage/,
+       where the core asset doesn't exist, leaving nothing painted. Light
+       mode therefore re-points the texture at core's copy, see below. */
+    --v3-surface: var(--background);
+
+    /* Light mode: core paints its windows with the parchment texture, so the
+       masks match with the same texture. The url survives the build
+       unrewritten (no such file in the repo to bundle) and resolves at
+       runtime against the vue bundle's served path /systems/archmage/vue/ —
+       the three ../ climb to the Foundry root, where core serves it. */
+    body.theme-light & {
+      --v3-surface: url('../../../ui/parchment.jpg') repeat;
+    }
+
     /* Empty-field pulse accent (first-run attention on name/kin/class). */
     --v3-hint: var(--c-yellow);
 
