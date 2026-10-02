@@ -107,24 +107,24 @@
         </div>
       </template>
       <template v-else>
-        <div v-if="rerolls.AC.max > 0" class="reroll-single">
-          <RollableV3 name="reroll" @click="rollReroll('AC')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
+        <template v-if="rerolls.AC.max > 0">
+          <RollableV3 tag="h2" name="reroll" @click="rollReroll('AC')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
           <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
           <div class="resource-row">
             <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
             <span class="resource-separator">/</span>
             <span class="resource-value">{{ rerolls.AC.max }}</span>
           </div>
-        </div>
-        <div v-else-if="rerolls.save.max > 0" class="reroll-single">
-          <RollableV3 name="reroll" @click="rollReroll('save')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
+        </template>
+        <template v-else-if="rerolls.save.max > 0">
+          <RollableV3 tag="h2" name="reroll" @click="rollReroll('save')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
           <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
           <div class="resource-row">
             <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
             <span class="resource-separator">/</span>
             <span class="resource-value">{{ rerolls.save.max }}</span>
           </div>
-        </div>
+        </template>
       </template>
     </section>
   </div>
@@ -272,10 +272,6 @@ async function rollReroll(kind) {
    normal tile and uses the stacked numeric layout instead. */
 .unit--rerolls {
   flex: 2 1 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 0.25rem;
 
   &.unit--rerolls--single {
     flex: 1 1 0;

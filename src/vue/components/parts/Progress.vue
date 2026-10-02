@@ -65,7 +65,7 @@ export default {
   border-radius: 50px;
   overflow: hidden;
   position: relative;
-  border: 1px solid var(--c-black--50, #00000080);
+  border: 1px solid var(--color-border);
 
   .progress-track,
   .progress-current,

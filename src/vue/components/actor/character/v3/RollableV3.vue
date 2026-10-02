@@ -1,5 +1,5 @@
 <template>
-  <a class="rollable" :class="modifiers"><slot></slot></a>
+  <component :is="tag" class="rollable" :class="modifiers"><slot></slot></component>
 </template>
 
 <script setup>
@@ -13,7 +13,10 @@ const props = defineProps({
   // Centre the die icon over the slotted image; the two crossfade on hover.
   overlay: { type: Boolean, default: false },
   // Read inert: muted die, no pointer or glow, and clicks don't land.
-  disabled: { type: Boolean, default: false }
+  disabled: { type: Boolean, default: false },
+  // Render the rollable as a different element (e.g. 'span') when a link
+  // isn't appropriate.
+  tag: { type: String, default: 'a' }
 });
 
 const modifiers = computed(() => [
