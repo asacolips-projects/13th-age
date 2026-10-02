@@ -186,7 +186,6 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
     padding: 0.75rem;
-    max-height: 100px;
     overflow-y: auto;
 
     /* Editing needs room for the editor's menu bar plus a usable writing
