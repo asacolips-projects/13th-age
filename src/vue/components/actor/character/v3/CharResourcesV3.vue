@@ -215,11 +215,13 @@ async function rollReroll(kind) {
   display: flex;
   align-items: stretch;
   border-top: 1px solid var(--v3-border);
+  justify-content: space-evenly;
 }
 
 .unit {
   flex: 1 1 0;
   min-width: 0;
+  max-width: 33%;
   padding: 0.375rem 0.75rem;
   border-right: 1px solid var(--v3-border);
 
