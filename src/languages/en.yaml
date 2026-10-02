@@ -80,7 +80,11 @@ ARCHMAGE:
   equipment: Equipment
   equipmentName: Equipment Name
   escalationDieLabel: Escalation Die
+  extraASlots: Extra A slots
+  extraCSlots: Extra C slots
+  extraESlots: Extra E slots
   extraSlots: Extra slots
+  extraZSlots: Extra Z slots
   feat: Feat
   feats: Feats
   feature: Feature
@@ -161,6 +165,8 @@ ARCHMAGE:
   powerName: Power Name
   powers: Powers
   preview: Preview
+  prodigiousLearner: Prodigious Learner
+  prodigiousLearnerHint: Grants three bonus adventurer-tier feats. At 5th level one becomes a champion-tier feat; at 8th, an epic-tier one.
   progression: Progression
   punchWeaponDice: PUNCH Weapon Dice
   QCK: QCK
@@ -177,6 +183,8 @@ ARCHMAGE:
   recovery: Recovery
   rerollAcShort: Reroll vs. AC
   rerollSaveShort: Reroll Save
+  resourceful: Resourceful
+  resourcefulHint: Grants one extra feat slot in the highest tier the character has reached, beyond the tier's usual cap.
   recoveryAdventurer: Potion (Adv.)
   recoveryAdventurerFull: Adventurer Potion
   recoveryApplyHealingLabel: Apply healing?

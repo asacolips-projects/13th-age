@@ -8,7 +8,7 @@
         <span class="section-label">{{ localize(section.labelKey) }}</span>
         <!-- Edit mode only: per-section tracker config, persisted to the
              sheetDisplay.loadout flags, tucked behind a cog. The popover's
-             checkbox hides the section's tracks; the number grants slots
+             checkbox hides the section's tracks; the number(s) grant slots
              beyond the level's allowance -->
         <template v-if="editing">
           <span class="track-config-menu">
@@ -24,10 +24,46 @@
                 <input type="checkbox" :checked="section.config.enabled"
                   @change="saveSectionFlag(section.key, 'enabled', $event.target.checked)">
               </label>
-              <label class="track-config-option">
+              <!-- The feats tracker's bonuses: Resourceful's slot lands in the
+                   character's highest tier; Prodigious Learner grants three
+                   adventurer-tier feats that climb the tiers with level. Both
+                   ride past the tier caps, as do the per-tier extras. -->
+              <template v-if="section.kind === 'feats'">
+                <label class="track-config-option" :data-tooltip="localize('ARCHMAGE.resourcefulHint')">
+                  <span class="option-label">{{ localize('ARCHMAGE.resourceful') }}</span>
+                  <input type="checkbox" :checked="section.config.resourceful"
+                    @change="saveSectionFlag(section.key, 'resourceful', $event.target.checked)">
+                </label>
+                <label class="track-config-option" :data-tooltip="localize('ARCHMAGE.prodigiousLearnerHint')">
+                  <span class="option-label">{{ localize('ARCHMAGE.prodigiousLearner') }}</span>
+                  <input type="checkbox" :checked="section.config.prodigiousLearner"
+                    @change="saveSectionFlag(section.key, 'prodigiousLearner', $event.target.checked)">
+                </label>
+                <label class="track-config-option">
+                  <span class="option-label">{{ localize('ARCHMAGE.extraASlots') }}</span>
+                  <input type="number" min="0" :value="section.config.extraSlots.A"
+                    @change="saveExtraSlots(section.key, 'extraSlots.A', $event)">
+                </label>
+                <label class="track-config-option">
+                  <span class="option-label">{{ localize('ARCHMAGE.extraCSlots') }}</span>
+                  <input type="number" min="0" :value="section.config.extraSlots.C"
+                    @change="saveExtraSlots(section.key, 'extraSlots.C', $event)">
+                </label>
+                <label class="track-config-option">
+                  <span class="option-label">{{ localize('ARCHMAGE.extraESlots') }}</span>
+                  <input type="number" min="0" :value="section.config.extraSlots.E"
+                    @change="saveExtraSlots(section.key, 'extraSlots.E', $event)">
+                </label>
+                <label class="track-config-option">
+                  <span class="option-label">{{ localize('ARCHMAGE.extraZSlots') }}</span>
+                  <input type="number" min="0" :value="section.config.extraSlots.Z"
+                    @change="saveExtraSlots(section.key, 'extraSlots.Z', $event)">
+                </label>
+              </template>
+              <label v-else class="track-config-option">
                 <span class="option-label">{{ localize('ARCHMAGE.extraSlots') }}</span>
                 <input type="number" min="0" :value="section.config.extraSlots"
-                  @change="saveExtraSlots(section.key, $event)">
+                  @change="saveExtraSlots(section.key, 'extraSlots', $event)">
               </label>
             </div>
           </span>
@@ -117,14 +153,19 @@
  * beneath it; the pips and rolls are the same flips the powers tab makes.
  *
  * In edit mode each header grows a cog button whose popover holds the
- * tracker config pair — an enable checkbox and an extra-slots number,
- * labeled now that they have room — persisted to the sheetDisplay.loadout
- * flags.
- * Extras join the level's magic item slots; for feats they are slots of the
- * highest tier the character's level has reached, since a bonus feat slot
- * has to belong to some tier. The feat and magic item incremental advances
- * (progression tab) each add a slot too — the feat one in the tier of the
- * PC's next level, the magic item one on the tierless track.
+ * tracker config, labeled now that it has room, persisted to the
+ * sheetDisplay.loadout flags: the enable checkbox for both sections; for
+ * magic items a single extra-slots number; for feats, per-tier extra-slot
+ * numbers plus the Resourceful and Prodigious Learner checkboxes. Extras
+ * join the level's magic item slots; a bonus feat slot has to belong to
+ * some tier, so the feats' extras are granted per tier (A/C/E/Z),
+ * Resourceful lands one in the highest tier the character has reached, and
+ * Prodigious Learner grants three adventurer-tier feats that climb the
+ * tiers with level (one turns champion at 5th, another epic at 8th). All
+ * ride past the tier caps, being bonuses. The feat and magic item
+ * incremental advances (progression tab) each add a slot too — the feat one
+ * in the tier of the PC's next level, the magic item one on the tierless
+ * track.
  *
  * Rows reorder by drag, persisting to the sheetDisplay.loadout.rowOrder flag;
  * a power's feat block drags with it, while the feats' own order stays the
@@ -203,10 +244,24 @@ const orderedRows = (rows) => {
 
 /**
  * One section's tracker config from its display flag: the enable checkbox
- * (default on) and the extra-slot grant (default none, floored at zero).
+ * (default on) and the extra-slot grants. The feats section's bonuses are
+ * keyed per tier letter; the magic item track stays a single number.
  */
 const sectionConfig = (key) => {
   const raw = props.actor?.flags?.archmage?.sheetDisplay?.loadout?.[key] ?? {};
+  if (key === 'feats') {
+    return {
+      enabled: raw.enabled !== false,
+      resourceful: raw.resourceful === true,
+      prodigiousLearner: raw.prodigiousLearner === true,
+      extraSlots: {
+        A: Math.max(Math.trunc(Number(raw.extraSlots?.A)) || 0, 0),
+        C: Math.max(Math.trunc(Number(raw.extraSlots?.C)) || 0, 0),
+        E: Math.max(Math.trunc(Number(raw.extraSlots?.E)) || 0, 0),
+        Z: Math.max(Math.trunc(Number(raw.extraSlots?.Z)) || 0, 0),
+      },
+    };
+  }
   return {
     enabled: raw.enabled !== false,
     extraSlots: Math.max(Number(raw.extraSlots) || 0, 0),
@@ -230,11 +285,11 @@ const saveSectionFlag = async (key, path, value) => {
   }
 };
 
-/** Clamp the extra-slots entry to a non-negative integer, then persist it. */
-const saveExtraSlots = (key, event) => {
+/** Clamp an extra-slots entry to a non-negative integer, then persist it. */
+const saveExtraSlots = (key, path, event) => {
   const value = Math.max(Math.trunc(Number(event.target.value)) || 0, 0);
   if (String(event.target.value) !== String(value)) event.target.value = value;
-  saveSectionFlag(key, 'extraSlots', value);
+  saveSectionFlag(key, path, value);
 };
 
 /**
@@ -301,13 +356,25 @@ const sections = computed(() => {
   // run out there. It's a bonus, so it rides past the tier cap.
   const featIncrementalTier = TIER_SLOTS[characterTierIndex(Math.min(level + 1, 10))].key;
   const featIncrementalSlot = incrementals.feat === true ? 1 : 0;
+
+  // Prodigious Learner's bonus feats: three adventurer-tier at 1st; from
+  // 5th level one of them is replaced by a champion-tier feat, and from 8th
+  // another by an epic-tier one.
+  const prodigiousGrants = !featsConfig.prodigiousLearner ? {} : level >= 8
+    ? { A: 1, C: 1, E: 1 }
+    : level >= 5 ? { A: 2, C: 1 } : { A: 3 };
+
   const featTracks = TIER_SLOTS.map(tier => {
-    // The level's grant, capped, with the section's extra slots joining the
-    // highest tier the level has reached and the feat incremental's slot the
-    // next level's tier — both past the cap, since they're bonuses.
-    const extraSlots = tier.key === TIER_SLOTS[charTier].key ? featsConfig.extraSlots : 0;
-    const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap)
-      + extraSlots + (tier.key === featIncrementalTier ? featIncrementalSlot : 0);
+    // The level's grant, capped, then the bonuses, all of which ride past
+    // the cap: the tier's configured extras, the Resourceful kin power's
+    // slot in the highest tier the character has reached, the Prodigious
+    // Learner feats in their tiers, and the feat incremental's slot in the
+    // next level's tier.
+    const bonus = (featsConfig.extraSlots[tier.letter] ?? 0)
+      + (tier.key === TIER_SLOTS[charTier].key && featsConfig.resourceful ? 1 : 0)
+      + (prodigiousGrants[tier.letter] ?? 0)
+      + (tier.key === featIncrementalTier ? featIncrementalSlot : 0);
+    const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap) + bonus;
     const own = takenByTier.get(tier.key);
     const demand = own + spill.length;
     const filled = Math.min(demand, allowance);
@@ -519,9 +586,11 @@ const saveRowOrder = async (order) => {
   }
 
   // The edit-mode tracker config in the header: a cog button opening a small
-  // popover holding the labeled enable checkbox and the extra-slots entry.
-  // The popover hangs from the cog, absolute so it doesn't widen the sticky
-  // header, and reads as a little panel over the rows beneath.
+  // popover holding the labeled enable checkbox and the extra-slot entries
+  // (the feats section adds its Resourceful and Prodigious Learner
+  // checkboxes). The popover hangs from the cog, absolute so it doesn't
+  // widen the sticky header, and reads as a little panel over the rows
+  // beneath.
   .track-config-menu {
     position: relative;
     display: flex;
@@ -564,7 +633,10 @@ const saveRowOrder = async (order) => {
       align-items: center;
       gap: 0.5rem;
 
+      // The label takes the rest of the row, pushing the input to the
+      // popover's right edge so the controls line up.
       .option-label {
+        flex: 1;
         font-family: var(--v3-font-label);
         font-size: var(--font-size-12);
         white-space: nowrap;
