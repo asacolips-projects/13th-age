@@ -86,23 +86,46 @@
 
     <!-- Rerolls: derived from equipped items, so max is display-only and the
          current count writes through to the granting item. Spending happens
-         through the rollable labels; each group is one line to keep the bar
-         short. -->
-    <section v-if="rerolls?.enabled" class="unit unit--rerolls">
-      <div v-if="rerolls.AC.max > 0" class="reroll-group">
-        <RollableV3 name="reroll" @click="rollReroll('AC')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
-        <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
-        <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
-        <span class="resource-separator">/</span>
-        <span class="resource-value">{{ rerolls.AC.max }}</span>
-      </div>
-      <div v-if="rerolls.save.max > 0" class="reroll-group">
-        <RollableV3 name="reroll" @click="rollReroll('save')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
-        <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
-        <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
-        <span class="resource-separator">/</span>
-        <span class="resource-value">{{ rerolls.save.max }}</span>
-      </div>
+         through the rollable labels. With both pools active each group is one
+         line to keep the bar short; a lone pool uses the same stacked layout
+         as the numeric resources above. -->
+    <section v-if="rerolls?.enabled" class="unit unit--rerolls" :class="{ 'unit--rerolls--single': !bothRerolls }">
+      <template v-if="bothRerolls">
+        <div v-if="rerolls.AC.max > 0" class="reroll-group">
+          <RollableV3 name="reroll" @click="rollReroll('AC')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
+          <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
+          <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
+          <span class="resource-separator">/</span>
+          <span class="resource-value">{{ rerolls.AC.max }}</span>
+        </div>
+        <div v-if="rerolls.save.max > 0" class="reroll-group">
+          <RollableV3 name="reroll" @click="rollReroll('save')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
+          <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
+          <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
+          <span class="resource-separator">/</span>
+          <span class="resource-value">{{ rerolls.save.max }}</span>
+        </div>
+      </template>
+      <template v-else>
+        <div v-if="rerolls.AC.max > 0" class="reroll-single">
+          <RollableV3 name="reroll" @click="rollReroll('AC')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
+          <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
+          <div class="resource-row">
+            <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
+            <span class="resource-separator">/</span>
+            <span class="resource-value">{{ rerolls.AC.max }}</span>
+          </div>
+        </div>
+        <div v-else-if="rerolls.save.max > 0" class="reroll-single">
+          <RollableV3 name="reroll" @click="rollReroll('save')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
+          <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
+          <div class="resource-row">
+            <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
+            <span class="resource-separator">/</span>
+            <span class="resource-value">{{ rerolls.save.max }}</span>
+          </div>
+        </div>
+      </template>
     </section>
   </div>
 </template>
@@ -131,6 +154,12 @@ const perCombat = computed(() => props.actor?.system?.resources?.perCombat ?? {}
 // Reroll uses are derived from equipped items in prepareDerivedData(), so they
 // arrive with the context clone like the other computed attributes.
 const rerolls = computed(() => props.actor?.system?.resources?.spendable?.rerolls);
+
+// Both pools active: the rerolls tile keeps its two one-line groups. With a
+// single pool it falls back to the stacked numeric-resource layout.
+const bothRerolls = computed(() =>
+  rerolls.value?.AC?.max > 0 && rerolls.value?.save?.max > 0
+);
 
 // Ki is the monk's daily pool; gated by the settings tab like the other resources.
 const ki = computed(() => props.actor?.system?.resources?.spendable?.ki);
@@ -239,13 +268,18 @@ async function rollReroll(kind) {
   letter-spacing: 0.05em;
 }
 
-/* The reroll tile stacks its two one-line groups. */
+/* The reroll tile stacks its two one-line groups; a lone pool widens back to a
+   normal tile and uses the stacked numeric layout instead. */
 .unit--rerolls {
   flex: 2 1 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 0.25rem;
+
+  &.unit--rerolls--single {
+    flex: 1 1 0;
+  }
 }
 
 .reroll-group {
