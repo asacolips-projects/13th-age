@@ -240,13 +240,13 @@ function rechargeItem() {
     height: 8px;
     background: transparent;
     border-radius: 50%;
-    border: 1px solid var(--color-text-primary);
+    border: 1px solid var(--color-light-1);
     margin: 0 1px;
     padding: 0;
     cursor: pointer;
 
     &.active {
-      background: var(--color-text-primary);
+      background: var(--color-light-1);
     }
   }
 
