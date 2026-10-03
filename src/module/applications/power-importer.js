@@ -69,7 +69,7 @@ export class ArchmagePowerImporterApplication extends Application {
       // formulas against. They render the same way the item sheet's preview does.
       rollData: {},
       onImport: (ids) => this._onImport(ids),
-      onTogglePack: (id, enabled) => this._onTogglePack(id, enabled),
+      onTogglePack: (id, option, value) => this._onTogglePack(id, option, value),
       onCancel: () => this.close(),
     };
   }
@@ -115,11 +115,13 @@ export class ArchmagePowerImporterApplication extends Application {
    * Add or remove a compendium's powers.
    *
    * @param {string} id Collection ID of the compendium.
-   * @param {boolean} enabled Whether its powers should be listed.
+   * @param {string} option 'listed' for the character's own tabs, 'enabled'
+   *   for the "other" tab.
+   * @param {boolean} value Whether its powers should be listed there.
    * @returns {Promise<object[]>} The rebuilt tabs.
    */
-  async _onTogglePack(id, enabled) {
-    await new ArchmagePrepopulate().setPackEnabled(this.importData, id, enabled);
+  async _onTogglePack(id, option, value) {
+    await new ArchmagePrepopulate().setPackOption(this.importData, id, option, value);
     return this.importData.tabs;
   }
 

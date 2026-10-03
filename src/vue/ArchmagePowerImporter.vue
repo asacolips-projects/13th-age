@@ -136,12 +136,12 @@ export default {
      * are new start out as they would have if the importer had opened with
      * them.
      */
-    async togglePack(pack, enabled) {
+    async togglePack(pack, option, value) {
       this.busy = true;
       try {
         const before = new Set(allRows(this.tabs.primary).map(row => row.key));
-        const tabs = await this.context.onTogglePack(pack.id, enabled);
-        pack.enabled = enabled;
+        const tabs = await this.context.onTogglePack(pack.id, option, value);
+        pack[option] = value;
 
         const existing = new Map(this.tabs.primary.map(tab => [tab.key, tab]));
         this.tabs.primary = tabs.map(tab => {

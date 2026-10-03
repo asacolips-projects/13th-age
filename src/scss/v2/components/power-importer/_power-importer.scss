@@ -160,7 +160,13 @@
       }
     }
 
-    // A compendium the character's tabs already list in full.
+    // What the character's tabs leave out of a compendium, below it.
+    .power-import-pack-rest {
+      margin-left: $padding-lg;
+      font-size: $font-xs;
+    }
+
+    // A compendium that's all one of the character's tabs has.
     .fa-lock {
       font-size: $font-xs;
       opacity: 0.5;

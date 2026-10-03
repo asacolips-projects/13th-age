@@ -401,14 +401,21 @@ export class ArchmagePrepopulate {
           id: p.collection,
           label: p.title,
           packageLabel: packageLabel(p),
-          // Listed on the character's own tabs.
+          // One the character's own tabs are made from.
           isDefault: defaults.has(p.collection),
-          // A default compendium that's listed in full, so has nothing to
-          // add to the "other" tab. Worked out when the tabs are built.
-          locked: false,
-          // Listed on the "other" tab, or for a default compendium, what
-          // the character's own tabs leave out of it.
-          enabled: false
+          // For a default compendium, whether it's listed on the character's
+          // own tabs.
+          listed: defaults.has(p.collection),
+          // Whether it's listed on the "other" tab, or for a default
+          // compendium, what the character's own tabs leave out of it.
+          enabled: false,
+          // The rest is worked out when the tabs are built: which of the
+          // character's tabs it has powers for, whether it has any powers
+          // they leave out, and whether it's the only default compendium for
+          // its tabs, which is then always listed.
+          ownTabs: [],
+          hasRest: !defaults.has(p.collection),
+          locked: false
         })),
       tabs: [],
       docs: new Map(),
@@ -440,27 +447,33 @@ export class ArchmagePrepopulate {
   }
 
   /**
-   * List one of the import's compendiums on the "other" tab or stop listing
-   * it there, and rebuild the tabs.
+   * List one of the import's compendiums or stop listing it, and rebuild the
+   * tabs.
    *
    * @param {object} importData
    *   As returned by getImportData().
    * @param {string} id
    *   Collection ID of the compendium.
-   * @param {boolean} enabled
+   * @param {string} option
+   *   'listed' for a default compendium's place on the character's own tabs,
+   *   'enabled' for its place on the "other" tab.
+   * @param {boolean} value
    */
-  async setPackEnabled(importData, id, enabled) {
+  async setPackOption(importData, id, option, value) {
     const pack = importData.packs.find(p => p.id === id);
-    if (!pack || pack.locked) return;
-    pack.enabled = enabled;
+    if (!pack || !['listed', 'enabled'].includes(option)) return;
+    if (option === 'listed' && (!pack.isDefault || pack.locked)) return;
+    pack[option] = value;
     await this.buildTabs(importData);
   }
 
   /**
    * (Re)build the import's tabs from its enabled compendiums.
    *
-   * Default compendiums are spread over the character's tabs. Enabled ones
-   * go on the "other" tab, minus anything already on the character's tabs.
+   * Listed default compendiums are spread over the character's tabs.
+   * Enabled ones go on the "other" tab, minus anything that belongs on the
+   * character's tabs. A default compendium that's the only one for each of
+   * its tabs is locked, since unlisting it would just empty them.
    *
    * Each tab is made of sections: one for a class' own tab, one per
    * compendium on the "other" tab. A section whose powers haven't changed
@@ -476,27 +489,45 @@ export class ArchmagePrepopulate {
 
     // Which powers go on which tab, and for the "other" tab, by compendium.
     const routed = new Map();
+    const add = (tabKey, pack, doc) => {
+      const sectionKey = tabKey === OTHER_KEY ? `${OTHER_KEY}/${pack.collection}` : tabKey;
+      if (!routed.has(tabKey)) routed.set(tabKey, new Map());
+      const sections = routed.get(tabKey);
+      if (!sections.has(sectionKey)) sections.set(sectionKey, {label: tabKey === OTHER_KEY ? pack.title : '', docs: []});
+      sections.get(sectionKey).docs.push(doc);
+    };
+    // The default compendiums each of the character's tabs could draw on,
+    // listed or not.
+    const tabSources = new Map();
     for (const packData of importData.packs) {
-      const {id, isDefault, enabled} = packData;
+      const {id, isDefault, listed, enabled} = packData;
       if (!isDefault && !enabled) continue;
       const pack = game.packs.get(id);
       if (!pack) continue;
-      let unlisted = 0;
+      const ownTabs = new Set();
+      let rest = 0;
       for (const doc of await this.getPackPowers(pack, source.packCache)) {
         const tabKeys = isDefault ? this.routePower(pack, doc, source) : [];
-        if (!tabKeys.length) {
-          unlisted++;
-          if (enabled) tabKeys.push(OTHER_KEY);
-        }
         for (const tabKey of tabKeys) {
-          const sectionKey = tabKey === OTHER_KEY ? `${OTHER_KEY}/${id}` : tabKey;
-          if (!routed.has(tabKey)) routed.set(tabKey, new Map());
-          const sections = routed.get(tabKey);
-          if (!sections.has(sectionKey)) sections.set(sectionKey, {label: tabKey === OTHER_KEY ? pack.title : '', docs: []});
-          sections.get(sectionKey).docs.push(doc);
+          ownTabs.add(tabKey);
+          if (listed) add(tabKey, pack, doc);
+        }
+        if (!tabKeys.length) {
+          rest++;
+          if (enabled) add(OTHER_KEY, pack, doc);
         }
       }
-      if (isDefault) packData.locked = !unlisted;
+      if (!isDefault) continue;
+      packData.ownTabs = [...ownTabs];
+      packData.hasRest = rest > 0;
+      for (const tabKey of ownTabs) {
+        if (!tabSources.has(tabKey)) tabSources.set(tabKey, new Set());
+        tabSources.get(tabKey).add(id);
+      }
+    }
+    for (const packData of importData.packs) {
+      packData.locked = packData.ownTabs.length > 0
+        && packData.ownTabs.every(tabKey => tabSources.get(tabKey).size === 1);
     }
 
     // Tabs in a fixed order: race, classes, multiclass feats, general feats
@@ -551,7 +582,7 @@ const OTHER_KEY = 'other';
  */
 function packageLabel(pack) {
   const {packageType, packageName} = pack.metadata;
-  if (packageType === 'system') return game.system.title;
+  if (packageType === 'system') return game.i18n.localize('ARCHMAGE.PREPOPULATE.systemPacks');
   if (packageType === 'module') return game.modules.get(packageName)?.title ?? packageName;
   return game.world.title;
 }
