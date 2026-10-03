@@ -155,6 +155,7 @@ async function deleteEffect(bypass = false) {
       cursor: pointer;
 
       .effect-name-value {
+        color: var(--color-light-1);
         margin: 0;
         font-family: var(--v3-font-display);
         font-size: var(--font-size-16);

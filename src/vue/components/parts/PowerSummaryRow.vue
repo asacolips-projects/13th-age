@@ -76,7 +76,7 @@ const classes = computed(() => [
 // same rules nested under .archmage-v2 for the V2 sheet; these stand alone so
 // the V3 rows (whose root lacks that class) are styled too.
 .power-summary {
-  color: $c-white;
+  color: var(--color-light-1);
   text-shadow: 0 0 10px $c-black--50;
   margin: 0 0 1px 0;
   position: relative;
@@ -84,15 +84,15 @@ const classes = computed(() => [
 
   .rollable,
   a {
-    color: $c-white;
+    color: var(--color-light-1);
 
     &:hover {
-      color: $c-white;
-      text-shadow: 0 0 10px $c-white;
+      color: var(--color-light-1);
+      text-shadow: 0 0 10px var(--color-light-1);
     }
 
     &::before {
-      color: $c-white;
+      color: var(--color-light-1);
     }
   }
 
@@ -232,6 +232,7 @@ const classes = computed(() => [
   }
 
   .power-title {
+    color: var(--color-light-1);
     white-space: nowrap;
     position: relative;
     overflow: hidden;

@@ -181,6 +181,7 @@ function rechargeItem() {
 }
 
 .equipment-title {
+  color: var(--color-light-1);
   margin: 0;
   border: 0;
   text-align: left;
