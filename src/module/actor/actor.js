@@ -945,6 +945,45 @@ export class ActorArchmage extends Actor {
   }
 
   /**
+   * Roll command points for an actor, and apply them.
+   *
+   * @param {string} dice
+   *   Dice formula to roll.
+   */
+  async rollCommand(dice) {
+    let roll = new Roll(dice, this.getRollData());
+    await roll.roll();
+
+    let pointsOld = this.system.resources.perCombat.commandPoints.current;
+    let pointsNew = roll.total;
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/command-card.html`
+    const token = this.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      roll: roll,  // TODO: fix template to use rolls prop
+      rolls: [roll],
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this)
+    };
+
+    const templateData = {
+      actor: this,
+      tokenId: token ? `${token.id}` : null,
+      data: chatData
+    };
+
+    // Render the template
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
+
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
+
+    await this.update({'system.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
+  }
+
+  /**
    * Open the icon relationship roll dialog for one icon.
    *
    * @param {string} iconIndex | Index, such as i1 or i2

@@ -11,8 +11,8 @@
           v-model="perCombat.commandPoints.current">
         <div v-if="!editing" class="command-rolls">
           <!-- TODO: Add support for epic feat to bump to d6. -->
-          <RollableV3 data-roll-type="command" data-roll-opt="d4">d4</RollableV3>
-          <RollableV3 data-roll-type="command" data-roll-opt="d3">d3</RollableV3>
+          <RollableV3 data-roll-type="command" data-roll-opt="d4" @click="rollCommand('d4')">d4</RollableV3>
+          <RollableV3 data-roll-type="command" data-roll-opt="d3" @click="rollCommand('d3')">d3</RollableV3>
         </div>
       </div>
     </section>
@@ -198,6 +198,13 @@ function setReroll(kind, event) {
     }
   });
   if (updates.length) actorDocument.updateEmbeddedDocuments('Item', updates);
+}
+
+// Roll command points and apply them to the pool, like the V2 sheet's
+// command rollables do through its _onCommandRoll.
+function rollCommand(die) {
+  if (!actorDocument) return;
+  actorDocument.rollCommand(die);
 }
 
 // Spend an AC or save reroll: decrement the equipped item that grants it and

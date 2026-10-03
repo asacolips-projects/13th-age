@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { glob } from 'glob';
+import { minimatch } from 'minimatch';
 import { ROOT } from './constants.mjs';
 
 export function log(task, message) {
@@ -79,18 +80,6 @@ export async function runParallel(tasks) {
   await Promise.all(tasks.map((task) => task()));
 }
 
-function globToRegExp(pattern) {
-  return new RegExp(
-    `^${pattern
-      .replaceAll('/', '\\/')
-      .replaceAll('**', '.*')
-      .replaceAll('*', '[^/]*')
-      .replaceAll('{', '(')
-      .replaceAll('}', ')')
-      .replaceAll(',', '|')}$`,
-  );
-}
-
 /**
  * Match a path against an ordered glob list with `!` negations, mirroring
  * how `globFiles` evaluates include/exclude patterns.
@@ -103,9 +92,11 @@ export function matchesGlobs(filePath, patterns) {
   let included = false;
 
   for (const pattern of patterns) {
+    // Later patterns win: a negation match knocks the path back out even if
+    // an earlier include matched it.
     if (pattern.startsWith('!')) {
-      if (globToRegExp(pattern.slice(1)).test(filePath)) included = false;
-    } else if (globToRegExp(pattern).test(filePath)) {
+      if (minimatch(filePath, pattern.slice(1), { dot: true })) included = false;
+    } else if (minimatch(filePath, pattern, { dot: true })) {
       included = true;
     }
   }
