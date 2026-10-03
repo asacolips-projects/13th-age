@@ -13,6 +13,25 @@ export function resolveFromRoot(relativePath) {
   return path.join(ROOT, relativePath);
 }
 
+/**
+ * Dist path for a source file under src/: the copy pipeline and the yaml
+ * compiler both mirror the src tree into dist, stripping the src/ prefix.
+ *
+ * @param {string} sourcePath  Absolute path under src/.
+ * @returns {string} Absolute dist path.
+ */
+export function destPathFor(sourcePath) {
+  return path.join(resolveFromRoot('dist'), path.relative(resolveFromRoot('src'), sourcePath));
+}
+
+/**
+ * Remove a dist artifact, ignoring a missing file so removals are always
+ * safe to run.
+ */
+export function removeFile(filePath) {
+  fs.rmSync(filePath, { force: true });
+}
+
 export async function globFiles(patterns, options = {}) {
   const patternList = Array.isArray(patterns) ? patterns : [patterns];
   const includes = patternList.filter((pattern) => !pattern.startsWith('!'));
