@@ -183,7 +183,7 @@
        Typing restores the input's own text alignment; centered number inputs
        keep their own rules where more specific. */
     input::placeholder {
-      color: var(--c-white--75);
+      color: var(--placeholder-color);
       font-style: italic;
     }
 

@@ -1,15 +1,32 @@
 <template>
   <section class="tab-action-plan">
+    <!-- Sorts and filters. -->
+    <header class="plan-filters flexrow">
+      <div class="sort-plan">
+        <label for="plan-sort">{{localize('ARCHMAGE.sort')}}</label>
+        <select name="plan-sort" v-model="sortBy">
+          <option v-for="option in sortOptions" :key="option.value" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
+        </select>
+      </div>
+      <div class="filter-search-plan">
+        <label for="plan-filter">{{localize('ARCHMAGE.filter')}}</label>
+        <div class="search-plan-input">
+          <input type="text" name="plan-filter" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
+          <button v-if="searchValue" type="button" class="search-plan-clear" :title="localize('ARCHMAGE.clear')" @click="clearSearch"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+    </header>
+
     <section v-for="group in actionGroups" :key="group.key" class="plan-group"
       :class="groupClasses(group.key)"
       @dragover="onGroupDragOver($event, group.key)"
       @dragleave="onGroupDragLeave($event, group.key)"
       @drop="onGroupDrop($event, group.key)">
       <h4 class="plan-group-title unit-title"
-        :draggable="canReorder"
+        :draggable="canReorderNow"
         @dragstart="onGroupDragStart($event, group.key)"
         @dragend="onGroupDragEnd">
-        <i v-if="canReorder" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
+        <i v-if="canReorderNow" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
         {{ localize(group.labelKey) }}
       </h4>
       <ul class="plan-list flexcol">
@@ -33,8 +50,8 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
-import { getActor, localize } from '@/methods/Helpers';
+import { computed, ref, watch } from 'vue';
+import { concat, getActor, localize } from '@/methods/Helpers';
 import ExpandablePower from '@/components/actor/character/v3/parts/expandable/ExpandablePower.vue';
 import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
 
@@ -46,15 +63,54 @@ const ACTION_ORDER = ['standard', 'move', 'quick', 'free', 'interrupt', 'other']
 
 const byName = (a, b) => a.name.localeCompare(b.name);
 
+const TIER_ORDER = { adventurer: 0, champion: 1, epic: 2 };
+const byLevel = (a, b) => {
+  // Powers sort by level, equipment by tier.
+  if (a.type === 'equipment') return (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
+  return Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
+};
+
+const sortFns = { name: byName, level: byLevel };
+
 const powers = computed(() => (props.actor?.items ?? [])
   .filter(i => i.type === 'power')
+  .filter(matchesSearch)
   .sort(byName));
 
 // Only magic items with a power usage set appear here; a usage of none
 // (the sheet's unset option) means there's no action to take.
 const equipment = computed(() => (props.actor?.items ?? [])
   .filter(i => i.type === 'equipment' && i.system?.powerUsage?.value)
+  .filter(matchesSearch)
   .sort(byName));
+
+// Sorts and filters, laid out like the catalog tab. 'custom' keeps the
+// saved drag order; the other modes ignore it.
+const sortOptions = [{ value: 'name' }, { value: 'level' }, { value: 'custom' }];
+const sortBy = ref(props.actor?.flags?.archmage?.sheetDisplay?.actionPlan?.sortBy?.value ?? 'custom');
+const searchValue = ref(null);
+
+// The filter box's clear widget; resetting to null also hides the button.
+const clearSearch = () => {
+  searchValue.value = null;
+};
+
+// Strip enriched-HTML markup so descriptions index as plain text; searching
+// raw HTML would match tag names and miss matches split across tags.
+const stripHtml = (text) => text.replace(/<[^>]+>/g, '');
+
+// Both sides are stripped to alphanumerics like the catalog filter, so
+// punctuation and spacing don't need to match exactly.
+const cleanFilterKey = (string) => string ? string.toLowerCase().replace(/[^a-zA-Z\d]/g, '') : '';
+
+// Searchable text for a row: its name plus the description the expanded row
+// shows.
+const matchesSearch = (item) => {
+  const needle = cleanFilterKey(searchValue.value ?? '');
+  if (!needle) return true;
+  const haystack = stripHtml(`${item.name ?? ''}${item.system?.description?.value ?? ''}`);
+  return cleanFilterKey(haystack).includes(needle);
+};
 
 // Group reordering, mirroring the v2 powers tab. The drag state is transient;
 // the ordering persists to the actor flag. The action groups are fixed, so a
@@ -66,6 +122,24 @@ const dragOverGroup = ref(null);
 // editable and the actor isn't a compendium entry (where flags can't be
 // written).
 const canReorder = computed(() => props.editable === true && !props.actor?.pack);
+
+// Reordering pauses while a text filter hides rows: a drop on the filtered
+// view would rebuild the saved order from a partial list.
+const canReorderNow = computed(() => canReorder.value && !searchValue.value);
+
+// Persist display preference changes through the live actor document;
+// props.actor is a data clone whose flag updates wouldn't round-trip. Writing
+// only when the stored value differs avoids a re-render loop from the update.
+const saveDisplayPref = async (path, value) => {
+  if (!canReorder.value) return;
+  const actor = await getActor(props.actor);
+  const current = foundry.utils.getProperty(props.actor?.flags?.archmage?.sheetDisplay?.actionPlan ?? {}, path);
+  if (actor && current !== value) {
+    await actor.setFlag('archmage', `sheetDisplay.actionPlan.${path}`, value);
+  }
+};
+
+watch(sortBy, value => saveDisplayPref('sortBy.value', value));
 
 const savedGroupOrder = computed(() => {
   const stored = props.actor?.flags?.archmage?.sheetDisplay?.actionPlan?.groupOrder;
@@ -119,9 +193,17 @@ const orderedRows = (rows) => {
 };
 
 /**
+ * Apply the display sort to a group's rows: 'custom' is the saved row order
+ * (name order for rows it doesn't know), the other modes ignore it.
+ */
+const sortedRows = (rows) => sortBy.value === 'custom'
+  ? orderedRows(rows)
+  : [...rows].sort(sortFns[sortBy.value] ?? byName);
+
+/**
  * Powers and equipment grouped by action type, in display order: the fixed
  * action order, then the saved group order applied, each group's rows in the
- * saved row order. Equipment counts as a free action. Each group is
+ * display sort. Equipment counts as a free action. Each group is
  * {key, labelKey, powers, equipment}.
  */
 const actionGroups = computed(() => {
@@ -138,8 +220,8 @@ const actionGroups = computed(() => {
     byAction.get('free').equipment.push(item);
   }
   for (const group of byAction.values()) {
-    group.powers = orderedRows(group.powers);
-    group.equipment = orderedRows(group.equipment);
+    group.powers = sortedRows(group.powers);
+    group.equipment = sortedRows(group.equipment);
   }
   const groups = ACTION_ORDER
     .map(key => byAction.get(key))
@@ -156,7 +238,7 @@ const groupClasses = (groupKey) => ({
 });
 
 const onGroupDragStart = (event, groupKey) => {
-  if (!canReorder.value) return;
+  if (!canReorderNow.value) return;
   draggedGroup.value = groupKey;
   event.dataTransfer.effectAllowed = 'move';
   // Tag the payload so nothing downstream mistakes this for an item drag.
@@ -229,7 +311,7 @@ const rowClasses = (rowId) => ({
 });
 
 const onRowDragStart = (event, groupKey, rowId) => {
-  if (!canReorder.value) return;
+  if (!canReorderNow.value) return;
   draggedRow.value = rowId;
   draggedRowGroup.value = groupKey;
   // Deliberately no stopPropagation: the sheet's dragstart still arms the
@@ -308,6 +390,66 @@ const saveRowOrder = async (order) => {
 </script>
 
 <style scoped lang="scss">
+  .plan-filters {
+    font-family: $font-stack-label;
+    font-size: var(--font-size-10);
+    padding: $padding-sm 0 $padding-md;
+    border-bottom: 1px dashed var(--color-border);
+
+    > div {
+      flex: 0 auto;
+
+      + div {
+        padding-left: $padding-sm;
+        margin-left: $padding-sm;
+      }
+
+      &.filter-search-plan {
+        flex: 1;
+
+        // Clear widget sits at the input's right edge, inside it.
+        .search-plan-input {
+          position: relative;
+
+          input[type="text"] {
+            width: 100%;
+            padding-right: 1.5em;
+          }
+
+          .search-plan-clear {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: inherit;
+            font-size: var(--font-size-12);
+            line-height: 1;
+
+            &:hover {
+              text-shadow: 0 0 5px var(--v3-hover-glow);
+            }
+          }
+        }
+      }
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      font-size: var(--font-size-10);
+      font-family: $font-stack-label;
+      text-align: left;
+      font-weight: normal;
+    }
+  }
+
   .plan-group {
     margin-bottom: 1.5rem;
 

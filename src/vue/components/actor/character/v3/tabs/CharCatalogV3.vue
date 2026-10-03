@@ -2,12 +2,6 @@
   <section class="tab-catalog">
     <!-- Sorts and filters. -->
     <header class="catalog-filters flexrow">
-      <div class="group-catalog">
-        <label for="catalog-group">{{localize('ARCHMAGE.groupBy')}}</label>
-        <select name="catalog-group" v-model="groupBy">
-          <option v-for="option in groupOptions" :key="option.value" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.', option.value))}}</option>
-        </select>
-      </div>
       <div class="sort-catalog">
         <label for="catalog-sort">{{localize('ARCHMAGE.sort')}}</label>
         <select name="catalog-sort" v-model="sortBy">
@@ -20,6 +14,12 @@
           <input type="text" name="catalog-filter" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
           <button v-if="searchValue" type="button" class="search-catalog-clear" :title="localize('ARCHMAGE.clear')" @click="clearSearch"><i class="fas fa-times"></i></button>
         </div>
+      </div>
+      <div class="group-catalog">
+        <label for="catalog-group">{{localize('ARCHMAGE.groupBy')}}</label>
+        <select name="catalog-group" v-model="groupBy">
+          <option v-for="option in groupOptions" :key="option.value" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.', option.value))}}</option>
+        </select>
       </div>
       <div class="import-catalog" v-if="canImport">
         <button type="button" class="catalog-import" :class="{ 'catalog-import--pulse': isEmptyCharacter }" :disabled="missingKinClass" :data-tooltip="importTooltip" @click="importPowers"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
