@@ -1,6 +1,7 @@
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmagePowerImporter } from "../../vue/components.vue.es.js";
+import { ArchmagePrepopulate } from "../setup/archmage-prepopulate.js";
 
 /**
  * Application class for the power importer.
@@ -62,11 +63,13 @@ export class ArchmagePowerImporterApplication extends Application {
   async getData() {
     return {
       tabs: this.importData.tabs,
+      packs: this.importData.packs,
       defaultTab: this.importData.defaultTab,
       // Powers are previewed unowned, so there's no roll data to resolve
       // formulas against. They render the same way the item sheet's preview does.
       rollData: {},
       onImport: (ids) => this._onImport(ids),
+      onTogglePack: (id, enabled) => this._onTogglePack(id, enabled),
       onCancel: () => this.close(),
     };
   }
@@ -109,13 +112,26 @@ export class ArchmagePowerImporterApplication extends Application {
   }
 
   /**
+   * Add or remove a compendium's powers.
+   *
+   * @param {string} id Collection ID of the compendium.
+   * @param {boolean} enabled Whether its powers should be listed.
+   * @returns {Promise<object[]>} The rebuilt tabs.
+   */
+  async _onTogglePack(id, enabled) {
+    await new ArchmagePrepopulate().setPackEnabled(this.importData, id, enabled);
+    return this.importData.tabs;
+  }
+
+  /**
    * Every top-level row, across all tabs.
    *
    * @returns {object[]}
    */
   #rows() {
     return this.importData.tabs
-      .flatMap(tab => tab.powerGroups)
+      .flatMap(tab => tab.sections)
+      .flatMap(section => section.powerGroups)
       .flatMap(group => group.levels)
       .flatMap(level => level.groups)
       .flatMap(group => group.powers);
@@ -129,8 +145,8 @@ export class ArchmagePowerImporterApplication extends Application {
   async render(force = false, options = {}) {
     const context = await this.getData();
 
-    // The importer's contents are fixed for as long as it's open, so the app is
-    // only ever created once.
+    // The app is only ever created once. Changes to the importer's contents,
+    // from its compendium settings, come back to it from _onTogglePack().
     if (!this.vueApp) {
       this.vueApp = createApp({
         data() {

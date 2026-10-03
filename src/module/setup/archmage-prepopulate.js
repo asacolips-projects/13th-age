@@ -22,111 +22,166 @@ export class ArchmagePrepopulate {
   }
 
   /**
-   * Retrieve compendium powers.
+   * Every compendium the importer can offer: this system's item compendiums
+   * that hold at least one power.
+   *
+   * @param {Set<string>} defaults
+   *   Collection IDs of the compendiums selected by default, which are listed
+   *   even if the user couldn't otherwise see them, as they always have been.
+   *
+   * @returns {array}
+   *   Compendium collections.
+   */
+  getPowerPacks(defaults = new Set()) {
+    return game.packs.filter(p => p.documentName === 'Item'
+      && (!p.metadata.system || p.metadata.system === game.system.id)
+      && (p.visible || defaults.has(p.collection))
+      && p.index.some(e => e.type === 'power'));
+  }
+
+  /**
+   * The compendiums a character's powers come from by default.
    *
    * @param {array} classes
    *   Array of clean class names, such as ['fighter','barbarian'].
    * @param {string} race
    *   Character race.
    *
-   * @returns {object}
-   *   Array with keys equal to each class name, with each entry being an object
-   *   with the keys 'name' and 'content' for each result.
+   * @returns {Set<string>}
+   *   Collection IDs of the compendiums.
    */
-  async getCompendiums(classes = [], race = '') {
-    let validRaces = Object.values(CONFIG.ARCHMAGE.raceList);
-    let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
-    if (game.settings.get('archmage', 'secondEdition')) {
-      let racePacks2e = await game.packs.filter(p => p.metadata.name == 'kin-powers-2e');
-      if (racePacks2e.length > 0) racePacks = racePacks2e;
+  getDefaultPacks(classes = [], race = '') {
+    const secondEdition = game.settings.get('archmage', 'secondEdition');
+    // The 2e version of a compendium, when there is one, replaces the 1e one.
+    const preferred = (packs1e, packs2e) => secondEdition && packs2e.length ? packs2e : packs1e;
+    const ids = new Set();
+    const add = packs => packs.forEach(p => ids.add(p.collection));
+
+    // Kin powers.
+    if (race != '') {
+      add(preferred(
+        game.packs.filter(p => p.metadata.name == 'races'),
+        game.packs.filter(p => p.metadata.name == 'kin-powers-2e')
+      ));
     }
-    // Search class packs by class
-    let classPacks = {};
+
+    // Class powers.
+    let classPackCount = 0;
     for (const cls of classes) {
-      classPacks[cls] = await game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && !p.metadata.name.includes("2e"));
-      if (game.settings.get('archmage', 'secondEdition')) {
-        // Check if we have a 2e version
-        let classPack2e = await game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && p.metadata.name.includes("2e"));
-        if (classPack2e.length > 0) classPacks[cls] = classPack2e;
-      }
-    }
-    // Reduce back to flat array of packs
-    classPacks = Object.values(classPacks).reduce((a,b) => a.concat(b))
-    let content = {};
-
-    // Load racial powers
-    if (race != '' && racePacks.length > 0) {
-      let race_str = applyKinAliasMap(race);
-      for (let i=0; i < validRaces.length; i++) {
-        let regexRace = new RegExp("(\\W|^)(" + validRaces[i] + ")(\\W|$)", "i");
-        let match = race_str.match(regexRace);
-        // Also handle dashes vs. spaces
-        if (!match) match = race_str.replace(" ", "-").match(regexRace)
-        if (!match) match = race_str.replace("-", " ").match(regexRace)
-        if (match) {
-          for (let j = 0; j < racePacks.length; j++) {
-            let pack = await racePacks[j].getDocuments();
-            for (let entry of pack) {
-              let sourceName = entry.system?.powerSourceName?.value ?? entry.system.group.value;
-              let raceNamesArray = sourceName.split('/');
-              if (raceNamesArray.some(n => regexRace.test(n))) {
-                let raceName = match[0].toLowerCase().replaceAll(/\(|\)|\//g,"").trim();
-                if (raceName in content) {
-                  content[raceName].content.push(entry);
-                } else {
-                  content[raceName] = {
-                    name: raceName,
-                    content: [entry]
-                  };
-                }
-              }
-            }
-          }
-        }
-      }
+      const packs = preferred(
+        game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && !p.metadata.name.includes("2e")),
+        game.packs.filter(p => cls === this.cleanClassName(p.metadata.name, true) && p.metadata.name.includes("2e"))
+      );
+      classPackCount += packs.length;
+      add(packs);
     }
 
-    // Load class powers
-    for (let i = 0; i < classPacks.length; i++) {
-      let pack = await classPacks[i].getDocuments();
-      let className = this.cleanClassName(classPacks[i].metadata.name, true);
-      content[className] = {
-        name: CONFIG.ARCHMAGE.classList[className],
-        content: pack.concat(content[className]?.content || [])
-      };
-    }
-    // Add animal companion to druid and ranger
-    let animalCompanionClasses = ["ranger", "druid"];
-    if (game.settings.get('archmage', 'secondEdition')) animalCompanionClasses = ["druid"];
-    for (let key of animalCompanionClasses) {
-      if (classes.includes(key)) {
-        let pack = await game.packs.find(p => p.metadata.label == "Animal Companion").getDocuments();
-        content[key].content = pack.concat(content[key].content);
-      }
+    // Animal companion, for the classes that have one.
+    if (classes.some(cls => this.animalCompanionClasses().includes(cls))) {
+      add(game.packs.filter(p => p.metadata.label == "Animal Companion"));
     }
 
-    // Load multiclass powers
-    if (classPacks.length > 1) {
-      let key = "Multiclass Feats";
-      let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
-      let powers = pack.filter(e => {
-        let sourceName = e.system?.powerSourceName?.value ?? e.system.group.value;
-        return classes.includes(this.cleanClassName(sourceName, true))
-      });
-      if (powers.length > 0) {content[key] = {name: key, content: powers};}
+    // Multiclass feats.
+    if (classPackCount > 1) {
+      add(game.packs.filter(p => p.metadata.label == "Multiclass Feats"));
     }
 
-    // Load general feats
-    let key = "General Feats";
-    let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
-    if (game.settings.get('archmage', 'secondEdition')) {
-      key = "Universal Feats";
-      let pack2e = game.packs.find(p => p.metadata.name == "universal-feats-2e");
-      if (pack2e) pack = await pack2e.getDocuments();
-    }
-    content[key] = {name: key, content: pack};
+    // General feats.
+    add(preferred(
+      game.packs.filter(p => p.metadata.label == "General Feats"),
+      game.packs.filter(p => p.metadata.name == "universal-feats-2e")
+    ));
 
-    return content;
+    return ids;
+  }
+
+  /**
+   * Classes whose tab the animal companion's powers are listed on.
+   *
+   * @returns {array}
+   */
+  animalCompanionClasses() {
+    return game.settings.get('archmage', 'secondEdition') ? ['druid'] : ['ranger', 'druid'];
+  }
+
+  /**
+   * The race tabs a character's race calls for.
+   *
+   * @param {string} race
+   *   Character race.
+   *
+   * @returns {array}
+   *   Objects with the tab's `key` and `label`, and the `regex` that a kin
+   *   power's source has to match to be listed on it.
+   */
+  getRaceTabs(race = '') {
+    if (race == '') return [];
+    const race_str = applyKinAliasMap(race);
+    const tabs = new Map();
+    for (const validRace of Object.values(CONFIG.ARCHMAGE.raceList)) {
+      const regexRace = new RegExp("(\\W|^)(" + validRace + ")(\\W|$)", "i");
+      let match = race_str.match(regexRace);
+      // Also handle dashes vs. spaces
+      if (!match) match = race_str.replace(" ", "-").match(regexRace);
+      if (!match) match = race_str.replace("-", " ").match(regexRace);
+      if (!match) continue;
+      const raceName = match[0].toLowerCase().replaceAll(/\(|\)|\//g,"").trim();
+      const key = this.cleanClassName(raceName);
+      if (!tabs.has(key)) tabs.set(key, {key: key, label: raceName, regex: regexRace});
+    }
+    return [...tabs.values()];
+  }
+
+  /**
+   * The keys of the tabs a power from a default compendium is listed on.
+   *
+   * Kin powers and multiclass feats only go where the character's race and
+   * classes call for them, and are otherwise left out.
+   *
+   * @param {CompendiumCollection} pack
+   *   Compendium the power comes from.
+   * @param {Item} doc
+   *   The power.
+   * @param {object} source
+   *   The import's `classes`, `raceTabs` and `featsKey`.
+   *
+   * @returns {array}
+   *   Tab keys, which may be empty.
+   */
+  routePower(pack, doc, source) {
+    const {name, label} = pack.metadata;
+    const sourceName = doc.system?.powerSourceName?.value ?? doc.system?.group?.value ?? '';
+
+    if (['races', 'kin-powers-2e'].includes(name)) {
+      const raceNames = sourceName.split('/');
+      return source.raceTabs.filter(tab => raceNames.some(n => tab.regex.test(n))).map(tab => tab.key);
+    }
+    if (label == "Multiclass Feats") {
+      return source.classes.includes(this.cleanClassName(sourceName, true)) ? [MULTICLASS_KEY] : [];
+    }
+    if (label == "General Feats" || name == "universal-feats-2e") {
+      return [source.featsKey];
+    }
+    if (label == "Animal Companion") {
+      return this.animalCompanionClasses().filter(cls => source.classes.includes(cls));
+    }
+    const className = this.cleanClassName(name, true);
+    return source.classes.includes(className) ? [className] : [];
+  }
+
+  /**
+   * The powers in a compendium, loaded once per import.
+   *
+   * @param {CompendiumCollection} pack
+   * @param {Map<string, Item[]>} cache
+   *
+   * @returns {Promise<Item[]>}
+   */
+  async getPackPowers(pack, cache) {
+    if (!cache.has(pack.collection)) {
+      cache.set(pack.collection, await pack.getDocuments({type: 'power'}));
+    }
+    return cache.get(pack.collection);
   }
 
   /**
@@ -178,17 +233,21 @@ export class ArchmagePrepopulate {
    * @param {Map<string, Item>} docs
    *   Filled with every document listed, by UUID, including children from
    *   other packs, so that the selection can be resolved against it.
+   * @param {boolean} preselectFeatures
+   *   Whether class features start out ticked, as they do for the
+   *   character's own classes.
    *
    * @returns {array}
    *   Power types, each with its levels, each with its custom groups, each
    *   with its rows sorted by name. Each row has a simplified data structure
    *   compared to its compendium equivalent, and its children's rows.
    */
-  async getPowersFromPack(powersArray, actor = null, docs = new Map()) {
+  async getPowersFromPack(powersArray, actor = null, docs = new Map(), preselectFeatures = true) {
     // Get an array of powers currently on the actor. This is used later to preselect class features.
     let actorPowers = actor?.items ? actor.items.filter(i => i.type == 'power').map(i => i.system.powerOriginName.value) : [];
     const classFeat = game.i18n.localize('ARCHMAGE.classFeat').toLocaleLowerCase();
-    const preselect = p => p.system.powerType?.value === 'feature'
+    const preselect = p => preselectFeatures
+      && p.system.powerType?.value === 'feature'
       && !p.name.toLocaleLowerCase().startsWith(classFeat)
       && actorPowers.length == 0
       && p.system.powerSource?.value === 'class';
@@ -321,42 +380,180 @@ export class ArchmagePrepopulate {
    *   Actor the powers would be imported onto, used to preselect class features.
    *
    * @returns {object}
-   *   Object with a `tabs` array (one per class, each with its journal content
-   *   and its grouped powers) and a `docs` map of the compendium documents
-   *   the selection is resolved against, by UUID.
+   *   Object with a `packs` array (every compendium that can be imported from,
+   *   and whether it's enabled), a `tabs` array (one per class, each with its
+   *   journal content and its powers, in sections), a `docs` map of the
+   *   compendium documents the selection is resolved against, by UUID, and
+   *   what's needed to rebuild the tabs when a compendium is toggled.
    */
   async getImportData(classes = [], race = '', actor = null) {
     const validClasses = Object.keys(CONFIG.ARCHMAGE.classList);
     const compendiumClasses = classes.filter(a => validClasses.includes(a));
-    const classCompendiums = await this.getCompendiums(compendiumClasses, race);
-    const classJournals = await this.getJournals();
+    const defaults = this.getDefaultPacks(compendiumClasses, race);
+    const secondEdition = game.settings.get('archmage', 'secondEdition');
+    const featsLabel = secondEdition && game.packs.some(p => p.metadata.name == "universal-feats-2e")
+      ? "Universal Feats"
+      : "General Feats";
 
+    const importData = {
+      packs: this.getPowerPacks(defaults)
+        .map(p => ({
+          id: p.collection,
+          label: p.title,
+          packageLabel: packageLabel(p),
+          // Listed on the character's own tabs.
+          isDefault: defaults.has(p.collection),
+          // A default compendium that's listed in full, so has nothing to
+          // add to the "other" tab. Worked out when the tabs are built.
+          locked: false,
+          // Listed on the "other" tab, or for a default compendium, what
+          // the character's own tabs leave out of it.
+          enabled: false
+        })),
+      tabs: [],
+      docs: new Map(),
+      source: {
+        actor: actor,
+        classes: compendiumClasses,
+        raceTabs: this.getRaceTabs(race),
+        featsKey: this.cleanClassName(featsLabel),
+        featsLabel: featsLabel,
+        journals: await this.getJournals(),
+        packCache: new Map()
+      }
+    };
+    await this.buildTabs(importData);
+
+    // Prefer opening on a real class rather than a grab-bag tab such as the
+    // general feats, and never on the "other" tab unless there's nothing else.
+    const tabs = importData.tabs;
+    const own = tabs.filter(tab => tab.key !== OTHER_KEY);
+    importData.defaultTab = own[1] && !validClasses.includes(own[0].key)
+      ? own[1].key
+      : (own[0] ?? tabs[0])?.key;
+    // Marked here rather than left to the tab nav, which isn't rendered at all
+    // when there's only one class to show.
+    const initial = tabs.find(tab => tab.key === importData.defaultTab);
+    if (initial) initial.active = true;
+
+    return importData;
+  }
+
+  /**
+   * List one of the import's compendiums on the "other" tab or stop listing
+   * it there, and rebuild the tabs.
+   *
+   * @param {object} importData
+   *   As returned by getImportData().
+   * @param {string} id
+   *   Collection ID of the compendium.
+   * @param {boolean} enabled
+   */
+  async setPackEnabled(importData, id, enabled) {
+    const pack = importData.packs.find(p => p.id === id);
+    if (!pack || pack.locked) return;
+    pack.enabled = enabled;
+    await this.buildTabs(importData);
+  }
+
+  /**
+   * (Re)build the import's tabs from its enabled compendiums.
+   *
+   * Default compendiums are spread over the character's tabs. Enabled ones
+   * go on the "other" tab, minus anything already on the character's tabs.
+   *
+   * Each tab is made of sections: one for a class' own tab, one per
+   * compendium on the "other" tab. A section whose powers haven't changed
+   * since the last build is kept as it was. The "other" tab is always there,
+   * as it's where compendiums are chosen.
+   *
+   * @param {object} importData
+   *   As returned by getImportData().
+   */
+  async buildTabs(importData) {
+    const source = importData.source;
+    const previous = new Map(importData.tabs.flatMap(tab => tab.sections).map(section => [section.key, section]));
+
+    // Which powers go on which tab, and for the "other" tab, by compendium.
+    const routed = new Map();
+    for (const packData of importData.packs) {
+      const {id, isDefault, enabled} = packData;
+      if (!isDefault && !enabled) continue;
+      const pack = game.packs.get(id);
+      if (!pack) continue;
+      let unlisted = 0;
+      for (const doc of await this.getPackPowers(pack, source.packCache)) {
+        const tabKeys = isDefault ? this.routePower(pack, doc, source) : [];
+        if (!tabKeys.length) {
+          unlisted++;
+          if (enabled) tabKeys.push(OTHER_KEY);
+        }
+        for (const tabKey of tabKeys) {
+          const sectionKey = tabKey === OTHER_KEY ? `${OTHER_KEY}/${id}` : tabKey;
+          if (!routed.has(tabKey)) routed.set(tabKey, new Map());
+          const sections = routed.get(tabKey);
+          if (!sections.has(sectionKey)) sections.set(sectionKey, {label: tabKey === OTHER_KEY ? pack.title : '', docs: []});
+          sections.get(sectionKey).docs.push(doc);
+        }
+      }
+      if (isDefault) packData.locked = !unlisted;
+    }
+
+    // Tabs in a fixed order: race, classes, multiclass feats, general feats
+    // and anything else.
+    const tabInfo = [
+      ...source.raceTabs.map(({key, label}) => ({key, label})),
+      ...source.classes.map(key => ({key, label: CONFIG.ARCHMAGE.classList[key]})),
+      {key: MULTICLASS_KEY, label: "Multiclass Feats"},
+      {key: source.featsKey, label: source.featsLabel},
+      {key: OTHER_KEY, label: game.i18n.localize('ARCHMAGE.PREPOPULATE.other')}
+    ];
     const tabs = [];
-    const docs = new Map();
-    for (let [classKey, classObject] of Object.entries(classCompendiums)) {
-      classKey = this.cleanClassName(classKey);
+    for (const {key, label} of tabInfo) {
+      if ((!routed.has(key) && key !== OTHER_KEY) || tabs.some(tab => tab.key === key)) continue;
+      const sections = [];
+      for (const [sectionKey, {label: sectionLabel, docs}] of routed.get(key) ?? []) {
+        const signature = docs.map(doc => doc.uuid).sort().join();
+        const old = previous.get(sectionKey);
+        if (old?.signature === signature) {
+          sections.push(old);
+          continue;
+        }
+        sections.push({
+          key: sectionKey,
+          label: sectionLabel,
+          signature: signature,
+          powerGroups: await this.getPowersFromPack([...docs], source.actor, importData.docs, key !== OTHER_KEY)
+        });
+      }
+      sections.sort((a, b) => a.label.localeCompare(b.label));
       tabs.push({
-        key: classKey,
-        label: classObject.name,
-        classContent: classJournals[classKey] ?? '',
-        powerGroups: await this.getPowersFromPack(classObject.content, actor, docs),
+        key: key,
+        label: label,
+        classContent: source.journals[key] ?? '',
+        sections: sections,
         active: false,
         opened: false
       });
     }
-
-    // Prefer opening on a real class rather than a grab-bag tab such as the
-    // general feats.
-    const defaultTab = tabs[1] && !validClasses.includes(tabs[0].key)
-      ? tabs[1].key
-      : tabs[0]?.key;
-    // Marked here rather than left to the tab nav, which isn't rendered at all
-    // when there's only one class to show.
-    const initial = tabs.find(tab => tab.key === defaultTab);
-    if (initial) initial.active = true;
-
-    return {tabs, defaultTab, docs};
+    importData.tabs = tabs;
   }
+}
+
+/**
+ * Tab keys that aren't a race or a class.
+ */
+const MULTICLASS_KEY = 'multiclassfeats';
+const OTHER_KEY = 'other';
+
+/**
+ * The name of the system, module or world a compendium comes from.
+ */
+function packageLabel(pack) {
+  const {packageType, packageName} = pack.metadata;
+  if (packageType === 'system') return game.system.title;
+  if (packageType === 'module') return game.modules.get(packageName)?.title ?? packageName;
+  return game.world.title;
 }
 
 function applyKinAliasMap (kin) {

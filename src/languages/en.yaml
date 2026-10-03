@@ -565,6 +565,11 @@ ARCHMAGE:
   PREPOPULATE:
     help: "Tick the box to the right of any powers you would like to add, and then click import to add them to your character. You can click any power's name to expand it and view its text and available feats."
     selected: selected
+    compendiums: Compendiums
+    compendiumsHelp: "Tick the compendiums to list on this tab. Locked ones are already listed in full on your character's tabs; for the rest your character's tabs draw on, such as kin powers, ticking lists whatever those tabs leave out."
+    compendiumLocked: Listed in full on your character's tabs
+    otherEmpty: No other compendiums are listed. Tick some above to add their powers here.
+    other: Other
   COMPENDIUMBROWSER:
     title: 'Compendium Browser'
     tabs:
