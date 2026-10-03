@@ -8,7 +8,7 @@
          relative — putting it on the absolutely-positioned portrait layer
          would knock the image out of the banner for good. -->
     <div class="header-hero profile-img">
-      <div class="header-portrait" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame }">
+      <div class="header-portrait" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame, 'portrait--full': portraitFull }">
         <img :src="actor?.img" :alt="localize('ARCHMAGE.avatarAlt')" :title="actor?.name"
           data-edit="img" data-action="onEditImage" :data-tooltip="tooltip('portrait')" />
       </div>
@@ -108,10 +108,12 @@ watch(editing, value => {
   if (value) nextTick(mountOutEditor);
 });
 
-// Portrait treatment flags (same ones the V2 sheets honor).
+// Portrait treatment flags (the round/frame ones the V2 sheets honor, plus
+// the V3-only full-artwork opt-out of the banner crop).
 const archmageFlags = computed(() => props.actor?.flags?.archmage ?? {});
 const portraitRound = computed(() => archmageFlags.value.portraitRound === true);
 const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true);
+const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
 </script>
 
 <!-- Laid out vertically: it lives at the top of the narrow sidebar column
@@ -139,7 +141,7 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
 
   .header-portrait {
     position: absolute;
-    inset: 5px;
+    inset: 0;
     z-index: -1;
 
     img {
@@ -163,6 +165,12 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
       inset: 0;
       border: 2px solid var(--c-white--75);
       pointer-events: none;
+    }
+
+    /* Full artwork letterboxes inside the banner instead of being cropped
+       to fill it. */
+    &.portrait--full img {
+      object-fit: contain;
     }
   }
 

@@ -300,15 +300,28 @@
   // CharSettings component did.
   const flagState = reactive(
     Object.fromEntries(
-      Object.entries(CONFIG.Actor.characterFlags).map(([key, flag]) => {
+      [
+        // V3-only portrait setting, deliberately kept out of CONFIG so the
+        // V2 settings sheet never renders it.
+        ...Object.entries({
+          portraitFull: {
+            name: 'ARCHMAGE.CHARACTERFLAGS.portraitFullName',
+            hint: 'ARCHMAGE.CHARACTERFLAGS.portraitFullHint',
+            section: 'Sheet'
+          }
+        }),
+        ...Object.entries(CONFIG.Actor.characterFlags),
+      ].map(([key, flag]) => {
         const value = props.context.actor.flags?.archmage?.[key] ?? null;
         return [key, { ...flag, key, value }];
       })
     )
   );
 
-  // Flags that only apply to the V2 sheet, hidden from the V3 settings.
-  const hiddenFlags = ['hideSettingsTab', 'showTriggersTab'];
+  // Flags that only apply to the V2 sheet, hidden from the V3 settings. The
+  // portrait round/frame treatments don't suit the V3 hero banner, which
+  // offers "show full artwork" instead.
+  const hiddenFlags = ['hideSettingsTab', 'showTriggersTab', 'portraitRound', 'portraitFrame'];
 
   const flagGroups = computed(() => {
     const groups = {};

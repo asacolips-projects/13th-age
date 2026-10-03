@@ -395,6 +395,8 @@ ARCHMAGE:
     grimDeterminationName: Grim Determination
     overridePowerLevelHint: Automatically upgrade power's (e.g. spell's) level to your character's level when using it.
     overridePowerLevelName: Cast at Actor Level
+    portraitFullHint: Show the full portrait artwork in the header instead of cropping it to fill the banner. The image shrinks to fit inside the space, leaving empty bands where it would otherwise be cropped.
+    portraitFullName: Show Full Portrait Artwork
     portraitFrameHint: Whether or not the character portrait has a white frame and shadow on the V2 sheet.
     portraitFrameName: Portrait Frame
     portraitRoundHint: Whether or not the character portrait is rounded on the V2 sheet.
