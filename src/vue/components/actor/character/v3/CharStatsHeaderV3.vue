@@ -128,11 +128,11 @@ function rollRecovery(event) {
   actorDocument?.rollRecoveryDialog(event);
 }
 
-// Mirror the V2 behavior: clicking the Nth checkbox sets the fail count to N,
-// or unchecks it (N - 1) if it was already checked.
+// Fail-track clicks go through the actor document, shared with the V2
+// sheet's _updateFails: clicking step N sets the count to N, or unchecks it
+// (N - 1) if it was already checked.
 function updateFails(saveType, opt) {
-  const current = Number(props.actor?.system?.attributes?.saves?.[saveType]?.value) || 0;
-  actorDocument?.update({ [`system.attributes.saves.${saveType}.value`]: current === opt ? opt - 1 : opt });
+  actorDocument?.updateFails(saveType, opt);
 }
 </script>
 

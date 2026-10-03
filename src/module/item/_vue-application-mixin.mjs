@@ -1,5 +1,17 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 
+/**
+ * Injection keys used to provide documents to the Vue apps via
+ * provide/inject. Applications set `documentProvideKey` to the key matching
+ * their document, and components inject the same key.
+ *
+ * @type {Record<string, string>}
+ */
+export const DOCUMENT_PROVIDE_KEYS = {
+  itemDocument: 'itemDocument',
+  actorDocument: 'actorDocument'
+};
+
 export default function VueRenderingMixin(BaseApplication) {
 
     class VueApplication extends BaseApplication {
@@ -32,8 +44,8 @@ export default function VueRenderingMixin(BaseApplication) {
        */
       vueParts = {};
 
-      /** Injection key used to provide the document to the Vue app. Subclasses override (e.g. 'actorDocument'). */
-      documentProvideKey = 'itemDocument';
+      /** Injection key used to provide the document to the Vue app. Subclasses override (e.g. DOCUMENT_PROVIDE_KEYS.actorDocument). */
+      documentProvideKey = DOCUMENT_PROVIDE_KEYS.itemDocument;
 
       /**
        * Getter for vueComponents

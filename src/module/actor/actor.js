@@ -867,6 +867,56 @@ export class ActorArchmage extends Actor {
     return parts.filter(p => p !== null).join(" + ");
   }
 
+  /**
+   * Roll initiative for the actor, prompting for an optional bonus first.
+   *
+   * Requires an active combat encounter: rolling outside one shows an error,
+   * and a combatant that has already rolled is left alone.
+   */
+  async rollInitiativeDialog() {
+    let combat = game.combat;
+    // Check to see if this actor is already in the combat.
+    if (!combat) {
+      ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
+      return;
+    }
+    const combatant = combat.combatants.find(c => c?.actor?._id == this.id);
+    if (combatant && combatant?.initiative !== null) {
+      return;
+    }
+
+    // Prompt the user for an optional bonus
+    let bonus = 0;
+    try {
+      bonus = await foundry.applications.api.DialogV2.prompt({
+        window: { title: "ARCHMAGE.initAdjustment" },
+        content: `
+          <label for="bonus">${game.i18n.localize("ARCHMAGE.initBonus")}</label>
+          <input name="bonus" type="number" step="1" default="0" placeholder="0" autofocus>`,
+        ok: {
+          label: "COMBAT.InitiativeRoll",
+          callback: (event, button, dialog) => button.form.elements.bonus.valueAsNumber
+        }
+      });
+    } catch(error) {
+      // dialog canceled
+      console.error(error);
+      return;
+    }
+
+    let formula = this.getInitiativeFormula();
+    if (bonus) formula += ` + ${bonus ?? 0}`;
+
+    // Create the combatant if needed.
+    if (!combatant) {
+      await this.rollInitiative({createCombatants: true, initiativeOptions: { formula }});
+    }
+    // Otherwise, determine if the existing combatant should roll init.
+    else if (!combatant.initiative && combatant.initiative !== 0) {
+      await combat.rollInitiative([combatant.id], { formula });
+    }
+  }
+
   async rollSave(difficulty, target=11) {
     // Determine target dc
     if (difficulty == 'easy') target = 6;
@@ -981,6 +1031,81 @@ export class ActorArchmage extends Actor {
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
     await this.update({'system.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
+  }
+
+  /**
+   * Spend an AC or save reroll from the equipped item that grants it and post
+   * the reroll card to chat.
+   *
+   * @param {string} kind
+   *   The reroll pool, such as 'AC' or 'save'.
+   */
+  async rollReroll(kind) {
+    let res = this.system.resources.spendable.rerolls[kind];
+    if (!res || res.current <= 0) return;
+
+    // We have uses to spend, find source item
+    let prop = "";
+    switch (kind) {
+      case "AC":
+        prop = "rerollAc";
+        break
+      case "save":
+        prop = "rerollSave";
+        break
+    }
+    this.items.forEach(item => {
+      if (item.type === 'equipment' && item.system.isActive && item.system.attributes[prop].current > 0) {
+        // Found source of the bonus, update it
+        let itemOverrideData = {'_id': item.id};
+        itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
+        this.updateEmbeddedDocuments('Item', [itemOverrideData]);
+      }
+    });
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/reroll-card.html`
+    const token = this.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this),
+      title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
+      desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
+    };
+
+    const templateData = {
+      actor: this,
+      tokenId: token ? `${token.id}` : null,
+      data: chatData
+    };
+
+    // Render the template
+    chatData["content"] = await foundry.applications.handlebars.renderTemplate(template, templateData);
+
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
+  }
+
+  /**
+   * Set a death or last-gasp fail track from the sheet's step buttons:
+   * clicking step N sets the fail count to N, or unchecks it (N - 1) if it
+   * was already set.
+   *
+   * @param {string} saveType
+   *   The fail track, such as 'deathFails' or 'lastGaspFails'.
+   * @param {number} opt
+   *   The step that was clicked.
+   */
+  async updateFails(saveType, opt) {
+    let count = Number(opt);
+    if (count == this.system.attributes.saves[saveType].value) {
+      count = Math.max(0, count - 1);
+    }
+    let updateData = {};
+    let path = `system.attributes.saves.${saveType}.value`;
+    updateData[path] = count;
+    await this.update(updateData);
   }
 
   /**

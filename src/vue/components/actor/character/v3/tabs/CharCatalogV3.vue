@@ -153,7 +153,7 @@ const hideEmptyPowerGroups = computed(() => props.actor?.flags?.archmage?.hideEm
 
 const importPowers = async () => {
   const actor = await getActor(props.actor);
-  await game.archmage?.ArchmagePowerImporterApplication?.open(actor);
+  await game.archmage?.ArchmagePowerImporterApplication?.show(actor);
 };
 
 // Persist display preference changes through the live actor document;

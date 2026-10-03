@@ -15,15 +15,24 @@ import { ArchmagePrepopulate } from "../setup/archmage-prepopulate.js";
  */
 export class ArchmagePowerImporterApplication extends Application {
   /**
-   * Gather the import data for an actor and open the importer, mirroring the
+   * Gather the import data for an actor and show the importer, mirroring the
    * v2 sheet's _importPowers flow. Static so the Vue sheet can call it through
    * game.archmage without the vue bundle importing module internals.
+   *
+   * Like the character settings window, there is one importer per actor: an
+   * already-open window is focused instead of duplicated.
    *
    * @param {Actor} actor   The character actor to import powers onto.
    * @returns {Promise<Application>|undefined}
    */
-  static async open(actor) {
+  static async show(actor) {
     if (!actor || actor.pack) return;
+    // The AppV1 registry (ui.windows) is keyed by numeric appId, so match open
+    // windows on our per-actor element id instead.
+    const id = `archmage-power-importer-${actor.id}`;
+    const existing = Object.values(ui.windows).find(app => app.id === id);
+    if (existing) return existing.render(true);
+
     const characterRace = actor.system.details.race.value;
     const characterClasses = actor.system.details.detectedClasses ?? [];
     const importData = await new ArchmagePrepopulate().getImportData(characterClasses, characterRace, actor);

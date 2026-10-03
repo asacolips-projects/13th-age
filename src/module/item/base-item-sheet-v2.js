@@ -1,7 +1,9 @@
+import { pickImage, createDragDropHandlers } from '../helpers/sheet-helpers.mjs';
+
 export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemSheetV2 {
   constructor(options = {}) {
     super(options);
-    this.#dragDrop = this.#createDragDropHandlers();
+    this.#dragDrop = createDragDropHandlers(this);
   }
 
   /** @override */
@@ -64,7 +66,9 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 
   /**
    * Handle changing a Document's image.
-   * 
+   *
+   * Delegates to the shared pickImage helper (also used by the actor sheets).
+   *
    * @this ArchmageBaseItemSheetV2
    * @param {PointerEvent} event   The originating click event
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
@@ -72,22 +76,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   static async _onEditImage(event, target) {
-    if (!this.isEditable) return false;
-    const attr = target.dataset.edit;
-    const current = foundry.utils.getProperty(this.document, attr);
-    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
-    const fp = new foundry.applications.apps.FilePicker.implementation({
-      current,
-      type: "image",
-      redirectToRoot: img ? [img] : [],
-      callback: path => {
-        target.src = path;
-        this.document.update({[attr]: path});
-      },
-      top: this.position.top + 40,
-      left: this.position.left + 10
-    });
-    return fp.browse();
+    return pickImage(this, event, target);
   }
 
   /**
@@ -381,26 +370,6 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
   // This is marked as private because there's no real need
   // for subclasses or external hooks to mess with it directly
   #dragDrop;
-
-  /**
-   * Create drag-and-drop workflow handlers for this Application
-   * @returns {DragDrop[]}     An array of DragDrop handlers
-   * @private
-   */
-  #createDragDropHandlers() {
-    return this.options.dragDrop.map((d) => {
-      d.permissions = {
-        dragstart: this._canDragStart.bind(this),
-        drop: this._canDragDrop.bind(this)
-      };
-      d.callbacks = {
-        dragstart: this._onDragStart.bind(this),
-        dragover: this._onDragOver.bind(this),
-        drop: this._onDrop.bind(this)
-      };
-      return new foundry.applications.ux.DragDrop.implementation(d);
-    });
-  }
 
   /**
    * Handle header control button clicks to display actor portrait artwork.

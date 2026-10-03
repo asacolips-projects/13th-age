@@ -208,36 +208,11 @@ function rollCommand(die) {
 }
 
 // Spend an AC or save reroll: decrement the equipped item that grants it and
-// post the reroll card to chat. Mirrors the V2 sheet's _onRerollRoll.
-async function rollReroll(kind) {
+// post the reroll card to chat. The logic lives on the actor document, shared
+// with the V2 sheet's _onRerollRoll.
+function rollReroll(kind) {
   if (!actorDocument) return;
-  const res = actorDocument.system.resources.spendable.rerolls[kind];
-  if (!res || res.current <= 0) return;
-
-  // We have uses to spend, find source item.
-  const prop = kind === 'AC' ? 'rerollAc' : 'rerollSave';
-  actorDocument.items.forEach(item => {
-    if (item.type === 'equipment' && item.system.isActive && item.system.attributes[prop].current > 0) {
-      const itemUpdateData = { '_id': item.id };
-      itemUpdateData[`system.attributes.${prop}.current`] = res.current - 1;
-      actorDocument.updateEmbeddedDocuments('Item', [itemUpdateData]);
-    }
-  });
-
-  const token = actorDocument.token;
-  const chatData = {
-    user: game.user.id,
-    speaker: game.archmage.ArchmageUtility.getSpeaker(actorDocument),
-    title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
-    desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
-  };
-  const templateData = {
-    actor: actorDocument,
-    tokenId: token ? `${token.id}` : null,
-    data: chatData
-  };
-  chatData.content = await foundry.applications.handlebars.renderTemplate('systems/archmage/templates/chat/reroll-card.html', templateData);
-  await game.archmage.ArchmageUtility.createChatMessage(chatData);
+  actorDocument.rollReroll(kind);
 }
 </script>
 

@@ -1,4 +1,5 @@
-import VueRenderingMixin from '../item/_vue-application-mixin.mjs';
+import VueRenderingMixin, { DOCUMENT_PROVIDE_KEYS } from '../item/_vue-application-mixin.mjs';
+import { buildSheetContext } from '../actor/helpers/actor-helpers-v2.js';
 import { ArchmageCharacterSettings } from '../../vue/components.vue.es.js';
 
 /**
@@ -13,7 +14,7 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
   foundry.applications.api.ApplicationV2
 ) {
   /** Injection key used to provide the actor document to the Vue app. */
-  documentProvideKey = 'actorDocument';
+  documentProvideKey = DOCUMENT_PROVIDE_KEYS.actorDocument;
 
   /** Vue root for the settings window. */
   vueParts = {
@@ -84,31 +85,21 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
   }
 
   /**
-   * Prepare the context for the Vue component. Mirrors the actor data shape
-   * the V3 sheet provides (plain actor object, flattened overrides), so the
-   * field bindings port over unchanged.
+   * Prepare the context for the Vue component. Uses the same shared sheet
+   * context builder as the actor sheets (plain actor object, flattened
+   * overrides, locked fields), so the field bindings port over unchanged.
    *
    * @override
    */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-    const actor = this.actor;
-    const actorData = actor.toObject(false);
 
-    context.owner = actor.isOwner;
-    context.editable = this.isEditable;
-    context.actor = actorData;
-    context.actor._source = foundry.utils.deepClone(actor._source);
-    context.actor.overrides = foundry.utils.flattenObject(actor.overrides);
+    Object.assign(context, buildSheetContext(this.actor, {
+      editable: this.isEditable
+    }));
 
     // Add tabs.
     context.tabs = this.constructor.buildTabs();
-
-    // Locked fields from active effects, used to disable overridden inputs.
-    context.actor.lockedFields = [];
-    actor.effects.forEach(ae => {
-      context.actor.lockedFields = context.actor.lockedFields.concat(ae.changes.map(c => c.key));
-    });
 
     return context;
   }
