@@ -77,9 +77,9 @@ const modifiers = computed(() => [
       left: 0;
       line-height: 1;
       // Four-fifths of the portrait, the ratio the V2 power rows use.
-      font-size: var(--font-size-16);
-      width: var(--font-size-16);
-      height: var(--font-size-16);
+      font-size: var(--font-size-20);
+      width: var(--font-size-20);
+      height: var(--font-size-20);
       display: block;
       opacity: 0;
       transition: all ease-in-out 0.25s;

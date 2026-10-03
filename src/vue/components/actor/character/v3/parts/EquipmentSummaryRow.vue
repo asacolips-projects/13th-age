@@ -133,8 +133,8 @@ function rechargeItem() {
 
   // The portrait, kept inside the standard 32px column like the power rows.
   .equipment-image {
-    width: 25px;
-    height: 25px;
+    width: var(--font-size-28);
+    height: var(--font-size-28);
     object-fit: cover;
     border-radius: 0.25rem;
   }
@@ -189,7 +189,7 @@ function rechargeItem() {
   overflow: hidden;
   text-overflow: ellipsis;
   // The same size the power rows' titles read at.
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-16);
 }
 
 .equipment-bonus {

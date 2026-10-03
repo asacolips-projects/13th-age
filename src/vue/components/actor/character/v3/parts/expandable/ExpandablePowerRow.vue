@@ -140,8 +140,8 @@ function activatePower() {
 
   // The portrait, kept inside the standard 32px column.
   .power-image {
-    width: 25px;
-    height: 25px;
+    width: var(--font-size-28);
+    height: var(--font-size-28);
     object-fit: cover;
     border-radius: 0.25rem;
   }

@@ -243,7 +243,7 @@ const classes = computed(() => [
   margin: 0;
   border: 0;
   text-align: left;
-  font-size: var(--font-size-18);
+  font-size: var(--font-size-16);
 }
 
 // The trigger read as a tooltip hanging off the row.
