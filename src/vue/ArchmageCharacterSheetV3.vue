@@ -112,7 +112,6 @@
        and night mode keep flowing through unchanged. */
     --v3-border: var(--c-black--25);
     --v3-border-header: var(--c-white--25);
-    --v3-text-muted: var(--c-white--50);
     --v3-rollable: var(--c-blue);
     --v3-rollable-glow: var(--c-blue--50);
     --v3-hover-glow: var(--c-black--25);

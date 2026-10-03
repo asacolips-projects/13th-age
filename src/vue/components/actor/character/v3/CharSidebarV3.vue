@@ -46,7 +46,7 @@ defineProps(['actor']);
   .placeholder {
     margin: 0;
     font-style: italic;
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 
   .rollable {
@@ -59,7 +59,7 @@ defineProps(['actor']);
 
   .filler {
     margin: 0;
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 }
 

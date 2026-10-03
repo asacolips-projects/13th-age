@@ -103,7 +103,7 @@ const groups = computed(() => {
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 
   .trigger-group {
@@ -128,6 +128,6 @@ const groups = computed(() => {
   .trigger-empty {
     margin: 0;
     font-style: italic;
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 </style>

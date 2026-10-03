@@ -761,7 +761,7 @@ const saveRowOrder = async (order) => {
   .loadout-empty {
     margin: 0;
     padding: 0 0.25rem;
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 
   // Row reordering feedback, matching the other v3 tabs: the dragged row

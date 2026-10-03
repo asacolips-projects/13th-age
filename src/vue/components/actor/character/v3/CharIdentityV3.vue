@@ -156,7 +156,7 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
 
     .char-subtitle {
       margin: 0;
-      color: var(--v3-text-muted);
+      color: var(--color-text-secondary);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -201,7 +201,7 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
       font-weight: normal;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--v3-text-muted);
+      color: var(--color-text-secondary);
     }
 
     .out-text {

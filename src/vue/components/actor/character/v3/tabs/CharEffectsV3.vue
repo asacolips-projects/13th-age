@@ -193,7 +193,7 @@ const saveEffectOrder = async (orderedIds) => {
   .effects-empty {
     margin: 0;
     font-style: italic;
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 
   // Row reordering feedback, matching the other v3 tabs: the dragged row

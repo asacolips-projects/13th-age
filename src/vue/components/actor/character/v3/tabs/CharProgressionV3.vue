@@ -147,7 +147,7 @@ function toggleIncremental(inc) {
   .placeholder {
     margin: 0;
     font-style: italic;
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 
   // The two rest buttons sit side by side, each half the row; Foundry's
@@ -209,7 +209,7 @@ function toggleIncremental(inc) {
       margin: 0.125rem 0 0;
       padding-left: 1.5rem; // line up under the label, clear of the checkbox
       font-size: var(--font-size-14);
-      color: var(--v3-text-muted);
+      color: var(--color-text-secondary);
       cursor: default;
     }
 

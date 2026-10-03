@@ -331,7 +331,7 @@ async function rollReroll(kind) {
 }
 
 .resource-separator {
-  color: var(--v3-text-muted);
+  color: var(--color-text-secondary);
   margin: 0 0.25em;
 }
 

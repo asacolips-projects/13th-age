@@ -58,7 +58,7 @@ const modifiers = computed(() => [
     cursor: default;
 
     &::before {
-      color: var(--v3-text-muted);
+      color: var(--color-text-secondary);
     }
   }
 

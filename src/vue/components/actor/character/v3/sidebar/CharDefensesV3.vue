@@ -30,6 +30,6 @@ defineProps(['actor']);
 .defense-label {
   margin-right: 0.25rem;
   font-weight: 600;
-  color: var(--v3-text-muted);
+  color: var(--color-text-secondary);
 }
 </style>

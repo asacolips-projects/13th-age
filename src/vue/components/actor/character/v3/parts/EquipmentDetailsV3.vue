@@ -103,7 +103,7 @@ const enrichmentOptions = computed(() => ({
     margin-bottom: 0.375rem;
     font-family: var(--v3-font-label);
     font-size: var(--font-size-12);
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 
   .meta-item {
