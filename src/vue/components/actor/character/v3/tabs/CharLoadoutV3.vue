@@ -77,9 +77,7 @@
                 <li v-for="n in track.borrowed" :key="`borrowed-${n}`" class="slot-pip filled borrowed">
                   <i class="fas fa-arrow-down"></i>
                 </li>
-                <li v-for="(letter, n) in track.overflow" :key="`overflow-${n}`" class="slot-pip overflow">
-                  <span v-if="letter" class="overflow-letter">{{ letter }}</span>
-                </li>
+                <li v-for="n in track.overflow.length" :key="`overflow-${n}`" class="slot-pip overflow"></li>
                 <li v-for="n in track.free" :key="`free-${n}`" class="slot-pip"></li>
               </ul>
             </span>
@@ -145,8 +143,8 @@
 /**
  * Loadout tab: the character's magic items and feats as two inventories,
  * with slot tracks in the section headers: filled pips for consumed, hollow
- * for free, squares in the alert colour for slots used beyond the
- * allowance, and filled pips wearing a down-arrow where a feat spent a
+   * for free, red triangles for slots used beyond the allowance, and filled
+   * pips wearing a down-arrow where a feat spent a
  * higher tier's slot. Feats group under their power: the power is a
  * collapsible catalog-style row whose expanded view is the read view minus
  * the feats, with the read view's feat rows — always expanded — indented
@@ -293,9 +291,8 @@ const saveExtraSlots = (key, path, event) => {
 };
 
 /**
- * Slot bookkeeping for one track: filled pips up to the allowance, squared
- * alert pips past it, hollow pips for what's left. The alert pips carry the
- * tier letter that overran, or none for the tierless magic item track. A
+ * Slot bookkeeping for one track: filled pips up to the allowance, alert
+ * triangles past it, hollow pips for what's left. A
  * disabled config hides the track; edit mode reveals it so the config pair
  * always has its target on screen.
  */
@@ -343,8 +340,9 @@ const sections = computed(() => {
   // 1-4 for A, 5-7 for C, 8-10 for E — plus the single Z slot at 10th. A
   // tier's own feats fill its slots first; past that, feats spend the next
   // tier up, and the borrowed pips wear the down-arrow. Whatever the cascade
-  // can't place alerts on its own tier's track, each square wearing that
-  // tier's letter — which is why a track also shows when it has overflow.
+  // can't place alerts on its own tier's track — which is why a track also
+  // shows when it has overflow. Spill keeps its letters only to route each
+  // overflow pip to the right tier's track.
   const takenByTier = new Map(TIER_SLOTS.map(tier =>
     [tier.key, takenFeatsForTier(tier).length]));
 
@@ -688,8 +686,7 @@ const saveRowOrder = async (order) => {
   }
 
   // The slot pips, mirrored from PowerFeatPips: hollow circles, filled when
-  // the slot is consumed. Squared pips in the alert colour mark slots used
-  // beyond the allowance.
+  // the slot is consumed. Red triangles mark slots used beyond the allowance.
   .slot-pips {
     display: flex;
     flex-direction: row;
@@ -723,18 +720,11 @@ const saveRowOrder = async (order) => {
     }
 
     &.overflow {
-      border-radius: 1px;
+      border: none;
+      border-radius: 0;
       background: var(--v3-negative);
-      border-color: var(--v3-negative);
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
     }
-  }
-
-  // The tier letter an unplaceable feat wears on its alert square.
-  .overflow-letter {
-    font-family: var(--v3-font-label);
-    font-size: var(--font-size-10);
-    line-height: 0;
-    color: var(--color-light-1);
   }
 
   .loadout-list {
