@@ -1,27 +1,33 @@
 <template>
   <header class="sheet-header">
-    <!-- Portrait. The profile-img class goes on the wrapper div, matching the
-         V2 sheets: ContextMenu injects the menu into the matched element, and
-         an img can't render children. -->
-    <div class="header-portrait profile-img" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame }">
-      <img :src="actor?.img" :alt="localize('ARCHMAGE.avatarAlt')" :title="actor?.name"
-        data-edit="img" data-action="onEditImage" :data-tooltip="tooltip('portrait')" />
-    </div>
+    <!-- Hero banner: the portrait bleeds across a fixed-height area with the
+         name docked to its bottom edge. The profile-img class goes on the
+         hero itself: ContextMenu injects the menu into the matched element
+         and forces an inline `position: relative` on it that it never
+         removes, so the hook must live on an element that is already
+         relative — putting it on the absolutely-positioned portrait layer
+         would knock the image out of the banner for good. -->
+    <div class="header-hero profile-img">
+      <div class="header-portrait" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame }">
+        <img :src="actor?.img" :alt="localize('ARCHMAGE.avatarAlt')" :title="actor?.name"
+          data-edit="img" data-action="onEditImage" :data-tooltip="tooltip('portrait')" />
+      </div>
 
-    <!-- Name + subtitle, or their edit fields -->
-    <div class="header-id flexcol">
-      <template v-if="!editing">
-        <h1 class="char-name">{{ actor?.name }}</h1>
-        <p class="char-subtitle" v-if="subtitle">{{ subtitle }}</p>
-      </template>
-      <template v-else>
-        <input type="text" name="name" v-model="actor.name" :placeholder="localize('ARCHMAGE.name')">
-        <div class="edit-row">
-          <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
-          <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
-          <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
-        </div>
-      </template>
+      <!-- Name + subtitle, or their edit fields -->
+      <div class="header-id flexcol">
+        <template v-if="!editing">
+          <h1 class="char-name">{{ actor?.name }}</h1>
+          <p class="char-subtitle" v-if="subtitle">{{ subtitle }}</p>
+        </template>
+        <template v-else>
+          <input type="text" name="name" v-model="actor.name" :placeholder="localize('ARCHMAGE.name')">
+          <div class="edit-row">
+            <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
+            <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
+            <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
+          </div>
+        </template>
+      </div>
     </div>
 
     <!-- One Unique Thing -->
@@ -114,35 +120,71 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
   .sheet-header {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  /* Hero banner: fixed height, portrait bleeding across it, identity text
+     docked to the bottom edge. isolation contains the negative-z portrait
+     layer; the layer still receives clicks, so the image stays editable in
+     the gaps around the text. */
+  .header-hero {
+    position: relative;
+    isolation: isolate;
+    flex: 0 0 auto;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .header-portrait {
-    align-self: center;
+    position: absolute;
+    inset: 5px;
+    z-index: -1;
 
     img {
-      height: 100px;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      border-radius: 4px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Faces sit near the top of most portraits. */
+      object-position: center top;
     }
 
-    &.portrait--round,
+    /* A circle crop can't fill the banner, so "round" softens the corners
+       instead; "frame" becomes an inset ring around the bleed. */
     &.portrait--round img {
-      border-radius: 50%;
+      border-radius: 20px;
     }
 
-    &.portrait--frame {
+    &.portrait--frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
       border: 2px solid var(--c-white--75);
-      padding: 2px;
+      pointer-events: none;
     }
   }
 
   .header-id {
+    position: relative;
     min-width: 0;
+    padding: 0.75rem;
     text-align: center;
+
+    /* 25% black scrim behind the text. A two-axis mask intersection feathers
+       all four edges, and the fade stays inside the block (matching the
+       padding) so nothing spills past the banner onto the sheet below. */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: $c-black--75;
+      mask-image:
+        linear-gradient(to bottom, transparent, black 1.5em, black);
+      mask-composite: intersect;
+    }
 
     .char-name {
       margin: 0;
@@ -152,6 +194,7 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-shadow: 0 1px 2px $c-black, 0 0 10px $c-black--50;
     }
 
     .char-subtitle {
@@ -160,6 +203,7 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-shadow: 0 1px 2px $c-black, 0 0 10px $c-black--50;
     }
 
     input {
@@ -183,6 +227,9 @@ const portraitFrame = computed(() => archmageFlags.value.portraitFrame === true)
   }
 
   .header-out {
+    /* The hero bleeds edge to edge, so the OUT block carries the gutter the
+       header's old padding used to provide. */
+    margin: 0 0.75rem 0.75rem;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
     padding: 0.75rem;
