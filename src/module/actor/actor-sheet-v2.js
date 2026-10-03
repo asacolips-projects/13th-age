@@ -1383,7 +1383,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     const characterClasses = this.actor.system.details.detectedClasses ?? [];
     const prepop = new ArchmagePrepopulate();
     const importData = await prepop.getImportData(characterClasses, characterRace, this.actor);
-    if (!importData?.tabs?.length) {
+    if (!importData?.packs?.length) {
       return;
     }
     new ArchmagePowerImporterApplication({actor: this.actor, importData: importData}).render(true);
