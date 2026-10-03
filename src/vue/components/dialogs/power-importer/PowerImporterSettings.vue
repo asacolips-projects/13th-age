@@ -16,20 +16,12 @@
         <h3 class="power-list-subtitle">{{group.label}}</h3>
         <ul class="power-import-pack-list">
           <li v-for="pack in group.packs" :key="pack.id" class="power-import-pack">
-            <!-- A compendium for the character's own tabs, which can be
-                 unlisted unless it's all those tabs have... -->
-            <label v-if="pack.ownTabs.length">
-              <input type="checkbox" :checked="pack.locked || pack.listed" :disabled="busy || pack.locked"
-                @change="$emit('toggle-pack', pack, 'listed', $event.target.checked)"/>
-              {{pack.label}}
-              <i v-if="pack.locked" class="fas fa-lock" :data-tooltip="localize('ARCHMAGE.PREPOPULATE.compendiumLocked')"></i>
-            </label>
-            <!-- ...and whose remaining powers, if any, can go on the "other"
-                 tab, like the whole of any other compendium. -->
-            <label v-if="pack.hasRest" :class="pack.ownTabs.length ? 'power-import-pack-rest' : ''">
+            <label>
               <input type="checkbox" :checked="pack.enabled" :disabled="busy"
-                @change="$emit('toggle-pack', pack, 'enabled', $event.target.checked)"/>
-              {{pack.ownTabs.length ? localize('ARCHMAGE.PREPOPULATE.compendiumRest') : pack.label}}
+                @change="$emit('toggle-pack', pack, $event.target.checked)"/>
+              {{pack.label}}
+              <!-- Only the part the character's tabs leave out. -->
+              <span v-if="pack.isDefault" class="power-import-pack-rest">{{localize('ARCHMAGE.PREPOPULATE.compendiumRest')}}</span>
             </label>
           </li>
         </ul>
@@ -40,10 +32,10 @@
 
 <script>
 /**
- * The compendiums the importer lists powers from, at the top of the "other"
- * tab. The ones the character's own tabs are made from can be unlisted, unless
- * one is all a tab has. Whatever those tabs leave out of them can be listed on
- * the "other" tab, like any other compendium.
+ * The compendiums that can be listed on the "other" tab, at the top of it.
+ * The ones the character's own tabs list in full are left out; for the ones
+ * they only list part of, such as kin powers, this lists the rest. Which of
+ * them the character's own tabs draw on is filtered on those tabs.
  *
  * It starts open, since nothing on the "other" tab is ticked to begin with.
  */
@@ -66,7 +58,7 @@ export default {
   computed: {
     groups() {
       const groups = new Map();
-      for (const pack of this.packs) {
+      for (const pack of this.packs.filter(pack => pack.hasRest)) {
         if (!groups.has(pack.packageLabel)) groups.set(pack.packageLabel, {label: pack.packageLabel, packs: []});
         groups.get(pack.packageLabel).packs.push(pack);
       }

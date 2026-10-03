@@ -403,19 +403,15 @@ export class ArchmagePrepopulate {
           packageLabel: packageLabel(p),
           // One the character's own tabs are made from.
           isDefault: defaults.has(p.collection),
-          // For a default compendium, whether it's listed on the character's
-          // own tabs.
-          listed: defaults.has(p.collection),
+          // For a default compendium, the character's tabs it's been
+          // unticked on, from their own source filters.
+          unlisted: [],
           // Whether it's listed on the "other" tab, or for a default
           // compendium, what the character's own tabs leave out of it.
           enabled: false,
-          // The rest is worked out when the tabs are built: which of the
-          // character's tabs it has powers for, whether it has any powers
-          // they leave out, and whether it's the only default compendium for
-          // its tabs, which is then always listed.
-          ownTabs: [],
-          hasRest: !defaults.has(p.collection),
-          locked: false
+          // Whether it has anything for the "other" tab: worked out for a
+          // default compendium when the tabs are built.
+          hasRest: !defaults.has(p.collection)
         })),
       tabs: [],
       docs: new Map(),
@@ -447,33 +443,53 @@ export class ArchmagePrepopulate {
   }
 
   /**
-   * List one of the import's compendiums or stop listing it, and rebuild the
-   * tabs.
+   * List one of the import's compendiums on the "other" tab or stop listing
+   * it there, and rebuild the tabs.
    *
    * @param {object} importData
    *   As returned by getImportData().
    * @param {string} id
    *   Collection ID of the compendium.
-   * @param {string} option
-   *   'listed' for a default compendium's place on the character's own tabs,
-   *   'enabled' for its place on the "other" tab.
-   * @param {boolean} value
+   * @param {boolean} enabled
    */
-  async setPackOption(importData, id, option, value) {
+  async setPackEnabled(importData, id, enabled) {
     const pack = importData.packs.find(p => p.id === id);
-    if (!pack || !['listed', 'enabled'].includes(option)) return;
-    if (option === 'listed' && (!pack.isDefault || pack.locked)) return;
-    pack[option] = value;
+    if (!pack?.hasRest) return;
+    pack.enabled = enabled;
+    await this.buildTabs(importData);
+  }
+
+  /**
+   * List one of a tab's default compendiums on it or stop listing it there,
+   * and rebuild the tabs. A tab's last listed compendium stays listed, as
+   * the tab would otherwise go, and its source filter with it.
+   *
+   * @param {object} importData
+   *   As returned by getImportData().
+   * @param {string} id
+   *   Collection ID of the compendium.
+   * @param {string} tabKey
+   *   The tab whose source filter it was ticked or unticked on.
+   * @param {boolean} listed
+   */
+  async setPackListed(importData, id, tabKey, listed) {
+    const pack = importData.packs.find(p => p.id === id);
+    const tab = importData.tabs.find(t => t.key === tabKey);
+    if (!pack?.isDefault || !tab?.sources.some(s => s.id === id)) return;
+    if (!listed && !tab.sources.some(s => s.listed && s.id !== id)) return;
+    pack.unlisted = listed
+      ? pack.unlisted.filter(key => key !== tabKey)
+      : [...new Set([...pack.unlisted, tabKey])];
     await this.buildTabs(importData);
   }
 
   /**
    * (Re)build the import's tabs from its enabled compendiums.
    *
-   * Listed default compendiums are spread over the character's tabs.
-   * Enabled ones go on the "other" tab, minus anything that belongs on the
-   * character's tabs. A default compendium that's the only one for each of
-   * its tabs is locked, since unlisting it would just empty them.
+   * Default compendiums are spread over the character's tabs, except where
+   * they've been unticked. Enabled ones go on the "other" tab, minus anything
+   * that belongs on the character's tabs. Each of the character's tabs lists
+   * the default compendiums it draws on, as its `sources`.
    *
    * Each tab is made of sections: one for a class' own tab, one per
    * compendium on the "other" tab. A section whose powers haven't changed
@@ -500,17 +516,18 @@ export class ArchmagePrepopulate {
     // listed or not.
     const tabSources = new Map();
     for (const packData of importData.packs) {
-      const {id, isDefault, listed, enabled} = packData;
+      const {id, isDefault, unlisted, enabled} = packData;
       if (!isDefault && !enabled) continue;
       const pack = game.packs.get(id);
       if (!pack) continue;
       const ownTabs = new Set();
       let rest = 0;
+      const listed = tabKey => !unlisted.includes(tabKey);
       for (const doc of await this.getPackPowers(pack, source.packCache)) {
         const tabKeys = isDefault ? this.routePower(pack, doc, source) : [];
         for (const tabKey of tabKeys) {
           ownTabs.add(tabKey);
-          if (listed) add(tabKey, pack, doc);
+          if (listed(tabKey)) add(tabKey, pack, doc);
         }
         if (!tabKeys.length) {
           rest++;
@@ -518,16 +535,16 @@ export class ArchmagePrepopulate {
         }
       }
       if (!isDefault) continue;
-      packData.ownTabs = [...ownTabs];
       packData.hasRest = rest > 0;
       for (const tabKey of ownTabs) {
-        if (!tabSources.has(tabKey)) tabSources.set(tabKey, new Set());
-        tabSources.get(tabKey).add(id);
+        if (!tabSources.has(tabKey)) tabSources.set(tabKey, []);
+        tabSources.get(tabKey).push({
+          id: id,
+          label: packData.label,
+          packageLabel: packData.packageLabel,
+          listed: listed(tabKey)
+        });
       }
-    }
-    for (const packData of importData.packs) {
-      packData.locked = packData.ownTabs.length > 0
-        && packData.ownTabs.every(tabKey => tabSources.get(tabKey).size === 1);
     }
 
     // Tabs in a fixed order: race, classes, multiclass feats, general feats
@@ -541,7 +558,9 @@ export class ArchmagePrepopulate {
     ];
     const tabs = [];
     for (const {key, label} of tabInfo) {
-      if ((!routed.has(key) && key !== OTHER_KEY) || tabs.some(tab => tab.key === key)) continue;
+      // A tab whose sources have all been unticked stays, so that they can be
+      // ticked again, though setPackListed() doesn't let it come to that.
+      if ((!tabSources.has(key) && key !== OTHER_KEY) || tabs.some(tab => tab.key === key)) continue;
       const sections = [];
       for (const [sectionKey, {label: sectionLabel, docs}] of routed.get(key) ?? []) {
         const signature = docs.map(doc => doc.uuid).sort().join();
@@ -562,6 +581,7 @@ export class ArchmagePrepopulate {
         key: key,
         label: label,
         classContent: source.journals[key] ?? '',
+        sources: tabSources.get(key) ?? [],
         sections: sections,
         active: false,
         opened: false

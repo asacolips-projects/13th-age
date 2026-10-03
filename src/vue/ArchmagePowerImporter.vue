@@ -8,8 +8,8 @@
     <section class="container container--bottom power-importer-content">
       <Tab v-for="tab in tabs.primary" :key="tab.key" group="primary" :tab="tab" classes="container container--bottom flexcol">
         <PowerImporterClass v-if="tab.active || tab.opened"
-          :tab="tab" :context="context" :selection="selection"
-          @toggle-selection="toggleSelection">
+          :tab="tab" :context="context" :selection="selection" :busy="busy"
+          @toggle-selection="toggleSelection" @toggle-source="toggleSource">
           <!-- The "other" tab is where further compendiums are picked, above
                what they add. -->
           <template v-if="tab.key === 'other'" #header>
@@ -131,23 +131,40 @@ export default {
       }
     },
     /**
-     * Add or remove a compendium's powers. Tabs that are still there keep
-     * their state, rows that are still there keep their tick, and rows that
-     * are new start out as they would have if the importer had opened with
-     * them.
+     * Add or remove a compendium's powers on the "other" tab.
      */
-    async togglePack(pack, option, value) {
+    togglePack(pack, enabled) {
+      return this.rebuild(async () => {
+        const tabs = await this.context.onTogglePack(pack.id, enabled);
+        pack.enabled = enabled;
+        return tabs;
+      });
+    },
+    /**
+     * Add or remove a compendium's powers on one of the character's tabs.
+     */
+    toggleSource(tab, source, listed) {
+      return this.rebuild(() => this.context.onToggleSource(source.id, tab.key, listed));
+    },
+    /**
+     * Take in the tabs rebuilt by a change of compendiums. Tabs that are
+     * still there keep their state, rows that are still there keep their
+     * tick, and rows that are new start out as they would have if the
+     * importer had opened with them.
+     *
+     * @param {Function} change Makes the change, and resolves to the tabs.
+     */
+    async rebuild(change) {
       this.busy = true;
       try {
         const before = new Set(allRows(this.tabs.primary).map(row => row.key));
-        const tabs = await this.context.onTogglePack(pack.id, option, value);
-        pack[option] = value;
+        const tabs = await change();
 
         const existing = new Map(this.tabs.primary.map(tab => [tab.key, tab]));
         this.tabs.primary = tabs.map(tab => {
           const old = existing.get(tab.key);
           if (!old) return tab;
-          Object.assign(old, {label: tab.label, classContent: tab.classContent, sections: tab.sections});
+          Object.assign(old, {label: tab.label, classContent: tab.classContent, sources: tab.sources, sections: tab.sections});
           return old;
         });
 

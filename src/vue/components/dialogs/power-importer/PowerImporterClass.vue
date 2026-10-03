@@ -4,6 +4,18 @@
          compendium list. -->
     <slot name="header"></slot>
 
+    <!-- The compendiums the tab draws on, when there's more than one, each
+         of which can be unticked as long as another one is still ticked. -->
+    <div v-if="tab.sources.length > 1" class="power-import-sources flexrow">
+      <span class="power-import-sources-label">{{localize('ARCHMAGE.PREPOPULATE.sources')}}</span>
+      <label v-for="source in tab.sources" :key="source.id">
+        <input type="checkbox" :checked="source.listed" :disabled="busy || (source.listed && listedSources === 1)"
+          @change="$emit('toggle-source', tab, source, $event.target.checked)"/>
+        {{source.label}}
+        <span class="power-import-sources-package">({{source.packageLabel}})</span>
+      </label>
+    </div>
+
     <!-- The class' journal page, when there is one. -->
     <div v-if="tab.classContent" class="class-content" v-html="tab.classContent"></div>
 
@@ -50,8 +62,8 @@ import PowerImporterRow from '@/components/dialogs/power-importer/PowerImporterR
 
 export default {
   name: 'PowerImporterClass',
-  props: ['tab', 'context', 'selection'],
-  emits: ['toggle-selection'],
+  props: ['tab', 'context', 'selection', 'busy'],
+  emits: ['toggle-selection', 'toggle-source'],
   components: {
     PowerImporterRow
   },
@@ -64,6 +76,11 @@ export default {
     return {
       // Which rows have been expanded to show their text, keyed by row key.
       expanded: {}
+    }
+  },
+  computed: {
+    listedSources() {
+      return this.tab.sources.filter(source => source.listed).length;
     }
   },
   methods: {

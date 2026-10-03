@@ -30,6 +30,47 @@
     margin-top: $padding-lg;
   }
 
+  // A tab's source filter, when it draws on more than one compendium.
+  .power-import-sources {
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $padding-sm $padding-lg;
+    padding-bottom: $padding-md;
+    margin-bottom: $padding-md;
+    border-bottom: 1px dashed $ct-border;
+    font-size: $font-xs;
+
+    > * {
+      flex: 0 0 auto;
+    }
+
+    .power-import-sources-label {
+      font-family: $font-stack-label;
+      text-transform: uppercase;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: $padding-sm;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      margin: 0;
+      cursor: pointer;
+
+      &:disabled {
+        cursor: default;
+      }
+    }
+
+    .power-import-sources-package {
+      opacity: 0.7;
+    }
+  }
+
   // The "other" tab, before any compendium is ticked.
   .power-import-empty {
     font-style: italic;
@@ -160,16 +201,10 @@
       }
     }
 
-    // What the character's tabs leave out of a compendium, below it.
+    // Marks a compendium the character's tabs list part of.
     .power-import-pack-rest {
-      margin-left: $padding-lg;
       font-size: $font-xs;
-    }
-
-    // A compendium that's all one of the character's tabs has.
-    .fa-lock {
-      font-size: $font-xs;
-      opacity: 0.5;
+      opacity: 0.7;
     }
   }
 }

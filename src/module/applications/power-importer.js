@@ -69,7 +69,8 @@ export class ArchmagePowerImporterApplication extends Application {
       // formulas against. They render the same way the item sheet's preview does.
       rollData: {},
       onImport: (ids) => this._onImport(ids),
-      onTogglePack: (id, option, value) => this._onTogglePack(id, option, value),
+      onTogglePack: (id, enabled) => this._onTogglePack(id, enabled),
+      onToggleSource: (id, tabKey, listed) => this._onToggleSource(id, tabKey, listed),
       onCancel: () => this.close(),
     };
   }
@@ -112,16 +113,27 @@ export class ArchmagePowerImporterApplication extends Application {
   }
 
   /**
-   * Add or remove a compendium's powers.
+   * Add or remove a compendium's powers on the "other" tab.
    *
    * @param {string} id Collection ID of the compendium.
-   * @param {string} option 'listed' for the character's own tabs, 'enabled'
-   *   for the "other" tab.
-   * @param {boolean} value Whether its powers should be listed there.
+   * @param {boolean} enabled Whether its powers should be listed there.
    * @returns {Promise<object[]>} The rebuilt tabs.
    */
-  async _onTogglePack(id, option, value) {
-    await new ArchmagePrepopulate().setPackOption(this.importData, id, option, value);
+  async _onTogglePack(id, enabled) {
+    await new ArchmagePrepopulate().setPackEnabled(this.importData, id, enabled);
+    return this.importData.tabs;
+  }
+
+  /**
+   * Add or remove a compendium's powers on one of the character's tabs.
+   *
+   * @param {string} id Collection ID of the compendium.
+   * @param {string} tabKey The tab it's ticked or unticked on.
+   * @param {boolean} listed Whether its powers should be listed there.
+   * @returns {Promise<object[]>} The rebuilt tabs.
+   */
+  async _onToggleSource(id, tabKey, listed) {
+    await new ArchmagePrepopulate().setPackListed(this.importData, id, tabKey, listed);
     return this.importData.tabs;
   }
 
