@@ -700,8 +700,8 @@ const saveRowOrder = async (order) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 12px;
-    height: 12px;
+    width: var(--font-size-12);
+    height: var(--font-size-12);
     background: transparent;
     border-radius: 50%;
     border: 1px solid var(--color-text-primary);
