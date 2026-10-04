@@ -1,4 +1,5 @@
 _id: bnk1gkoRLv8V0e2T
+_key: '!actors!bnk1gkoRLv8V0e2T'
 effects: []
 flags:
   archmage:
@@ -7,201 +8,158 @@ flags:
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
-  - _id: koVr5mSnybt0QgTh
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/target.svg
-    name: Bleeding bite
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20 + 6]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: '[[5]] damage'
-      hit1:
-        type: String
-        label: Hit
-        name: Natural 16+
-        value: The target also takes [[5]] ongoing damage.
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!bnk1gkoRLv8V0e2T.koVr5mSnybt0QgTh'
-  - _id: y8SdDM0Vm1Xokqph
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/regen.svg
-    name: Small and nimble
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Rat swarms gain a +5 bonus to disengage checks and take only half
-          damage from opportunity attacks.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: trait
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!bnk1gkoRLv8V0e2T.y8SdDM0Vm1Xokqph'
-  - _id: KdBmcdgUa1tCkEpc
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/poison.svg
-    name: Disease carrier
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When an enemy engaged with the rat swarm heals using a recovery,
-          they must reroll the highest die and take the second roll.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: nastierSpecial
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!bnk1gkoRLv8V0e2T.KdBmcdgUa1tCkEpc'
-  - _id: 1YRWCny6hMuZ9rBc
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/poison.svg
-    name: Overwhelming distraction
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Enemies engaged with the rat swarm take a &ndash;2 penalty to
-          attack any other enemy than the rat swarm.</p>
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: nastierSpecial
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!bnk1gkoRLv8V0e2T.1YRWCny6hMuZ9rBc'
+- _id: koVr5mSnybt0QgTh
+  _key: '!actors.items!bnk1gkoRLv8V0e2T.koVr5mSnybt0QgTh'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/target.svg
+  name: Bleeding bite
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: String
+      value: '[[d20 + 6]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: String
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: String
+      value: '[[5]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: String
+      value: The target also takes [[5]] ongoing damage.
+    hit2:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit3:
+      label: Hit
+      name: ''
+      type: String
+      value: ''
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: y8SdDM0Vm1Xokqph
+  _key: '!actors.items!bnk1gkoRLv8V0e2T.y8SdDM0Vm1Xokqph'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/regen.svg
+  name: Small and nimble
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Rat swarms gain a +5 bonus to disengage checks and take only half
+        damage from opportunity attacks.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: KdBmcdgUa1tCkEpc
+  _key: '!actors.items!bnk1gkoRLv8V0e2T.KdBmcdgUa1tCkEpc'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Disease carrier
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>When an enemy engaged with the rat swarm heals using a recovery, they
+        must reroll the highest die and take the second roll.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: 1YRWCny6hMuZ9rBc
+  _key: '!actors.items!bnk1gkoRLv8V0e2T.1YRWCny6hMuZ9rBc'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/poison.svg
+  name: Overwhelming distraction
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    description:
+      label: Description
+      type: String
+      value: <p>Enemies engaged with the rat swarm take a &ndash;2 penalty to attack
+        any other enemy than the rat swarm.</p>
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
 name: Rat Swarm
 ownership:
   default: 0
@@ -213,6 +171,7 @@ prototypeToken:
     attribute: attributes.hp
   bar2:
     attribute: null
+  depth: 1
   detectionModes: {}
   displayBars: 0
   displayName: 0
@@ -283,10 +242,15 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
-  depth: 1
 sort: 0
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 18
     attackMod:
       type: Number
       value: 0
@@ -297,76 +261,72 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 18
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 14
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 11
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 24
-      min: 0
-      max: 24
-      temp: 0
-      tempmax: 0
-      base: 7
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 4
-    level:
-      type: Number
-      label: Level
-      value: 1
-      min: 0
-      max: 10
     disengage: 11
     disengageBonus: 0
+    hp:
+      automatic: true
+      base: 7
+      extra: 0
+      label: Hit Points
+      max: 24
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 24
+    init:
+      label: Initiative Modifier
+      type: Number
+      value: 4
+    level:
+      label: Level
+      max: 10
+      min: 0
+      type: Number
+      value: 1
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 11
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 14
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
+      value: ''
+    resistance:
       value: ''
     role:
       value: spoiler
@@ -380,80 +340,67 @@ system:
       value: normal
     type:
       value: beast
-    resistance:
-      value: ''
     vulnerability:
       value: ''
+  publicationSource: B2
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B2
+        enabled: false
 type: npc
-_stats:
-  coreVersion: '14.364'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-_key: '!actors!bnk1gkoRLv8V0e2T'
