@@ -73,7 +73,7 @@
  * defaults from the item's type, whose wrapper classes the styles enumerate.
  */
 import { computed, inject, ref } from 'vue';
-import { changeQuantity, deleteItem, editItem, getActionShort, hasFeats, hasSecondaryUsage, togglePip } from '@/methods/Helpers';
+import { changeQuantity, concat, deleteItem, editItem, getActionShort, hasFeats, hasSecondaryUsage, togglePip } from '@/methods/Helpers';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 import EquipmentSummaryRow from './EquipmentSummaryRow.vue';
