@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { glob } from 'glob';
+import { minimatch } from 'minimatch';
 import { ROOT } from './constants.mjs';
 
 export function log(task, message) {
@@ -10,6 +11,25 @@ export function log(task, message) {
 
 export function resolveFromRoot(relativePath) {
   return path.join(ROOT, relativePath);
+}
+
+/**
+ * Dist path for a source file under src/: the copy pipeline and the yaml
+ * compiler both mirror the src tree into dist, stripping the src/ prefix.
+ *
+ * @param {string} sourcePath  Absolute path under src/.
+ * @returns {string} Absolute dist path.
+ */
+export function destPathFor(sourcePath) {
+  return path.join(resolveFromRoot('dist'), path.relative(resolveFromRoot('src'), sourcePath));
+}
+
+/**
+ * Remove a dist artifact, ignoring a missing file so removals are always
+ * safe to run.
+ */
+export function removeFile(filePath) {
+  fs.rmSync(filePath, { force: true });
 }
 
 export async function globFiles(patterns, options = {}) {
@@ -77,4 +97,28 @@ export function getFvttCommand() {
 
 export async function runParallel(tasks) {
   await Promise.all(tasks.map((task) => task()));
+}
+
+/**
+ * Match a path against an ordered glob list with `!` negations, mirroring
+ * how `globFiles` evaluates include/exclude patterns.
+ *
+ * @param {string} filePath  Path to test, relative to the project root.
+ * @param {string[]} patterns  Glob patterns; entries starting with `!` exclude.
+ * @returns {boolean}
+ */
+export function matchesGlobs(filePath, patterns) {
+  let included = false;
+
+  for (const pattern of patterns) {
+    // Later patterns win: a negation match knocks the path back out even if
+    // an earlier include matched it.
+    if (pattern.startsWith('!')) {
+      if (minimatch(filePath, pattern.slice(1), { dot: true })) included = false;
+    } else if (minimatch(filePath, pattern, { dot: true })) {
+      included = true;
+    }
+  }
+
+  return included;
 }

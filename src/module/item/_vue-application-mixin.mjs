@@ -1,5 +1,17 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 
+/**
+ * Injection keys used to provide documents to the Vue apps via
+ * provide/inject. Applications set `documentProvideKey` to the key matching
+ * their document, and components inject the same key.
+ *
+ * @type {Record<string, string>}
+ */
+export const DOCUMENT_PROVIDE_KEYS = {
+  itemDocument: 'itemDocument',
+  actorDocument: 'actorDocument'
+};
+
 export default function VueRenderingMixin(BaseApplication) {
 
     class VueApplication extends BaseApplication {
@@ -31,6 +43,9 @@ export default function VueRenderingMixin(BaseApplication) {
        * }
        */
       vueParts = {};
+
+      /** Injection key used to provide the document to the Vue app. Subclasses override (e.g. DOCUMENT_PROVIDE_KEYS.actorDocument). */
+      documentProvideKey = DOCUMENT_PROVIDE_KEYS.itemDocument;
 
       /**
        * Getter for vueComponents
@@ -103,7 +118,9 @@ export default function VueRenderingMixin(BaseApplication) {
             updateContext(newContext) {
               // Note that 'this' refers to this.vueApp, not the full AppV2 instance.
               for (let key of Object.keys(this.context)) {
-                if (newContext[key]) {
+                // Use `in` rather than a truthiness check so falsy updates
+                // (e.g. editable: true -> false) propagate.
+                if (key in newContext) {
                   this.context[key] = newContext[key];
                 }
               }
@@ -116,7 +133,7 @@ export default function VueRenderingMixin(BaseApplication) {
         this.vueApp.config.globalProperties.foundry = foundry;
 
         // Expose the document.
-        this.vueApp.provide('itemDocument', this.document);
+        this.vueApp.provide(this.documentProvideKey, this.document);
 
         // Mount and store the vue application.
         this.vueRoot = this.vueApp.mount(target);
