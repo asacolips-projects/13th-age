@@ -9,7 +9,7 @@
     <!-- Name, which expands the power. -->
     <slot name="name">
       <a class="power-name" :data-item-id="power._id" @click="$emit('toggle', power._id)">
-        <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel?.value">[{{power.system.powerLevel.value}}] </span>{{power.name}}</h3>
+        <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel?.value">[{{power.system.powerLevel.value}}] </span>{{power.name}}<i v-if="power.grantedBy" class="fas fa-link item-granted" :data-tooltip="localize('ARCHMAGE.ITEM.grantedBy', {names: power.grantedBy})" data-tooltip-direction="UP"></i></h3>
       </a>
     </slot>
     <!-- Whichever cells the caller wants after the name. -->

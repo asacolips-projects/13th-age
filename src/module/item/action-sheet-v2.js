@@ -61,6 +61,12 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
 
   /* -------------------------------------------- */
 
+  /** @inheritDoc */
+  _onRender(context, options) {
+    super._onRender(context, options);
+    this._bindDragDrop();
+  }
+
   /** @override */
   async _prepareContext(options) {
     const context = {

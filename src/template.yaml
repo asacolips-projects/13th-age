@@ -541,12 +541,18 @@ Item:
         self: ''
         target: ''
         reversed: false
+    # Items this one brings along: adding it to an actor also adds these, and
+    # removing it removes them. Absolute UUIDs, rewritten to the actor's own
+    # copies once embedded. See item-relations.mjs.
+    hasChildren:
+      children: []
   power:
     templates:
       - standard
       - usable
       - supportsMacro
       - supportsSequencer
+      - hasChildren
     # Secondary usage, for powers that track two pools of uses at once, such as
     # the paladin's Smite Evil ("once per battle, plus an additional
     # [[@cha.mod]] times per day"). The secondary pool is only spent once the
@@ -806,6 +812,7 @@ Item:
       - spendable
       - usable
       - supportsMacro
+      - hasChildren
     properties: {}
     attributes:
       attack:

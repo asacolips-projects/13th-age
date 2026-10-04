@@ -1,168 +1,135 @@
 _id: sCzeJP0e5jLCiZ6h
+_key: '!actors!sCzeJP0e5jLCiZ6h'
 effects: []
 flags:
   archmage: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 items:
-  - _id: 1QzOBS520O5Nztto
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: Razortoothed jaws
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 7]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[4]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural even hit
-        value: >-
-          Increase the damage by +1 for each razor shark mook that has dropped
-          this battle.
-      hit2:
-        type: ''
-        label: Hit
-        name: Natural even miss
-        value: The target and the razor shark each take [[1d6]] damage.
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!sCzeJP0e5jLCiZ6h.1QzOBS520O5Nztto'
-  - _id: RgeKBmjvvKfiD2yM
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: Frenzy (group)
-    ownership:
-      default: 0
-    sort: 100000
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When two or more razor sharks in the same mob are dropped to 0 hp by
-          an attack, as a free action each dropped razor shark attacks one
-          random nearby non-razor shark creature before it dies. That creature
-          takes [[1d8]] damage.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: trait
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!sCzeJP0e5jLCiZ6h.RgeKBmjvvKfiD2yM'
-  - _id: ToKY7MlwOvyzozHr
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: Water breather
-    ownership:
-      default: 0
-    sort: 200000
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          Sharks breathe underwater and swim very well. They’re not so good out
-          of sea water (even if they jump), so treat them as semi-hazardous
-          terrain while they’re busy thrashing to death outside the water.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: trait
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!sCzeJP0e5jLCiZ6h.ToKY7MlwOvyzozHr'
+- _id: 1QzOBS520O5Nztto
+  _key: '!actors.items!sCzeJP0e5jLCiZ6h.1QzOBS520O5Nztto'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Razortoothed jaws
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 7]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[4]] damage'
+    hit1:
+      label: Hit
+      name: Natural even hit
+      type: ''
+      value: Increase the damage by +1 for each razor shark mook that has dropped
+        this battle.
+    hit2:
+      label: Hit
+      name: Natural even miss
+      type: ''
+      value: The target and the razor shark each take [[1d6]] damage.
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: RgeKBmjvvKfiD2yM
+  _key: '!actors.items!sCzeJP0e5jLCiZ6h.RgeKBmjvvKfiD2yM'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Frenzy (group)
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When two or more razor sharks in the same mob are dropped to 0 hp by
+        an attack, as a free action each dropped razor shark attacks one random nearby
+        non-razor shark creature before it dies. That creature takes [[1d8]] damage.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: ToKY7MlwOvyzozHr
+  _key: '!actors.items!sCzeJP0e5jLCiZ6h.ToKY7MlwOvyzozHr'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Water breather
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: "Sharks breathe underwater and swim very well. They\u2019re not so good\
+        \ out of sea water (even if they jump), so treat them as semi-hazardous terrain\
+        \ while they\u2019re busy thrashing to death outside the water."
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
 name: Razor Shark
 ownership:
   default: 0
@@ -174,6 +141,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
+  depth: 1
   detectionModes: {}
   displayBars: 0
   displayName: 0
@@ -244,10 +212,15 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
-  depth: 1
 sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 17
     attackMod:
       type: Number
       value: 0
@@ -258,182 +231,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 17
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 14
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 11
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 10
-      min: 0
-      max: 10
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 6
-      mod: 6
-    level:
-      type: Number
-      label: Level
-      value: 2
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 10
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 10
+    init:
+      label: Initiative Modifier
+      mod: 6
+      type: Number
+      value: 6
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 2
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 11
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 14
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 2
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: mook
       label: Role
       type: String
+      value: mook
     roleB:
       value: ''
     size:
-      value: normal
       label: Size
       type: String
+      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
-      value: beast
       label: Type
       type: String
-    resistance:
-      value: ''
-      label: Resistance
-      type: String
+      value: beast
     vulnerability:
-      value: ''
       label: Vulnerability
       type: String
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 2
+      value: ''
+  publicationSource: B1
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: B1
+        enabled: false
 type: npc
-_stats:
-  coreVersion: '14.364'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-_key: '!actors!sCzeJP0e5jLCiZ6h'
