@@ -9,7 +9,7 @@
     </a>
     <!-- Active pip, equipment only. Two stacked pips mark an item above the
          character's tier: attuning it spends two slots. -->
-    <FeatPipsV3 v-if="equipment.type === 'equipment'" :active="equipment.system.isActive" :count="costsTwo ? 2 : 1"
+    <ItemPipV3 v-if="equipment.type === 'equipment'" :active="equipment.system.isActive" :count="costsTwo ? 2 : 1"
       :item-id="equipment._id" :tooltip="pipTooltip" @toggle-pip="togglePip(actor, equipment._id)"/>
     <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
       <span class="bonus" v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp">
@@ -44,7 +44,7 @@
  */
 import { inject, computed } from 'vue';
 import { attunementCost, changeQuantity, characterTierIndex, chakraLabel, equipmentBonuses, deleteItem, editItem, localize, localizeEquipmentBonus, numberFormat, togglePip } from '@/methods/Helpers';
-import FeatPipsV3 from './FeatPipsV3.vue';
+import ItemPipV3 from './ItemPipV3.vue';
 import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 
 const props = defineProps({

@@ -11,13 +11,17 @@
         </RollableV3>
       </template>
       <!-- The header cells after the name, defaulting to the catalog row's
-           feat pips, action, recharge, uses and controls. -->
+           feat letters, action, recharge, uses and controls. -->
       <slot name="cells" :toggle="toggle">
-        <!-- The feat tiers as pips, one per feat: bright when taken, dim
-             when not. A feat's taken state is toggled from here or from its
-             row in the expanded details. -->
-        <FeatPipsV3 v-if="hasFeats(item)" :feats="item.system.feats" :item-id="item._id"
-          @toggle-pip="tier => togglePip(actor, item._id, tier)"/>
+        <!-- The feat tiers as display-only letters: bright when taken, dim
+             when not. A feat's taken state is toggled from its row in the
+             expanded details. -->
+        <div class="power-feat-pips" v-if="hasFeats(item)" :data-tooltip="localize('ARCHMAGE.feats')">
+          <ul class="feat-letters">
+            <li v-for="{key, letter, taken} in featLetters(item)" :key="key"
+              :class="{active: taken}">{{letter}}</li>
+          </ul>
+        </div>
         <div class="power-action" v-if="item.system.actionType.value">{{getActionShort(item.system.actionType.value)}}</div>
         <div class="power-recharge" v-if="item.system.recharge.value && ['recharge', 'recharge-desperate'].includes(item.system.powerUsage.value)">
           <Rollable name="recharge" type="recharge" :opt="item._id">{{Number(item.system.recharge.value) || 16}}+</Rollable>
@@ -57,13 +61,14 @@
  * details, which slide open beneath it. Owns its own expanded/collapsed
  * state, keyed to the item by the caller's v-for key, and covers every item
  * kind the listings show: powers, equipment, loot (and legacy tools), laid
- * out per kind from the item's type — the catalog grid with feat pips,
+ * out per kind from the item's type — the catalog grid with feat letters,
  * action, recharge, uses and controls for powers, the inventory grid for the
  * rest — and expanding to the kind's V3 read view.
  *
- * The row owns its own interactions — activating, editing, deleting,
- * spending uses and toggling pips — resolving the actor document from the
- * actor data the sheet passes down, so listings need only hand the item in.
+ * The row owns its own interactions — activating, editing, deleting and
+ * spending uses (the equipment pip's toggle lives in its summary row) —
+ * resolving the actor document from the actor data the sheet passes down, so
+ * listings need only hand the item in.
  * A listing differs only in the columns its header shows: those come in
  * through `columns`, and further header cells through the `cells` slot (the
  * triggers tab's trigger text).
@@ -73,12 +78,11 @@
  * defaults from the item's type, whose wrapper classes the styles enumerate.
  */
 import { computed, inject, ref } from 'vue';
-import { changeQuantity, concat, deleteItem, editItem, getActionShort, hasFeats, hasSecondaryUsage, togglePip } from '@/methods/Helpers';
+import { changeQuantity, concat, deleteItem, editItem, filterFeats, getActionShort, hasFeats, hasSecondaryUsage, localize, TIERS } from '@/methods/Helpers';
 import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 import EquipmentSummaryRow from './EquipmentSummaryRow.vue';
 import EquipmentDetailsV3 from './EquipmentDetailsV3.vue';
-import FeatPipsV3 from './FeatPipsV3.vue';
 import LootDetailsV3 from './LootDetailsV3.vue';
 import PowerDetailsV3 from './PowerDetailsV3.vue';
 import RollableV3 from '../RollableV3.vue';
@@ -124,6 +128,19 @@ const actorDocument = inject('actorDocument', null);
  */
 function activateItem() {
   actorDocument?.items?.get(props.item._id)?.roll();
+}
+
+/**
+ * Each of the power's feats as its tier letter plus its taken state, in tier
+ * order: A for adventurer, C for champion, E for epic, Z for zenith.
+ */
+function featLetters(power) {
+  return Object.entries(filterFeats(power.system.feats))
+    .map(([key, feat]) => ({
+      key,
+      letter: TIERS.find(tier => tier.key === feat.tier?.value)?.letter ?? '',
+      taken: feat.isActive?.value ?? false,
+    }));
 }
 </script>
 
@@ -186,6 +203,28 @@ function activateItem() {
   .power-uses { grid-column-start: 6; }
   .item-controls { grid-column-start: 7; }
   .item-control { width: 28px; }
+}
+
+// The feat tier letters: one glyph per feat, bright when taken, dim
+// otherwise, in the spirit of the V2 sheet's feat pips.
+.feat-letters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    font-family: var(--v3-font-label);
+    text-transform: uppercase;
+    opacity: 0.35;
+
+    &.active {
+      opacity: 1;
+    }
+  }
 }
 
 // The uses column holds one counter per pool, separated by a dash.

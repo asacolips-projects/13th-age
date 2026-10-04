@@ -8,9 +8,9 @@
     <Enriched tag="div" class="detail-value" :text="feat.description.value" :replacements="[]"
       :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData"
       :enrichment-options="enrichmentOptions"/>
-    <!-- The taken-state toggle, the shared pip component's single feat: hollow
-         until taken, filled once it is. -->
-    <FeatPipsV3 class="feat-active-pip" :feats="{[key]: feat}" @toggle-pip="toggleFeat(key)"/>
+    <!-- The taken-state toggle, the shared state pip: hollow until taken,
+         filled once it is. -->
+    <ItemPipV3 class="feat-active-pip" :active="feat.isActive.value" @toggle-pip="toggleFeat(key)"/>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ import { computed, inject } from 'vue';
 import { filterFeats, TIERS } from '@/methods/Helpers';
 import { useItemEnrichment } from '@/composables/useItemEnrichment';
 import Enriched from '@/components/parts/Enriched.vue';
-import FeatPipsV3 from './FeatPipsV3.vue';
+import ItemPipV3 from './ItemPipV3.vue';
 import RollableV3 from '../RollableV3.vue';
 
 const props = defineProps({
@@ -65,8 +65,7 @@ function rollFeat(featKey) {
 }
 
 /**
- * Toggle a feat's taken state: the same flip the power rows' feat pips and
- * the item sheet's checkbox make.
+ * Toggle a feat's taken state: the same flip the item sheet's checkbox makes.
  */
 async function toggleFeat(featKey) {
   const item = actorDocument?.items?.get(props.power._id);
@@ -137,7 +136,7 @@ async function changeFeatUses(featKey, increase = true) {
       cursor: pointer;
     }
 
-    // The taken-state toggle, the shared pips (FeatPipsV3) docked at the
+    // The taken-state toggle, the shared state pip (ItemPipV3) docked at the
     // row's right edge; its own styles carry the pip itself.
     :deep(.feat-active-pip) {
       align-self: center;
