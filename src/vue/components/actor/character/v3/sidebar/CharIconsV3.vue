@@ -36,7 +36,7 @@
         </template>
       </li>
     </ul>
-    <p v-else class="placeholder">None</p>
+    <p v-else class="v3-empty">{{ localize('ARCHMAGE.CHARACTERSHEETV3.none') }}</p>
     <div v-if="editing" class="icon-controls">
       <button type="button" class="icon-toggle" :disabled="!nextIconKey" @click="enableNextIcon">+</button>
       <button type="button" class="icon-toggle" :disabled="!lastEnabledKey" @click="disableLastIcon">-</button>
@@ -146,6 +146,8 @@ function rollIcons() {
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/empty';
+
 .icon-list {
   margin: 0;
   padding: 0;

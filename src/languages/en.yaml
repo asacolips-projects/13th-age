@@ -441,6 +441,9 @@ ARCHMAGE:
       resourcesSpendable: Spendable Resources
       stances: Stances
       weaponDice: Weapon Dice
+  CHARACTERSHEETV3:
+    none: None
+    noPowersWithTriggers: No powers with triggers.
   RACES:
     aasimar: Aasimar
     darkelf: Dark Elf

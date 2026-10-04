@@ -73,12 +73,12 @@
 
 <script setup>
 import { ref, computed, inject } from 'vue';
-import { localize } from '@/methods/Helpers';
+import { isSecondEdition, localize } from '@/methods/Helpers';
 import Progress from '@/components/parts/Progress.vue';
 import RollableV3 from './RollableV3.vue';
 import CharResourcesV3 from './CharResourcesV3.vue';
 
-const props = defineProps(['actor', 'editable']);
+const props = defineProps(['actor']);
 
 // DiceArchmage and the roll methods live on the real document; props.actor is
 // the context's prepared clone. The sheet provides the document for injection.
@@ -87,8 +87,9 @@ const actorDocument = inject('actorDocument');
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject('editMode', ref(false));
 
-// 2e death saves mark failures with skulls; 1e uses X's.
-const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
+// 2e death saves mark failures with skulls; 1e uses X's. Non-reactive: game
+// settings don't change mid-session.
+const secondEdition = computed(isSecondEdition);
 
 const recoveryFormula = computed(() => {
   const recoveries = props.actor?.system?.attributes?.recoveries;
@@ -137,6 +138,8 @@ function updateFails(saveType, opt) {
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/unit-title';
+
 .sheet-stats-header {
   /* Fixed-height bar pinned to the top of the right column; CharMainV3
      takes the rest. Explicit flex so it doesn't depend on Foundry's
@@ -164,12 +167,7 @@ function updateFails(saveType, opt) {
 }
 
 .unit-title {
-  margin: 0 0 0.25rem;
-  font-family: var(--v3-font-display);
-  font-size: var(--font-size-12);
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  @include v3-unit-title;
 }
 
 /* Recoveries: push the roll link to the right edge of the unit title. */
@@ -190,21 +188,6 @@ function updateFails(saveType, opt) {
   justify-content: center;
   gap: 0.25rem;
   font-size: var(--font-size-16);
-}
-
-.unit-subrow {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  margin: 0.25rem 0 0;
-  font-size: var(--font-size-12);
-
-  /* Slim the progress bars into the subrow line. */
-  .progress-bar {
-    flex: 1 1 auto;
-    width: auto;
-    margin: 0;
-  }
 }
 
 /* Disengage roll + fail tracks, stacked vertically and spread evenly
@@ -253,7 +236,7 @@ function updateFails(saveType, opt) {
   line-height: 1;
   font-size: var(--font-size-14);
   cursor: pointer;
-  text-shadow: 0 0 5px var(--c-black);
+  text-shadow: 0 0 5px var(--v3-black);
 
   &.is-failed {
     border-color: transparent;

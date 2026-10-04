@@ -18,6 +18,8 @@ defineProps(['actor']);
      .sidebar-units, the wrapper the narrow layout's character tab uses when
      it re-homes the same body units. -->
 <style lang="scss">
+  @import 'v3/unit-title';
+
 .sheet-sidebar {
   flex: 0 0 250px;
 
@@ -35,18 +37,7 @@ defineProps(['actor']);
   }
 
   .unit-title {
-    margin: 0 0 0.25rem;
-    font-family: var(--v3-font-display);
-    font-size: var(--font-size-12);
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .placeholder {
-    margin: 0;
-    font-style: italic;
-    color: var(--color-text-secondary);
+    @include v3-unit-title;
   }
 
   .rollable {
@@ -55,11 +46,6 @@ defineProps(['actor']);
     &:hover {
       text-shadow: 0 0 5px var(--v3-hover-glow);
     }
-  }
-
-  .filler {
-    margin: 0;
-    color: var(--color-text-secondary);
   }
 }
 

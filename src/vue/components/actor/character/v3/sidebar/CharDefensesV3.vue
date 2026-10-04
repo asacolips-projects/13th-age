@@ -9,8 +9,6 @@
 </template>
 
 <script setup>
-import { localize } from '@/methods/Helpers';
-
 defineProps(['actor']);
 </script>
 

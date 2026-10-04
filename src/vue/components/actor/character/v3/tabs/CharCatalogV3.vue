@@ -5,7 +5,7 @@
       <div class="group-catalog">
         <label for="catalog-group">{{localize('ARCHMAGE.groupBy')}}</label>
         <select name="catalog-group" v-model="groupBy">
-          <option v-for="option in groupOptions" :key="option.value" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.', option.value))}}</option>
+          <option v-for="option in groupOptions" :key="option.value" :value="option.value">{{localize(`ARCHMAGE.GROUPS.${option.value}`)}}</option>
         </select>
       </div>
       <div class="import-catalog" v-if="canImport">
@@ -33,7 +33,7 @@
            in the stats header. -->
       <div v-if="section.kind === 'currency'" class="catalog-currency flexrow">
         <div v-for="type in CURRENCY" :key="type" :class="concat('currency-unit currency-unit-', type)">
-          <label :for="concat('catalog-coin-', type)">{{localize(concat('ARCHMAGE.COINS.', type))}}</label>
+          <label :for="concat('catalog-coin-', type)">{{localize(`ARCHMAGE.COINS.${type}`)}}</label>
           <input type="number" :id="concat('catalog-coin-', type)" :name="concat('system.coins.', type, '.value')" v-model="coins[type].value" placeholder="0">
         </div>
       </div>
@@ -46,7 +46,7 @@
 
 <script setup>
 import { computed, inject, ref, watch } from 'vue';
-import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, getActor, localize, orderedGroups, saveSheetDisplayPref, TIER_ORDER } from '@/methods/Helpers';
+import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, getActor, isSecondEdition, localize, orderedGroups, saveSheetDisplayPref, TIER_ORDER } from '@/methods/Helpers';
 import { useGroupReorder } from '@/composables/useGroupReorder';
 import { useSearchFilter } from '@/composables/useSearchFilter';
 import SortFilterBarV3 from '@/components/actor/character/v3/parts/SortFilterBarV3.vue';
@@ -138,7 +138,7 @@ const missingKinClass = computed(() => {
 });
 
 const kinLabel = computed(() =>
-  game.settings.get('archmage', 'secondEdition') === true ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
+  isSecondEdition() ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
 
 const importTooltip = computed(() => missingKinClass.value
   ? game.i18n.format('ARCHMAGE.importNeedsKinClass', { kin: kinLabel.value })
@@ -223,7 +223,7 @@ const powerGroups = computed(() => {
     for (const key of Object.keys(CONFIG.ARCHMAGE[configKey])) {
       const members = items.filter(i => groupValue(i, mode) === key);
       // powerType labels are pluralized keys, e.g. ARCHMAGE.talents.
-      const labelKey = configKey === 'powerTypes' ? concat('ARCHMAGE.', key, 's') : concat('ARCHMAGE.', key);
+      const labelKey = configKey === 'powerTypes' ? `ARCHMAGE.${key}s` : `ARCHMAGE.${key}`;
       groups.push({ key, labelKey, kind: 'power', members });
     }
     return groups;

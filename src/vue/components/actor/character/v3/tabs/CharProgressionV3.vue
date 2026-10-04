@@ -45,7 +45,7 @@
       <h4 class="progression-section-title unit-title">
         <span class="section-label">{{ localize('ARCHMAGE.levelUp') }}</span>
       </h4>
-      <p class="placeholder">&mdash;</p>
+      <p class="v3-empty">&mdash;</p>
     </section>
   </section>
 </template>
@@ -57,7 +57,7 @@
  * resources strip, with the confirmation dialog ported over.
  */
 import { computed, inject } from 'vue';
-import { localize, tooltip } from '@/methods/Helpers';
+import { isSecondEdition, localize, tooltip } from '@/methods/Helpers';
 
 const props = defineProps(['actor', 'editable']);
 
@@ -105,7 +105,7 @@ const INCREMENTALS_2E = ['abilityScoreBonus', 'classFeature', 'feat', 'hp', 'ext
 // while unchecked ones collapse into a single "next slot" that advances each
 // time one is taken.
 const incrementals = computed(() => {
-  const secondEdition = game.settings.get('archmage', 'secondEdition') === true;
+  const secondEdition = isSecondEdition();
   const keys = secondEdition ? INCREMENTALS_2E : INCREMENTALS_1E;
   const taken = props.actor?.system?.incrementals ?? {};
   const chips = keys.map(key => ({
@@ -132,6 +132,8 @@ function toggleIncremental(inc) {
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/empty';
+
   .progression-section {
     margin-bottom: 1.5rem;
 
@@ -142,12 +144,6 @@ function toggleIncremental(inc) {
 
   .progression-section-title {
     margin: 0 0 0.25rem;
-  }
-
-  .placeholder {
-    margin: 0;
-    font-style: italic;
-    color: var(--color-text-secondary);
   }
 
   // The two rest buttons sit side by side, each half the row; Foundry's

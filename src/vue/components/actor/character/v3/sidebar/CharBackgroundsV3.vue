@@ -17,7 +17,7 @@
         </div>
       </li>
     </ul>
-    <p v-else class="placeholder">None</p>
+    <p v-else class="v3-empty">{{ localize('ARCHMAGE.CHARACTERSHEETV3.none') }}</p>
     <div v-if="editing" class="background-controls">
       <button type="button" class="background-toggle" :disabled="!nextBgKey" @click="enableNextBackground">+</button>
       <button type="button" class="background-toggle" :disabled="!lastEnabledKey" @click="disableLastBackground">-</button>
@@ -62,6 +62,8 @@ function rollBackground(name) {
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/empty';
+
 .background-list {
   margin: 0;
   padding: 0;

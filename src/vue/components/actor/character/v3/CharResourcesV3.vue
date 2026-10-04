@@ -132,7 +132,7 @@
 
 <script setup>
 import { ref, computed, inject } from 'vue';
-import { localize } from '@/methods/Helpers';
+import { isSecondEdition, localize } from '@/methods/Helpers';
 import Progress from '@/components/parts/Progress.vue';
 import RollableV3 from './RollableV3.vue';
 
@@ -145,9 +145,9 @@ const actorDocument = inject('actorDocument');
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject('editMode', ref(false));
 
-// Same gate the V2 resources strip uses; game settings aren't reactive, but
-// resource sections re-render with the actor context.
-const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
+// Same gate the V2 resources strip uses. Non-reactive: game settings aren't,
+// but resource sections re-render with the actor context.
+const secondEdition = computed(isSecondEdition);
 
 const perCombat = computed(() => props.actor?.system?.resources?.perCombat ?? {});
 
@@ -217,6 +217,8 @@ function rollReroll(kind) {
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/unit-title';
+
 /* Second row of the stats header: a flexrow of compact resource tiles, the
    rerolls tile last. The top border separates it from the vitals row and only
    exists when at least one resource is enabled. */
@@ -242,12 +244,7 @@ function rollReroll(kind) {
 }
 
 .unit-title {
-  margin: 0 0 0.25rem;
-  font-family: var(--v3-font-display);
-  font-size: var(--font-size-12);
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  @include v3-unit-title;
 }
 
 /* The reroll tile stacks its two one-line groups; a lone pool widens back to a
@@ -325,13 +322,8 @@ function rollReroll(kind) {
 }
 
 .resource-label {
+  @include v3-unit-title;
   width: 100%;
-  margin-bottom: 0.25rem;
   padding: 0 0.25rem;
-  font-family: var(--v3-font-display);
-  font-size: var(--font-size-12);
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 </style>

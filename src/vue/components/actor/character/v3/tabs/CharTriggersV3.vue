@@ -5,7 +5,7 @@
       <SortFilterBarV3 id="trigger" :sort-options="sortOptions" v-model:sort="sortBy" v-model:search="searchValue">
         <label class="filter-custom-groups">
           <input type="checkbox" v-model="useCustomGroups">
-          <span>Custom Groups</span>
+          <span>{{ localize('ARCHMAGE.GROUPS.group') }}</span>
         </label>
       </SortFilterBarV3>
 
@@ -28,7 +28,7 @@
       </template>
     </template>
 
-    <p v-if="!filteredPowers.length" class="trigger-empty">No powers with triggers.</p>
+    <p v-if="!filteredPowers.length" class="v3-empty">{{ localize('ARCHMAGE.CHARACTERSHEETV3.noPowersWithTriggers') }}</p>
   </section>
 </template>
 
@@ -40,12 +40,12 @@
  * sorting and text filtering use the catalog tab's controls.
  */
 import { computed, ref, watch } from 'vue';
-import { byLevel, byName, saveSheetDisplayPref } from '@/methods/Helpers';
+import { byLevel, byName, localize, saveSheetDisplayPref } from '@/methods/Helpers';
 import { useSearchFilter } from '@/composables/useSearchFilter';
 import SortFilterBarV3 from '@/components/actor/character/v3/parts/SortFilterBarV3.vue';
 import ExpandableRowV3 from '../parts/ExpandableRowV3.vue';
 
-const props = defineProps(['actor', 'editable', 'context']);
+const props = defineProps(['actor', 'context']);
 
 const powersWithTriggers = computed(() => (props.actor?.items ?? [])
   .filter(x => x.type === 'power')
@@ -103,6 +103,8 @@ const groups = computed(() => {
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/empty';
+
   // The grouping toggle slotted into the shared sort/filter bar, docking to
   // the bottom of the row, level with the controls like the catalog's import
   // button — styled here, since the bar's scoped rules don't reach it.
@@ -145,11 +147,5 @@ const groups = computed(() => {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-
-  .trigger-empty {
-    margin: 0;
-    font-style: italic;
-    color: var(--color-text-secondary);
   }
 </style>

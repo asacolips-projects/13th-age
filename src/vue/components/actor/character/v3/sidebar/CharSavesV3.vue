@@ -13,9 +13,6 @@
 <script setup>
 import { inject } from 'vue';
 import { localize } from '@/methods/Helpers';
-import RollableV3 from '../RollableV3.vue';
-
-defineProps(['actor']);
 
 // DiceArchmage and the roll methods live on the real document; props.actor is
 // the context's prepared clone. The sheet provides the document for injection.

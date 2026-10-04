@@ -131,7 +131,7 @@
           </template>
         </template>
 
-        <li v-if="!section.members.length" class="loadout-empty">&mdash;</li>
+        <li v-if="!section.members.length" class="v3-empty">&mdash;</li>
       </ul>
     </section>
   </section>
@@ -417,6 +417,7 @@ const sections = computed(() => {
 
 <style scoped lang="scss">
   @import 'v3/drag-reorder';
+  @import 'v3/empty';
 
   .loadout-section {
     margin-bottom: 1.5rem;
@@ -488,7 +489,7 @@ const sections = computed(() => {
     background: var(--v3-surface);
     border: 1px solid var(--color-border);
     border-radius: 0.25rem;
-    box-shadow: 0 2px 8px var(--c-black--50);
+    box-shadow: 0 2px 8px var(--v3-black--50);
 
     .track-config-option {
       display: flex;
@@ -610,11 +611,5 @@ const sections = computed(() => {
   // sit under the power's name.
   .feat-item {
     margin-left: 2rem;
-  }
-
-  .loadout-empty {
-    margin: 0;
-    padding: 0 0.25rem;
-    color: var(--color-text-secondary);
   }
 </style>

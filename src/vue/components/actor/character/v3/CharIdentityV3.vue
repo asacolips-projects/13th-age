@@ -43,7 +43,7 @@
 
 <script setup>
 import { ref, computed, inject, watch, nextTick } from 'vue';
-import { isBlank, isZeroish, localize, tooltip } from '@/methods/Helpers';
+import { isBlank, isSecondEdition, isZeroish, localize, tooltip } from '@/methods/Helpers';
 import { useProseMirrorEditor } from '@/composables/useProseMirrorEditor';
 
 const props = defineProps(['actor']);
@@ -54,7 +54,9 @@ const editing = inject('editMode', ref(false));
 // The real document provides a UUID for ProseMirror's relative links.
 const actorDocument = inject('actorDocument');
 
-const secondEdition = computed(() => game.settings.get('archmage', 'secondEdition') === true);
+// Non-reactive: the setting read is cached once per mount, like the V2
+// sheet's use.
+const secondEdition = computed(isSecondEdition);
 const kinLabel = computed(() => secondEdition.value ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
 
 const subtitle = computed(() => {
@@ -148,7 +150,7 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
       content: '';
       position: absolute;
       inset: 0;
-      border: 2px solid var(--c-white--75);
+      border: 2px solid var(--v3-white--75);
       pointer-events: none;
     }
 
@@ -173,7 +175,7 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: $c-black--75;
+      background: var(--v3-black--75);
       mask-image:
         linear-gradient(to bottom, transparent, black 1.5em, black);
       mask-composite: intersect;
@@ -187,7 +189,7 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      text-shadow: 0 1px 2px $c-black, 0 0 10px $c-black--50;
+      text-shadow: 0 1px 2px var(--v3-black), 0 0 10px var(--v3-black--50);
     }
 
     .char-subtitle {
@@ -196,7 +198,7 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      text-shadow: 0 1px 2px $c-black, 0 0 10px $c-black--50;
+      text-shadow: 0 1px 2px var(--v3-black), 0 0 10px var(--v3-black--50);
     }
 
     input {

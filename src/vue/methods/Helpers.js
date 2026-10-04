@@ -129,6 +129,16 @@ export function localizeEquipmentBonus(bonusProp) {
   return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
 }
 
+/**
+ * Whether second-edition rules are enabled. NOT reactive: game settings
+ * aren't, so consumers re-render with the actor context rather than
+ * subscribing to the setting. Shared by the V3 sheet's edition gates
+ * (kin label, death-save glyphs, 2e resources and incrementals).
+ */
+export function isSecondEdition() {
+  return game.settings.get('archmage', 'secondEdition') === true;
+}
+
 export function tooltip(...keys) {
   return game.archmage.ArchmageUtility.tooltip(...keys);
 }

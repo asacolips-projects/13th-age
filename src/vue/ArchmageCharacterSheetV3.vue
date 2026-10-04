@@ -19,7 +19,7 @@
       <CharSidebarV3 :actor="context.actor" />
 
       <section class="sheet-right flexcol">
-        <CharStatsHeaderV3 :actor="context.actor" :editable="context.editable" />
+        <CharStatsHeaderV3 :actor="context.actor" />
         <CharMainV3 :context="context" />
       </section>
     </template>
@@ -32,7 +32,7 @@
         <CharIdentityV3 :actor="context.actor" />
       </header>
 
-      <CharStatsHeaderV3 :actor="context.actor" :editable="context.editable" />
+      <CharStatsHeaderV3 :actor="context.actor" />
       <!-- Bound explicitly: a bare `narrow` attribute would arrive as ""
            (falsy) because array-declared props get no boolean casting. -->
       <CharMainV3 :context="context" :narrow="narrow" />
@@ -110,12 +110,21 @@
        block (e.g. by scoping new values to a theme class on this root).
        Defaults alias the global palette/typography variables so color modes
        and night mode keep flowing through unchanged. */
-    --v3-border: var(--c-black--25);
-    --v3-border-header: var(--c-white--25);
     --v3-rollable: var(--c-blue);
     --v3-rollable-glow: var(--c-blue--50);
     --v3-hover-glow: var(--c-black--25);
     --v3-negative: var(--c-red);
+
+    /* Text, scrims and glows painted over the gradient surfaces (power, effect
+       and equipment rows, the identity banner) and the portrait frame. Whites
+       and blacks, so a theme (or colorblind mode) retints the lot by
+       overriding just this block. */
+    --v3-white: var(--c-white);
+    --v3-white--75: var(--c-white--75);
+    --v3-black: var(--c-black);
+    --v3-black--50: var(--c-black--50);
+    --v3-black--75: var(--c-black--75);
+
     /* Inline-roll expressions ([[...]]), which the enrichment helpers behind
        Enriched wrap in .expression spans. Copied from the V2 sheet's rule in
        the SCSS bundle (v2/layout/_layout.scss), which is nested under
@@ -130,6 +139,7 @@
     --v3-power-daily: var(--c-power-daily);
     --v3-power-recharge: var(--c-power-recharge);
     --v3-power-other: var(--c-power-other);
+    --v3-power-equipment: var(--c-power-equipment);
 
     /* Effect summaries use the system-wide power gradient so colorblind
        modes keep flowing through; themes can override this token. */
@@ -156,10 +166,16 @@
        the three ../ climb to the Foundry root, where core serves it. */
     body.theme-light & {
       --v3-surface: url('../../../ui/parchment.jpg') repeat;
+      --placeholder-color: var(--color-dark-3);
     }
 
     /* Empty-field pulse accent (first-run attention on name/kin/class). */
     --v3-hint: var(--c-yellow);
+
+    /* Placeholder prompt color: the V2 bundle defines the theme values as
+       --input-placeholder-color on .archmage-appv2, an ancestor this sheet
+       doesn't render under, so alias the same values here. */
+    --placeholder-color: var(--color-light-4);
 
     --v3-font-display: #{$font-stack-secondary};
     --v3-font-label: #{$font-stack-label};

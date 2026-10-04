@@ -3,7 +3,7 @@
     <div class="sort-control">
       <label :for="concat(id, '-sort')">{{localize('ARCHMAGE.sort')}}</label>
       <select :name="concat(id, '-sort')" v-model="sort">
-        <option v-for="option in sortOptions" :key="option.value" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
+        <option v-for="option in sortOptions" :key="option.value" :value="option.value">{{localize(`ARCHMAGE.SORTS.${option.value}`)}}</option>
       </select>
     </div>
     <div class="search-control">

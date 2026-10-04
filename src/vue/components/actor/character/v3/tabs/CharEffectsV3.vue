@@ -17,7 +17,7 @@
         @dragend="onRowDragEnd"/>
     </ul>
 
-    <p v-else class="effects-empty">&mdash;</p>
+    <p v-else class="v3-empty">&mdash;</p>
   </section>
 </template>
 
@@ -98,6 +98,7 @@ const {
 
 <style scoped lang="scss">
   @import 'v3/drag-reorder';
+  @import 'v3/empty';
 
   .effects-header {
     display: flex;
@@ -133,11 +134,5 @@ const {
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-
-  .effects-empty {
-    margin: 0;
-    font-style: italic;
-    color: var(--color-text-secondary);
   }
 </style>

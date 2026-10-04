@@ -223,7 +223,7 @@
       <fieldset>
         <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesCustom') }}</legend>
         <div v-for="(resource, r) in resourcesCustom" :key="r" class="form-group" :data-key="r">
-          <label>{{ localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r)) }}</label>
+          <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
           <div class="field field-narrow">
             <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled" />
           </div>
@@ -231,7 +231,7 @@
             {{ localize('ARCHMAGE.RESTS.header') }}:&nbsp;
             <select :name="concat('system.resources.spendable.', r, '.rest')" v-model="resource.rest">
               <option v-for="restType in restTypes" :key="restType" :value="restType">
-                {{ localize(concat('ARCHMAGE.RESTS.', restType)) }}
+                {{ localize(`ARCHMAGE.RESTS.${restType}`) }}
               </option>
             </select>
           </p>
@@ -240,13 +240,13 @@
       <fieldset>
         <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesPerCombat') }}</legend>
         <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="form-group" :data-key="r">
-          <label>{{ localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r)) }}</label>
+          <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
           <div class="field">
             <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled" />
           </div>
         </div>
         <div v-for="(resource, r) in resourcesSpendable" :key="r" class="form-group" :data-key="r">
-          <label>{{ localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r)) }}</label>
+          <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
           <div class="field">
             <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled" />
           </div>
@@ -367,12 +367,7 @@
   flex: 1;
 }
 
-/* Narrower control columns: flag fields (label + hint dominate) and
-   resource checkboxes */
-.standard-form .form-group > .field-half {
-  flex: 0.5;
-}
-
+/* Narrower control columns: resource checkboxes */
 .standard-form .form-group > .field-narrow {
   flex: 0.2;
 }

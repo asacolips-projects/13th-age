@@ -8,8 +8,6 @@ import { computed } from 'vue';
 const props = defineProps({
   // Modifier hook, e.g. 'save' or 'recovery' (renders .rollable--save).
   name: { type: String, default: '' },
-  // Suppress the die icon when the link shows other visual content.
-  hideIcon: { type: Boolean, default: false },
   // Centre the die icon over the slotted image; the two crossfade on hover.
   overlay: { type: Boolean, default: false },
   // Read inert: muted die, no pointer or glow, and clicks don't land.
@@ -21,7 +19,6 @@ const props = defineProps({
 
 const modifiers = computed(() => [
   props.name ? `rollable--${props.name}` : '',
-  props.hideIcon ? 'hide-icon' : '',
   props.overlay ? 'overlay' : '',
   props.disabled ? 'disabled' : ''
 ]);
@@ -48,10 +45,6 @@ const modifiers = computed(() => [
     text-shadow: 0 0 5px var(--v3-rollable-glow);
   }
 
-  &.hide-icon::before {
-    display: none;
-  }
-
   // Disabled rollables read inert: the die mutes and no click can land.
   &.disabled {
     pointer-events: none;
@@ -66,7 +59,7 @@ const modifiers = computed(() => [
   // crossfade on hover, the V2 .power-summary .rollable--item treatment. The
   // image is slotted content, hence :deep().
   &.overlay {
-    color: var(--c-white);
+    color: var(--v3-white);
 
     &::before {
       margin: auto;
@@ -90,8 +83,8 @@ const modifiers = computed(() => [
     }
 
     &:hover {
-      color: var(--c-white);
-      text-shadow: 0 0 10px var(--c-white);
+      color: var(--v3-white);
+      text-shadow: 0 0 10px var(--v3-white);
 
       &::before {
         opacity: 1;

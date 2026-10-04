@@ -130,16 +130,16 @@ async function deleteEffect(bypass = false) {
     padding: 0 0.25rem;
     font-family: var(--v3-font-label);
     font-size: var(--font-size-14);
-    color: var(--c-white);
-    text-shadow: 0 0 10px var(--c-black--50);
+    color: var(--v3-white);
+    text-shadow: 0 0 10px var(--v3-black--50);
     background: var(--v3-effect-bg);
 
     a {
-      color: var(--c-white);
+      color: var(--v3-white);
 
       &:hover {
-        color: var(--c-white);
-        text-shadow: 0 0 10px var(--c-white);
+        color: var(--v3-white);
+        text-shadow: 0 0 10px var(--v3-white);
       }
     }
 
@@ -195,7 +195,7 @@ async function deleteEffect(bypass = false) {
           text-shadow: none;
 
           i {
-            color: var(--c-white);
+            color: var(--v3-white);
           }
         }
 
@@ -204,7 +204,7 @@ async function deleteEffect(bypass = false) {
           font-size: var(--font-size-10);
 
           i {
-            color: var(--c-white);
+            color: var(--v3-white);
           }
         }
       }
@@ -239,6 +239,6 @@ async function deleteEffect(bypass = false) {
   .effect-description {
     padding: 0.25rem 0.5rem 0 2rem;
     font-size: var(--font-size-14);
-    color: var(--v3-text-muted);
+    color: var(--color-text-secondary);
   }
 </style>
