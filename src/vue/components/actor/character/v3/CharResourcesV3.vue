@@ -3,84 +3,98 @@
        nothing renders when every resource is disabled. -->
   <div v-if="hasUnits" class="stats-resources">
     <section v-if="perCombat.commandPoints?.enabled" class="unit unit--command-points">
-      <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.commandPoints') }}</h2>
-      <div class="resource-row">
-        <!-- Current stays editable in play, like the hp row above; the named
-             input persists via the sheet's submitOnChange. -->
-        <input type="number" name="system.resources.perCombat.commandPoints.current"
-          v-model="perCombat.commandPoints.current">
-        <div v-if="!editing" class="command-rolls">
-          <!-- TODO: Add support for epic feat to bump to d6. -->
-          <RollableV3 data-roll-type="command" data-roll-opt="d4" @click="rollCommand('d4')">d4</RollableV3>
-          <RollableV3 data-roll-type="command" data-roll-opt="d3" @click="rollCommand('d3')">d3</RollableV3>
+      <div class="unit-inner">
+        <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.commandPoints') }}</h2>
+        <div class="resource-row">
+          <!-- Current stays editable in play, like the hp row above; the named
+               input persists via the sheet's submitOnChange. -->
+          <input type="number" name="system.resources.perCombat.commandPoints.current"
+            v-model="perCombat.commandPoints.current">
+          <div v-if="!editing" class="command-rolls">
+            <!-- TODO: Add support for epic feat to bump to d6. -->
+            <RollableV3 data-roll-type="command" data-roll-opt="d4" @click="rollCommand('d4')">d4</RollableV3>
+            <RollableV3 data-roll-type="command" data-roll-opt="d3" @click="rollCommand('d3')">d3</RollableV3>
+          </div>
         </div>
       </div>
     </section>
 
     <section v-if="perCombat.focus?.enabled" class="unit unit--focus">
-      <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.focus') }}</h2>
-      <div class="resource-row">
-        <!-- Binary state persists via the sheet's submitOnChange. -->
-        <input type="checkbox" name="system.resources.perCombat.focus.current"
-          v-model="perCombat.focus.current">
+      <div class="unit-inner">
+        <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.focus') }}</h2>
+        <div class="resource-row">
+          <!-- Binary state persists via the sheet's submitOnChange. -->
+          <input type="checkbox" name="system.resources.perCombat.focus.current"
+            v-model="perCombat.focus.current">
+        </div>
       </div>
     </section>
 
     <section v-if="perCombat.momentum?.enabled" class="unit unit--momentum">
-      <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.momentum') }}</h2>
-      <div class="resource-row">
-        <!-- Binary state persists via the sheet's submitOnChange. -->
-        <input type="checkbox" name="system.resources.perCombat.momentum.current"
-          v-model="perCombat.momentum.current">
+      <div class="unit-inner">
+        <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.momentum') }}</h2>
+        <div class="resource-row">
+          <!-- Binary state persists via the sheet's submitOnChange. -->
+          <input type="checkbox" name="system.resources.perCombat.momentum.current"
+            v-model="perCombat.momentum.current">
+        </div>
       </div>
     </section>
 
     <section v-if="perCombat.rhythm?.enabled && secondEdition" class="unit unit--rhythm">
-      <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm') }}</h2>
-      <div class="resource-row">
-        <!-- Rhythm stays switchable in play, like the hp row above; the named
-             select persists via the sheet's submitOnChange. -->
-        <select name="system.resources.perCombat.rhythm.current" v-model="perCombat.rhythm.current">
-          <option value="none">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.none') }}</option>
-          <option value="offense">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense') }}</option>
-          <option value="defense">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense') }}</option>
-        </select>
+      <div class="unit-inner">
+        <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm') }}</h2>
+        <div class="resource-row">
+          <!-- Rhythm stays switchable in play, like the hp row above; the named
+               select persists via the sheet's submitOnChange. -->
+          <select name="system.resources.perCombat.rhythm.current" v-model="perCombat.rhythm.current">
+            <option value="none">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.none') }}</option>
+            <option value="offense">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense') }}</option>
+            <option value="defense">{{ localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense') }}</option>
+          </select>
+        </div>
       </div>
     </section>
 
     <section v-if="perCombat.bravado?.enabled && secondEdition" class="unit unit--bravado">
-      <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.bravado') }}</h2>
-      <div class="resource-row">
-        <input type="number" name="system.resources.perCombat.bravado.current" v-model="perCombat.bravado.current">
+      <div class="unit-inner">
+        <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.bravado') }}</h2>
+        <div class="resource-row">
+          <input type="number" name="system.resources.perCombat.bravado.current" v-model="perCombat.bravado.current">
+        </div>
       </div>
     </section>
 
     <!-- Ki: monk's daily spendable, max only changes in edit mode. -->
     <section v-if="ki?.enabled" class="unit unit--ki">
-      <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.ki') }}</h2>
-      <Progress name="ki" :current="ki.current" :max="ki.max" />
-      <div class="resource-row">
-        <input type="number" name="system.resources.spendable.ki.current" v-model="ki.current">
-        <span class="resource-separator">/</span>
-        <input v-if="editing" type="number" name="system.resources.spendable.ki.max" v-model="ki.max">
-        <span v-else class="resource-value">{{ ki.max }}</span>
+      <div class="unit-inner">
+        <h2 class="unit-title">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.ki') }}</h2>
+        <Progress name="ki" :current="ki.current" :max="ki.max" />
+        <div class="resource-row">
+          <input type="number" name="system.resources.spendable.ki.current" v-model="ki.current">
+          <span class="resource-separator">/</span>
+          <input v-if="editing" type="number" name="system.resources.spendable.ki.max" v-model="ki.max">
+          <span v-else class="resource-value">{{ ki.max }}</span>
+        </div>
       </div>
     </section>
 
     <!-- Custom resources: enabled per-actor in the settings tab, tracked here. -->
     <section v-for="resource in customResources" :key="resource.key" class="unit unit--custom">
-      <h2 v-if="!editing" class="unit-title">{{ resource.label }}</h2>
-      <input v-else type="text" :name="`system.resources.spendable.${resource.key}.label`" class="resource-label"
-        v-model="resource.raw.label" :placeholder="localize(`ARCHMAGE.CHARACTER.RESOURCES.${resource.key}`)">
-      <Progress :name="resource.key" :current="resource.raw.current" :max="resource.raw.max" />
-      <div class="resource-row">
-        <!-- Current stays editable in play; max only changes in edit mode. -->
-        <input type="number" :name="`system.resources.spendable.${resource.key}.current`"
-          v-model="resource.raw.current">
-        <span class="resource-separator">/</span>
-        <input v-if="editing" type="number" :name="`system.resources.spendable.${resource.key}.max`"
-          v-model="resource.raw.max">
-        <span v-else class="resource-value">{{ resource.raw.max }}</span>
+      <div class="unit-inner">
+        <h2 v-if="!editing" class="unit-title">{{ resource.label }}</h2>
+        <input v-else type="text" :name="`system.resources.spendable.${resource.key}.label`" class="resource-label"
+          v-model="resource.raw.label" :placeholder="localize(`ARCHMAGE.CHARACTER.RESOURCES.${resource.key}`)">
+        <Progress :name="resource.key" :current="resource.raw.current" :max="resource.raw.max" />
+        <div class="resource-row">
+          <!-- Current stays editable in play; max only changes in edit mode. -->
+          <input type="number" :name="`system.resources.spendable.${resource.key}.current`"
+            v-model="resource.raw.current">
+          <span class="resource-separator">/</span>
+          <input v-if="editing" type="number" :name="`system.resources.spendable.${resource.key}.max`"
+            v-model="resource.raw.max">
+          <span v-else class="resource-value">{{ resource.raw.max }}</span>
+        </div>
       </div>
     </section>
 
@@ -90,42 +104,44 @@
          line to keep the bar short; a lone pool uses the same stacked layout
          as the numeric resources above. -->
     <section v-if="rerolls?.enabled" class="unit unit--rerolls" :class="{ 'unit--rerolls--single': !bothRerolls }">
-      <template v-if="bothRerolls">
-        <div v-if="rerolls.AC.max > 0" class="reroll-group">
-          <RollableV3 name="reroll" @click="rollReroll('AC')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
-          <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
-          <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
-          <span class="resource-separator">/</span>
-          <span class="resource-value">{{ rerolls.AC.max }}</span>
-        </div>
-        <div v-if="rerolls.save.max > 0" class="reroll-group">
-          <RollableV3 name="reroll" @click="rollReroll('save')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
-          <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
-          <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
-          <span class="resource-separator">/</span>
-          <span class="resource-value">{{ rerolls.save.max }}</span>
-        </div>
-      </template>
-      <template v-else>
-        <template v-if="rerolls.AC.max > 0">
-          <RollableV3 tag="h2" name="reroll" @click="rollReroll('AC')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
-          <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
-          <div class="resource-row">
+      <div class="unit-inner">
+        <template v-if="bothRerolls">
+          <div v-if="rerolls.AC.max > 0" class="reroll-group">
+            <RollableV3 name="reroll" @click="rollReroll('AC')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
+            <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
             <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
             <span class="resource-separator">/</span>
             <span class="resource-value">{{ rerolls.AC.max }}</span>
           </div>
-        </template>
-        <template v-else-if="rerolls.save.max > 0">
-          <RollableV3 tag="h2" name="reroll" @click="rollReroll('save')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
-          <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
-          <div class="resource-row">
+          <div v-if="rerolls.save.max > 0" class="reroll-group">
+            <RollableV3 name="reroll" @click="rollReroll('save')" class="reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
+            <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
             <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
             <span class="resource-separator">/</span>
             <span class="resource-value">{{ rerolls.save.max }}</span>
           </div>
         </template>
-      </template>
+        <template v-else>
+          <template v-if="rerolls.AC.max > 0">
+            <RollableV3 tag="h2" name="reroll" @click="rollReroll('AC')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc') }}</RollableV3>
+            <Progress name="rerollAc" :current="rerolls.AC.current" :max="rerolls.AC.max" />
+            <div class="resource-row">
+              <input type="number" :value="rerolls.AC.current" @change="setReroll('AC', $event)">
+              <span class="resource-separator">/</span>
+              <span class="resource-value">{{ rerolls.AC.max }}</span>
+            </div>
+          </template>
+          <template v-else-if="rerolls.save.max > 0">
+            <RollableV3 tag="h2" name="reroll" @click="rollReroll('save')" class="unit-title reroll-label">{{ localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave') }}</RollableV3>
+            <Progress name="rerollSave" :current="rerolls.save.current" :max="rerolls.save.max" />
+            <div class="resource-row">
+              <input type="number" :value="rerolls.save.current" @change="setReroll('save', $event)">
+              <span class="resource-separator">/</span>
+              <span class="resource-value">{{ rerolls.save.max }}</span>
+            </div>
+          </template>
+        </template>
+      </div>
     </section>
   </div>
 </template>
@@ -219,28 +235,36 @@ function rollReroll(kind) {
 <style scoped lang="scss">
   @import 'v3/unit-title';
 
-/* Second row of the stats header: a flexrow of compact resource tiles, the
-   rerolls tile last. The top border separates it from the vitals row and only
-   exists when at least one resource is enabled. */
+/* Second row of the stats header: a flexrow of resource tiles, the rerolls
+   tile last. Tiles fill the row like the vitals units above so the borders
+   between them read as real separators; the top border separates it from the
+   vitals row and only exists when at least one resource is enabled. */
 .stats-resources {
   flex: 0 0 auto;
+  flex-wrap: wrap;
   min-width: 0;
   display: flex;
   align-items: stretch;
-  justify-content: space-evenly;
   border-top: 1px solid var(--color-border);
 }
 
+/* Full-height cell carrying the separator border. */
 .unit {
   flex: 1 1 0;
-  min-width: 0;
-  max-width: 33%;
+  min-width: 6rem;
   padding: 0.375rem 0.75rem;
   border-right: 1px solid var(--color-border);
 
   &:last-child {
     border-right: none;
   }
+}
+
+/* Content column: capped so sparse rows (one or two resources) don't stretch
+   across their widened cell, and centered in it. */
+.unit-inner {
+  max-width: 12rem;
+  margin-inline: auto;
 }
 
 .unit-title {
