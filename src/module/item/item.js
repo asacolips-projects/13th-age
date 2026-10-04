@@ -3,6 +3,7 @@ import { MacroUtils } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 import { isPowerFieldVisible, powerFieldKeys } from "./power-fields.mjs";
 import { powerUsageColor } from "./power-usage.mjs";
+import { addProgenyToCreation, addProgenyToDeletion, findParents, gatherChildren, unlinkDeletedChildren } from "./item-relations.mjs";
 
 const RETAIN_FOCUS_REGEX = /retain focus.+(\d+)[^\d]+(\d+)/i;
 const INLINE_ROLL_REGEX = /(\[\[.+?\]\])/;
@@ -14,6 +15,48 @@ export class ItemArchmage extends Item {
 
   get itemActor() {
     return this.actor ?? game.user.character;
+  }
+
+  /* -------------------------------------------- */
+  /*  Relations                                   */
+  /* -------------------------------------------- */
+
+  /**
+   * This item's progeny: its children, and theirs, and so on.
+   *
+   * @returns {Promise<ItemArchmage[]>}
+   */
+  async gatherChildren() {
+    return gatherChildren(this);
+  }
+
+  /**
+   * The items on the same actor that list this one as a child.
+   *
+   * @type {ItemArchmage[]}
+   */
+  get parentItems() {
+    return findParents(this);
+  }
+
+  /** @inheritDoc */
+  static async _preCreateOperation(documents, operation, user) {
+    if (await super._preCreateOperation(documents, operation, user) === false) return false;
+    await addProgenyToCreation(documents, operation, user);
+  }
+
+  /** @inheritDoc */
+  static async _preDeleteOperation(documents, operation, user) {
+    if (await super._preDeleteOperation(documents, operation, user) === false) return false;
+    await addProgenyToDeletion(documents, operation);
+  }
+
+  /** @inheritDoc */
+  static async _onDeleteOperation(documents, operation, user) {
+    await super._onDeleteOperation(documents, operation, user);
+    // Post-operation events run on every client. Only the one that asked for
+    // the deletion tidies up after it.
+    if (user.id === game.user.id) await unlinkDeletedChildren(documents, operation);
   }
 
   prepareDerivedData() {

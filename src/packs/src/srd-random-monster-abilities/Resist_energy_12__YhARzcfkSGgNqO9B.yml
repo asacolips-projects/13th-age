@@ -1,4 +1,5 @@
 _id: YhARzcfkSGgNqO9B
+_key: '!items!YhARzcfkSGgNqO9B'
 effects: []
 flags: {}
 folder: null
@@ -8,32 +9,20 @@ ownership:
   default: 0
 sort: 0
 system:
-  name:
-    type: String
-    label: Name
   description:
-    type: String
     label: Description
-    value: >-
-      <p>The demon&rsquo;s resistance to all energy types puts a damper on enemy
+    type: String
+    value: <p>The demon&rsquo;s resistance to all energy types puts a damper on enemy
       spellcasters, but at least the resistance is only 12+.</p>
   embeddedMacro:
-    type: String
     label: Embedded Macro
+    type: String
     value: ''
   group:
-    type: String
     label: Group
+    type: String
     value: ''
+  name:
+    label: Name
+    type: String
 type: trait
-_stats:
-  coreVersion: '14.364'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-_key: '!items!YhARzcfkSGgNqO9B'

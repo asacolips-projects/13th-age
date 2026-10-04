@@ -44,6 +44,13 @@
     text-transform: uppercase;
   }
 
+  // Custom groups within a level, for powers that have one.
+  .power-list-group {
+    margin: $padding-md 0 $padding-sm;
+    font-size: $font-xs;
+    font-style: italic;
+  }
+
   // Powers are laid out in two columns, as they were before the importer moved
   // onto the sheet's components. Multi-column rather than a grid so that a long
   // list balances itself, and so that a power expanded to show its text simply
@@ -55,6 +62,18 @@
     .power-item {
       break-inside: avoid-column;
       padding-bottom: $padding-md;
+    }
+  }
+
+  // What a power grants, indented below it.
+  .power-import-children {
+    margin: $padding-sm 0 0 $padding-lg;
+    padding: 0 0 0 $padding-md;
+    list-style: none;
+    border-left: 2px solid $ct-border;
+
+    .power-item {
+      padding-bottom: $padding-sm;
     }
   }
 

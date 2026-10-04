@@ -54,6 +54,11 @@
             </div>
           </fieldset>
         </Tab>
+
+        <!-- Included items -->
+        <Tab group="primary" :tab="tabs.primary.children">
+          <ItemChildren :context="context"/>
+        </Tab>
       </section>
   
       <fieldset class="section--preview">
@@ -79,6 +84,7 @@ import {
   PowerSpells,
   PowerFeats,
   CharEffects,
+  ItemChildren,
 } from '@/components';
 import { inject, reactive, toRaw } from 'vue';
 
