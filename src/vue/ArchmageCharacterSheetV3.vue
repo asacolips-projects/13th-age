@@ -119,7 +119,7 @@
        Enriched wrap in .expression spans. Copied from the V2 sheet's rule in
        the SCSS bundle (v2/layout/_layout.scss), which is nested under
        .archmage-v2 and so never matches this root. */
-    --v3-expression: #ff7b7b;
+    --v3-expression: var(--color-warm-2);
 
     /* Power usage colours: the system-wide gradients, which the colour-blind
        modes override through their body classes. Aliased so a theme only has
