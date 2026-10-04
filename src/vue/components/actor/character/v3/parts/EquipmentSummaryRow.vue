@@ -93,22 +93,22 @@ function rechargeItem() {
 // hover. The portrait is RollableV3's overlay mode: the icon fades in over
 // the image on hover.
 .equipment-summary {
-  color: var(--v3-white);
-  text-shadow: 0 0 10px var(--v3-black--50);
+  color: var(--c-white);
+  text-shadow: 0 0 10px var(--c-black--50);
   margin: 0 0 1px 0;
   background: var(--v3-power-equipment);
 
   .rollable,
   a {
-    color: var(--v3-white);
+    color: var(--c-white);
 
     &:hover {
-      color: var(--v3-white);
-      text-shadow: 0 0 10px var(--v3-white);
+      color: var(--c-white);
+      text-shadow: 0 0 10px var(--c-white);
     }
 
     &::before {
-      color: var(--v3-white);
+      color: var(--c-white);
     }
   }
 }

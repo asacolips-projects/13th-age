@@ -489,7 +489,7 @@ const sections = computed(() => {
     background: var(--v3-surface);
     border: 1px solid var(--color-border);
     border-radius: 0.25rem;
-    box-shadow: 0 2px 8px var(--v3-black--50);
+    box-shadow: 0 2px 8px var(--c-black--50);
 
     .track-config-option {
       display: flex;

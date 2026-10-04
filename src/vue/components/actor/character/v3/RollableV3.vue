@@ -59,7 +59,7 @@ const modifiers = computed(() => [
   // crossfade on hover, the V2 .power-summary .rollable--item treatment. The
   // image is slotted content, hence :deep().
   &.overlay {
-    color: var(--v3-white);
+    color: var(--c-white);
 
     &::before {
       margin: auto;
@@ -83,8 +83,8 @@ const modifiers = computed(() => [
     }
 
     &:hover {
-      color: var(--v3-white);
-      text-shadow: 0 0 10px var(--v3-white);
+      color: var(--c-white);
+      text-shadow: 0 0 10px var(--c-white);
 
       &::before {
         opacity: 1;

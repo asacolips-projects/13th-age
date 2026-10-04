@@ -96,8 +96,8 @@ const usageColorClass = computed(() => powerUsageColor(props.equipment, props.ac
   .meta-usage {
     padding: 0 0.375rem;
     border-radius: 0.25rem;
-    color: var(--v3-white);
-    text-shadow: 0 0 10px var(--v3-black--50);
+    color: var(--c-white);
+    text-shadow: 0 0 10px var(--c-black--50);
 
     &.at-will { background: var(--v3-power-will); }
     &.once-per-battle { background: var(--v3-power-battle); }

@@ -115,16 +115,6 @@
     --v3-hover-glow: var(--c-black--25);
     --v3-negative: var(--c-red);
 
-    /* Text, scrims and glows painted over the gradient surfaces (power, effect
-       and equipment rows, the identity banner) and the portrait frame. Whites
-       and blacks, so a theme (or colorblind mode) retints the lot by
-       overriding just this block. */
-    --v3-white: var(--c-white);
-    --v3-white--75: var(--c-white--75);
-    --v3-black: var(--c-black);
-    --v3-black--50: var(--c-black--50);
-    --v3-black--75: var(--c-black--75);
-
     /* Inline-roll expressions ([[...]]), which the enrichment helpers behind
        Enriched wrap in .expression spans. Copied from the V2 sheet's rule in
        the SCSS bundle (v2/layout/_layout.scss), which is nested under
@@ -184,6 +174,7 @@
     font-family: $font-stack-base;
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--v3-font-display);
+      font-weight: bold;
     }
 
     /* Inline-roll expressions, styled sheet-wide like the V2 sheet does; the
