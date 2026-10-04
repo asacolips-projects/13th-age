@@ -9,11 +9,8 @@
     </a>
     <!-- Active pip, equipment only. Two stacked pips mark an item above the
          character's tier: attuning it spends two slots. -->
-    <div class="equipment-feat-pips" :data-tooltip="pipTooltip" v-if="equipment.type === 'equipment'">
-      <ul class="feat-pips" :class="{double: costsTwo}">
-        <li v-for="n in (costsTwo ? 2 : 1)" :key="n" :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id" @click="$emit('toggle-pip')"><div class="hide">{{equipment.system.isActive}}</div></li>
-      </ul>
-    </div>
+    <FeatPipsV3 v-if="equipment.type === 'equipment'" :active="equipment.system.isActive" :count="costsTwo ? 2 : 1"
+      :item-id="equipment._id" :tooltip="pipTooltip" @toggle-pip="togglePip(actor, equipment._id)"/>
     <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
       <span class="bonus" v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp">
         <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
@@ -25,10 +22,10 @@
       <RollableV3 name="recharge" @click="rechargeItem">{{Number(equipment.system.recharge.value) || 16}}+</RollableV3>
     </div>
     <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.system.quantity.value"
-      @click="$emit('change-quantity', true)" @contextmenu.prevent="$emit('change-quantity', false)"><span>{{equipment.system.quantity.value}}</span></div>
+      @click="changeQuantity(actor, equipment._id)" @contextmenu.prevent="changeQuantity(actor, equipment._id, false)"><span>{{equipment.system.quantity.value}}</span></div>
     <div class="item-controls">
-      <a class="item-control item-edit" :data-item-id="equipment._id" @click.stop="$emit('edit')"><i class="fas fa-edit"></i></a>
-      <a class="item-control item-delete" :data-item-id="equipment._id" @click.stop="$emit('delete', $event.shiftKey)"><i class="fas fa-trash"></i></a>
+      <a class="item-control item-edit" :data-item-id="equipment._id" @click.stop="editItem(actor, equipment._id)"><i class="fas fa-edit"></i></a>
+      <a class="item-control item-delete" :data-item-id="equipment._id" @click.stop="deleteItem(actor, equipment._id, $event.shiftKey)"><i class="fas fa-trash"></i></a>
     </div>
   </div>
 </template>
@@ -37,16 +34,17 @@
 /**
  * One row of an equipment listing: its portrait, its name and whichever
  * summary cells the item has data for. Loot rows share this markup; only the
- * active pip is exclusive to equipment items.
+ * active pip is exclusive to equipment items. Rendered by ExpandableRowV3,
+ * which reports the row's expansion to the listing.
  *
- * Interactions are reported to the listing that renders the row — expanding,
- * editing, deleting, spending uses and toggling the active pip — rather than
- * handled here, since only the listing knows the owning actor. The portrait is
- * the exception: it activates the item directly through the injected actor
- * document.
+ * The row owns its own interactions — editing, deleting, spending uses and
+ * toggling the active pip — resolving the actor document from the actor data
+ * the sheet passes down. The portrait is the exception: it activates the item
+ * directly through the injected actor document.
  */
 import { inject, computed } from 'vue';
-import { attunementCost, characterTierIndex, chakraLabel, concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { attunementCost, changeQuantity, characterTierIndex, chakraLabel, equipmentBonuses, deleteItem, editItem, localize, localizeEquipmentBonus, numberFormat, togglePip } from '@/methods/Helpers';
+import FeatPipsV3 from './FeatPipsV3.vue';
 import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 
 const props = defineProps({
@@ -54,7 +52,7 @@ const props = defineProps({
   actor: {type: [Object, Boolean], default: null},
 });
 
-defineEmits(['toggle', 'edit', 'delete', 'change-quantity', 'toggle-pip']);
+defineEmits(['toggle']);
 
 // An item above the character's tier attunes as two slots, which the row
 // marks with two stacked pips. No actor (loot rows, shared lists) means the
@@ -220,45 +218,6 @@ function rechargeItem() {
 // Left-click spends a use, right-click restores one.
 .equipment-quantity {
   cursor: pointer;
-}
-
-// The active pip, mirrored from PowerFeatPips.vue (and behind that, the V2
-// SCSS bundle's _feats.scss, which the V3 sheet root never matches), so the
-// pip reads as the power rows' feat pips do on either sheet.
-.feat-pips {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-
-  .feat-pip {
-    display: block;
-    width: 8px;
-    height: 8px;
-    background: transparent;
-    border-radius: 50%;
-    border: 1px solid var(--color-light-1);
-    margin: 0 1px;
-    padding: 0;
-    cursor: pointer;
-
-    &.active {
-      background: var(--color-light-1);
-    }
-  }
-
-  // Two pips, stacked, for an item that attunes as two slots.
-  &.double {
-    flex-direction: column;
-    gap: 2px;
-
-    .feat-pip {
-      margin: 0;
-    }
-  }
 }
 
 .item-control {

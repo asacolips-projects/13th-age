@@ -8,8 +8,9 @@
     <Enriched tag="div" class="detail-value" :text="feat.description.value" :replacements="[]"
       :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData"
       :enrichment-options="enrichmentOptions"/>
-    <span class="feat-active-pip" :class="{active: feat.isActive.value}" :data-tooltip="localize('ARCHMAGE.feats')"
-      @click="toggleFeat(key)"></span>
+    <!-- The taken-state toggle, the shared pip component's single feat: hollow
+         until taken, filled once it is. -->
+    <FeatPipsV3 class="feat-active-pip" :feats="{[key]: feat}" @toggle-pip="toggleFeat(key)"/>
   </div>
 </template>
 
@@ -23,9 +24,10 @@
  * tab lists them beneath the power's row.
  */
 import { computed, inject } from 'vue';
-import { filterFeats, localize, TIERS } from '@/methods/Helpers';
+import { filterFeats, TIERS } from '@/methods/Helpers';
 import { useItemEnrichment } from '@/composables/useItemEnrichment';
 import Enriched from '@/components/parts/Enriched.vue';
+import FeatPipsV3 from './FeatPipsV3.vue';
 import RollableV3 from '../RollableV3.vue';
 
 const props = defineProps({
@@ -135,22 +137,11 @@ async function changeFeatUses(featKey, increase = true) {
       cursor: pointer;
     }
 
-    // The taken-state toggle, mirrored from PowerFeatPips.vue so a feat's pip
-    // reads the same here as it does on the power rows. Hollow until taken,
-    // filled once it is.
-    .feat-active-pip {
+    // The taken-state toggle, the shared pips (FeatPipsV3) docked at the
+    // row's right edge; its own styles carry the pip itself.
+    :deep(.feat-active-pip) {
       align-self: center;
       justify-self: end;
-      box-sizing: border-box;
-      width: 8px;
-      height: 8px;
-      border: 1px solid var(--color-text-primary);
-      border-radius: 50%;
-      cursor: pointer;
-
-      &.active {
-        background: var(--color-text-primary);
-      }
     }
   }
 </style>

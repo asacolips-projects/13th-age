@@ -241,15 +241,4 @@ async function deleteEffect(bypass = false) {
     font-size: var(--font-size-14);
     color: var(--v3-text-muted);
   }
-
-  .slide-fade-enter-active,
-  .slide-fade-leave-active {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .slide-fade-enter-from,
-  .slide-fade-leave-to {
-    opacity: 0;
-    transform: translateY(-25%);
-  }
 </style>

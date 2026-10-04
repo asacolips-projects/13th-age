@@ -38,11 +38,7 @@
         </div>
       </div>
       <ul v-else class="catalog-list flexcol">
-        <template v-for="item in section.members" :key="item._id">
-          <ExpandablePower v-if="section.kind === 'power'" :power="item" :actor="actor" :context="context"/>
-          <ExpandableEquipment v-else-if="section.kind === 'equipment'" :equipment="item" :actor="actor" :context="context"/>
-          <ExpandableLoot v-else :equipment="item" :actor="actor" :context="context"/>
-        </template>
+        <ExpandableRowV3 v-for="item in section.members" :key="item._id" :item="item" :actor="actor" :context="context"/>
       </ul>
     </section>
   </section>
@@ -54,9 +50,7 @@ import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonus
 import { useGroupReorder } from '@/composables/useGroupReorder';
 import { useSearchFilter } from '@/composables/useSearchFilter';
 import SortFilterBarV3 from '@/components/actor/character/v3/parts/SortFilterBarV3.vue';
-import ExpandablePower from '@/components/actor/character/v3/parts/expandable/ExpandablePower.vue';
-import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
-import ExpandableLoot from '@/components/actor/character/v3/parts/expandable/ExpandableLoot.vue';
+import ExpandableRowV3 from '@/components/actor/character/v3/parts/ExpandableRowV3.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 

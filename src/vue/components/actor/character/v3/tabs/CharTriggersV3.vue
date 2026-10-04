@@ -13,7 +13,16 @@
         <section v-for="group in groups" :key="group.title" class="trigger-group">
           <h3 v-if="group.title" class="group-title">{{ group.title }}</h3>
           <ul class="trigger-list">
-            <TriggerRowV3 v-for="power in group.powerRows" :key="power._id" :power="power" :actor="actor" :context="context"/>
+            <ExpandableRowV3 v-for="power in group.powerRows" :key="power._id" :item="power" :actor="actor" :context="context"
+              base-class="trigger" :trigger="false" columns="32px minmax(6rem, 10rem) minmax(0, 1fr)">
+              <!-- Standard power row: the portrait, the name, then the trigger
+                   text where the catalog rows carry their feats, uses and
+                   controls. -->
+              <template #cells="{toggle}">
+                <!-- Clicking the trigger text expands the row, like the name. -->
+                <a class="trigger-text" @click="toggle">{{ power.system.trigger.value }}</a>
+              </template>
+            </ExpandableRowV3>
           </ul>
         </section>
       </template>
@@ -34,7 +43,7 @@ import { computed, ref, watch } from 'vue';
 import { byLevel, byName, saveSheetDisplayPref } from '@/methods/Helpers';
 import { useSearchFilter } from '@/composables/useSearchFilter';
 import SortFilterBarV3 from '@/components/actor/character/v3/parts/SortFilterBarV3.vue';
-import TriggerRowV3 from '../parts/TriggerRowV3.vue';
+import ExpandableRowV3 from '../parts/ExpandableRowV3.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 
@@ -126,6 +135,16 @@ const groups = computed(() => {
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  // The trigger cell, read as one aligned field across the rows. The row's
+  // grid, typography and chrome are ExpandableRowV3's; only this trailing
+  // cell is the tab's own.
+  .trigger-text {
+    justify-content: flex-start;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .trigger-empty {

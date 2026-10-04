@@ -16,14 +16,14 @@
         {{ localize(group.labelKey) }}
       </h4>
       <ul class="plan-list flexcol">
-        <ExpandablePower v-for="power in group.powers" :key="power._id" :power="power" :actor="actor" :context="context"
+        <ExpandableRowV3 v-for="power in group.powers" :key="power._id" :item="power" :actor="actor" :context="context"
           :class="rowClasses(power._id)"
           @dragstart="onRowDragStart($event, group.key, power._id)"
           @dragover="onRowDragOver($event, group.key, power._id)"
           @dragleave="onRowDragLeave($event, power._id)"
           @drop="onRowDrop($event, group.key, power._id)"
           @dragend="onRowDragEnd"/>
-        <ExpandableEquipment v-for="item in group.equipment" :key="item._id" :equipment="item" :actor="actor" :context="context"
+        <ExpandableRowV3 v-for="item in group.equipment" :key="item._id" :item="item" :actor="actor" :context="context"
           :class="rowClasses(item._id)"
           @dragstart="onRowDragStart($event, group.key, item._id)"
           @dragover="onRowDragOver($event, group.key, item._id)"
@@ -42,8 +42,7 @@ import { useGroupReorder } from '@/composables/useGroupReorder';
 import { useRowReorder } from '@/composables/useRowReorder';
 import { useSearchFilter } from '@/composables/useSearchFilter';
 import SortFilterBarV3 from '@/components/actor/character/v3/parts/SortFilterBarV3.vue';
-import ExpandablePower from '@/components/actor/character/v3/parts/expandable/ExpandablePower.vue';
-import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
+import ExpandableRowV3 from '@/components/actor/character/v3/parts/ExpandableRowV3.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
 

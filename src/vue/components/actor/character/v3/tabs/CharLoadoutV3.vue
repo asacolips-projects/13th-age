@@ -88,7 +88,7 @@
       <ul class="loadout-list flexcol">
         <!-- Magic items, with the full equipment row treatment. -->
         <template v-if="section.kind === 'equipment'">
-          <ExpandableEquipment v-for="item in section.members" :key="item._id" :equipment="item" :actor="actor"
+          <ExpandableRowV3 v-for="item in section.members" :key="item._id" :item="item" :actor="actor"
             :class="rowClasses(item._id)"
             @dragstart="onRowDragStart($event, section.key, item._id)"
             @dragover="onRowDragOver($event, section.key, item._id)"
@@ -108,18 +108,13 @@
              reordered here. -->
         <template v-else>
           <template v-for="power in section.members" :key="power._id">
-            <ExpandablePowerRow :power="power" :actor="actor" :context="context"
-              columns="32px auto 36px 44px 60px 44px 64px"
+            <ExpandableRowV3 :item="power" :actor="actor" :context="context" :show-feats="false"
               :class="rowClasses(power._id)"
               @dragstart="onRowDragStart($event, section.key, power._id)"
               @dragover="onRowDragOver($event, section.key, power._id)"
               @dragleave="onRowDragLeave($event, power._id)"
               @drop="onRowDrop($event, section.key, power._id)"
-              @dragend="onRowDragEnd">
-              <template #details="{active}">
-                <PowerDetailsV3 v-if="active" :power="power" :actor="actor" :context="context" :show-feats="false"/>
-              </template>
-            </ExpandablePowerRow>
+              @dragend="onRowDragEnd"/>
             <!-- The feat block beneath drags with its power: hovering it
                  targets the power row, and since the block sits below that
                  row, a drop there always means after that power. -->
@@ -175,9 +170,7 @@
 import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { attunementCost, byName, characterTierIndex, filterFeats, getActor, localize, orderedRows, TIERS as TIER_SLOTS, TIER_ORDER } from '@/methods/Helpers';
 import { useRowReorder } from '@/composables/useRowReorder';
-import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
-import ExpandablePowerRow from '@/components/actor/character/v3/parts/expandable/ExpandablePowerRow.vue';
-import PowerDetailsV3 from '@/components/actor/character/v3/parts/PowerDetailsV3.vue';
+import ExpandableRowV3 from '@/components/actor/character/v3/parts/ExpandableRowV3.vue';
 import PowerFeatsV3 from '@/components/actor/character/v3/parts/PowerFeatsV3.vue';
 
 const props = defineProps(['actor', 'editable', 'context']);
