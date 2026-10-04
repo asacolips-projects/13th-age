@@ -36,7 +36,8 @@
  * the item sheet enriches them.
  */
 import { computed } from 'vue';
-import { concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { chakraLabel as localizeChakraLabel, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { useItemEnrichment } from '@/composables/useItemEnrichment';
 import { powerUsageColor } from '@src/module/item/power-usage.mjs';
 import Enriched from '@/components/parts/Enriched.vue';
 
@@ -46,13 +47,17 @@ const props = defineProps({
   context: { type: Object, default: null },
 });
 
-const diceFormulaMode = computed(() => props.actor?.flags?.archmage?.diceFormulaMode ?? 'short');
+const { diceFormulaMode, itemDocument, enrichmentOptions } = useItemEnrichment(
+  () => props.equipment,
+  () => props.actor,
+  () => props.context
+);
 
 const bonusEntries = computed(() => Object.entries(equipmentBonuses(props.equipment)));
 
 const chakraLabel = computed(() => {
   const chakra = props.equipment.system.chackra;
-  return chakra ? localize(concat('ARCHMAGE.CHAKRA.', chakra, 'Label')) : '';
+  return chakra ? localizeChakraLabel(chakra) : '';
 });
 
 const usageLabel = computed(() => {
@@ -62,31 +67,6 @@ const usageLabel = computed(() => {
 
 // The colour the usage chip wears, by the same module the V2 sheets use.
 const usageColorClass = computed(() => powerUsageColor(props.equipment, props.actor));
-
-/**
- * The item's document, when it can be resolved. Enrichment needs it to
- * resolve relative UUID links, such as @UUID[.someId].
- */
-const itemDocument = computed(() => {
-  const uuid = props.actor?.dragData?.uuid;
-  if (!uuid || !props.equipment?._id) return null;
-  try {
-    return fromUuidSync(uuid)?.items?.get(props.equipment._id) ?? null;
-  }
-  catch (error) {
-    return null;
-  }
-});
-
-/**
- * Enrichment options matching the ones the item sheet enriches with, so the
- * same item reads the same way on both.
- */
-const enrichmentOptions = computed(() => ({
-  secrets: props.actor?.owner ?? false,
-  rollData: props.context?.rollData ?? {},
-  relativeTo: itemDocument.value,
-}));
 </script>
 
 <style scoped lang="scss">

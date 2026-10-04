@@ -44,6 +44,7 @@
 <script setup>
 import { ref, computed, inject, watch, nextTick } from 'vue';
 import { isBlank, isZeroish, localize, tooltip } from '@/methods/Helpers';
+import { useProseMirrorEditor } from '@/composables/useProseMirrorEditor';
 
 const props = defineProps(['actor']);
 
@@ -69,40 +70,24 @@ const outEnriched = ref('');
 
 // One Unique Thing: display shows enriched HTML; edit mode swaps the field for
 // a full ProseMirror editor bound to the document field (created on demand via
-// the edit-mode watch). Its change event on blur flows through the enclosing
-// form's submitOnChange, so no explicit save wiring is needed. Enrichment is
-// async-only, so the rendered HTML lives in a ref fed by a watcher.
+// the edit-mode watch). Enrichment is async-only, so the rendered HTML lives
+// in a ref fed by a watcher.
 const outEditorHost = ref(null);
 const outField = 'system.details.out.value';
 
-async function enrichOut(raw) {
-  return foundry.applications.ux.TextEditor.implementation.enrichHTML(raw, {
-    secrets: props.actor?.owner,
-    documents: true,
-    links: true,
-    rolls: true,
-    rollData: {},
-    async: false
-  });
-}
+const { enrich: enrichOut, mountEditor: mountOutEditor } = useProseMirrorEditor({
+  host: outEditorHost,
+  field: outField,
+  getValue: () => outRaw.value,
+  owner: () => props.actor?.owner,
+  documentUUID: actorDocument?.uuid,
+});
 
 watch(outRaw, async raw => {
   const enriched = await enrichOut(raw);
   // Skip stale resolutions if the value changed while enriching.
   if (outRaw.value === raw) outEnriched.value = enriched;
 }, { immediate: true });
-
-async function mountOutEditor() {
-  const raw = outRaw.value;
-  const editor = foundry.applications.elements.HTMLProseMirrorElement.create({
-    name: outField,
-    value: raw,
-    enriched: await enrichOut(raw),
-    toggled: false,
-    documentUUID: actorDocument?.uuid
-  });
-  outEditorHost.value.replaceChildren(editor);
-}
 
 watch(editing, value => {
   if (value) nextTick(mountOutEditor);

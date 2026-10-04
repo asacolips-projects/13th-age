@@ -24,6 +24,7 @@
  */
 import { computed, inject } from 'vue';
 import { filterFeats, localize, TIERS } from '@/methods/Helpers';
+import { useItemEnrichment } from '@/composables/useItemEnrichment';
 import Enriched from '@/components/parts/Enriched.vue';
 import RollableV3 from '../RollableV3.vue';
 
@@ -33,7 +34,11 @@ const props = defineProps({
   context: { type: Object, default: null },
 });
 
-const diceFormulaMode = computed(() => props.actor?.flags?.archmage?.diceFormulaMode ?? 'short');
+const { diceFormulaMode, enrichmentOptions } = useItemEnrichment(
+  () => props.power,
+  () => props.actor,
+  () => props.context
+);
 
 const feats = computed(() => Object.entries(filterFeats(props.power.system.feats))
   .map(([key, feat]) => ({key, feat})));
@@ -84,31 +89,6 @@ async function changeFeatUses(featKey, increase = true) {
   const next = increase ? Math.min(max, current + 1) : Math.max(0, current - 1);
   await item.update({[`system.feats.${featKey}.quantity.value`]: next});
 }
-
-/**
- * The power's document, when it can be resolved. Enrichment needs it to
- * resolve relative UUID links, such as @UUID[.someId].
- */
-const itemDocument = computed(() => {
-  const uuid = props.actor?.dragData?.uuid;
-  if (!uuid || !props.power?._id) return null;
-  try {
-    return fromUuidSync(uuid)?.items?.get(props.power._id) ?? null;
-  }
-  catch (error) {
-    return null;
-  }
-});
-
-/**
- * Enrichment options matching the ones the item sheet enriches with, so the
- * same power reads the same way on both.
- */
-const enrichmentOptions = computed(() => ({
-  secrets: props.actor?.owner ?? false,
-  rollData: props.context?.rollData ?? {},
-  relativeTo: itemDocument.value,
-}));
 </script>
 
 <style scoped lang="scss">

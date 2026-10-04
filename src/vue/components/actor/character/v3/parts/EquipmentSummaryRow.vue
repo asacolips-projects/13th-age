@@ -20,7 +20,7 @@
         <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
       </span>
     </div>
-    <div class="equipment-chakra" v-if="equipment.system.chackra">{{localize(concat('ARCHMAGE.CHAKRA.', equipment.system.chackra, "Label"))}}</div>
+    <div class="equipment-chakra" v-if="equipment.system.chackra">{{chakraLabel(equipment.system.chackra)}}</div>
     <div class="equipment-recharge" v-if="equipment.system.recharge && equipment.system.recharge.value && equipment.system.powerUsage.value == 'recharge'">
       <RollableV3 name="recharge" @click="rechargeItem">{{Number(equipment.system.recharge.value) || 16}}+</RollableV3>
     </div>
@@ -46,7 +46,7 @@
  * document.
  */
 import { inject, computed } from 'vue';
-import { attunementCost, characterTierIndex, concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
+import { attunementCost, characterTierIndex, chakraLabel, concat, equipmentBonuses, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
 import RollableV3 from '@/components/actor/character/v3/RollableV3.vue';
 
 const props = defineProps({

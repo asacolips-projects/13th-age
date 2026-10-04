@@ -16,8 +16,7 @@
  * description, enriched like the item sheet enriches it. Legacy 'tool' items
  * are rendered here too.
  */
-import { computed } from 'vue';
-import { localize } from '@/methods/Helpers';
+import { useItemEnrichment } from '@/composables/useItemEnrichment';
 import Enriched from '@/components/parts/Enriched.vue';
 
 const props = defineProps({
@@ -26,32 +25,11 @@ const props = defineProps({
   context: { type: Object, default: null },
 });
 
-const diceFormulaMode = computed(() => props.actor?.flags?.archmage?.diceFormulaMode ?? 'short');
-
-/**
- * The item's document, when it can be resolved. Enrichment needs it to
- * resolve relative UUID links, such as @UUID[.someId].
- */
-const itemDocument = computed(() => {
-  const uuid = props.actor?.dragData?.uuid;
-  if (!uuid || !props.equipment?._id) return null;
-  try {
-    return fromUuidSync(uuid)?.items?.get(props.equipment._id) ?? null;
-  }
-  catch (error) {
-    return null;
-  }
-});
-
-/**
- * Enrichment options matching the ones the item sheet enriches with, so the
- * same item reads the same way on both.
- */
-const enrichmentOptions = computed(() => ({
-  secrets: props.actor?.owner ?? false,
-  rollData: props.context?.rollData ?? {},
-  relativeTo: itemDocument.value,
-}));
+const { diceFormulaMode, enrichmentOptions } = useItemEnrichment(
+  () => props.equipment,
+  () => props.actor,
+  () => props.context
+);
 </script>
 
 <style scoped lang="scss">

@@ -28,6 +28,7 @@
 <script setup>
 import { ref, computed, inject } from 'vue';
 import { isBlank, isZeroish, localize } from '@/methods/Helpers';
+import { useActiveToggles } from '@/composables/useActiveToggles';
 import { DiceArchmage } from '@src/module/actor/dice.js';
 
 const props = defineProps(['actor']);
@@ -49,31 +50,8 @@ const allBackgrounds = computed(() =>
   Object.entries(props.actor?.system?.backgrounds ?? {})
 );
 
-// The next background to enable is the first inactive one; the last enabled
-// background is the last active one in the system.backgrounds order.
-const nextBgKey = computed(() =>
-  allBackgrounds.value.find(([_, bg]) => bg.isActive?.value !== true)?.[0] ?? null
-);
-
-const lastEnabledKey = computed(() => {
-  let key = null;
-  for (const [k, bg] of allBackgrounds.value) {
-    if (bg.isActive?.value === true) key = k;
-  }
-  return key;
-});
-
-function enableNextBackground() {
-  if (nextBgKey.value) {
-    actorDocument?.update({[`system.backgrounds.${nextBgKey.value}.isActive.value`]: true});
-  }
-}
-
-function disableLastBackground() {
-  if (lastEnabledKey.value) {
-    actorDocument?.update({[`system.backgrounds.${lastEnabledKey.value}.isActive.value`]: false});
-  }
-}
+const { nextKey: nextBgKey, lastEnabledKey, enableNext: enableNextBackground, disableLast: disableLastBackground } =
+  useActiveToggles(actorDocument, 'backgrounds', () => allBackgrounds.value);
 
 function formatBonus(bonus) {
   return bonus >= 0 ? `+${bonus}` : `${bonus}`;

@@ -1,20 +1,7 @@
 <template>
   <section class="tab-catalog">
     <!-- Sorts and filters. -->
-    <header class="catalog-filters flexrow">
-      <div class="sort-catalog">
-        <label for="catalog-sort">{{localize('ARCHMAGE.sort')}}</label>
-        <select name="catalog-sort" v-model="sortBy">
-          <option v-for="option in sortOptions" :key="option.value" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
-        </select>
-      </div>
-      <div class="filter-search-catalog">
-        <label for="catalog-filter">{{localize('ARCHMAGE.filter')}}</label>
-        <div class="search-catalog-input">
-          <input type="text" name="catalog-filter" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
-          <button v-if="searchValue" type="button" class="search-catalog-clear" :title="localize('ARCHMAGE.clear')" @click="clearSearch"><i class="fas fa-times"></i></button>
-        </div>
-      </div>
+    <SortFilterBarV3 id="catalog" :sort-options="sortOptions" v-model:sort="sortBy" v-model:search="searchValue">
       <div class="group-catalog">
         <label for="catalog-group">{{localize('ARCHMAGE.groupBy')}}</label>
         <select name="catalog-group" v-model="groupBy">
@@ -24,7 +11,7 @@
       <div class="import-catalog" v-if="canImport">
         <button type="button" class="catalog-import" :class="{ 'catalog-import--pulse': isEmptyCharacter }" :disabled="missingKinClass" :data-tooltip="importTooltip" @click="importPowers"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
       </div>
-    </header>
+    </SortFilterBarV3>
 
     <!-- Sections are the reorderable groups; the currency group renders its
          coin purses in place of an item list. -->
@@ -63,7 +50,10 @@
 
 <script setup>
 import { computed, inject, ref, watch } from 'vue';
-import { concat, equipmentBonuses, getActor, localize } from '@/methods/Helpers';
+import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, getActor, localize, orderedGroups, saveSheetDisplayPref, TIER_ORDER } from '@/methods/Helpers';
+import { useGroupReorder } from '@/composables/useGroupReorder';
+import { useSearchFilter } from '@/composables/useSearchFilter';
+import SortFilterBarV3 from '@/components/actor/character/v3/parts/SortFilterBarV3.vue';
 import ExpandablePower from '@/components/actor/character/v3/parts/expandable/ExpandablePower.vue';
 import ExpandableEquipment from '@/components/actor/character/v3/parts/expandable/ExpandableEquipment.vue';
 import ExpandableLoot from '@/components/actor/character/v3/parts/expandable/ExpandableLoot.vue';
@@ -99,22 +89,46 @@ const sortOptions = [
 const displayFlags = computed(() => props.actor?.flags?.archmage?.sheetDisplay?.powers ?? {});
 const groupBy = ref(displayFlags.value.groupBy?.value ?? 'powerType');
 const sortBy = ref(displayFlags.value.sortBy?.value ?? 'custom');
-const searchValue = ref(null);
 
-// The filter box's clear widget; resetting to null also hides the button.
-const clearSearch = () => {
-  searchValue.value = null;
-};
-
-// Group reordering, mirroring the v2 powers tab. The drag state is transient;
-// the ordering itself persists to the actor flag shared with v2 (per groupBy
-// mode) so the two sheets agree.
-const draggedGroup = ref(null);
-const dragOverGroup = ref(null);
+// Searchable text for an item: what the v2 inventory tab matches (name,
+// chakra, equipment's bonus keys and values) plus the fields only the
+// expanded row shows — every type's description, a power's custom group and
+// its feats' text.
+const { searchValue, matchesSearch } = useSearchFilter(item => {
+  let text = `${item.name ?? ''}${item.system?.chackra ?? ''}`;
+  if (item.type === 'equipment') {
+    const bonuses = equipmentBonuses(item);
+    for (const [key, value] of Object.entries(bonuses)) {
+      text = `${text}${key}${value}`;
+    }
+  }
+  text += item.system?.description?.value ?? '';
+  if (item.type === 'power') {
+    text += item.system?.group?.value ?? '';
+    for (const feat of Object.values(item.system?.feats ?? {})) {
+      text += feat.description?.value ?? '';
+    }
+  }
+  return text;
+});
 
 // Group reordering is only offered when the sheet is editable and the actor
 // isn't a compendium entry (where flags can't be written).
 const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
+
+// Group reordering, mirroring the v2 powers tab. The drag state is transient;
+// the ordering itself persists to the actor flag shared with v2 (per groupBy
+// mode) so the two sheets agree.
+const {
+  savedGroupOrder,
+  groupClasses, onGroupDragStart, onGroupDragOver, onGroupDragLeave, onGroupDrop, onGroupDragEnd,
+} = useGroupReorder({
+  actor: () => props.actor,
+  canReorder: canReorderGroups,
+  flagPath: () => `sheetDisplay.powers.groupOrder.${groupBy.value}`,
+  getSections: () => catalogSections.value,
+  classPrefix: 'catalog-group',
+});
 
 // The import button opens the power importer for the live actor. Like the v2
 // sheet, non-GM users who turned it off in the character settings don't see it.
@@ -156,25 +170,17 @@ const importPowers = async () => {
   await game.archmage?.ArchmagePowerImporterApplication?.show(actor);
 };
 
-// Persist display preference changes through the live actor document;
-// props.actor is a data clone whose flag updates wouldn't round-trip. Writing
-// only when the stored value differs avoids a re-render loop from the update.
-const saveDisplayPref = async (path, value) => {
+watch(groupBy, value => {
   if (!canReorderGroups.value) return;
-  const actor = await getActor(props.actor);
-  const current = foundry.utils.getProperty(displayFlags.value, path);
-  if (actor && current !== value) {
-    await actor.setFlag('archmage', `sheetDisplay.powers.${path}`, value);
-  }
-};
+  saveSheetDisplayPref(props.actor, 'sheetDisplay.powers.groupBy.value', value);
+});
+watch(sortBy, value => {
+  if (!canReorderGroups.value) return;
+  saveSheetDisplayPref(props.actor, 'sheetDisplay.powers.sortBy.value', value);
+});
 
-watch(groupBy, value => saveDisplayPref('groupBy.value', value));
-watch(sortBy, value => saveDisplayPref('sortBy.value', value));
-
-const byName = (a, b) => a.name.localeCompare(b.name);
 const byCustom = (a, b) => (a.sort || 0) - (b.sort || 0);
 
-const TIER_ORDER = { adventurer: 0, champion: 1, epic: 2 };
 const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
 
 const byLevel = (a, b) => {
@@ -182,44 +188,10 @@ const byLevel = (a, b) => {
   // back to name.
   if (a.type === 'equipment') return byTier(a, b);
   if (['loot', 'tool'].includes(a.type)) return byName(a, b);
-  return Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
+  return byPowerLevel(a, b);
 };
 
 const sortFns = { name: byName, level: byLevel, custom: byCustom };
-
-// Strip enriched-HTML markup so descriptions index as plain text; searching
-// raw HTML would match tag names and miss matches split across tags.
-const stripHtml = (text) => text.replace(/<[^>]+>/g, '');
-
-// Searchable text for an item: what the v2 inventory tab matches (name,
-// chakra, equipment's bonus keys and values) plus the fields only the
-// expanded row shows — every type's description, a power's custom group and
-// its feats' text.
-const searchText = (item) => {
-  let text = `${item.name ?? ''}${item.system?.chackra ?? ''}`;
-  if (item.type === 'equipment') {
-    const bonuses = equipmentBonuses(item);
-    for (const [key, value] of Object.entries(bonuses)) {
-      text = `${text}${key}${value}`;
-    }
-  }
-  text += item.system?.description?.value ?? '';
-  if (item.type === 'power') {
-    text += item.system?.group?.value ?? '';
-    for (const feat of Object.values(item.system?.feats ?? {})) {
-      text += feat.description?.value ?? '';
-    }
-  }
-  return stripHtml(text);
-};
-
-const matchesSearch = (item) => {
-  // Both sides are stripped to alphanumerics like the v2 inventory filter, so
-  // punctuation and spacing don't need to match exactly.
-  const needle = cleanGroupKey(searchValue.value ?? '');
-  if (!needle) return true;
-  return cleanGroupKey(searchText(item)).includes(needle);
-};
 
 const catalogItems = (types) => (props.actor?.items ?? [])
   .filter(i => types.includes(i.type))
@@ -232,11 +204,6 @@ const equipment = computed(() => catalogItems(['equipment']));
 const loot = computed(() => catalogItems(['loot', 'tool']));
 
 /**
- * Clean a free-text group name for usage as a group key.
- */
-const cleanGroupKey = (string) => string ? string.toLowerCase().replace(/[^a-zA-Z\d]/g, '') : '';
-
-/**
  * Read an item's value for a built-in grouping mode, with fallbacks matching
  * the powers tab.
  */
@@ -244,27 +211,6 @@ const groupValue = (item, mode) => {
   let value = item.system?.[mode]?.value || 'other';
   // Override legacy 'maneuver' with 'flexible'.
   return value === 'maneuver' ? 'flexible' : value;
-};
-
-/**
- * Saved group order for the current groupBy mode. Each mode keeps its own
- * order so switching grouping doesn't clobber the others.
- */
-const savedGroupOrder = computed(() => {
-  const stored = props.actor?.flags?.archmage?.sheetDisplay?.powers?.groupOrder?.[groupBy.value];
-  return Array.isArray(stored) ? stored : [];
-});
-
-/**
- * Apply the saved group order to a list of groups, with any group the saved
- * order doesn't know about appended in its natural spot.
- */
-const orderedGroups = (groups) => {
-  const order = savedGroupOrder.value;
-  if (!order.length) return groups;
-  const byKey = new Map(groups.map(g => [g.key, g]));
-  return order.filter(key => byKey.has(key)).map(key => byKey.get(key))
-    .concat(groups.filter(g => !order.includes(g.key)));
 };
 
 /**
@@ -297,7 +243,7 @@ const powerGroups = computed(() => {
   const byKey = new Map();
   for (const item of items) {
     const raw = item.system?.group?.value;
-    const key = raw ? cleanGroupKey(raw) : 'power';
+    const key = raw ? cleanFilterKey(raw) : 'power';
     if (!byKey.has(key)) {
       const group = { key, labelKey: raw || 'ARCHMAGE.power', raw: raw || '', kind: 'power', members: [] };
       byKey.set(key, group);
@@ -351,80 +297,8 @@ const catalogSections = computed(() => {
     const first = sections.find(section => section.kind === 'power');
     if (first) visible.push(first);
   }
-  return orderedGroups(visible);
+  return orderedGroups(visible, savedGroupOrder.value);
 });
-
-/**
- * Classes for a group section, including drag feedback.
- */
-const groupClasses = (groupKey) => ({
-  'catalog-group--dragging': draggedGroup.value === groupKey,
-  'catalog-group--drop-target': dragOverGroup.value === groupKey,
-});
-
-const onGroupDragStart = (event, groupKey) => {
-  if (!canReorderGroups.value) return;
-  draggedGroup.value = groupKey;
-  event.dataTransfer.effectAllowed = 'move';
-  // Tag the payload so nothing downstream mistakes this for an item drag.
-  event.dataTransfer.setData('text/plain', JSON.stringify({
-    type: 'ArchmagePowerGroup',
-    groupKey
-  }));
-  // Don't let the sheet's item drag handling see this.
-  event.stopPropagation();
-};
-
-const onGroupDragOver = (event, groupKey) => {
-  if (!draggedGroup.value) return;
-  event.preventDefault();
-  event.stopPropagation();
-  dragOverGroup.value = groupKey === draggedGroup.value ? null : groupKey;
-};
-
-const onGroupDragLeave = (event, groupKey) => {
-  if (dragOverGroup.value !== groupKey) return;
-  // dragleave also fires when moving between children of the section, so
-  // only clear the highlight once the cursor has actually left it.
-  if (event.currentTarget.contains(event.relatedTarget)) return;
-  dragOverGroup.value = null;
-};
-
-const onGroupDrop = async (event, groupKey) => {
-  if (!draggedGroup.value) return;
-  // A group is being reordered, so keep this away from item sorting.
-  event.preventDefault();
-  event.stopPropagation();
-
-  const source = draggedGroup.value;
-  draggedGroup.value = null;
-  dragOverGroup.value = null;
-  if (source === groupKey) return;
-
-  // Rebuild the full order from what's currently displayed, dropping above
-  // or below the target based on where the cursor was released.
-  const order = catalogSections.value.map(g => g.key).filter(key => key !== source);
-  const index = order.indexOf(groupKey);
-  if (index < 0) return;
-  const rect = event.currentTarget.getBoundingClientRect();
-  const before = (event.clientY - rect.top) < (rect.height / 2);
-  order.splice(before ? index : index + 1, 0, source);
-
-  await saveGroupOrder(order);
-};
-
-const onGroupDragEnd = () => {
-  draggedGroup.value = null;
-  dragOverGroup.value = null;
-};
-
-const saveGroupOrder = async (order) => {
-  if (!canReorderGroups.value) return;
-  // Pack actors have no setFlag; getActor resolves the live document from
-  // the context actor's drag data.
-  const actor = await getActor(props.actor);
-  await actor?.setFlag('archmage', `sheetDisplay.powers.groupOrder.${groupBy.value}`, order);
-};
 
 /**
  * Title for a section's "+" button.
@@ -464,63 +338,15 @@ const createGroupItem = async (section) => {
 </script>
 
 <style scoped lang="scss">
-  .catalog-filters {
-    font-family: $font-stack-label;
-    font-size: var(--font-size-10);
-    padding: $padding-sm 0 $padding-md;
-    border-bottom: 1px dashed var(--color-border);
-
-    > div {
-      flex: 0 auto;
-
-      + div {
-        padding-left: $padding-sm;
-        margin-left: $padding-sm;
-      }
-
-      &.filter-search-catalog {
-        flex: 1;
-
-        // Clear widget sits at the input's right edge, inside it.
-        .search-catalog-input {
-          position: relative;
-
-          input[type="text"] {
-            width: 100%;
-            padding-right: 1.5em;
-          }
-
-          .search-catalog-clear {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            color: inherit;
-            font-size: var(--font-size-12);
-            line-height: 1;
-
-            &:hover {
-              text-shadow: 0 0 5px var(--v3-hover-glow);
-            }
-          }
-        }
-      }
-    }
+  // The group-by control slotted into the shared sort/filter bar: styled
+  // like the bar's own controls, whose scoped rules don't reach slot content.
+  .group-catalog {
+    flex: 0 auto;
 
     label {
       display: block;
       width: 100%;
       font-weight: bold;
-    }
-
-    input[type="text"] {
-      font-size: var(--font-size-10);
-      font-family: $font-stack-label;
-      text-align: left;
-      font-weight: normal;
     }
   }
 
@@ -558,8 +384,10 @@ const createGroupItem = async (section) => {
     }
   }
 
-  // Import button, aligned to the control row (no label above it).
+  // Import button, slotted into the shared sort/filter bar and aligned to
+  // the control row (no label above it).
   .import-catalog {
+    flex: 0 auto;
     align-self: flex-end;
 
     button {

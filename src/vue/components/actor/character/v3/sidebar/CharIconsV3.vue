@@ -47,6 +47,7 @@
 <script setup>
 import { ref, computed, inject } from 'vue';
 import { isBlank, isZeroish, localize } from '@/methods/Helpers';
+import { useActiveToggles } from '@/composables/useActiveToggles';
 import RollableV3 from '../RollableV3.vue';
 
 const props = defineProps(['actor']);
@@ -71,31 +72,8 @@ const allIcons = computed(() =>
   Object.entries(props.actor?.system?.icons ?? {})
 );
 
-// The next icon to enable is the first inactive one; the last enabled icon is
-// the last active one in the system.icons order.
-const nextIconKey = computed(() =>
-  allIcons.value.find(([_, icon]) => icon.isActive?.value !== true)?.[0] ?? null
-);
-
-const lastEnabledKey = computed(() => {
-  let key = null;
-  for (const [k, icon] of allIcons.value) {
-    if (icon.isActive?.value === true) key = k;
-  }
-  return key;
-});
-
-function enableNextIcon() {
-  if (nextIconKey.value) {
-    actorDocument?.update({[`system.icons.${nextIconKey.value}.isActive.value`]: true});
-  }
-}
-
-function disableLastIcon() {
-  if (lastEnabledKey.value) {
-    actorDocument?.update({[`system.icons.${lastEnabledKey.value}.isActive.value`]: false});
-  }
-}
+const { nextKey: nextIconKey, lastEnabledKey, enableNext: enableNextIcon, disableLast: disableLastIcon } =
+  useActiveToggles(actorDocument, 'icons', () => allIcons.value);
 
 function iconSymbol(relationship) {
   const symbols = {

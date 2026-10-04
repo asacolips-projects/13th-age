@@ -8,6 +8,18 @@ export function localize(key) {
 }
 
 /**
+ * The localized label for a chakra slot value, e.g. 'Head' for 'head'.
+ *
+ * @param {string} chakra Chakra slot key, e.g. an equipment item's
+ *   `system.chackra`.
+ *
+ * @returns {string}
+ */
+export function chakraLabel(chakra) {
+  return localize(concat('ARCHMAGE.CHAKRA.', chakra, 'Label'));
+}
+
+/**
  * Strip HTML from a string and collapse whitespace, for plain-text display of
  * enriched values.
  *
@@ -22,6 +34,95 @@ export function stripHtml(html) {
   if (!html) return '';
   const doc = new DOMParser().parseFromString(html, 'text/html');
   return doc.body.textContent.replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Strip HTML tags from a string with a regex, leaving entity references and
+ * whitespace alone. The cheap search-index counterpart of stripHtml: the
+ * listings' filters only need tags gone so raw HTML doesn't match tag names.
+ *
+ * @param {string} html HTML string, e.g. a stored enriched editor value.
+ *
+ * @returns {string}
+ */
+export function stripTags(html) {
+  return (html ?? '').replace(/<[^>]+>/g, '');
+}
+
+/**
+ * Normalize free-text filter input to its bare alphanumerics, so punctuation
+ * and spacing don't need to match exactly.
+ *
+ * @param {string} string Raw filter text.
+ *
+ * @returns {string} The stripped key, e.g. 'Finger-Wiggle' -> 'fingerwiggle'.
+ */
+export function cleanFilterKey(string) {
+  return string ? string.toLowerCase().replace(/[^a-zA-Z\d]/g, '') : '';
+}
+
+/**
+ * Name comparator for item rows, alphabetical.
+ *
+ * @param {object} a Item data.
+ * @param {object} b Item data.
+ *
+ * @returns {number}
+ */
+export function byName(a, b) {
+  return a.name.localeCompare(b.name);
+}
+
+/**
+ * Power level comparator, ascending. Powers without a level sort first.
+ *
+ * @param {object} a Item data.
+ * @param {object} b Item data.
+ *
+ * @returns {number}
+ */
+export function byLevel(a, b) {
+  return Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
+}
+
+/**
+ * Apply a saved group order to a list of groups, with any group the saved
+ * order doesn't know about appended in its natural spot.
+ *
+ * @param {Array} groups The groups in natural order, each with a `key`.
+ * @param {Array} order The saved group keys, in display order.
+ *
+ * @returns {Array} The groups in display order.
+ */
+export function orderedGroups(groups, order) {
+  if (!order?.length) return groups;
+  const byKey = new Map(groups.map(g => [g.key, g]));
+  return order.filter(key => byKey.has(key)).map(key => byKey.get(key))
+    .concat(groups.filter(g => !order.includes(g.key)));
+}
+
+/**
+ * Apply a saved row order to a list of rows; rows the saved order doesn't
+ * know about (new items) keep their input order, or the tiebreak comparator's.
+ *
+ * @param {Array} rows The rows in natural order, each with an `_id`.
+ * @param {Array} order The saved row ids, in display order.
+ * @param {Function} [tiebreak] Comparator for rows the order doesn't know,
+ *   e.g. byName.
+ *
+ * @returns {Array} The rows in display order.
+ */
+export function orderedRows(rows, order, tiebreak = null) {
+  const positions = new Map(order.map((id, index) => [id, index]));
+  if (!positions.size) return rows;
+  return [...rows].sort((a, b) => {
+    const ai = positions.get(a._id);
+    const bi = positions.get(b._id);
+    if (ai === undefined && bi === undefined) return tiebreak ? tiebreak(a, b) : 0;
+    if (ai === undefined) return 1;
+    if (bi === undefined) return -1;
+    return ai - bi;
+  });
 }
 
 export function localizeEquipmentBonus(bonusProp) {
@@ -204,6 +305,27 @@ export async function getActor(actorData) {
 
   // If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
   return document?.actor ?? document;
+}
+
+/**
+ * Persist one sheetDisplay preference through the live actor document;
+ * the sheet's actor data is a clone whose flag updates wouldn't round-trip.
+ * Writing only when the stored value differs avoids a re-render loop from
+ * the update.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} flagPath Full flag path, e.g. `sheetDisplay.actionPlan.sortBy.value`.
+ * @param {*} value The preference value.
+ */
+export async function saveSheetDisplayPref(actorData, flagPath, value) {
+  // Pack actors have no setFlag; getActor resolves the live document from
+  // the context actor's drag data.
+  if (actorData?.pack) return;
+  const actor = await getActor(actorData);
+  const current = foundry.utils.getProperty(actorData?.flags?.archmage ?? {}, flagPath);
+  if (actor && current !== value) {
+    await actor.setFlag('archmage', flagPath, value);
+  }
 }
 
 /**

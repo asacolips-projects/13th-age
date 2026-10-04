@@ -4,6 +4,7 @@
 
 <script setup>
 import { ref, inject, watch, onMounted } from 'vue';
+import { useProseMirrorEditor } from '@/composables/useProseMirrorEditor';
 
 const props = defineProps(['actor', 'editable']);
 
@@ -12,29 +13,16 @@ const actorDocument = inject('actorDocument');
 
 const host = ref(null);
 const editorField = 'system.details.biography.value';
-const editorEl = ref(null);
 
-async function mountEditor() {
-  const raw = props.actor?.system?.details?.biography?.value ?? '';
-  const enriched = await foundry.applications.ux.TextEditor.implementation.enrichHTML(raw, {
-    secrets: props.actor?.owner,
-    documents: true,
-    links: true,
-    rolls: true,
-    rollData: {},
-    async: false
-  });
-  const editor = foundry.applications.elements.HTMLProseMirrorElement.create({
-    name: editorField,
-    value: raw,
-    enriched,
-    toggled: true,
-    documentUUID: actorDocument?.uuid,
-    disabled: props.editable === false
-  });
-  editorEl.value = editor;
-  host.value.replaceChildren(editor);
-}
+const { editorEl, mountEditor } = useProseMirrorEditor({
+  host,
+  field: editorField,
+  getValue: () => props.actor?.system?.details?.biography?.value ?? '',
+  owner: () => props.actor?.owner,
+  documentUUID: actorDocument?.uuid,
+  toggled: true,
+  disabled: () => props.editable === false,
+});
 
 // Rebuild the (inactive) editor when the stored value changes elsewhere, e.g.
 // after a save round-trips back through _prepareContext. Never touch it while
