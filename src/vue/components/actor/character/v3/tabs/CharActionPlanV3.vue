@@ -16,14 +16,7 @@
         {{ localize(group.labelKey) }}
       </h4>
       <ul class="plan-list flexcol">
-        <ExpandableRowV3 v-for="power in group.powers" :key="power._id" :item="power" :actor="actor" :context="context"
-          :class="rowClasses(power._id)"
-          @dragstart="onRowDragStart($event, group.key, power._id)"
-          @dragover="onRowDragOver($event, group.key, power._id)"
-          @dragleave="onRowDragLeave($event, power._id)"
-          @drop="onRowDrop($event, group.key, power._id)"
-          @dragend="onRowDragEnd"/>
-        <ExpandableRowV3 v-for="item in group.equipment" :key="item._id" :item="item" :actor="actor" :context="context"
+        <ExpandableRowV3 v-for="item in group.rows" :key="item._id" :item="item" :actor="actor" :context="context"
           :class="rowClasses(item._id)"
           @dragstart="onRowDragStart($event, group.key, item._id)"
           @dragover="onRowDragOver($event, group.key, item._id)"
@@ -126,7 +119,7 @@ const {
   flagPath: 'sheetDisplay.actionPlan.rowOrder',
   getRows: groupKey => {
     const group = actionGroups.value.find(group => group.key === groupKey);
-    return group ? [...group.powers, ...group.equipment] : [];
+    return group ? [...group.rows] : [];
   },
 });
 
@@ -141,29 +134,29 @@ const sortedRows = (rows) => sortBy.value === 'custom'
 /**
  * Powers and equipment grouped by action type, in display order: the fixed
  * action order, then the saved group order applied, each group's rows in the
- * display sort. Equipment counts as a free action. Each group is
- * {key, labelKey, powers, equipment}.
+ * display sort. Equipment counts as a free action, sorting in with the
+ * free-action powers — a single `rows` list per group, so the two kinds
+ * interleave in the saved drag order. Each group is {key, labelKey, rows}.
  */
 const actionGroups = computed(() => {
   const byAction = new Map();
   for (const action of ACTION_ORDER) {
-    byAction.set(action, { key: action, labelKey: `ARCHMAGE.${action}`, powers: [], equipment: [] });
+    byAction.set(action, { key: action, labelKey: `ARCHMAGE.${action}`, rows: [] });
   }
   for (const power of powers.value) {
     const action = power.system?.actionType?.value;
     const key = ACTION_ORDER.includes(action) ? action : 'other';
-    byAction.get(key).powers.push(power);
+    byAction.get(key).rows.push(power);
   }
   for (const item of equipment.value) {
-    byAction.get('free').equipment.push(item);
+    byAction.get('free').rows.push(item);
   }
   for (const group of byAction.values()) {
-    group.powers = sortedRows(group.powers);
-    group.equipment = sortedRows(group.equipment);
+    group.rows = sortedRows(group.rows);
   }
   const groups = ACTION_ORDER
     .map(key => byAction.get(key))
-    .filter(group => group.powers.length || group.equipment.length);
+    .filter(group => group.rows.length);
   return orderedGroups(groups, savedGroupOrder.value);
 });
 </script>
