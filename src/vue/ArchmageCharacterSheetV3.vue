@@ -73,6 +73,9 @@
 
   const rootEl = ref(null);
   const narrow = ref(false);
+  // Children that render differently per layout (the identity's hero banner
+  // vs. command bar) branch on this, the same way they do on editMode.
+  provide('narrowLayout', narrow);
   let resizeObserver = null;
 
   onMounted(() => {
@@ -253,61 +256,13 @@
         }
       }
 
-      /* The identity block doubles as the command bar: one row with the
-         portrait shrunk, the name/subtitle left-aligned, and One Unique
-         Thing clamped to a couple of lines (edit mode still opens the full
-         ProseMirror allowance). */
+      /* The identity renders its own compact command-bar arrangement here
+         (it branches on the narrowLayout injection); the container just
+         carries the bar chrome and clears the controls at its right edge. */
       .sheet-command-bar {
         flex: 0 0 auto;
+        padding: 0.375rem 4.5rem 0.375rem 0.5rem;
         border-bottom: 1px solid var(--color-border);
-
-        .sheet-header {
-          flex-direction: row;
-          align-items: center;
-          gap: 0.625rem;
-          padding: 0.375rem 4.5rem 0.375rem 0.5rem;
-          border-bottom: none;
-
-          .header-portrait {
-            align-self: center;
-
-            img {
-              height: 2.25rem;
-            }
-          }
-
-          .header-id {
-            flex: 1 1 auto;
-            text-align: left;
-          }
-
-          .header-out {
-            flex: 0 1 12rem;
-            max-height: none;
-            border-top: none;
-            padding-top: 0;
-
-            .out-label {
-              display: none;
-            }
-
-            .out-text {
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 2;
-              overflow: hidden;
-            }
-
-            &.header-out--editing {
-              max-height: 240px;
-
-              .out-text {
-                display: block;
-                overflow-y: auto;
-              }
-            }
-          }
-        }
       }
 
       /* Vitals: HP and recoveries split the first row; the save tracks wrap
