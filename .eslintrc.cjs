@@ -269,6 +269,8 @@ module.exports = {
 				"vue/no-mutating-props": "off",
 				// Foundry content is enriched HTML that has to be rendered with v-html.
 				"vue/no-v-html": "off",
+				// Warning until the pager state updates are moved out of computeds (see "Vue Issues.md").
+				"vue/no-side-effects-in-computed-properties": "warn",
 				// Renaming components would ripple through every template that uses them.
 				"vue/multi-word-component-names": "off",
 				"vue/no-reserved-component-names": "off",
