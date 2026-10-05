@@ -157,7 +157,7 @@
        unrewritten (no such file in the repo to bundle) and resolves at
        runtime against the vue bundle's served path /systems/archmage/vue/ —
        the three ../ climb to the Foundry root, where core serves it. */
-    body.theme-light & {
+    .theme-light & {
       --v3-surface: url('../../../ui/parchment.jpg') repeat;
       --placeholder-color: var(--color-dark-3);
     }
