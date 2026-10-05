@@ -28,7 +28,7 @@ const EMBEDDED_ITEM_UUID = /(?:^|\.)Actor\.[^.]+\.Item\.([^.]+)$/;
  * @returns {string|undefined}
  */
 function embeddedItemId(uuid) {
-  return EMBEDDED_ITEM_UUID.exec(uuid)?.[1];
+	return EMBEDDED_ITEM_UUID.exec(uuid)?.[1];
 }
 
 /**
@@ -39,13 +39,13 @@ function embeddedItemId(uuid) {
  * @returns {Promise<Item|null>}
  */
 export async function resolveChild(uuid, item) {
-  const actor = item.parent;
-  if (actor?.documentName === "Actor") {
-    const id = embeddedItemId(uuid);
-    if (id) return actor.items.get(id) ?? null;
-  }
-  const child = await fromUuid(uuid);
-  return child instanceof Item ? child : null;
+	const actor = item.parent;
+	if (actor?.documentName === "Actor") {
+		const id = embeddedItemId(uuid);
+		if (id) return actor.items.get(id) ?? null;
+	}
+	const child = await fromUuid(uuid);
+	return child instanceof Item ? child : null;
 }
 
 /**
@@ -58,14 +58,14 @@ export async function resolveChild(uuid, item) {
  * @returns {Promise<Item[]>}
  */
 export async function gatherChildren(item, seen = new Set([item.uuid])) {
-  const progeny = [];
-  for (const uuid of item.system.children ?? []) {
-    const child = await resolveChild(uuid, item);
-    if (!child || seen.has(child.uuid)) continue;
-    seen.add(child.uuid);
-    progeny.push(child, ...await gatherChildren(child, seen));
-  }
-  return progeny;
+	const progeny = [];
+	for (const uuid of item.system.children ?? []) {
+		const child = await resolveChild(uuid, item);
+		if (!child || seen.has(child.uuid)) continue;
+		seen.add(child.uuid);
+		progeny.push(child, ...await gatherChildren(child, seen));
+	}
+	return progeny;
 }
 
 /**
@@ -75,9 +75,9 @@ export async function gatherChildren(item, seen = new Set([item.uuid])) {
  * @returns {Item[]}
  */
 export function findParents(item) {
-  const actor = item.parent;
-  if (actor?.documentName !== "Actor") return [];
-  return actor.items.filter((parent) => (parent.system.children ?? []).some((uuid) => embeddedItemId(uuid) === item.id));
+	const actor = item.parent;
+	if (actor?.documentName !== "Actor") return [];
+	return actor.items.filter((parent) => (parent.system.children ?? []).some((uuid) => embeddedItemId(uuid) === item.id));
 }
 
 /**
@@ -88,16 +88,16 @@ export function findParents(item) {
  * @returns {Map<string, string[]>}  Child item id to parent names.
  */
 export function parentNamesById(actor) {
-  const names = new Map();
-  for (const parent of actor.items) {
-    for (const uuid of parent.system.children ?? []) {
-      const id = embeddedItemId(uuid);
-      if (!id || !actor.items.has(id)) continue;
-      if (!names.has(id)) names.set(id, []);
-      names.get(id).push(parent.name);
-    }
-  }
-  return names;
+	const names = new Map();
+	for (const parent of actor.items) {
+		for (const uuid of parent.system.children ?? []) {
+			const id = embeddedItemId(uuid);
+			if (!id || !actor.items.has(id)) continue;
+			if (!names.has(id)) names.set(id, []);
+			names.get(id).push(parent.name);
+		}
+	}
+	return names;
 }
 
 /**
@@ -107,11 +107,11 @@ export function parentNamesById(actor) {
  * @returns {object}
  */
 function childCopyData(source) {
-  const data = source.pack ? game.items.fromCompendium(source) : source.toObject();
-  delete data.folder;
-  delete data.sort;
-  data._id = foundry.utils.randomID();
-  return data;
+	const data = source.pack ? game.items.fromCompendium(source) : source.toObject();
+	delete data.folder;
+	delete data.sort;
+	data._id = foundry.utils.randomID();
+	return data;
 }
 
 /**
@@ -129,62 +129,62 @@ function childCopyData(source) {
  * @param {BaseUser} user
  */
 export async function addProgenyToCreation(documents, operation, user) {
-  const actor = operation.parent;
-  const exclusions = new Map();
-  for (const doc of documents) {
-    const excluded = doc._source.flags?.archmage?.excludeChildren;
-    if (!excluded) continue;
-    exclusions.set(doc, new Set(excluded));
-    delete doc._source.flags.archmage.excludeChildren;
-  }
+	const actor = operation.parent;
+	const exclusions = new Map();
+	for (const doc of documents) {
+		const excluded = doc._source.flags?.archmage?.excludeChildren;
+		if (!excluded) continue;
+		exclusions.set(doc, new Set(excluded));
+		delete doc._source.flags.archmage.excludeChildren;
+	}
 
-  if (operation.archmageChildren === false || actor?.documentName !== "Actor") return;
-  if (!documents.some((doc) => doc.system.children?.length)) return;
+	if (operation.archmageChildren === false || actor?.documentName !== "Actor") return;
+	if (!documents.some((doc) => doc.system.children?.length)) return;
 
-  // Parents link to their children's UUIDs, so every id has to be known before
-  // anything is saved, rather than left to the server.
-  if (!operation.keepId) {
-    for (const doc of documents) doc.updateSource({ _id: foundry.utils.randomID() });
-    operation.keepId = true;
-  }
+	// Parents link to their children's UUIDs, so every id has to be known before
+	// anything is saved, rather than left to the server.
+	if (!operation.keepId) {
+		for (const doc of documents) doc.updateSource({ _id: foundry.utils.randomID() });
+		operation.keepId = true;
+	}
 
-  const missing = [];
+	const missing = [];
 
-  // Children are created from the UUIDs listed on the item they're copied from,
-  // then the copy's list is replaced by the UUIDs of the copies of its children.
-  const expand = async (doc, excluded, path, lineage) => {
-    const links = [];
-    for (const uuid of doc.system.children ?? []) {
-      const source = await fromUuid(uuid);
-      if (!(source instanceof Item)) {
-        missing.push(uuid);
-        continue;
-      }
-      // Paths are made of the children's own UUIDs, which is how the importer
-      // knows them, however they're written in the list.
-      const childPath = [...path, source.uuid];
-      if (excluded.has(childPath.join(">")) || lineage.includes(source.uuid)) continue;
-      const data = childCopyData(source);
-      const child = new doc.constructor(data, { parent: actor });
-      // Children go through the same per-document checks as their parent.
-      if (await child._preCreate(data, operation, user) === false) continue;
-      if (Hooks.call("preCreateItem", child, data, operation, user.id) === false) continue;
-      documents.push(child);
-      links.push(`${actor.uuid}.Item.${child.id}`);
-      await expand(child, excluded, childPath, [...lineage, source.uuid]);
-    }
-    if (doc.system.children?.length || links.length) doc.updateSource({ "system.children": links });
-  };
+	// Children are created from the UUIDs listed on the item they're copied from,
+	// then the copy's list is replaced by the UUIDs of the copies of its children.
+	const expand = async (doc, excluded, path, lineage) => {
+		const links = [];
+		for (const uuid of doc.system.children ?? []) {
+			const source = await fromUuid(uuid);
+			if (!(source instanceof Item)) {
+				missing.push(uuid);
+				continue;
+			}
+			// Paths are made of the children's own UUIDs, which is how the importer
+			// knows them, however they're written in the list.
+			const childPath = [...path, source.uuid];
+			if (excluded.has(childPath.join(">")) || lineage.includes(source.uuid)) continue;
+			const data = childCopyData(source);
+			const child = new doc.constructor(data, { parent: actor });
+			// Children go through the same per-document checks as their parent.
+			if (await child._preCreate(data, operation, user) === false) continue;
+			if (Hooks.call("preCreateItem", child, data, operation, user.id) === false) continue;
+			documents.push(child);
+			links.push(`${actor.uuid}.Item.${child.id}`);
+			await expand(child, excluded, childPath, [...lineage, source.uuid]);
+		}
+		if (doc.system.children?.length || links.length) doc.updateSource({ "system.children": links });
+	};
 
-  for (const doc of [...documents]) {
-    const lineage = [doc._stats?.compendiumSource].filter(Boolean);
-    await expand(doc, exclusions.get(doc) ?? new Set(), [], lineage);
-  }
+	for (const doc of [...documents]) {
+		const lineage = [doc._stats?.compendiumSource].filter(Boolean);
+		await expand(doc, exclusions.get(doc) ?? new Set(), [], lineage);
+	}
 
-  if (missing.length) {
-    console.warn(`Archmage | ${missing.length} child item(s) could not be found:`, missing);
-    ui.notifications.warn(game.i18n.format("ARCHMAGE.ITEM.childrenMissing", { count: missing.length }));
-  }
+	if (missing.length) {
+		console.warn(`Archmage | ${missing.length} child item(s) could not be found:`, missing);
+		ui.notifications.warn(game.i18n.format("ARCHMAGE.ITEM.childrenMissing", { count: missing.length }));
+	}
 }
 
 /**
@@ -195,17 +195,17 @@ export async function addProgenyToCreation(documents, operation, user) {
  * @param {DatabaseDeleteOperation} operation
  */
 export async function addProgenyToDeletion(documents, operation) {
-  const actor = operation.parent;
-  if (operation.archmageChildren === false || operation.deleteAll || actor?.documentName !== "Actor") return;
-  const ids = new Set(operation.ids);
-  for (const doc of [...documents]) {
-    for (const child of await gatherChildren(doc)) {
-      if (child.parent !== actor || ids.has(child.id)) continue;
-      ids.add(child.id);
-      operation.ids.push(child.id);
-      documents.push(child);
-    }
-  }
+	const actor = operation.parent;
+	if (operation.archmageChildren === false || operation.deleteAll || actor?.documentName !== "Actor") return;
+	const ids = new Set(operation.ids);
+	for (const doc of [...documents]) {
+		for (const child of await gatherChildren(doc)) {
+			if (child.parent !== actor || ids.has(child.id)) continue;
+			ids.add(child.id);
+			operation.ids.push(child.id);
+			documents.push(child);
+		}
+	}
 }
 
 /**
@@ -215,15 +215,15 @@ export async function addProgenyToDeletion(documents, operation) {
  * @param {DatabaseDeleteOperation} operation
  */
 export async function unlinkDeletedChildren(documents, operation) {
-  const actor = operation.parent;
-  if (actor?.documentName !== "Actor") return;
-  const deleted = new Set(documents.map((doc) => doc.id));
-  const updates = actor.items
-    .filter((item) => !deleted.has(item.id))
-    .filter((item) => (item.system.children ?? []).some((uuid) => deleted.has(embeddedItemId(uuid))))
-    .map((item) => ({
-      _id: item.id,
-      "system.children": item.system.children.filter((uuid) => !deleted.has(embeddedItemId(uuid)))
-    }));
-  if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
+	const actor = operation.parent;
+	if (actor?.documentName !== "Actor") return;
+	const deleted = new Set(documents.map((doc) => doc.id));
+	const updates = actor.items
+		.filter((item) => !deleted.has(item.id))
+		.filter((item) => (item.system.children ?? []).some((uuid) => deleted.has(embeddedItemId(uuid))))
+		.map((item) => ({
+			_id: item.id,
+			"system.children": item.system.children.filter((uuid) => !deleted.has(embeddedItemId(uuid)))
+		}));
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }

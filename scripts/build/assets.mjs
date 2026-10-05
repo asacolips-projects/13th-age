@@ -11,42 +11,42 @@ const ASSETS_DEST = resolveFromRoot("dist/assets");
  *
  */
 export async function compileImages() {
-  const files = await globFiles(SYSTEM_IMAGES);
+	const files = await globFiles(SYSTEM_IMAGES);
 
-  for (const file of files) {
-    const relativePath = path.relative(ASSETS_SRC, file);
-    const outFile = path.join(
-      ASSETS_DEST,
-      relativePath.replace(/\.(png|jpe?g)$/i, ".webp")
-    );
-    ensureDir(path.dirname(outFile));
+	for (const file of files) {
+		const relativePath = path.relative(ASSETS_SRC, file);
+		const outFile = path.join(
+			ASSETS_DEST,
+			relativePath.replace(/\.(png|jpe?g)$/i, ".webp")
+		);
+		ensureDir(path.dirname(outFile));
 
-    await sharp(file).webp()
-.toFile(outFile);
-  }
+		await sharp(file).webp()
+			.toFile(outFile);
+	}
 
-  log("images", `converted ${files.length} files`);
+	log("images", `converted ${files.length} files`);
 }
 
 /**
  *
  */
 export async function compileSvg() {
-  const files = await globFiles(SYSTEM_SVG);
+	const files = await globFiles(SYSTEM_SVG);
 
-  for (const file of files) {
-    const relativePath = path.relative(ASSETS_SRC, file);
-    const outFile = path.join(ASSETS_DEST, relativePath);
-    ensureDir(path.dirname(outFile));
-    fs.copyFileSync(file, outFile);
-  }
+	for (const file of files) {
+		const relativePath = path.relative(ASSETS_SRC, file);
+		const outFile = path.join(ASSETS_DEST, relativePath);
+		ensureDir(path.dirname(outFile));
+		fs.copyFileSync(file, outFile);
+	}
 
-  log("svg", `copied ${files.length} files`);
+	log("svg", `copied ${files.length} files`);
 }
 
 /**
  *
  */
 export async function compileAssets() {
-  await Promise.all([compileImages(), compileSvg()]);
+	await Promise.all([compileImages(), compileSvg()]);
 }

@@ -10,7 +10,7 @@ import { ROOT } from "./constants.mjs";
  * @param message
  */
 export function log(task, message) {
-  console.log(`[build:${task}] ${message}`);
+	console.log(`[build:${task}] ${message}`);
 }
 
 /**
@@ -18,7 +18,7 @@ export function log(task, message) {
  * @param relativePath
  */
 export function resolveFromRoot(relativePath) {
-  return path.join(ROOT, relativePath);
+	return path.join(ROOT, relativePath);
 }
 
 /**
@@ -27,19 +27,19 @@ export function resolveFromRoot(relativePath) {
  * @param options
  */
 export async function globFiles(patterns, options = {}) {
-  const patternList = Array.isArray(patterns) ? patterns : [patterns];
-  const includes = patternList.filter((pattern) => !pattern.startsWith("!"));
-  const ignore = patternList
-    .filter((pattern) => pattern.startsWith("!"))
-    .map((pattern) => pattern.slice(1));
+	const patternList = Array.isArray(patterns) ? patterns : [patterns];
+	const includes = patternList.filter((pattern) => !pattern.startsWith("!"));
+	const ignore = patternList
+		.filter((pattern) => pattern.startsWith("!"))
+		.map((pattern) => pattern.slice(1));
 
-  return glob(includes, {
-    cwd: ROOT,
-    absolute: true,
-    nodir: true,
-    ignore,
-    ...options
-  });
+	return glob(includes, {
+		cwd: ROOT,
+		absolute: true,
+		nodir: true,
+		ignore,
+		...options
+	});
 }
 
 /**
@@ -47,7 +47,7 @@ export async function globFiles(patterns, options = {}) {
  * @param dirPath
  */
 export function ensureDir(dirPath) {
-  fs.mkdirSync(dirPath, { recursive: true });
+	fs.mkdirSync(dirPath, { recursive: true });
 }
 
 /**
@@ -58,24 +58,24 @@ export function ensureDir(dirPath) {
  * @param root0.prod
  */
 export async function copyFileWithReplace(src, dest, { prod = false } = {}) {
-  ensureDir(path.dirname(dest));
+	ensureDir(path.dirname(dest));
 
-  if (!prod) {
-    fs.copyFileSync(src, dest);
-    return;
-  }
+	if (!prod) {
+		fs.copyFileSync(src, dest);
+		return;
+	}
 
-  const ext = path.extname(src).toLowerCase();
-  const textExtensions = new Set([".js", ".mjs", ".cjs", ".html", ".json"]);
+	const ext = path.extname(src).toLowerCase();
+	const textExtensions = new Set([".js", ".mjs", ".cjs", ".html", ".json"]);
 
-  if (textExtensions.has(ext)) {
-    const content = fs.readFileSync(src, "utf8")
-      .replaceAll("vue.esm-browser.js", "vue.esm-browser.prod.js");
-    fs.writeFileSync(dest, content);
-    return;
-  }
+	if (textExtensions.has(ext)) {
+		const content = fs.readFileSync(src, "utf8")
+			.replaceAll("vue.esm-browser.js", "vue.esm-browser.prod.js");
+		fs.writeFileSync(dest, content);
+		return;
+	}
 
-  fs.copyFileSync(src, dest);
+	fs.copyFileSync(src, dest);
 }
 
 /**
@@ -85,28 +85,28 @@ export async function copyFileWithReplace(src, dest, { prod = false } = {}) {
  * @param options
  */
 export function spawnCommand(command, args, options = {}) {
-  return new Promise((resolve, reject) => {
-    const child = spawn(command, args, {
-      cwd: ROOT,
-      stdio: "inherit",
-      shell: process.platform === "win32",
-      ...options
-    });
+	return new Promise((resolve, reject) => {
+		const child = spawn(command, args, {
+			cwd: ROOT,
+			stdio: "inherit",
+			shell: process.platform === "win32",
+			...options
+		});
 
-    child.on("error", reject);
-    child.on("close", (code) => {
-      if (code === 0) resolve();
-      else reject(new Error(`${command} ${args.join(" ")} exited with code ${code}`));
-    });
-  });
+		child.on("error", reject);
+		child.on("close", (code) => {
+			if (code === 0) resolve();
+			else reject(new Error(`${command} ${args.join(" ")} exited with code ${code}`));
+		});
+	});
 }
 
 /**
  *
  */
 export function getFvttCommand() {
-  const local = path.join(ROOT, "node_modules/.bin/fvtt");
-  return fs.existsSync(local) ? local : "fvtt";
+	const local = path.join(ROOT, "node_modules/.bin/fvtt");
+	return fs.existsSync(local) ? local : "fvtt";
 }
 
 /**
@@ -114,5 +114,5 @@ export function getFvttCommand() {
  * @param tasks
  */
 export async function runParallel(tasks) {
-  await Promise.all(tasks.map((task) => task()));
+	await Promise.all(tasks.map((task) => task()));
 }

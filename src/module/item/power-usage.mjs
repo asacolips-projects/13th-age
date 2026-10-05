@@ -17,7 +17,7 @@
  * @returns {number}
  */
 function escalationValue(actor, escalationDie) {
-  return Number(escalationDie ?? actor?.system?.attributes?.escalation?.value ?? 0);
+	return Number(escalationDie ?? actor?.system?.attributes?.escalation?.value ?? 0);
 }
 
 /**
@@ -34,9 +34,9 @@ function escalationValue(actor, escalationDie) {
  * @returns {string|undefined}
  */
 function activePowerUsage(power) {
-  return hasSecondaryUsage(power) && !(power.system.quantity?.value > 0)
-    ? power.system.powerUsageSecondary.value
-    : power.system.powerUsage?.value;
+	return hasSecondaryUsage(power) && !(power.system.quantity?.value > 0)
+		? power.system.powerUsageSecondary.value
+		: power.system.powerUsage?.value;
 }
 
 /**
@@ -47,7 +47,7 @@ function activePowerUsage(power) {
  * @returns {boolean}
  */
 export function hasSecondaryUsage(power) {
-  return power.system.quantitySecondary?.value != null
+	return power.system.quantitySecondary?.value != null
     && !!power.system.powerUsageSecondary?.value;
 }
 
@@ -65,14 +65,14 @@ export function hasSecondaryUsage(power) {
  * @returns {string}
  */
 function powerUsageColorClass(usage, actor = null, { escalationDie = null } = {}) {
-  let use = usage ? usage : "other";
-  if (["daily", "daily-desperate"].includes(use)) return "daily";
-  if (["recharge", "recharge-desperate"].includes(use)) return "recharge";
-  if (use == "cyclic") {
-    const escalation = escalationValue(actor, escalationDie);
-    return (escalation > 0 && escalation % 2 == 0) ? "at-will" : "once-per-battle";
-  }
-  return use;
+	let use = usage ? usage : "other";
+	if (["daily", "daily-desperate"].includes(use)) return "daily";
+	if (["recharge", "recharge-desperate"].includes(use)) return "recharge";
+	if (use == "cyclic") {
+		const escalation = escalationValue(actor, escalationDie);
+		return (escalation > 0 && escalation % 2 == 0) ? "at-will" : "once-per-battle";
+	}
+	return use;
 }
 
 /**
@@ -87,7 +87,7 @@ function powerUsageColorClass(usage, actor = null, { escalationDie = null } = {}
  * @returns {string}
  */
 export function powerUsageColor(power, actor = null, options = {}) {
-  return powerUsageColorClass(activePowerUsage(power), actor, options);
+	return powerUsageColorClass(activePowerUsage(power), actor, options);
 }
 
 /**
@@ -107,27 +107,27 @@ export function powerUsageColor(power, actor = null, options = {}) {
  * @returns {string}
  */
 export function powerUsageClass(power, actor = null, options = {}) {
-  const primaryUsage = power.system.powerUsage?.value;
-  const secondaryUsage = power.system.powerUsageSecondary?.value;
-  const hasSecondary = hasSecondaryUsage(power);
-  const activeUsage = activePowerUsage(power);
-  const onSecondary = hasSecondary && activeUsage === secondaryUsage;
+	const primaryUsage = power.system.powerUsage?.value;
+	const secondaryUsage = power.system.powerUsageSecondary?.value;
+	const hasSecondary = hasSecondaryUsage(power);
+	const activeUsage = activePowerUsage(power);
+	const onSecondary = hasSecondary && activeUsage === secondaryUsage;
 
-  const active = powerUsageColorClass(activeUsage, actor, options);
-  const classes = [active];
+	const active = powerUsageColorClass(activeUsage, actor, options);
+	const classes = [active];
 
-  // Work out the usage the power isn't currently in, if it has one.
-  let inactive = null;
-  if (hasSecondary) {
-    inactive = powerUsageColorClass(onSecondary ? primaryUsage : secondaryUsage, actor, options);
-  }
-  else if (activeUsage == "cyclic") {
-    // Cyclic powers alternate between behaving as at-will and once-per-battle.
-    inactive = active == "at-will" ? "once-per-battle" : "at-will";
-  }
-  if (inactive && inactive != active) classes.push("alt-usage", `alt-usage--${inactive}`);
+	// Work out the usage the power isn't currently in, if it has one.
+	let inactive = null;
+	if (hasSecondary) {
+		inactive = powerUsageColorClass(onSecondary ? primaryUsage : secondaryUsage, actor, options);
+	}
+	else if (activeUsage == "cyclic") {
+		// Cyclic powers alternate between behaving as at-will and once-per-battle.
+		inactive = active == "at-will" ? "once-per-battle" : "at-will";
+	}
+	if (inactive && inactive != active) classes.push("alt-usage", `alt-usage--${inactive}`);
 
-  return classes.join(" ");
+	return classes.join(" ");
 }
 
 /**
@@ -146,10 +146,10 @@ export function powerUsageClass(power, actor = null, options = {}) {
  * @returns {string}
  */
 export function powerAvailabilityClass(power) {
-  const primary = power.system?.quantity?.value;
-  const secondary = power.system?.quantitySecondary?.value;
-  if (primary == null && secondary == null) return "";
-  if (((primary ?? 0) + (secondary ?? 0)) === 0) return "unavailable";
-  if (hasSecondaryUsage(power) && (!(primary > 0) || !(secondary > 0))) return "alt-usage--spent";
-  return "";
+	const primary = power.system?.quantity?.value;
+	const secondary = power.system?.quantitySecondary?.value;
+	if (primary == null && secondary == null) return "";
+	if (((primary ?? 0) + (secondary ?? 0)) === 0) return "unavailable";
+	if (hasSecondaryUsage(power) && (!(primary > 0) || !(secondary > 0))) return "alt-usage--spent";
+	return "";
 }

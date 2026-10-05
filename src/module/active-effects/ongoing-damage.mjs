@@ -17,7 +17,7 @@
  * @returns {number}  The rounded damage.
  */
 export function roundOngoingDamage(value) {
-  return Math.sign(value) * Math.ceil(Math.abs(value));
+	return Math.sign(value) * Math.ceil(Math.abs(value));
 }
 
 /**
@@ -26,8 +26,8 @@ export function roundOngoingDamage(value) {
  * @returns {number}  The multiplier, 1 if none is set.
  */
 export function getOngoingDamageMultiplier(effect) {
-  const multiplier = Number(effect?.flags?.archmage?.ongoingDamageMultiplier);
-  return Number.isFinite(multiplier) && multiplier >= 1 ? Math.floor(multiplier) : 1;
+	const multiplier = Number(effect?.flags?.archmage?.ongoingDamageMultiplier);
+	return Number.isFinite(multiplier) && multiplier >= 1 ? Math.floor(multiplier) : 1;
 }
 
 /**
@@ -36,9 +36,9 @@ export function getOngoingDamageMultiplier(effect) {
  * @returns {Promise<ActiveEffect|void>}
  */
 export async function resetOngoingDamageMultiplier(effect) {
-  if (!effect?.update) return;
-  if (getOngoingDamageMultiplier(effect) === 1) return;
-  return effect.update({ "flags.archmage.ongoingDamageMultiplier": 1 });
+	if (!effect?.update) return;
+	if (getOngoingDamageMultiplier(effect) === 1) return;
+	return effect.update({ "flags.archmage.ongoingDamageMultiplier": 1 });
 }
 
 /**
@@ -48,16 +48,16 @@ export async function resetOngoingDamageMultiplier(effect) {
  * @returns {ActiveEffect}  The same effect.
  */
 export function prepareOngoingDamage(effect) {
-  const isOngoing = !!effect.flags.archmage?.ongoingDamage;
-  const multiplier = isOngoing ? getOngoingDamageMultiplier(effect) : 1;
-  effect.isOngoing = isOngoing;
-  effect.isCrit = multiplier > 1;
-  effect.critMult = multiplier;
-  const rawDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
-  effect.ongoingTooltip = game.i18n.format("ARCHMAGE.CHAT.ongoingDamageTooltip", {
-    damage: roundOngoingDamage(rawDamage),
-    type: effect.flags.archmage?.ongoingDamageType ?? ""
-  });
-  effect.ongoingDamage = roundOngoingDamage(rawDamage * multiplier);
-  return effect;
+	const isOngoing = !!effect.flags.archmage?.ongoingDamage;
+	const multiplier = isOngoing ? getOngoingDamageMultiplier(effect) : 1;
+	effect.isOngoing = isOngoing;
+	effect.isCrit = multiplier > 1;
+	effect.critMult = multiplier;
+	const rawDamage = isOngoing ? Number(effect.flags.archmage?.ongoingDamage) : 0;
+	effect.ongoingTooltip = game.i18n.format("ARCHMAGE.CHAT.ongoingDamageTooltip", {
+		damage: roundOngoingDamage(rawDamage),
+		type: effect.flags.archmage?.ongoingDamageType ?? ""
+	});
+	effect.ongoingDamage = roundOngoingDamage(rawDamage * multiplier);
+	return effect;
 }

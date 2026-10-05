@@ -8,1400 +8,1400 @@ import { ActorHelpersV2 } from "./helpers/actor-helpers-v2.js";
 import { DiceArchmage } from "./dice.js";
 
 export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
-  /** @override */
-  constructor(...args) {
-    super(...args);
+	/** @override */
+	constructor(...args) {
+		super(...args);
 
-    // Properties that we'll use for the Vue app.
-    this.vueApp = null;
-    this.vueRoot = null;
-    this.vueListenersActive = false;
-    this._renderKey = 0;
-    this.vueComponents = {
-      "character-sheet": ArchmageCharacterSheet
-    };
-  }
+		// Properties that we'll use for the Vue app.
+		this.vueApp = null;
+		this.vueRoot = null;
+		this.vueListenersActive = false;
+		this._renderKey = 0;
+		this.vueComponents = {
+			"character-sheet": ArchmageCharacterSheet
+		};
+	}
 
-  /** @override */
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    const compactMode = game.settings.get("archmage", "compactMode");
-    const nightMode = game.settings.get("archmage", "nightmode");
-    foundry.utils.mergeObject(options, {
-      classes: options.classes.concat(["archmage-v2", "actor", "character-sheet"]).filter((c) => c !== "archmage"),
-      width: compactMode ? 826 : 960,
-      height: compactMode ? 750 : 960,
-      submitOnClose: true,
-      submitOnChange: true,
-      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
-    });
+	/** @override */
+	static get defaultOptions() {
+		const options = super.defaultOptions;
+		const compactMode = game.settings.get("archmage", "compactMode");
+		const nightMode = game.settings.get("archmage", "nightmode");
+		foundry.utils.mergeObject(options, {
+			classes: options.classes.concat(["archmage-v2", "actor", "character-sheet"]).filter((c) => c !== "archmage"),
+			width: compactMode ? 826 : 960,
+			height: compactMode ? 750 : 960,
+			submitOnClose: true,
+			submitOnChange: true,
+			dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
+		});
 
-    if (compactMode) {
-      options.classes.push("compact-mode");
-    }
+		if (compactMode) {
+			options.classes.push("compact-mode");
+		}
 
-    if (nightMode) {
-      options.classes.push("nightmode");
-    }
+		if (nightMode) {
+			options.classes.push("nightmode");
+		}
 
-    return options;
-  }
+		return options;
+	}
 
-  /** @override */
-  get template() {
-    const type = this.actor.type;
-    return `systems/archmage/templates/actors/actor-${type}-sheet-vue.html`;
-  }
+	/** @override */
+	get template() {
+		const type = this.actor.type;
+		return `systems/archmage/templates/actors/actor-${type}-sheet-vue.html`;
+	}
 
-  /** @override */
-  getData(options) {
+	/** @override */
+	getData(options) {
 
-    // Basic data
-    let isOwner = this.actor.isOwner;
-    const context = {
-      appId: this.appId,
-      owner: isOwner,
-      limited: this.actor.limited,
-      options: this.options,
-      editable: this.isEditable,
-      cssClass: isOwner ? "editable" : "locked",
-      isCharacter: this.actor.type === "character",
-      isNPC: this.actor.type === "npc",
-      config: CONFIG.ARCHMAGE,
-      rollData: this.actor.getRollData(this.actor),
-      _renderKey: this._renderKey
-    };
+		// Basic data
+		let isOwner = this.actor.isOwner;
+		const context = {
+			appId: this.appId,
+			owner: isOwner,
+			limited: this.actor.limited,
+			options: this.options,
+			editable: this.isEditable,
+			cssClass: isOwner ? "editable" : "locked",
+			isCharacter: this.actor.type === "character",
+			isNPC: this.actor.type === "npc",
+			config: CONFIG.ARCHMAGE,
+			rollData: this.actor.getRollData(this.actor),
+			_renderKey: this._renderKey
+		};
 
-    // Convert the actor data into a more usable version.
-    let actorData = this.actor.toObject(false);
+		// Convert the actor data into a more usable version.
+		let actorData = this.actor.toObject(false);
 
-    // Get drag data for later retrieval.
-    const dragData = this.actor.toDragData();
-    if (dragData.uuid.includes("Token.") && dragData.type !== "Token") {
-      dragData.type = "Token";
-    }
+		// Get drag data for later retrieval.
+		const dragData = this.actor.toDragData();
+		if (dragData.uuid.includes("Token.") && dragData.type !== "Token") {
+			dragData.type = "Token";
+		}
 
-    context.dragData = dragData;
+		context.dragData = dragData;
 
-    // Add to our data object that the sheet will use.
-    context.actor = actorData;
-    context.data = actorData.system;
-    context.actor.owner = context.owner;
-    context.actor._source = foundry.utils.deepClone(this.actor._source);
-    context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
-    context.actor.dragData = context.dragData;
+		// Add to our data object that the sheet will use.
+		context.actor = actorData;
+		context.data = actorData.system;
+		context.actor.owner = context.owner;
+		context.actor._source = foundry.utils.deepClone(this.actor._source);
+		context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
+		context.actor.dragData = context.dragData;
 
-    // Add token info if needed.
-    if (this.actor?.token?.id) {
-      if (!this.actor.token.actorLink && this.actor?.token?.id) {
-        context.actor.prototypeToken.id = this.actor.prototypeToken.id;
-        context.actor.prototypeToken.sceneId = this.actor.prototypeToken?.parent?.id;
-      }
-    }
+		// Add token info if needed.
+		if (this.actor?.token?.id) {
+			if (!this.actor.token.actorLink && this.actor?.token?.id) {
+				context.actor.prototypeToken.id = this.actor.prototypeToken.id;
+				context.actor.prototypeToken.sceneId = this.actor.prototypeToken?.parent?.id;
+			}
+		}
 
-    // Add pack info if needed.
-    if (this.actor?.pack) {
-      context.actor.pack = this.actor.pack;
-    }
+		// Add pack info if needed.
+		if (this.actor?.pack) {
+			context.actor.pack = this.actor.pack;
+		}
 
-    // Sort items.
-    context.actor.items = actorData.items;
-    context.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		// Sort items.
+		context.actor.items = actorData.items;
+		context.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-    // Mark the items that came along with another one.
-    const parentNames = parentNamesById(this.actor);
-    for (const item of context.actor.items) {
-      if (parentNames.has(item._id)) item.grantedBy = parentNames.get(item._id).join(", ");
-    }
+		// Mark the items that came along with another one.
+		const parentNames = parentNamesById(this.actor);
+		for (const item of context.actor.items) {
+			if (parentNames.has(item._id)) item.grantedBy = parentNames.get(item._id).join(", ");
+		}
 
-    // Sort effects.
-    context.actor.effects = actorData.effects;
-    context.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		// Sort effects.
+		context.actor.effects = actorData.effects;
+		context.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-    // Retrieve a list of locked fields due to AEs.
-    context.actor.lockedFields = [];
-    this.actor.effects.forEach((ae) => {
-      const changes = ae.changes.map((c) => c.key);
-      context.actor.lockedFields = context.actor.lockedFields.concat(changes);
-    });
+		// Retrieve a list of locked fields due to AEs.
+		context.actor.lockedFields = [];
+		this.actor.effects.forEach((ae) => {
+			const changes = ae.changes.map((c) => c.key);
+			context.actor.lockedFields = context.actor.lockedFields.concat(changes);
+		});
 
-    return context;
-  }
+		return context;
+	}
 
-  /* ------------------------------------------------------------------------ */
-  /*  Vue Rendering --------------------------------------------------------- */
-  /* ------------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------------ */
+	/*  Vue Rendering --------------------------------------------------------- */
+	/* ------------------------------------------------------------------------ */
 
-  /** @override */
-  render(force=false, options={}) {
-    this._renderKey++;
-    const context = this.getData();
+	/** @override */
+	render(force=false, options={}) {
+		this._renderKey++;
+		const context = this.getData();
 
-    // Render the vue application after loading. We'll need to destroy this
-    // later in the this.close() method for the sheet.
-    if (!this.vueApp || !this.vueRoot) {
-      this.vueRoot = null;
-      this.vueApp = createApp({
-        // Initialize data.
-        data() {
-          return {
-            context: context
-          };
-        },
-        // Define our character sheet component.
-        components: this.vueComponents,
-        // Create a method to the update the data while retaining reactivity.
-        methods: {
-          updateContext(newContext) {
-            for (let key of Object.keys(this.context)) {
-              this.context[key] = newContext[key];
-            }
-          }
-        }
-      });
-    }
-    // Otherwise, perform update routines on the app.
-    else {
-      // Pass new values from this.getData() into the app.
-      this.vueRoot.updateContext(context);
-      // Reactivate the listeners if we need to.
-      if (!this.vueListenersActive) {
-        setTimeout(() => {
-          this.activateVueListeners($(this.form), true);
-        }, 200);
-      }
-      return;
-    }
+		// Render the vue application after loading. We'll need to destroy this
+		// later in the this.close() method for the sheet.
+		if (!this.vueApp || !this.vueRoot) {
+			this.vueRoot = null;
+			this.vueApp = createApp({
+				// Initialize data.
+				data() {
+					return {
+						context: context
+					};
+				},
+				// Define our character sheet component.
+				components: this.vueComponents,
+				// Create a method to the update the data while retaining reactivity.
+				methods: {
+					updateContext(newContext) {
+						for (let key of Object.keys(this.context)) {
+							this.context[key] = newContext[key];
+						}
+					}
+				}
+			});
+		}
+		// Otherwise, perform update routines on the app.
+		else {
+			// Pass new values from this.getData() into the app.
+			this.vueRoot.updateContext(context);
+			// Reactivate the listeners if we need to.
+			if (!this.vueListenersActive) {
+				setTimeout(() => {
+					this.activateVueListeners($(this.form), true);
+				}, 200);
+			}
+			return;
+		}
 
-    // If we don't have an active vueRoot, run Foundry's render and then mount
-    // the Vue application to the form.
-    this._render(force, options).catch((err) => {
-      err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
-      console.error(err);
-      this._state = Application.RENDER_STATES.ERROR;
-    })
-    // Run Vue's render, assign it to our prop for tracking.
-    .then((rendered) => {
-      // @todo Determine why this is necessary to avoid warnings during
-      // actor/token migrations.
-      let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
-      if ($selector.length > 0) {
-        this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
-        // @todo Find a better solution than a timeout.
-        setTimeout(() => {
-          this.activateVueListeners($(this.form), false);
-        }, 200);
-      }
-    });
+		// If we don't have an active vueRoot, run Foundry's render and then mount
+		// the Vue application to the form.
+		this._render(force, options).catch((err) => {
+			err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
+			console.error(err);
+			this._state = Application.RENDER_STATES.ERROR;
+		})
+		// Run Vue's render, assign it to our prop for tracking.
+			.then((rendered) => {
+				// @todo Determine why this is necessary to avoid warnings during
+				// actor/token migrations.
+				let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
+				if ($selector.length > 0) {
+					this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
+					// @todo Find a better solution than a timeout.
+					setTimeout(() => {
+						this.activateVueListeners($(this.form), false);
+					}, 200);
+				}
+			});
 
-    // Store our app for later.
-    this.object.apps[this.appId] = this;
-    return this;
-  }
+		// Store our app for later.
+		this.object.apps[this.appId] = this;
+		return this;
+	}
 
-  /** @override */
-  async close(options={}) {
-    // Run the upstream close method.
-    const result = await super.close(options);
-    // Unmount and clean up the vue app on close.
-    this.vueApp.unmount();
-    this.vueApp = null;
-    this.vueRoot = null;
-    // Return the close response from earlier.
-    return result;
-  }
+	/** @override */
+	async close(options={}) {
+		// Run the upstream close method.
+		const result = await super.close(options);
+		// Unmount and clean up the vue app on close.
+		this.vueApp.unmount();
+		this.vueApp = null;
+		this.vueRoot = null;
+		// Return the close response from earlier.
+		return result;
+	}
 
-  /** @override */
-  async saveEditor(name, { remove=true, preventRender }={}) {
-    const editor = this.editors[name];
-    if (!editor || !editor.instance) throw new Error(`${name} is not an active editor name!`);
-    editor.active = false;
-    const instance = editor.instance;
-    const event = new Event("submit", { cancelable: true });
-    await this._onSubmit(event, { preventRender });
+	/** @override */
+	async saveEditor(name, { remove=true, preventRender }={}) {
+		const editor = this.editors[name];
+		if (!editor || !editor.instance) throw new Error(`${name} is not an active editor name!`);
+		editor.active = false;
+		const instance = editor.instance;
+		const event = new Event("submit", { cancelable: true });
+		await this._onSubmit(event, { preventRender });
 
-    if (remove) {
-      // Grab the .editor wrapper before destroying: ProseMirror restructures the
-      // DOM on activate (inserts menu-container + editor-container) and does NOT
-      // undo that on destroy. Foundry normally restores it via render(), but the
-      // Vue sheet's render() skips DOM recreation when vueRoot already exists.
-      const editorEl = editor.options.target?.closest(".editor");
+		if (remove) {
+			// Grab the .editor wrapper before destroying: ProseMirror restructures the
+			// DOM on activate (inserts menu-container + editor-container) and does NOT
+			// undo that on destroy. Foundry normally restores it via render(), but the
+			// Vue sheet's render() skips DOM recreation when vueRoot already exists.
+			const editorEl = editor.options.target?.closest(".editor");
 
-      instance.destroy();
-      editor.instance = editor.mce = null;
+			instance.destroy();
+			editor.instance = editor.mce = null;
 
-      if (editorEl) {
-        editorEl.classList.remove("prosemirror");
-        editorEl.innerHTML = "";
+			if (editorEl) {
+				editorEl.classList.remove("prosemirror");
+				editorEl.innerHTML = "";
 
-        if (editor.hasButton) {
-          const btn = document.createElement("a");
-          btn.className = "editor-edit";
-          btn.innerHTML = '<i class="fas fa-edit"></i>';
-          btn.onclick = () => {
-            // Rebuild plugins — ProseMirror plugin instances carry editor-view
-            // state and cannot be reused across activations.
-            editor.options.plugins = this._configureProseMirrorPlugins(name, { remove: true });
-            // Strip 'document' from editor.options before activation: the
-            // DocumentSheet.activateEditor override merges options.document
-            // (the actor) into editor.options via mergeObject, and on a second
-            // activation that causes mergeObject to try writing into the
-            // actor's read-only properties.
-            delete editor.options.document;
-            editor.initial = foundry.utils.getProperty(this.object, name);
-            this.activateEditor(name, {}, editor.initial);
-          };
-          editor.button = btn;
-          editorEl.appendChild(btn);
-        }
+				if (editor.hasButton) {
+					const btn = document.createElement("a");
+					btn.className = "editor-edit";
+					btn.innerHTML = '<i class="fas fa-edit"></i>';
+					btn.onclick = () => {
+						// Rebuild plugins — ProseMirror plugin instances carry editor-view
+						// state and cannot be reused across activations.
+						editor.options.plugins = this._configureProseMirrorPlugins(name, { remove: true });
+						// Strip 'document' from editor.options before activation: the
+						// DocumentSheet.activateEditor override merges options.document
+						// (the actor) into editor.options via mergeObject, and on a second
+						// activation that causes mergeObject to try writing into the
+						// actor's read-only properties.
+						delete editor.options.document;
+						editor.initial = foundry.utils.getProperty(this.object, name);
+						this.activateEditor(name, {}, editor.initial);
+					};
+					editor.button = btn;
+					editorEl.appendChild(btn);
+				}
 
-        const contentDiv = document.createElement("div");
-        contentDiv.className = "editor-content";
-        contentDiv.dataset.edit = name;
-        editor.options.target = contentDiv;
-        const rawContent = foundry.utils.getProperty(this.object, name) ?? "";
-        contentDiv.innerHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(rawContent, {
-          secrets: this.object.isOwner,
-          documents: true,
-          links: true,
-          rolls: true,
-          rollData: this.object.getRollData?.() ?? {}
-        });
-        editorEl.appendChild(contentDiv);
-      }
-    }
-    editor.changed = false;
-  }
+				const contentDiv = document.createElement("div");
+				contentDiv.className = "editor-content";
+				contentDiv.dataset.edit = name;
+				editor.options.target = contentDiv;
+				const rawContent = foundry.utils.getProperty(this.object, name) ?? "";
+				contentDiv.innerHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(rawContent, {
+					secrets: this.object.isOwner,
+					documents: true,
+					links: true,
+					rolls: true,
+					rollData: this.object.getRollData?.() ?? {}
+				});
+				editorEl.appendChild(contentDiv);
+			}
+		}
+		editor.changed = false;
+	}
 
-  // Update initial content throughout all editors.
-  _updateEditors(html) {
-    for (let [name, editor] of Object.entries(this.editors)) {
-      // const data = this.object instanceof Document ? this.object.data : this.object;
-      const data = this.object;
-      const initialContent = getProperty(data, name);
-      const div = $(this.form).find(`.editor-content[data-edit="${name}"]`)[0];
-      this.editors[name].initial = initialContent;
-      this.editors[name].options.target = div;
-    }
-  }
+	// Update initial content throughout all editors.
+	_updateEditors(html) {
+		for (let [name, editor] of Object.entries(this.editors)) {
+			// const data = this.object instanceof Document ? this.object.data : this.object;
+			const data = this.object;
+			const initialContent = getProperty(data, name);
+			const div = $(this.form).find(`.editor-content[data-edit="${name}"]`)[0];
+			this.editors[name].initial = initialContent;
+			this.editors[name].options.target = div;
+		}
+	}
 
-  /* ------------------------------------------------------------------------ */
-  /*  Event Listeners ------------------------------------------------------- */
-  /* ------------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------------ */
+	/*  Event Listeners ------------------------------------------------------- */
+	/* ------------------------------------------------------------------------ */
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-    ActorHelpersV2._activatePortraitArtContextMenu(this, html);
+	/** @override */
+	activateListeners(html) {
+		super.activateListeners(html);
+		ActorHelpersV2._activatePortraitArtContextMenu(this, html);
 
-    // Close the mobile menu if open.
-    html.on("click", (event) => {
-      const button = event?.target?.closest(".sheet-tabs-toggle") ?? event.target;
-      // Exit early if is the mobile menu button itself, that's handled in the component.
-      if (button?.classList?.contains("sheet-tabs-toggle")) return;
-      // Otherwise close the menu.
-      const parent = event?.target?.classList?.contains("archmage-v2-vue")
-        ? event.target
-        : event?.target?.closest(".archmage-v2-vue");
-      const mobileMenu = parent.querySelector(".tabs--mobile.active");
-      if (mobileMenu) {
-        mobileMenu.classList.remove("active");
-      }
-    });
+		// Close the mobile menu if open.
+		html.on("click", (event) => {
+			const button = event?.target?.closest(".sheet-tabs-toggle") ?? event.target;
+			// Exit early if is the mobile menu button itself, that's handled in the component.
+			if (button?.classList?.contains("sheet-tabs-toggle")) return;
+			// Otherwise close the menu.
+			const parent = event?.target?.classList?.contains("archmage-v2-vue")
+				? event.target
+				: event?.target?.closest(".archmage-v2-vue");
+			const mobileMenu = parent.querySelector(".tabs--mobile.active");
+			if (mobileMenu) {
+				mobileMenu.classList.remove("active");
+			}
+		});
 
-    if (!this.options.editable) return;
+		if (!this.options.editable) return;
 
-    // CRUD listeners.
-    html.on("click", ".item-create", (event) => this._createItem(event));
-    html.on("click", ".item-delete", (event) => this._deleteItem(event));
-    html.on("click", ".item-edit", (event) => this._editItem(event));
+		// CRUD listeners.
+		html.on("click", ".item-create", (event) => this._createItem(event));
+		html.on("click", ".item-delete", (event) => this._deleteItem(event));
+		html.on("click", ".item-edit", (event) => this._editItem(event));
 
-    // Effects.
-    html.on("click", ".effect-control", (event) => this._onManageEffect(event));
+		// Effects.
+		html.on("click", ".effect-control", (event) => this._onManageEffect(event));
 
-    // Support Image updates
-    if (this.options.editable) {
-      html.on("click", "img[data-edit]", (event) => {
-        // Handle Tokenizer integration since the delayed Vue render prevents it.
-        const tokenizer = game.modules.get("vtta-tokenizer")?.active ?? false;
-        let bypass = !!event.shiftKey;
-        if (tokenizer && !bypass) {
-          const doc = this.token ? this : this.document;
-          event.stopPropagation();
-          Tokenizer.tokenizeDoc(doc);
-          event.preventDefault();
-        }
-        // Otherwise, use the file picker.
-        else {
-          this._onEditImage(event);
-        }
-      });
-    }
+		// Support Image updates
+		if (this.options.editable) {
+			html.on("click", "img[data-edit]", (event) => {
+				// Handle Tokenizer integration since the delayed Vue render prevents it.
+				const tokenizer = game.modules.get("vtta-tokenizer")?.active ?? false;
+				let bypass = !!event.shiftKey;
+				if (tokenizer && !bypass) {
+					const doc = this.token ? this : this.document;
+					event.stopPropagation();
+					Tokenizer.tokenizeDoc(doc);
+					event.preventDefault();
+				}
+				// Otherwise, use the file picker.
+				else {
+					this._onEditImage(event);
+				}
+			});
+		}
 
-    // Roll listeners.
-    html.on("click", ".rollable", (event) => this._onRollable(event));
+		// Roll listeners.
+		html.on("click", ".rollable", (event) => this._onRollable(event));
 
-    // Other listeners.
-    html.on("click", ".item-import", (event) => this._importPowers(event));
-    html.on("click", '.death-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "deathFails"));
-    html.on("click", '.lastgasp-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "lastGaspFails"));
-    html.on("click", ".icon-roll", (event) => this._updateIconRoll(event));
-    html.on("click", ".rest", (event) => this._onRest(event));
+		// Other listeners.
+		html.on("click", ".item-import", (event) => this._importPowers(event));
+		html.on("click", '.death-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "deathFails"));
+		html.on("click", '.lastgasp-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "lastGaspFails"));
+		html.on("click", ".icon-roll", (event) => this._updateIconRoll(event));
+		html.on("click", ".rest", (event) => this._onRest(event));
 
-    // Item listeners.
-    html.on("click", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, true));
-    html.on("contextmenu", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, false));
-    html.on("click", ".power-uses-secondary", (event) => this._updateQuantity(event, true, true));
-    html.on("contextmenu", ".power-uses-secondary", (event) => this._updateQuantity(event, false, true));
-    html.on("click", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, true));
-    html.on("contextmenu", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, false));
-    html.on("click", ".feat-pip", (event) => this._updatePips(event));
-  }
+		// Item listeners.
+		html.on("click", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, true));
+		html.on("contextmenu", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, false));
+		html.on("click", ".power-uses-secondary", (event) => this._updateQuantity(event, true, true));
+		html.on("contextmenu", ".power-uses-secondary", (event) => this._updateQuantity(event, false, true));
+		html.on("click", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, true));
+		html.on("contextmenu", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, false));
+		html.on("click", ".feat-pip", (event) => this._updatePips(event));
+	}
 
-  /**
-   * Handle changing a Document's image.
-   * @param {MouseEvent} event  The click event.
-   * @returns {Promise}
-   * @override
-   */
-  _onEditImage(event) {
-    if (!this.isEditable) return false;
-    const attr = event.currentTarget.dataset.edit;
-    const current = foundry.utils.getProperty(this.object, attr);
-    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
-    const fp = new foundry.applications.apps.FilePicker.implementation({
-      current,
-      type: "image",
-      redirectToRoot: img ? [img] : [],
-      callback: (path) => {
-        event.currentTarget.src = path;
-        if (this.options.submitOnChange) return this.document.update({ [attr]: path });
-      },
-      top: this.position.top + 40,
-      left: this.position.left + 10
-    });
-    return fp.browse();
-  }
+	/**
+	 * Handle changing a Document's image.
+	 * @param {MouseEvent} event  The click event.
+	 * @returns {Promise}
+	 * @override
+	 */
+	_onEditImage(event) {
+		if (!this.isEditable) return false;
+		const attr = event.currentTarget.dataset.edit;
+		const current = foundry.utils.getProperty(this.object, attr);
+		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+		const fp = new foundry.applications.apps.FilePicker.implementation({
+			current,
+			type: "image",
+			redirectToRoot: img ? [img] : [],
+			callback: (path) => {
+				event.currentTarget.src = path;
+				if (this.options.submitOnChange) return this.document.update({ [attr]: path });
+			},
+			top: this.position.top + 40,
+			left: this.position.left + 10
+		});
+		return fp.browse();
+	}
 
-  /**
-   * Activate additional listeners on the rendered Vue app.
-   * @param {jQuery} html
-   * @param repeat
-   */
-  activateVueListeners(html, repeat = false) {
-    if (!this.options.editable) {
-      html.find("input,select,textarea").attr("disabled", true);
-      return;
-    }
+	/**
+	 * Activate additional listeners on the rendered Vue app.
+	 * @param {jQuery} html
+	 * @param repeat
+	 */
+	activateVueListeners(html, repeat = false) {
+		if (!this.options.editable) {
+			html.find("input,select,textarea").attr("disabled", true);
+			return;
+		}
 
-    if (html.find(".archmage-v2-vue").length > 0) {
-      this.vueListenersActive = true;
-    }
+		if (html.find(".archmage-v2-vue").length > 0) {
+			this.vueListenersActive = true;
+		}
 
-    this._dragHandler(html);
-    this._lockEffectsFields(html);
+		this._dragHandler(html);
+		this._lockEffectsFields(html);
 
-    // Place one-time executions after this line.
-    if (repeat) return;
+		// Place one-time executions after this line.
+		if (repeat) return;
 
-    html.find(".editor-content[data-edit]").each((i, div) => this._activateEditor(div));
+		html.find(".editor-content[data-edit]").each((i, div) => this._activateEditor(div));
 
-    // Input listeners.
-    let inputs = '.section input[type="text"], .section input[type="number"]';
-    html.on("focus", inputs, (event) => this._onFocus(event));
-  }
+		// Input listeners.
+		let inputs = '.section input[type="text"], .section input[type="number"]';
+		html.on("focus", inputs, (event) => this._onFocus(event));
+	}
 
-  /*
+	/*
    * Prevent Effects Editing
    */
-  _lockEffectsFields(html) {
-    // const context = this.getData();
-    // html.find('input[name]').each((i, el) => {
-    //   const name = el.name;
-    //   // @todo improve this
-    //   if (context.actor.lockedFields.includes(name)) {
-    //     el.readOnly = true;
-    //   }
-    //   else {
-    //     el.readonly = false;
-    //   }
-    // })
-  }
+	_lockEffectsFields(html) {
+		// const context = this.getData();
+		// html.find('input[name]').each((i, el) => {
+		//   const name = el.name;
+		//   // @todo improve this
+		//   if (context.actor.lockedFields.includes(name)) {
+		//     el.readOnly = true;
+		//   }
+		//   else {
+		//     el.readonly = false;
+		//   }
+		// })
+	}
 
-  /* ------------------------------------------------------------------------ */
-  /*  Create, Update, Delete------------------------------------------------- */
-  /* ------------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------------ */
+	/*  Create, Update, Delete------------------------------------------------- */
+	/* ------------------------------------------------------------------------ */
 
-  /**
-   * Create items on the actor, such as powers or magic items.
-   *
-   * @param {Event} event
-   *   Html event that triggered the method.
-   */
-  async _createItem(event) {
-    let target = event.currentTarget;
-    let dataset = foundry.utils.duplicate(target.dataset);
+	/**
+	 * Create items on the actor, such as powers or magic items.
+	 *
+	 * @param {Event} event
+	 *   Html event that triggered the method.
+	 */
+	async _createItem(event) {
+		let target = event.currentTarget;
+		let dataset = foundry.utils.duplicate(target.dataset);
 
-    // Grab the item type from the dataset and then remove it.
-    let itemType = dataset.itemType ?? "power";
-    delete dataset.itemType;
+		// Grab the item type from the dataset and then remove it.
+		let itemType = dataset.itemType ?? "power";
+		delete dataset.itemType;
 
-    // Handle the power group.
-    if (dataset?.groupType && dataset?.powerType) {
-      let groupType = dataset.groupType;
-      let model = game.data.model.Item[itemType];
-      if (model[groupType] && groupType !== "powerType") {
-        dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
-        delete dataset.powerType;
-      }
-      delete dataset.groupType;
-    }
+		// Handle the power group.
+		if (dataset?.groupType && dataset?.powerType) {
+			let groupType = dataset.groupType;
+			let model = game.data.model.Item[itemType];
+			if (model[groupType] && groupType !== "powerType") {
+				dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
+				delete dataset.powerType;
+			}
+			delete dataset.groupType;
+		}
 
-    // Default image.
-    let img = CONFIG.ARCHMAGE.defaultTokens[itemType] ?? CONFIG.DEFAULT_TOKEN;
+		// Default image.
+		let img = CONFIG.ARCHMAGE.defaultTokens[itemType] ?? CONFIG.DEFAULT_TOKEN;
 
-    // Initialize data.
-    let data = {};
-    if (typeof dataset == "object") {
-      for (let [k, v] of Object.entries(dataset)) {
-        data[k] = { value: v };
-      }
-    }
-    else {
-      data = dataset;
-    }
+		// Initialize data.
+		let data = {};
+		if (typeof dataset == "object") {
+			for (let [k, v] of Object.entries(dataset)) {
+				data[k] = { value: v };
+			}
+		}
+		else {
+			data = dataset;
+		}
 
-    // Create the item.
-    let itemData = {
-      name: game.archmage.ArchmageUtility.formatNewItemName(itemType),
-      type: itemType,
-      img: img,
-      system: data
-    };
-    await this.actor.createEmbeddedDocuments("Item", [itemData]);
-  }
+		// Create the item.
+		let itemData = {
+			name: game.archmage.ArchmageUtility.formatNewItemName(itemType),
+			type: itemType,
+			img: img,
+			system: data
+		};
+		await this.actor.createEmbeddedDocuments("Item", [itemData]);
+	}
 
-  /**
-   * Delete items from the actor.
-   *
-   * @param {Event} event
-   *   Html event that triggered the method.
-   */
-  async _deleteItem(event) {
-    let target = event.currentTarget;
-    let dataset = target.dataset;
+	/**
+	 * Delete items from the actor.
+	 *
+	 * @param {Event} event
+	 *   Html event that triggered the method.
+	 */
+	async _deleteItem(event) {
+		let target = event.currentTarget;
+		let dataset = target.dataset;
 
-    // Get the item ID, exit if not set.
-    let itemId = dataset.itemId;
-    if (!itemId) return;
+		// Get the item ID, exit if not set.
+		let itemId = dataset.itemId;
+		if (!itemId) return;
 
-    let bypass = !!event.shiftKey;
-    if (bypass) {
-      let item = this.actor.items.get(itemId);
-      item.delete();
-      return;
-    }
+		let bypass = !!event.shiftKey;
+		if (bypass) {
+			let item = this.actor.items.get(itemId);
+			item.delete();
+			return;
+		}
 
-    // Items this one brought along are deleted with it, so list them.
-    let content = game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm");
-    const progeny = (await this.actor.items.get(itemId)?.gatherChildren() ?? [])
-      .filter((child) => child.parent === this.actor);
-    if (progeny.length) {
-      const names = progeny.map((child) => `<li>${foundry.utils.escapeHTML(child.name)}</li>`).join("");
-      content += `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmChildren")}</p><ul>${names}</ul>`;
-    }
+		// Items this one brought along are deleted with it, so list them.
+		let content = game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm");
+		const progeny = (await this.actor.items.get(itemId)?.gatherChildren() ?? [])
+			.filter((child) => child.parent === this.actor);
+		if (progeny.length) {
+			const names = progeny.map((child) => `<li>${foundry.utils.escapeHTML(child.name)}</li>`).join("");
+			content += `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmChildren")}</p><ul>${names}</ul>`;
+		}
 
-    // Delete the item from the actor object. An item that includes others can
-    // also be deleted alone, which leaves what it included as ordinary items.
-    let del = false;
-    let withChildren = true;
-    const buttons = {
-      del: {
-        label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
-        callback: () => {
-del = true;
-}
-      }
-    };
-    if (progeny.length) {
-      buttons.delOnly = {
-        label: game.i18n.localize("ARCHMAGE.CHAT.DeleteOnlyThis"),
-        callback: () => {
-del = true; withChildren = false;
-}
-      };
-    }
-    buttons.cancel = {
-      label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-      callback: () => {}
-    };
-    new Dialog({
-      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
-      content: content,
-      buttons: buttons,
-      default: "cancel",
-      close: (html) => {
-        if (del) {
-          let item = this.actor.items.get(itemId);
-          item.delete(withChildren ? {} : { archmageChildren: false });
-        }
-      }
-    }).render(true);
-  }
+		// Delete the item from the actor object. An item that includes others can
+		// also be deleted alone, which leaves what it included as ordinary items.
+		let del = false;
+		let withChildren = true;
+		const buttons = {
+			del: {
+				label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+				callback: () => {
+					del = true;
+				}
+			}
+		};
+		if (progeny.length) {
+			buttons.delOnly = {
+				label: game.i18n.localize("ARCHMAGE.CHAT.DeleteOnlyThis"),
+				callback: () => {
+					del = true; withChildren = false;
+				}
+			};
+		}
+		buttons.cancel = {
+			label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+			callback: () => {}
+		};
+		new Dialog({
+			title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
+			content: content,
+			buttons: buttons,
+			default: "cancel",
+			close: (html) => {
+				if (del) {
+					let item = this.actor.items.get(itemId);
+					item.delete(withChildren ? {} : { archmageChildren: false });
+				}
+			}
+		}).render(true);
+	}
 
-  _editItem(event) {
-    let target = event.currentTarget;
-    let dataset = target.dataset;
+	_editItem(event) {
+		let target = event.currentTarget;
+		let dataset = target.dataset;
 
-    // Get the item ID, exit if not set.
-    let itemId = dataset.itemId;
-    if (!itemId) return;
+		// Get the item ID, exit if not set.
+		let itemId = dataset.itemId;
+		if (!itemId) return;
 
-    // Render the edit form.
-    const item = this.actor.items.get(itemId);
-    if (item) item.sheet.render(true);
-  }
+		// Render the edit form.
+		const item = this.actor.items.get(itemId);
+		if (item) item.sheet.render(true);
+	}
 
-  /* ------------------------------------------------------------------------ */
-  /*  Handle effects -------------------------------------------------------- */
-  /* ------------------------------------------------------------------------ */
-  _onManageEffect(event) {
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-    const effect = dataset.itemId ? this.actor.effects.get(dataset.itemId) : null;
+	/* ------------------------------------------------------------------------ */
+	/*  Handle effects -------------------------------------------------------- */
+	/* ------------------------------------------------------------------------ */
+	_onManageEffect(event) {
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+		const effect = dataset.itemId ? this.actor.effects.get(dataset.itemId) : null;
 
-    switch (dataset.action) {
-      case "create":
-        return this.actor.createEmbeddedDocuments("ActiveEffect", [{
-          name: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
-          img: "icons/svg/aura.svg",
-          origin: this.actor.uuid,
-          disabled: false
-        }]);
+		switch (dataset.action) {
+			case "create":
+				return this.actor.createEmbeddedDocuments("ActiveEffect", [{
+					name: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
+					img: "icons/svg/aura.svg",
+					origin: this.actor.uuid,
+					disabled: false
+				}]);
 
-      case "edit":
-        return effect.sheet.render(true);
+			case "edit":
+				return effect.sheet.render(true);
 
-      case "delete":
-        let del = false;
-        new Dialog({
-          title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
-          content: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
-          buttons: {
-            del: {
-              label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
-              callback: () => {
-del = true;
-}
-            },
-            cancel: {
-              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-              callback: () => {}
-            }
-          },
-          default: "cancel",
-          close: (html) => {
- if (del) return effect.delete();
-}
-        }).render(true);
-        break;
+			case "delete":
+				let del = false;
+				new Dialog({
+					title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
+					content: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+					buttons: {
+						del: {
+							label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+							callback: () => {
+								del = true;
+							}
+						},
+						cancel: {
+							label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+							callback: () => {}
+						}
+					},
+					default: "cancel",
+					close: (html) => {
+						if (del) return effect.delete();
+					}
+				}).render(true);
+				break;
 
-      case "toggle":
-        return effect.update({ disabled: !effect.disabled });
-    }
+			case "toggle":
+				return effect.update({ disabled: !effect.disabled });
+		}
 
-  }
+	}
 
-  /* ------------------------------------------------------------------------ */
-  /*  Handle rolls ---------------------------------------------------------- */
-  /* ------------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------------ */
+	/*  Handle rolls ---------------------------------------------------------- */
+	/* ------------------------------------------------------------------------ */
 
-  /**
-   * Handle rollable clicks.
-   * @param event
-   */
-  async _onRollable(event) {
-    event.preventDefault;
-    let target = event.currentTarget;
-    let dataset = target.dataset;
+	/**
+	 * Handle rollable clicks.
+	 * @param event
+	 */
+	async _onRollable(event) {
+		event.preventDefault;
+		let target = event.currentTarget;
+		let dataset = target.dataset;
 
-    // Get the roll type and roll options.
-    let type = dataset.rollType ?? null;
-    let opt = dataset.rollOpt ?? null;
-    let opt2 = dataset.rollOpt2 ?? null;
+		// Get the roll type and roll options.
+		let type = dataset.rollType ?? null;
+		let opt = dataset.rollOpt ?? null;
+		let opt2 = dataset.rollOpt2 ?? null;
 
-    if (type == "item" && opt) this._onItemRoll(opt);
-    else if (type == "recovery") this._onRecoveryRoll(event);
-    else if (type == "save") this._onSaveRoll(opt);
-    else if (type == "disengage") this._onDisengageRoll(opt);
-    else if (type == "init") this._onInitRoll();
-    else if (type == "ability") this._onAbilityRoll(opt);
-    else if (type == "background") this._onBackgroundRoll(opt);
-    else if (type == "icon") this._onIconRoll(opt);
-    else if (type == "command") this._onCommandRoll(opt);
-    else if (type == "recharge") this._onRechargeRoll(opt);
-    else if (type == "feat") this._onFeatRoll(opt, opt2);
-    else if (type == "reroll") this._onRerollRoll(opt);
+		if (type == "item" && opt) this._onItemRoll(opt);
+		else if (type == "recovery") this._onRecoveryRoll(event);
+		else if (type == "save") this._onSaveRoll(opt);
+		else if (type == "disengage") this._onDisengageRoll(opt);
+		else if (type == "init") this._onInitRoll();
+		else if (type == "ability") this._onAbilityRoll(opt);
+		else if (type == "background") this._onBackgroundRoll(opt);
+		else if (type == "icon") this._onIconRoll(opt);
+		else if (type == "command") this._onCommandRoll(opt);
+		else if (type == "recharge") this._onRechargeRoll(opt);
+		else if (type == "feat") this._onFeatRoll(opt, opt2);
+		else if (type == "reroll") this._onRerollRoll(opt);
 
-    // Fallback to a plain formula roll.
-    else if (opt) await this._onFormulaRoll(opt);
-  }
+		// Fallback to a plain formula roll.
+		else if (opt) await this._onFormulaRoll(opt);
+	}
 
-  /**
-   * Perform a basic roll and send it to chat.
-   *
-   * @param {string} formula
-   */
-  async _onFormulaRoll(formula) {
-    let roll = new Roll(formula, this.actor.getRollData());
-    await roll.roll();
-    roll.toMessage();
-  }
+	/**
+	 * Perform a basic roll and send it to chat.
+	 *
+	 * @param {string} formula
+	 */
+	async _onFormulaRoll(formula) {
+		let roll = new Roll(formula, this.actor.getRollData());
+		await roll.roll();
+		roll.toMessage();
+	}
 
-  /**
-   * Perform an owned item's roll.
-   *
-   * @param {string} id
-   */
-  _onItemRoll(id) {
-    let item = this.actor.items.get(id);
-    if (item) item.roll();
-  }
+	/**
+	 * Perform an owned item's roll.
+	 *
+	 * @param {string} id
+	 */
+	_onItemRoll(id) {
+		let item = this.actor.items.get(id);
+		if (item) item.roll();
+	}
 
-  /**
-   * Roll a recovery for the actor.
-   * @param event
-   */
-  async _onRecoveryRoll(event) {
-    this.actor.rollRecoveryDialog(event);
-  }
+	/**
+	 * Roll a recovery for the actor.
+	 * @param event
+	 */
+	async _onRecoveryRoll(event) {
+		this.actor.rollRecoveryDialog(event);
+	}
 
-  /**
-   * Roll a saving throw for the actor.
-   *
-   * @param {string} difficulty
-   *   The save type, such as 'easy', 'normal', 'hard', or 'death'.
-   */
-  async _onSaveRoll(difficulty) {
-    this.actor.rollSave(difficulty);
-  }
+	/**
+	 * Roll a saving throw for the actor.
+	 *
+	 * @param {string} difficulty
+	 *   The save type, such as 'easy', 'normal', 'hard', or 'death'.
+	 */
+	async _onSaveRoll(difficulty) {
+		this.actor.rollSave(difficulty);
+	}
 
-  /**
-   * Roll a disengage check for the actor.
-   *
-   * @param {string} difficulty
-   *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
-   */
-  async _onDisengageRoll() {
-    this.actor.rollDisengage();
-  }
+	/**
+	 * Roll a disengage check for the actor.
+	 *
+	 * @param {string} difficulty
+	 *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
+	 */
+	async _onDisengageRoll() {
+		this.actor.rollDisengage();
+	}
 
-  /**
-   * Roll initiative for the actor.
-   */
-  async _onInitRoll() {
-    let combat = game.combat;
-    // Check to see if this actor is already in the combat.
-    if (!combat) {
-      ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
-      return;
-    }
-    const combatant = combat.combatants.find((c) => c?.actor?._id == this.actor.id);
-    if (combatant && combatant?.initiative !== null) {
-      return;
-    }
+	/**
+	 * Roll initiative for the actor.
+	 */
+	async _onInitRoll() {
+		let combat = game.combat;
+		// Check to see if this actor is already in the combat.
+		if (!combat) {
+			ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
+			return;
+		}
+		const combatant = combat.combatants.find((c) => c?.actor?._id == this.actor.id);
+		if (combatant && combatant?.initiative !== null) {
+			return;
+		}
 
-    // Prompt the user for an optional bonus
-    let bonus = 0;
-    try {
-      bonus = await foundry.applications.api.DialogV2.prompt({
-        window: { title: "ARCHMAGE.initAdjustment" },
-        content: `
+		// Prompt the user for an optional bonus
+		let bonus = 0;
+		try {
+			bonus = await foundry.applications.api.DialogV2.prompt({
+				window: { title: "ARCHMAGE.initAdjustment" },
+				content: `
           <label for="bonus">${game.i18n.localize("ARCHMAGE.initBonus")}</label>
           <input name="bonus" type="number" step="1" default="0" placeholder="0" autofocus>`,
-        ok: {
-          label: "COMBAT.InitiativeRoll",
-          callback: (event, button, dialog) => button.form.elements.bonus.valueAsNumber
-        }
-      });
-    }
- catch(error) {
-      // dialog canceled
-      console.error(error);
-      return;
-    }
-
-    let formula = this.actor.getInitiativeFormula();
-    if (bonus) formula += ` + ${bonus ?? 0}`;
-
-    // Create the combatant if needed.
-    if (!combatant) {
-      await this.actor.rollInitiative({ createCombatants: true, initiativeOptions: { formula } });
-    }
-    // Otherwise, determine if the existing combatant should roll init.
-    else if (!combatant.initiative && combatant.initiative !== 0) {
-      await combat.rollInitiative([combatant.id], { formula });
-    }
-  }
-
-  /**
-   * Roll ability check for the actor.
-   * @param ability
-   */
-  _onAbilityRoll(ability) {
-    DiceArchmage.BackgroundRoll(this.actor, { defaultAbility: ability });
-  }
-
-  /**
-   * Roll background check for the actor.
-   * @param background
-   */
-   _onBackgroundRoll(background) {
-    DiceArchmage.BackgroundRoll(this.actor, { defaultBackground: background });
-  }
-
-  /**
-   * Roll an icon relationship for the actor.
-   *
-   * @param {string} iconIndex | Index, such as i1 or i2
-   * @returns object | Chat message
-   */
-  async _onIconRoll(iconIndex) {
-    const actorData = this.actor.system;
-    if (!actorData.icons[iconIndex]) {
-      return;
-    }
-
-    const icon = actorData.icons[iconIndex];
-    return new Dialog({
-      title: game.i18n.localize("ARCHMAGE.ICONROLLS.rolldialogtitle"),
-      content: `<p>${game.i18n.format("ARCHMAGE.ICONROLLS.rollDialogHint", { name: icon.name.value })}</p>`,
-      buttons: {
-        singleicon: {
-          label: game.i18n.format("ARCHMAGE.ICONROLLS.rollone", { name: icon.name.value }),
-          callback: () => {
-            this.rollAndDisplayIconDice([iconIndex]);
-          }
-        },
-        allicons: {
-          label: game.i18n.localize("ARCHMAGE.ICONROLLS.rollall"),
-          callback: () => {
-            this.rollAndDisplayIconDice(Object.keys(actorData.icons));
-          }
-        },
-        cancel: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => {}
-        }
-      },
-      default: "apply"
-    }).render(true);
-  }
-
-  async rollAndDisplayIconDice(iconIndexes) {
-    const actorData = this.actor.system;
-
-    const is2e = CONFIG.ARCHMAGE.is2e;
-    const is2eAlt = game.settings.get("archmage", "alternateIconRollingMethod");
-
-    // Gather the rolling inputs
-    const inputs = iconIndexes.map((iconIndex) => {
-      const icon = actorData.icons[iconIndex];
-
-      let numberOfDice = icon.bonus.value;
-      // If this is the 2e alt method, we only roll dice that haven't already been used
-      if (is2eAlt) {
-        const actorIconResults = actorData.icons?.[iconIndex]?.results || [];
-        const usedDice = actorIconResults.filter((x) => x > 0).length;
-        numberOfDice -= usedDice;
-      }
-
-      return { iconIndex, icon, numberOfDice };
-    }).filter((x) => x.numberOfDice > 0);
-
-    if (inputs.length === 0) {
-      ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
-      return;
-    }
-
-    // Roll the dice
-    const rollTerms = inputs.map((input) => `${input.numberOfDice}d6`);
-    const roll = await new Roll(`{${rollTerms.join(",")}}`).roll();
-
-    // Calculate the results and build up an actor-update object
-    const actorUpdate = {};
-    inputs.forEach((input, i) => {
-      const results = roll.terms[0].rolls[i].terms[0].results.map((x) => x.result);
-      input.results = results;
-
-      actorUpdate[`system.icons.${input.iconIndex}.results`] = [];
-      if (is2eAlt) {
-        // For 2e alt, we count 4, 5, and 6 as successes, and we do not replace the existing results
-        input.fives = 0;
-        input.sixes = results.filter((x) => [4, 5, 6].includes(x)).length;
-        actorUpdate[`system.icons.${input.iconIndex}.results`] = actorData.icons?.[input.iconIndex]?.results || [];
-      }
- else if (is2e) {
-        // For 2e standard, we count 5 and 6 as successes and reset all dice
-        input.fives = 0;
-        input.sixes = results.filter((x) => [5, 6].includes(x)).length;
-      }
- else {
-        // For 1e, we count 5 and 6 separately and reset all dice
-        input.fives = results.filter((x) => x === 5).length;
-        input.sixes = results.filter((x) => x === 6).length;
-      }
-
-      const replaceFirstZero = (arr, value) => {
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i] === 0) {
-            arr[i] = value;
-            return;
-          }
-        }
-        arr.push(value); // If no zero found, append the value
-      };
-      if (input.numberOfDice > 0) {
-        for (let i = 0; i < input.fives; i++) {
-          replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 5);
-        }
-        for (let i = 0; i < input.sixes; i++) {
-          replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 6);
-        }
-      }
-    });
-
-    // Update the actor
-    await this.actor.update(actorUpdate);
-
-    // Display the message
-    const template = `systems/archmage/templates/chat/icon-relationship-card.html`;
-    const token = this.actor.token;
-    const templateData = {
-      actor: this.actor,
-      tokenId: token ? `${token.id}` : null,
-      is2e,
-      is2eAlt,
-      inputs
-    };
-    const chatData = {
-      user: game.user.id,
-      roll: roll,  // TODO: fix template to use rolls prop
-      rolls: [roll],
-      speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
-      content: await foundry.applications.handlebars.renderTemplate(template, templateData)
-    };
-    await game.archmage.ArchmageUtility.createChatMessage(chatData);
-  }
-
-  /**
-   * Roll command points for an actor, and apply them.
-   *
-   * @param {string} dice
-   *   Dice formula to roll.
-   */
-  async _onCommandRoll(dice) {
-    let actor = this.actor;
-    let roll = new Roll(dice, this.actor.getRollData());
-    await roll.roll();
-
-    let pointsOld = actor.system.resources.perCombat.commandPoints.current;
-    let pointsNew = roll.total;
-
-    // Basic template rendering data
-    const template = `systems/archmage/templates/chat/command-card.html`;
-    const token = actor.token;
-
-    // Basic chat message data
-    const chatData = {
-      user: game.user.id,
-      roll: roll,  // TODO: fix template to use rolls prop
-      rolls: [roll],
-      speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
-    };
-
-    const templateData = {
-      actor: actor,
-      tokenId: token ? `${token.id}` : null,
-      data: chatData
-    };
-
-    // Render the template
-    chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
-
-    await game.archmage.ArchmageUtility.createChatMessage(chatData);
-
-    await actor.update({ "system.resources.perCombat.commandPoints.current": Number(pointsOld) + Number(pointsNew) });
-  }
-
-  async _onRechargeRoll(itemId) {
-    let item = this.actor.items.get(itemId);
-    if (item) await item.recharge();
-  }
-
-  async _onFeatRoll(itemId, featId) {
-    let item = this.actor.items.get(itemId);
-    if (item) item.rollFeat(featId);
-  }
-
-  async _onRerollRoll(kind) {
-    let res = this.actor.system.resources.spendable.rerolls[kind];
-    if (res.current <= 0) return;
-
-    // We have uses to spend, find source item
-    let prop = "";
-    switch (kind) {
-      case "AC":
-        prop = "rerollAc";
-        break;
-      case "save":
-        prop = "rerollSave";
-        break;
-    }
-    this.actor.items.forEach((item) => {
-      if (item.type === "equipment" && item.system.isActive && item.system.attributes[prop].current > 0) {
-        // Found source of the bonus, update it
-        let itemOverrideData = { _id: item.id };
-        itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
-        this.actor.updateEmbeddedDocuments("Item", [itemOverrideData]);
-      }
-    });
-
-    // Basic template rendering data
-    const template = `systems/archmage/templates/chat/reroll-card.html`;
-    const token = this.actor.token;
-
-    // Basic chat message data
-    const chatData = {
-      user: game.user.id,
-      speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
-      title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
-      desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
-    };
-
-    const templateData = {
-      actor: this.actor,
-      tokenId: token ? `${token.id}` : null,
-      data: chatData
-    };
-
-    // Render the template
-    chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
-
-    await game.archmage.ArchmageUtility.createChatMessage(chatData);
-
-  }
-
-  /* ------------------------------------------------------------------------ */
-  /*  Special Listeners ----------------------------------------------------- */
-  /* ------------------------------------------------------------------------ */
-  async _updateFails(event, saveType) {
-    event.preventDefault();
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-
-    if (dataset.opt) {
-      let count = Number(dataset.opt);
-      if (count == this.actor.system.attributes.saves[saveType].value) {
-        count = Math.max(0, count - 1);
-      }
-      let updateData = {};
-      let path = `system.attributes.saves.${saveType}.value`;
-      updateData[path] = count;
-      let update = await this.actor.update(updateData);
-    }
-  }
-
-  async _updateIconRoll(event) {
-    event.preventDefault();
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-
-    if (dataset.roll && dataset.key && dataset.rollKey) {
-      let iconIndex = dataset.key;
-      let resultIndex = dataset.rollKey;
-      let value = Number(dataset.roll);
-
-      // Increment the value.
-      value++;
-      if (value > 6) {
-        value = 0;
-      }
-      else if (value < 5) {
-        value = 5;
-      }
-      if (game.settings.get("archmage", "alternateIconRollingMethod") && value === 5) {
-        // Skip 5's, dice are either used or not
-        value = 6;
-      }
-
-      // Retrieve the original results array, replace this die result.
-      let results = this.actor.system.icons[iconIndex].results;
-      results[resultIndex] = value;
-
-      // Execute the update.
-      let updates = {};
-      updates[`system.icons.${iconIndex}.results`] = results;
-      await this.actor.update(updates);
-    }
-  }
-
-  /**
-   * Increase or decrease an item's remaining uses.
-   *
-   * @param {MouseEvent} event  The click (increase) or contextmenu (decrease) event.
-   * @param {boolean} increase  Whether to add or remove a use.
-   * @param {boolean} secondary  Target the power's secondary pool of uses
-   *   instead of the primary one.
-   */
-  async _updateQuantity(event, increase = true, secondary = false) {
-    event.preventDefault();
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-    let itemId = dataset.itemId;
-
-    if (!itemId) return;
-
-    let item = this.actor.items.get(itemId);
-    if (item) {
-      const quantityKey = secondary ? "quantitySecondary" : "quantity";
-      if (item.system?.[quantityKey]?.value == null) return;
-      // Update the quantity.
-      let newQuantity = Number(item.system[quantityKey].value) ?? 0;
-      newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
-
-      // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
-      let maxQuantity = await item.resolveMaxQuantity(secondary ? "maxQuantitySecondary" : "maxQuantity") ?? 99;
-
-      await item.update({ [`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity) }, {});
-    }
-  }
-
-  async _updateFeatQuantity(event, increase = true) {
-    event.preventDefault();
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-
-    let itemId = dataset.itemId;
-    if (!itemId) return;
-
-    let item = this.actor.items.get(itemId);
-    if (!item) return;
-
-    let featIndex = dataset.itemFeatkey;
-    let feat = item.system.feats[featIndex];
-    if (!feat) return;
-
-    // Update the quantity.
-    let newQuantity = Number(feat.quantity.value) ?? 0;
-    newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
-
-    // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
-    let maxQuantity = feat.maxQuantity.value ?? 99;
-
-    let updateData = {};
-    updateData[`system.feats.${featIndex}.quantity.value`] = increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity);
-
-    await item.update(updateData, {});
-  }
-
-  async _updatePips(event) {
-    event.preventDefault();
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-    let itemId = dataset.itemId;
-
-    if (!itemId) return;
-
-    let item = this.actor.items.get(itemId);
-    if (item) {
-      let updateData = {};
-
-      if (item.type == "power") {
-        let tier = dataset.tier ?? null;
-        if (!tier) return;
-        let isActive = item.system.feats[tier].isActive.value;
-        updateData[`system.feats.${tier}.isActive.value`] = !isActive;
-      }
-      else if (item.type == "equipment") {
-        let isActive = item.system.isActive;
-        updateData["system.isActive"] = !isActive;
-      }
-
-      await item.update(updateData, {});
-    }
-  }
-
-  /**
-   * Handle rests.
-   * @param event
-   */
-   _onRest(event) {
-    event.preventDefault;
-    let target = event.currentTarget;
-    let dataset = target.dataset;
-
-    // Get the roll type and roll options.
-    let type = dataset.restType ?? null;
-
-    // Exit if type is invalid;
-    if (type !== "quick" && type !== "full") return;
-
-    // Determine if we need to skip confirmation.
-    let bypass = !!event.shiftKey;
-    if (bypass) {
-      if (type == "quick") this.actor.restQuick();
-      else if (type == "full") this.actor.restFull();
-    }
-    // Otherwise, we need to make a dialog.
-    else {
-      let options = {
-        title: null,
-        confirmLabel: "ARCHMAGE.CHAT.Rest",
-        cancelLabel: "ARCHMAGE.CHAT.Cancel",
-        default: "rest"
-      };
-
-      if (type == "quick") {
-        options.title = "ARCHMAGE.CHAT.QuickRest";
-        options.content = "ARCHMAGE.CHAT.QuickRestBody";
-      }
-      else if (type == "full") {
-        options.title = "ARCHMAGE.CHAT.FullHeal";
-        options.content = "ARCHMAGE.CHAT.FullHealBody";
-      }
-
-      // Render the rest dialog.
-      let doRest = false;
-      new Dialog({
-        title: game.i18n.localize(options.title),
-        content: game.i18n.localize(options.content),
-        buttons: {
-          rest: {
-            label: game.i18n.localize(options.confirmLabel),
-            callback: () => {
-doRest = true;
-}
-          },
-          cancel: {
-            label: game.i18n.localize(options.cancelLabel),
-            callback: () => {}
-          }
-        },
-        default: "rest",
-        close: (html) => {
-          if (doRest) {
-            if (type == "quick") this.actor.restQuick();
-            else if (type == "full") this.actor.restFull();
-          }
-        }
-      }).render(true);
-    }
-  }
-
-  /**
-   * Apply drag events to items (powers and equipment).
-   * @param {jQuery} html
-   */
-  _dragHandler(html) {
-    // Vue owns the rows inside this form and recreates them whenever the
-    // context is refreshed, so per-element listeners would only cover the rows
-    // that happened to exist the one time this ran. Delegate from the form
-    // instead so rows added later (new powers, new equipment) are draggable.
-    const form = html instanceof jQuery ? html[0] : html;
-    if (!form || form.dataset.archmageDragBound === "true") return;
-    form.dataset.archmageDragBound = "true";
-    form.addEventListener("dragstart", (event) => {
-      if (!event.target.closest('.item[data-draggable="true"]')) return;
-      this._onDragStart(event);
-    }, false);
-  }
-
-  /**
-   * Callback actions which occur at the beginning of a drag start workflow.
-   * @param {DragEvent} event       The originating DragEvent
-   * @protected
-   */
-  _onDragStart(event) {
-    // Resolve the row being dragged. This is delegated from the form, so
-    // event.currentTarget is not the row itself.
-    const li = event.target.closest?.('.item[data-draggable="true"]') ?? event.currentTarget;
-    if (!li) return;
-    if (event.target.dataset && "link" in event.target.dataset) return;
-
-    let dragData = null;
-
-    // Active Effect
-    if (li.dataset.documentClass === "ActiveEffect") {
-      if (li.dataset.effectId) {
-        const effect = this.actor.effects.get(li.dataset.effectId);
-        dragData = effect.toDragData();
-      }
-    }
-    // Treat a row that carries an item id as an Item even if the markup forgot
-    // to declare the document class - without drag data the drop is a silent
-    // no-op, which is a very confusing way for a missing attribute to fail.
-    else if (li.dataset.itemId) {
-      const item = this.actor.items.get(li.dataset.itemId);
-      if (item) dragData = item.toDragData();
-    }
-
-    if (!dragData) return;
-
-    // Set data transfer
-    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
-  }
-
-  /**
-   * Sort items on drop.
-   *
-   * Overrides ActorSheet._onSortItem(). Core resolves the drop target with
-   * `event.target.closest('[data-item-id]')`, which is unsafe here: several
-   * elements *inside* an item row also carry `data-item-id` (the name link, the
-   * uses/quantity counter, the feat pips, the edit and delete controls). When
-   * the cursor was over any of those, core resolved the drop target to that
-   * inner element and then scanned `dropTarget.parentElement.children` for
-   * siblings, collecting the row's own inner divs instead of the neighbouring
-   * rows. The resulting sort value was computed against a bogus sibling list,
-   * which is why drops appeared to do nothing, land in the wrong place, or
-   * shuffle unrelated items.
-   *
-   * @param {DragEvent} event   The drop event.
-   * @param {object} itemData   Dropped item data.
-   * @protected
-   */
-  _onSortItem(event, itemData) {
-    const items = this.actor.items;
-    const source = items.get(itemData._id);
-    if (!source) return;
-
-    // Always resolve the drop target to the item row, never a descendant.
-    const dropTarget = event.target.closest(".item[data-item-id]");
-    if (!dropTarget) return;
-    const target = items.get(dropTarget.dataset.itemId);
-    if (!target || source.id === target.id) return;
-
-    // Work out whether the drop crossed into another group. The rendered lists
-    // are the groups, so ask the destination list whether it holds the source
-    // row rather than trying to re-derive the grouping from item data. Scoping
-    // the lookup to that list also keeps it correct for items that appear in
-    // more than one list (a power with a trigger shows up on both tabs).
-    const crossGroup = !dropTarget.parentElement
-      .querySelector(`:scope > .item[data-item-id="${source.id}"]`);
-    const groupBy = this.actor.flags?.archmage?.sheetDisplay?.powers?.groupBy?.value ?? "powerType";
-
-    // A drop into another group is only meaningful for custom power groups,
-    // where the group is free text stored on the power. Under the built-in
-    // groupings the group is derived from the power's own data, so the row would
-    // snap straight back to where it started with a new and meaningless sort
-    // value - which read as "nothing moved". Ignore those drops instead.
-    const regroup = crossGroup && source.type === "power" && target.type === "power" && groupBy === "group";
-    if (crossGroup && !regroup) return;
-
-    // Identify sibling rows from the list the drop target lives in, skipping
-    // anything that isn't itself an item row.
-    const siblings = [];
-    for (const el of dropTarget.parentElement.children) {
-      if (!el.matches(".item[data-item-id]")) continue;
-      const siblingId = el.dataset.itemId;
-      if (!siblingId || siblingId === source.id) continue;
-      const sibling = items.get(siblingId);
-      if (sibling) siblings.push(sibling);
-    }
-
-    // Drop into the half of the row the cursor is actually over so the item
-    // lands where it was released, rather than always above the target. Measure
-    // against the summary line rather than the whole row: an expanded row is
-    // mostly detail content, which would push the midpoint far off screen.
-    const rect = (dropTarget.firstElementChild ?? dropTarget).getBoundingClientRect();
-    const sortBefore = (event.clientY - rect.top) < (rect.height / 2);
-
-    // Perform the sort.
-    const sortUpdates = SortingHelpers.performIntegerSort(source, { target, siblings, sortBefore });
-    const updateData = sortUpdates.map((u) => {
-      const update = u.update;
-      update._id = u.target._id;
-      return update;
-    });
-
-    // Adopt the destination group. The target row already lives there, so its
-    // own group value is the label to copy.
-    if (regroup) {
-      const sourceUpdate = updateData.find((u) => u._id === source.id);
-      if (sourceUpdate) sourceUpdate["system.group.value"] = target.system.group?.value ?? "";
-    }
-
-    return this.actor.updateEmbeddedDocuments("Item", updateData);
-  }
-
-  /** @override */
-  async _onDropActiveEffect(event, data) {
-    // Run core's effect operations.
-    await super._onDropActiveEffect(event, data);
-
-    // Handle item sorting within the same Actor
-    const effect = await ActiveEffect.implementation.fromDropData(data);
-    const effectData = effect.toObject();
-    if (this.actor.uuid === effect.parent?.uuid) return this._onSortEffect(event, effectData);
-  }
-
-  /**
-   * Sort effects on drop. Adapted from ActorSheet._onSortItem().
-   * @param {Event} event
-   * @param {object} effectData
-   * @private
-   */
-  _onSortEffect(event, effectData) {
-
-    // Get the drag source and drop target
-    const effects = this.actor.effects;
-    const source = effects.get(effectData._id);
-    const dropTarget = event.target.closest("[data-effect-id]");
-    if (!dropTarget) return;
-    const target = effects.get(dropTarget.dataset.effectId);
-
-    // Don't sort on yourself
-    if (source.id === target.id) return;
-
-    // Identify sibling effects based on adjacent HTML elements
-    const siblings = [];
-    for (let el of dropTarget.parentElement.children) {
-      const siblingId = el.dataset.effectId;
-      if (siblingId && (siblingId !== source.id)) siblings.push(effects.get(el.dataset.effectId));
-    }
-
-    // Perform the sort
-    const sortUpdates = SortingHelpers.performIntegerSort(source, { target, siblings });
-    const updateData = sortUpdates.map((u) => {
-      const update = u.update;
-      update._id = u.target._id;
-      return update;
-    });
-
-    // Perform the update
-    return this.actor.updateEmbeddedDocuments("ActiveEffect", updateData);
-  }
-
-  _onFocus(event) {
-    let target = event.currentTarget;
-    setTimeout(function () {
-      if (target == document.activeElement) {
-        $(target).trigger("select");
-      }
-    }, 100);
-  }
-
-  /* ------------------------------------------------------------------------ */
-  /*  Import Powers --------------------------------------------------------- */
-  /* ------------------------------------------------------------------------ */
-  async _importPowers(event) {
-    const characterRace = this.actor.system.details.race.value;
-    const characterClasses = this.actor.system.details.detectedClasses ?? [];
-    const prepop = new ArchmagePrepopulate();
-    const importData = await prepop.getImportData(characterClasses, characterRace, this.actor);
-    if (!importData?.packs?.length) {
-      return;
-    }
-    new ArchmagePowerImporterApplication({ actor: this.actor, importData: importData }).render(true);
-  }
+				ok: {
+					label: "COMBAT.InitiativeRoll",
+					callback: (event, button, dialog) => button.form.elements.bonus.valueAsNumber
+				}
+			});
+		}
+		catch(error) {
+			// dialog canceled
+			console.error(error);
+			return;
+		}
+
+		let formula = this.actor.getInitiativeFormula();
+		if (bonus) formula += ` + ${bonus ?? 0}`;
+
+		// Create the combatant if needed.
+		if (!combatant) {
+			await this.actor.rollInitiative({ createCombatants: true, initiativeOptions: { formula } });
+		}
+		// Otherwise, determine if the existing combatant should roll init.
+		else if (!combatant.initiative && combatant.initiative !== 0) {
+			await combat.rollInitiative([combatant.id], { formula });
+		}
+	}
+
+	/**
+	 * Roll ability check for the actor.
+	 * @param ability
+	 */
+	_onAbilityRoll(ability) {
+		DiceArchmage.BackgroundRoll(this.actor, { defaultAbility: ability });
+	}
+
+	/**
+	 * Roll background check for the actor.
+	 * @param background
+	 */
+	_onBackgroundRoll(background) {
+		DiceArchmage.BackgroundRoll(this.actor, { defaultBackground: background });
+	}
+
+	/**
+	 * Roll an icon relationship for the actor.
+	 *
+	 * @param {string} iconIndex | Index, such as i1 or i2
+	 * @returns object | Chat message
+	 */
+	async _onIconRoll(iconIndex) {
+		const actorData = this.actor.system;
+		if (!actorData.icons[iconIndex]) {
+			return;
+		}
+
+		const icon = actorData.icons[iconIndex];
+		return new Dialog({
+			title: game.i18n.localize("ARCHMAGE.ICONROLLS.rolldialogtitle"),
+			content: `<p>${game.i18n.format("ARCHMAGE.ICONROLLS.rollDialogHint", { name: icon.name.value })}</p>`,
+			buttons: {
+				singleicon: {
+					label: game.i18n.format("ARCHMAGE.ICONROLLS.rollone", { name: icon.name.value }),
+					callback: () => {
+						this.rollAndDisplayIconDice([iconIndex]);
+					}
+				},
+				allicons: {
+					label: game.i18n.localize("ARCHMAGE.ICONROLLS.rollall"),
+					callback: () => {
+						this.rollAndDisplayIconDice(Object.keys(actorData.icons));
+					}
+				},
+				cancel: {
+					label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+					callback: () => {}
+				}
+			},
+			default: "apply"
+		}).render(true);
+	}
+
+	async rollAndDisplayIconDice(iconIndexes) {
+		const actorData = this.actor.system;
+
+		const is2e = CONFIG.ARCHMAGE.is2e;
+		const is2eAlt = game.settings.get("archmage", "alternateIconRollingMethod");
+
+		// Gather the rolling inputs
+		const inputs = iconIndexes.map((iconIndex) => {
+			const icon = actorData.icons[iconIndex];
+
+			let numberOfDice = icon.bonus.value;
+			// If this is the 2e alt method, we only roll dice that haven't already been used
+			if (is2eAlt) {
+				const actorIconResults = actorData.icons?.[iconIndex]?.results || [];
+				const usedDice = actorIconResults.filter((x) => x > 0).length;
+				numberOfDice -= usedDice;
+			}
+
+			return { iconIndex, icon, numberOfDice };
+		}).filter((x) => x.numberOfDice > 0);
+
+		if (inputs.length === 0) {
+			ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
+			return;
+		}
+
+		// Roll the dice
+		const rollTerms = inputs.map((input) => `${input.numberOfDice}d6`);
+		const roll = await new Roll(`{${rollTerms.join(",")}}`).roll();
+
+		// Calculate the results and build up an actor-update object
+		const actorUpdate = {};
+		inputs.forEach((input, i) => {
+			const results = roll.terms[0].rolls[i].terms[0].results.map((x) => x.result);
+			input.results = results;
+
+			actorUpdate[`system.icons.${input.iconIndex}.results`] = [];
+			if (is2eAlt) {
+				// For 2e alt, we count 4, 5, and 6 as successes, and we do not replace the existing results
+				input.fives = 0;
+				input.sixes = results.filter((x) => [4, 5, 6].includes(x)).length;
+				actorUpdate[`system.icons.${input.iconIndex}.results`] = actorData.icons?.[input.iconIndex]?.results || [];
+			}
+			else if (is2e) {
+				// For 2e standard, we count 5 and 6 as successes and reset all dice
+				input.fives = 0;
+				input.sixes = results.filter((x) => [5, 6].includes(x)).length;
+			}
+			else {
+				// For 1e, we count 5 and 6 separately and reset all dice
+				input.fives = results.filter((x) => x === 5).length;
+				input.sixes = results.filter((x) => x === 6).length;
+			}
+
+			const replaceFirstZero = (arr, value) => {
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i] === 0) {
+						arr[i] = value;
+						return;
+					}
+				}
+				arr.push(value); // If no zero found, append the value
+			};
+			if (input.numberOfDice > 0) {
+				for (let i = 0; i < input.fives; i++) {
+					replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 5);
+				}
+				for (let i = 0; i < input.sixes; i++) {
+					replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 6);
+				}
+			}
+		});
+
+		// Update the actor
+		await this.actor.update(actorUpdate);
+
+		// Display the message
+		const template = `systems/archmage/templates/chat/icon-relationship-card.html`;
+		const token = this.actor.token;
+		const templateData = {
+			actor: this.actor,
+			tokenId: token ? `${token.id}` : null,
+			is2e,
+			is2eAlt,
+			inputs
+		};
+		const chatData = {
+			user: game.user.id,
+			roll: roll,  // TODO: fix template to use rolls prop
+			rolls: [roll],
+			speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
+			content: await foundry.applications.handlebars.renderTemplate(template, templateData)
+		};
+		await game.archmage.ArchmageUtility.createChatMessage(chatData);
+	}
+
+	/**
+	 * Roll command points for an actor, and apply them.
+	 *
+	 * @param {string} dice
+	 *   Dice formula to roll.
+	 */
+	async _onCommandRoll(dice) {
+		let actor = this.actor;
+		let roll = new Roll(dice, this.actor.getRollData());
+		await roll.roll();
+
+		let pointsOld = actor.system.resources.perCombat.commandPoints.current;
+		let pointsNew = roll.total;
+
+		// Basic template rendering data
+		const template = `systems/archmage/templates/chat/command-card.html`;
+		const token = actor.token;
+
+		// Basic chat message data
+		const chatData = {
+			user: game.user.id,
+			roll: roll,  // TODO: fix template to use rolls prop
+			rolls: [roll],
+			speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
+		};
+
+		const templateData = {
+			actor: actor,
+			tokenId: token ? `${token.id}` : null,
+			data: chatData
+		};
+
+		// Render the template
+		chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
+
+		await game.archmage.ArchmageUtility.createChatMessage(chatData);
+
+		await actor.update({ "system.resources.perCombat.commandPoints.current": Number(pointsOld) + Number(pointsNew) });
+	}
+
+	async _onRechargeRoll(itemId) {
+		let item = this.actor.items.get(itemId);
+		if (item) await item.recharge();
+	}
+
+	async _onFeatRoll(itemId, featId) {
+		let item = this.actor.items.get(itemId);
+		if (item) item.rollFeat(featId);
+	}
+
+	async _onRerollRoll(kind) {
+		let res = this.actor.system.resources.spendable.rerolls[kind];
+		if (res.current <= 0) return;
+
+		// We have uses to spend, find source item
+		let prop = "";
+		switch (kind) {
+			case "AC":
+				prop = "rerollAc";
+				break;
+			case "save":
+				prop = "rerollSave";
+				break;
+		}
+		this.actor.items.forEach((item) => {
+			if (item.type === "equipment" && item.system.isActive && item.system.attributes[prop].current > 0) {
+				// Found source of the bonus, update it
+				let itemOverrideData = { _id: item.id };
+				itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
+				this.actor.updateEmbeddedDocuments("Item", [itemOverrideData]);
+			}
+		});
+
+		// Basic template rendering data
+		const template = `systems/archmage/templates/chat/reroll-card.html`;
+		const token = this.actor.token;
+
+		// Basic chat message data
+		const chatData = {
+			user: game.user.id,
+			speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
+			title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
+			desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
+		};
+
+		const templateData = {
+			actor: this.actor,
+			tokenId: token ? `${token.id}` : null,
+			data: chatData
+		};
+
+		// Render the template
+		chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
+
+		await game.archmage.ArchmageUtility.createChatMessage(chatData);
+
+	}
+
+	/* ------------------------------------------------------------------------ */
+	/*  Special Listeners ----------------------------------------------------- */
+	/* ------------------------------------------------------------------------ */
+	async _updateFails(event, saveType) {
+		event.preventDefault();
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+
+		if (dataset.opt) {
+			let count = Number(dataset.opt);
+			if (count == this.actor.system.attributes.saves[saveType].value) {
+				count = Math.max(0, count - 1);
+			}
+			let updateData = {};
+			let path = `system.attributes.saves.${saveType}.value`;
+			updateData[path] = count;
+			let update = await this.actor.update(updateData);
+		}
+	}
+
+	async _updateIconRoll(event) {
+		event.preventDefault();
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+
+		if (dataset.roll && dataset.key && dataset.rollKey) {
+			let iconIndex = dataset.key;
+			let resultIndex = dataset.rollKey;
+			let value = Number(dataset.roll);
+
+			// Increment the value.
+			value++;
+			if (value > 6) {
+				value = 0;
+			}
+			else if (value < 5) {
+				value = 5;
+			}
+			if (game.settings.get("archmage", "alternateIconRollingMethod") && value === 5) {
+				// Skip 5's, dice are either used or not
+				value = 6;
+			}
+
+			// Retrieve the original results array, replace this die result.
+			let results = this.actor.system.icons[iconIndex].results;
+			results[resultIndex] = value;
+
+			// Execute the update.
+			let updates = {};
+			updates[`system.icons.${iconIndex}.results`] = results;
+			await this.actor.update(updates);
+		}
+	}
+
+	/**
+	 * Increase or decrease an item's remaining uses.
+	 *
+	 * @param {MouseEvent} event  The click (increase) or contextmenu (decrease) event.
+	 * @param {boolean} increase  Whether to add or remove a use.
+	 * @param {boolean} secondary  Target the power's secondary pool of uses
+	 *   instead of the primary one.
+	 */
+	async _updateQuantity(event, increase = true, secondary = false) {
+		event.preventDefault();
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+		let itemId = dataset.itemId;
+
+		if (!itemId) return;
+
+		let item = this.actor.items.get(itemId);
+		if (item) {
+			const quantityKey = secondary ? "quantitySecondary" : "quantity";
+			if (item.system?.[quantityKey]?.value == null) return;
+			// Update the quantity.
+			let newQuantity = Number(item.system[quantityKey].value) ?? 0;
+			newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
+
+			// TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
+			let maxQuantity = await item.resolveMaxQuantity(secondary ? "maxQuantitySecondary" : "maxQuantity") ?? 99;
+
+			await item.update({ [`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity) }, {});
+		}
+	}
+
+	async _updateFeatQuantity(event, increase = true) {
+		event.preventDefault();
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+
+		let itemId = dataset.itemId;
+		if (!itemId) return;
+
+		let item = this.actor.items.get(itemId);
+		if (!item) return;
+
+		let featIndex = dataset.itemFeatkey;
+		let feat = item.system.feats[featIndex];
+		if (!feat) return;
+
+		// Update the quantity.
+		let newQuantity = Number(feat.quantity.value) ?? 0;
+		newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
+
+		// TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
+		let maxQuantity = feat.maxQuantity.value ?? 99;
+
+		let updateData = {};
+		updateData[`system.feats.${featIndex}.quantity.value`] = increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity);
+
+		await item.update(updateData, {});
+	}
+
+	async _updatePips(event) {
+		event.preventDefault();
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+		let itemId = dataset.itemId;
+
+		if (!itemId) return;
+
+		let item = this.actor.items.get(itemId);
+		if (item) {
+			let updateData = {};
+
+			if (item.type == "power") {
+				let tier = dataset.tier ?? null;
+				if (!tier) return;
+				let isActive = item.system.feats[tier].isActive.value;
+				updateData[`system.feats.${tier}.isActive.value`] = !isActive;
+			}
+			else if (item.type == "equipment") {
+				let isActive = item.system.isActive;
+				updateData["system.isActive"] = !isActive;
+			}
+
+			await item.update(updateData, {});
+		}
+	}
+
+	/**
+	 * Handle rests.
+	 * @param event
+	 */
+	_onRest(event) {
+		event.preventDefault;
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+
+		// Get the roll type and roll options.
+		let type = dataset.restType ?? null;
+
+		// Exit if type is invalid;
+		if (type !== "quick" && type !== "full") return;
+
+		// Determine if we need to skip confirmation.
+		let bypass = !!event.shiftKey;
+		if (bypass) {
+			if (type == "quick") this.actor.restQuick();
+			else if (type == "full") this.actor.restFull();
+		}
+		// Otherwise, we need to make a dialog.
+		else {
+			let options = {
+				title: null,
+				confirmLabel: "ARCHMAGE.CHAT.Rest",
+				cancelLabel: "ARCHMAGE.CHAT.Cancel",
+				default: "rest"
+			};
+
+			if (type == "quick") {
+				options.title = "ARCHMAGE.CHAT.QuickRest";
+				options.content = "ARCHMAGE.CHAT.QuickRestBody";
+			}
+			else if (type == "full") {
+				options.title = "ARCHMAGE.CHAT.FullHeal";
+				options.content = "ARCHMAGE.CHAT.FullHealBody";
+			}
+
+			// Render the rest dialog.
+			let doRest = false;
+			new Dialog({
+				title: game.i18n.localize(options.title),
+				content: game.i18n.localize(options.content),
+				buttons: {
+					rest: {
+						label: game.i18n.localize(options.confirmLabel),
+						callback: () => {
+							doRest = true;
+						}
+					},
+					cancel: {
+						label: game.i18n.localize(options.cancelLabel),
+						callback: () => {}
+					}
+				},
+				default: "rest",
+				close: (html) => {
+					if (doRest) {
+						if (type == "quick") this.actor.restQuick();
+						else if (type == "full") this.actor.restFull();
+					}
+				}
+			}).render(true);
+		}
+	}
+
+	/**
+	 * Apply drag events to items (powers and equipment).
+	 * @param {jQuery} html
+	 */
+	_dragHandler(html) {
+		// Vue owns the rows inside this form and recreates them whenever the
+		// context is refreshed, so per-element listeners would only cover the rows
+		// that happened to exist the one time this ran. Delegate from the form
+		// instead so rows added later (new powers, new equipment) are draggable.
+		const form = html instanceof jQuery ? html[0] : html;
+		if (!form || form.dataset.archmageDragBound === "true") return;
+		form.dataset.archmageDragBound = "true";
+		form.addEventListener("dragstart", (event) => {
+			if (!event.target.closest('.item[data-draggable="true"]')) return;
+			this._onDragStart(event);
+		}, false);
+	}
+
+	/**
+	 * Callback actions which occur at the beginning of a drag start workflow.
+	 * @param {DragEvent} event       The originating DragEvent
+	 * @protected
+	 */
+	_onDragStart(event) {
+		// Resolve the row being dragged. This is delegated from the form, so
+		// event.currentTarget is not the row itself.
+		const li = event.target.closest?.('.item[data-draggable="true"]') ?? event.currentTarget;
+		if (!li) return;
+		if (event.target.dataset && "link" in event.target.dataset) return;
+
+		let dragData = null;
+
+		// Active Effect
+		if (li.dataset.documentClass === "ActiveEffect") {
+			if (li.dataset.effectId) {
+				const effect = this.actor.effects.get(li.dataset.effectId);
+				dragData = effect.toDragData();
+			}
+		}
+		// Treat a row that carries an item id as an Item even if the markup forgot
+		// to declare the document class - without drag data the drop is a silent
+		// no-op, which is a very confusing way for a missing attribute to fail.
+		else if (li.dataset.itemId) {
+			const item = this.actor.items.get(li.dataset.itemId);
+			if (item) dragData = item.toDragData();
+		}
+
+		if (!dragData) return;
+
+		// Set data transfer
+		event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+	}
+
+	/**
+	 * Sort items on drop.
+	 *
+	 * Overrides ActorSheet._onSortItem(). Core resolves the drop target with
+	 * `event.target.closest('[data-item-id]')`, which is unsafe here: several
+	 * elements *inside* an item row also carry `data-item-id` (the name link, the
+	 * uses/quantity counter, the feat pips, the edit and delete controls). When
+	 * the cursor was over any of those, core resolved the drop target to that
+	 * inner element and then scanned `dropTarget.parentElement.children` for
+	 * siblings, collecting the row's own inner divs instead of the neighbouring
+	 * rows. The resulting sort value was computed against a bogus sibling list,
+	 * which is why drops appeared to do nothing, land in the wrong place, or
+	 * shuffle unrelated items.
+	 *
+	 * @param {DragEvent} event   The drop event.
+	 * @param {object} itemData   Dropped item data.
+	 * @protected
+	 */
+	_onSortItem(event, itemData) {
+		const items = this.actor.items;
+		const source = items.get(itemData._id);
+		if (!source) return;
+
+		// Always resolve the drop target to the item row, never a descendant.
+		const dropTarget = event.target.closest(".item[data-item-id]");
+		if (!dropTarget) return;
+		const target = items.get(dropTarget.dataset.itemId);
+		if (!target || source.id === target.id) return;
+
+		// Work out whether the drop crossed into another group. The rendered lists
+		// are the groups, so ask the destination list whether it holds the source
+		// row rather than trying to re-derive the grouping from item data. Scoping
+		// the lookup to that list also keeps it correct for items that appear in
+		// more than one list (a power with a trigger shows up on both tabs).
+		const crossGroup = !dropTarget.parentElement
+			.querySelector(`:scope > .item[data-item-id="${source.id}"]`);
+		const groupBy = this.actor.flags?.archmage?.sheetDisplay?.powers?.groupBy?.value ?? "powerType";
+
+		// A drop into another group is only meaningful for custom power groups,
+		// where the group is free text stored on the power. Under the built-in
+		// groupings the group is derived from the power's own data, so the row would
+		// snap straight back to where it started with a new and meaningless sort
+		// value - which read as "nothing moved". Ignore those drops instead.
+		const regroup = crossGroup && source.type === "power" && target.type === "power" && groupBy === "group";
+		if (crossGroup && !regroup) return;
+
+		// Identify sibling rows from the list the drop target lives in, skipping
+		// anything that isn't itself an item row.
+		const siblings = [];
+		for (const el of dropTarget.parentElement.children) {
+			if (!el.matches(".item[data-item-id]")) continue;
+			const siblingId = el.dataset.itemId;
+			if (!siblingId || siblingId === source.id) continue;
+			const sibling = items.get(siblingId);
+			if (sibling) siblings.push(sibling);
+		}
+
+		// Drop into the half of the row the cursor is actually over so the item
+		// lands where it was released, rather than always above the target. Measure
+		// against the summary line rather than the whole row: an expanded row is
+		// mostly detail content, which would push the midpoint far off screen.
+		const rect = (dropTarget.firstElementChild ?? dropTarget).getBoundingClientRect();
+		const sortBefore = (event.clientY - rect.top) < (rect.height / 2);
+
+		// Perform the sort.
+		const sortUpdates = SortingHelpers.performIntegerSort(source, { target, siblings, sortBefore });
+		const updateData = sortUpdates.map((u) => {
+			const update = u.update;
+			update._id = u.target._id;
+			return update;
+		});
+
+		// Adopt the destination group. The target row already lives there, so its
+		// own group value is the label to copy.
+		if (regroup) {
+			const sourceUpdate = updateData.find((u) => u._id === source.id);
+			if (sourceUpdate) sourceUpdate["system.group.value"] = target.system.group?.value ?? "";
+		}
+
+		return this.actor.updateEmbeddedDocuments("Item", updateData);
+	}
+
+	/** @override */
+	async _onDropActiveEffect(event, data) {
+		// Run core's effect operations.
+		await super._onDropActiveEffect(event, data);
+
+		// Handle item sorting within the same Actor
+		const effect = await ActiveEffect.implementation.fromDropData(data);
+		const effectData = effect.toObject();
+		if (this.actor.uuid === effect.parent?.uuid) return this._onSortEffect(event, effectData);
+	}
+
+	/**
+	 * Sort effects on drop. Adapted from ActorSheet._onSortItem().
+	 * @param {Event} event
+	 * @param {object} effectData
+	 * @private
+	 */
+	_onSortEffect(event, effectData) {
+
+		// Get the drag source and drop target
+		const effects = this.actor.effects;
+		const source = effects.get(effectData._id);
+		const dropTarget = event.target.closest("[data-effect-id]");
+		if (!dropTarget) return;
+		const target = effects.get(dropTarget.dataset.effectId);
+
+		// Don't sort on yourself
+		if (source.id === target.id) return;
+
+		// Identify sibling effects based on adjacent HTML elements
+		const siblings = [];
+		for (let el of dropTarget.parentElement.children) {
+			const siblingId = el.dataset.effectId;
+			if (siblingId && (siblingId !== source.id)) siblings.push(effects.get(el.dataset.effectId));
+		}
+
+		// Perform the sort
+		const sortUpdates = SortingHelpers.performIntegerSort(source, { target, siblings });
+		const updateData = sortUpdates.map((u) => {
+			const update = u.update;
+			update._id = u.target._id;
+			return update;
+		});
+
+		// Perform the update
+		return this.actor.updateEmbeddedDocuments("ActiveEffect", updateData);
+	}
+
+	_onFocus(event) {
+		let target = event.currentTarget;
+		setTimeout(function () {
+			if (target == document.activeElement) {
+				$(target).trigger("select");
+			}
+		}, 100);
+	}
+
+	/* ------------------------------------------------------------------------ */
+	/*  Import Powers --------------------------------------------------------- */
+	/* ------------------------------------------------------------------------ */
+	async _importPowers(event) {
+		const characterRace = this.actor.system.details.race.value;
+		const characterClasses = this.actor.system.details.detectedClasses ?? [];
+		const prepop = new ArchmagePrepopulate();
+		const importData = await prepop.getImportData(characterClasses, characterRace, this.actor);
+		if (!importData?.packs?.length) {
+			return;
+		}
+		new ArchmagePowerImporterApplication({ actor: this.actor, importData: importData }).render(true);
+	}
 }
