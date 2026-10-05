@@ -1,8 +1,10 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 
 /**
+ * Mix Vue rendering into a Foundry ApplicationV2 class.
  *
- * @param BaseApplication
+ * @param {typeof ApplicationV2} BaseApplication The application class to extend
+ * @returns {typeof ApplicationV2} The extended application class
  */
 export default function VueRenderingMixin(BaseApplication) {
 
@@ -46,6 +48,7 @@ export default function VueRenderingMixin(BaseApplication) {
 		 *   'document-sheet': DocumentSheet,
 		 *   'foobar': Foobar,
 		 * }
+		 * @returns {object} Component tags mapped to component instances
 		 */
 		get vueComponents() {
 			const components = {};
@@ -67,6 +70,7 @@ export default function VueRenderingMixin(BaseApplication) {
 		 *   '<document-sheet :context="context">Failed to render</document-sheet>',
 		 *   '<foobar :context="context"/>'
 		 * ]
+		 * @returns {string[]} Template strings for each Vue part
 		 */
 		get vueTemplates() {
 			return Object.values(this.vueParts).map((part) => part.template);

@@ -3,7 +3,8 @@ import { VUE_DEPS } from "./constants.mjs";
 import { copyFileWithReplace, globFiles, log, resolveFromRoot } from "./utils.mjs";
 
 /**
- *
+ * Copy the Vue browser builds from node_modules into src/scripts/lib.
+ * @returns {Promise<void>}
  */
 export async function copyVueDependencies() {
 	const files = await globFiles(VUE_DEPS);

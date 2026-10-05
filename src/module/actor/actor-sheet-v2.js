@@ -275,7 +275,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	// Update initial content throughout all editors.
 	_updateEditors(html) {
-		for (let [name, editor] of Object.entries(this.editors)) {
+		for (let name of Object.keys(this.editors)) {
 			// const data = this.object instanceof Document ? this.object.data : this.object;
 			const data = this.object;
 			const initialContent = getProperty(data, name);
@@ -386,7 +386,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	/**
 	 * Activate additional listeners on the rendered Vue app.
 	 * @param {jQuery} html
-	 * @param repeat
+	 * @param {boolean} repeat If true, skip the one-time listener bindings
 	 */
 	activateVueListeners(html, repeat = false) {
 		if (!this.options.editable) {
@@ -618,10 +618,10 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Handle rollable clicks.
-	 * @param event
+	 * @param {Event} event The originating click event
 	 */
 	async _onRollable(event) {
-		event.preventDefault;
+		event.preventDefault();
 		let target = event.currentTarget;
 		let dataset = target.dataset;
 
@@ -670,7 +670,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Roll a recovery for the actor.
-	 * @param event
+	 * @param {Event} event The originating click event
 	 */
 	async _onRecoveryRoll(event) {
 		this.actor.rollRecoveryDialog(event);
@@ -688,9 +688,6 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Roll a disengage check for the actor.
-	 *
-	 * @param {string} difficulty
-	 *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
 	 */
 	async _onDisengageRoll() {
 		this.actor.rollDisengage();
@@ -746,7 +743,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Roll ability check for the actor.
-	 * @param ability
+	 * @param {string} ability The ability key to use by default
 	 */
 	_onAbilityRoll(ability) {
 		DiceArchmage.BackgroundRoll(this.actor, { defaultAbility: ability });
@@ -754,7 +751,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Roll background check for the actor.
-	 * @param background
+	 * @param {string} background The background to use by default
 	 */
 	_onBackgroundRoll(background) {
 		DiceArchmage.BackgroundRoll(this.actor, { defaultBackground: background });
@@ -764,7 +761,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	 * Roll an icon relationship for the actor.
 	 *
 	 * @param {string} iconIndex | Index, such as i1 or i2
-	 * @returns object | Chat message
+	 * @returns {Promise<Dialog|undefined>} The rendered roll dialog
 	 */
 	async _onIconRoll(iconIndex) {
 		const actorData = this.actor.system;
@@ -1008,7 +1005,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 			let updateData = {};
 			let path = `system.attributes.saves.${saveType}.value`;
 			updateData[path] = count;
-			let update = await this.actor.update(updateData);
+			await this.actor.update(updateData);
 		}
 	}
 
@@ -1134,10 +1131,10 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Handle rests.
-	 * @param event
+	 * @param {Event} event The originating click event
 	 */
 	_onRest(event) {
-		event.preventDefault;
+		event.preventDefault();
 		let target = event.currentTarget;
 		let dataset = target.dataset;
 
@@ -1268,6 +1265,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	 *
 	 * @param {DragEvent} event   The drop event.
 	 * @param {object} itemData   Dropped item data.
+	 * @returns {Promise<Item[]>|undefined} The updated items, if any were re-sorted
 	 * @protected
 	 */
 	_onSortItem(event, itemData) {
@@ -1349,6 +1347,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	 * Sort effects on drop. Adapted from ActorSheet._onSortItem().
 	 * @param {Event} event
 	 * @param {object} effectData
+	 * @returns {Promise<ActiveEffect[]>|undefined} The updated effects, if any were re-sorted
 	 * @private
 	 */
 	_onSortEffect(event, effectData) {

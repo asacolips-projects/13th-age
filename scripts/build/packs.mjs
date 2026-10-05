@@ -4,7 +4,8 @@ import { PACK_DEST, PACK_SRC } from "./constants.mjs";
 import { getFvttCommand, log, spawnCommand } from "./utils.mjs";
 
 /**
- *
+ * Delete the compiled compendium packs in dist/packs.
+ * @returns {Promise<void>}
  */
 export async function cleanPacks() {
 	if (fs.existsSync(PACK_DEST)) {
@@ -14,7 +15,8 @@ export async function cleanPacks() {
 }
 
 /**
- *
+ * Compile each YAML pack folder in src/packs/src into a LevelDB pack in dist/packs.
+ * @returns {Promise<void>}
  */
 export async function compilePacks() {
 	const folders = fs.readdirSync(PACK_SRC).filter((entry) => {
@@ -41,7 +43,8 @@ export async function compilePacks() {
 }
 
 /**
- *
+ * Extract each compiled pack in dist/packs back to YAML in src/packs/src.
+ * @returns {Promise<void>}
  */
 export async function extractPacks() {
 	const entries = fs.readdirSync(PACK_DEST);

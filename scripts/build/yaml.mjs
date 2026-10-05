@@ -5,7 +5,8 @@ import { SYSTEM_YAML } from "./constants.mjs";
 import { ensureDir, globFiles, log, resolveFromRoot } from "./utils.mjs";
 
 /**
- *
+ * Convert YAML files under src (excluding packs) to JSON in dist.
+ * @returns {Promise<void>}
  */
 export async function compileYaml() {
 	const files = await globFiles(SYSTEM_YAML);

@@ -4,8 +4,6 @@ import { wrapRolls } from "./_item-sheet-helpers.mjs";
 import VueRenderingMixin from "./_vue-application-mixin.mjs";
 import { ArchmageActionSheetVue } from "../../vue/components.vue.es.js";
 
-const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
-
 export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
 	vueParts = {
 		"archmage-action-sheet-vue": {
@@ -49,7 +47,6 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
 				}
 			]
 		},
-		actions: {},
 		tag: "form",
 		form: {
 			submitOnChange: true,
@@ -131,7 +128,7 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
 		}
 
 		// Make another pass through the editors to fix the element contents.
-		for (let [field, editor] of Object.entries(context.editors)) {
+		for (let field of Object.keys(context.editors)) {
 			if (context.editors[field].element) {
 				context.editors[field].element.innerHTML = context.editors[field].enriched;
 			}

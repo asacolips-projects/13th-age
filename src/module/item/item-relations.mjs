@@ -77,7 +77,9 @@ export async function gatherChildren(item, seen = new Set([item.uuid])) {
 export function findParents(item) {
 	const actor = item.parent;
 	if (actor?.documentName !== "Actor") return [];
-	return actor.items.filter((parent) => (parent.system.children ?? []).some((uuid) => embeddedItemId(uuid) === item.id));
+	return actor.items.filter(
+		(parent) => (parent.system.children ?? []).some((uuid) => embeddedItemId(uuid) === item.id)
+	);
 }
 
 /**

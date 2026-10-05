@@ -92,13 +92,17 @@ export class ContextMenu2 {
 
 	async _animateOpen(menu) {
 		menu.hide();
-		return new Promise((resolve) => menu.slideDown(200, resolve));
+		return new Promise((resolve) => {
+			menu.slideDown(200, resolve);
+		});
 	}
 
 	/* -------------------------------------------- */
 
 	async _animateClose(menu) {
-		return new Promise((resolve) => menu.slideUp(200, resolve));
+		return new Promise((resolve) => {
+			menu.slideUp(200, resolve);
+		});
 	}
 
 	/* -------------------------------------------- */
@@ -107,7 +111,8 @@ export class ContextMenu2 {
 	 * Render the Context Menu by iterating over the menuItems it contains
 	 * Check the visibility of each menu item, and only render ones which are allowed by the item's logical condition
 	 * Attach a click handler to each item which is rendered
-	 * @param target
+	 * @param {jQuery} target The element the menu is opened for
+	 * @returns {Promise<void>|void} Resolves when the open animation completes; nothing if there are no items
 	 */
 	render(target) {
 		let html = $("#context-menu2").length ? $("#context-menu2") : $('<nav id="context-menu2" data-mod="1"></nav>');
@@ -176,8 +181,8 @@ export class ContextMenu2 {
 
 	/**
 	 * Set the position of the context menu, taking into consideration whether the menu should expand upward or downward
-	 * @param html
-	 * @param target
+	 * @param {jQuery} html The context menu element
+	 * @param {jQuery} target The element the menu is opened for
 	 * @private
 	 */
 	_setPosition(html, target) {

@@ -50,7 +50,7 @@ export class ArchmageUtility {
 		// Our own inline rolls are handled separately,
 		// so we only wait for roll messages or if default DSN inline rolls are used.
 		if ((!chatData.rolls || chatData.rolls.length == 0)
-        && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
+			&& !game.settings.get("dice-so-nice", "animateInlineRoll")) {
 			return await ChatMessage.create(chatData, context);
 		}
 
@@ -72,8 +72,8 @@ export class ArchmageUtility {
 		}
 		var hide = chatData?.whisper?.length ? chatData.whisper : null;
 		if (hide && game.user.isGM
-        && game.settings.get("archmage", "showPrivateGMAttackRolls")
-        && game.settings.get("core", "messageMode") === "gmroll") {
+			&& game.settings.get("archmage", "showPrivateGMAttackRolls")
+			&& game.settings.get("core", "messageMode") === "gmroll") {
 			hide = null;
 		}
 		else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
@@ -198,7 +198,7 @@ export class ArchmageUtility {
 
 				// Handle size.
 				let size = "";
-				for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureSizes)) {
+				for (let key of Object.keys(CONFIG.ARCHMAGE.creatureSizes)) {
 					size += size == "" ? key : `|${key}`;
 				}
 				let sizeRegex = new RegExp(size);
@@ -219,7 +219,7 @@ export class ArchmageUtility {
 				}
 				// Handle role.
 				let role = "";
-				for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureRoles)) {
+				for (let key of Object.keys(CONFIG.ARCHMAGE.creatureRoles)) {
 					role += role == "" ? key : `|${key}`;
 				}
 				let roleRegex = new RegExp(role);
@@ -229,7 +229,7 @@ export class ArchmageUtility {
 				}
 				// Handle type.
 				let type = "";
-				for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureTypes)) {
+				for (let key of Object.keys(CONFIG.ARCHMAGE.creatureTypes)) {
 					type += type == "" ? key : `|${key}`;
 				}
 				let typeRegex = new RegExp(type);
@@ -503,6 +503,7 @@ export class ArchmageUtility {
 	 * tooltip('attributes', 'charisma', {itemData: data})
 	 *   As above, but the given format data is inserted for each separate key.
 	 * @param {...any} keys
+	 * @returns {string|undefined} Tooltip HTML, or undefined if sheet tooltips are disabled.
 	 */
 	static tooltip(...keys) {
 		if (!game.settings.get("archmage", "sheetTooltips")) {
@@ -583,7 +584,7 @@ export class ArchmageUtility {
 		// Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
 		// "Natural __16__" and "Easy Save, __6__". It's messy, but it
 		// prevents false positives in later steps.
-		parsedText = parsedText.replace(/([^\dd\+\-])(\d+)(\+)/g, (match, prefix, number, suffix) => {
+		parsedText = parsedText.replace(/([^\dd+-])(\d+)(\+)/g, (match, prefix, number, suffix) => {
 			// We can ignore the suffix, as we just want to make sure it exists and can
 			// reconstruct it later since we know it's a "+" sign.
 			return `${prefix}__${number}__`;
@@ -638,7 +639,7 @@ export class ArchmageUtility {
 		 * This will still have some funky aspects to it, like outputing "[[d20+9]] vs AC ( [[3]] attacks)".
 		 * To get around that, we'll have another pass later that tries to clean up unexpected spaces.
 		 */
-		parsedText = parsedText.replace(/((?:Natural\s*\d+\+*)*)([\+\-]*)((?:\s*(?:(?:d*\d+(?!\d*_))|@[a-z\.]+)[x\s\+\-]*)+(?!\d*th|\d*nd|\d*rd|\d*st))((?:\s*vs)*)/gi, (
+		parsedText = parsedText.replace(/((?:Natural\s*\d+\+*)*)([+-]*)((?:\s*(?:(?:d*\d+(?!\d*_))|@[a-z.]+)[x\s+-]*)+(?!\d*th|\d*nd|\d*rd|\d*st))((?:\s*vs)*)/gi, (
 			match,
 			naturalTrigger,
 			startingOperator,
@@ -650,8 +651,8 @@ export class ArchmageUtility {
 			return `${naturalTrigger} [[${vs ? d20 : ""}${startingOperator}${diceFormula.trim()}]] ${vs}`;
 		});
 		// Fix multiplication.
-		parsedText = parsedText.replace(/(\[\[)([^\[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
-			return `${prefix}${formula.replace(/x(?:(?![a-z\.]))/gi, " * ")}${suffix}`;
+		parsedText = parsedText.replace(/(\[\[)([^[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
+			return `${prefix}${formula.replace(/x(?:(?![a-z.]))/gi, " * ")}${suffix}`;
 		});
 		// Do a pass to restore save numbers from the "__{n}__" format.
 		parsedText = parsedText.replace(/(__)(\d+)(__)/g, (match, prefix, number, suffix) => {
@@ -679,9 +680,10 @@ export class ArchmageUtility {
 export class MacroUtils {
 	/**
 	 * Generate durations for active effects
-	 * @param data
-	 * @param duration
-	 * @param options
+	 * @param {object} data Active effect data to modify.
+	 * @param {string} duration Duration type key or its CONFIG.ARCHMAGE.effectDurationTypes value.
+	 * @param {object} options Extra options: sourceTurnUuid, round and showIcon.
+	 * @returns {object} The modified effect data.
 	 */
 	static setDuration(data, duration, options={}) {
 		// Assign by level to avoid weird issues with str path accessor
@@ -754,8 +756,9 @@ export class MacroUtils {
 
 	/**
 	 * Select all feats of a specific tier
-	 * @param item
-	 * @param tier
+	 * @param {Item} item Item whose feats to filter.
+	 * @param {string} tier Feat tier to select.
+	 * @returns {object[]} Matching feats.
 	 */
 	static getFeatsByTier(item, tier) {
 		let res = [];
@@ -769,7 +772,8 @@ export class MacroUtils {
 	/**
 	 * Select all allies - approximated by all linked actors in combat
 	 * If selfUuid is set it excludes the specified actor, otherwise it includes all linked tokens
-	 * @param selfUuid
+	 * @param {string} selfUuid UUID of the actor to exclude.
+	 * @returns {TokenDocument[]} Allied tokens.
 	 */
 	static getAllies(selfUuid="") {
 		let res = [];
@@ -778,7 +782,8 @@ export class MacroUtils {
 		combatants.forEach((c) => {
 			// Pseudo combatants have no token.
 			if (!c.token) return;
-			if ((c.token.isLinked || c.token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY) && c.token.actor.uuid != selfUuid) {
+			if ((c.token.isLinked || c.token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY)
+				&& c.token.actor.uuid != selfUuid) {
 				res.push(c.token);
 			}
 		});
@@ -788,8 +793,8 @@ export class MacroUtils {
 	/**
 	 * Create one or more AEs on a set of tokens - via a message to the GM's account to bypass
 	 * persmissions if needed.
-	 * @param tokens
-	 * @param effects
+	 * @param {TokenDocument[]} tokens Tokens whose actors receive the effects.
+	 * @param {object[]} effects Active effect data to create.
 	 */
 	static applyActiveEffectsToTokens(tokens, effects) {
 		if (!game.user.isGM) {
@@ -811,8 +816,10 @@ export class MacroUtils {
 	 * behind it - to a combat, via a message to the GM's account to bypass permissions
 	 * if needed. The entry is removed automatically at the end of the round it was
 	 * created in.
-	 * @param data
-	 * @param combat
+	 * @param {object} data Combatant data.
+	 * @param {Combat} combat Combat to add the entry to.
+	 * @returns {boolean|Promise<Combatant[]|false>} False if there is no combat; otherwise true when
+	 *   sent to the GM, or the creation promise when run by the GM.
 	 */
 	static addPseudoCombatant(data, combat = game.combat) {
 		if (!combat) return false;
@@ -827,8 +834,9 @@ export class MacroUtils {
 
 	/**
 	 * GM-side half of addPseudoCombatant(), actually creating the combatant.
-	 * @param combatId
-	 * @param data
+	 * @param {string} combatId ID of the combat to add the entry to.
+	 * @param {object} data Combatant data.
+	 * @returns {Promise<Combatant[]|false>} The created combatants, or false if the combat wasn't found.
 	 */
 	static async createPseudoCombatant(combatId, data) {
 		const combat = game.combats.get(combatId);
@@ -846,7 +854,8 @@ export class MacroUtils {
 	/**
 	 * Check whether a token is currently displaying a macro-provided appearance,
 	 * ie. whether transformToken() was used on it and restoreToken() wasn't.
-	 * @param token
+	 * @param {Token|TokenDocument} token Token to check.
+	 * @returns {boolean}
 	 */
 	static isTokenTransformed(token) {
 		const doc = token?.document ?? token;
@@ -856,9 +865,10 @@ export class MacroUtils {
 	/**
 	 * Swap a token's artwork and scale, remembering what was there before so that
 	 * restoreToken() can put it back.
-	 * @param token
-	 * @param src
-	 * @param scale
+	 * @param {Token|TokenDocument} token Token to transform.
+	 * @param {string} src Path to the new token artwork.
+	 * @param {number} scale New token scale.
+	 * @returns {Promise<boolean>} Whether the token was updated.
 	 */
 	static async transformToken(token, src, scale=1) {
 		const doc = token?.document ?? token;
@@ -882,7 +892,8 @@ export class MacroUtils {
 	 * Put back the appearance stored by transformToken(). Falls back to the
 	 * actor's prototype token for tokens transformed by other means, which is
 	 * only meaningful for linked tokens.
-	 * @param token
+	 * @param {Token|TokenDocument} token Token to restore.
+	 * @returns {Promise<boolean>} Whether the token was updated.
 	 */
 	static async restoreToken(token) {
 		const doc = token?.document ?? token;
@@ -908,7 +919,8 @@ export class MacroUtils {
 
 	/**
 	 * Scale dice up one size
-	 * @param expr
+	 * @param {string} expr Dice expression, such as 'd8'.
+	 * @returns {string} The next dice size, or expr unchanged if not recognised.
 	 */
 	static scaleDiceUp(expr) {
 		switch (expr) {

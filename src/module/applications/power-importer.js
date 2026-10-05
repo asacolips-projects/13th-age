@@ -9,7 +9,6 @@ import { ArchmagePrepopulate } from "../setup/archmage-prepopulate.js";
  * Renders compendium powers with the same components the character sheet uses,
  * so that what a player picks here looks like what they end up with.
  *
- * @export
  * @class ArchmagePowerImporterApplication
  * @extends {Application}
  */
@@ -83,6 +82,7 @@ export class ArchmagePowerImporterApplication extends Application {
 	 * ticked child of an unticked power is imported on its own.
 	 *
 	 * @param {string[]} keys Keys of the rows to import.
+	 * @returns {Promise<void>} Resolves once the importer has closed.
 	 */
 	async _onImport(keys) {
 		if (keys.length && this.actor) {

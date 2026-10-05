@@ -553,7 +553,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 			}
 		}
 
-		// Trigger a form submit.
-		await this.submit();
+		// Trigger a form submit, if the parser changed anything.
+		if (hasChanges) await this.submit();
 	}
 }

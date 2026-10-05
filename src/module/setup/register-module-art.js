@@ -110,27 +110,25 @@ async function getArtMap(art) {
  */
 function isModuleArt(record) {
 	return (
-	// If this is an object...
+		// If this is an object...
 		isObject(record)
-    // Iterate over the array and test each entry. We then repeat this general
-    // structure for each layer of the object props, and our final test is whether
-    // the art object has an `actor` string, a `token` string, and either no scale,
-    // or a scale that's numeric.
-    && Object.values(record).every(
-    	(packToArt) =>
-    		isObject(packToArt)
-        && Object.values(packToArt).every(
-        	(art) =>
-        		isObject(art)
-            && typeof art.actor === "string"
-            && (typeof art.token === "string"
-              || (isObject(art.token)
-                && typeof art.token.img === "string"
-                && (art.token.scale === undefined || typeof art.token.scale === "number")
-              )
-            ) // typeof art.token === "string"
-        ) // Object.values(packToArt).every
-    ) // Object.values(record).every
+		// Iterate over the array and test each entry. We then repeat this general
+		// structure for each layer of the object props, and our final test is whether
+		// the art object has an `actor` string, a `token` string, and either no scale,
+		// or a scale that's numeric.
+		&& Object.values(record).every(
+			(packToArt) => isObject(packToArt)
+				&& Object.values(packToArt).every(
+					(art) => isObject(art)
+						&& typeof art.actor === "string"
+						&& (typeof art.token === "string"
+							|| (isObject(art.token)
+								&& typeof art.token.img === "string"
+								&& (art.token.scale === undefined || typeof art.token.scale === "number")
+							)
+						) // typeof art.token === "string"
+				) // Object.values(packToArt).every
+		) // Object.values(record).every
 	);
 }
 

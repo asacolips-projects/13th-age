@@ -37,7 +37,7 @@ export default class FlexibleAttacks {
 	static flexiblesFor(actor, kind) {
 		return actor.items
 			.filter((item) => item.system?.powerType?.value === "flexible"
-        && FlexibleAttacks.allowsKind(item.system?.range?.value, kind))
+				&& FlexibleAttacks.allowsKind(item.system?.range?.value, kind))
 			.sort((a, b) => a.name.localeCompare(b.name));
 	}
 
@@ -80,10 +80,10 @@ export default class FlexibleAttacks {
 			// DamageApplicator.rerollDice from evaluating it again.
 			const classes = spent ? "flexible-attack-row trigger-inactive trigger-fixed" : "flexible-attack-row";
 			return `<div class="card-prop ${classes}">${label}`
-        + `<a class="flexible-attack-use" data-item-id="${esc(item.id)}"><img src="${esc(item.img)}" width="18" height="18"/> ${esc(item.name)}</a>${note}</div>`;
+				+ `<a class="flexible-attack-use" data-item-id="${esc(item.id)}"><img src="${esc(item.img)}" width="18" height="18"/> ${esc(item.name)}</a>${note}</div>`;
 		});
 		const heading = `<strong>${esc(game.i18n.localize("ARCHMAGE.CHAT.flexibleAttackHeading"))}</strong> `
-      + `(<a class="flexible-attack-toggle">${esc(game.i18n.localize("ARCHMAGE.CHAT.flexibleAttackShowAll"))}</a>)`;
+			+ `(<a class="flexible-attack-toggle">${esc(game.i18n.localize("ARCHMAGE.CHAT.flexibleAttackShowAll"))}</a>)`;
 		const $group = $(`<div class="flexible-attacks">${heading}${rows.join("")}</div>`);
 
 		// The card was evaluated before these rows existed: mark them as preCreateChatMessageHandler.handle would.

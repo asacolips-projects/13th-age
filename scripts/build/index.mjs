@@ -26,8 +26,9 @@ const TASKS = {
 };
 
 /**
- *
- * @param argv
+ * Parse command-line arguments.
+ * @param {string[]} argv   Arguments, excluding the node executable and script path.
+ * @returns {{prod: boolean, task: string|null}}   Parsed options.
  */
 function parseArgs(argv) {
 	const options = { prod: false, task: null };
@@ -41,9 +42,10 @@ function parseArgs(argv) {
 }
 
 /**
- *
- * @param taskName
- * @param options
+ * Run a single named build task.
+ * @param {string} taskName   Name of a task in TASKS.
+ * @param {object} [options]  Options passed to the task (e.g. `prod`).
+ * @returns {Promise<void>}
  */
 export async function runTask(taskName, options = {}) {
 	const task = TASKS[taskName];
@@ -55,9 +57,10 @@ export async function runTask(taskName, options = {}) {
 }
 
 /**
- *
- * @param root0
- * @param root0.prod
+ * Run the build tasks needed for development (styles, YAML, assets, file copy).
+ * @param {object} [options]
+ * @param {boolean} [options.prod=false]  Whether this is a production build.
+ * @returns {Promise<void>}
  */
 export async function runDevTasks({ prod = false } = {}) {
 	await runParallel([
@@ -69,10 +72,11 @@ export async function runDevTasks({ prod = false } = {}) {
 }
 
 /**
- *
- * @param root0
- * @param root0.prod
- * @param root0.packs
+ * Run the full build: Vue dependencies, styles, YAML, assets, file copy and optionally packs.
+ * @param {object} [options]
+ * @param {boolean} [options.prod=false]   Whether this is a production build.
+ * @param {boolean} [options.packs=false]  Whether to clean and compile compendium packs.
+ * @returns {Promise<void>}
  */
 export async function runBuildTasks({ prod = false, packs = false } = {}) {
 	if (packs) {
@@ -96,7 +100,8 @@ export async function runBuildTasks({ prod = false, packs = false } = {}) {
 }
 
 /**
- *
+ * CLI entry point: run the task given by --task.
+ * @returns {Promise<void>}
  */
 async function main() {
 	const options = parseArgs(process.argv.slice(2));

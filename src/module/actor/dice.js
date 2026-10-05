@@ -7,25 +7,24 @@ export class DiceArchmage {
 	 * This chooses the default options of a normal attack with no bonus,
 	 * Advantage, or Disadvantage respectively
 	 *
-	 * @param {Event} event The triggering event which initiated the roll
-	 * @param {Array} terms The dice roll component terms, excluding the initial
-	 *    d20
-	 * @param {object} data Actor or item data against which to parse the roll
-	 * @param {string} template       The HTML template used to render the roll
+	 * @param {object} options Roll options
+	 * @param {Event} options.event The triggering event which initiated the roll
+	 * @param {Array} options.terms The dice roll component terms, excluding the
+	 *    initial d20
+	 * @param {object} options.data Actor or item data against which to parse the
+	 *    roll
+	 * @param {string} options.template The HTML template used to render the roll
 	 *    dialog
-	 * @param {string} title          The dice roll UI window title
-	 * @param {string} alias          The alias with which to post to chat
-	 * @param {Function} flavor       A callable function for determining the chat
-	 *    message flavor given terms and data
-	 * @param {boolean} advantage     Allow rolling with advantage (and therefore
-	 *    also with disadvantage)
-	 * @param {boolean} situational   Allow for an arbitrary situational bonus
-	 *    field
-	 * @param {boolean} highlight     Highlight critical successes and failures
-	 * @param {boolean} fastForward   Allow fast-forward advantage selection
-	 * @param {Function} onClose      Callback for actions to take when the dialog
-	 *    form is closed
-	 * @param {object} dialogOptions  Modal dialog options
+	 * @param {object} options.abilities The actor's abilities, offered in the
+	 *    dialog
+	 * @param {object} options.backgrounds The actor's backgrounds, offered in the
+	 *    dialog
+	 * @param {string} options.title The dice roll UI window title
+	 * @param {Actor} options.actor The actor making the roll
+	 * @param {number} options.situational Situational bonus added to the roll
+	 * @param {Function} options.onClose Callback for actions to take when the
+	 *    dialog form is closed
+	 * @param {object} options.dialogOptions Modal dialog options
 	 *
 	 * @returns {undefined}
 	 */
@@ -37,15 +36,8 @@ export class DiceArchmage {
 		abilities,
 		backgrounds,
 		title,
-		alias,
 		actor,
-		ability,
-		background,
-		flavor,
-		advantage = true,
 		situational = 0,
-		highlight = true,
-		fastForward = true,
 		onClose,
 		dialogOptions
 	}) {
@@ -60,8 +52,6 @@ export class DiceArchmage {
 		let messageMode = game.settings.get("core", "messageMode");
 		let rolled = false;
 		let roll = async (html = null, data = {}) => {
-			let flav = (flavor instanceof Function) ? flavor(terms, data) : title;
-
 			// Don't include situational bonus unless it is defined
 			if (!data.bonus && terms.indexOf("@bonus") !== -1) {
 				terms.pop();
@@ -70,16 +60,13 @@ export class DiceArchmage {
 			// Handle combat advantage.
 			if (adv === 1) {
 				terms[0] = ["2d20kh"];
-				flav = `${title} (Advantage)`;
 			}
 			else if (adv === -1) {
 				terms[0] = ["2d20kl"];
-				flav = `${title} (Disadvantage)`;
 			}
 
 			if (situational != 0) {
 				terms.push(situational);
-				flav = `${title} (${situational > 0 ? `+${situational}` : situational})`;
 			}
 
 			let form = html ? html.find("form")[0] : null;
@@ -142,7 +129,7 @@ export class DiceArchmage {
 
 		// Render modal dialog
 		template = template
-      || "systems/archmage/templates/chat/roll-dialog.html";
+			|| "systems/archmage/templates/chat/roll-dialog.html";
 		let dialogData = {
 			formula: terms.join(" + "),
 			data: data,
@@ -252,21 +239,25 @@ export class DiceArchmage {
 	 * This chooses the default options of a normal attack with no bonus,
 	 * Critical, or no bonus respectively
 	 *
-	 * @param {Event} event The triggering event which initiated the roll
-	 * @param {Array} terms The dice roll component terms, excluding the initial
-	 *    d20
-	 * @param {object} data Actor or item data against which to parse the roll
-	 * @param {string} template The HTML template used to render the roll dialog
-	 * @param {string} title The dice roll UI window title
-	 * @param {string} alias The alias with which to post to chat
-	 * @param {Function} flavor A callable function for determining the chat
-	 *    message flavor given terms and data
-	 * @param {boolean} critical Allow critical hits to be chosen
-	 * @param {boolean} situational Allow for an arbitrary situational bonus field
-	 * @param {boolean} fastForward Allow fast-forward advantage selection
-	 * @param {Function} onClose Callback for actions to take when the dialog form
-	 *    is closed
-	 * @param {object} dialogOptions Modal dialog options
+	 * @param {object} options Roll options
+	 * @param {Event} options.event The triggering event which initiated the roll
+	 * @param {Array} options.terms The dice roll component terms, excluding the
+	 *    initial d20
+	 * @param {object} options.data Actor or item data against which to parse the
+	 *    roll
+	 * @param {string} options.template The HTML template used to render the roll
+	 *    dialog
+	 * @param {string} options.title The dice roll UI window title
+	 * @param {string} options.alias The alias with which to post to chat
+	 * @param {Function} options.flavor A callable function for determining the
+	 *    chat message flavor given terms and data
+	 * @param {boolean} options.critical Allow critical hits to be chosen
+	 * @param {boolean} options.situational Allow for an arbitrary situational
+	 *    bonus field
+	 * @param {boolean} options.fastForward Allow fast-forward advantage selection
+	 * @param {Function} options.onClose Callback for actions to take when the
+	 *    dialog form is closed
+	 * @param {object} options.dialogOptions Modal dialog options
 	 *
 	 * @returns {undefined}
 	 */
@@ -320,7 +311,7 @@ export class DiceArchmage {
 
 		// Construct dialog data
 		template = template
-      || "systems/archmage/templates/chat/roll-dialog.html";
+			|| "systems/archmage/templates/chat/roll-dialog.html";
 		let dialogData = {
 			formula: terms.join(" + "),
 			data: data,

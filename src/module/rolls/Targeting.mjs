@@ -16,7 +16,7 @@ export default class Targeting {
 		// This regex just finds any numbers in the string, and we use the first one
 		let numberOfTargets = 0;
 		if (!game.settings.get("archmage", "multiTargetAttackRolls")) {
-			let regex = new RegExp("\\d+");
+			let regex = /\d+/;
 			numberOfTargets = regex.exec($row_self[0].innerText);
 		}
 		else numberOfTargets = [numTargets];

@@ -3,17 +3,14 @@
  */
 export class ArchmagePrepopulate {
 
-	constructor() {
-		// Pass.
-	}
-
 	/**
 	 * Return class machine name.
 	 *
 	 * @param {string} className
 	 *   Class name such as 'Chaos Mage'.
 	 *
-	 * @param drop2e
+	 * @param {boolean} [drop2e=false]
+	 *   Whether to strip '-2e' from the name.
 	 * @returns {string}
 	 *   Clean class name, such as 'chaosmage'.
 	 */
@@ -36,9 +33,9 @@ export class ArchmagePrepopulate {
 	 */
 	getPowerPacks(defaults = new Set()) {
 		return game.packs.filter((p) => p.documentName === "Item"
-      && (!p.metadata.system || p.metadata.system === game.system.id)
-      && (p.visible || defaults.has(p.collection))
-      && p.index.some((e) => e.type === "power"));
+			&& (!p.metadata.system || p.metadata.system === game.system.id)
+			&& (p.visible || defaults.has(p.collection))
+			&& p.index.some((e) => e.type === "power"));
 	}
 
 	/**
@@ -213,7 +210,8 @@ export class ArchmagePrepopulate {
 			if (!page?.text?.content) continue;
 			// Journal text is stored raw, so its @UUID links and other enrichers have
 			// to be resolved here: the importer drops this straight into the DOM.
-			content[this.cleanClassName(entries[i].name)] = await foundry.applications.ux.TextEditor.implementation.enrichHTML(page.text.content, {
+			const TextEditor = foundry.applications.ux.TextEditor.implementation;
+			content[this.cleanClassName(entries[i].name)] = await TextEditor.enrichHTML(page.text.content, {
 				secrets: false,
 				relativeTo: page
 			});
@@ -250,17 +248,17 @@ export class ArchmagePrepopulate {
 		let actorPowers = actor?.items ? actor.items.filter((i) => i.type == "power").map((i) => i.system.powerOriginName.value) : [];
 		const classFeat = game.i18n.localize("ARCHMAGE.classFeat").toLocaleLowerCase();
 		const preselect = (p) => preselectFeatures
-      && p.system.powerType?.value === "feature"
-      && !p.name.toLocaleLowerCase().startsWith(classFeat)
-      && actorPowers.length == 0
-      && p.system.powerSource?.value === "class";
+			&& p.system.powerType?.value === "feature"
+			&& !p.name.toLocaleLowerCase().startsWith(classFeat)
+			&& actorPowers.length == 0
+			&& p.system.powerSource?.value === "class";
 
 		// Presort all of the powers by level, type, and name.
 		const sortTest = (a, b) => a < b ? -1 : (a > b ? 1 : 0);
 		const sorted = powersArray.sort((a, b) => {
 			return sortTest(a.system.powerType.value, b.system.powerType.value)
-        || sortTest(a.system.powerLevel.value, b.system.powerLevel.value)
-        || sortTest(a.name, b.name);
+				|| sortTest(a.system.powerLevel.value, b.system.powerLevel.value)
+				|| sortTest(a.name, b.name);
 		});
 		for (const p of sorted) docs.set(p.uuid, p);
 
@@ -511,7 +509,9 @@ export class ArchmagePrepopulate {
 	 */
 	async buildTabs(importData) {
 		const source = importData.source;
-		const previous = new Map(importData.tabs.flatMap((tab) => tab.sections).map((section) => [section.key, section]));
+		const previous = new Map(importData.tabs
+			.flatMap((tab) => tab.sections)
+			.map((section) => [section.key, section]));
 
 		// Which powers go on which tab, and for the "other" tab, by compendium.
 		const routed = new Map();
@@ -584,7 +584,12 @@ export class ArchmagePrepopulate {
 					key: sectionKey,
 					label: sectionLabel,
 					signature: signature,
-					powerGroups: await this.getPowersFromPack([...docs], source.actor, importData.docs, key !== OTHER_KEY)
+					powerGroups: await this.getPowersFromPack(
+						[...docs],
+						source.actor,
+						importData.docs,
+						key !== OTHER_KEY
+					)
 				});
 			}
 			sections.sort((a, b) => a.label.localeCompare(b.label));
@@ -610,7 +615,8 @@ const OTHER_KEY = "other";
 
 /**
  * The name of the system, module or world a compendium comes from.
- * @param pack
+ * @param {CompendiumCollection} pack The compendium to label.
+ * @returns {string}
  */
 function packageLabel(pack) {
 	const { packageType, packageName } = pack.metadata;
@@ -620,8 +626,9 @@ function packageLabel(pack) {
 }
 
 /**
- *
- * @param kin
+ * Map alternative kin names (e.g. "drow", "aasimar") to the name the system uses.
+ * @param {string} kin The kin name to normalise.
+ * @returns {string} The canonical kin name, or `kin` unchanged if no alias matches.
  */
 function applyKinAliasMap(kin) {
 	const kinAliasMap = {

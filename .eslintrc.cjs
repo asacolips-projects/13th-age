@@ -79,7 +79,8 @@ module.exports = {
 		"no-lone-blocks": "warn",
 		"no-lonely-if": "warn",
 		"no-misleading-character-class": "warn",
-		"no-mixed-operators": "warn",
+		// Only flag mixes whose precedence is commonly misread; arithmetic follows the usual math rules.
+		"no-mixed-operators": ["warn", { groups: [["&&", "||"], ["&", "|", "^", "~", "<<", ">>", ">>>"]] }],
 		"no-multi-str": "warn",
 		"no-multiple-empty-lines": ["warn", { max: 1 }],
 		"no-new-func": "warn",

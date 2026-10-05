@@ -1,5 +1,3 @@
-import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
-
 export default class HitEvaluation {
 
 	static processRowText(row_text, targets, $row_self, attacker, critMod) {
@@ -20,7 +18,8 @@ export default class HitEvaluation {
 
 		let targetedDefenses = HitEvaluation._getTargetDefenses(row_text);
 		const baseCritrange = game.settings.get("archmage", "optionalBaseCritRange") ? 18 : 20;
-		let critRangeMin = baseCritrange - attacker?.system?.attributes.critMod.atk.value - critMod;
+		// Without an attacker (e.g. rolled from an unowned item) only the power's own modifier applies.
+		let critRangeMin = baseCritrange - (attacker?.system?.attributes.critMod.atk.value ?? 0) - critMod;
 
 		let $rolls = $row_self.find(".inline-result");
 		if ($rolls.length == 0) {
@@ -70,7 +69,7 @@ export default class HitEvaluation {
 				for (let i = 0; i < roll_data.terms.length; i++) {
 					var part = roll_data.terms[i];
 					if (part.results) {
-						let result = part.results.map((r) => {
+						part.results.forEach((r) => {
 							if (part.faces === 20) {
 								rollResult = part.total;
 								// Crit
@@ -85,16 +84,16 @@ export default class HitEvaluation {
 								}
 								// Barbarian crit.
 								else if (attacker?.system?.details.detectedClasses?.includes("barbarian")
-                      && !game.settings.get("archmage", "secondEdition")
-                      && roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
-                      && part.results[1].result > 10) {
+									&& !game.settings.get("archmage", "secondEdition")
+									&& roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
+									&& part.results[1].result > 10) {
 									$roll_self.addClass("dc-crit");
 									hasCrit = true;
 								}
 								// Natural 2, if dual-wielding.
 								else if (attacker && attacker?.type === "character"
-                      && attacker.system.attributes.weapon.melee.dualwield
-                      && r.result === 2 && !r.discarded && !r.rerolled) {
+									&& attacker.system.attributes.weapon.melee.dualwield
+									&& r.result === 2 && !r.discarded && !r.rerolled) {
 									$roll_self.addClass("dc-reroll");
 								}
 							}

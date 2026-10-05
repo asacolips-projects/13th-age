@@ -127,7 +127,7 @@ export class DamageApplicator {
 	 * this will reroll the dice, update the DOM, and then push out an update
 	 * to the message document for storage.
 	 *
-	 * @param html jQuery object passed by the callback.
+	 * @param {jQuery} html jQuery object passed by the callback.
 	 */
 	static async rerollDice(html) {
 		const element = html[0];
@@ -141,8 +141,9 @@ export class DamageApplicator {
 			const actorElement = element.closest("[data-actor-uuid]");
 			const messageElement = element.closest("[data-message-id]");
 			const actor = actorElement?.dataset?.actorUuid ? await fromUuid(actorElement.dataset.actorUuid) : false;
-			const item = actor && actorElement.dataset?.itemId ? actor.items.get(actorElement.dataset.itemId) : false;
-			const message = messageElement?.dataset?.messageId ? game.messages.get(messageElement.dataset.messageId) : false;
+			const message = messageElement?.dataset?.messageId
+				? game.messages.get(messageElement.dataset.messageId)
+				: false;
 			const rowElement = inlineroll.parent(".card-prop");
 			const rowText = rowElement?.text() ?? "";
 
@@ -159,7 +160,11 @@ export class DamageApplicator {
 						blind: message.blind,
 						speaker: message.speaker
 					};
-					await game.archmage.ArchmageUtility.show3DDiceForRoll(newRoll, chatData, messageElement.dataset.messageId);
+					await game.archmage.ArchmageUtility.show3DDiceForRoll(
+						newRoll,
+						chatData,
+						messageElement.dataset.messageId
+					);
 				}
 				// Apply changes to the DOM.
 				const rollContent = element.innerHTML.replace(/(<\/i>)(\s*)(\d+)/g, (full, p1, p2, p3) => `${p1}${p2}${newRoll.total}`);
@@ -167,7 +172,7 @@ export class DamageApplicator {
 				element.innerHTML = rollContent;
 				// Re-evaluate styling for attack lines.
 				if (rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.target")}:`)
-          || rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`)) {
+					|| rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`)) {
 					// Remove existing crit/fail classes.
 					element.classList.remove("dc-crit");
 					element.classList.remove("dc-fail");
@@ -178,7 +183,12 @@ export class DamageApplicator {
 						cachedTargets: message?.flags?.archmage?.targets ?? []
 					};
 					const $attackRow = $(element.closest(".card-prop"));
-					const targets = Targeting.getTargetsFromRowText(rowText, $attackRow, targetOptions.numTargets, targetOptions.cachedTargets);
+					const targets = Targeting.getTargetsFromRowText(
+						rowText,
+						$attackRow,
+						targetOptions.numTargets,
+						targetOptions.cachedTargets
+					);
 					// let addEdToCritRange = false;
 					// let addStokeToCritRange = false;
 					// if (game.settings.get('archmage', 'secondEdition') && item) {
@@ -218,7 +228,7 @@ export class DamageApplicator {
 							}
 							// Append target defenses to text
 							if (rowCleanText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`) && hitEvaluationResults.defenses.length > 0
-                && game.settings.get("archmage", "showDefensesInChat")) {
+								&& game.settings.get("archmage", "showDefensesInChat")) {
 								$rowSelf.append(`<span class='dc-target'> (${hitEvaluationResults.defenses.join(", ")}) </span>`);
 							}
 
@@ -267,7 +277,9 @@ export class DamageApplicator {
 			const rollFormula = element.querySelector(".dice-formula")?.innerText ?? false;
 			if (rollFormula) {
 				const messageElement = element.closest("[data-message-id]");
-				const message = messageElement?.dataset?.messageId ? game.messages.get(messageElement.dataset.messageId) : false;
+				const message = messageElement?.dataset?.messageId
+					? game.messages.get(messageElement.dataset.messageId)
+					: false;
 				const newRoll = new Roll(rollFormula);
 				await newRoll.evaluate();
 				// Show Dice So Nice roll.
@@ -277,7 +289,11 @@ export class DamageApplicator {
 						blind: message.blind,
 						speaker: message.speaker
 					};
-					await game.archmage.ArchmageUtility.show3DDiceForRoll(newRoll, chatData, messageElement.dataset.messageId);
+					await game.archmage.ArchmageUtility.show3DDiceForRoll(
+						newRoll,
+						chatData,
+						messageElement.dataset.messageId
+					);
 				}
 				// Replace the roll contents of the chat message.
 				const content = await newRoll.render();

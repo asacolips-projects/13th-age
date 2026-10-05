@@ -5,8 +5,6 @@ import { powerFieldKeys } from "./power-fields.mjs";
 import VueRenderingMixin from "./_vue-application-mixin.mjs";
 import { ArchmagePowerSheetVue } from "../../vue/components.vue.es.js";
 
-const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
-
 export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
 	vueParts = {
 		"archmage-power-sheet-vue": {
@@ -22,13 +20,6 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
 	/** @override */
 	static DEFAULT_OPTIONS = {
 		classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
-		actions: {
-			onEditImage: this._onEditImage,
-			edit: this._viewEffect,
-			create: this._createEffect,
-			delete: this._deleteEffect,
-			toggle: this._toggleEffect
-		},
 		position: {
 			width: 860,
 			height: 630
@@ -179,7 +170,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
 		await this._enrichFeats(context, enrichmentOptions, editorOptions);
 
 		// Make another pass through the editors to fix the element contents.
-		for (let [field, editor] of Object.entries(context.editors)) {
+		for (let field of Object.keys(context.editors)) {
 			if (context.editors[field].element) {
 				context.editors[field].element.innerHTML = context.editors[field].enriched;
 			}
@@ -239,7 +230,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
 	 *
 	 * @param {Event} event
 	 *   Html event that triggered the method.
-	 * @param target
+	 * @param {HTMLElement} target The element with the data-action attribute
 	 */
 	static async _updateFeat(event, target) {
 		if (!this.isEditable) return;

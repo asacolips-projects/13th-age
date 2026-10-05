@@ -12,15 +12,17 @@ const LOAD_PATHS = [
 ];
 
 /**
- *
- * @param filePath
+ * Check whether an SCSS file is an entry point (not a partial starting with "_").
+ * @param {string} filePath   SCSS file path.
+ * @returns {boolean}         True if the file should be compiled on its own.
  */
 function isEntryPoint(filePath) {
 	return !path.basename(filePath).startsWith("_");
 }
 
 /**
- *
+ * Compile SCSS entry points to minified, autoprefixed CSS (with source maps) in dist/css.
+ * @returns {Promise<void>}
  */
 export async function compileScss() {
 	const files = (await globFiles(SYSTEM_SCSS)).filter(isEntryPoint);

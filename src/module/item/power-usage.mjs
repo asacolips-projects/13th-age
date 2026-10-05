@@ -48,7 +48,7 @@ function activePowerUsage(power) {
  */
 export function hasSecondaryUsage(power) {
 	return power.system.quantitySecondary?.value != null
-    && !!power.system.powerUsageSecondary?.value;
+		&& !!power.system.powerUsageSecondary?.value;
 }
 
 /**

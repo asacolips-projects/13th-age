@@ -1,5 +1,5 @@
 /**
- *
+ * Show a dialog to create an NPC from baseline monster stats for a chosen level and strength.
  */
 export async function baselineMonsterDialog() {
 	const content = await foundry.applications.handlebars.renderTemplate(

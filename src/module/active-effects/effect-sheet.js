@@ -22,10 +22,11 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
 		const context = await super.getData(options);
 
 		/**
+		 * Set a value on an object at a (possibly nested) dot-separated path.
 		 *
-		 * @param obj
-		 * @param access
-		 * @param value
+		 * @param {object} obj The object to modify
+		 * @param {string|string[]} access The property path, as a dot-separated string or array of keys
+		 * @param {*} value The value to set
 		 */
 		function setValue(obj, access, value) {
 			if (typeof (access)=="string") {
@@ -115,8 +116,9 @@ export class EffectArchmageSheet extends foundry.applications.sheets.ActiveEffec
 		let newChanges = [];
 
 		/**
+		 * Add an effect change for a form field, if it has a value.
 		 *
-		 * @param key
+		 * @param {string} key The form data key of the field to convert into a change
 		 */
 		function addChange(key) {
 			let value = foundry.utils.getProperty(formData, key);

@@ -10,11 +10,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Halo.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async aasimarHalo(speaker, actor, token, character, archmage) {
 		const name = archmage.item.name;
@@ -55,11 +55,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Whirlwind.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async barbarianWhirlwind(speaker, actor, token, character, archmage) {
 		if (!actor) return;
@@ -68,7 +68,7 @@ export class ArchmageMacros {
 
 		// Reduce the penalty if we have the (1e) champion feat
 		if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value
-      && !game.settings.get("archmage", "secondEdition")) {
+			&& !game.settings.get("archmage", "secondEdition")) {
 			penalty = -2;
 		}
 
@@ -92,11 +92,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Song of Heroes.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async bardSongOfHeroes(speaker, actor, token, character, archmage) {
 		if (!actor) return;
@@ -183,11 +183,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Hammer of Faith (1e).
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async clericHammerOfFaith(speaker, actor, token, character, archmage) {
 		const bonus = actor.isMulticlass() ? "d10" : "d12";
@@ -232,11 +232,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Outmaneuver.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async commanderOutmaneuver(speaker, actor, token, character, archmage) {
 		const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value;
@@ -256,11 +256,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Carve an Opening.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async fighterCarveAnOpening(speaker, actor, token, character, archmage) {
 		if (!actor) return;
@@ -297,11 +297,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Defensive Fighting.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async fighterDefensiveFighting(speaker, actor, token, character, archmage) {
 		if (!actor) return;
@@ -424,11 +424,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Skirmisher.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async rangerSkirmisher(speaker, actor, token, character, archmage) {
 		if (!actor) return;
@@ -468,11 +468,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Golden Shield.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async sorcererGoldenShield(speaker, actor, token, character, archmage) {
 		const filter = /\[\[(\d+)\]\]/;
@@ -510,11 +510,11 @@ export class ArchmageMacros {
 
 	/**
 	 * Light cantrip.
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async wizardLight(speaker, actor, token, character, archmage) {
 		if (!token) return;
@@ -541,11 +541,11 @@ export class ArchmageMacros {
 
 	/**
 	 * "Flaming" weapon (2e).
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 */
 	static async flamingWeapon(speaker, actor, token, character, archmage) {
 		const rollData = actor.getRollData();
@@ -572,11 +572,11 @@ export class ArchmageMacros {
 	 * List the actor's flexible attack powers that this attack can trigger on its chat card.
 	 * Call it from the attack's embedded macro, e.g. for a melee attack:
 	 * `await game.archmage.ArchmageMacros.listFlexibles(speaker, actor, token, character, archmage, "melee");`
-	 * @param speaker
-	 * @param actor
-	 * @param token
-	 * @param character
-	 * @param archmage
+	 * @param {object} speaker The chat speaker data.
+	 * @param {Actor} actor The actor using the item.
+	 * @param {Token|null} token The controlled token, if any.
+	 * @param {Actor|null} character The current user's assigned character.
+	 * @param {object} archmage The item roll context (item, chat data, hit evaluation, etc.).
 	 * @param {string} kind "melee" or "ranged".
 	 */
 	static async listFlexibles(speaker, actor, token, character, archmage, kind) {
@@ -585,6 +585,11 @@ export class ArchmageMacros {
 			console.error(`Archmage | listFlexibles: unknown attack kind '${kind}'`);
 			return;
 		}
-		archmage.chat.content = FlexibleAttacks.addRows(archmage.chat.content, actor, kind, archmage.hitEval?.rollOutcomes);
+		archmage.chat.content = FlexibleAttacks.addRows(
+			archmage.chat.content,
+			actor,
+			kind,
+			archmage.hitEval?.rollOutcomes
+		);
 	}
 }

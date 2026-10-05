@@ -1,22 +1,22 @@
 import { prepareOngoingDamage } from "../active-effects/ongoing-damage.mjs";
 
 /**
- *
- * @param updateData
+ * Run the start-of-turn lifecycle macro for the first combatant when combat starts.
+ * @param {Combat} combat The combat being started.
  */
-export async function combatStart(updateData) {
+export async function combatStart(combat) {
 	// Ensure the start-of-turn hook fires for the first combatant, combatTurn doesn't fire here
-	const firstCombatant = updateData.turns[0];
+	const firstCombatant = combat.turns[0];
 	if (firstCombatant) {
 		await executeLifecycleMacro(firstCombatant, "startOfTurn");
 	}
 }
 
 /**
- *
- * @param combat
- * @param context
- * @param options
+ * Handle a combat turn change: lifecycle macros, momentum, and turn/round effect expiry.
+ * @param {Combat} combat The combat being updated.
+ * @param {object} context The combat update data (round and turn).
+ * @param {object} options The update options (e.g. direction).
  */
 export async function combatTurn(combat, context, options) {
 	const endCombatant = combat.combatant;
@@ -42,12 +42,12 @@ export async function combatTurn(combat, context, options) {
 }
 
 /**
- *
- * @param prefix
- * @param combat
- * @param combatant
- * @param context
- * @param options
+ * Expire and report a combatant's start/end of turn effects, including effects it is the source of.
+ * @param {string} prefix Either "Start" or "End".
+ * @param {Combat} combat The combat being updated.
+ * @param {Combatant} combatant The combatant whose turn is starting or ending.
+ * @param {object} context The combat update data (round and turn).
+ * @param {object} options The update options (e.g. direction).
  */
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
 	// Pseudo combatants may not have an actor.
@@ -119,10 +119,10 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
 }
 
 /**
- *
- * @param combat
- * @param context
- * @param options
+ * Expire and report EndOfRound effects when a new round starts.
+ * @param {Combat} combat The combat being updated.
+ * @param {object} context The combat update data (round and turn).
+ * @param {object} options The update options (e.g. direction).
  */
 export async function handleRoundEffects(combat, context, options) {
 	// If we have not just started a new round, skip
@@ -154,10 +154,10 @@ export async function handleRoundEffects(combat, context, options) {
 }
 
 /**
- *
- * @param combat
- * @param context
- * @param options
+ * Handle a combat round change: expire pseudo-combatants, then process the turn change.
+ * @param {Combat} combat The combat being updated.
+ * @param {object} context The combat update data (round and turn).
+ * @param {object} options The update options (e.g. direction).
  */
 export async function combatRound(combat, context, options) {
 	await expirePseudoCombatants(combat, context);
@@ -167,26 +167,26 @@ export async function combatRound(combat, context, options) {
 /**
  * Remove pseudo-combatants whose round has elapsed.
  * Only the active GM performs the deletion, both for permissions and to avoid duplicate updates.
- * @param combat
- * @param context
+ * @param {Combat} combat The combat being updated.
+ * @param {object} context The combat update data (round and turn).
  */
 export async function expirePseudoCombatants(combat, context) {
 	if (game.users.activeGM?.id !== game.user.id) return;
 	const expired = combat.combatants
 		.filter((c) => typeof c.flags.archmage?.expireAfterRound === "number"
-                  && c.flags.archmage.expireAfterRound < context.round)
+			&& c.flags.archmage.expireAfterRound < context.round)
 		.map((c) => c.id);
 	if (expired.length) await combat.deleteEmbeddedDocuments("Combatant", expired);
 }
 
 /**
- *
- * @param combat
- * @param context
- * @param options
+ * Clean up when a combat is deleted: reset stoke, hide the escalation die and end battle effects.
+ * @param {Combat} combat The combat being deleted.
+ * @param {object} options The deletion options.
+ * @param {string} userId The ID of the user deleting the combat.
  */
-export async function preDeleteCombat(combat, context, options) {
-	await cleanupStoke(combat, context, options);
+export async function preDeleteCombat(combat, options, userId) {
+	await cleanupStoke(combat, options, userId);
 	$(".archmage-escalation-display").addClass("hide");
 
 	// Exit early if the feature is disabled.
@@ -252,10 +252,10 @@ export async function preDeleteCombat(combat, context, options) {
 }
 
 /**
- *
- * @param combat
- * @param context
- * @param options
+ * Raise (or lower, if its breath was used) the stoke of the NPC whose turn just ended (2e).
+ * @param {Combat} combat The combat being updated.
+ * @param {object} context The combat update data (round and turn).
+ * @param {object} options The update options (e.g. direction).
  */
 async function handleStoke(combat, context, options) {
 	const endCombatant = combat.combatant;
@@ -273,12 +273,12 @@ async function handleStoke(combat, context, options) {
 }
 
 /**
- *
- * @param combat
- * @param context
- * @param options
+ * Reset the stoke resource of every combatant that has it enabled.
+ * @param {Combat} combat The combat being deleted.
+ * @param {object} options The deletion options.
+ * @param {string} userId The ID of the user deleting the combat.
  */
-async function cleanupStoke(combat, context, options) {
+async function cleanupStoke(combat, options, userId) {
 	for (const c of combat.combatants) {
 		// If the combatant has a stoke resource, reset it
 		if (c?.actor?.system?.resources?.spendable?.stoke?.enabled) {
@@ -309,38 +309,18 @@ function startedBefore(effect, combat) {
 /* -------------------------------------------- */
 
 /**
- *
- * @param saveEnds
- */
-function saveEndsNameToTarget(saveEnds) {
-	let target = 11;
-	if (saveEnds === "EasySaveEnds") {
-		target = 6;
-	}
-	else if (saveEnds === "NormalSaveEnds") {
-		target = 11;
-	}
-	else if (saveEnds === "HardSaveEnds") {
-		target = 16;
-	}
-	return target;
-}
-
-/* -------------------------------------------- */
-
-/**
- *
- * @param title
- * @param combatant
- * @param effectData
+ * Render a chat card listing ended, save-ends, triggered and unknown-duration effects.
+ * @param {string} title The card title.
+ * @param {Combatant|null} combatant The combatant used as the chat speaker, if any.
+ * @param {object} effectData Effects grouped by selfEnded, savesEnds, selfTriggered, otherEnded and unknown.
  */
 async function renderOngoingEffectsCard(title, combatant, effectData) {
 	// If no effects, return
 	if (effectData.selfEnded.length === 0
-        && effectData.savesEnds.length === 0
-        && effectData.selfTriggered.length === 0
-        && effectData.otherEnded.length === 0
-        && effectData.unknown.length === 0) return;
+		&& effectData.savesEnds.length === 0
+		&& effectData.selfTriggered.length === 0
+		&& effectData.otherEnded.length === 0
+		&& effectData.unknown.length === 0) return;
 
 	const template = "systems/archmage/templates/chat/ongoing-effects-card.html";
 	const renderData = {
@@ -370,9 +350,10 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
 }
 
 /**
- *
- * @param combatant
- * @param hookName
+ * Run an actor's lifecycle hook macro, or ask the owning player to run it via socket.
+ * @param {Combatant} combatant The combatant whose actor owns the hook.
+ * @param {string} hookName The lifecycle hook to run (e.g. "startOfTurn").
+ * @returns {Promise<*>} Resolves once the hook has run or the socket request was sent.
  */
 async function executeLifecycleMacro(combatant, hookName) {
 	// Pseudo combatants may not have an actor.
@@ -412,8 +393,8 @@ async function executeLifecycleMacro(combatant, hookName) {
 }
 
 /**
- *
- * @param combatant
+ * Grant momentum to a 2e fighter at the end of their turn.
+ * @param {Combatant} combatant The combatant whose turn just ended.
  */
 async function _add2eFighterMomentum(combatant) {
 	// Pseudo combatants may not have an actor.
@@ -423,9 +404,7 @@ async function _add2eFighterMomentum(combatant) {
 	if (!(game.settings.get("archmage", "secondEdition") && combatant.actor?.system?.details?.detectedClasses?.includes("fighter"))) return;
 
 	// Update actor's resource
-	let updateData = {};
 	if (combatant.actor?.system.resources?.perCombat?.momentum?.enabled) {
-		updateData["system.resources.perCombat.momentum.current"] = true;
+		await combatant.actor.update({ "system.resources.perCombat.momentum.current": true });
 	}
-	await combatant.actor.update(updateData);
 }

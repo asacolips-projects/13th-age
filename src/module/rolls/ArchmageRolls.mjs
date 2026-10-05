@@ -48,9 +48,9 @@ export default class ArchmageRolls {
 					}
 					// Handle "each" or "all" or "every" or the Crescendo spell
 					if (targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.each")} `)
-            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.all")} `)
-            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.every")} `)
-            || item.system?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
+						|| targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.all")} `)
+						|| targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.every")} `)
+						|| item.system?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
 					) {
 						targets = Math.max(game.user.targets.size, 1);
 					}
@@ -77,8 +77,8 @@ export default class ArchmageRolls {
 					}
 					// Handle "each" or "all" or "every"
 					if (targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.each")} `)
-            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.all")} `)
-            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.every")} `)) {
+						|| targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.all")} `)
+						|| targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.every")} `)) {
 						targets = Math.max(game.user.targets.size, 1);
 					}
 				}

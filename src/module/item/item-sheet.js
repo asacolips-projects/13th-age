@@ -7,6 +7,7 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 
 	/**
 	 * Extend and override the default options used by the Actor Sheet
+	 * @returns {object} The sheet's default options
 	 */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
@@ -27,6 +28,7 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 
 	/**
 	 * Use a type-specific template for each different item type
+	 * @returns {string} Path to the item type's sheet template
 	 */
 	get template() {
 		let type = this.item.type;
@@ -45,8 +47,8 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 	 * Start with the base item data and extending with additional properties for
 	 * rendering.
 	 *
-	 * @param options
-	 * @returns {undefined}
+	 * @param {object} options Rendering options passed to the sheet
+	 * @returns {Promise<object>} The sheet rendering context
 	 */
 	async getData(options) {
 		const context = super.getData(options);
@@ -121,8 +123,6 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 	_getHeaderButtons() {
 		let buttons = super._getHeaderButtons();
 
-		let me = this;
-
 		// Share Entry
 		if (game.user.isGM) {
 			buttons.unshift({
@@ -145,24 +145,25 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 
 	/**
 	 * Handle a received request to display an item.
-	 * @param root0
-	 * @param root0.itemId
+	 * @param {object} options Share request data
+	 * @param {string} options.itemId ID of the item to display
+	 * @returns {ItemArchmageSheet|undefined} The rendered read-only item sheet, or nothing if the item wasn't found
 	 */
 	static handleShareItem({ itemId }={}) {
 		let item = game.items.get(itemId);
 
 		if (item == undefined) {
-			let characters = game.actors.filter((x) => x.data.type == "character");
+			let characters = game.actors.filter((x) => x.type == "character");
 
-			for (var x = 0; x <= characters.length; x++) {
-				let actor = characters[x];
-				let found = actor.data.items.find((x) => x._id == itemId);
+			for (let actor of characters) {
+				let found = actor.items.get(itemId);
 				if (found) {
-					item = actor.items.get(itemId);
+					item = found;
 					break;
 				}
 			}
 		}
+		if (!item) return;
 
 		// Force permissions to ensure item displays for players
 		let updates = { "ownership.default": CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER };
@@ -191,16 +192,14 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 	 */
 	async activateListeners(html) {
 		super.activateListeners(html);
-		const context = await this.getData();
-
 		if (!this.options.editable) return;
 
 		// If the _CodeMirror module is enabled, use it to create a code editor for
 		// the macro field.
-		if (game.modules.get("_CodeMirror")?.active && typeof CodeMirror != undefined) {
+		if (game.modules.get("_CodeMirror")?.active && typeof CodeMirror != "undefined") {
 			const textarea = html.find(".power-macro-editor textarea")[0];
 			if (textarea) {
-				const editor = CodeMirror.fromTextArea(textarea, {
+				CodeMirror.fromTextArea(textarea, {
 					mode: "javascript",
 					...CodeMirror.userSettings,
 					lineNumbers: true,

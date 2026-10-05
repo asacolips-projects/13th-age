@@ -41,7 +41,9 @@ export default class preCreateChatMessageHandler {
                                          data-source="${source}" data-ends="${duration}">
                                          <img class="effects-icon" src="${condition.img}" />
                                          ${match[0].replace(/\*/g, "")}</a>`;
-					row.innerHTML = row.innerHTML.substring(0, match.index) + conditionLink + row.innerHTML.substring(match.index + match[0].length);
+					row.innerHTML = row.innerHTML.substring(0, match.index)
+						+ conditionLink
+						+ row.innerHTML.substring(match.index + match[0].length);
 				}
 			}
 			);
@@ -156,8 +158,6 @@ export default class preCreateChatMessageHandler {
 		let uuid = tokenDocument?.actor?.uuid ?? actorDocument?.uuid;
 
 		// TODO: We have the data of what kind of damage (arcane, divine, etc) and range (melee, ranged), but it's hard to get here
-		let damageType = "basic";
-		let range = "melee";
 
 		// Lines containing any of the following need to be skipped:
 		// "Level:", "Recharge:", "Resources:", "Uses Remaining:"
@@ -219,12 +219,12 @@ export default class preCreateChatMessageHandler {
 					return;
 				}
 				if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.effect"))
-                  && !row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect"))) {
+					&& !row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect"))) {
 					return;
 				}
 
 				if ((type == "power" && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.target")}:`))
-                    || (type == "action" && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`))) {
+					|| (type == "action" && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`))) {
 
 					// targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
 					// In case of manual rolls we may have more rolls than targets - replicate targets until we have enough.
@@ -259,7 +259,7 @@ export default class preCreateChatMessageHandler {
 					}
 					// Append target defenses to text
 					if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`) && hitEvaluationResults.defenses.length > 0
-                        && game.settings.get("archmage", "showDefensesInChat")) {
+						&& game.settings.get("archmage", "showDefensesInChat")) {
 						$row_self.append(`<span class='dc-target'> (${hitEvaluationResults.defenses.join(", ")}) </span>`);
 					}
 				}
@@ -298,9 +298,9 @@ export default class preCreateChatMessageHandler {
 
 				// Highlight sustain / final verse for songs
 				if ((["sustainedEffect", "openingEffect"].includes(options.usageMode)
-                    && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect")}:`))
-                    || (options.usageMode == "finalverse"
-                    && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.finalVerse")}:`))) {
+					&& row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect")}:`))
+					|| (options.usageMode == "finalverse"
+					&& row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.finalVerse")}:`))) {
 					$row_self.addClass("trigger-active");
 				}
 			});
@@ -313,13 +313,14 @@ export default class preCreateChatMessageHandler {
 
 				// Display Sequencer Effects
 				/**
-				 *
-				 * @param sequence
-				 * @param source
-				 * @param towards
-				 * @param stretch
-				 * @param missed
-				 * @param file
+				 * Append a Sequencer effect for one target to the sequence.
+				 * @param {Sequence} sequence   Sequence to extend.
+				 * @param {Token} source        Token the effect starts from (only used when stretching).
+				 * @param {Token} towards       Token the effect plays at or stretches to.
+				 * @param {boolean} stretch     Whether to stretch the effect from source to target (ray) or play it on the target.
+				 * @param {boolean} missed      Whether to play the effect as a miss.
+				 * @param {string} file         Sequencer effect file or database path.
+				 * @returns {Sequence}          The updated sequence.
 				 */
 				function addAttack(sequence, source, towards, stretch, missed, file) {
 					if (stretch) {
@@ -351,8 +352,12 @@ export default class preCreateChatMessageHandler {
 				// Ray
 				if (sequencerFileRay && !sequencerReversed) {
 					if (hitEvaluationResults) {
-						hitEvaluationResults.targetsHit.forEach((t) => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
-						hitEvaluationResults.targetsMissed.forEach((t) => sequence = addAttack(sequence, token, t, true, true, sequencerFileRay));
+						hitEvaluationResults.targetsHit.forEach(
+							(t) => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay)
+						);
+						hitEvaluationResults.targetsMissed.forEach(
+							(t) => sequence = addAttack(sequence, token, t, true, true, sequencerFileRay)
+						);
 					}
 					else {
 						// Not an attack
@@ -362,19 +367,29 @@ export default class preCreateChatMessageHandler {
 				// Target
 				if (sequencerFileTarget) {
 					if (hitEvaluationResults) {
-						hitEvaluationResults.targetsHit.forEach((t) => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
-						hitEvaluationResults.targetsMissed.forEach((t) => sequence = addAttack(sequence, token, t, false, true, sequencerFileTarget));
+						hitEvaluationResults.targetsHit.forEach(
+							(t) => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget)
+						);
+						hitEvaluationResults.targetsMissed.forEach(
+							(t) => sequence = addAttack(sequence, token, t, false, true, sequencerFileTarget)
+						);
 					}
 					else {
 						// Not an attack
-						targets.forEach((t) => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
+						targets.forEach((t) => {
+							sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget);
+						});
 					}
 				}
 				// Ray - reversed
 				if (sequencerFileRay && sequencerReversed) {
 					if (hitEvaluationResults) {
-						hitEvaluationResults.targetsHit.forEach((t) => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
-						hitEvaluationResults.targetsMissed.forEach((t) => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay));
+						hitEvaluationResults.targetsHit.forEach(
+							(t) => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay)
+						);
+						hitEvaluationResults.targetsMissed.forEach(
+							(t) => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay)
+						);
 					}
 					else {
 						// Not an attack

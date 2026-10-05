@@ -4,8 +4,6 @@ import { wrapRolls } from "./_item-sheet-helpers.mjs";
 import VueRenderingMixin from "./_vue-application-mixin.mjs";
 import { ArchmageEquipmentSheetVue } from "../../vue/components.vue.es.js";
 
-const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
-
 export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
 	vueParts = {
 		"archmage-equipment-sheet-vue": {
@@ -143,7 +141,7 @@ export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItem
 		};
 
 		// Make another pass through the editors to fix the element contents.
-		for (let [field, editor] of Object.entries(context.editors)) {
+		for (let field of Object.keys(context.editors)) {
 			if (context.editors[field].element) {
 				context.editors[field].element.innerHTML = context.editors[field].enriched;
 			}

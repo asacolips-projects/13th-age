@@ -11,9 +11,10 @@ import { log, resolveFromRoot } from "../../scripts/build/utils.mjs";
 const DEBOUNCE_MS = 150;
 
 /**
- *
- * @param fn
- * @param wait
+ * Create a debounced wrapper that delays calling `fn` until `wait` ms have passed without another call.
+ * @param {Function} fn     Function to debounce.
+ * @param {number} wait     Delay in milliseconds.
+ * @returns {Function}      Debounced function.
  */
 function debounce(fn, wait) {
 	let timeout;
@@ -24,8 +25,12 @@ function debounce(fn, wait) {
 }
 
 /**
- *
- * @param options
+ * Vite plugin that runs the non-Vue system build (SCSS, YAML, assets, file copy, packs)
+ * and, in watch mode, rebuilds those files when their sources change.
+ * @param {object} [options]
+ * @param {boolean} [options.prod=false]   Whether this is a production build.
+ * @param {boolean} [options.packs=false]  Whether to also clean and compile compendium packs.
+ * @returns {import("vite").Plugin}        The Vite plugin.
  */
 export function foundrySystemBuild(options = {}) {
 	const { prod = false, packs = false } = options;
@@ -34,7 +39,8 @@ export function foundrySystemBuild(options = {}) {
 	let isWatch = false;
 
 	/**
-	 *
+	 * Run the full build once, including packs if enabled.
+	 * @returns {Promise<void>}
 	 */
 	async function runInitialBuild() {
 		if (packs) {
@@ -47,7 +53,7 @@ export function foundrySystemBuild(options = {}) {
 	}
 
 	/**
-	 *
+	 * Start a file watcher that reruns the matching build task when a source file changes.
 	 */
 	function startWatchers() {
 		if (watcher) return;
@@ -167,9 +173,10 @@ export function foundrySystemBuild(options = {}) {
 }
 
 /**
- *
- * @param filePath
- * @param pattern
+ * Test a relative file path against a simple glob pattern. Negated ("!") patterns never match.
+ * @param {string} filePath   Path relative to the repository root, using "/" separators.
+ * @param {string} pattern    Glob pattern.
+ * @returns {boolean}         True if the path matches the pattern.
  */
 function matchGlob(filePath, pattern) {
 	if (pattern.startsWith("!")) return false;

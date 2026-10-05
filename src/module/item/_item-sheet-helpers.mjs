@@ -4,13 +4,15 @@
 /* ---------------------------------------------------- */
 
 /**
+ * Format the inline rolls in a text for display, then enrich it and convert it from markdown to HTML.
  *
- * @param text
- * @param replacements
- * @param diceFormulaMode
- * @param rollData
- * @param field
- * @param enrichmentOptions
+ * @param {string|number} text Text to format.
+ * @param {Array<string[]>} replacements Extra [needle, replacement] pairs for the 'short' mode.
+ * @param {string} diceFormulaMode Formula display mode: 'short', 'long' or 'numeric'.
+ * @param {object|null} rollData Roll data used to evaluate formulas in 'numeric' mode.
+ * @param {string|null} field Name of the field being rendered; 'attack' appends the attack mod.
+ * @param {object} enrichmentOptions Options passed to TextEditor.enrichHTML.
+ * @returns {Promise<string>} The formatted HTML.
  */
 export async function wrapRolls(text, replacements = [], diceFormulaMode = "short", rollData = null, field = null, enrichmentOptions = {}) {
 	// Unproxy the roll data object.
@@ -69,7 +71,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = "shor
 	// Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
 	if (diceFormulaMode == "short") {
 		// Remove additional whitespace.
-		clean.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
+		clean.toString().replace(/(\[\[)([^[]*)(\]\])/g, (match) => {
 			clean = clean.replace(match, match.replaceAll(" ", ""));
 		});
 		// Iterate over all of our potential replacements and replace them if
@@ -82,7 +84,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = "shor
 	// roll. Ex: [[@wpn.m.dice+@dex+@lvl]]
 	else if (diceFormulaMode == "long") {
 		// Run a regex over all inline rolls.
-		clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+		clean = clean.toString().replaceAll(/(\[\[)([^[]*)(\]\])/g, (match, p1, p2, p3) => {
 			return `<span class="expression">[${p2}]</span>`;
 		});
 	}
@@ -91,7 +93,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = "shor
 	// possible. Ex: 5d8+9
 	else if (diceFormulaMode == "numeric") {
 		// Run a regex over all inline rolls.
-		clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+		clean = clean.toString().replaceAll(/(\[\[)([^[]*)(\]\])/g, (match, p1, p2, p3) => {
 			// Get the roll formula. If this is an attack, append the attack mod.
 			let rollFormula = field == "attack" && p2.includes("d20") ? `${p2} + @atk.mod` : p2;
 			// Create the roll and evaluate it.
@@ -129,16 +131,20 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = "shor
 }
 
 /**
+ * Replace *Condition Name* references with draggable condition links.
  *
- * @param text
+ * @param {string} text Text to process.
+ * @returns {string} The text with condition links.
  */
 export function replaceEffectAndConditionReferences(text) {
 	let conditions = CONFIG.ARCHMAGE.statusEffects.filter((x) => x.journal);
 	const conditionNames = new Set(conditions.map((x) => game.i18n.localize(x.name)));
 
 	/**
+	 * Build the HTML link for a condition.
 	 *
-	 * @param name
+	 * @param {string} name Localized condition name.
+	 * @returns {string} Condition link HTML.
 	 */
 	function generateConditionLink(name) {
 		const condition = conditions.find((x) => game.i18n.localize(x.name) === name);
@@ -157,8 +163,10 @@ export function replaceEffectAndConditionReferences(text) {
 }
 
 /**
+ * Replace @UUID[...ActiveEffect...] references with draggable active effect links.
  *
- * @param text
+ * @param {string} text Text to process.
+ * @returns {string} The text with active effect links.
  */
 export function replaceActiveEffectLinkReferences(text) {
 	return text.replaceAll(/@UUID\[(.*ActiveEffect.*)\]({.*})*/g, (all, uuid, name) => {
@@ -209,8 +217,8 @@ export function termCondenser(terms) {
  * into as few numeric terms as possible. For example, d20+5+3 will become
  * d20+8.
  *
- * @param {object} roll Roll object to modify.
- * @returns
+ * @param {Roll} roll Roll object to modify.
+ * @returns {Roll} The condensed roll, or the original roll if condensing fails.
  */
 export function rollCondenser(roll) {
 	// Initialize our variables.

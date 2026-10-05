@@ -10,7 +10,6 @@ import { ArchmageCompendiumBrowser } from "../../vue/components.vue.es.js";
  * @todo refactor Vue boilerplate code into a mixin that can be used both
  * here and in the actor sheet.
  *
- * @export
  * @class ArchmageCompendiumBrowserApplication
  * @typedef {ArchmageCompendiumBrowserApplication}
  * @extends {Application}
@@ -157,7 +156,7 @@ export class ArchmageCompendiumBrowserApplication extends Application {
 	/**
 	 * Activate additional listeners on the rendered Vue app.
 	 * @param {jQuery} html
-	 * @param repeat
+	 * @param {boolean} repeat If true, skip the one-time listener bindings
 	 */
 	activateVueListeners(html, repeat = false) {
 		if (!this.options.editable) {

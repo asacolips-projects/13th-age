@@ -3,9 +3,10 @@ import { SYSTEM_COPY } from "./constants.mjs";
 import { copyFileWithReplace, globFiles, log, resolveFromRoot } from "./utils.mjs";
 
 /**
- *
- * @param root0
- * @param root0.prod
+ * Copy static system files from src to dist.
+ * @param {object} [options]
+ * @param {boolean} [options.prod=false]  Whether this is a production build (rewrites Vue references).
+ * @returns {Promise<void>}
  */
 export async function copyFiles({ prod = false } = {}) {
 	const files = await globFiles(SYSTEM_COPY);
