@@ -806,11 +806,10 @@ ARCHMAGE:
     effect: Effect
     effectRemoved: temporary effect removed
     effectTitle: General effect of a spell or power when it's used.
+    disjunctions: or, otherwise
     epic: Epic Feat
     even: even
     finalVerse: Final Verse
-    flexibleAttack: Can trigger flexible attacks
-    flexibleAttackTitle: When this attack is rolled, its chat card lists the flexible attack powers of the same actor that the roll can trigger.
     flexibleAttackHeading: Flexible attacks
     flexibleAttackNoUses: no uses left
     flexibleAttackShowAll: show all

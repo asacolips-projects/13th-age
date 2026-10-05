@@ -300,14 +300,20 @@ export class ArchmagePrepopulate {
     // plain data, which is what the sheets' power renderer takes. A row's key
     // is the path of UUIDs from the top, since a power granted by two others
     // is listed under each.
+    //
+    // Children follow their parent's tick, but only up to the actor's level or
+    // the parent's, whichever is higher: a power that grants its higher level
+    // versions shouldn't bring them all along at once, while picking a higher
+    // level power in advance brings its own children. Children without a level
+    // always follow.
     const actorLevel = Number(actor?.system?.attributes?.level?.value);
-    const withinLevel = doc => {
+    const withinLevel = (doc, parentLevel) => {
       const level = Number(doc.system.powerLevel?.value);
-      return !level || !Number.isFinite(actorLevel) || level <= Math.max(actorLevel, level);
+      return !level || !Number.isFinite(actorLevel) || level <= Math.max(actorLevel, Number(parentLevel) || 0);
     };
-    const toRow = (doc, parentKey = null, parentSelected = false, lineage = []) => {
+    const toRow = (doc, parentKey = null, parentSelected = false, lineage = [], parentLevel = null) => {
       const key = parentKey ? `${parentKey}>${doc.uuid}` : doc.uuid;
-      const inLevel = withinLevel(doc);
+      const inLevel = withinLevel(doc, parentLevel);
       const selected = parentKey ? parentSelected && inLevel : preselect(doc);
       return {
         key: key,
@@ -321,7 +327,7 @@ export class ArchmagePrepopulate {
         selected: selected,
         children: (childrenOf.get(doc.uuid) ?? [])
           .filter(child => child.uuid !== doc.uuid && !lineage.includes(child.uuid))
-          .map(child => toRow(child, key, selected, [...lineage, doc.uuid]))
+          .map(child => toRow(child, key, selected, [...lineage, doc.uuid], doc.system.powerLevel?.value))
       };
     };
     const rows = roots.map(p => toRow(p));

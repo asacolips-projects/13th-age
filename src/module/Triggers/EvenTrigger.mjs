@@ -1,6 +1,10 @@
 import ITrigger from "./ITrigger.mjs";
 
 export default class EvenTrigger extends ITrigger {
+    get group() {
+        return "parity";
+    }
+
     appliesTo(label) {
         return ITrigger.mentions(label, ITrigger.word("even"));
     }

@@ -1,9 +1,10 @@
 /**
  * A single condition that a trigger row can express, such as "even", "hit" or "natural 16+".
  *
- * A row label is a conjunction of conditions ("natural even hit" means even AND hit), so each
- * trigger only answers for its own condition: whether the label mentions it (`appliesTo`) and
- * whether a given roll satisfies it (`test`). Combining them is Triggers' job.
+ * Each trigger only answers for its own condition: whether a label mentions it (`appliesTo`) and
+ * whether a given roll satisfies it (`test`). Combining them is Triggers' job, which joins the
+ * conditions of different groups with AND ("natural even hit" is even AND hit) and those of the
+ * same group with OR ("hit or miss", "natural 5, 10, 15, or 20").
  *
  * @interface ITrigger
  */
@@ -27,6 +28,15 @@ export default class ITrigger {
      */
     test(outcome, label) {
         throw new Error("A subclass of ITrigger must implement the test method");
+    }
+
+    /**
+     * The group of conditions this one belongs to: conditions of the same group that a label
+     * mentions are alternatives to each other, since a roll can only satisfy one at a time.
+     * @returns {string}
+     */
+    get group() {
+        return this.constructor.name;
     }
 
     /**
@@ -66,6 +76,30 @@ export default class ITrigger {
     static naturalRegex(pattern) {
         const natural = ITrigger._escape(ITrigger.word("natural"));
         return new RegExp(`${ITrigger.NOT_ALPHANUM_BEFORE}${natural}${pattern}`, 'u');
+    }
+
+    /**
+     * The localized words that join alternatives (ARCHMAGE.CHAT.disjunctions, a comma separated
+     * list, such as "or, otherwise"), as a regexp alternation.
+     * @returns {string}
+     */
+    static disjunctions() {
+        return ITrigger.word("disjunctions").split(",")
+            .map(word => word.trim())
+            .filter(word => word)
+            .map(word => ITrigger._escape(word))
+            .join("|");
+    }
+
+    /**
+     * A threshold on the escalation die, "escalation die is 2+", capturing the threshold. The
+     * words in between stay within the same sentence.
+     * @param {string} [flags]
+     * @returns {RegExp}
+     */
+    static escalationRegex(flags = "u") {
+        const escalation = ITrigger._escape(game.i18n.localize("ARCHMAGE.escalationDieLabel").toLowerCase());
+        return new RegExp(`${ITrigger.NOT_ALPHANUM_BEFORE}${escalation}[^\\d.;]*?(\\d+)\\s*\\+`, flags);
     }
 
     static get NOT_ALPHANUM_BEFORE() { return '(?<![\\p{L}\\p{N}])'; }

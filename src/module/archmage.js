@@ -662,6 +662,10 @@ Hooks.on('ready', () => {
           ]
       })
   );
+  for (const kind of Object.keys(CONFIG.ARCHMAGE.REGEXP.FLEXIBLE_KINDS)) {
+    const word = game.i18n.localize(`ARCHMAGE.${kind}`).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    CONFIG.ARCHMAGE.REGEXP.FLEXIBLE_KINDS[kind] = new RegExp(word, "i");
+  }
 
   // Optionally Hide ruler distance labels — 13th Age uses abstract movement where distances are irrelevant.
   if (game.settings.get('archmage', 'disableMovementDistances')) {

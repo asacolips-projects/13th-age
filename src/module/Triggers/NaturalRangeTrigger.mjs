@@ -1,12 +1,16 @@
 import ITrigger from "./ITrigger.mjs";
 
 /**
- * "Natural 1-5" - the natural roll has to fall inside an inclusive range.
+ * "Natural 1-5" (or "1–5", with an en dash) - the natural roll has to fall inside an inclusive range.
  *
  * Common in monster stat blocks. Without this, the exact-score trigger used to read such a row
  * as "natural 1" and light it up on the wrong roll.
  */
 export default class NaturalRangeTrigger extends ITrigger {
+    get group() {
+        return "natural";
+    }
+
     appliesTo(label) {
         return this._range(label) !== undefined;
     }
@@ -19,7 +23,7 @@ export default class NaturalRangeTrigger extends ITrigger {
     }
 
     _range(label) {
-        const match = label.match(ITrigger.naturalRegex('\\s*(\\d+)\\s*-\\s*(\\d+)'));
+        const match = label.match(ITrigger.naturalRegex('\\s*(\\d+)\\s*[-\u2013]\\s*(\\d+)'));
         if (!match) return undefined;
         const from = parseInt(match[1]);
         const to = parseInt(match[2]);

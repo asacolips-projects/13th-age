@@ -53,7 +53,10 @@ system:
   embeddedMacro:
     label: Embedded Macro
     type: String
-    value: ''
+    value: '// For the code executed in this macro, see https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      await game.archmage.ArchmageMacros.listFlexibles(speaker, actor, token, character,
+      archmage, "melee");'
   feats:
     '0':
       description:
@@ -144,11 +147,11 @@ system:
   maxQuantity:
     label: Uses
     type: Number
-    value: null
+    value: ''
   maxQuantitySecondary:
     label: Max Secondary Uses
     type: String
-    value: null
+    value: ''
   miss:
     label: Miss
     type: String
@@ -287,7 +290,7 @@ system:
   sustainOn:
     label: Sustain On
     type: Number
-    value: ''
+    value: null
   sustainedEffect:
     label: Opening and Sustained Effect
     type: String
