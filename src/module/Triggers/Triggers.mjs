@@ -1,5 +1,6 @@
 import CritTrigger from "./CritTrigger.mjs";
 import ITrigger from "./ITrigger.mjs";
+import EscalationTrigger from "./EscalationTrigger.mjs";
 import EvenTrigger from "./EvenTrigger.mjs";
 import HitTrigger from "./HitTrigger.mjs";
 import MissTrigger from "./MissTrigger.mjs";
@@ -19,7 +20,8 @@ export default class Triggers {
       new CritTrigger(),
       new NaturalMatchTrigger(),
       new NaturalRangeTrigger(),
-      new NaturalExactTrigger()
+      new NaturalExactTrigger(),
+      new EscalationTrigger()
     ];
   }
 
@@ -56,17 +58,19 @@ export default class Triggers {
   }
 
   /**
-   * Split a label into its alternative clauses: an "or" that starts a new natural roll condition
-   * separates two of them ("natural odd hit or miss OR natural even hit"), while any other "or"
-   * stays inside its clause ("hit or miss", "natural 5, 10, 15, or 20").
+   * Split a label into its alternative clauses: a disjunction word (ARCHMAGE.CHAT.disjunctions, a
+   * comma separated list) that starts a new natural roll condition separates two of them ("natural
+   * odd hit or miss OR natural even hit", "natural 16+ if the escalation die is 5+; otherwise
+   * natural 20"), while any other "or" stays inside its clause ("hit or miss", "natural 5, 10, 15,
+   * or 20").
    * @param {string} label As returned by labelOf.
    * @returns {string[]}
    */
   static clausesOf(label) {
-    const or = ITrigger._escape(ITrigger.word("or"));
+    const words = ITrigger.disjunctions();
     const natural = ITrigger._escape(ITrigger.word("natural"));
     const separator = new RegExp(
-      `,?\\s+${or}\\s+(?=${natural}${ITrigger.NOT_ALPHANUM_AFTER})`, "u");
+      `[,;]?\\s+(?:${words})\\s+(?=${natural}${ITrigger.NOT_ALPHANUM_AFTER})`, "u");
     return label.split(separator);
   }
 

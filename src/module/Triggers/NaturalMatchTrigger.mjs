@@ -5,7 +5,8 @@ import ITrigger from "./ITrigger.mjs";
  *
  * The threshold is read as "a number immediately followed by a +", rather than from a bare "+"
  * anywhere in the row: the latter also matched plus signs coming from damage formulas. A threshold
- * on the escalation die ("when the escalation die is 2+") is not one on the natural roll, and is skipped.
+ * on the escalation die ("when the escalation die is 2+") is not one on the natural roll: that is
+ * EscalationTrigger's.
  */
 export default class NaturalMatchTrigger extends ITrigger {
     get group() {
@@ -24,8 +25,7 @@ export default class NaturalMatchTrigger extends ITrigger {
     }
 
     _threshold(label) {
-        const escalation = ITrigger._escape(game.i18n.localize("ARCHMAGE.escalationDieLabel").toLowerCase());
-        const match = label.replace(new RegExp(`${escalation}\\D*\\d+\\s*\\+`, "gu"), "").match(/(\d+)\s*\+/);
+        const match = label.replace(ITrigger.escalationRegex("gu"), "").match(/(\d+)\s*\+/);
         return match ? parseInt(match[1]) : undefined;
     }
 }

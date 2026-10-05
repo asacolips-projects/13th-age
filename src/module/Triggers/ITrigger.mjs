@@ -78,6 +78,30 @@ export default class ITrigger {
         return new RegExp(`${ITrigger.NOT_ALPHANUM_BEFORE}${natural}${pattern}`, 'u');
     }
 
+    /**
+     * The localized words that join alternatives (ARCHMAGE.CHAT.disjunctions, a comma separated
+     * list, such as "or, otherwise"), as a regexp alternation.
+     * @returns {string}
+     */
+    static disjunctions() {
+        return ITrigger.word("disjunctions").split(",")
+            .map(word => word.trim())
+            .filter(word => word)
+            .map(word => ITrigger._escape(word))
+            .join("|");
+    }
+
+    /**
+     * A threshold on the escalation die, "escalation die is 2+", capturing the threshold. The
+     * words in between stay within the same sentence.
+     * @param {string} [flags]
+     * @returns {RegExp}
+     */
+    static escalationRegex(flags = "u") {
+        const escalation = ITrigger._escape(game.i18n.localize("ARCHMAGE.escalationDieLabel").toLowerCase());
+        return new RegExp(`${ITrigger.NOT_ALPHANUM_BEFORE}${escalation}[^\\d.;]*?(\\d+)\\s*\\+`, flags);
+    }
+
     static get NOT_ALPHANUM_BEFORE() { return '(?<![\\p{L}\\p{N}])'; }
 
     static get NOT_ALPHANUM_AFTER() { return '(?![\\p{L}\\p{N}])'; }
