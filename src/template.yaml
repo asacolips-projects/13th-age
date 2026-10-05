@@ -607,6 +607,12 @@ Item:
       type: String
       label: Trigger
       value: ''
+    # An attack that can trigger flexible attack maneuvers: its chat card lists
+    # the actor's flexible powers that this roll can trigger.
+    flexibleAttack:
+      type: Boolean
+      label: Can trigger flexible attacks
+      value: false
     target:
       type: String
       label: Target

@@ -2068,6 +2068,47 @@ option[selected] {
   opacity: 0.4;
 }
 
+// Flexible attacks listed on an attack's card: only the maneuvers the roll can trigger are shown.
+.flexible-attack-row.trigger-inactive {
+  display: none;
+}
+
+// "show all": the maneuvers the roll did not trigger appear in the inactive style (opacity from .trigger-inactive).
+.flexible-attacks--all .flexible-attack-row.trigger-inactive {
+  display: block;
+}
+
+.flexible-attack-toggle {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.flexible-attacks {
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.flexible-attack-use {
+  cursor: pointer;
+
+  img {
+    display: inline;
+    vertical-align: middle;
+    border: 0;
+  }
+}
+
+.flexible-attacks--used {
+  .flexible-attack-use {
+    pointer-events: none;
+  }
+
+  .flexible-attack-row:not(.flexible-attack-row--used) {
+    opacity: 0.4;
+  }
+}
+
 .hide {
   display: none;
 }

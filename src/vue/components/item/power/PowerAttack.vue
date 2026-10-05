@@ -82,6 +82,18 @@
 
     <div class="form-group">
       <label>
+        {{game.i18n.localize('ARCHMAGE.CHAT.flexibleAttack')}}
+        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.flexibleAttackTitle')"/>
+      </label>
+      <div class="field">
+        <input type="checkbox" name="system.flexibleAttack.value"
+          v-model="item.system.flexibleAttack.value"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
         {{game.i18n.localize(`ARCHMAGE.CHAT.critMod`)}}
         <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.critModTitle')"/>
       </label>

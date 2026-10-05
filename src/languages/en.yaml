@@ -809,6 +809,13 @@ ARCHMAGE:
     epic: Epic Feat
     even: even
     finalVerse: Final Verse
+    flexibleAttack: Can trigger flexible attacks
+    flexibleAttackTitle: When this attack is rolled, its chat card lists the flexible attack powers of the same actor that the roll can trigger.
+    flexibleAttackHeading: Flexible attacks
+    flexibleAttackNoUses: no uses left
+    flexibleAttackShowAll: show all
+    flexibleAttackShowApplicable: show applicable
+    flexibleAttackNotOwner: You do not own {actor}.
     FullHeal: Full Heal-Up
     FullHealBody: Regain all health, recoveries, and power uses.
     FullHealHP: reset to maximum

@@ -1,4 +1,5 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
+import FlexibleAttacks from "../rolls/FlexibleAttacks.mjs";
 import { MacroUtils } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 import { isPowerFieldVisible, powerFieldKeys } from "./power-fields.mjs";
@@ -144,6 +145,9 @@ export class ItemArchmage extends Item {
 
     // Render the chat card.
     let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token, { modified });
+
+    // Flexible attacks: list the actor's flexible powers on the card, to be evaluated like any trigger row.
+    chatData.content = FlexibleAttacks.addRows(chatData.content, this);
 
     // Evaluate outcomes and prepare animations.
     let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {

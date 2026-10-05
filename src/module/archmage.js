@@ -27,6 +27,7 @@ import {combatRound, combatStart, combatTurn, preDeleteCombat} from "./hooks/com
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
 import { baselineMonsterDialog } from './actor/baseline-monster.js';
+import FlexibleAttacks from './rolls/FlexibleAttacks.mjs';
 
 Hooks.once('init', async function() {
 
@@ -1490,6 +1491,9 @@ function uuidv4() {
 
 Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
   const html = $(rawhtml);
+
+  // Flexible attack rows on an attack's card.
+  FlexibleAttacks.activateListeners(chatMessage, html);
 
   // Override the inline roll click behavior.
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
