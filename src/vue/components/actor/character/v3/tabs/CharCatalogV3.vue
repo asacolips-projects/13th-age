@@ -370,6 +370,8 @@ const createGroupItem = async (section) => {
       display: block;
       width: 100%;
       font-weight: bold;
+      // Keeps the light denomination colors legible on the light theme.
+      text-shadow: 0 0 5px var(--c-black--50);
     }
 
     input[type="number"] {
