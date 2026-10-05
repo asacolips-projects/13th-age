@@ -44,13 +44,16 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
    * @param {Partial<ApplicationConfiguration>} [options]
    */
   constructor(actor, options = {}) {
-    super(Object.assign({ id: `archmage-character-settings-${actor?.id ?? foundry.utils.randomID()}` }, options));
+    super(Object.assign({
+      id: `archmage-character-settings-${actor?.id ?? foundry.utils.randomID()}`,
+      actor
+    }, options));
     this.actor = actor;
   }
 
   /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ['archmage-appv2', 'dialog-form', 'character-settings', 'standard-form'],
+    classes: ['archmage-appv2', 'dialog-form', 'character-settings', 'standard-form', 'themed'],
     position: { width: 560, height: 680 },
     window: {
       title: 'ARCHMAGE.CHARACTERSETTINGS.settings',
@@ -77,6 +80,40 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
         hooks: { key: 'hooks', label: localize('hooks'), active: false }
       }
     };
+  }
+
+  /**
+   * Resolve the theme class for the settings window: mirror the theme Foundry
+   * assigned to the actor's sheet window, so the settings open in the same
+   * color scheme as the sheet that spawned them.
+   *
+   * Core's DocumentSheetV2 pushes `themed theme-{scheme}` onto the sheet's
+   * window classes from the per-sheet color scheme preference, so the sheet
+   * element is the ground truth. Fall back to the body class, which core
+   * derives from the Applications color scheme, so the window still tracks
+   * the user's preference when the sheet itself carries no theme class.
+   *
+   * @param {Actor} actor   The actor whose sheet theme to read
+   * @returns {string}      "theme-light", "theme-dark", or "" if nothing matched
+   */
+  static themeForActor(actor) {
+    const match = el => [...(el?.classList ?? [])].find(c => c === 'theme-light' || c === 'theme-dark') ?? '';
+    return match(actor?.sheet?.element) || match(document.body);
+  }
+
+  /**
+   * Add the resolved theme class to the window classes, alongside the `themed`
+   * flag from DEFAULT_OPTIONS. Core does the same in DocumentSheetV2 for
+   * document sheets; without it, a `themed` window never receives the
+   * theme-light/theme-dark variable sets.
+   *
+   * @override
+   */
+  _initializeApplicationOptions(options) {
+    options = super._initializeApplicationOptions(options);
+    const theme = this.constructor.themeForActor(options.actor);
+    if (theme) options.classes.push(theme);
+    return options;
   }
 
   /** The actor must be in a world (not a compendium pack) to be editable. */
