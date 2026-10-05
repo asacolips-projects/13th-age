@@ -1,3 +1,5 @@
+import FlexibleAttacks from "../rolls/FlexibleAttacks.mjs";
+
 export class ArchmageMacros {
 
   ////////////////////////////////////////////////
@@ -499,5 +501,26 @@ export class ArchmageMacros {
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
+  ////////////////////////////////////////////////
+  /**
+   * Generic Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * List the actor's flexible attack powers that this attack can trigger on its chat card.
+   * Call it from the attack's embedded macro, e.g. for a melee attack:
+   * `await game.archmage.ArchmageMacros.listFlexibles(speaker, actor, token, character, archmage, "melee");`
+   * @param {string} kind "melee" or "ranged".
+   */
+  static async listFlexibles(speaker, actor, token, character, archmage, kind) {
+    if (!actor) return;
+    if (!(kind in CONFIG.ARCHMAGE.REGEXP.FLEXIBLE_KINDS)) {
+      console.error(`Archmage | listFlexibles: unknown attack kind '${kind}'`);
+      return;
+    }
+    archmage.chat.content = FlexibleAttacks.addRows(archmage.chat.content, actor, kind, archmage.hitEval?.rollOutcomes);
   }
 }

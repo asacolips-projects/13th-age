@@ -1,60 +1,39 @@
+import Triggers from "../Triggers/Triggers.mjs";
+
 /**
- * Flexible attacks: an attack power flagged `system.flexibleAttack.value` lists, on its chat card, the
- * flexible attack powers (`powerType: flexible`) of the same actor that its roll can trigger.
+ * Flexible attacks: an attack power whose embedded macro calls the listFlexibles system macro lists, on its
+ * chat card, the flexible attack powers (`powerType: flexible`) of the same actor that its roll can trigger.
  *
- * Each maneuver is added as a card row labelled with its trigger ("Natural even hit: Me Smash!"), so the
- * existing trigger evaluation (Triggers, run by preCreateChatMessageHandler when the card is posted and
- * again by DamageApplicator.rerollDice) marks it active, unknown or inactive, with no evaluation code
- * here. Inactive rows are hidden by CSS unless "show all" is clicked. Clicking a row rolls that power from the actor.
+ * Each maneuver is added as a card row labelled with its trigger ("Natural even hit: Me Smash!") and marked
+ * active, unknown or inactive with the same trigger evaluation as the rest of the card (Triggers, which
+ * DamageApplicator.rerollDice also runs again on these rows). Inactive rows are hidden by CSS unless
+ * "show all" is clicked. Clicking a row rolls that power from the actor.
  */
 export default class FlexibleAttacks {
-
-  /**
-   * The attack slots that identify the kind of an attack, as used in its attack formula
-   * (`@atk.m.bonus`), and the word that a flexible power's range uses for that kind ("Flexible melee
-   * attack"). A class that ties flexible attacks to a spell could add `a: { kind: 'arcane', ... }`
-   * and `d: { kind: 'divine', ... }` here.
-   */
-  static SLOTS = {
-    m: { kind: "melee", word: /melee/i },
-    r: { kind: "ranged", word: /ranged/i }
-  };
-
-  /**
-   * Which kind of attack is this formula? The kind of the one known slot it uses, or null when it uses
-   * none or several of them.
-   * @param {string} attackFormula The power's `system.attack.value`.
-   * @returns {string|null}
-   */
-  static kindOf(attackFormula) {
-    const slots = new Set();
-    for (const match of String(attackFormula ?? "").matchAll(/@atk\.([a-z])\b/g)) {
-      if (FlexibleAttacks.SLOTS[match[1]]) slots.add(match[1]);
-    }
-    return slots.size === 1 ? FlexibleAttacks.SLOTS[[...slots][0]].kind : null;
-  }
 
   /**
    * Can a flexible power be used with this kind of attack? Its range reads "Flexible melee attack",
    * "Flexible ranged attack" or "Flexible melee or ranged attack"; one that names no known kind
    * is allowed with any.
    * @param {string} rangeText The flexible power's `system.range.value`.
-   * @param {string} kind As returned by kindOf.
+   * @param {string} kind "melee" or "ranged".
    * @returns {boolean}
    */
   static allowsKind(rangeText, kind) {
     const text = String(rangeText ?? "");
-    const named = Object.values(FlexibleAttacks.SLOTS).filter((slot) => slot.word.test(text));
-    return named.length === 0 || named.some((slot) => slot.kind === kind);
+    const named = Object.entries(CONFIG.ARCHMAGE.REGEXP.FLEXIBLE_KINDS)
+      .filter(([, word]) => word.test(text))
+      .map(([namedKind]) => namedKind);
+    return named.length === 0 || named.includes(kind);
   }
 
   /**
    * The actor's flexible powers that can go with this attack.
    * @param {Actor} actor
-   * @param {string} kind As returned by kindOf.
+   * @param {string} kind "melee" or "ranged".
    * @returns {Item[]}
    */
-  static maneuversFor(actor, kind) {
+  static flexiblesFor(actor, kind) {
     return actor.items
       .filter((item) => item.system?.powerType?.value === "flexible"
         && FlexibleAttacks.allowsKind(item.system?.range?.value, kind))
@@ -62,19 +41,18 @@ export default class FlexibleAttacks {
   }
 
   /**
-   * Add the maneuver rows to a chat card that is about to be evaluated.
-   * Must run before preCreateChatMessageHandler.handle. The rows are appended to the card row that holds
-   * the attack row, after it, since the trigger rows are evaluated against the attack's result.
-   * @param {string} content The rendered card.
-   * @param {Item} attack The attack power being rolled.
+   * Add the maneuver rows to a chat card that has already been evaluated, and evaluate them against the
+   * attack's result. Meant for the listFlexibles system macro, which runs after preCreateChatMessageHandler.handle.
+   * The rows are appended to the card row that holds the attack row, after it.
+   * @param {string} content The rendered and evaluated card.
+   * @param {Actor} actor The actor whose flexible powers are listed.
+   * @param {string} kind The kind of the attack, "melee" or "ranged".
+   * @param {object[]} [rollOutcomes] HitEvaluation's per-roll outcomes for the attack.
    * @returns {string} The card, with the rows when there are any to show.
    */
-  static addRows(content, attack) {
-    const actor = attack.itemActor;
-    if (!actor || !attack.system.flexibleAttack?.value) return content;
-    const kind = FlexibleAttacks.kindOf(attack.system.attack?.value);
-    if (!kind) return content;
-    const maneuvers = FlexibleAttacks.maneuversFor(actor, kind);
+  static addRows(content, actor, kind, rollOutcomes) {
+    if (!actor) return content;
+    const maneuvers = FlexibleAttacks.flexiblesFor(actor, kind);
     if (!maneuvers.length) return content;
 
     // The rows go inside the attack's own card row: DamageApplicator.rerollDice re-evaluates the trigger
@@ -102,7 +80,24 @@ export default class FlexibleAttacks {
     });
     const heading = `<strong>${esc(game.i18n.localize("ARCHMAGE.CHAT.flexibleAttackHeading"))}</strong> `
       + `(<a class="flexible-attack-toggle">${esc(game.i18n.localize("ARCHMAGE.CHAT.flexibleAttackShowAll"))}</a>)`;
-    $target.append(`<div class="flexible-attacks">${heading}${rows.join("")}</div>`);
+    const $group = $(`<div class="flexible-attacks">${heading}${rows.join("")}</div>`);
+
+    // The card was evaluated before these rows existed: mark them as preCreateChatMessageHandler.handle would.
+    const triggers = new Triggers();
+    $group.find(".flexible-attack-row").each((i, row) => {
+      const $row = $(row);
+      const rowLabel = Triggers.labelOf($row);
+      if (!triggers.isTriggerRow(rowLabel)) return;
+      const active = triggers.evaluateRow(rowLabel, rollOutcomes);
+      if (active == undefined) $row.addClass("trigger-unknown");
+      else if (active) {
+        $row.addClass("trigger-active");
+        if (rowLabel.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase())) $row.addClass("trigger-miss");
+      }
+      else $row.addClass("trigger-inactive");
+    });
+
+    $target.append($group);
     return $content.html();
   }
 
