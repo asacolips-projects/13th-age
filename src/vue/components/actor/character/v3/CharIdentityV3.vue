@@ -363,12 +363,6 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
   /* ---- Shared: One Unique Thing ----------------------------------- */
 
   .header-out {
-    /* Editing needs room for the editor's menu bar plus a usable writing
-       area, which the display mode's compact cap can't provide. */
-    &.header-out--editing {
-      max-height: 240px;
-    }
-
     .out-text {
       margin: 0;
       white-space: normal;
@@ -382,23 +376,30 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
 
     /* Activating a ProseMirror editor restructures .editor into a menu bar
        plus an .editor-container (whose flex basis collapses without help).
-       Same narrow-column treatment as the V2 sheet's rules in
-       _sheet.scss: keep the menu in the flow, wrap it, and give the writing
-       area its own floor. */
+       Unlike the V2 sheet's wrapped menu in _sheet.scss, the header block is
+       height-capped, so the menu keeps to one scrollable row and the writing
+       area gets the rest. */
     :deep(prose-mirror.editor) {
       display: flex;
       flex-direction: column;
-      min-height: 7rem;
+      min-height: 200px;
 
       > menu,
       .editor-menu {
         position: relative;
         inset: auto;
         flex: 0 0 auto;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         height: auto;
         max-height: none;
-        overflow: visible;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        /* Buttons keep their natural width and let the row scroll under
+           them rather than being squashed to fit. */
+        button {
+          flex: none;
+        }
       }
 
       .editor-container {
