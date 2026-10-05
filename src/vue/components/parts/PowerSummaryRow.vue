@@ -247,6 +247,15 @@ const classes = computed(() => [
   font-size: var(--font-size-16);
 }
 
+// Marks a power that came along with another one; the tooltip names the
+// parent. The V2 bundle styles this under .archmage-v2; this stands alone
+// so the V3 rows (whose root lacks that class) are styled too.
+.item-granted {
+  margin-left: $padding-sm;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
 // The trigger read as a tooltip hanging off the row.
 .power-summary--trigger {
   .power-trigger {

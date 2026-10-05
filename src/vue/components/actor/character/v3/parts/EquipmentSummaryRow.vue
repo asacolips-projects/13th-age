@@ -5,7 +5,7 @@
     <RollableV3 :overlay="true" @click.stop="activateItem"><img :src="equipment.img" class="equipment-image"/></RollableV3>
     <!-- Name, which expands the item. -->
     <a class="equipment-name" @click="$emit('toggle')" :data-item-id="equipment._id">
-      <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
+      <h3 class="equipment-title unit-subtitle">{{equipment.name}}<i v-if="equipment.grantedBy" class="fas fa-link item-granted" :data-tooltip="localize('ARCHMAGE.ITEM.grantedBy', {names: equipment.grantedBy})" data-tooltip-direction="UP"></i></h3>
     </a>
     <!-- Active pip, equipment only. Two stacked pips mark an item above the
          character's tier: attuning it spends two slots. -->
@@ -189,6 +189,15 @@ function rechargeItem() {
   text-overflow: ellipsis;
   // The same size the power rows' titles read at.
   font-size: var(--font-size-16);
+}
+
+// Marks an item that came along with another one; the tooltip names the
+// parent. The V2 bundle styles this under .archmage-v2, which the V3 sheet's
+// root lacks, hence its own rule here.
+.item-granted {
+  margin-left: $padding-sm;
+  font-size: 0.8em;
+  opacity: 0.6;
 }
 
 .equipment-bonus {

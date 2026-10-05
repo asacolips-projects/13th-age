@@ -1,6 +1,7 @@
 import VueRenderingMixin, { DOCUMENT_PROVIDE_KEYS } from '../item/_vue-application-mixin.mjs';
 import { pickImage, createDragDropHandlers } from '../helpers/sheet-helpers.mjs';
 import { ActorHelpersV2, buildSheetContext, sortItemDrop } from './helpers/actor-helpers-v2.js';
+import { parentNamesById } from '../item/item-relations.mjs';
 import { ArchmageCharacterSheetV3 } from '../../vue/components.vue.es.js';
 
 export class ActorArchmageSheetV3 extends VueRenderingMixin(
@@ -119,6 +120,12 @@ export class ActorArchmageSheetV3 extends VueRenderingMixin(
       editable: this.isEditable,
       _renderKey: this._renderKey
     }));
+
+    // Mark the items that came along with another one.
+    const parentNames = parentNamesById(this.actor);
+    for (const item of context.actor.items) {
+      if (parentNames.has(item._id)) item.grantedBy = parentNames.get(item._id).join(', ');
+    }
 
     return context;
   }
