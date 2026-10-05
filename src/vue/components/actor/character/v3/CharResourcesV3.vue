@@ -269,6 +269,7 @@ function rollReroll(kind) {
 
 .unit-title {
   @include v3-unit-title;
+  text-align: center;
 }
 
 /* The reroll tile stacks its two one-line groups; a lone pool widens back to a

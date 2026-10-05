@@ -72,7 +72,7 @@ const usageColorClass = computed(() => powerUsageColor(props.equipment, props.ac
 <style scoped lang="scss">
   .equipment-details {
     padding: 0.375rem 0.375rem 0.25rem;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-16);
   }
 
   .details-meta {

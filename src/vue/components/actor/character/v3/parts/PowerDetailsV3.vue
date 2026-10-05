@@ -88,7 +88,7 @@ const usageColorClass = computed(() => powerUsageColor(props.power, props.actor)
 <style scoped lang="scss">
   .power-details {
     padding: 0.375rem 0.375rem 0.25rem;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-16);
   }
 
   .details-meta {
