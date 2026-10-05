@@ -142,7 +142,7 @@ const kinLabel = computed(() =>
 
 const importTooltip = computed(() => missingKinClass.value
   ? game.i18n.format('ARCHMAGE.importNeedsKinClass', { kin: kinLabel.value })
-  : localize('ARCHMAGE.import'));
+  : null);
 
 // The button pulses while the character has no items, advertising where a
 // new character's powers come from.

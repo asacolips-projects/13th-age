@@ -14,18 +14,16 @@
       </div>
 
       <!-- Name + subtitle, or their edit fields -->
-      <div class="header-id flexcol">
+      <div class="header-id flexcol" :class="{ 'header-id--editing': editing }">
         <template v-if="!editing">
           <h1 class="char-name">{{ actor?.name }}</h1>
           <p class="char-subtitle" v-if="subtitle">{{ subtitle }}</p>
         </template>
         <template v-else>
           <input type="text" name="name" v-model="actor.name" :placeholder="localize('ARCHMAGE.name')">
-          <div class="edit-row">
-            <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
-            <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
-            <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
-          </div>
+          <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
+          <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
+          <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
         </template>
       </div>
     </div>
@@ -51,18 +49,16 @@
     </div>
 
     <!-- Name + subtitle, or their edit fields -->
-    <div class="header-id flexcol">
+    <div class="header-id flexcol" :class="{ 'header-id--editing': editing }">
       <template v-if="!editing">
         <h1 class="char-name">{{ actor?.name }}</h1>
         <p class="char-subtitle" v-if="subtitle">{{ subtitle }}</p>
       </template>
       <template v-else>
         <input type="text" name="name" v-model="actor.name" :placeholder="localize('ARCHMAGE.name')">
-        <div class="edit-row">
-          <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
-          <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
-          <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
-        </div>
+        <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
+        <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
+        <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
       </template>
     </div>
 
@@ -347,23 +343,20 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
   /* ---- Shared: identity entry fields ------------------------------ */
 
   .header-id {
+    /* Editing insets the fields from the header's edges — the display text is
+       scrimmed and centered, but raw inputs running edge to edge read as
+       cramped against the banner/frame. Sits after the variant blocks so the
+       longhand wins the padding-inline axes of their shorthand. */
+    &.header-id--editing {
+      padding-inline: 0.75rem;
+    }
+
     input {
       display: block;
       width: 100%;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
       font-family: var(--v3-font-display);
       font-weight: normal;
-    }
-
-    .edit-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-
-      input {
-        min-width: 0;
-        margin-bottom: 0;
-      }
     }
   }
 
