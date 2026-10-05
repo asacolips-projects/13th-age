@@ -19,8 +19,8 @@
     </ul>
     <p v-else class="v3-empty">{{ localize('ARCHMAGE.CHARACTERSHEETV3.none') }}</p>
     <div v-if="editing" class="background-controls">
-      <button type="button" class="background-toggle" :disabled="!nextBgKey" @click="enableNextBackground">+</button>
-      <button type="button" class="background-toggle" :disabled="!lastEnabledKey" @click="disableLastBackground">-</button>
+      <button type="button" class="background-toggle" :disabled="!nextBgKey" @click="enableNextBackground"><i class="fas fa-plus"></i></button>
+      <button type="button" class="background-toggle" :disabled="!lastEnabledKey" @click="disableLastBackground"><i class="fas fa-minus"></i></button>
     </div>
   </section>
 </template>

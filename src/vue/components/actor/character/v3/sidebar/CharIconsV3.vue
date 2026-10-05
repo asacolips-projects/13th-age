@@ -8,14 +8,13 @@
       <li v-for="icon in icons" :key="icon.key" class="icon-row" :class="{ 'icon-row--edit': editing }">
         <template v-if="!editing">
           <span class="icon-name">
-            {{ iconSymbol(icon.relationship) }}
-            {{ icon.raw.bonus.value }}
-            {{ icon.name }}
+            <i class="fas icon-relationship" :class="relationshipIcon(icon.relationship)"></i>
+            {{ icon.raw.bonus.value }} {{ icon.name }}
           </span>
           <span class="icon-dice">
             <button v-for="die in dice(icon)" :key="die.index" type="button" class="icon-die"
               :data-tooltip="dieTooltip(die.value)" @click="cycleDie(icon, die.index)">
-              {{ dieLabel(die.value) }}
+              <i v-if="dieIcon(die.value)" class="fas" :class="dieIcon(die.value)"></i>
             </button>
           </span>
         </template>
@@ -38,8 +37,8 @@
     </ul>
     <p v-else class="v3-empty">{{ localize('ARCHMAGE.CHARACTERSHEETV3.none') }}</p>
     <div v-if="editing" class="icon-controls">
-      <button type="button" class="icon-toggle" :disabled="!nextIconKey" @click="enableNextIcon">+</button>
-      <button type="button" class="icon-toggle" :disabled="!lastEnabledKey" @click="disableLastIcon">-</button>
+      <button type="button" class="icon-toggle" :disabled="!nextIconKey" @click="enableNextIcon"><i class="fas fa-plus"></i></button>
+      <button type="button" class="icon-toggle" :disabled="!lastEnabledKey" @click="disableLastIcon"><i class="fas fa-minus"></i></button>
     </div>
   </section>
 </template>
@@ -75,13 +74,15 @@ const allIcons = computed(() =>
 const { nextKey: nextIconKey, lastEnabledKey, enableNext: enableNextIcon, disableLast: disableLastIcon } =
   useActiveToggles(actorDocument, 'icons', () => allIcons.value);
 
-function iconSymbol(relationship) {
-  const symbols = {
-    'Positive': '+',
-    'Negative': '-',
-    'Conflicted': '±'
+// Font Awesome glyph for the icon's relationship; unknown values fall
+// back to a question mark.
+function relationshipIcon(relationship) {
+  const icons = {
+    'Positive': 'fa-plus',
+    'Negative': 'fa-minus',
+    'Conflicted': 'fa-plus-minus'
   };
-  return symbols[relationship] ?? '?';
+  return icons[relationship] ?? 'fa-question';
 }
 
 // Die display settings; game settings aren't reactive, but the sections
@@ -98,20 +99,16 @@ function dice(icon) {
   }));
 }
 
-// Mirror the V2 icon display's text mapping for rolled values; manually
-// claimed states pass through as-is.
-function dieLabel(value) {
-  const labels = {5: '5', 6: '6'};
+// Font Awesome glyph per rolled state. 1e shows the die face (5/6), 2e a
+// plus for a full benefit and a spiral for a partial one. The alternate
+// method replaces the 6 with a cross marking a claimed benefit.
+function dieIcon(value) {
+  const icons = is2e ? {5: 'fa-spiral', 6: 'fa-plus'} : {5: 'fa-5', 6: 'fa-6'};
   if (altIconRolling) {
-    delete labels[5];
-    labels[6] = '⨉';
-  } else if (is2e) {
-    labels[5] = '~';
-    labels[6] = '+';
+    delete icons[5];
+    icons[6] = 'fa-times';
   }
-  // Empty boxes render a no-break space so the button keeps the same line
-  // box (and height) as a filled one.
-  return (labels[value] ?? value) || '\u00a0';
+  return icons[value] ?? '';
 }
 
 function dieTooltip(value) {
@@ -154,9 +151,11 @@ function rollIcons() {
   list-style: none;
 }
 
+/* Center instead of baseline: the die boxes are fixed-size squares, so
+   center alignment keeps rows steady whether a box is empty or filled. */
 .icon-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.375rem;
   padding: 0.25rem 0.5rem;
 }
@@ -174,6 +173,10 @@ function rollIcons() {
 
 .icon-name {
   flex: 1;
+
+  .icon-relationship {
+    margin-right: 0.25rem;
+  }
 }
 
 .icon-dice {
@@ -184,14 +187,23 @@ function rollIcons() {
 }
 
 /* Per-die checkbox: mimics the native checkbox look, shows the die's state
-   (empty, rolled 5/6) and cycles it on click. Fixed 1:1 size regardless of
-   content so rows don't shift when a box empties. */
+   (empty, rolled 5/6) as a Font Awesome glyph and cycles it on click. Fixed
+   1:1 size regardless of content so rows don't shift when a box empties;
+   the glyph is scaled up to fill more of the box. */
 .icon-die {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 1.5em;
+  height: 1.5em;
   border: 1px solid var(--color-border);
   border-radius: 2px;
   background: transparent;
   font-size: var(--font-size-10);
+
+  .fas {
+    font-size: 1.2em;
+  }
 }
 
 .icon-edit--relationship {
@@ -214,7 +226,6 @@ function rollIcons() {
   display: flex;
   gap: 0.375rem;
   padding: 0.375rem 0.5rem;
-  line-height: 0.5em;
 
   .icon-toggle {
     flex: 1;
