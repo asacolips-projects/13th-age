@@ -224,7 +224,7 @@
         <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesPerCombat') }}</legend>
         <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="form-group" :data-key="r">
           <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
-          <div class="field">
+          <div class="field field-narrow">
             <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled" />
           </div>
         </div>
