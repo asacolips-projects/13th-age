@@ -3,8 +3,8 @@ export function getSafeValue(property, defaultValue) {
   return defaultValue;
 }
 
-export function localize(key) {
-  return game.i18n.localize(key);
+export function localize(key, data = null) {
+  return data ? game.i18n.format(key, data) : game.i18n.localize(key);
 }
 
 /**

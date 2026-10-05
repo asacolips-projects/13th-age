@@ -1,5 +1,6 @@
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 import { ArchmagePowerImporterApplication } from '../applications/power-importer.js';
+import { parentNamesById } from '../item/item-relations.mjs';
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
@@ -57,13 +58,21 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
   /** @override */
   getData(options) {
     // Shared sheet context plus the AppV1-only fields this sheet adds.
-    return buildSheetContext(this.actor, {
+    const context = buildSheetContext(this.actor, {
       appId: this.appId,
       options: this.options,
       editable: this.isEditable,
       isNPC: this.actor.type === "npc",
       _renderKey: this._renderKey
     });
+
+    // Mark the items that came along with another one.
+    const parentNames = parentNamesById(this.actor);
+    for (const item of context.actor.items) {
+      if (parentNames.has(item._id)) item.grantedBy = parentNames.get(item._id).join(', ');
+    }
+
+    return context;
   }
 
   /* ------------------------------------------------------------------------ */
@@ -429,26 +438,44 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
       return;
     }
 
-    // Delete the item from the actor object.
+    // Items this one brought along are deleted with it, so list them.
+    let content = game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm");
+    const progeny = (await this.actor.items.get(itemId)?.gatherChildren() ?? [])
+      .filter(child => child.parent === this.actor);
+    if (progeny.length) {
+      const names = progeny.map(child => `<li>${foundry.utils.escapeHTML(child.name)}</li>`).join('');
+      content += `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmChildren")}</p><ul>${names}</ul>`;
+    }
+
+    // Delete the item from the actor object. An item that includes others can
+    // also be deleted alone, which leaves what it included as ordinary items.
     let del = false;
+    let withChildren = true;
+    const buttons = {
+      del: {
+        label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+        callback: () => {del = true;}
+      }
+    };
+    if (progeny.length) {
+      buttons.delOnly = {
+        label: game.i18n.localize("ARCHMAGE.CHAT.DeleteOnlyThis"),
+        callback: () => {del = true; withChildren = false;}
+      };
+    }
+    buttons.cancel = {
+      label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+      callback: () => {}
+    };
     new Dialog({
       title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
-      content: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
-      buttons: {
-        del: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
-          callback: () => {del = true;}
-        },
-        cancel: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => {}
-        }
-      },
+      content: content,
+      buttons: buttons,
       default: 'cancel',
       close: html => {
         if (del) {
           let item = this.actor.items.get(itemId);
-          item.delete();
+          item.delete(withChildren ? {} : {archmageChildren: false});
         }
       }
     }).render(true);
@@ -946,7 +973,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
     const characterClasses = this.actor.system.details.detectedClasses ?? [];
     const prepop = new ArchmagePrepopulate();
     const importData = await prepop.getImportData(characterClasses, characterRace, this.actor);
-    if (!importData?.tabs?.length) {
+    if (!importData?.packs?.length) {
       return;
     }
     new ArchmagePowerImporterApplication({actor: this.actor, importData: importData}).render(true);

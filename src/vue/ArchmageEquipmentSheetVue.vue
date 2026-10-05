@@ -38,6 +38,11 @@
             </div>
           </fieldset>
         </Tab>
+
+        <!-- Included items -->
+        <Tab group="primary" :tab="tabs.primary.children">
+          <ItemChildren :context="context"/>
+        </Tab>
       </section>
 
       <fieldset class="section--preview">
@@ -88,6 +93,7 @@ import {
   EquipmentDetails,
   EquipmentBonuses,
   CharEffects,
+  ItemChildren,
   Rollable
 } from '@/components';
 import { inject, reactive, toRaw, computed } from 'vue';

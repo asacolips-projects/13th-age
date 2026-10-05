@@ -22,6 +22,7 @@ export { default as PowerAttack } from '@/components/item/power/PowerAttack.vue'
 export { default as PowerDetails } from '@/components/item/power/PowerDetails.vue';
 export { default as PowerSpells } from '@/components/item/power/PowerSpells.vue';
 export { default as PowerFeats } from '@/components/item/power/PowerFeats.vue';
+export { default as ItemChildren } from '@/components/item/ItemChildren.vue';
 
 export { default as EquipmentDetails } from '@/components/item/equipment/EquipmentDetails.vue';
 export { default as EquipmentBonuses } from '@/components/item/equipment/EquipmentBonuses.vue';

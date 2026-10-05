@@ -1,4 +1,5 @@
 import { pickImage, createDragDropHandlers } from '../helpers/sheet-helpers.mjs';
+import { resolveChild } from "./item-relations.mjs";
 
 export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemSheetV2 {
   constructor(options = {}) {
@@ -18,6 +19,8 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       showItemArtwork: this.#onShowItemArtwork,
       importFromCompendium: this.#onImportFromCompendium,
       parseInlineRolls: this.#onParseInlineRolls,
+      openChild: this._openChild,
+      removeChild: this._removeChild,
     },
     form: {
       submitOnChange: true
@@ -52,10 +55,21 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @protected
    */
   _onRender(context, options) {
-    this.#dragDrop.forEach((d) => d.bind(this.element));
+    this._bindDragDrop();
     // You may want to add other special handling here
     // Foundry comes with a large number of utility classes, e.g. SearchFilter
     // That you may want to implement yourself.
+  }
+
+  /**
+   * Bind the drag and drop handlers to the sheet. The Vue sheets override
+   * _onRender() without calling this class', so they call this themselves.
+   * Binding is idempotent: handlers are assigned, not added.
+   *
+   * @protected
+   */
+  _bindDragDrop() {
+    this.#dragDrop.forEach((d) => d.bind(this.element));
   }
 
   /** ************
@@ -340,6 +354,89 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
   async _onDropItem(event, data) {
     if (!this.isEditable) return false;
     if (!this.item.isOwner) return false;
+    if (event.target.closest?.('.item-children')) return this._onDropChild(data);
+    return false;
+  }
+
+  /* -------------------------------------------- */
+  /*  Children                                    */
+  /* -------------------------------------------- */
+
+  /**
+   * Add a dropped item to this item's children.
+   *
+   * On an actor, children are the actor's own items: an item dragged from
+   * elsewhere is copied onto the actor first, along with its own children.
+   *
+   * @param {object} data                The drop data.
+   * @returns {Promise<Item|false>}      The item now listed as a child.
+   * @protected
+   */
+  async _onDropChild(data) {
+    const children = this.item.system.children;
+    if (!Array.isArray(children)) return false;
+    let child = await Item.implementation.fromDropData(data);
+    if (!child || child.uuid === this.item.uuid) return false;
+
+    const actor = this.item.parent;
+    if (actor?.documentName === 'Actor' && child.parent !== actor) {
+      const source = child.pack ? game.items.fromCompendium(child) : child.toObject();
+      [child] = await actor.createEmbeddedDocuments('Item', [source]);
+      if (!child) return false;
+    }
+
+    if (children.includes(child.uuid)) return false;
+    await this.item.update({'system.children': [...children, child.uuid]});
+    return child;
+  }
+
+  /**
+   * This item's children, resolved for display. Children that can't be found
+   * are still listed, so that they can be removed.
+   *
+   * @returns {Promise<object[]>}
+   * @protected
+   */
+  async _prepareChildren() {
+    const children = this.item.system.children;
+    if (!Array.isArray(children)) return [];
+    return Promise.all(children.map(async uuid => {
+      const child = await resolveChild(uuid, this.item);
+      return {
+        uuid,
+        name: child?.name ?? game.i18n.localize('ARCHMAGE.ITEM.childMissing'),
+        img: child?.img ?? 'icons/svg/hazard.svg',
+        type: child ? game.i18n.localize(CONFIG.Item.typeLabels[child.type] ?? child.type) : '',
+        missing: !child,
+      };
+    }));
+  }
+
+  /**
+   * Open a child's sheet.
+   *
+   * @this ArchmageBaseItemSheetV2
+   * @param {PointerEvent} event   The originating click event
+   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+   * @protected
+   */
+  static async _openChild(event, target) {
+    const child = await resolveChild(target.dataset.uuid, this.item);
+    child?.sheet.render(true);
+  }
+
+  /**
+   * Remove a child from this item's children. The child itself is left alone.
+   *
+   * @this ArchmageBaseItemSheetV2
+   * @param {PointerEvent} event   The originating click event
+   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+   * @protected
+   */
+  static async _removeChild(event, target) {
+    if (!this.isEditable) return;
+    const children = this.item.system.children ?? [];
+    await this.item.update({'system.children': children.filter(uuid => uuid !== target.dataset.uuid)});
   }
 
   /* -------------------------------------------- */

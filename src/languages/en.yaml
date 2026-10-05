@@ -283,8 +283,6 @@ ARCHMAGE:
     rechargeOncePerDayName: Recharge once per day only
     resetIconsOnRestHint: Automatically clear icon relationship results (advantages, uses) on a full heal-up.
     resetIconsOnRestName: Reset Icon Relationships on Full Heal-Up
-    RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
-    RoundUpDamageApplicationName: Round damage/healing up (true) or down (false)
     allowTargetDamageApplicationHint: Whether or not to allow damage and healing on chat messages to be applied to targeted tokens in addition to selected tokens. Targeting does not require permissions, so this can allow players and GMs to apply damage to ANY token they can see.
     allowTargetDamageApplicationName: Allow target damage application
     allowRerollsHint: Whether or not to allow non-GM players to reroll their own dice rolls.
@@ -614,6 +612,13 @@ ARCHMAGE:
   PREPOPULATE:
     help: "Tick the box to the right of any powers you would like to add, and then click import to add them to your character. You can click any power's name to expand it and view its text and available feats."
     selected: selected
+    compendiums: Compendiums
+    compendiumsHelp: "Tick a compendium to list its powers on this tab. For compendiums your character's tabs only draw on in part, such as kin powers, this lists the rest. Tabs that draw on more than one compendium let you untick them at the top."
+    compendiumRest: (the rest)
+    sources: "Sources:"
+    systemPacks: 13th Age First Edition Core
+    otherEmpty: No other compendiums are listed. Tick some above to add their powers here.
+    other: Other
   COMPENDIUMBROWSER:
     title: 'Compendium Browser'
     tabs:
@@ -693,6 +698,13 @@ ARCHMAGE:
     tool: Tools
   ITEM:
     acBonus: AC Bonus
+    children: Includes
+    childrenHint: Items added along with this one, and removed along with it. Drop items here to include them.
+    childrenEmpty: Nothing included yet. Drop items here to include them.
+    childrenMissing: "{count} included item(s) could not be found, and were not added."
+    childMissing: Missing item
+    grantedBy: "Included by {names}"
+    removeChild: Remove from includes
     active: Active
     arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
@@ -836,6 +848,8 @@ ARCHMAGE:
     critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
+    DeleteConfirmChildren: "It includes these items, which will be deleted alongside it:"
+    DeleteOnlyThis: Delete only this
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
     disengage: Disengage Check

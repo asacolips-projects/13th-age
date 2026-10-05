@@ -11,17 +11,6 @@
 }
 
 .power-importer-class {
-  .power-group + .power-group {
-    margin-top: $padding-lg;
-  }
-
-  // The class' journal page, when the compendium has one.
-  .class-content {
-    font-size: $font-xs;
-    padding-bottom: $padding-md;
-    border-bottom: 1px dashed $ct-border;
-  }
-
   // Restated from the old importer, which called this out in a blue panel.
   .prepopulate-help {
     font-size: $font-xs;
@@ -37,11 +26,86 @@
     border-bottom: 2px solid;
   }
 
+  .power-group + .power-group {
+    margin-top: $padding-lg;
+  }
+
+  // A tab's source filter, when it draws on more than one compendium.
+  .power-import-sources {
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $padding-sm $padding-lg;
+    padding-bottom: $padding-md;
+    margin-bottom: $padding-md;
+    border-bottom: 1px dashed $ct-border;
+    font-size: $font-xs;
+
+    > * {
+      flex: 0 0 auto;
+    }
+
+    .power-import-sources-label {
+      font-family: $font-stack-label;
+      text-transform: uppercase;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: $padding-sm;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      margin: 0;
+      cursor: pointer;
+
+      &:disabled {
+        cursor: default;
+      }
+    }
+
+    .power-import-sources-package {
+      opacity: 0.7;
+    }
+  }
+
+  // The "other" tab, before any compendium is ticked.
+  .power-import-empty {
+    font-style: italic;
+  }
+
+  // On the "other" tab, one of these per compendium.
+  .power-import-source + .power-import-source {
+    margin-top: $padding-lg * 2;
+  }
+
+  .power-import-source-title {
+    margin: 0 0 $padding-md;
+    font-family: $font-stack-label;
+    text-transform: uppercase;
+  }
+
+  // The class' journal page, when the compendium has one.
+  .class-content {
+    font-size: $font-xs;
+    padding-bottom: $padding-md;
+    border-bottom: 1px dashed $ct-border;
+  }
+
   .power-list-subtitle {
     margin: $padding-lg 0 $padding-md;
     font-size: $font-xs;
     font-family: $font-stack-label;
     text-transform: uppercase;
+  }
+
+  // Custom groups within a level, for powers that have one.
+  .power-list-group {
+    margin: $padding-md 0 $padding-sm;
+    font-size: $font-xs;
+    font-style: italic;
   }
 
   // Powers are laid out in two columns, as they were before the importer moved
@@ -58,6 +122,18 @@
     }
   }
 
+  // What a power grants, indented below it.
+  .power-import-children {
+    margin: $padding-sm 0 0 $padding-lg;
+    padding: 0 0 0 $padding-md;
+    list-style: none;
+    border-left: 2px solid $ct-border;
+
+    .power-item {
+      padding-bottom: $padding-sm;
+    }
+  }
+
   // Sits in the row's trailing column, where a power's controls would be.
   .power-import-select {
     label {
@@ -70,6 +146,65 @@
     input[type="checkbox"] {
       cursor: pointer;
       margin: 0;
+    }
+  }
+}
+
+// The compendiums to list powers from, at the top of the "other" tab, in
+// columns like the powers themselves.
+.power-importer-settings {
+  padding-bottom: $padding-md;
+  border-bottom: 1px dashed $ct-border;
+
+  // The underline runs under the toggle too, so the header reads as one bar.
+  .power-import-packs-header {
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 2px solid;
+
+    .power-list-title {
+      flex: 1;
+      border-bottom: none;
+    }
+  }
+
+  .power-import-packs-toggle {
+    flex: 0 0 auto;
+    padding: 0 $padding-md;
+  }
+
+  .power-import-pack-list {
+    columns: 240px 3;
+    column-gap: $padding-lg;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .power-import-pack {
+    break-inside: avoid-column;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: $padding-sm;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      flex: 0 0 auto;
+      margin: 0;
+      cursor: pointer;
+
+      &:disabled {
+        cursor: default;
+      }
+    }
+
+    // Marks a compendium the character's tabs list part of.
+    .power-import-pack-rest {
+      font-size: $font-xs;
+      opacity: 0.7;
     }
   }
 }

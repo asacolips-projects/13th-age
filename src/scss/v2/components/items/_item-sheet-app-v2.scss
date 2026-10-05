@@ -218,6 +218,54 @@
     }
   }
 
+  // Granted items: the items that come and go along with this one.
+  .item-children {
+    min-height: 200px;
+
+    .item-children-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .item-child {
+      align-items: center;
+      gap: $padding-md;
+      padding: $padding-sm 0;
+      border-bottom: 1px dashed $ct-border;
+    }
+
+    .item-child--missing .item-child-name {
+      font-style: italic;
+      opacity: 0.6;
+    }
+
+    .item-child-image {
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      border: none;
+    }
+
+    .item-child-type {
+      flex: 0 0 auto;
+      font-size: $font-xs;
+      opacity: 0.7;
+    }
+
+    .item-child-remove {
+      flex: 0 0 18px;
+      text-align: center;
+    }
+
+    .item-children-empty {
+      padding: $padding-lg;
+      text-align: center;
+      border: 2px dashed $ct-border;
+      border-radius: 5px;
+    }
+  }
+
   .section--effects {
     .effects-grid {
       grid-template-columns: 40px auto 160px 0px 60px !important;

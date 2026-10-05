@@ -1,278 +1,224 @@
 _id: OJyjJAHLOqeQUsdF
+_key: '!actors!OJyjJAHLOqeQUsdF'
 effects: []
 flags:
   archmage: {}
 folder: null
 img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
 items:
-  - _id: TobmQ4EmjTDCi0xP
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: Infernal mace
-    ownership:
-      default: 0
-    sort: 0
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 12]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[18]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The fiendfletch can make a disengage check as a free action this turn
-          after the attack.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!OJyjJAHLOqeQUsdF.TobmQ4EmjTDCi0xP'
-  - _id: KzAvOBuQtzJWA6dK
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: 'R: Hellbent bow'
-    ownership:
-      default: 0
-    sort: 100000
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: ''
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      sequencer:
-        ray: ''
-        self: ''
-        target: ''
-        reversed: false
-      group:
-        type: String
-        label: Group
-        value: ''
-      attack:
-        type: ''
-        label: Attack Roll
-        value: '[[d20 + 13]] vs. AC'
-      critMod:
-        type: String
-        value: ''
-      hit:
-        type: ''
-        label: Hit
-        value: '[[30]] damage'
-      hit1:
-        type: ''
-        label: Hit
-        name: Natural 16+
-        value: >-
-          The target is *dazed* until the end of its next turn as it suffers
-          debilitating pain from a hellish arrow.
-      hit2:
-        type: String
-        label: Hit
-      hit3:
-        type: String
-        label: Hit
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-    type: action
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!OJyjJAHLOqeQUsdF.KzAvOBuQtzJWA6dK'
-  - _id: qrd4U0Kt07C5YYsb
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: Close-quarters archery
-    ownership:
-      default: 0
-    sort: 200000
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          While making a ranged attack, the fiendfletch gains a +4 bonus to AC
-          against opportunity attacks.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: trait
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!OJyjJAHLOqeQUsdF.qrd4U0Kt07C5YYsb'
-  - _id: t6N1bgSzR9UwbnPz
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: Duck and cover
-    ownership:
-      default: 0
-    sort: 300000
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          While the fiendfletch has at least one blocker, troop, or wrecker ally
-          (like a shredder) between it and an enemy, it gains a +4 bonus to all
-          defenses against ranged and close-quarters attacks from that enemy.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: nastierSpecial
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!OJyjJAHLOqeQUsdF.t6N1bgSzR9UwbnPz'
-  - _id: w3VonCO62b3dfa2v
-    effects: []
-    flags: {}
-    folder: null
-    img: icons/svg/mystery-man.svg
-    name: Living arrows
-    ownership:
-      default: 0
-    sort: 400000
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: ''
-        label: Description
-        value: >-
-          When the fiendfletch rolls a natural 16+ with a hellbent bow attack
-          and hits, the target is *weakened* (save ends) instead of *dazed*.
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-      group:
-        type: String
-        label: Group
-        value: ''
-    type: nastierSpecial
-    _stats:
-      coreVersion: '14.364'
-      systemId: null
-      systemVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-    _key: '!actors.items!OJyjJAHLOqeQUsdF.w3VonCO62b3dfa2v'
+- _id: TobmQ4EmjTDCi0xP
+  _key: '!actors.items!OJyjJAHLOqeQUsdF.TobmQ4EmjTDCi0xP'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Infernal mace
+  ownership:
+    default: 0
+  sort: 0
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 12]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[18]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: ''
+      value: The fiendfletch can make a disengage check as a free action this turn
+        after the attack.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: KzAvOBuQtzJWA6dK
+  _key: '!actors.items!OJyjJAHLOqeQUsdF.KzAvOBuQtzJWA6dK'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: 'R: Hellbent bow'
+  ownership:
+    default: 0
+  sort: 100000
+  system:
+    attack:
+      label: Attack Roll
+      type: ''
+      value: '[[d20 + 13]] vs. AC'
+    critMod:
+      type: String
+      value: ''
+    description:
+      label: Description
+      type: ''
+      value: ''
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    hit:
+      label: Hit
+      type: ''
+      value: '[[30]] damage'
+    hit1:
+      label: Hit
+      name: Natural 16+
+      type: ''
+      value: The target is *dazed* until the end of its next turn as it suffers debilitating
+        pain from a hellish arrow.
+    hit2:
+      label: Hit
+      type: String
+    hit3:
+      label: Hit
+      type: String
+    hit4:
+      label: Hit
+      type: String
+    hit5:
+      label: Hit
+      type: String
+    miss:
+      label: Miss
+      type: String
+    name:
+      label: Name
+      type: String
+    sequencer:
+      ray: ''
+      reversed: false
+      self: ''
+      target: ''
+  type: action
+- _id: qrd4U0Kt07C5YYsb
+  _key: '!actors.items!OJyjJAHLOqeQUsdF.qrd4U0Kt07C5YYsb'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Close-quarters archery
+  ownership:
+    default: 0
+  sort: 200000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: While making a ranged attack, the fiendfletch gains a +4 bonus to AC
+        against opportunity attacks.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: trait
+- _id: t6N1bgSzR9UwbnPz
+  _key: '!actors.items!OJyjJAHLOqeQUsdF.t6N1bgSzR9UwbnPz'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Duck and cover
+  ownership:
+    default: 0
+  sort: 300000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: While the fiendfletch has at least one blocker, troop, or wrecker ally
+        (like a shredder) between it and an enemy, it gains a +4 bonus to all defenses
+        against ranged and close-quarters attacks from that enemy.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
+- _id: w3VonCO62b3dfa2v
+  _key: '!actors.items!OJyjJAHLOqeQUsdF.w3VonCO62b3dfa2v'
+  effects: []
+  flags: {}
+  folder: null
+  img: icons/svg/mystery-man.svg
+  name: Living arrows
+  ownership:
+    default: 0
+  sort: 400000
+  system:
+    description:
+      label: Description
+      type: ''
+      value: When the fiendfletch rolls a natural 16+ with a hellbent bow attack and
+        hits, the target is *weakened* (save ends) instead of *dazed*.
+    embeddedMacro:
+      label: Embedded Macro
+      type: String
+      value: ''
+    group:
+      label: Group
+      type: String
+      value: ''
+    name:
+      label: Name
+      type: String
+  type: nastierSpecial
 name: Gnoll Fiendfletch
 ownership:
   default: 0
@@ -284,6 +230,7 @@ prototypeToken:
     attribute: null
   bar2:
     attribute: null
+  depth: 1
   detectionModes: {}
   displayBars: 0
   displayName: 0
@@ -354,10 +301,15 @@ prototypeToken:
     mode: 1
     src: null
   width: 1
-  depth: 1
 sort: 100001
 system:
   attributes:
+    ac:
+      base: 10
+      label: Armor Class
+      min: 0
+      type: Number
+      value: 23
     attackMod:
       type: Number
       value: 0
@@ -368,182 +320,165 @@ system:
       def:
         type: Number
         value: 0
-    ac:
-      type: Number
-      label: Armor Class
-      value: 23
-      base: 10
-      min: 0
-    pd:
-      type: Number
-      label: Physical Defense
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: Number
-      label: Mental Defense
-      value: 15
-      base: 10
-      min: 0
-    hp:
-      type: Number
-      label: Hit Points
-      value: 75
-      min: 0
-      max: 75
-      temp: 0
-      tempmax: 0
-      base: 10
-      extra: 0
-      automatic: true
-    init:
-      type: Number
-      label: Initiative Modifier
-      value: 11
-      mod: 11
-    level:
-      type: Number
-      label: Level
-      value: 7
-      min: 0
-      max: 12
     disengage: 11
     disengageBonus: 0
+    escalation:
+      value: 6
+    hp:
+      automatic: true
+      base: 10
+      extra: 0
+      label: Hit Points
+      max: 75
+      min: 0
+      temp: 0
+      tempmax: 0
+      type: Number
+      value: 75
+    init:
+      label: Initiative Modifier
+      mod: 11
+      type: Number
+      value: 11
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 7
+    md:
+      base: 10
+      label: Mental Defense
+      min: 0
+      type: Number
+      value: 15
+    pd:
+      base: 10
+      label: Physical Defense
+      min: 0
+      type: Number
+      value: 19
     saves:
       bonus: 0
-      disengageBonus: 0
       deathFails:
-        value: 0
         max: 4
         maxOverride: 0
         steps:
-          - false
-          - false
-          - false
-          - false
-      desperateTriggered: false
-      lastGaspFails:
+        - false
+        - false
+        - false
+        - false
         value: 0
+      desperateTriggered: false
+      disengageBonus: 0
+      lastGaspFails:
         max: 4
         steps:
-          - false
-          - false
-          - false
-          - false
-    escalation:
-      value: 6
+        - false
+        - false
+        - false
+        - false
+        value: 0
   details:
     alignment:
-      type: String
       label: Alignment
-    biography:
       type: String
+    biography:
       label: Biography
+      type: String
     flavor:
       value: ''
+    level:
+      label: Level
+      max: 12
+      min: 0
+      type: Number
+      value: 7
+    resistance:
+      label: Resistance
+      type: String
+      value: ''
     role:
-      value: archer
       label: Role
       type: String
+      value: archer
     roleB:
       value: ''
     size:
-      value: normal
       label: Size
       type: String
+      value: normal
     sizeB:
       value: ''
     strength:
       value: normal
     type:
-      value: humanoid
       label: Type
       type: String
-    resistance:
-      value: ''
-      label: Resistance
-      type: String
+      value: humanoid
     vulnerability:
-      value: ''
       label: Vulnerability
       type: String
-    level:
-      label: Level
-      max: 12
-      min: 0
-      type: Number
-      value: 7
+      value: ''
+  publicationSource: 13TW
   resources:
     perCombat: {}
     spendable:
       custom1:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom2:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom3:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom4:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom5:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom6:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom7:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom8:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       custom9:
-        label: ''
         current: 0
-        max: 0
         enabled: false
+        label: ''
+        max: 0
         rest: none
       stoke:
-        enabled: false
         current: 0
-  publicationSource: 13TW
+        enabled: false
 type: npc
-_stats:
-  coreVersion: '14.364'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-_key: '!actors!OJyjJAHLOqeQUsdF'
