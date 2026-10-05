@@ -24,6 +24,14 @@
           <h4 class="dice-total">{{data.roll.total}}</h4>
       </div>
     </div>
+    {{#if bonuses.length}}
+    <div class="card-row">
+      <div class="card-prop">
+        <b>{{localize 'ARCHMAGE.CHAT.bonuses'}}:</b>
+        {{#each bonuses}}{{#unless @first}}, {{/unless}}{{name}} {{signed}}{{/each}}
+      </div>
+    </div>
+    {{/if}}
     <div class="card-row" style="padding-top: 5px;">
       <div class="card-prop">
         {{#if success}}

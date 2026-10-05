@@ -755,6 +755,28 @@ export class MacroUtils {
 	}
 
 	/**
+	 * Give an actor a temporary bonus to disengage checks. The effect carries the
+	 * name of the item, so the disengage check can list where the bonus comes from.
+	 * Using the item again refreshes the effect instead of stacking a second one.
+	 * @param {Actor} actor The actor to give the bonus to.
+	 * @param {Item} item The power that grants the bonus.
+	 * @param {number} bonus The bonus to disengage checks.
+	 * @param {string} duration One of CONFIG.ARCHMAGE.effectDurationTypes.
+	 * @param {object} options Extra duration options, see setDuration.
+	 */
+	static async setDisengageBonus(actor, item, bonus, duration, options={}) {
+		const effectData = {
+			name: item.name,
+			img: item.img,
+			changes: [{ key: "system.attributes.disengageBonus", value: bonus, type: "add" }]
+		};
+		this.setDuration(effectData, duration, options);
+		const existing = actor.effects.getName(item.name);
+		if (existing) await existing.update(effectData);
+		else await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+	}
+
+	/**
 	 * Select all feats of a specific tier
 	 * @param {Item} item Item whose feats to filter.
 	 * @param {string} tier Feat tier to select.

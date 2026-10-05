@@ -71,7 +71,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
 		// they existed, which the sheet inputs bind against. ItemArchmage's derived
 		// data has them defaulted, so fill any gaps from there.
 		const itemData = this.item.toObject();
-		for (const key of ["powerUsageSecondary", "quantitySecondary", "maxQuantitySecondary"]) {
+		for (const key of ["powerUsageSecondary", "quantitySecondary", "maxQuantitySecondary", "disengageBonus"]) {
 			itemData.system[key] ??= foundry.utils.deepClone(this.item.system[key]);
 		}
 

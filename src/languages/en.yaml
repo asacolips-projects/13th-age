@@ -672,6 +672,7 @@ ARCHMAGE:
     diceExpressionHint: A dice expression, e.g. +2d10
     disengageBonus: Disengage Bonus
     disengageInitBonus: Disengage and Initiative Bonus
+    powerDisengageBonusHint: On a talent, a permanent bonus to disengage checks. On a power, the amount a disengageBonus macro gives until the start of the next turn. Does not affect initiative.
     divineBonus: Divine Spell / Divine Attack Bonus
     escalationBlocked: Block ED
     escalationBlockedHint: Denies usage of Escalation Die
@@ -802,6 +803,8 @@ ARCHMAGE:
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
     disengage: Disengage Check
+    disengageSheetBonus: Sheet bonus
+    bonuses: Bonuses
     duration: Duration
     effect: Effect
     effectRemoved: temporary effect removed

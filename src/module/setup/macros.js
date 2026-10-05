@@ -462,6 +462,25 @@ export class ArchmageMacros {
 
 	// //////////////////////////////////////////////
 	/**
+	 * Rogue Macros.
+	 */
+	// //////////////////////////////////////////////
+
+	/**
+	 * Tumbling Strike. Bonus to all disengage checks this turn.
+	 *
+	 * The permanent bonus of the Tumble talent is not a macro, it is the disengage
+	 * bonus field on the talent itself.
+	 */
+	static async rogueTumblingStrike(speaker, actor, token, character, archmage) {
+		if (!actor) return;
+		const bonus = game.settings.get("archmage", "secondEdition") ? 2 : 5;
+		await game.archmage.MacroUtils.setDisengageBonus(actor, archmage.item, bonus,
+			CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
+	}
+
+	// //////////////////////////////////////////////
+	/**
 	 * Sorcerer Macros.
 	 */
 	// //////////////////////////////////////////////
@@ -567,6 +586,21 @@ export class ArchmageMacros {
 	 * Generic Macros.
 	 */
 	// //////////////////////////////////////////////
+
+	/**
+	 * Temporary bonus to disengage checks, for powers that give one. The bonus is
+	 * the number in the power's Disengage Bonus field, and lasts until the start of
+	 * the character's next turn. The card of a disengage check names the power.
+	 *
+	 * On a talent the same field is a permanent bonus and needs no macro.
+	 */
+	static async disengageBonus(speaker, actor, token, character, archmage) {
+		if (!actor) return;
+		const bonus = Number(archmage.item.system.disengageBonus?.value) || 0;
+		if (!bonus) return;
+		await game.archmage.MacroUtils.setDisengageBonus(actor, archmage.item, bonus,
+			CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
+	}
 
 	/**
 	 * List the actor's flexible attack powers that this attack can trigger on its chat card.

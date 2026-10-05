@@ -59,6 +59,7 @@ Actor:
         saves:
           bonus: 0
           disengageBonus: 0
+          footworkBonus: 0
           deathFails:
             value: 0
             # Max and steps are adjusted in actor.js depending on 2e setting.
@@ -571,6 +572,12 @@ Item:
       type: String
       label: Max Secondary Uses
       value: null
+    # Permanent bonus to disengage checks (the rogue's Tumble). Powers only
+    # contribute when it is not zero; it does not affect initiative.
+    disengageBonus:
+      type: Number
+      label: Disengage Bonus
+      value: 0
     group:
       type: String
       label: Group
