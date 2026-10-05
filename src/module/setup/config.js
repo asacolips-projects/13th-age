@@ -1188,9 +1188,6 @@ ARCHMAGE.tokenHPColors = {
 ARCHMAGE.REGEXP = {
   ONGOING_DAMAGE: /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage(?:\s*\((\w*) ?save ends(?:, \d*\+)?\))?/ig,
   CONDITIONS: new Map(), // Actually populated in ready hook, after localization has been loaded
-  // The kinds of attack that flexible attack powers go with, and the word that a flexible power's range uses
-  // for each ("Flexible melee attack"). Localized in ready hook. A class that ties flexible attacks to a spell
-  // could add arcane and divine here.
   FLEXIBLE_KINDS: {
     melee: /melee/i,
     ranged: /ranged/i,
