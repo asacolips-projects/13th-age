@@ -19,8 +19,12 @@
                    text where the catalog rows carry their feats, uses and
                    controls. -->
               <template #cells="{toggle}">
-                <!-- Clicking the trigger text expands the row, like the name. -->
-                <a class="trigger-text" @click="toggle">{{ power.system.trigger.value }}</a>
+                <!-- Clicking the trigger text expands the row, like the name.
+                     The text rides in a block of its own because a flex cell's
+                     own text-overflow never ellipsizes; see the styles. -->
+                <a class="trigger-text" @click="toggle">
+                  <span class="trigger-value">{{ power.system.trigger.value }}</span>
+                </a>
               </template>
             </ExpandableRowV3>
           </ul>
@@ -137,6 +141,15 @@ const groups = computed(() => {
     margin: 0;
     padding: 0;
     list-style: none;
+
+    // Hovering the name escapes it over the trigger text (PowerSummaryRow's
+    // rule), and the cells it escapes over recede so it reads over them —
+    // the catalog dims its feat and action cells the same way, from the row
+    // component that owns them. This cell is the tab's own, so its dim rule
+    // is too, hence :deep() for the name it hangs off.
+    :deep(.power-name:hover ~ .trigger-text) {
+      opacity: 0.25;
+    }
   }
 
   // The trigger cell, read as one aligned field across the rows. The row's
@@ -145,7 +158,14 @@ const groups = computed(() => {
   .trigger-text {
     justify-content: flex-start;
     overflow: hidden;
+  }
+
+  // The trigger text, truncating with an ellipsis the way the name's title
+  // does. The span is the ellipsis' carrier: text sitting directly in a
+  // flex cell never ellipsizes, it just slices mid-glyph at the cell edge.
+  .trigger-value {
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
   }
 </style>
