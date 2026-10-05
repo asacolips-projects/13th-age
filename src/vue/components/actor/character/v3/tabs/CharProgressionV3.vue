@@ -39,14 +39,6 @@
         </li>
       </ul>
     </section>
-
-    <!-- Level-up: (WIP) -->
-    <section class="progression-section">
-      <h4 class="progression-section-title unit-title">
-        <span class="section-label">{{ localize('ARCHMAGE.levelUp') }}</span>
-      </h4>
-      <p class="v3-empty">&mdash;</p>
-    </section>
   </section>
 </template>
 
