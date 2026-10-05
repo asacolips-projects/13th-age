@@ -1,4 +1,5 @@
 import CritTrigger from "./CritTrigger.mjs";
+import ITrigger from "./ITrigger.mjs";
 import EvenTrigger from "./EvenTrigger.mjs";
 import HitTrigger from "./HitTrigger.mjs";
 import MissTrigger from "./MissTrigger.mjs";
@@ -37,10 +38,10 @@ export default class Triggers {
    * @returns {string|null}
    */
   static labelOf($row) {
-    const $label = $row.children('strong').first();
+    const $label = $row.children("strong").first();
     if ($label.length === 0) return null;
     const text = $label.text().trim();
-    if (!text.endsWith(':')) return null;
+    if (!text.endsWith(":")) return null;
     return text.slice(0, -1).toLowerCase();
   }
 
@@ -51,17 +52,33 @@ export default class Triggers {
    */
   isTriggerRow(label) {
     if (!label) return false;
-    return this.registeredTriggers.some(trigger => trigger.appliesTo(label));
+    return this.registeredTriggers.some((trigger) => trigger.appliesTo(label));
+  }
+
+  /**
+   * Split a label into its alternative clauses: an "or" that starts a new natural roll condition
+   * separates two of them ("natural odd hit or miss OR natural even hit"), while any other "or"
+   * stays inside its clause ("hit or miss", "natural 5, 10, 15, or 20").
+   * @param {string} label As returned by labelOf.
+   * @returns {string[]}
+   */
+  static clausesOf(label) {
+    const or = ITrigger._escape(ITrigger.word("or"));
+    const natural = ITrigger._escape(ITrigger.word("natural"));
+    const separator = new RegExp(
+      `,?\\s+${or}\\s+(?=${natural}${ITrigger.NOT_ALPHANUM_AFTER})`, "u");
+    return label.split(separator);
   }
 
   /**
    * Evaluate a trigger row against the rolls that were made.
    *
-   * A label states a conjunction of conditions ("natural even hit" is even AND hit), so every
-   * condition it mentions has to hold - and hold for the *same* roll, otherwise a row could go
-   * active on one target's parity and another target's hit.
+   * A label is a disjunction of clauses (see clausesOf), each of which is a conjunction of
+   * conditions ("natural even hit" is even AND hit) - except for conditions of the same group,
+   * which are alternatives ("hit or miss"). Every condition of a clause has to hold for the
+   * *same* roll, otherwise a row could go active on one target's parity and another target's hit.
    *
-   * A power may roll several attacks, and they are alternatives: the row applies if *any* roll
+   * A power may roll several attacks, and they are alternatives too: the row applies if *any* roll
    * satisfies it. So one roll cannot rule the row out on its own - it is only inapplicable when
    * every roll contradicts it. A roll that contradicts nothing but cannot be confirmed either
    * (an even natural with no target to settle the hit) leaves the row undecided rather than
@@ -76,18 +93,55 @@ export default class Triggers {
    */
   evaluateRow(label, rollOutcomes) {
     if (!label) return undefined;
-    const conditions = this.registeredTriggers.filter(trigger => trigger.appliesTo(label));
-    if (conditions.length === 0) return undefined;
+    // Each clause, as its conditions grouped by group.
+    const clauses = Triggers.clausesOf(label)
+      .map((clause) => {
+        const groups = new Map();
+        for (const trigger of this.registeredTriggers.filter((t) => t.appliesTo(clause))) {
+          groups.set(trigger.group, [...(groups.get(trigger.group) ?? []), trigger]);
+        }
+        return { clause, groups: [...groups.values()] };
+      })
+      .filter(({ groups }) => groups.length > 0);
+    if (clauses.length === 0) return undefined;
 
     const outcomes = rollOutcomes ?? [];
-    let anyUndecided = false;
-    for (const outcome of outcomes) {
-      const verdicts = conditions.map(condition => condition.test(outcome, label));
-      if (verdicts.every(verdict => verdict === true)) return true;
-      // Nothing about this roll contradicts the row, so it may yet apply to it.
-      if (!verdicts.some(verdict => verdict === false)) anyUndecided = true;
+    if (outcomes.length === 0) return undefined;
+    return Triggers._any(outcomes, (outcome) =>
+      Triggers._any(clauses, ({ clause, groups }) =>
+        Triggers._all(groups, (group) =>
+          Triggers._any(group, (condition) => condition.test(outcome, clause)))));
+  }
+
+  /**
+   * Three-valued OR: true if any verdict is true, false if all are false, undefined otherwise.
+   * @param {Array} items
+   * @param {function(*): boolean|undefined} verdictOf
+   * @returns {boolean|undefined}
+   */
+  static _any(items, verdictOf) {
+    let undecided = false;
+    for (const item of items) {
+      const verdict = verdictOf(item);
+      if (verdict === true) return true;
+      if (verdict === undefined) undecided = true;
     }
-    if (outcomes.length === 0 || anyUndecided) return undefined;
-    return false;
+    return undecided ? undefined : false;
+  }
+
+  /**
+   * Three-valued AND: false if any verdict is false, true if all are true, undefined otherwise.
+   * @param {Array} items
+   * @param {function(*): boolean|undefined} verdictOf
+   * @returns {boolean|undefined}
+   */
+  static _all(items, verdictOf) {
+    let undecided = false;
+    for (const item of items) {
+      const verdict = verdictOf(item);
+      if (verdict === false) return false;
+      if (verdict === undefined) undecided = true;
+    }
+    return undecided ? undefined : true;
   }
 }

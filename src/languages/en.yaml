@@ -868,6 +868,7 @@ ARCHMAGE:
     NoUsesMsg: No uses left, do you want to use this anyway?
     numbersOnly: Numbers only, such as '16'
     odd: odd
+    or: or
     ongoingDamageTooltip: '{damage} ongoing {type} damage'
     ongoingDamage: '{target} takes [[{damage}]] ongoing {type}damage due to {source}'
     ongoingHalfDamage: Half damage

@@ -1,9 +1,10 @@
 /**
  * A single condition that a trigger row can express, such as "even", "hit" or "natural 16+".
  *
- * A row label is a conjunction of conditions ("natural even hit" means even AND hit), so each
- * trigger only answers for its own condition: whether the label mentions it (`appliesTo`) and
- * whether a given roll satisfies it (`test`). Combining them is Triggers' job.
+ * Each trigger only answers for its own condition: whether a label mentions it (`appliesTo`) and
+ * whether a given roll satisfies it (`test`). Combining them is Triggers' job, which joins the
+ * conditions of different groups with AND ("natural even hit" is even AND hit) and those of the
+ * same group with OR ("hit or miss", "natural 5, 10, 15, or 20").
  *
  * @interface ITrigger
  */
@@ -27,6 +28,15 @@ export default class ITrigger {
      */
     test(outcome, label) {
         throw new Error("A subclass of ITrigger must implement the test method");
+    }
+
+    /**
+     * The group of conditions this one belongs to: conditions of the same group that a label
+     * mentions are alternatives to each other, since a roll can only satisfy one at a time.
+     * @returns {string}
+     */
+    get group() {
+        return this.constructor.name;
     }
 
     /**
