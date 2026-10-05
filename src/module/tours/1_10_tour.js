@@ -1,4 +1,4 @@
-import {FeatureTour} from "./feature-tour.mjs";
+import { FeatureTour } from "./feature-tour.mjs";
 
 export class OneDotTenTour extends FeatureTour {
     constructor() {
@@ -19,31 +19,31 @@ export class OneDotTenTour extends FeatureTour {
             {
               // selector: '.fa-users',
               content: "ARCHMAGE.TOURS.1100.nightMode",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               // selector: '.fa-atlas',
               content: "ARCHMAGE.TOURS.1100.rolls",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               // selector: '.fa-atlas',
               content: "ARCHMAGE.TOURS.1100.iconRolls",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               // selector: '.fa-cogs',
               content: "ARCHMAGE.TOURS.1100.rests",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               // selector: '#archmage-reference-btn',
               content: "ARCHMAGE.TOURS.1100.powerImporter",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               content: "ARCHMAGE.TOURS.1100.end"
-            },
+            }
           ]
         });
     }

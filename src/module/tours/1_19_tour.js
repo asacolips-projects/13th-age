@@ -1,4 +1,4 @@
-import {FeatureTour} from "./feature-tour.mjs";
+import { FeatureTour } from "./feature-tour.mjs";
 
 export class OneDotNineteenTour extends FeatureTour {
   constructor() {
@@ -17,9 +17,7 @@ export class OneDotNineteenTour extends FeatureTour {
       ]
     });
 
-    this.actor = game.actors.find(a => a.type == 'npc');
-
-
+    this.actor = game.actors.find((a) => a.type == "npc");
 
       // tour.onafterchange(targetElement => {
       //   const step = Number(tour._currentStep) + 1;
@@ -117,25 +115,25 @@ export class OneDotNineteenTour extends FeatureTour {
 
     if ($el.length < 1) return;
 
-    $('.introjs-tooltipReferenceLayer').css({
+    $(".introjs-tooltipReferenceLayer").css({
       left: $el.offset().left,
       top: $el.offset().top + $el.outerHeight(),
-      opacity: 0,
+      opacity: 0
     });
 
     setTimeout(() => {
-      $('.introjs-tooltipReferenceLayer').css({opacity: 1});
-      $('.introjs-helperNumberLayer').css({
+      $(".introjs-tooltipReferenceLayer").css({ opacity: 1 });
+      $(".introjs-helperNumberLayer").css({
         left: 0,
         top: 0,
         marginLeft: 0,
-        marginTop: 0,
+        marginTop: 0
       });
-      $('.introjs-tooltipReferenceLayer .introjs-tooltip').css({
+      $(".introjs-tooltipReferenceLayer .introjs-tooltip").css({
         left: 0,
         top: 0,
-        marginLeft: '15px',
-        marginTop: '15px',
+        marginLeft: "15px",
+        marginTop: "15px"
       });
     }, 750);
   }

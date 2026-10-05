@@ -1,9 +1,9 @@
 /**
  * Define a set of template paths to pre-load
  * Pre-loaded templates are compiled and cached for fast access when rendering
- * @return {Promise}
+ * @returns {Promise}
  */
-export const preloadHandlebarsTemplates = async function() {
+export const preloadHandlebarsTemplates = async function () {
 
   // Define template paths to load
   const templatePaths = [
@@ -43,7 +43,6 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/archmage/templates/items/item-power-sheet.html",
     "systems/archmage/templates/items/item-tool-sheet.html",
     "systems/archmage/templates/items/item-trait-sheet.html",
-
 
     "systems/archmage/templates/sidebar/apps/archmage-help.html",
     "systems/archmage/templates/sidebar/apps/a11y-preview.html"

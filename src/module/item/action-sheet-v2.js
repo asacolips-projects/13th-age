@@ -8,12 +8,12 @@ const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
 
 export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
   vueParts = {
-    'archmage-action-sheet-vue': {
+    "archmage-action-sheet-vue": {
       component: ArchmageActionSheetVue,
       template: `<archmage-action-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-action-sheet-vue>`
     }
-  }
-  
+  };
+
   constructor(options = {}) {
     super(options);
   }
@@ -30,7 +30,7 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
     },
     position: {
       width: 640,
-      height: 800,
+      height: 800
     },
     window: {
       resizable: true,
@@ -50,10 +50,10 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       ]
     },
     actions: {},
-    tag: 'form',
+    tag: "form",
     form: {
       submitOnChange: true,
-      submitOnClose: true,
+      submitOnClose: true
     },
     // Custom property that's merged into `this.options`
     dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
@@ -85,9 +85,9 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       // Adding a pointer to CONFIG.ARCHMAGE
       config: CONFIG.ARCHMAGE,
       // Sequencer (module) support.
-      sequencerEnabled: game.modules.get("sequencer")?.active && this.item.type === 'action',
+      sequencerEnabled: game.modules.get("sequencer")?.active && this.item.type === "action",
       // Force re-renders. Defined in the vue mixin.
-      _renderKey: this._renderKey ?? 0,
+      _renderKey: this._renderKey ?? 0
       // @todo add this after switching to DataModel
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
@@ -110,23 +110,23 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
       toggled: true,
       collaborate: true,
       documentUUID: this.document.uuid,
-      height: 300,
+      height: 300
     };
 
     // Enrich the description.
     context.editors = {
-      'system.description.value': {
-        enriched: await wrapRolls(this.item.system.description.value ?? '', [], 'short', {}, 'description', enrichmentOptions),
+      "system.description.value": {
+        enriched: await wrapRolls(this.item.system.description.value ?? "", [], "short", {}, "description", enrichmentOptions),
         element: foundry.applications.elements.HTMLProseMirrorElement.create({
           ...editorOptions,
-          name: 'system.description.value',
-          value: context.system.description?.value ?? '',
-        }),
-      },
+          name: "system.description.value",
+          value: context.system.description?.value ?? ""
+        })
+      }
     };
 
     // Enrich powers and feats.
-    if (this.item.type === 'action') {
+    if (this.item.type === "action") {
       await this._enrichActions(context, enrichmentOptions, editorOptions);
     }
 
@@ -142,33 +142,33 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
 
   /**
    * Enrich values for action fields.
-   * 
-   * @param {object} context 
-   * @param {object} enrichmentOptions 
-   * @param {object} editorOptions 
+   *
+   * @param {object} context
+   * @param {object} enrichmentOptions
+   * @param {object} editorOptions
    */
   async _enrichActions(context, enrichmentOptions, editorOptions) {
     // Enrich other fields.
     const powerFields = [
-      'attack',
-      'hit',
-      'hit1',
-      'hit2',
-      'hit3',
-      'hit4',
-      'hit5',
-      'miss',
+      "attack",
+      "hit",
+      "hit1",
+      "hit2",
+      "hit3",
+      "hit4",
+      "hit5",
+      "miss"
     ];
 
     for (let field of powerFields) {
       context.editors[field] = {
         // @todo write a power enricher.
-        enriched: await wrapRolls(this.item.system[field].value ?? '', [], 'short', {}, field, enrichmentOptions),
+        enriched: await wrapRolls(this.item.system[field].value ?? "", [], "short", {}, field, enrichmentOptions),
         element: foundry.applications.elements.HTMLProseMirrorElement.create({
           ...editorOptions,
           name: `system.${field}.value`,
-          value: context.system[field]?.value ?? '',
-        }),
+          value: context.system[field]?.value ?? ""
+        })
       };
     }
   }
@@ -176,34 +176,34 @@ export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemShe
   _prepareTabs(context) {
     // Initialize tabs.
     context.tabs = {
-      primary: {},
+      primary: {}
     };
 
     // Tabs available to all items.
     context.tabs.primary.details = {
-      key: 'details',
-      label: game.i18n.localize('ARCHMAGE.details'),
-      active: false,
+      key: "details",
+      label: game.i18n.localize("ARCHMAGE.details"),
+      active: false
     };
 
     // Tabs limited to NPCs.
-    if (this.item.type === 'action') {
+    if (this.item.type === "action") {
       context.tabs.primary.attack = {
-        key: 'attack',
-        label: 'Attack',
-        active: true,
+        key: "attack",
+        label: "Attack",
+        active: true
       };
     }
 
     // More tabs available to all items.
     context.tabs.primary.effects = {
-      key: 'effects',
-      label: 'Effects',
-      active: false,
+      key: "effects",
+      label: "Effects",
+      active: false
     };
 
     // Ensure we have a default tab.
-    if (this.item.type !== 'action') {
+    if (this.item.type !== "action") {
       context.tabs.primary.details.active = true;
     }
   }

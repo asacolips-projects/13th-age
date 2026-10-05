@@ -1,4 +1,4 @@
-import {FeatureTour} from "./feature-tour.mjs";
+import { FeatureTour } from "./feature-tour.mjs";
 
 export class OneDotSeventeenTour extends FeatureTour {
     constructor() {
@@ -16,16 +16,16 @@ export class OneDotSeventeenTour extends FeatureTour {
             {
               selector: '#sidebar-tabs [data-tab="chat"]',
               content: "ARCHMAGE.TOURS.1170.crits",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               selector: '#sidebar-tabs [data-tab="compendium"]',
               content: "ARCHMAGE.TOURS.1170.compendia",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               content: "ARCHMAGE.TOURS.1170.end"
-            },
+            }
           ]
         });
     }

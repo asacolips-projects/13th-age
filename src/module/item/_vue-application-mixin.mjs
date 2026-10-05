@@ -1,5 +1,9 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 
+/**
+ *
+ * @param BaseApplication
+ */
 export default function VueRenderingMixin(BaseApplication) {
 
     class VueApplication extends BaseApplication {
@@ -17,7 +21,7 @@ export default function VueRenderingMixin(BaseApplication) {
 
       /**
        * Object to store vue parts.
-       * 
+       *
        * @example
        * vueParts = {
        *   'document-sheet': {
@@ -34,9 +38,9 @@ export default function VueRenderingMixin(BaseApplication) {
 
       /**
        * Getter for vueComponents
-       * 
+       *
        * Retrieves an object of component tags to component instances from the vueParts property.
-       * 
+       *
        * @example
        * {
        *   'document-sheet': DocumentSheet,
@@ -55,9 +59,9 @@ export default function VueRenderingMixin(BaseApplication) {
 
       /**
        * Getter for vueTemplates
-       * 
+       *
        * Retrieves an array of template part strings to render.
-       * 
+       *
        * @example
        * [
        *   '<document-sheet :context="context">Failed to render</document-sheet>',
@@ -70,12 +74,12 @@ export default function VueRenderingMixin(BaseApplication) {
 
       /**
        * Render the outer framing HTMLElement and mount the Vue application.
-       * 
+       *
        * This occurs when the application is opened, but not on subsequent renders.
-       * 
+       *
        * @param {RenderOptions} options
        * @returns {Promise<HTMLElement>}
-       * 
+       *
        * @protected
        * @override
        */
@@ -85,8 +89,8 @@ export default function VueRenderingMixin(BaseApplication) {
         const element = await super._renderFrame(options);
 
         // Grab our application target and render our parts.
-        const target = this.hasFrame ? element.querySelector('.window-content') : element;
-        target.innerHTML = this.vueTemplates.join('');
+        const target = this.hasFrame ? element.querySelector(".window-content") : element;
+        target.innerHTML = this.vueTemplates.join("");
 
         // Create and store the Vue application instance.
         this.vueApp = createApp({
@@ -94,7 +98,7 @@ export default function VueRenderingMixin(BaseApplication) {
           data() {
             return {
               context: context
-            }
+            };
           },
           // Components allowed by the application.
           components: this.vueComponents,
@@ -116,7 +120,7 @@ export default function VueRenderingMixin(BaseApplication) {
         this.vueApp.config.globalProperties.foundry = foundry;
 
         // Expose the document.
-        this.vueApp.provide('itemDocument', this.document);
+        this.vueApp.provide("itemDocument", this.document);
 
         // Mount and store the vue application.
         this.vueRoot = this.vueApp.mount(target);
@@ -126,17 +130,17 @@ export default function VueRenderingMixin(BaseApplication) {
 
       /**
        * Handle updates for the Vue application instance.
-       * 
+       *
        * Normally, this would render the HTML for the content within the application.
        * However, for Vue, all we want to do is update the 'context' property that's
        * passed into the Vue application instance.
-       * 
+       *
        * Unlinke _renderFrame(), this occurs on every update for the application.
-       * 
-       * @param {ApplicationRenderContext} context 
-       * @param {RenderOptions} options 
+       *
+       * @param {ApplicationRenderContext} context
+       * @param {RenderOptions} options
        * @returns {Promise<string>}
-       * 
+       *
        * @protected
        * @override
        */
@@ -147,42 +151,42 @@ export default function VueRenderingMixin(BaseApplication) {
         // Update the application root with new values.
         this.vueRoot.updateContext(context);
         // Return doesn't matter, Vue handles updates.
-        return;
+
       }
 
       _onRender(context, options) {
         if (!this.isEditable) {
-          const inputs = this.element.querySelectorAll('input, textarea');
-          const selects = this.element.querySelectorAll('select');
+          const inputs = this.element.querySelectorAll("input, textarea");
+          const selects = this.element.querySelectorAll("select");
 
           if (inputs) {
             for (let input of inputs) {
-              input.setAttribute('readonly', true);
-              input.setAttribute('disabled', true);
+              input.setAttribute("readonly", true);
+              input.setAttribute("disabled", true);
             }
           }
 
           if (selects) {
             for (let select of selects) {
-              select.setAttribute('disabled', true);
+              select.setAttribute("disabled", true);
             }
           }
         }
         else {
           // Set a variable when the shift key is pressed to avoid paste events.
-          this.element.addEventListener('keydown', (event) => {
-            if (event.key === 'Shift' && !this.isShift) {
+          this.element.addEventListener("keydown", (event) => {
+            if (event.key === "Shift" && !this.isShift) {
               this.isShift = true;
             }
           });
-          this.element.addEventListener('keyup', (event) => {
-            if (event.key === 'Shift' && this.isShift) {
+          this.element.addEventListener("keyup", (event) => {
+            if (event.key === "Shift" && this.isShift) {
               this.isShift = false;
             }
           });
           // Handle paste events.
-          this.element.querySelectorAll('.editor-content').forEach((editor) => {
-            editor.addEventListener('paste', (event) => this._parsePastedContent(event));
+          this.element.querySelectorAll(".editor-content").forEach((editor) => {
+            editor.addEventListener("paste", (event) => this._parsePastedContent(event));
           });
         }
       }
@@ -194,10 +198,10 @@ export default function VueRenderingMixin(BaseApplication) {
 
       /**
        * Closes the application and unmounts the vue application instance.
-       * 
-       * @param {ApplicationClosingOptions} options 
+       *
+       * @param {ApplicationClosingOptions} options
        * @returns {Promise<BaseApplication>}
-       * 
+       *
        * @override
        */
       async close(options = {}) {
@@ -212,21 +216,21 @@ export default function VueRenderingMixin(BaseApplication) {
       /* -------------------------------------------- */
 
       _parsePastedContent(event) {
-        if (!this.isShift && game.settings.get('archmage', 'allowPasteParsing')) {
+        if (!this.isShift && game.settings.get("archmage", "allowPasteParsing")) {
           const target = event.target;
-          const prosemirror = target.closest('prose-mirror');
+          const prosemirror = target.closest("prose-mirror");
 
           if (!prosemirror) return;
           event.preventDefault();
 
           const options = {
-            field: prosemirror.name,
+            field: prosemirror.name
           };
           // Retrieve the value from the field and the clipboard.
-          const paste = (event.clipboardData || window.clipboardData).getData('text');
+          const paste = (event.clipboardData || window.clipboardData).getData("text");
           const result = game.archmage.ArchmageUtility.parseClipboardText(paste, options);
           let newValue = result;
-    
+
           // Handle selections.
           const selection = window.getSelection();
           if (!selection.rangeCount) return;

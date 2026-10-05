@@ -9,12 +9,12 @@ const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
 
 export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
   vueParts = {
-    'archmage-power-sheet-vue': {
+    "archmage-power-sheet-vue": {
       component: ArchmagePowerSheetVue,
       template: `<archmage-power-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-power-sheet-vue>`
     }
-  }
-  
+  };
+
   constructor(options = {}) {
     super(options);
   }
@@ -31,7 +31,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
     },
     position: {
       width: 860,
-      height: 630,
+      height: 630
     },
     window: {
       resizable: true,
@@ -54,12 +54,12 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
       createFeat: this._updateFeat,
       deleteFeat: this._updateFeat,
       moveFeatUp: this._updateFeat,
-      moveFeatDown: this._updateFeat,
+      moveFeatDown: this._updateFeat
     },
-    tag: 'form',
+    tag: "form",
     form: {
       submitOnChange: true,
-      submitOnClose: true,
+      submitOnClose: true
     },
     // Custom property that's merged into `this.options`
     dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
@@ -80,7 +80,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
     // they existed, which the sheet inputs bind against. ItemArchmage's derived
     // data has them defaulted, so fill any gaps from there.
     const itemData = this.item.toObject();
-    for (const key of ['powerUsageSecondary', 'quantitySecondary', 'maxQuantitySecondary']) {
+    for (const key of ["powerUsageSecondary", "quantitySecondary", "maxQuantitySecondary"]) {
       itemData.system[key] ??= foundry.utils.deepClone(this.item.system[key]);
     }
 
@@ -105,41 +105,41 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
       tabs: {
         primary: {
           details: {
-            key: 'details',
-            label: game.i18n.localize('ARCHMAGE.details'),
-            active: true,
+            key: "details",
+            label: game.i18n.localize("ARCHMAGE.details"),
+            active: true
           },
           attack: {
-            key: 'attack',
-            label: game.i18n.localize('ARCHMAGE.attack'),
-            active: false,
+            key: "attack",
+            label: game.i18n.localize("ARCHMAGE.attack"),
+            active: false
           },
           special: {
-            key: 'special',
-            label: game.i18n.localize('ARCHMAGE.special'),
-            active: false,
+            key: "special",
+            label: game.i18n.localize("ARCHMAGE.special"),
+            active: false
           },
           feats: {
-            key: 'feats',
-            label: game.i18n.localize('ARCHMAGE.feats'),
-            active: false,
+            key: "feats",
+            label: game.i18n.localize("ARCHMAGE.feats"),
+            active: false
           },
           effects: {
-            key: 'effects',
-            label: game.i18n.localize('ARCHMAGE.effects'),
-            active: false,
+            key: "effects",
+            label: game.i18n.localize("ARCHMAGE.effects"),
+            active: false
           },
           children: {
-            key: 'children',
-            label: game.i18n.localize('ARCHMAGE.ITEM.children'),
-            active: false,
+            key: "children",
+            label: game.i18n.localize("ARCHMAGE.ITEM.children"),
+            active: false
           }
-        },
+        }
       },
       // Items added and removed along with this one.
       children: await this._prepareChildren(),
       // Force re-renders. Defined in the vue mixin.
-      _renderKey: this._renderKey ?? 0,
+      _renderKey: this._renderKey ?? 0
       // @todo add this after switching to DataModel
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
@@ -159,19 +159,19 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
       toggled: true,
       collaborate: true,
       documentUUID: this.document.uuid,
-      height: 300,
+      height: 300
     };
 
     // Enrich the description.
     context.editors = {
-      'system.description.value': {
-        enriched: await wrapRolls(this.item.system.description.value ?? '', [], 'short', {}, 'description', enrichmentOptions),
+      "system.description.value": {
+        enriched: await wrapRolls(this.item.system.description.value ?? "", [], "short", {}, "description", enrichmentOptions),
         element: foundry.applications.elements.HTMLProseMirrorElement.create({
           ...editorOptions,
-          name: 'system.description.value',
-          value: context.system.description?.value ?? '',
-        }),
-      },
+          name: "system.description.value",
+          value: context.system.description?.value ?? ""
+        })
+      }
     };
 
     // Enrich powers and feats.
@@ -190,44 +190,44 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
 
   /**
    * Enrich values for power fields.
-   * 
-   * @param {object} context 
-   * @param {object} enrichmentOptions 
-   * @param {object} editorOptions 
+   *
+   * @param {object} context
+   * @param {object} enrichmentOptions
+   * @param {object} editorOptions
    */
   async _enrichPowers(context, enrichmentOptions, editorOptions) {
     for (let field of powerFieldKeys()) {
       context.editors[field] = {
         // @todo write a power enricher.
-        enriched: await wrapRolls(this.item.system[field].value ?? '', [], 'short', {}, field, enrichmentOptions),
+        enriched: await wrapRolls(this.item.system[field].value ?? "", [], "short", {}, field, enrichmentOptions),
         element: foundry.applications.elements.HTMLProseMirrorElement.create({
           ...editorOptions,
           name: `system.${field}.value`,
-          value: context.system[field]?.value ?? '',
-        }),
+          value: context.system[field]?.value ?? ""
+        })
       };
     }
   }
 
   /**
    * Enrich values for feats.
-   * 
-   * @param {object} context 
-   * @param {object} enrichmentOptions 
-   * @param {object} editorOptions 
+   *
+   * @param {object} context
+   * @param {object} enrichmentOptions
+   * @param {object} editorOptions
    */
   async _enrichFeats(context, enrichmentOptions, editorOptions) {
     // Enrich feats.
     if (this.item.system.feats) {
       for (let [featKey, feat] of Object.entries(this.item.system.feats)) {
         context.editors[`feat.${featKey}`] = {
-          enriched: await wrapRolls(feat.description.value ?? '', [], 'short', {}, featKey, enrichmentOptions),
+          enriched: await wrapRolls(feat.description.value ?? "", [], "short", {}, featKey, enrichmentOptions),
           element: foundry.applications.elements.HTMLProseMirrorElement.create({
             ...editorOptions,
             name: `system.feats.${featKey}.description.value`,
-            value: feat.description.value ?? '',
-          }),
-        }
+            value: feat.description.value ?? ""
+          })
+        };
       }
     }
   }
@@ -239,6 +239,7 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
    *
    * @param {Event} event
    *   Html event that triggered the method.
+   * @param target
    */
   static async _updateFeat(event, target) {
     if (!this.isEditable) return;
@@ -251,72 +252,72 @@ export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemShee
     let featIndex = Number(dataset.featKey);
     let feats = item.system.feats;
 
-    let deleteFeat = (async () => {return;});
-    switch(dataset.action) {
-      case 'createFeat':
+    let deleteFeat = (async () => {});
+    switch (dataset.action) {
+      case "createFeat":
         if (feats) feats = Object.values(feats);
         else feats = [];
         feats.push({
-          "description": {
-            "type": "String",
-            "value": ""
+          description: {
+            type: "String",
+            value: ""
           },
-          "isActive": {
-            "type": "Boolean",
-            "value": false
+          isActive: {
+            type: "Boolean",
+            value: false
           },
-          "tier": {
-            "type": "String",
-            "value": "adventurer"
+          tier: {
+            type: "String",
+            value: "adventurer"
           },
-          "powerUsage": {
-            "type": "String",
-            "value": ""
+          powerUsage: {
+            type: "String",
+            value: ""
           },
-          "quantity": {
-            "type": "Number",
-            "value": null
+          quantity: {
+            type: "Number",
+            value: null
           },
-          "maxQuantity": {
-            "type": "Number",
-            "value": null
+          maxQuantity: {
+            type: "Number",
+            value: null
           }
         });
-        await item.update({'system.feats': Object.assign({}, feats)});
+        await item.update({ "system.feats": { ...feats } });
         return;
-      case 'deleteFeat':
+      case "deleteFeat":
         deleteFeat = (async () => {
           let newFeats = foundry.utils.deepClone(feats);
           delete newFeats[featIndex];
-          newFeats = Object.assign({}, Object.values(newFeats));  // Re-index from 0
-          let updateData = {'system.feats': newFeats};
+          newFeats = { ...Object.values(newFeats) };  // Re-index from 0
+          let updateData = { "system.feats": newFeats };
           for (let key of Object.keys(item.system.feats)) {
             if (!newFeats[key]) updateData[`system.feats.-=${key}`] = null;
           }
           await item.update(updateData);
         });
         break;
-      case 'moveFeatUp':
+      case "moveFeatUp":
         if (featIndex == 0) return;
         feats = Object.values(feats);
-        [feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]]
-        await item.update({'system.feats': Object.assign({}, feats)});
+        [feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]];
+        await item.update({ "system.feats": { ...feats } });
         return;
-      case 'moveFeatDown':
+      case "moveFeatDown":
         feats = Object.values(feats);
         if (featIndex >= feats.length - 1) return;
-        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]]
-        await item.update({'system.feats': Object.assign({}, feats)});
+        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]];
+        await item.update({ "system.feats": { ...feats } });
         return;
     }
 
-    let bypass = event.shiftKey ? true : false;
+    let bypass = !!event.shiftKey;
     if (bypass) {
       await deleteFeat();
       return;
     }
     foundry.applications.api.DialogV2.prompt({
-      window: {title: 'Delete feat?'},
+      window: { title: "Delete feat?" },
       content: `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm")}</p>`,
       rejectClose: false,
       ok: {

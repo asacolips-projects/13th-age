@@ -19,7 +19,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       importFromCompendium: this.#onImportFromCompendium,
       parseInlineRolls: this.#onParseInlineRolls,
       openChild: this._openChild,
-      removeChild: this._removeChild,
+      removeChild: this._removeChild
     },
     form: {
       submitOnChange: true
@@ -34,12 +34,12 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
   _initializeApplicationOptions(options) {
     options = super._initializeApplicationOptions(options);
     if (options.document.compendium) {
-      const hasOption = options.window.controls.find(o => o.action === 'importFromCompendium');
+      const hasOption = options.window.controls.find((o) => o.action === "importFromCompendium");
       if (!hasOption) {
         options.window.controls.push({
           action: "importFromCompendium",
           icon: "fa-solid fa-download",
-          label: "Import",
+          label: "Import"
         });
       }
     }
@@ -79,7 +79,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 
   /**
    * Handle changing a Document's image.
-   * 
+   *
    * @this ArchmageBaseItemSheetV2
    * @param {PointerEvent} event   The originating click event
    * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
@@ -95,9 +95,9 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       current,
       type: "image",
       redirectToRoot: img ? [img] : [],
-      callback: path => {
+      callback: (path) => {
         target.src = path;
-        this.document.update({[attr]: path});
+        this.document.update({ [attr]: path });
       },
       top: this.position.top + 40,
       left: this.position.left + 10
@@ -147,7 +147,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
     // Prepare the document creation data by initializing it a default name.
     // As of v12, you can define custom Active Effect subtypes just like Item subtypes if you want
     const effectData = {
-      img: this.document.img || 'icons/svg/aura.svg',
+      img: this.document.img || "icons/svg/aura.svg",
       origin: this.document.uuid,
       name: aeCls.defaultName({
         // defaultName handles an undefined type gracefully
@@ -366,7 +366,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
   async _onDropItem(event, data) {
     if (!this.isEditable) return false;
     if (!this.item.isOwner) return false;
-    if (event.target.closest?.('.item-children')) return this._onDropChild(data);
+    if (event.target.closest?.(".item-children")) return this._onDropChild(data);
     return false;
   }
 
@@ -391,14 +391,14 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
     if (!child || child.uuid === this.item.uuid) return false;
 
     const actor = this.item.parent;
-    if (actor?.documentName === 'Actor' && child.parent !== actor) {
+    if (actor?.documentName === "Actor" && child.parent !== actor) {
       const source = child.pack ? game.items.fromCompendium(child) : child.toObject();
-      [child] = await actor.createEmbeddedDocuments('Item', [source]);
+      [child] = await actor.createEmbeddedDocuments("Item", [source]);
       if (!child) return false;
     }
 
     if (children.includes(child.uuid)) return false;
-    await this.item.update({'system.children': [...children, child.uuid]});
+    await this.item.update({ "system.children": [...children, child.uuid] });
     return child;
   }
 
@@ -412,14 +412,14 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
   async _prepareChildren() {
     const children = this.item.system.children;
     if (!Array.isArray(children)) return [];
-    return Promise.all(children.map(async uuid => {
+    return Promise.all(children.map(async (uuid) => {
       const child = await resolveChild(uuid, this.item);
       return {
         uuid,
-        name: child?.name ?? game.i18n.localize('ARCHMAGE.ITEM.childMissing'),
-        img: child?.img ?? 'icons/svg/hazard.svg',
-        type: child ? game.i18n.localize(CONFIG.Item.typeLabels[child.type] ?? child.type) : '',
-        missing: !child,
+        name: child?.name ?? game.i18n.localize("ARCHMAGE.ITEM.childMissing"),
+        img: child?.img ?? "icons/svg/hazard.svg",
+        type: child ? game.i18n.localize(CONFIG.Item.typeLabels[child.type] ?? child.type) : "",
+        missing: !child
       };
     }));
   }
@@ -448,7 +448,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
   static async _removeChild(event, target) {
     if (!this.isEditable) return;
     const children = this.item.system.children ?? [];
-    await this.item.update({'system.children': children.filter(uuid => uuid !== target.dataset.uuid)});
+    await this.item.update({ "system.children": children.filter((uuid) => uuid !== target.dataset.uuid) });
   }
 
   /* -------------------------------------------- */
@@ -506,8 +506,8 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
    * @param {PointerEvent} event
    */
   static #onShowItemArtwork(event) {
-    const {img, name, uuid} = this.document;
-    new ImagePopout(img, {title: name, uuid: uuid}).render(true);
+    const { img, name, uuid } = this.document;
+    new ImagePopout(img, { title: name, uuid: uuid }).render(true);
   }
 
   /**
@@ -522,12 +522,12 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
 
   /**
    * Attempt to parse inline rolls on the sheet.
-   * 
+   *
    * @this {ArchmageBaseItemSheetV2}
-   * @param {PointerEvent} event 
+   * @param {PointerEvent} event
    */
   static async #onParseInlineRolls(event) {
-    const frame = event.target.closest('.archmage-appv2');
+    const frame = event.target.closest(".archmage-appv2");
     if (!frame || !this.isEditable) return;
 
     // Find all text inputs and textarea inputs.
@@ -535,7 +535,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
     if (!fieldElements) return;
 
     // Exclude certain fields, like macros.
-    const excludeList = ['system.embeddedMacro.value'];
+    const excludeList = ["system.embeddedMacro.value"];
     let hasChanges = false;
 
     // Iterate through the elements and run the parser on them, if necessary.
@@ -543,7 +543,7 @@ export class ArchmageBaseItemSheetV2 extends foundry.applications.sheets.ItemShe
       const { name, value } = element;
       // Skip in certain conditions.
       if (excludeList.includes(name)) continue;
-      if (value.includes('[[') || value.includes(']]')) continue;
+      if (value.includes("[[") || value.includes("]]")) continue;
       // Run the parser and update the values.
       const options = { field: name };
       const result = game.archmage.ArchmageUtility.parseClipboardText(value, options);

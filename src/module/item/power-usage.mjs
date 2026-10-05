@@ -64,13 +64,13 @@ export function hasSecondaryUsage(power) {
  *
  * @returns {string}
  */
-function powerUsageColorClass(usage, actor = null, {escalationDie = null} = {}) {
-  let use = usage ? usage : 'other';
-  if (['daily', 'daily-desperate'].includes(use)) return 'daily';
-  if (['recharge', 'recharge-desperate'].includes(use)) return 'recharge';
-  if (use == 'cyclic') {
+function powerUsageColorClass(usage, actor = null, { escalationDie = null } = {}) {
+  let use = usage ? usage : "other";
+  if (["daily", "daily-desperate"].includes(use)) return "daily";
+  if (["recharge", "recharge-desperate"].includes(use)) return "recharge";
+  if (use == "cyclic") {
     const escalation = escalationValue(actor, escalationDie);
-    return (escalation > 0 && escalation % 2 == 0) ? 'at-will' : 'once-per-battle';
+    return (escalation > 0 && escalation % 2 == 0) ? "at-will" : "once-per-battle";
   }
   return use;
 }
@@ -121,13 +121,13 @@ export function powerUsageClass(power, actor = null, options = {}) {
   if (hasSecondary) {
     inactive = powerUsageColorClass(onSecondary ? primaryUsage : secondaryUsage, actor, options);
   }
-  else if (activeUsage == 'cyclic') {
+  else if (activeUsage == "cyclic") {
     // Cyclic powers alternate between behaving as at-will and once-per-battle.
-    inactive = active == 'at-will' ? 'once-per-battle' : 'at-will';
+    inactive = active == "at-will" ? "once-per-battle" : "at-will";
   }
-  if (inactive && inactive != active) classes.push('alt-usage', `alt-usage--${inactive}`);
+  if (inactive && inactive != active) classes.push("alt-usage", `alt-usage--${inactive}`);
 
-  return classes.join(' ');
+  return classes.join(" ");
 }
 
 /**
@@ -148,8 +148,8 @@ export function powerUsageClass(power, actor = null, options = {}) {
 export function powerAvailabilityClass(power) {
   const primary = power.system?.quantity?.value;
   const secondary = power.system?.quantitySecondary?.value;
-  if (primary == null && secondary == null) return '';
-  if (((primary ?? 0) + (secondary ?? 0)) === 0) return 'unavailable';
-  if (hasSecondaryUsage(power) && (!(primary > 0) || !(secondary > 0))) return 'alt-usage--spent';
-  return '';
+  if (primary == null && secondary == null) return "";
+  if (((primary ?? 0) + (secondary ?? 0)) === 0) return "unavailable";
+  if (hasSecondaryUsage(power) && (!(primary > 0) || !(secondary > 0))) return "alt-usage--spent";
+  return "";
 }

@@ -40,7 +40,7 @@ function embeddedItemId(uuid) {
  */
 export async function resolveChild(uuid, item) {
   const actor = item.parent;
-  if (actor?.documentName === 'Actor') {
+  if (actor?.documentName === "Actor") {
     const id = embeddedItemId(uuid);
     if (id) return actor.items.get(id) ?? null;
   }
@@ -76,8 +76,8 @@ export async function gatherChildren(item, seen = new Set([item.uuid])) {
  */
 export function findParents(item) {
   const actor = item.parent;
-  if (actor?.documentName !== 'Actor') return [];
-  return actor.items.filter(parent => (parent.system.children ?? []).some(uuid => embeddedItemId(uuid) === item.id));
+  if (actor?.documentName !== "Actor") return [];
+  return actor.items.filter((parent) => (parent.system.children ?? []).some((uuid) => embeddedItemId(uuid) === item.id));
 }
 
 /**
@@ -138,13 +138,13 @@ export async function addProgenyToCreation(documents, operation, user) {
     delete doc._source.flags.archmage.excludeChildren;
   }
 
-  if (operation.archmageChildren === false || actor?.documentName !== 'Actor') return;
-  if (!documents.some(doc => doc.system.children?.length)) return;
+  if (operation.archmageChildren === false || actor?.documentName !== "Actor") return;
+  if (!documents.some((doc) => doc.system.children?.length)) return;
 
   // Parents link to their children's UUIDs, so every id has to be known before
   // anything is saved, rather than left to the server.
   if (!operation.keepId) {
-    for (const doc of documents) doc.updateSource({_id: foundry.utils.randomID()});
+    for (const doc of documents) doc.updateSource({ _id: foundry.utils.randomID() });
     operation.keepId = true;
   }
 
@@ -163,17 +163,17 @@ export async function addProgenyToCreation(documents, operation, user) {
       // Paths are made of the children's own UUIDs, which is how the importer
       // knows them, however they're written in the list.
       const childPath = [...path, source.uuid];
-      if (excluded.has(childPath.join('>')) || lineage.includes(source.uuid)) continue;
+      if (excluded.has(childPath.join(">")) || lineage.includes(source.uuid)) continue;
       const data = childCopyData(source);
-      const child = new doc.constructor(data, {parent: actor});
+      const child = new doc.constructor(data, { parent: actor });
       // Children go through the same per-document checks as their parent.
       if (await child._preCreate(data, operation, user) === false) continue;
-      if (Hooks.call('preCreateItem', child, data, operation, user.id) === false) continue;
+      if (Hooks.call("preCreateItem", child, data, operation, user.id) === false) continue;
       documents.push(child);
       links.push(`${actor.uuid}.Item.${child.id}`);
       await expand(child, excluded, childPath, [...lineage, source.uuid]);
     }
-    if (doc.system.children?.length || links.length) doc.updateSource({'system.children': links});
+    if (doc.system.children?.length || links.length) doc.updateSource({ "system.children": links });
   };
 
   for (const doc of [...documents]) {
@@ -183,7 +183,7 @@ export async function addProgenyToCreation(documents, operation, user) {
 
   if (missing.length) {
     console.warn(`Archmage | ${missing.length} child item(s) could not be found:`, missing);
-    ui.notifications.warn(game.i18n.format('ARCHMAGE.ITEM.childrenMissing', {count: missing.length}));
+    ui.notifications.warn(game.i18n.format("ARCHMAGE.ITEM.childrenMissing", { count: missing.length }));
   }
 }
 
@@ -196,7 +196,7 @@ export async function addProgenyToCreation(documents, operation, user) {
  */
 export async function addProgenyToDeletion(documents, operation) {
   const actor = operation.parent;
-  if (operation.archmageChildren === false || operation.deleteAll || actor?.documentName !== 'Actor') return;
+  if (operation.archmageChildren === false || operation.deleteAll || actor?.documentName !== "Actor") return;
   const ids = new Set(operation.ids);
   for (const doc of [...documents]) {
     for (const child of await gatherChildren(doc)) {
@@ -216,14 +216,14 @@ export async function addProgenyToDeletion(documents, operation) {
  */
 export async function unlinkDeletedChildren(documents, operation) {
   const actor = operation.parent;
-  if (actor?.documentName !== 'Actor') return;
-  const deleted = new Set(documents.map(doc => doc.id));
+  if (actor?.documentName !== "Actor") return;
+  const deleted = new Set(documents.map((doc) => doc.id));
   const updates = actor.items
-    .filter(item => !deleted.has(item.id))
-    .filter(item => (item.system.children ?? []).some(uuid => deleted.has(embeddedItemId(uuid))))
-    .map(item => ({
+    .filter((item) => !deleted.has(item.id))
+    .filter((item) => (item.system.children ?? []).some((uuid) => deleted.has(embeddedItemId(uuid))))
+    .map((item) => ({
       _id: item.id,
-      'system.children': item.system.children.filter(uuid => !deleted.has(embeddedItemId(uuid)))
+      "system.children": item.system.children.filter((uuid) => !deleted.has(embeddedItemId(uuid)))
     }));
-  if (updates.length) await actor.updateEmbeddedDocuments('Item', updates);
+  if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }

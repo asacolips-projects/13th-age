@@ -1,11 +1,16 @@
-import path from 'node:path';
-import { SYSTEM_COPY } from './constants.mjs';
-import { copyFileWithReplace, globFiles, log, resolveFromRoot } from './utils.mjs';
+import path from "node:path";
+import { SYSTEM_COPY } from "./constants.mjs";
+import { copyFileWithReplace, globFiles, log, resolveFromRoot } from "./utils.mjs";
 
+/**
+ *
+ * @param root0
+ * @param root0.prod
+ */
 export async function copyFiles({ prod = false } = {}) {
   const files = await globFiles(SYSTEM_COPY);
-  const srcRoot = resolveFromRoot('src');
-  const distRoot = resolveFromRoot('dist');
+  const srcRoot = resolveFromRoot("src");
+  const distRoot = resolveFromRoot("dist");
 
   for (const file of files) {
     const relativePath = path.relative(srcRoot, file);
@@ -13,5 +18,5 @@ export async function copyFiles({ prod = false } = {}) {
     await copyFileWithReplace(file, dest, { prod });
   }
 
-  log('copy', `copied ${files.length} files${prod ? ' (prod)' : ''}`);
+  log("copy", `copied ${files.length} files${prod ? " (prod)" : ""}`);
 }

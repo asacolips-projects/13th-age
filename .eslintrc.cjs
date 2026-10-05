@@ -12,7 +12,7 @@ module.exports = {
     browser: true,
     es6: true,
     jquery: true,
-    node: true,
+    node: true
   },
 
   extends: ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js/0.8.0"],
@@ -243,7 +243,7 @@ module.exports = {
     NumericTerm: false,
     OperatorTerm: false,
     fromUuid: false,
-    fromUuidSync: false,
+    fromUuidSync: false
   },
 
   overrides: [

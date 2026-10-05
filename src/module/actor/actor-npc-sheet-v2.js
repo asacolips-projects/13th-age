@@ -1,5 +1,5 @@
-import { ActorArchmageSheetV2 } from './actor-sheet-v2.js';
-import { ArchmageNpcSheet } from '../../vue/components.vue.es.js';
+import { ActorArchmageSheetV2 } from "./actor-sheet-v2.js";
+import { ArchmageNpcSheet } from "../../vue/components.vue.es.js";
 
 export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
   /** @override */
@@ -10,18 +10,18 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
     this.vueApp = null;
     this.vueRoot = null;
     this.vueComponents = {
-      'npc-sheet': ArchmageNpcSheet
+      "npc-sheet": ArchmageNpcSheet
     };
   }
 
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
-    const compactMode = game.settings.get('archmage', 'compactMode');
+    const compactMode = game.settings.get("archmage", "compactMode");
     foundry.utils.mergeObject(options, {
-      classes: options.classes.concat(['archmage-v2', 'actor', 'npc-sheet']).filter(c => c !== 'archmage'),
+      classes: options.classes.concat(["archmage-v2", "actor", "npc-sheet"]).filter((c) => c !== "archmage"),
       width: compactMode ? 550 : 640,
-      height: compactMode ? 688 : 800,
+      height: compactMode ? 688 : 800
     });
     return options;
   }
@@ -86,10 +86,10 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
     let dataset = foundry.utils.duplicate(target.dataset);
 
     // Grab the item type from the dataset and then remove it.
-    let itemType = dataset.itemType ?? 'power';
+    let itemType = dataset.itemType ?? "power";
 
     // @todo: Refactor this after migrating actions to a single type.
-    if (dataset.powerType && ['action', 'trait', 'nastierSpecial'].includes(dataset.powerType)) {
+    if (dataset.powerType && ["action", "trait", "nastierSpecial"].includes(dataset.powerType)) {
       itemType = dataset.powerType;
     }
 
@@ -97,7 +97,7 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
     if (dataset?.groupType && dataset?.powerType) {
       let groupType = dataset.groupType;
       let model = game.data.model.Item[itemType];
-      if (model[groupType] && groupType !== 'powerType') {
+      if (model[groupType] && groupType !== "powerType") {
         dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
         delete dataset.powerType;
       }
@@ -112,8 +112,8 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
 
     // Initialize data
     let data = {};
-    if (typeof dataset == 'object') {
-      for (let [k,v] of Object.entries(dataset)) {
+    if (typeof dataset == "object") {
+      for (let [k, v] of Object.entries(dataset)) {
         data[k] = { value: v };
       }
     }
@@ -128,6 +128,6 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
       img: img,
       system: data
     };
-    await this.actor.createEmbeddedDocuments('Item', [itemData]);
+    await this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 }

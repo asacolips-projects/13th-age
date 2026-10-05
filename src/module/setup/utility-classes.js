@@ -1,5 +1,4 @@
 
-
 // CONFIG.debug.hooks = true;
 
 /**
@@ -19,7 +18,7 @@ export class ArchmageUtility {
    * @param {boolean} waitForDice
    *   (Optional) Whether to wait for 3d dice rolls to finish before returning.
    *
-   * @return {Promise<Document>} The created ChatMessage document instance.
+   * @returns {Promise<Document>} The created ChatMessage document instance.
    */
   static async createChatMessage(chatData, context = {}, waitForDice = true) {
     if (!chatData.flags) {
@@ -50,8 +49,8 @@ export class ArchmageUtility {
     // Return early if there is nothing to wait on.
     // Our own inline rolls are handled separately,
     // so we only wait for roll messages or if default DSN inline rolls are used.
-    if ((!chatData.rolls || chatData.rolls.length == 0) &&
-        !game.settings.get("dice-so-nice", "animateInlineRoll")) {
+    if ((!chatData.rolls || chatData.rolls.length == 0)
+        && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
       return await ChatMessage.create(chatData, context);
     }
 
@@ -72,11 +71,12 @@ export class ArchmageUtility {
       user = game.user;
     }
     var hide = chatData?.whisper?.length ? chatData.whisper : null;
-    if (hide && game.user.isGM &&
-        game.settings.get("archmage", "showPrivateGMAttackRolls") &&
-        game.settings.get("core", "messageMode") === "gmroll") {
+    if (hide && game.user.isGM
+        && game.settings.get("archmage", "showPrivateGMAttackRolls")
+        && game.settings.get("core", "messageMode") === "gmroll") {
       hide = null;
-    } else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
+    }
+ else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
       hide = null;
       roll.ghost = true;
     }
@@ -92,7 +92,7 @@ export class ArchmageUtility {
    * @param {object} combat
    *   (Optional) Combat to check the escalation for.
    *
-   * @return {int} The escalation die value.
+   * @returns {int} The escalation die value.
    */
   static getEscalation(combat = null) {
     // Get the current combat if one wasn't provided.
@@ -122,12 +122,12 @@ export class ArchmageUtility {
       }
 
       // Get the manual offset for this combat..
-      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+      let edOffset = combat.getFlag("archmage", "edOffset") ?? 0;
       if (edOffset) {
         result = result + edOffset;
 
         // If the escalation die isn't unlimited, set a min/max.
-        if (!game.settings.get('archmage', 'unboundEscDie')) {
+        if (!game.settings.get("archmage", "unboundEscDie")) {
           if (result > 6) {
             result = 6;
           }
@@ -147,7 +147,7 @@ export class ArchmageUtility {
    *
    * @param {object} combat
    *   (Optional) Combat to set the escalation die offset for.
-   * @param {Boolean} isIncrease
+   * @param {boolean} isIncrease
    *   (Optional) If true, increase the esc. die, otherwise decrease it.
    */
   static async setEscalationOffset(combat = null, isIncrease = true) {
@@ -169,30 +169,26 @@ export class ArchmageUtility {
       if (round < 0) round = 0;
 
       // Retrieve the escalation die offset for this combat.
-      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+      let edOffset = combat.getFlag("archmage", "edOffset") ?? 0;
 
       // By default, limit how far the escalation die can be adjusted.
-      if (!game.settings.get('archmage', 'unboundEscDie')) {
+      if (!game.settings.get("archmage", "unboundEscDie")) {
         if (isIncrease) {
           if (round + edOffset < 7) edOffset++;
         }
-        else {
-          if (round + edOffset > 0) edOffset--;
-        }
+        else if (round + edOffset > 0) edOffset--;
       }
       // If it's unbound, unlimited power!
-      else {
-        if (isIncrease) edOffset++;
+      else if (isIncrease) edOffset++;
         else edOffset--;
-      }
 
       // Update the escalation die offset flag.
-      await combat.setFlag('archmage', 'edOffset', edOffset);
+      await combat.setFlag("archmage", "edOffset", edOffset);
     }
   }
 
   static async updateCompendiums() {
-    let pack = game.packs.get('archmage.monsters-core');
+    let pack = game.packs.get("archmage.monsters-core");
     let monsters = pack ? await pack.getContent() : null;
 
     if (monsters) {
@@ -201,52 +197,52 @@ export class ArchmageUtility {
         let update = {};
 
         // Handle size.
-        let size = '';
+        let size = "";
         for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureSizes)) {
-          size += size == '' ? key : `|${key}`;
+          size += size == "" ? key : `|${key}`;
         }
         let sizeRegex = new RegExp(size);
         let sizeMatch = name.match(sizeRegex);
         if (sizeMatch && sizeMatch[0]) {
-          update['system.details.size.value'] = sizeMatch[0];
-          if (sizeMatch[0] == 'large') {
-            update['prototypeToken.width'] = 2;
-            update['prototypeToken.height'] = 2;
+          update["system.details.size.value"] = sizeMatch[0];
+          if (sizeMatch[0] == "large") {
+            update["prototypeToken.width"] = 2;
+            update["prototypeToken.height"] = 2;
           }
-          else if (sizeMatch[0] == 'huge') {
-            update['prototypeToken.width'] = 3;
-            update['prototypeToken.height'] = 3;
+          else if (sizeMatch[0] == "huge") {
+            update["prototypeToken.width"] = 3;
+            update["prototypeToken.height"] = 3;
           }
         }
         else {
-          update['system.details.size.value'] = 'normal';
+          update["system.details.size.value"] = "normal";
         }
         // Handle role.
-        let role = '';
+        let role = "";
         for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureRoles)) {
-          role += role == '' ? key : `|${key}`;
+          role += role == "" ? key : `|${key}`;
         }
         let roleRegex = new RegExp(role);
         let roleMatch = name.match(roleRegex);
         if (roleMatch && roleMatch[0]) {
-          update['system.details.role.value'] = roleMatch && roleMatch[0];
+          update["system.details.role.value"] = roleMatch && roleMatch[0];
         }
         // Handle type.
-        let type = '';
+        let type = "";
         for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureTypes)) {
-          type += type == '' ? key : `|${key}`;
+          type += type == "" ? key : `|${key}`;
         }
         let typeRegex = new RegExp(type);
         let typeMatch = name.match(typeRegex);
         if (typeMatch && typeMatch[0]) {
-          update['system.details.type.value'] = typeMatch[0];
+          update["system.details.type.value"] = typeMatch[0];
         }
         if (Object.keys(update).length > 0) {
-          update['_id'] = actor._id;
-          update['name'] = actor.name.replace(/( |)\[.*\]/g, '');
+          update._id = actor._id;
+          update.name = actor.name.replace(/( |)\[.*\]/g, "");
           await pack.updateEntity(update);
         }
-      };
+      }
     }
   }
 
@@ -299,8 +295,8 @@ export class ArchmageUtility {
   static detectClasses(className) {
     className = ArchmageUtility.prepareClassInputForDetection(className);
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-    let classRegex = new RegExp(classList.join('|'), 'g');
-    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+    let classRegex = new RegExp(classList.join("|"), "g");
+    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, "") : "";
     let matchedClasses = className.match(classRegex);
     if (matchedClasses !== null) matchedClasses = [...new Set(matchedClasses)].sort();
     return matchedClasses;
@@ -320,18 +316,18 @@ export class ArchmageUtility {
     if (game.i18n.lang !== "en") {
       return number;
     }
-    var last = number % 10,
-        teens = number % 100;
+    var last = number % 10;
+        var teens = number % 100;
     if (last == 1 && teens != 11) {
-        return number + "st";
+        return `${number}st`;
     }
     if (last == 2 && teens != 12) {
-        return number + "nd";
+        return `${number}nd`;
     }
     if (last == 3 && teens != 13) {
-        return number + "rd";
+        return `${number}rd`;
     }
-    return number + "th";
+    return `${number}th`;
   }
 
   static cleanActiveEffectLabel(label) {
@@ -415,13 +411,13 @@ export class ArchmageUtility {
    * Icons for each Active Effect change type, keyed by the type's value.
    */
   static ACTIVE_EFFECT_CHANGE_ICONS = {
-    'custom': 'question',
-    'multiply': 'times',
-    'add': 'plus',
-    'subtract': 'minus',
-    'downgrade': 'angle-double-down',
-    'upgrade': 'angle-double-up',
-    'override': 'undo'
+    custom: "question",
+    multiply: "times",
+    add: "plus",
+    subtract: "minus",
+    downgrade: "angle-double-down",
+    upgrade: "angle-double-up",
+    override: "undo"
   };
 
   /**
@@ -437,7 +433,7 @@ export class ArchmageUtility {
   static getActiveEffectChanges(effect) {
     const changes = [];
     for (const c of effect?.changes ?? []) {
-      const additive = ['add', 'subtract'].includes(c.type);
+      const additive = ["add", "subtract"].includes(c.type);
       if (!c.key || c.value == null || (additive && Number(c.value) === 0)) continue;
       const label = this.cleanActiveEffectLabel(c.key);
       const change = {
@@ -447,8 +443,8 @@ export class ArchmageUtility {
         value: c.value
       };
       // A negative bonus reads better as a subtraction.
-      if (change.mode === 'plus' && change.value < 0) {
-        change.mode = 'minus';
+      if (change.mode === "plus" && change.value < 0) {
+        change.mode = "minus";
         change.value = Math.abs(change.value);
       }
       changes.push(change);
@@ -459,7 +455,7 @@ export class ArchmageUtility {
   static localizeEquipmentBonus(bonusProp) {
     // Most bonus properties are lowercase already, but some are camelCase and
     // can only be reached by their own spelling.
-    const keys = [bonusProp, bonusProp.toLowerCase()].flatMap(prop => [
+    const keys = [bonusProp, bonusProp.toLowerCase()].flatMap((prop) => [
       `ARCHMAGE.${prop}Short`,
       `ARCHMAGE.${prop}`,
       `ARCHMAGE.${prop}.key`
@@ -478,9 +474,10 @@ export class ArchmageUtility {
     // Remove once Vue fixed event handling in iframes/windows.
     Hooks.on("PopOut:popout", async function (app, popout) {
       const handler = (e) => {
-        Object.defineProperty(e, "timeStamp", { get: () => performance.now() })
-      }
-      const events = Object.keys(window).filter(name => name.substring(0, 2) == 'on').map(name => name.substring(2));
+        Object.defineProperty(e, "timeStamp", { get: () => performance.now() });
+      };
+      const events = Object.keys(window).filter((name) => name.substring(0, 2) == "on")
+.map((name) => name.substring(2));
       events.forEach((name) => popout.addEventListener(name, handler, true));
     });
   }
@@ -505,13 +502,14 @@ export class ArchmageUtility {
    *   As above, but both keys are looked up and appended as paragraphs.
    * tooltip('attributes', 'charisma', {itemData: data})
    *   As above, but the given format data is inserted for each separate key.
+   * @param {...any} keys
    */
   static tooltip(...keys) {
     if (!game.settings.get("archmage", "sheetTooltips")) {
       return undefined;
     }
 
-    const isSecondEdition = game.settings.get('archmage', 'secondEdition');
+    const isSecondEdition = game.settings.get("archmage", "secondEdition");
     const keyPrefix = "ARCHMAGE.TOOLTIP.";
     const secondEditionSuffix = "V2";
 
@@ -535,29 +533,29 @@ export class ArchmageUtility {
         val = game.i18n.format(keyPrefix + key, format);
       }
 
-      out += "\n" + val.trim();
+      out += `\n${val.trim()}`;
     }
 
     // Some formatting for Foundry's tooltips
-    out = out.trim().replaceAll("\r\n", "<br><br>").replaceAll("\n", "<br><br>");
-    out = "<p style=\"text-align: left; margin: 0;\">" + out + "</p>";
+    out = out.trim().replaceAll("\r\n", "<br><br>")
+.replaceAll("\n", "<br><br>");
+    out = `<p style="text-align: left; margin: 0;">${out}</p>`;
 
     return out;
   }
 
   static getSpeaker(actor) {
-    const speaker = ChatMessage.getSpeaker({actor});
+    const speaker = ChatMessage.getSpeaker({ actor });
     if (!actor) return speaker;
     let token = actor.token;
     if (!token) token = actor.getActiveTokens()[0];
     if (token) {
       speaker.alias = token.name;
-    } else {
-      if (actor.prototypeToken) {
+    }
+ else if (actor.prototypeToken) {
         speaker.alias = actor.prototypeToken.name;
       }
-    }
-    return speaker
+    return speaker;
   }
 
   /**
@@ -571,17 +569,17 @@ export class ArchmageUtility {
    */
   static parseClipboardText(pastedText, options={}) {
     // Exit early for rolls that already include inline rolls.
-    if (pastedText.includes('[[') || pastedText.includes(']]')) return pastedText;
+    if (pastedText.includes("[[") || pastedText.includes("]]")) return pastedText;
     // Handle options.
-    if (options.field?.includes('attack')) {
+    if (options.field?.includes("attack")) {
       options.attack = true;
     }
-    if (options.field?.includes('hit')) {
+    if (options.field?.includes("hit")) {
       options.damage = true;
     }
     // Remove unnecessary newlines common to PDFs.
-    let parsedText = pastedText.replace(/-[\r\n]+([^.])/g, '-$1'); // Hyphens get collapsed
-    parsedText = parsedText.replace(/[\r\n]+([^.])/g, ' $1'); // Other newlines get replaced with spaces
+    let parsedText = pastedText.replace(/-[\r\n]+([^.])/g, "-$1"); // Hyphens get collapsed
+    parsedText = parsedText.replace(/[\r\n]+([^.])/g, " $1"); // Other newlines get replaced with spaces
     // Do a pass to turn rolls like "Natural 16+" or "Easy Save, 6+" into
     // "Natural __16__" and "Easy Save, __6__". It's messy, but it
     // prevents false positives in later steps.
@@ -592,38 +590,38 @@ export class ArchmageUtility {
     });
     // Handle weapons and attributes.
     const attrs = [
-      'strength','str(?![a-z\\d])',
-      'dexterity','dex(?![a-z\\d])',
-      'constitution','con(?![a-z\\d])',
-      'intelligence','int(?![a-z\\d])',
-      'wisdom','wis(?![a-z\\d])',
-      'charisma','cha(?![a-z\\d])',
-      'level(?!s)',
-      'weapon',
-      'escalation die',
+      "strength", "str(?![a-z\\d])",
+      "dexterity", "dex(?![a-z\\d])",
+      "constitution", "con(?![a-z\\d])",
+      "intelligence", "int(?![a-z\\d])",
+      "wisdom", "wis(?![a-z\\d])",
+      "charisma", "cha(?![a-z\\d])",
+      "level(?!s)",
+      "weapon",
+      "escalation die"
     ];
     // Matches the above list, but also checks for "nth" and so on as a prefix to
     // avoid turning "4th level" and so on into "4th @lvl".
-    const attrsRegex = new RegExp(`((?:(?:\\d+th)|(?:breath)|(?:triple-|double-))*\\s*)(${attrs.join('|')})`, 'gi');
+    const attrsRegex = new RegExp(`((?:(?:\\d+th)|(?:breath)|(?:triple-|double-))*\\s*)(${attrs.join("|")})`, "gi");
     parsedText = parsedText.replace(attrsRegex, (match, prefix, attr) => {
       const cleaned = attr.trim().toLocaleLowerCase();
-      if (cleaned === 'weapon') {
-        return !prefix.match(/breath/gi) ? '@wpn.m.dice' : match;
+      if (cleaned === "weapon") {
+        return !prefix.match(/breath/gi) ? "@wpn.m.dice" : match;
       }
-      if (cleaned === 'level') {
+      if (cleaned === "level") {
         return !prefix.match(/\d+th|\d+nd|\d+rd|\d+st/gi)
-          ? (options.attack ? '@std' : '@lvl')
+          ? (options.attack ? "@std" : "@lvl")
           : match;
       }
-      if (cleaned === 'escalation die') {
-        return '@ed';
+      if (cleaned === "escalation die") {
+        return "@ed";
       }
-      if (cleaned === 'strength') {
+      if (cleaned === "strength") {
         if (prefix.match(/triple-|double-/gi)) return match;
       }
       return options.damage
-        ? `@${cleaned.slice(0,3)}.dmg`
-        : `@${cleaned.slice(0,3)}.mod`;
+        ? `@${cleaned.slice(0, 3)}.dmg`
+        : `@${cleaned.slice(0, 3)}.mod`;
     });
     /**
      * Do a pass to turn likely dice rolls into inline rolls.
@@ -648,28 +646,28 @@ export class ArchmageUtility {
       vs
     ) => {
       if (!diceFormula) return match;
-      let d20 = startingOperator ? 'd20' : 'd20+';
-      return `${naturalTrigger} [[${vs ? d20 : ''}${startingOperator}${diceFormula.trim()}]] ${vs}`;
+      let d20 = startingOperator ? "d20" : "d20+";
+      return `${naturalTrigger} [[${vs ? d20 : ""}${startingOperator}${diceFormula.trim()}]] ${vs}`;
     });
     // Fix multiplication.
     parsedText = parsedText.replace(/(\[\[)([^\[\]]*)(\]\])/gi, (match, prefix, formula, suffix) => {
-      return `${prefix}${formula.replace(/x(?:(?![a-z\.]))/gi, ' * ')}${suffix}`;
+      return `${prefix}${formula.replace(/x(?:(?![a-z\.]))/gi, " * ")}${suffix}`;
     });
     // Do a pass to restore save numbers from the "__{n}__" format.
     parsedText = parsedText.replace(/(__)(\d+)(__)/g, (match, prefix, number, suffix) => {
       return `${number}+`;
     });
     // Handle conditions.
-    const conditionRegex = new RegExp(`(\\s)(${CONFIG.ARCHMAGE.statusEffects.map(c => c.id).join('|')})([^a-z\\d])`, 'gi');
+    const conditionRegex = new RegExp(`(\\s)(${CONFIG.ARCHMAGE.statusEffects.map((c) => c.id).join("|")})([^a-z\\d])`, "gi");
     parsedText = parsedText.replace(conditionRegex, (match, prefix, condition, suffix) => {
       return `${prefix}*${condition}*${suffix}`;
     });
     // Return the trimmed and cleaned string.
-    return parsedText.replace('( ', '(')
-      .replace(' )', ')')
-      .replace('.]]', ']].')
-      .replace(/ +/g, ' ')
-      .replace(/\s*\++\s*/g, '+')
+    return parsedText.replace("( ", "(")
+      .replace(" )", ")")
+      .replace(".]]", "]].")
+      .replace(/ +/g, " ")
+      .replace(/\s*\++\s*/g, "+")
       .trim();
   }
 }
@@ -681,11 +679,14 @@ export class ArchmageUtility {
 export class MacroUtils {
   /**
    * Generate durations for active effects
+   * @param data
+   * @param duration
+   * @param options
    */
   static setDuration(data, duration, options={}) {
     // Assign by level to avoid weird issues with str path accessor
-    if (!data.flags?.archmage?.duration) data.flags = data.flags ? foundry.utils.mergeObject(data.flags, {archmage: {duration: "Unknown"}}) : {archmage: {duration: "Unknown"}};
-    switch(duration) {
+    if (!data.flags?.archmage?.duration) data.flags = data.flags ? foundry.utils.mergeObject(data.flags, { archmage: { duration: "Unknown" } }) : { archmage: { duration: "Unknown" } };
+    switch (duration) {
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn:
       case "StartOfNextTurn":
         data.flags.archmage.duration = "StartOfNextTurn";
@@ -745,7 +746,7 @@ export class MacroUtils {
         console.warn("Unknown duration ", duration);
     }
     // Set Foundry core duration to make the thing appear on tokens
-    if (data.flags.archmage.duration != "Infinite" || options.showIcon ) {
+    if (data.flags.archmage.duration != "Infinite" || options.showIcon) {
         data.showIcon = 2; // Always
     }
     return data;
@@ -753,6 +754,8 @@ export class MacroUtils {
 
   /**
    * Select all feats of a specific tier
+   * @param item
+   * @param tier
    */
   static getFeatsByTier(item, tier) {
     let res = [];
@@ -766,12 +769,13 @@ export class MacroUtils {
   /**
    * Select all allies - approximated by all linked actors in combat
    * If selfUuid is set it excludes the specified actor, otherwise it includes all linked tokens
+   * @param selfUuid
    */
   static getAllies(selfUuid="") {
     let res = [];
     if (!game.combat) return res;
     const combatants = [...game.combat.combatants.values()];
-    combatants.forEach(c => {
+    combatants.forEach((c) => {
       // Pseudo combatants have no token.
       if (!c.token) return;
       if ((c.token.isLinked || c.token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY) && c.token.actor.uuid != selfUuid) {
@@ -784,16 +788,19 @@ export class MacroUtils {
   /**
    * Create one or more AEs on a set of tokens - via a message to the GM's account to bypass
    * persmissions if needed.
+   * @param tokens
+   * @param effects
    */
   static applyActiveEffectsToTokens(tokens, effects) {
     if (!game.user.isGM) {
-      game.socket.emit('system.archmage', {
-        type: 'createAEs',
-        actorIds: tokens.map(t => t.actorId),
+      game.socket.emit("system.archmage", {
+        type: "createAEs",
+        actorIds: tokens.map((t) => t.actorId),
         effects: effects
       });
-    } else {
-      tokens.forEach(t => {
+    }
+ else {
+      tokens.forEach((t) => {
         t.actor.createEmbeddedDocuments("ActiveEffect", effects);
       });
     }
@@ -804,12 +811,14 @@ export class MacroUtils {
    * behind it - to a combat, via a message to the GM's account to bypass permissions
    * if needed. The entry is removed automatically at the end of the round it was
    * created in.
+   * @param data
+   * @param combat
    */
   static addPseudoCombatant(data, combat = game.combat) {
     if (!combat) return false;
     if (game.user.isGM) return MacroUtils.createPseudoCombatant(combat.id, data);
-    game.socket.emit('system.archmage', {
-      type: 'pseudoCombatant',
+    game.socket.emit("system.archmage", {
+      type: "pseudoCombatant",
       combatId: combat.id,
       data: data
     });
@@ -818,6 +827,8 @@ export class MacroUtils {
 
   /**
    * GM-side half of addPseudoCombatant(), actually creating the combatant.
+   * @param combatId
+   * @param data
    */
   static async createPseudoCombatant(combatId, data) {
     const combat = game.combats.get(combatId);
@@ -828,37 +839,41 @@ export class MacroUtils {
       hidden: false
     }, data);
     // Expire at the end of the round it was created in.
-    foundry.utils.setProperty(combatantData, 'flags.archmage.expireAfterRound', combat.round);
+    foundry.utils.setProperty(combatantData, "flags.archmage.expireAfterRound", combat.round);
     return combat.createEmbeddedDocuments("Combatant", [combatantData]);
   }
 
   /**
    * Check whether a token is currently displaying a macro-provided appearance,
    * ie. whether transformToken() was used on it and restoreToken() wasn't.
+   * @param token
    */
   static isTokenTransformed(token) {
     const doc = token?.document ?? token;
-    return Boolean(doc?.getFlag('archmage', 'originalAppearance'));
+    return Boolean(doc?.getFlag("archmage", "originalAppearance"));
   }
 
   /**
    * Swap a token's artwork and scale, remembering what was there before so that
    * restoreToken() can put it back.
+   * @param token
+   * @param src
+   * @param scale
    */
   static async transformToken(token, src, scale=1) {
     const doc = token?.document ?? token;
     if (!doc) return false;
     // Don't overwrite a previously stored appearance with an already transformed one.
-    const original = doc.getFlag('archmage', 'originalAppearance') ?? {
+    const original = doc.getFlag("archmage", "originalAppearance") ?? {
       src: doc.texture.src,
       scaleX: doc.texture.scaleX,
       scaleY: doc.texture.scaleY
     };
     await doc.update({
-      'texture.src': src,
-      'texture.scaleX': scale,
-      'texture.scaleY': scale,
-      'flags.archmage.originalAppearance': original
+      "texture.src": src,
+      "texture.scaleX": scale,
+      "texture.scaleY": scale,
+      "flags.archmage.originalAppearance": original
     });
     return true;
   }
@@ -867,11 +882,12 @@ export class MacroUtils {
    * Put back the appearance stored by transformToken(). Falls back to the
    * actor's prototype token for tokens transformed by other means, which is
    * only meaningful for linked tokens.
+   * @param token
    */
   static async restoreToken(token) {
     const doc = token?.document ?? token;
     if (!doc) return false;
-    let original = doc.getFlag('archmage', 'originalAppearance');
+    let original = doc.getFlag("archmage", "originalAppearance");
     if (!original) {
       const prototype = doc.actorLink ? doc.actor?.prototypeToken : null;
       if (!prototype) return false;
@@ -882,19 +898,20 @@ export class MacroUtils {
       };
     }
     await doc.update({
-      'texture.src': original.src,
-      'texture.scaleX': original.scaleX ?? 1,
-      'texture.scaleY': original.scaleY ?? 1,
-      'flags.archmage.-=originalAppearance': null
+      "texture.src": original.src,
+      "texture.scaleX": original.scaleX ?? 1,
+      "texture.scaleY": original.scaleY ?? 1,
+      "flags.archmage.-=originalAppearance": null
     });
     return true;
   }
 
   /**
    * Scale dice up one size
+   * @param expr
    */
   static scaleDiceUp(expr) {
-    switch(expr) {
+    switch (expr) {
       case "d4": return "d6";
       case "d6": return "d8";
       case "d8": return "d10";
@@ -914,7 +931,7 @@ export class MacroUtils {
 export class ArchmageReference extends Application {
   static get defaultOptions() {
     const options = super.defaultOptions;
-    options.title = "Archmage Inline Rolls Reference"
+    options.title = "Archmage Inline Rolls Reference";
     options.id = "archmage-help";
     options.template = "systems/archmage/templates/sidebar/apps/archmage-help.html";
     options.width = 820;

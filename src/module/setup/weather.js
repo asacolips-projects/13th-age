@@ -6,7 +6,7 @@
  */
 export class CinderWeatherEffect extends SpecialEffect {
   static get label() {
-    return 'Cinder';
+    return "Cinder";
   }
 
   /* -------------------------------------------- */
@@ -30,6 +30,6 @@ export class CinderWeatherEffect extends SpecialEffect {
       maxParticles: p,
       frequency: 1 / p
     }, { inplace: false });
-    return new PIXI.particles.Emitter(parent, ['ui/particles/snow.png'], config);
+    return new PIXI.particles.Emitter(parent, ["ui/particles/snow.png"], config);
   }
 }

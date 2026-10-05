@@ -22,34 +22,37 @@ export default class HitEvaluation {
         const baseCritrange = game.settings.get("archmage", "optionalBaseCritRange") ? 18 : 20;
         let critRangeMin = baseCritrange - attacker?.system?.attributes.critMod.atk.value - critMod;
 
-        let $rolls = $row_self.find('.inline-result');
+        let $rolls = $row_self.find(".inline-result");
         if ($rolls.length == 0) {
           // No rolls means it's an auto-hit
           targetsHit = targets;
           hasHit = true;
           hasMissed = false;
           // A rollless outcome: enough to resolve "hit"/"miss" rows, not the roll-dependent ones.
-          rollOutcomes.push({natural: undefined, total: undefined, hit: true, crit: undefined,
-            fumble: undefined, target: undefined, defense: undefined});
-        } else {
+          rollOutcomes.push({ natural: undefined, total: undefined, hit: true, crit: undefined,
+            fumble: undefined, target: undefined, defense: undefined });
+        }
+ else {
           let targetsToProcess = Math.min($rolls.length, targets.length);
           $rolls.each(function (roll_index) {
             let $roll_self = $(this);
-            let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+            let roll_data = Roll.fromJSON(unescape($roll_self.data("roll")));
             let rollTotal = roll_data.total;
 
             // Skip if not a d20 roll
             let isD20 = false;
-            roll_data.terms.forEach(p => {if (p.faces === 20) isD20 = true;});
+            roll_data.terms.forEach((p) => {
+if (p.faces === 20) isD20 = true;
+});
             if (!isD20) return;
 
             // Add natural-roll tooltips
-            const origTooltip = $roll_self.attr('data-tooltip');
-            const naturalRolls = roll_data.terms.filter(p => p.faces === 20)
-              .flatMap(term => term.results.map(die => die.active ? die.result : `<s>${die.result}</s>`))
-              .join(', ');
-            const tooltipValue = game.i18n.format('ARCHMAGE.CHAT.NaturalRoll', {naturalRolls});
-            $roll_self.attr('data-tooltip', origTooltip + '<br>' + tooltipValue)
+            const origTooltip = $roll_self.attr("data-tooltip");
+            const naturalRolls = roll_data.terms.filter((p) => p.faces === 20)
+              .flatMap((term) => term.results.map((die) => die.active ? die.result : `<s>${die.result}</s>`))
+              .join(", ");
+            const tooltipValue = game.i18n.format("ARCHMAGE.CHAT.NaturalRoll", { naturalRolls });
+            $roll_self.attr("data-tooltip", `${origTooltip}<br>${tooltipValue}`);
 
             // Add and/or replace the natural-roll span
             if ($roll_self.next().attr("class") === "natural-rolls") $roll_self.next().remove();
@@ -72,12 +75,12 @@ export default class HitEvaluation {
                     rollResult = part.total;
                     // Crit
                     if (r.result >= critRangeMinTarget && !r.discarded) {
-                      $roll_self.addClass('dc-crit');
+                      $roll_self.addClass("dc-crit");
                       hasCrit = true;
                     }
                     // Natural 1.
                     else if (r.result === 1 && !r.discarded && !r.rerolled) {
-                      $roll_self.addClass('dc-fail');
+                      $roll_self.addClass("dc-fail");
                       hasFumbled = true;
                     }
                     // Barbarian crit.
@@ -85,14 +88,14 @@ export default class HitEvaluation {
                       && !game.settings.get("archmage", "secondEdition")
                       && roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
                       && part.results[1].result > 10) {
-                      $roll_self.addClass('dc-crit');
+                      $roll_self.addClass("dc-crit");
                       hasCrit = true;
                     }
                     // Natural 2, if dual-wielding.
-                    else if (attacker && attacker?.type === 'character'
+                    else if (attacker && attacker?.type === "character"
                       && attacker.system.attributes.weapon.melee.dualwield
                       && r.result === 2 && !r.discarded && !r.rerolled) {
-                      $roll_self.addClass('dc-reroll');
+                      $roll_self.addClass("dc-reroll");
                     }
                   }
                 });
@@ -105,8 +108,8 @@ export default class HitEvaluation {
             // defense turns out to be, so it settles the hit state by itself and a trigger row can
             // rely on it with nothing targeted. Any other roll stays undefined until there is a
             // target to resolve it against, below.
-            const outcome = {natural: rollResult, total: rollTotal, hit: hasCrit ? true : undefined,
-              crit: hasCrit, fumble: hasFumbled, target: target, defense: undefined};
+            const outcome = { natural: rollResult, total: rollTotal, hit: hasCrit ? true : undefined,
+              crit: hasCrit, fumble: hasFumbled, target: target, defense: undefined };
             rollOutcomes.push(outcome);
 
             // Target analysis, only perform if we actually have targets
@@ -145,7 +148,7 @@ export default class HitEvaluation {
         }
 
         // Update row with roll classes
-        $row_self.find('.inline-result').replaceWith($rolls);
+        $row_self.find(".inline-result").replaceWith($rolls);
 
         return {
             targetsHit: targetsHit,
@@ -165,10 +168,10 @@ export default class HitEvaluation {
     // With several defenses (e.g. "vs. PD or MD") the attack resolves against the lowest one.
     static _getTargetDefenseValue(target, defenses) {
         const values = defenses
-            .map(defense => target.actor?.system.attributes[defense]?.value)
-            .filter(value => value !== undefined && value !== null && value !== '')
+            .map((defense) => target.actor?.system.attributes[defense]?.value)
+            .filter((value) => value !== undefined && value !== null && value !== "")
             .map(Number)
-            .filter(value => !Number.isNaN(value));
+            .filter((value) => !Number.isNaN(value));
         if (values.length === 0) return undefined;
         return Math.min(...values);
     }
@@ -176,26 +179,27 @@ export default class HitEvaluation {
     // Returns a list of vulnerabilities. If the "vulnerable" condition is present, it is included as "vulnerable".
     static _getTargetVulnerabilities(target) {
       // Actor vulnerabilities
-      const vulnText = (target.actor?.system?.details?.vulnerability?.value ?? '').trim()
+      const vulnText = (target.actor?.system?.details?.vulnerability?.value ?? "").trim();
       const ret = vulnText
-        .split(',')
-        .map(x => x.trim().toLowerCase())
-        .filter(x => x);
+        .split(",")
+        .map((x) => x.trim().toLowerCase())
+        .filter((x) => x);
 
       // the vulnerable condition
-      const vulnerableCondition = target.actor?.effects?.find?.(x => x.statuses?.has('vulnerable'))
+      const vulnerableCondition = target.actor?.effects?.find?.((x) => x.statuses?.has("vulnerable"));
       if (vulnerableCondition !== undefined) {
         // If it matches "vulnerable to <type>", extract the type
         const m = vulnerableCondition.name.match(/vulnerable\s+to\s+([a-zA-Z]+)/i);
         if (m) {
           ret.push(m[1].toLowerCase());
-        } else {
+        }
+ else {
           // Otherwise, just add "vulnerable"
-          ret.push('vulnerable');
+          ret.push("vulnerable");
         }
       }
 
-      return ret
+      return ret;
     }
 
     static _getTargetCritDefenseValue(target) {
@@ -208,19 +212,19 @@ export default class HitEvaluation {
     static _getTargetDefenses(row_text) {
         const text = row_text.toUpperCase();
         return ["ac", "pd", "md"]
-            .map(key => ({key, index: text.indexOf(" " + game.i18n.localize(`ARCHMAGE.${key}.key`))}))
-            .filter(x => x.index >= 0)
+            .map((key) => ({ key, index: text.indexOf(` ${game.i18n.localize(`ARCHMAGE.${key}.key`)}`) }))
+            .filter((x) => x.index >= 0)
             .sort((a, b) => a.index - b.index)
-            .map(x => x.key);
+            .map((x) => x.key);
     }
 
   static getNames(targets, targetsSpecial) {
     let res = "";
     for (let i = 0; i < targets.length; i++) {
-      if (targetsSpecial[i]) res += "<b>"
+      if (targetsSpecial[i]) res += "<b>";
       res += targets[i].name;
-      if (targetsSpecial[i]) res += "</b>"
-      if (i+1 < targets.length) res += ", "
+      if (targetsSpecial[i]) res += "</b>";
+      if (i+1 < targets.length) res += ", ";
     }
     return res;
   }

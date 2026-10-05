@@ -1,5 +1,9 @@
-import { prepareOngoingDamage } from '../active-effects/ongoing-damage.mjs';
+import { prepareOngoingDamage } from "../active-effects/ongoing-damage.mjs";
 
+/**
+ *
+ * @param updateData
+ */
 export async function combatStart(updateData) {
     // Ensure the start-of-turn hook fires for the first combatant, combatTurn doesn't fire here
     const firstCombatant = updateData.turns[0];
@@ -8,6 +12,12 @@ export async function combatStart(updateData) {
     }
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 export async function combatTurn(combat, context, options) {
     const endCombatant = combat.combatant;
     const startCombatant = combat.nextCombatant;
@@ -18,7 +28,7 @@ export async function combatTurn(combat, context, options) {
     await executeLifecycleMacro(startCombatant, "startOfTurn");
 
     // Exit early if the feature is disabled.
-    if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
+    if (!game.settings.get("archmage", "enableOngoingEffectsMessages")) return;
 
     // If the direction is negative, ignore the turn
     if (options.direction < 0) return;
@@ -31,6 +41,14 @@ export async function combatTurn(combat, context, options) {
     await handleRoundEffects(combat, context, options);
 }
 
+/**
+ *
+ * @param prefix
+ * @param combat
+ * @param combatant
+ * @param context
+ * @param options
+ */
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
     // Pseudo combatants may not have an actor.
     if (!combatant?.actor) return;
@@ -42,7 +60,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         savesEnds: [],
         selfTriggered: [],
         otherEnded: [],
-        unknown: [],
+        unknown: []
     };
     let effectsToDelete = [];
     let isDead = false;
@@ -60,11 +78,14 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
                 currentCombatantEffectData.selfEnded.push(effect);
                 effectsToDelete.push(effect.id);
             }
-        } else if (saveEndsEffects.includes(duration) && (prefix == "End" || (prefix == "Start" && hasImplacable))) {
+        }
+ else if (saveEndsEffects.includes(duration) && (prefix == "End" || (prefix == "Start" && hasImplacable))) {
             currentCombatantEffectData.savesEnds.push(effect);
-        } else if (duration === `${prefix}OfEachTurn`) {
+        }
+ else if (duration === `${prefix}OfEachTurn`) {
             currentCombatantEffectData.selfTriggered.push(effect);
-        } else if (duration === "Unknown") {
+        }
+ else if (duration === "Unknown") {
             currentCombatantEffectData.unknown.push(effect);
         }
     }
@@ -97,6 +118,12 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     }
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 export async function handleRoundEffects(combat, context, options) {
     // If we have not just started a new round, skip
     if (context.turn != 0) return;
@@ -106,7 +133,7 @@ export async function handleRoundEffects(combat, context, options) {
         savesEnds: [],
         selfTriggered: [],
         otherEnded: [],
-        unknown: [],
+        unknown: []
     };
     let effectsToDelete = [];
     for (const combatant of combat.combatants) {
@@ -114,7 +141,7 @@ export async function handleRoundEffects(combat, context, options) {
         effectsToDelete = [];
         for (const effect of combatant.actor.effects) {
             const duration = effect.flags.archmage?.duration || "Unknown";
-            if (duration === 'EndOfRound' && effect.flags.archmage?.endRound < context.round) {
+            if (duration === "EndOfRound" && effect.flags.archmage?.endRound < context.round) {
                 effect.otherName = combatant.actor.name;
                 currentCombatantEffectData.otherEnded.push(effect);
                 effectsToDelete.push(effect.id);
@@ -126,6 +153,12 @@ export async function handleRoundEffects(combat, context, options) {
     await renderOngoingEffectsCard(`End of Round ${context.round - 1} Effects`, null, currentCombatantEffectData);
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 export async function combatRound(combat, context, options) {
     await expirePseudoCombatants(combat, context);
     await combatTurn(combat, context, options);
@@ -134,23 +167,30 @@ export async function combatRound(combat, context, options) {
 /**
  * Remove pseudo-combatants whose round has elapsed.
  * Only the active GM performs the deletion, both for permissions and to avoid duplicate updates.
+ * @param combat
+ * @param context
  */
 export async function expirePseudoCombatants(combat, context) {
     if (game.users.activeGM?.id !== game.user.id) return;
     const expired = combat.combatants
-        .filter(c => typeof c.flags.archmage?.expireAfterRound === 'number'
+        .filter((c) => typeof c.flags.archmage?.expireAfterRound === "number"
                   && c.flags.archmage.expireAfterRound < context.round)
-        .map(c => c.id);
+        .map((c) => c.id);
     if (expired.length) await combat.deleteEmbeddedDocuments("Combatant", expired);
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 export async function preDeleteCombat(combat, context, options) {
     await cleanupStoke(combat, context, options);
-    $('.archmage-escalation-display').addClass('hide');
-
+    $(".archmage-escalation-display").addClass("hide");
 
     // Exit early if the feature is disabled.
-    if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
+    if (!game.settings.get("archmage", "enableOngoingEffectsMessages")) return;
 
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
 
@@ -168,7 +208,7 @@ export async function preDeleteCombat(combat, context, options) {
                 savesEnds: [],
                 selfTriggered: [],
                 otherEnded: [],
-                unknown: [],
+                unknown: []
             };
 
             for (const effect of combatant.actor.effects) {
@@ -195,7 +235,8 @@ export async function preDeleteCombat(combat, context, options) {
             // Render card
             await renderOngoingEffectsCard("End of Battle Effects", combatant, currentCombatantEffectData);
 
-        } else {
+        }
+ else {
             // Probably random monster, just delete silently
             for (const effect of combatant.actor.effects) {
                 // If duration is "Infinite", skip
@@ -210,28 +251,40 @@ export async function preDeleteCombat(combat, context, options) {
     }
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 async function handleStoke(combat, context, options) {
     const endCombatant = combat.combatant;
-    const {enabled, current, breathUsed} = endCombatant?.actor?.system?.resources?.spendable?.stoke ?? {};
-    if (endCombatant?.actor?.type === 'npc' && enabled) {
+    const { enabled, current, breathUsed } = endCombatant?.actor?.system?.resources?.spendable?.stoke ?? {};
+    if (endCombatant?.actor?.type === "npc" && enabled) {
         const stokeDelta = breathUsed ? -1 : 1;
         const newCurrent = Math.max(0, (current ?? 0) + stokeDelta);
         await endCombatant.actor.update({
-            'system.resources.spendable.stoke.current': newCurrent,
-            'system.resources.spendable.stoke.breathUsed': false
+            "system.resources.spendable.stoke.current": newCurrent,
+            "system.resources.spendable.stoke.breathUsed": false
         });
         // Show scrolling text for the update.
-        endCombatant.actor._showScrollingText(stokeDelta, game.i18n.localize('ARCHMAGE.CHARACTER.RESOURCES.stoke'), {}, '#1776D5');
+        endCombatant.actor._showScrollingText(stokeDelta, game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.stoke"), {}, "#1776D5");
     }
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 async function cleanupStoke(combat, context, options) {
     for (const c of combat.combatants) {
         // If the combatant has a stoke resource, reset it
         if (c?.actor?.system?.resources?.spendable?.stoke?.enabled) {
             await c.actor.update({
-                'system.resources.spendable.stoke.current': 0,
-                'system.resources.spendable.stoke.breathUsed': false
+                "system.resources.spendable.stoke.current": 0,
+                "system.resources.spendable.stoke.breathUsed": false
             });
         }
     }
@@ -255,13 +308,19 @@ function startedBefore(effect, combat) {
 
 /* -------------------------------------------- */
 
+/**
+ *
+ * @param saveEnds
+ */
 function saveEndsNameToTarget(saveEnds) {
     let target = 11;
     if (saveEnds === "EasySaveEnds") {
         target = 6;
-    } else if (saveEnds === "NormalSaveEnds") {
+    }
+ else if (saveEnds === "NormalSaveEnds") {
         target = 11;
-    } else if (saveEnds === "HardSaveEnds") {
+    }
+ else if (saveEnds === "HardSaveEnds") {
         target = 16;
     }
     return target;
@@ -269,6 +328,12 @@ function saveEndsNameToTarget(saveEnds) {
 
 /* -------------------------------------------- */
 
+/**
+ *
+ * @param title
+ * @param combatant
+ * @param effectData
+ */
 async function renderOngoingEffectsCard(title, combatant, effectData) {
     // If no effects, return
     if (effectData.selfEnded.length === 0
@@ -290,28 +355,33 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         otherEnded: effectData.otherEnded,
         hasOtherEnded: effectData.otherEnded.length > 0,
         unknown: effectData.unknown,
-        hasUnknown: effectData.unknown.length > 0,
+        hasUnknown: effectData.unknown.length > 0
     };
     const html = await foundry.applications.handlebars.renderTemplate(template, renderData);
 
     // Create a chat card
     const chatData = {
         user: game.user.id,
-        speaker: ChatMessage.getSpeaker({actor: combatant?.actor}),
+        speaker: ChatMessage.getSpeaker({ actor: combatant?.actor }),
         content: html,
-        flags: {core: {canPopout: true}}
+        flags: { core: { canPopout: true } }
     };
     ChatMessage.create(chatData, {});
 }
 
+/**
+ *
+ * @param combatant
+ * @param hookName
+ */
 async function executeLifecycleMacro(combatant, hookName) {
     // Pseudo combatants may not have an actor.
     if (!combatant?.actor) return;
 
     // If this isn't the actor's player, emit a socket request for that player to execute the hook
     if (game.user?.character?.id !== combatant.actor?.id) {
-        return game.socket.emit('system.archmage', {
-            type: 'actorLifecycleHook',
+        return game.socket.emit("system.archmage", {
+            type: "actorLifecycleHook",
             actorId: combatant.actor.id,
             hookName
         });
@@ -334,12 +404,17 @@ async function executeLifecycleMacro(combatant, hookName) {
     try {
         const fn = new AsyncFunction("speaker", "actor", "archmage", hookBody);
         await fn.call(this, speaker, actor, macroData);
-    } catch (ex) {
-        ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errMacroSyntax'));
+    }
+ catch(ex) {
+        ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errMacroSyntax"));
         console.error(`Lifecycle hook '${combatant.actor.name}' / ${hookName} failed with: ${ex}`, ex);
     }
 }
 
+/**
+ *
+ * @param combatant
+ */
 async function _add2eFighterMomentum(combatant) {
     // Pseudo combatants may not have an actor.
     if (!combatant?.actor) return;
@@ -348,9 +423,9 @@ async function _add2eFighterMomentum(combatant) {
     if (!(game.settings.get("archmage", "secondEdition") && combatant.actor?.system?.details?.detectedClasses?.includes("fighter"))) return;
 
     // Update actor's resource
-    let updateData = {}
+    let updateData = {};
     if (combatant.actor?.system.resources?.perCombat?.momentum?.enabled) {
-      updateData['system.resources.perCombat.momentum.current'] = true;
+      updateData["system.resources.perCombat.momentum.current"] = true;
     }
     await combatant.actor.update(updateData);
 }

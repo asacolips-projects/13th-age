@@ -2,7 +2,6 @@ import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from "../rolls/Targeting.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
-
 export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(uuid, $rows) {
@@ -10,12 +9,12 @@ export default class preCreateChatMessageHandler {
             CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach(([condition, regexp], name, map) => {
                 const conditionInstances = Array.from(row.innerHTML.matchAll(regexp));
                 // Order by largest index first, to avoid stepping over our own toes during replacements
-                for (const match of conditionInstances.sort((a,b) => b.index - a.index)) {
+                for (const match of conditionInstances.sort((a, b) => b.index - a.index)) {
                     const duration = ((val) => {
                         if (!val) return "Unknown";
                         // Lowercased on both sides: some of these are title cased UI labels.
                         const localize = (key) => game.i18n.localize(key).toLowerCase();
-                        switch(val.toLowerCase()){
+                        switch (val.toLowerCase()) {
                             case localize("ARCHMAGE.DURATION.SaveEnds"):
                             case localize("ARCHMAGE.DURATION.NormalSaveEnds"):
                                 return "NormalSaveEnds";
@@ -36,27 +35,26 @@ export default class preCreateChatMessageHandler {
                             default:
                                 return "Unknown";
                         }
-                    })(match[2])
+                    })(match[2]);
                     const source = uuid;
                     const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
                                          data-source="${source}" data-ends="${duration}">
                                          <img class="effects-icon" src="${condition.img}" />
-                                         ${match[0].replace(/\*/g,'')}</a>`;
+                                         ${match[0].replace(/\*/g, "")}</a>`;
                     row.innerHTML = row.innerHTML.substring(0, match.index) + conditionLink + row.innerHTML.substring(match.index + match[0].length);
                 }
             }
-            )
+            );
         }
     }
-
 
     static replaceActiveEffectLinkReferences(uuid, $content) {
         const elements = $content[0].querySelectorAll('.content-link[data-type="ActiveEffect"]');
         elements.forEach((element) => {
             const effect = fromUuidSync(element.dataset.uuid);
-            element.classList.add('effect-link');
+            element.classList.add("effect-link");
             element.dataset.source = effect.parent.uuid;
-            const hasImg = element.querySelector('img');
+            const hasImg = element.querySelector("img");
             if (!hasImg) {
                 element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.innerText}`;
             }
@@ -81,15 +79,15 @@ export default class preCreateChatMessageHandler {
                 ongoingEffects.forEach((ongoingEffect) => {
                     let damageValue = Number(ongoingEffect[2]);
                     let damageType = ongoingEffect[4];
-                    if ( damageType ) damageType += " ";
+                    if (damageType) damageType += " ";
                     // Undefined without a save ends clause, empty for a plain "(save ends)".
                     let saveEndsValue = ongoingEffect[5]?.toLowerCase();
                     let saveEndsConfigValue = "NormalSaveEnds";
-                    if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
-                    else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
+                    if (saveEndsValue === "easy") saveEndsConfigValue = "EasySaveEnds";
+                    else if (saveEndsValue === "hard") saveEndsConfigValue = "HardSaveEnds";
                     let source = uuid;
                     let message = `${damageValue} ongoing ${damageType}damage`;
-                    if ( saveEndsValue !== undefined ) {
+                    if (saveEndsValue !== undefined) {
                         message += ` (${game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[saveEndsConfigValue])})`;
                     }
                     let name = options.item.name;
@@ -107,15 +105,15 @@ export default class preCreateChatMessageHandler {
     }
 
     static maybeMentionVulnerability($content, hitEvaluationResults, actor) {
-        if (!game.settings.get("archmage", "showVulnsInChat")) return
-        if (hitEvaluationResults?.vulnerabilities === undefined) return
-        if (hitEvaluationResults?.vulnerabilities?.length <= 0) return
+        if (!game.settings.get("archmage", "showVulnsInChat")) return;
+        if (hitEvaluationResults?.vulnerabilities === undefined) return;
+        if (hitEvaluationResults?.vulnerabilities?.length <= 0) return;
 
         let effectStr = game.i18n.localize("ARCHMAGE.CHAT.vulnerableText1e");
         if (CONFIG.ARCHMAGE.is2e) {
             // Damage: 1x level for mooks or weaklings, 2x level for others
-            let damageAmount = 2*actor.system.attributes.level.value
-            let tooltip = '2*@lvl';
+            let damageAmount = 2*actor.system.attributes.level.value;
+            let tooltip = "2*@lvl";
             const attackerIsMook = actor.system?.details?.role?.value === "mook";
             const attackerIsWeakling = actor.system?.details?.strength?.value === "weakling";
             if (attackerIsMook || attackerIsWeakling) {
@@ -127,20 +125,21 @@ export default class preCreateChatMessageHandler {
                 <a class="inline-result inline-roll--archmage" data-tooltip-text="${tooltip}">
                     <i class="fa-solid fa-dice-d20" inert=""></i>
                     ${damageAmount}
-                </a>`
-            effectStr = game.i18n.format("ARCHMAGE.CHAT.vulnerableText2e", {damage})
+                </a>`;
+            effectStr = game.i18n.format("ARCHMAGE.CHAT.vulnerableText2e", { damage });
         }
 
-        const vulns = hitEvaluationResults.vulnerabilities.map(v => {
-            if (v === "vulnerable") return `<abbr data-tooltip="${game.i18n.localize("ARCHMAGE.CHAT.vulnerableTooltip")}">???</abbr>`
-            return v
+        const vulns = hitEvaluationResults.vulnerabilities.map((v) => {
+            if (v === "vulnerable") return `<abbr data-tooltip="${game.i18n.localize("ARCHMAGE.CHAT.vulnerableTooltip")}">???</abbr>`;
+            return v;
         }).join(", ");
         const vulnRow = `
             <div class="card-prop">
-                <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", {vulns})}:</strong>
+                <strong>${game.i18n.format("ARCHMAGE.CHAT.vulnerable", { vulns })}:</strong>
                 ${effectStr}
-            </div>`.replace(' ()', '');
-        $content.find('.card-prop').last().after(vulnRow);
+            </div>`.replace(" ()", "");
+        $content.find(".card-prop").last()
+.after(vulnRow);
     }
 
     static handle(data, options, userId) {
@@ -150,14 +149,14 @@ export default class preCreateChatMessageHandler {
         let targets = [...game.user.targets.values()]; // needed to checkRowText of npcs
         let numTargets = options.targets ? options.targets : 1;
         let critMod = options.critMod ? options.critMod : 0;
-        let type = options.type ? options.type : 'power';
+        let type = options.type ? options.type : "power";
         let actorDocument = data.speaker?.actor ? game.actors.get(data.speaker.actor) : null;
         let tokenDocument = data.speaker?.token ? canvas.tokens.get(data.speaker.token) : null;
 
         let uuid = tokenDocument?.actor?.uuid ?? actorDocument?.uuid;
 
         // TODO: We have the data of what kind of damage (arcane, divine, etc) and range (melee, ranged), but it's hard to get here
-        let damageType = 'basic';
+        let damageType = "basic";
         let range = "melee";
 
         // Lines containing any of the following need to be skipped:
@@ -166,16 +165,16 @@ export default class preCreateChatMessageHandler {
         // "Opening and Sustained Effect:", "Final Verse:"
         // "Chain Spell", "Breath Weapon:"
         let rowsToSkip = [
-            game.i18n.localize("ARCHMAGE.level") + ':',
-            game.i18n.localize("ARCHMAGE.recharge") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.resources") + ':',
-            game.i18n.localize("ARCHMAGE.ITEM.usesRemaining") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.special") + ':',
+            `${game.i18n.localize("ARCHMAGE.level")}:`,
+            `${game.i18n.localize("ARCHMAGE.recharge")}:`,
+            `${game.i18n.localize("ARCHMAGE.CHAT.resources")}:`,
+            `${game.i18n.localize("ARCHMAGE.ITEM.usesRemaining")}:`,
+            `${game.i18n.localize("ARCHMAGE.CHAT.special")}:`,
             // game.i18n.localize("ARCHMAGE.CHAT.effect"),  // Handled separately to avoid overlap with Opening/Sustained Effect
-            game.i18n.localize("ARCHMAGE.CHAT.castBroadEffect") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.castPower") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.spellChain") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.breathWeapon") + ':'
+            `${game.i18n.localize("ARCHMAGE.CHAT.castBroadEffect")}:`,
+            `${game.i18n.localize("ARCHMAGE.CHAT.castPower")}:`,
+            `${game.i18n.localize("ARCHMAGE.CHAT.spellChain")}:`,
+            `${game.i18n.localize("ARCHMAGE.CHAT.breathWeapon")}:`
         ];
 
         let tokens = canvas?.tokens?.controlled;
@@ -186,17 +185,17 @@ export default class preCreateChatMessageHandler {
         if (options.token) token = options.token;
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
-        let $rows = $content.find('.card-prop');  // Updated later
+        let $rows = $content.find(".card-prop");  // Updated later
 
         preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $rows, options);
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(uuid, $rows);
         preCreateChatMessageHandler.replaceActiveEffectLinkReferences(uuid, $content);
 
         // Handle conditions in feats as well as traits & nastier specials
-        let $otherRows = $content.find('.tag--feat .description, .card-row-description');
+        let $otherRows = $content.find(".tag--feat .description, .card-row-description");
         preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $otherRows, options);
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(uuid, $otherRows);
-        $content.find('.tag--feat .description, .card-row-description').replaceWith($otherRows);
+        $content.find(".tag--feat .description, .card-row-description").replaceWith($otherRows);
 
         let sequence = undefined;
         let sequencerFileTarget = options.sequencer?.target;
@@ -216,7 +215,7 @@ export default class preCreateChatMessageHandler {
                 let row_text = $row_self.html();
                 const row_text_clean = $row_self.text();
 
-                if (rowsToSkip.filter(x => row_text_clean.startsWith(x)).length > 0) {
+                if (rowsToSkip.filter((x) => row_text_clean.startsWith(x)).length > 0) {
                     return;
                 }
                 if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.effect"))
@@ -224,8 +223,8 @@ export default class preCreateChatMessageHandler {
                     return;
                 }
 
-                if ((type == "power" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.target") + ':')) ||
-                    (type == "action" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':'))) {
+                if ((type == "power" && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.target")}:`))
+                    || (type == "action" && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`))) {
 
                     // targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
                     // In case of manual rolls we may have more rolls than targets - replicate targets until we have enough.
@@ -236,32 +235,32 @@ export default class preCreateChatMessageHandler {
                     targets = min_targets.slice(0, numTargets);
 
                     if (targets.length > 0) {
-                        var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
+                        var text = document.createTextNode(` (${targets.map((x) => x.name).join(", ")})`);
                         $row_self[0].appendChild(text);
                     }
                 }
 
-                if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
+                if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`)) {
                     hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, critMod);
                 }
 
                 if (hitEvaluationResults) {
                     // Append hit targets to text
-                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.hit") + ':') && hitEvaluationResults.targetsHit.length > 0) {
-                        $row_self.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
+                    if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.hit")}:`) && hitEvaluationResults.targetsHit.length > 0) {
+                        $row_self.find("strong").after(`<span class='dc-target'> (${HitEvaluation.getNames(
                             hitEvaluationResults.targetsHit,
-                            hitEvaluationResults.targetsCrit) + ") </span>")
+                            hitEvaluationResults.targetsCrit)}) </span>`);
                     }
                     // Append missed targets to text
-                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.miss") + ':') && hitEvaluationResults.targetsMissed.length > 0) {
-                        $row_self.find('strong').after("<span class='dc-target'> (" + HitEvaluation.getNames(
+                    if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.miss")}:`) && hitEvaluationResults.targetsMissed.length > 0) {
+                        $row_self.find("strong").after(`<span class='dc-target'> (${HitEvaluation.getNames(
                             hitEvaluationResults.targetsMissed,
-                            hitEvaluationResults.targetsFumbled) + ") </span>")
+                            hitEvaluationResults.targetsFumbled)}) </span>`);
                     }
                     // Append target defenses to text
-                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':') && hitEvaluationResults.defenses.length > 0
+                    if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`) && hitEvaluationResults.defenses.length > 0
                         && game.settings.get("archmage", "showDefensesInChat")) {
-                        $row_self.append("<span class='dc-target'> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
+                        $row_self.append(`<span class='dc-target'> (${hitEvaluationResults.defenses.join(", ")}) </span>`);
                     }
                 }
 
@@ -272,12 +271,14 @@ export default class preCreateChatMessageHandler {
 
                     if (active == undefined) {
                         $row_self.addClass("trigger-unknown");
-                    } else if (active) {
+                    }
+ else if (active) {
                         $row_self.addClass("trigger-active");
                         if (row_label.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase())) {
                             $row_self.addClass("trigger-miss");
                         }
-                    } else {
+                    }
+ else {
                         $row_self.addClass("trigger-inactive");
                     }
                 }
@@ -285,7 +286,7 @@ export default class preCreateChatMessageHandler {
                 // Highlight lines for higher level effects
                 for (let x of [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
                     // We'll only find rows up to the power's or actor's level
-                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
+                    if (row_text_clean.startsWith(`${game.i18n.localize(`ARCHMAGE.CHAT.spellLevel${x}`)}:`)) {
                         highestPowerLevelToHighlight = $row_self;
                     }
                     // if (x == options.powerLevel &&
@@ -297,9 +298,9 @@ export default class preCreateChatMessageHandler {
 
                 // Highlight sustain / final verse for songs
                 if ((["sustainedEffect", "openingEffect"].includes(options.usageMode)
-                    && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect") + ':'))
+                    && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect")}:`))
                     || (options.usageMode == "finalverse"
-                    && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.finalVerse") + ':'))) {
+                    && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.finalVerse")}:`))) {
                     $row_self.addClass("trigger-active");
                 }
             });
@@ -311,6 +312,15 @@ export default class preCreateChatMessageHandler {
                 sequence = new Sequence();
 
                 // Display Sequencer Effects
+                /**
+                 *
+                 * @param sequence
+                 * @param source
+                 * @param towards
+                 * @param stretch
+                 * @param missed
+                 * @param file
+                 */
                 function addAttack(sequence, source, towards, stretch, missed, file) {
                     if (stretch) {
                         if (!source) return sequence;
@@ -320,59 +330,66 @@ export default class preCreateChatMessageHandler {
                             .stretchTo(towards)
                             .file(file)
                             .missed(missed)
-                            .wait(300)
-                    } else {
+                            .wait(300);
+                    }
+
                         return sequence
                             .effect()
                             .atLocation(towards)
                             .file(file)
                             .missed(missed)
-                            .wait(300)
-                    }
+                            .wait(300);
+
                 }
 
                 // Self
                 if (sequencerFileSelf && !sequencerReversed) {
-                    sequence.effect().atLocation(token).file(sequencerFileSelf).wait(300);
+                    sequence.effect().atLocation(token)
+.file(sequencerFileSelf)
+.wait(300);
                 }
                 // Ray
                 if (sequencerFileRay && !sequencerReversed) {
                     if (hitEvaluationResults) {
-                        hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
-                        hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, true, true, sequencerFileRay));
-                    } else {
+                        hitEvaluationResults.targetsHit.forEach((t) => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
+                        hitEvaluationResults.targetsMissed.forEach((t) => sequence = addAttack(sequence, token, t, true, true, sequencerFileRay));
+                    }
+ else {
                         // Not an attack
-                        targets.forEach(t => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
+                        targets.forEach((t) => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
                     }
                 }
                 // Target
                 if (sequencerFileTarget) {
                     if (hitEvaluationResults) {
-                        hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
-                        hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, false, true, sequencerFileTarget));
-                    } else {
+                        hitEvaluationResults.targetsHit.forEach((t) => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
+                        hitEvaluationResults.targetsMissed.forEach((t) => sequence = addAttack(sequence, token, t, false, true, sequencerFileTarget));
+                    }
+ else {
                         // Not an attack
-                        targets.forEach(t => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
+                        targets.forEach((t) => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
                     }
                 }
                 // Ray - reversed
                 if (sequencerFileRay && sequencerReversed) {
                     if (hitEvaluationResults) {
-                        hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
-                        hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay));
-                    } else {
+                        hitEvaluationResults.targetsHit.forEach((t) => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
+                        hitEvaluationResults.targetsMissed.forEach((t) => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay));
+                    }
+ else {
                         // Not an attack
-                        targets.forEach(t => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
+                        targets.forEach((t) => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
                     }
                 }
                 // Self - reversed
                 if (sequencerFileSelf && sequencerReversed) {
-                    sequence.effect().atLocation(token).file(sequencerFileSelf);
+                    sequence.effect().atLocation(token)
+.file(sequencerFileSelf);
                 }
             }
 
             // Update the content
-            $content.find('.card-prop').replaceWith($rows);
+            $content.find(".card-prop").replaceWith($rows);
 
             // Add a row for vulnerabilities if any (2e only)
             preCreateChatMessageHandler.maybeMentionVulnerability($content, hitEvaluationResults, actor);

@@ -27,6 +27,6 @@ export default class NaturalExactTrigger extends ITrigger {
         const or = ITrigger.disjunctions();
         const separator = `(?:\\s*,\\s*(?:(?:${or})\\s+)?|\\s+(?:${or})\\s+)`;
         const match = label.match(ITrigger.naturalRegex(`\\s*(\\d+(?:${separator}\\d+)*)(?!\\d)(?!\\s*[+\\-\u2013])`));
-        return match ? match[1].match(/\d+/g).map(score => parseInt(score)) : undefined;
+        return match ? match[1].match(/\d+/g).map((score) => parseInt(score)) : undefined;
     }
 }

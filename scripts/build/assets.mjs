@@ -1,12 +1,15 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import sharp from 'sharp';
-import { SYSTEM_IMAGES, SYSTEM_SVG } from './constants.mjs';
-import { ensureDir, globFiles, log, resolveFromRoot } from './utils.mjs';
+import fs from "node:fs";
+import path from "node:path";
+import sharp from "sharp";
+import { SYSTEM_IMAGES, SYSTEM_SVG } from "./constants.mjs";
+import { ensureDir, globFiles, log, resolveFromRoot } from "./utils.mjs";
 
-const ASSETS_SRC = resolveFromRoot('src/assets/src');
-const ASSETS_DEST = resolveFromRoot('dist/assets');
+const ASSETS_SRC = resolveFromRoot("src/assets/src");
+const ASSETS_DEST = resolveFromRoot("dist/assets");
 
+/**
+ *
+ */
 export async function compileImages() {
   const files = await globFiles(SYSTEM_IMAGES);
 
@@ -14,16 +17,20 @@ export async function compileImages() {
     const relativePath = path.relative(ASSETS_SRC, file);
     const outFile = path.join(
       ASSETS_DEST,
-      relativePath.replace(/\.(png|jpe?g)$/i, '.webp'),
+      relativePath.replace(/\.(png|jpe?g)$/i, ".webp")
     );
     ensureDir(path.dirname(outFile));
 
-    await sharp(file).webp().toFile(outFile);
+    await sharp(file).webp()
+.toFile(outFile);
   }
 
-  log('images', `converted ${files.length} files`);
+  log("images", `converted ${files.length} files`);
 }
 
+/**
+ *
+ */
 export async function compileSvg() {
   const files = await globFiles(SYSTEM_SVG);
 
@@ -34,9 +41,12 @@ export async function compileSvg() {
     fs.copyFileSync(file, outFile);
   }
 
-  log('svg', `copied ${files.length} files`);
+  log("svg", `copied ${files.length} files`);
 }
 
+/**
+ *
+ */
 export async function compileAssets() {
   await Promise.all([compileImages(), compileSvg()]);
 }

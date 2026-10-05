@@ -1,23 +1,23 @@
-import VueRenderingMixin from '../item/_vue-application-mixin.mjs'
-import { ArchmageActiveEffectSheetVue } from '../../vue/components.vue.es.js'
+import VueRenderingMixin from "../item/_vue-application-mixin.mjs";
+import { ArchmageActiveEffectSheetVue } from "../../vue/components.vue.es.js";
 
 export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
   foundry.applications.sheets.ActiveEffectConfig
 ) {
   vueParts = {
-    'archmage-active-effect-sheet-vue': {
+    "archmage-active-effect-sheet-vue": {
       component: ArchmageActiveEffectSheetVue,
       template: `<archmage-active-effect-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-active-effect-sheet-vue>`
     }
-  }
+  };
 
   /** @override */
   static DEFAULT_OPTIONS = {
     classes: [
-      'archmage-appv2',
-      'active-effect-config',
-      'dialog-form',
-      'standard-form'
+      "archmage-appv2",
+      "active-effect-config",
+      "dialog-form",
+      "standard-form"
     ],
     actions: {},
     position: {
@@ -27,28 +27,28 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
     window: {
       resizable: true
     },
-    tag: 'form',
+    tag: "form",
     form: {
       submitOnChange: true,
       submitOnClose: true,
       closeOnSubmit: false
     }
-  }
+  };
 
   static TABS = {
     sheet: {
       tabs: [
-        { id: 'general', icon: 'fa-solid fa-book' },
-        { id: 'effects', icon: 'fa-solid fa-gears' }
+        { id: "general", icon: "fa-solid fa-book" },
+        { id: "effects", icon: "fa-solid fa-gears" }
       ],
-      initial: 'general',
-      labelPrefix: 'EFFECT.TABS'
+      initial: "general",
+      labelPrefix: "EFFECT.TABS"
     }
-  }
+  };
 
   /* -------------------------------------------- */
 
-  async _prepareContext (options) {
+  async _prepareContext(options) {
     const context = {
       // Validates both permissions and compendium status
       editable: this.isEditable,
@@ -63,26 +63,26 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
       // Adding a pointer to CONFIG.ARCHMAGE
       config: CONFIG.ARCHMAGE,
       // Sequencer (module) support.
-      sequencerEnabled: game.modules.get('sequencer')?.active,
+      sequencerEnabled: game.modules.get("sequencer")?.active,
       // Add tabs:
       tabs: {
         primary: {
           general: {
-            key: 'general',
-            label: game.i18n.localize('ARCHMAGE.SETTINGS.groups.general'),
+            key: "general",
+            label: game.i18n.localize("ARCHMAGE.SETTINGS.groups.general"),
             active: true
           },
           attack: {
-            key: 'attack',
-            label: game.i18n.localize('ARCHMAGE.attack')
+            key: "attack",
+            label: game.i18n.localize("ARCHMAGE.attack")
           },
           defense: {
-            key: 'defense',
-            label: game.i18n.localize('ARCHMAGE.defense')
+            key: "defense",
+            label: game.i18n.localize("ARCHMAGE.defense")
           },
           ongoing: {
-            key: 'ongoing',
-            label: game.i18n.localize('ARCHMAGE.ongoing')
+            key: "ongoing",
+            label: game.i18n.localize("ARCHMAGE.ongoing")
           }
         }
       },
@@ -91,8 +91,8 @@ export class ArchmageActiveEffectSheetV2 extends VueRenderingMixin(
       // @todo add this after switching to DataModel
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
-    }
+    };
 
-    return context
+    return context;
   }
 }

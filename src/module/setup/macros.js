@@ -2,14 +2,19 @@ import FlexibleAttacks from "../rolls/FlexibleAttacks.mjs";
 
 export class ArchmageMacros {
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Races.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Halo.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async aasimarHalo(speaker, actor, token, character, archmage) {
     const name = archmage.item.name;
@@ -20,14 +25,17 @@ export class ArchmageMacros {
     ];
 
     // Check for previous effects
-    const aes = actor.effects.filter(e => e.name == name);
+    const aes = actor.effects.filter((e) => e.name == name);
     if (aes.length > 0) {
       archmage.suppressMessage = true;
       let effectsToDelete = [];
-      aes.forEach(e => {effectsToDelete.push(e.id)});
-      await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
+      aes.forEach((e) => {
+effectsToDelete.push(e.id);
+});
+      await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
       // ui.notifications.info("Halo removed");
-    } else {
+    }
+ else {
       const effectData = {
         name: name,
         changes: effects,
@@ -39,14 +47,19 @@ export class ArchmageMacros {
     }
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Barbarian Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Whirlwind.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async barbarianWhirlwind(speaker, actor, token, character, archmage) {
     if (!actor) return;
@@ -54,8 +67,8 @@ export class ArchmageMacros {
     let penalty = -4;
 
     // Reduce the penalty if we have the (1e) champion feat
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value
-      && !game.settings.get('archmage', 'secondEdition')) {
+    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value
+      && !game.settings.get("archmage", "secondEdition")) {
       penalty = -2;
     }
 
@@ -66,19 +79,24 @@ export class ArchmageMacros {
         { key: "system.attributes.ac.value", value: penalty, type: "add" },
         { key: "system.attributes.pd.value", value: penalty, type: "add" }
       ]
-    }
+    };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Bard Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Song of Heroes.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async bardSongOfHeroes(speaker, actor, token, character, archmage) {
     if (!actor) return;
@@ -96,7 +114,7 @@ export class ArchmageMacros {
         key: "system.attributes.attackMod.value",
         value: 1,
         type: "add"
-      },]
+      }]
     };
 
     // Add extra effects for higher levels
@@ -118,7 +136,7 @@ export class ArchmageMacros {
     game.archmage.MacroUtils.setDuration(
       effectData,
       CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextSourceTurn,
-      {sourceTurnUuid: actor.uuid}
+      { sourceTurnUuid: actor.uuid }
     );
 
     // Apply effect to all targets - make the GM do it to bypass permissions
@@ -134,7 +152,7 @@ export class ArchmageMacros {
     if (targets.length == 0) targets = game.archmage.MacroUtils.getAllies();
 
     // Increase bonuse if we have the champion feat
-    let bonus = game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value ? 2 : 1;
+    let bonus = game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value ? 2 : 1;
 
     // Prepare effect data
     let effectData = {
@@ -144,27 +162,32 @@ export class ArchmageMacros {
         key: "system.attributes.attackMod.value",
         value: bonus,
         type: "add"
-      },]
+      }]
     };
 
     game.archmage.MacroUtils.setDuration(
       effectData,
       CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextSourceTurn,
-      {sourceTurnUuid: actor.uuid}
+      { sourceTurnUuid: actor.uuid }
     );
 
     // Apply effect to all targets - make the GM do it to bypass permissions
     game.archmage.MacroUtils.applyActiveEffectsToTokens(targets, [effectData]);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Cleric Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Hammer of Faith (1e).
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async clericHammerOfFaith(speaker, actor, token, character, archmage) {
     const bonus = actor.isMulticlass() ? "d10" : "d12";
@@ -173,7 +196,7 @@ export class ArchmageMacros {
       img: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
-        value: bonus ,
+        value: bonus,
         type: "override"
       }]
     };
@@ -199,35 +222,45 @@ export class ArchmageMacros {
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  //TODO: StrengthoftheGods
+  // TODO: StrengthoftheGods
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Commander Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Outmaneuver.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async commanderOutmaneuver(speaker, actor, token, character, archmage) {
-    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value;
+    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value;
     const isEven = (archmage.hitEval.$rolls[0].d20result % 2 == 0);
     const bonus = (hasFeat && isEven) ? 2 : 1;
     const cp = actor?.system.resources.perCombat.commandPoints.current;
     if (archmage.hitEval.hasHit) {
-      await actor.update({'system.resources.perCombat.commandPoints.current': cp + bonus});
+      await actor.update({ "system.resources.perCombat.commandPoints.current": cp + bonus });
     }
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Fighter Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Carve an Opening.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async fighterCarveAnOpening(speaker, actor, token, character, archmage) {
     if (!actor) return;
@@ -235,48 +268,53 @@ export class ArchmageMacros {
     const name = archmage.item.name;
 
     // Compute bonus amount
-    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value;
+    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value;
     const bonus = hasFeat ? 2 : 1;
 
     // Check for previous effects
     let prev = 0;
     let effectsToDelete = [];
-    const aes = actor.effects.filter(e => e.name == name);
-    aes.forEach(e => {
+    const aes = actor.effects.filter((e) => e.name == name);
+    aes.forEach((e) => {
       effectsToDelete.push(e.id);
       if (e.disabled) return;
-      e.changes.forEach(c => {
-        if (c.key == 'system.attributes.critMod.atk.value') prev = Math.max(prev, Number(c.value));
+      e.changes.forEach((c) => {
+        if (c.key == "system.attributes.critMod.atk.value") prev = Math.max(prev, Number(c.value));
       });
     });
-    await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
+    await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
 
     // Make new effect
     let effectData = {
       name: name,
       img: archmage.item.img,
       changes: [
-        { key: "system.attributes.critMod.atk.value", value: bonus + prev, type: "add" },
-      ]};
+        { key: "system.attributes.critMod.atk.value", value: bonus + prev, type: "add" }
+      ] };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   /**
    * Defensive Fighting.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async fighterDefensiveFighting(speaker, actor, token, character, archmage) {
     if (!actor) return;
-    
+
     let effects = [];
     let bonus = 2;
 
     const is2e = game.settings.get("archmage", "secondEdition");
     const shieldEquipped = actor.system.attributes?.weapon?.melee?.shield ?? false;
     const feats = {
-      adventurer: game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'adventurer')[0].isActive.value,
-      champion: game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value,
-      epic: game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'epic')[0].isActive.value,
+      adventurer: game.archmage.MacroUtils.getFeatsByTier(archmage.item, "adventurer")[0].isActive.value,
+      champion: game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value,
+      epic: game.archmage.MacroUtils.getFeatsByTier(archmage.item, "epic")[0].isActive.value
     };
     if (is2e) {
       // Calculate bonus.
@@ -316,7 +354,7 @@ export class ArchmageMacros {
     };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
 
-    const existingEffect = actor.effects.getName('Defensive Fighting');
+    const existingEffect = actor.effects.getName("Defensive Fighting");
     if (existingEffect) {
       await existingEffect.update(effectData);
     }
@@ -325,13 +363,13 @@ export class ArchmageMacros {
     }
   }
 
-  //TODO: GritAndScrap2e
+  // TODO: GritAndScrap2e
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Paladin Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Great Dragon Incarnation.
@@ -352,9 +390,9 @@ export class ArchmageMacros {
     // tokens transformed before the appearance was being recorded.
     if (game.archmage.MacroUtils.isTokenTransformed(doc) || doc?.texture?.src == dragonImg) {
       archmage.suppressMessage = true;
-      const aes = actor.effects.filter(e => e.name == name);
+      const aes = actor.effects.filter((e) => e.name == name);
       if (aes.length > 0) {
-        await actor.deleteEmbeddedDocuments("ActiveEffect", aes.map(e => e.id));
+        await actor.deleteEmbeddedDocuments("ActiveEffect", aes.map((e) => e.id));
       }
       await game.archmage.MacroUtils.restoreToken(doc);
       return;
@@ -378,14 +416,19 @@ export class ArchmageMacros {
     await game.archmage.MacroUtils.transformToken(doc, dragonImg, dragonScale);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Ranger Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Skirmisher.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async rangerSkirmisher(speaker, actor, token, character, archmage) {
     if (!actor) return;
@@ -400,7 +443,7 @@ export class ArchmageMacros {
     // Find this actor in the initiative order, counting any extra turn it already has.
     // Bail out unless there's exactly one entry and it's the real combatant, which also
     // stops the power from stacking with itself.
-    const entries = combat.combatants.filter(c =>
+    const entries = combat.combatants.filter((c) =>
       c.actor?.uuid === actor.uuid || c.flags.archmage?.skirmisherFor === actor.uuid);
     if (entries.length !== 1 || !entries[0].actor) return;
 
@@ -413,21 +456,26 @@ export class ArchmageMacros {
       name: `${token?.name || actor.name} (${archmage.item.name})`,
       img: archmage.item.img,
       initiative: initiative / 2,
-      flags: {archmage: {skirmisherFor: actor.uuid}}
+      flags: { archmage: { skirmisherFor: actor.uuid } }
     }, combat);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Sorcerer Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Golden Shield.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async sorcererGoldenShield(speaker, actor, token, character, archmage) {
-    const filter = /\[\[(\d+)\]\]/
+    const filter = /\[\[(\d+)\]\]/;
 
     let bonus = archmage.item.system.effect.value.match(filter);
     if (archmage.item.system.powerLevel.value > 3) {
@@ -450,18 +498,23 @@ export class ArchmageMacros {
 
     // Also heal the extra amount
     await actor.update({
-      'system.attributes.hp.value': actor.system.attributes.hp.value + bonus
+      "system.attributes.hp.value": actor.system.attributes.hp.value + bonus
     });
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Wizard Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Light cantrip.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async wizardLight(speaker, actor, token, character, archmage) {
     if (!token) return;
@@ -469,24 +522,30 @@ export class ArchmageMacros {
       let data = foundry.data.LightData.cleanData();
       data.bright = 3;
       data.dim = 4;
-      data.animation.type = 'torch';
+      data.animation.type = "torch";
       data.animation.speed = 3;
       data.animation.intensity = 3;
-      await token.document.update({light: data});
-    } else {
-      await token.document.update({light: undefined});
+      await token.document.update({ light: data });
+    }
+ else {
+      await token.document.update({ light: undefined });
       archmage.suppressMessage = true;
     }
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Item Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * "Flaming" weapon (2e).
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async flamingWeapon(speaker, actor, token, character, archmage) {
     const rollData = actor.getRollData();
@@ -503,16 +562,21 @@ export class ArchmageMacros {
     await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Generic Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * List the actor's flexible attack powers that this attack can trigger on its chat card.
    * Call it from the attack's embedded macro, e.g. for a melee attack:
    * `await game.archmage.ArchmageMacros.listFlexibles(speaker, actor, token, character, archmage, "melee");`
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    * @param {string} kind "melee" or "ranged".
    */
   static async listFlexibles(speaker, actor, token, character, archmage, kind) {

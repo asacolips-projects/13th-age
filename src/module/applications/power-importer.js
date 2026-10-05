@@ -24,30 +24,30 @@ export class ArchmagePowerImporterApplication extends Application {
     this.vueApp = null;
     this.vueRoot = null;
     this.vueComponents = {
-      'power-importer': ArchmagePowerImporter
+      "power-importer": ArchmagePowerImporter
     };
   }
 
   /** @override */
   static get defaultOptions() {
     const nightMode = game.settings.get("archmage", "nightmode");
-    const options = {...super.defaultOptions,
+    const options = { ...super.defaultOptions,
       classes: [
-        'form',
-        'archmage-v2',
-        'archmage-dialog',
-        'archmage-power-importer'
+        "form",
+        "archmage-v2",
+        "archmage-dialog",
+        "archmage-power-importer"
       ],
       popOut: true,
       template: "systems/archmage/templates/dialog/power-importer.html",
-      title: game.i18n.localize('ARCHMAGE.import'),
+      title: game.i18n.localize("ARCHMAGE.import"),
       width: 1080,
       height: 900,
-      resizable: true,
+      resizable: true
     };
 
     if (nightMode) {
-      options.classes.push('nightmode');
+      options.classes.push("nightmode");
     }
 
     return options;
@@ -56,7 +56,7 @@ export class ArchmagePowerImporterApplication extends Application {
   /** @override */
   get id() {
     // One importer per actor, rather than one for the whole world.
-    return `archmage-power-importer-${this.actor?.id ?? 'unowned'}`;
+    return `archmage-power-importer-${this.actor?.id ?? "unowned"}`;
   }
 
   /** @override */
@@ -71,7 +71,7 @@ export class ArchmagePowerImporterApplication extends Application {
       onImport: (ids) => this._onImport(ids),
       onTogglePack: (id, enabled) => this._onTogglePack(id, enabled),
       onToggleSource: (id, tabKey, listed) => this._onToggleSource(id, tabKey, listed),
-      onCancel: () => this.close(),
+      onCancel: () => this.close()
     };
   }
 
@@ -95,7 +95,7 @@ export class ArchmagePowerImporterApplication extends Application {
         if (isSelected && !root && imports.has(row.uuid)) return;
         if (isSelected && !root) {
           const data = game.items.fromCompendium(this.importData.docs.get(row.uuid));
-          foundry.utils.setProperty(data, 'flags.archmage.excludeChildren', []);
+          foundry.utils.setProperty(data, "flags.archmage.excludeChildren", []);
           imports.set(row.uuid, data);
           root = row;
         }
@@ -107,7 +107,7 @@ export class ArchmagePowerImporterApplication extends Application {
         for (const child of row.children) walk(child, isSelected ? root : null);
       };
       for (const row of this.#rows()) walk(row, null);
-      await this.actor.createEmbeddedDocuments('Item', [...imports.values()]);
+      await this.actor.createEmbeddedDocuments("Item", [...imports.values()]);
     }
     return this.close();
   }
@@ -144,11 +144,11 @@ export class ArchmagePowerImporterApplication extends Application {
    */
   #rows() {
     return this.importData.tabs
-      .flatMap(tab => tab.sections)
-      .flatMap(section => section.powerGroups)
-      .flatMap(group => group.levels)
-      .flatMap(level => level.groups)
-      .flatMap(group => group.powers);
+      .flatMap((tab) => tab.sections)
+      .flatMap((section) => section.powerGroups)
+      .flatMap((group) => group.levels)
+      .flatMap((level) => level.groups)
+      .flatMap((group) => group.powers);
   }
 
   /* ------------------------------------------------------------------------ */
@@ -165,14 +165,14 @@ export class ArchmagePowerImporterApplication extends Application {
       this.vueApp = createApp({
         data() {
           return {
-            context: context,
-          }
+            context: context
+          };
         },
-        components: this.vueComponents,
+        components: this.vueComponents
       });
     }
 
-    await this._render(force, options).catch(err => {
+    await this._render(force, options).catch((err) => {
       err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
       console.error(err);
       this._state = Application.RENDER_STATES.ERROR;

@@ -10,24 +10,24 @@ export class DiceArchmage {
    * @param {Event} event The triggering event which initiated the roll
    * @param {Array} terms The dice roll component terms, excluding the initial
    *    d20
-   * @param {Object} data Actor or item data against which to parse the roll
-   * @param {String} template       The HTML template used to render the roll
+   * @param {object} data Actor or item data against which to parse the roll
+   * @param {string} template       The HTML template used to render the roll
    *    dialog
-   * @param {String} title          The dice roll UI window title
-   * @param {String} alias          The alias with which to post to chat
+   * @param {string} title          The dice roll UI window title
+   * @param {string} alias          The alias with which to post to chat
    * @param {Function} flavor       A callable function for determining the chat
    *    message flavor given terms and data
-   * @param {Boolean} advantage     Allow rolling with advantage (and therefore
+   * @param {boolean} advantage     Allow rolling with advantage (and therefore
    *    also with disadvantage)
-   * @param {Boolean} situational   Allow for an arbitrary situational bonus
+   * @param {boolean} situational   Allow for an arbitrary situational bonus
    *    field
-   * @param {Boolean} highlight     Highlight critical successes and failures
-   * @param {Boolean} fastForward   Allow fast-forward advantage selection
+   * @param {boolean} highlight     Highlight critical successes and failures
+   * @param {boolean} fastForward   Allow fast-forward advantage selection
    * @param {Function} onClose      Callback for actions to take when the dialog
    *    form is closed
-   * @param {Object} dialogOptions  Modal dialog options
+   * @param {object} dialogOptions  Modal dialog options
    *
-   * @return {undefined}
+   * @returns {undefined}
    */
   static d20Roll({
     event,
@@ -63,30 +63,30 @@ export class DiceArchmage {
       let flav = (flavor instanceof Function) ? flavor(terms, data) : title;
 
       // Don't include situational bonus unless it is defined
-      if (!data.bonus && terms.indexOf('@bonus') !== -1) {
+      if (!data.bonus && terms.indexOf("@bonus") !== -1) {
         terms.pop();
       }
 
       // Handle combat advantage.
       if (adv === 1) {
-        terms[0] = ['2d20kh'];
+        terms[0] = ["2d20kh"];
         flav = `${title} (Advantage)`;
       }
       else if (adv === -1) {
-        terms[0] = ['2d20kl'];;
+        terms[0] = ["2d20kl"];
         flav = `${title} (Disadvantage)`;
       }
 
       if (situational != 0) {
         terms.push(situational);
-        flav = `${title} (${situational > 0 ? '+' + situational : situational})`;
+        flav = `${title} (${situational > 0 ? `+${situational}` : situational})`;
       }
 
-      let form = html ? html.find('form')[0] : null;
+      let form = html ? html.find("form")[0] : null;
       messageMode = form ? form.messageMode.value : messageMode;
 
       // Execute the roll
-      let roll = new Roll(terms.join('+'), data);
+      let roll = new Roll(terms.join("+"), data);
       await roll.evaluate();
 
       // Grab the template.
@@ -117,7 +117,7 @@ export class DiceArchmage {
       };
 
       // Render the template.
-      foundry.applications.handlebars.renderTemplate(template, templateData).then(content => {
+      foundry.applications.handlebars.renderTemplate(template, templateData).then((content) => {
         chatData.content = content;
         game.archmage.ArchmageUtility.createChatMessage(chatData, { messageMode: messageMode });
       });
@@ -125,7 +125,7 @@ export class DiceArchmage {
 
     // Modify the roll and handle fast-forwarding
     let adv = 0;
-    terms = ['1d20'].concat(terms);
+    terms = ["1d20"].concat(terms);
     if (event?.shiftKey) {
       return roll(null, data);
     }
@@ -137,15 +137,14 @@ export class DiceArchmage {
       adv = -1;
       return roll(null, data);
     }
-    else {
-      terms = terms.concat(['@bonus']);
-    }
+
+      terms = terms.concat(["@bonus"]);
 
     // Render modal dialog
-    template = template ||
-      'systems/archmage/templates/chat/roll-dialog.html';
+    template = template
+      || "systems/archmage/templates/chat/roll-dialog.html";
     let dialogData = {
-      formula: terms.join(' + '),
+      formula: terms.join(" + "),
       data: data,
       abilityCheck: data.abilityCheck ?? true,
       backgroundCheck: data.backgroundCheck ?? false,
@@ -167,7 +166,7 @@ export class DiceArchmage {
       dialogData.defaultAbility = highestAbility;
     }
 
-    foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
+    foundry.applications.handlebars.renderTemplate(template, dialogData).then((dlg) => {
       new Dialog({
         title: title,
         content: dlg,
@@ -180,14 +179,14 @@ export class DiceArchmage {
             }
           },
           pen4: {
-            label: '-4',
+            label: "-4",
             callback: () => {
               situational = -4;
               rolled = true;
             }
           },
           pen2: {
-            label: '-2',
+            label: "-2",
             callback: () => {
               situational = -2;
               rolled = true;
@@ -200,14 +199,14 @@ export class DiceArchmage {
             }
           },
           bon2: {
-            label: '+2',
+            label: "+2",
             callback: () => {
               situational = 2;
               rolled = true;
             }
           },
           bon4: {
-            label: '+4',
+            label: "+4",
             callback: () => {
               situational = 4;
               rolled = true;
@@ -221,21 +220,21 @@ export class DiceArchmage {
             }
           }
         },
-        default: 'normal',
-        close: html => {
+        default: "normal",
+        close: (html) => {
           if (onClose) {
             onClose(html, terms, data);
           }
           if (rolled) {
             messageMode = html.find('[name="messageMode"]').val();
-            data['bonus'] = html.find('[name="bonus"]').val();
+            data.bonus = html.find('[name="bonus"]').val();
             if (data.abilityCheck) {
-              data['bg'] = html.find('[name="background"]').val();
-              data['backgroundName'] = Number(data['bg']) > 0 ? html.find('[name="background"] option:selected').text() : null;
+              data.bg = html.find('[name="background"]').val();
+              data.backgroundName = Number(data.bg) > 0 ? html.find('[name="background"] option:selected').text() : null;
             }
             if (data.backgroundCheck) {
-              data['abil'] = html.find('[name="ability"]').val();
-              data['abilityName'] = !isNaN(Number(data['abil'])) ? html.find('[name="ability"] option:selected').data('label') : null;
+              data.abil = html.find('[name="ability"]').val();
+              data.abilityName = !isNaN(Number(data.abil)) ? html.find('[name="ability"] option:selected').data("label") : null;
             }
             roll(html, data);
           }
@@ -256,20 +255,20 @@ export class DiceArchmage {
    * @param {Event} event The triggering event which initiated the roll
    * @param {Array} terms The dice roll component terms, excluding the initial
    *    d20
-   * @param {Object} data Actor or item data against which to parse the roll
-   * @param {String} template The HTML template used to render the roll dialog
-   * @param {String} title The dice roll UI window title
-   * @param {String} alias The alias with which to post to chat
+   * @param {object} data Actor or item data against which to parse the roll
+   * @param {string} template The HTML template used to render the roll dialog
+   * @param {string} title The dice roll UI window title
+   * @param {string} alias The alias with which to post to chat
    * @param {Function} flavor A callable function for determining the chat
    *    message flavor given terms and data
-   * @param {Boolean} critical Allow critical hits to be chosen
-   * @param {Boolean} situational Allow for an arbitrary situational bonus field
-   * @param {Boolean} fastForward Allow fast-forward advantage selection
+   * @param {boolean} critical Allow critical hits to be chosen
+   * @param {boolean} situational Allow for an arbitrary situational bonus field
+   * @param {boolean} fastForward Allow fast-forward advantage selection
    * @param {Function} onClose Callback for actions to take when the dialog form
    *    is closed
-   * @param {Object} dialogOptions Modal dialog options
+   * @param {object} dialogOptions Modal dialog options
    *
-   * @return {undefined}
+   * @returns {undefined}
    */
   static damageRoll({
     event,
@@ -287,9 +286,9 @@ export class DiceArchmage {
   }) {
 
     // Inner roll function
-    let messageMode = 'roll';
+    let messageMode = "roll";
     let roll = () => {
-      let roll = new Roll(terms.join('+'), data);
+      let roll = new Roll(terms.join("+"), data);
       let flav = (flavor instanceof Function) ? flavor(terms, data) : title;
       if (crit) {
         roll.alter(0, 2);
@@ -316,43 +315,42 @@ export class DiceArchmage {
       crit = 1;
       return roll();
     }
-    else {
-      terms = terms.concat(['@bonus']);
-    }
+
+      terms = terms.concat(["@bonus"]);
 
     // Construct dialog data
-    template = template ||
-      'systems/archmage/templates/chat/roll-dialog.html';
+    template = template
+      || "systems/archmage/templates/chat/roll-dialog.html";
     let dialogData = {
-      formula: terms.join(' + '),
+      formula: terms.join(" + "),
       data: data,
       messageModes: CONFIG.ChatMessage.modes
     };
 
     // Render modal dialog
-    return new Promise(resolve => {
-      foundry.applications.handlebars.renderTemplate(template, dialogData).then(dlg => {
+    return new Promise((resolve) => {
+      foundry.applications.handlebars.renderTemplate(template, dialogData).then((dlg) => {
         new Dialog({
           title: title,
           content: dlg,
           buttons: {
             critical: {
               condition: critical,
-              label: 'Critical Hit',
+              label: "Critical Hit",
               callback: () => crit = 1
             },
             normal: {
-              label: critical ? 'Normal' : 'Roll',
-            },
+              label: critical ? "Normal" : "Roll"
+            }
           },
-          default: 'normal',
-          close: html => {
+          default: "normal",
+          close: (html) => {
             if (onClose) {
               onClose(html, terms, data);
             }
             messageMode = html.find('[name="messageMode"]').val();
-            data['bonus'] = html.find('[name="bonus"]').val();
-            data['background'] = html.find('[name="background"]').val();
+            data.bonus = html.find('[name="bonus"]').val();
+            data.background = html.find('[name="background"]').val();
             resolve(roll());
           }
         }, dialogOptions).render(true);
@@ -360,16 +358,16 @@ export class DiceArchmage {
     });
   }
 
-  static async BackgroundRoll (
+  static async BackgroundRoll(
     actor,
     { defaultBackground = null, defaultAbility = null }
   ) {
-    const formatBonus = bonus => {
-      return bonus >= 0 ? `+${bonus}` : `${bonus}`
-    }
+    const formatBonus = (bonus) => {
+      return bonus >= 0 ? `+${bonus}` : `${bonus}`;
+    };
 
     const content = await foundry.applications.handlebars.renderTemplate(
-      'systems/archmage/templates/dialog/background-check-dialog.html',
+      "systems/archmage/templates/dialog/background-check-dialog.html",
       {
         abilities: Object.entries(actor.system.abilities).map(
           ([key, ability]) => ({
@@ -388,37 +386,37 @@ export class DiceArchmage {
             checked: background.name.value === defaultBackground
           })),
         messageModes: CONFIG.ChatMessage.modes,
-        defaultMessageMode: game.settings.get('core', 'messageMode')
+        defaultMessageMode: game.settings.get("core", "messageMode")
       }
-    )
+    );
 
-    const extractFormData = form => ({
+    const extractFormData = (form) => ({
       situationalBonus: form.bonus.value,
       abilityKey: form.ability.value,
       backgroundKey: form.background.value,
       messageMode: form.messageMode.value
-    })
+    });
 
     return new foundry.applications.api.DialogV2({
       window: {
-        title: game.i18n.localize('ARCHMAGE.checkBackground'),
+        title: game.i18n.localize("ARCHMAGE.checkBackground"),
         resizeable: true
       },
       content: content,
       buttons: [
         {
-          action: 'disadvantage',
-          label: game.i18n.localize('ARCHMAGE.rollDisadvantageShort'),
+          action: "disadvantage",
+          label: game.i18n.localize("ARCHMAGE.rollDisadvantageShort"),
           callback: (event, button, dialog) =>
             this._completeBackgroundRoll({
               actor,
-              selection: 'disadvantage',
+              selection: "disadvantage",
               ...extractFormData(button.form)
             })
         },
         {
-          action: 'minus4',
-          label: '-4',
+          action: "minus4",
+          label: "-4",
           callback: (event, button, dialog) =>
             this._completeBackgroundRoll({
               actor,
@@ -427,8 +425,8 @@ export class DiceArchmage {
             })
         },
         {
-          action: 'minus2',
-          label: '-2',
+          action: "minus2",
+          label: "-2",
           callback: (event, button, dialog) =>
             this._completeBackgroundRoll({
               actor,
@@ -437,8 +435,8 @@ export class DiceArchmage {
             })
         },
         {
-          action: 'normal',
-          label: game.i18n.localize('ARCHMAGE.rollNormal'),
+          action: "normal",
+          label: game.i18n.localize("ARCHMAGE.rollNormal"),
           callback: (event, button, dialog) =>
             this._completeBackgroundRoll({
               actor,
@@ -447,8 +445,8 @@ export class DiceArchmage {
             })
         },
         {
-          action: 'plus2',
-          label: '+2',
+          action: "plus2",
+          label: "+2",
           callback: (event, button, dialog) =>
             this._completeBackgroundRoll({
               actor,
@@ -457,8 +455,8 @@ export class DiceArchmage {
             })
         },
         {
-          action: 'plus4',
-          label: '+4',
+          action: "plus4",
+          label: "+4",
           callback: (event, button, dialog) =>
             this._completeBackgroundRoll({
               actor,
@@ -467,20 +465,20 @@ export class DiceArchmage {
             })
         },
         {
-          action: 'advantage',
-          label: game.i18n.localize('ARCHMAGE.rollAdvantageShort'),
+          action: "advantage",
+          label: game.i18n.localize("ARCHMAGE.rollAdvantageShort"),
           callback: (event, button, dialog) =>
             this._completeBackgroundRoll({
               actor,
-              selection: 'advantage',
+              selection: "advantage",
               ...extractFormData(button.form)
             })
         }
       ]
-    }).render({ force: true })
+    }).render({ force: true });
   }
 
-  static async _completeBackgroundRoll ({
+  static async _completeBackgroundRoll({
     actor,
     selection,
     situationalBonus,
@@ -490,48 +488,50 @@ export class DiceArchmage {
   }) {
     // Construct the terms for the roll
     // First: the d20
-    const terms = []
-    if (selection === 'advantage') {
-      terms.push('2d20kh')
-    } else if (selection === 'disadvantage') {
-      terms.push('2d20kl')
-    } else {
-      terms.push('1d20')
+    const terms = [];
+    if (selection === "advantage") {
+      terms.push("2d20kh");
+    }
+ else if (selection === "disadvantage") {
+      terms.push("2d20kl");
+    }
+ else {
+      terms.push("1d20");
     }
 
     // Next: the ability modifier
-    const ability = actor.system.abilities[abilityKey]
+    const ability = actor.system.abilities[abilityKey];
     if (ability) {
-      terms.push(`@${abilityKey}.mod`)
+      terms.push(`@${abilityKey}.mod`);
     }
 
     // Next: the actor's level
-    terms.push("@lvl")
+    terms.push("@lvl");
 
     // Next: the background bonus
-    const background = actor.system.backgrounds[backgroundKey]
+    const background = actor.system.backgrounds[backgroundKey];
     if (background) {
-      terms.push(`@backgrounds.${backgroundKey}.bonus.value`)
+      terms.push(`@backgrounds.${backgroundKey}.bonus.value`);
     }
 
     // Next: the item bonus
     if (ability.bonus) {
-      terms.push(`@${abilityKey}.bonus`)
+      terms.push(`@${abilityKey}.bonus`);
     }
 
     // Next: the situational bonus
     if (situationalBonus) {
-      terms.push(`${situationalBonus}`)
+      terms.push(`${situationalBonus}`);
     }
 
     // Finally: the button selection if it was a flat bonus/penalty
-    if (typeof selection === 'number' && selection !== 0) {
-      terms.push(`${selection}`)
+    if (typeof selection === "number" && selection !== 0) {
+      terms.push(`${selection}`);
     }
 
     // Roll the dice
-    const roll = new Roll(terms.join(' + '), actor.getRollData())
-    await roll.roll()
+    const roll = new Roll(terms.join(" + "), actor.getRollData());
+    await roll.roll();
 
     // Render the chat content template
     const chatData = {
@@ -539,10 +539,10 @@ export class DiceArchmage {
       roll: roll, // this is here for the content template, but deprecated
       rolls: [roll],
       speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
-    }
+    };
 
     chatData.content = await foundry.applications.handlebars.renderTemplate(
-      'systems/archmage/templates/chat/skill-check-card.html',
+      "systems/archmage/templates/chat/skill-check-card.html",
       {
         actor: actor,
         tokenId: actor.token?.id ?? null,
@@ -556,9 +556,9 @@ export class DiceArchmage {
         },
         data: chatData
       }
-    )
+    );
 
     // Send it to chat
-    game.archmage.ArchmageUtility.createChatMessage(chatData, { messageMode })
+    game.archmage.ArchmageUtility.createChatMessage(chatData, { messageMode });
   }
 }

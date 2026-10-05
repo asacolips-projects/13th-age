@@ -1,4 +1,4 @@
-import {FeatureTour} from "./feature-tour.mjs";
+import { FeatureTour } from "./feature-tour.mjs";
 
 export class OneDotSevenTour extends FeatureTour {
 
@@ -16,7 +16,7 @@ export class OneDotSevenTour extends FeatureTour {
             content: "ARCHMAGE.TOURS.170.welcome"
           },
           {
-            selector: '.fa-cogs',
+            selector: ".fa-cogs",
             content: "ARCHMAGE.TOURS.170.documentation"
           },
           {
@@ -24,15 +24,15 @@ export class OneDotSevenTour extends FeatureTour {
             content: "ARCHMAGE.TOURS.170.cards"
           },
           {
-            selector: '.fa-users',
+            selector: ".fa-users",
             content: "ARCHMAGE.TOURS.170.sheets"
           },
           {
-            selector: '.fa-suitcase',
+            selector: ".fa-suitcase",
             content: "ARCHMAGE.TOURS.170.showItem"
           },
           {
-            selector: '.fa-comments',
+            selector: ".fa-comments",
             content: "ARCHMAGE.TOURS.170.iconRelationships"
           },
           {
@@ -45,16 +45,16 @@ export class OneDotSevenTour extends FeatureTour {
           },
           {
             content: "ARCHMAGE.TOURS.170.end"
-          },
+          }
         ]
       });
     }
 
     async _preStep() {
-      if ( this.currentStep.id === "srd-monsters" ) {
-        $('.item>.fa-atlas').click();
+      if (this.currentStep.id === "srd-monsters") {
+        $(".item>.fa-atlas").click();
       }
-      else if ( this.currentStep.selector.includes(".fa") ) {
+      else if (this.currentStep.selector.includes(".fa")) {
         $(this.currentStep.selector).click();
       }
     }

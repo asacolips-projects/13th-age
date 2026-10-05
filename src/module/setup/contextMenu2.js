@@ -1,81 +1,81 @@
 export class ContextMenu2 {
-    constructor(element, selector, menuItems, {eventName="contextmenu"}={}) {
-  
+    constructor(element, selector, menuItems, { eventName="contextmenu" }={}) {
+
       /**
        * The target HTMLElement being selected
        * @type {HTMLElement}
        */
       this.element = element;
-  
+
       /**
        * The target CSS selector which activates the menu
-       * @type {String}
+       * @type {string}
        */
       this.selector = selector || element.attr("id");
-  
+
       /**
        * An interaction event name which activates the menu
-       * @type {String}
+       * @type {string}
        */
       this.eventName = eventName;
-  
+
       /**
        * The array of menu items being rendered
        * @type {Array}
        */
       this.menuItems = menuItems;
-  
+
       /**
        * Track which direction the menu is expanded in
-       * @type {Boolean}
+       * @type {boolean}
        */
       this._expandUp = false;
-  
+
       // Bind to the current element
       this.bind();
     }
-  
+
     /* -------------------------------------------- */
-  
+
     /**
      * A convenience accessor to the context menu HTML object
-     * @return {*|jQuery.fn.init|jQuery|HTMLElement}
+     * @returns {*|jQuery.fn.init|jQuery|HTMLElement}
      */
     get menu() {
       return $("#context-menu2");
     }
-  
+
     /* -------------------------------------------- */
-  
+
     /**
      * Attach a ContextMenu instance to an HTML selector
      */
     bind() {
-      this.element.on(this.eventName, this.selector, event => {
+      this.element.on(this.eventName, this.selector, (event) => {
         event.preventDefault();
         event.stopPropagation();
-        let parent = $(event.currentTarget),
-            menu = this.menu;
-  
+        let parent = $(event.currentTarget);
+            let menu = this.menu;
+
         if (this.selector == ".message") return;
-  
+
         // Remove existing context UI
-        $('.context').removeClass("context");
-  
+        $(".context").removeClass("context");
+
         // Close the current context if it belongs to this same target. The menu is no longer
         // rendered inside the target (see _setPosition), so containment can't be used here.
-        if ( menu.length && this._target && this._target[0] === parent[0] ) this.close();
-  
+        if (menu.length && this._target && this._target[0] === parent[0]) this.close();
+
         // If the new target element is different
         else {
           this.render(parent);
           ui.context = this;
         }
-      })
+      });
     }
-  
+
     /* -------------------------------------------- */
-  
+
     /**
      * Animate closing the menu by sliding up and removing from the DOM
      */
@@ -83,26 +83,26 @@ export class ContextMenu2 {
       let menu = this.menu;
       await this._animateClose(menu);
       menu.remove();
-      $('.context').removeClass("context");
+      $(".context").removeClass("context");
       this._target = null;
       delete ui.context;
     }
-  
+
     /* -------------------------------------------- */
-  
+
     async _animateOpen(menu) {
       menu.hide();
-      return new Promise(resolve => menu.slideDown(200, resolve));
+      return new Promise((resolve) => menu.slideDown(200, resolve));
     }
-  
+
     /* -------------------------------------------- */
-  
+
     async _animateClose(menu) {
-      return new Promise(resolve => menu.slideUp(200, resolve));
+      return new Promise((resolve) => menu.slideUp(200, resolve));
     }
-  
+
     /* -------------------------------------------- */
-  
+
     /**
      * Render the Context Menu by iterating over the menuItems it contains
      * Check the visibility of each menu item, and only render ones which are allowed by the item's logical condition
@@ -111,42 +111,43 @@ export class ContextMenu2 {
      */
     render(target) {
       let html = $("#context-menu2").length ? $("#context-menu2") : $('<nav id="context-menu2" data-mod="1"></nav>');
-      html.empty().removeClass("expand-up").removeClass("expand-down");
+      html.empty().removeClass("expand-up")
+.removeClass("expand-down");
       let ol = $('<ol class="context-items"></ol>');
-      html.append($(`<h2>${game.i18n.localize('ARCHMAGE.UI.applyChanges')}</h2>`));
+      html.append($(`<h2>${game.i18n.localize("ARCHMAGE.UI.applyChanges")}</h2>`));
       html.append(ol);
 
       // Determine if user-selected targets are allowed.
-      const allowTargeting = game.settings.get('archmage', 'allowTargetDamageApplication');
-      let targetType = game.settings.get('archmage', 'userTargetDamageApplicationType');
-      if (!allowTargeting && targetType !== 'selected') {
-        game.settings.set('archmage', 'userTargetDamageApplicationType', 'selected');
-        targetType = 'selected';
+      const allowTargeting = game.settings.get("archmage", "allowTargetDamageApplication");
+      let targetType = game.settings.get("archmage", "userTargetDamageApplicationType");
+      if (!allowTargeting && targetType !== "selected") {
+        game.settings.set("archmage", "userTargetDamageApplicationType", "selected");
+        targetType = "selected";
       }
 
       // Add default target type.
       html[0].dataset.target = targetType;
-  
+
       // Build menu items
       for (let item of this.menuItems) {
-        
+
         // Determine menu item visibility (display unless false)
         let display = true;
-        if ( item.condition !== undefined ) {
-          display = ( item.condition instanceof Function ) ? item.condition(target) : item.condition;
+        if (item.condition !== undefined) {
+          display = (item.condition instanceof Function) ? item.condition(target) : item.condition;
         }
-        if ( !display ) continue;
-  
+        if (!display) continue;
+
         // Construct and add the menu item
         let name = game.i18n.localize(item.name);
-        let li = $(`<li class="context-item ${item?.id ?? ''}">${item.icon}${name}</li>`);
+        let li = $(`<li class="context-item ${item?.id ?? ""}">${item.icon}${name}</li>`);
         // If this is the target buttons option, set one of them to active.
         if (name.includes('data-target="targeted"')) {
           const button = li.find(`[data-target="${targetType}"]`);
-          button.addClass('active');
+          button.addClass("active");
         }
         li.children("i").addClass("fa-fw");
-        li.click(e => {
+        li.click((e) => {
           e.preventDefault();
           e.stopPropagation();
           item.callback(target, e);
@@ -157,24 +158,26 @@ export class ContextMenu2 {
         });
         ol.append(li);
       }
-  
+
       // Bail out if there are no children
-      if ( ol.children().length === 0 ) return;
-  
+      if (ol.children().length === 0) return;
+
       // Append to target
       this._setPosition(html, target);
 
       // Deactivate global tooltip
       game.tooltip.deactivate();
-  
+
       // Animate open the menu
       return this._animateOpen(html);
     }
-  
+
     /* -------------------------------------------- */
-  
+
     /**
      * Set the position of the context menu, taking into consideration whether the menu should expand upward or downward
+     * @param html
+     * @param target
      * @private
      */
     _setPosition(html, target) {
@@ -211,7 +214,7 @@ export class ContextMenu2 {
 
       // Display the menu.
       html.addClass(this._expandUp ? "expand-up" : "expand-down");
-      html.css({left: Math.floor(left), top: Math.floor(top), bottom: "auto", visibility: ""});
+      html.css({ left: Math.floor(left), top: Math.floor(top), bottom: "auto", visibility: "" });
       this._target = target;
       target.addClass("context");
     }
@@ -219,12 +222,12 @@ export class ContextMenu2 {
     /* -------------------------------------------- */
 
     static eventListeners() {
-      document.addEventListener("click", ev => {
-        if ( ui.context ) ui.context.close();
+      document.addEventListener("click", (ev) => {
+        if (ui.context) ui.context.close();
       });
       // The menu is positioned against the viewport, so it can't follow a target that scrolls away.
-      document.addEventListener("scroll", ev => {
-        if ( ui.context ) ui.context.close();
+      document.addEventListener("scroll", (ev) => {
+        if (ui.context) ui.context.close();
       }, true);
-    };
+    }
   }

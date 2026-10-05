@@ -8,7 +8,7 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusDead",
     img: "icons/svg/skull.svg",
     journal: "ig1kzvpojsk20dbt",
-    order: 0,
+    order: 0
   },
   // Staggered
   {
@@ -16,7 +16,7 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusStaggered",
     img: "icons/svg/blood.svg",
     journal: "oqkyq1xn6xi2ajmi",
-    order: 10,
+    order: 10
   },
   // Unconscious.
   {
@@ -26,27 +26,27 @@ ARCHMAGE.statusEffects = [
     journal: "u9VHMyTBvK4lLbPa",
     changes: [
       {
-        key: 'system.attributes.ac.value',
+        key: "system.attributes.ac.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.pd.value',
+        key: "system.attributes.pd.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.md.value',
+        key: "system.attributes.md.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       }
     ],
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 20,
+    order: 20
   },
   // Charmed.
   {
@@ -56,10 +56,10 @@ ARCHMAGE.statusEffects = [
     journal: "21cEqzk92tflpW7P",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 30,
+    order: 30
   },
   // Confused.
   {
@@ -69,10 +69,10 @@ ARCHMAGE.statusEffects = [
     journal: "21cEqzk92tflpW7N",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 40,
+    order: 40
   },
   // Dazed.
   {
@@ -82,17 +82,17 @@ ARCHMAGE.statusEffects = [
     journal: "dk4ua6smvjafdrqm",
     changes: [
       {
-        key: 'system.attributes.attackMod.value',
+        key: "system.attributes.attackMod.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       }
     ],
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 50,
+    order: 50
   },
   // Fear.
   {
@@ -102,22 +102,22 @@ ARCHMAGE.statusEffects = [
     journal: "gy68o7eat5p6bpgq",
     changes: [
       {
-        key: 'system.attributes.escalation.value',
+        key: "system.attributes.escalation.value",
         type: "override",
-        value: '0'
+        value: "0"
       },
       {
-        key: 'system.attributes.attackMod.value',
+        key: "system.attributes.attackMod.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       }
     ],
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 60,
+    order: 60
   },
   // Grabbed.
   {
@@ -127,10 +127,10 @@ ARCHMAGE.statusEffects = [
     journal: "aDEmM5lU3pfG3t7S",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 70,
+    order: 70
   },
   // Hampered / Hindered.
   {
@@ -140,10 +140,10 @@ ARCHMAGE.statusEffects = [
     journal: "mk69wxlsqwnydwip",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 80,
+    order: 80
   },
   {
     id: "hindered",
@@ -152,10 +152,10 @@ ARCHMAGE.statusEffects = [
     journal: "FHDyJEb29LWnO2Dg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 90,
+    order: 90
   },
   // Helpless.
   {
@@ -165,27 +165,27 @@ ARCHMAGE.statusEffects = [
     journal: "g20s05odo7v5mw2q",
     changes: [
       {
-        key: 'system.attributes.ac.value',
+        key: "system.attributes.ac.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.pd.value',
+        key: "system.attributes.pd.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.md.value',
+        key: "system.attributes.md.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       }
     ],
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 100,
+    order: 100
   },
   // Shocked.
   {
@@ -195,10 +195,10 @@ ARCHMAGE.statusEffects = [
     journal: "m78aw2gepbc5ccgm",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 110,
+    order: 110
   },
   // Stuck.
   {
@@ -208,10 +208,10 @@ ARCHMAGE.statusEffects = [
     journal: "ti7104njam2n18a5",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 120,
+    order: 120
   },
   // Stunned.
   {
@@ -221,27 +221,27 @@ ARCHMAGE.statusEffects = [
     journal: "2rxwthymp5rl1dqe",
     changes: [
       {
-        key: 'system.attributes.ac.value',
+        key: "system.attributes.ac.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.pd.value',
+        key: "system.attributes.pd.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.md.value',
+        key: "system.attributes.md.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       }
     ],
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 130,
+    order: 130
   },
   // Vulnerable.
   {
@@ -251,17 +251,17 @@ ARCHMAGE.statusEffects = [
     journal: "bi9ye2usgfsdpubs",
     changes: [
       {
-        key: 'system.attributes.critMod.def.value',
+        key: "system.attributes.critMod.def.value",
         type: "add",
-        value: '2'
+        value: "2"
       }
     ],
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 140,
+    order: 140
   },
   // Weakened.
   {
@@ -271,33 +271,33 @@ ARCHMAGE.statusEffects = [
     journal: "3r2jt3c6skn7gw7d",
     changes: [
       {
-        key: 'system.attributes.attackMod.value',
+        key: "system.attributes.attackMod.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.ac.value',
+        key: "system.attributes.ac.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.pd.value',
+        key: "system.attributes.pd.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       },
       {
-        key: 'system.attributes.md.value',
+        key: "system.attributes.md.value",
         type: "add",
-        value: '-4'
+        value: "-4"
       }
     ],
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 150,
-  },
+    order: 150
+  }
 ];
 // Extended (no longer optional) status effects
 ARCHMAGE.extendedStatusEffects = [
@@ -308,10 +308,10 @@ ARCHMAGE.extendedStatusEffects = [
     img: "icons/svg/upgrade.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 160,
+    order: 160
   },
   // Ongoing Damage.
   {
@@ -320,10 +320,10 @@ ARCHMAGE.extendedStatusEffects = [
     img: "icons/svg/degen.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 170,
+    order: 170
   },
   // Regen.
   {
@@ -332,10 +332,10 @@ ARCHMAGE.extendedStatusEffects = [
     img: "icons/svg/regen.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 180,
+    order: 180
   },
   // Bonus defenses.
   {
@@ -344,22 +344,22 @@ ARCHMAGE.extendedStatusEffects = [
     img: "icons/svg/shield.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 190,
+    order: 190
   },
   // Reduced defenses.
   {
     id: "reducedDefenses",
     name: "ARCHMAGE.EFFECT.StatusReducedDefenses",
-    img: "icons/svg/acid.svg", //ruins
+    img: "icons/svg/acid.svg", // ruins
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 200,
+    order: 200
   },
   // Blessed.
   {
@@ -368,10 +368,10 @@ ARCHMAGE.extendedStatusEffects = [
     img: "icons/svg/angel.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 210,
+    order: 210
   },
   // Cursed.
   {
@@ -380,34 +380,34 @@ ARCHMAGE.extendedStatusEffects = [
     img: "icons/svg/dice-target.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 220,
+    order: 220
   },
   // Flying.
   {
-    id: "fly",  //flying - renamed to play nice with v11 statuses
+    id: "fly",  // flying - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusFlying",
     img: "icons/svg/wing.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 230,
+    order: 230
   },
   // Hidden.
   {
-    id: "invisible", //hidden - renamed to play nice with v11 statuses
+    id: "invisible", // hidden - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusHidden",
     img: "icons/svg/mystery-man.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 240,
+    order: 240
   },
   // Last Gasps.
   {
@@ -416,31 +416,31 @@ ARCHMAGE.extendedStatusEffects = [
     img: "icons/svg/clockwork.svg",
     flags: {
       archmage: {
-        duration: "Unknown",
+        duration: "Unknown"
       }
     },
-    order: 250,
+    order: 250
   },
   // Asleep.
   {
-    id: "sleep", //asleep - renamed to play nice with v11 statuses
+    id: "sleep", // asleep - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusAsleep",
     img: "icons/svg/sleep.svg",
-    order: 260,
+    order: 260
   },
   // Blind.
   {
     id: "blind",
     name: "ARCHMAGE.EFFECT.StatusBlind",
     img: "icons/svg/blind.svg",
-    order: 270,
+    order: 270
   },
   // Silenced.
   {
     id: "silenced",
     name: "ARCHMAGE.EFFECT.StatusSilenced",
     img: "icons/svg/silenced.svg",
-    order: 280,
+    order: 280
   },
 /*   // Holy Shield.
   {
@@ -475,23 +475,23 @@ ARCHMAGE.extendedStatusEffects = [
     id: "buffed",
     name: "ARCHMAGE.EFFECT.StatusBuffed",
     img: "icons/svg/up.svg",
-    order: 330,
+    order: 330
   },
   // Debuffed.
   {
     id: "debuffed",
     name: "ARCHMAGE.EFFECT.StatusDebuffed",
     img: "icons/svg/direction.svg",
-    order: 340,
-  },
+    order: 340
+  }
 ];
 
 ARCHMAGE.featTiers = {
-  'adventurer': 'ARCHMAGE.adventurer',
-  'champion': 'ARCHMAGE.champion',
-  'epic': 'ARCHMAGE.epic',
-  'iconic': 'ARCHMAGE.iconic'
-}
+  adventurer: "ARCHMAGE.adventurer",
+  champion: "ARCHMAGE.champion",
+  epic: "ARCHMAGE.epic",
+  iconic: "ARCHMAGE.iconic"
+};
 
 ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
@@ -510,242 +510,242 @@ ARCHMAGE.animalCompanion = {
 
 // Power Settings
 ARCHMAGE.powerSources = {
-  'class': 'ARCHMAGE.class',
-  'race': 'ARCHMAGE.race',
-  'item': 'ARCHMAGE.item',
-  'other': 'ARCHMAGE.other'
+  class: "ARCHMAGE.class",
+  race: "ARCHMAGE.race",
+  item: "ARCHMAGE.item",
+  other: "ARCHMAGE.other"
 };
 
 ARCHMAGE.powerTypes = {
-  'power': 'ARCHMAGE.power',
-  'feature': 'ARCHMAGE.feature',
-  'talent': 'ARCHMAGE.talent',
-  'flexible': 'ARCHMAGE.flexible',
-  'spell': 'ARCHMAGE.spell',
-  'other': 'ARCHMAGE.other'
+  power: "ARCHMAGE.power",
+  feature: "ARCHMAGE.feature",
+  talent: "ARCHMAGE.talent",
+  flexible: "ARCHMAGE.flexible",
+  spell: "ARCHMAGE.spell",
+  other: "ARCHMAGE.other"
 };
 
 ARCHMAGE.powerUsages = {
-  'at-will': 'ARCHMAGE.at-will',
-  'once-per-battle': 'ARCHMAGE.once-per-battle',
-  'recharge': 'ARCHMAGE.recharge',
-  'daily': 'ARCHMAGE.daily',
-  'cyclic': 'ARCHMAGE.cyclic',
-  'recharge-desperate': 'ARCHMAGE.recharge-desperate',
-  'daily-desperate': 'ARCHMAGE.daily-desperate',
-  'other': 'ARCHMAGE.other'
+  "at-will": "ARCHMAGE.at-will",
+  "once-per-battle": "ARCHMAGE.once-per-battle",
+  recharge: "ARCHMAGE.recharge",
+  daily: "ARCHMAGE.daily",
+  cyclic: "ARCHMAGE.cyclic",
+  "recharge-desperate": "ARCHMAGE.recharge-desperate",
+  "daily-desperate": "ARCHMAGE.daily-desperate",
+  other: "ARCHMAGE.other"
 };
 
 ARCHMAGE.equipUsages = {
-  'once-per-battle': 'ARCHMAGE.once-per-battle',
-  'recharge': 'ARCHMAGE.recharge',
-  'daily': 'ARCHMAGE.daily',
-  'recharge-desperate': 'ARCHMAGE.recharge-desperate',
-  'daily-desperate': 'ARCHMAGE.daily-desperate',
-  'other': 'ARCHMAGE.other'
+  "once-per-battle": "ARCHMAGE.once-per-battle",
+  recharge: "ARCHMAGE.recharge",
+  daily: "ARCHMAGE.daily",
+  "recharge-desperate": "ARCHMAGE.recharge-desperate",
+  "daily-desperate": "ARCHMAGE.daily-desperate",
+  other: "ARCHMAGE.other"
 };
 
 ARCHMAGE.featUsages = {
-  'daily': 'ARCHMAGE.daily',
-  'once-per-battle': 'ARCHMAGE.once-per-battle',
-  'other': 'ARCHMAGE.other'
+  daily: "ARCHMAGE.daily",
+  "once-per-battle": "ARCHMAGE.once-per-battle",
+  other: "ARCHMAGE.other"
 };
 
 ARCHMAGE.actionTypes = {
-  'standard': 'ARCHMAGE.standard-short',
-  'move': 'ARCHMAGE.move-short',
-  'quick': 'ARCHMAGE.quick-short',
-  'free': 'ARCHMAGE.free-short',
-  'interrupt': 'ARCHMAGE.interrupt-short'
+  standard: "ARCHMAGE.standard-short",
+  move: "ARCHMAGE.move-short",
+  quick: "ARCHMAGE.quick-short",
+  free: "ARCHMAGE.free-short",
+  interrupt: "ARCHMAGE.interrupt-short"
 };
 
 ARCHMAGE.actionTypesShort = {
-  'standard': 'ARCHMAGE.STD',
-  'move': 'ARCHMAGE.MOV',
-  'quick': 'ARCHMAGE.QCK',
-  'free': 'ARCHMAGE.FREE',
-  'interrupt': 'ARCHMAGE.INT'
+  standard: "ARCHMAGE.STD",
+  move: "ARCHMAGE.MOV",
+  quick: "ARCHMAGE.QCK",
+  free: "ARCHMAGE.FREE",
+  interrupt: "ARCHMAGE.INT"
 };
 
 ARCHMAGE.effectDurationTypes = {
-  'Unknown': 'ARCHMAGE.DURATION.Unknown',
-  'Infinite': 'ARCHMAGE.DURATION.Infinite',
-  'StartOfNextTurn': "ARCHMAGE.DURATION.StartOfNextTurn",
-  'EndOfNextTurn': "ARCHMAGE.DURATION.EndOfNextTurn",
-  'StartOfNextSourceTurn': 'ARCHMAGE.DURATION.StartOfNextSourceTurn',
-  'EndOfNextSourceTurn': 'ARCHMAGE.DURATION.EndOfNextSourceTurn',
-  'EasySaveEnds': 'ARCHMAGE.DURATION.EasySaveEnds',
-  'NormalSaveEnds': 'ARCHMAGE.DURATION.NormalSaveEnds',
-  'HardSaveEnds': 'ARCHMAGE.DURATION.HardSaveEnds',
-  'EndOfCombat': 'ARCHMAGE.DURATION.EndOfCombat',
-  'EndOfArc': 'ARCHMAGE.DURATION.EndOfArc',
-  'EndOfRound': "ARCHMAGE.DURATION.EndOfRound",
-  'StartOfEachTurn': 'ARCHMAGE.DURATION.StartOfEachTurn'
+  Unknown: "ARCHMAGE.DURATION.Unknown",
+  Infinite: "ARCHMAGE.DURATION.Infinite",
+  StartOfNextTurn: "ARCHMAGE.DURATION.StartOfNextTurn",
+  EndOfNextTurn: "ARCHMAGE.DURATION.EndOfNextTurn",
+  StartOfNextSourceTurn: "ARCHMAGE.DURATION.StartOfNextSourceTurn",
+  EndOfNextSourceTurn: "ARCHMAGE.DURATION.EndOfNextSourceTurn",
+  EasySaveEnds: "ARCHMAGE.DURATION.EasySaveEnds",
+  NormalSaveEnds: "ARCHMAGE.DURATION.NormalSaveEnds",
+  HardSaveEnds: "ARCHMAGE.DURATION.HardSaveEnds",
+  EndOfCombat: "ARCHMAGE.DURATION.EndOfCombat",
+  EndOfArc: "ARCHMAGE.DURATION.EndOfArc",
+  EndOfRound: "ARCHMAGE.DURATION.EndOfRound",
+  StartOfEachTurn: "ARCHMAGE.DURATION.StartOfEachTurn"
 };
 
 // Damage multipliers for the first tick of an ongoing damage effect.
 ARCHMAGE.ongoingDamageMultipliers = {
-  1: 'ARCHMAGE.ITEM.ongoingDamageMultiplierx1',
-  2: 'ARCHMAGE.ITEM.ongoingDamageMultiplierx2',
-  3: 'ARCHMAGE.ITEM.ongoingDamageMultiplierx3'
+  1: "ARCHMAGE.ITEM.ongoingDamageMultiplierx1",
+  2: "ARCHMAGE.ITEM.ongoingDamageMultiplierx2",
+  3: "ARCHMAGE.ITEM.ongoingDamageMultiplierx3"
 };
 
 ARCHMAGE.creatureTypes = {
-  'aberration': 'ARCHMAGE.CREATURETYPES.aberration',
-  'beast': 'ARCHMAGE.CREATURETYPES.beast',
-  'celestial': 'ARCHMAGE.CREATURETYPES.celestial',
-  'construct': 'ARCHMAGE.CREATURETYPES.construct',
-  'demon': 'ARCHMAGE.CREATURETYPES.demon',
-  'devil': 'ARCHMAGE.CREATURETYPES.devil',
-  'dragon': 'ARCHMAGE.CREATURETYPES.dragon',
-  'elemental': 'ARCHMAGE.CREATURETYPES.elemental',
-  'fey': 'ARCHMAGE.CREATURETYPES.fey',
-  'giant': 'ARCHMAGE.CREATURETYPES.giant',
-  'humanoid': 'ARCHMAGE.CREATURETYPES.humanoid',
-  'monstrosity': 'ARCHMAGE.CREATURETYPES.monstrosity',
-  'ooze': 'ARCHMAGE.CREATURETYPES.ooze',
-  'plant': 'ARCHMAGE.CREATURETYPES.plant',
-  'spirit': 'ARCHMAGE.CREATURETYPES.spirit',
-  'undead': 'ARCHMAGE.CREATURETYPES.undead'
+  aberration: "ARCHMAGE.CREATURETYPES.aberration",
+  beast: "ARCHMAGE.CREATURETYPES.beast",
+  celestial: "ARCHMAGE.CREATURETYPES.celestial",
+  construct: "ARCHMAGE.CREATURETYPES.construct",
+  demon: "ARCHMAGE.CREATURETYPES.demon",
+  devil: "ARCHMAGE.CREATURETYPES.devil",
+  dragon: "ARCHMAGE.CREATURETYPES.dragon",
+  elemental: "ARCHMAGE.CREATURETYPES.elemental",
+  fey: "ARCHMAGE.CREATURETYPES.fey",
+  giant: "ARCHMAGE.CREATURETYPES.giant",
+  humanoid: "ARCHMAGE.CREATURETYPES.humanoid",
+  monstrosity: "ARCHMAGE.CREATURETYPES.monstrosity",
+  ooze: "ARCHMAGE.CREATURETYPES.ooze",
+  plant: "ARCHMAGE.CREATURETYPES.plant",
+  spirit: "ARCHMAGE.CREATURETYPES.spirit",
+  undead: "ARCHMAGE.CREATURETYPES.undead"
 };
 
 ARCHMAGE.creatureSizes = {
-  'normal': 'ARCHMAGE.CREATURESIZES.normal',
-  'large': 'ARCHMAGE.CREATURESIZES.large',
-  'huge': 'ARCHMAGE.CREATURESIZES.huge',
-  'gargantuan': 'ARCHMAGE.CREATURESIZES.gargantuan',
-  'small': 'ARCHMAGE.CREATURESIZES.small',
-  'tiny': 'ARCHMAGE.CREATURESIZES.tiny',
+  normal: "ARCHMAGE.CREATURESIZES.normal",
+  large: "ARCHMAGE.CREATURESIZES.large",
+  huge: "ARCHMAGE.CREATURESIZES.huge",
+  gargantuan: "ARCHMAGE.CREATURESIZES.gargantuan",
+  small: "ARCHMAGE.CREATURESIZES.small",
+  tiny: "ARCHMAGE.CREATURESIZES.tiny"
 };
 
 ARCHMAGE.creatureStrengths = {
-  'normal': 'ARCHMAGE.CREATURESTRENGTHS.normal',
-  'double': 'ARCHMAGE.CREATURESTRENGTHS.double-strength',
-  'triple': 'ARCHMAGE.CREATURESTRENGTHS.triple-strength',
-  'weakling': 'ARCHMAGE.CREATURESTRENGTHS.weakling',
-  'elite': 'ARCHMAGE.CREATURESTRENGTHS.elite',
+  normal: "ARCHMAGE.CREATURESTRENGTHS.normal",
+  double: "ARCHMAGE.CREATURESTRENGTHS.double-strength",
+  triple: "ARCHMAGE.CREATURESTRENGTHS.triple-strength",
+  weakling: "ARCHMAGE.CREATURESTRENGTHS.weakling",
+  elite: "ARCHMAGE.CREATURESTRENGTHS.elite"
 };
 
 ARCHMAGE.creatureRoles = {
-  'archer': 'ARCHMAGE.CREATUREROLES.archer',
-  'blocker': 'ARCHMAGE.CREATUREROLES.blocker',
-  'caster': 'ARCHMAGE.CREATUREROLES.caster',
-  'leader': 'ARCHMAGE.CREATUREROLES.leader',
-  'mook': 'ARCHMAGE.CREATUREROLES.mook',
-  'spoiler': 'ARCHMAGE.CREATUREROLES.spoiler',
-  'troop': 'ARCHMAGE.CREATUREROLES.troop',
-  'wrecker': 'ARCHMAGE.CREATUREROLES.wrecker'
+  archer: "ARCHMAGE.CREATUREROLES.archer",
+  blocker: "ARCHMAGE.CREATUREROLES.blocker",
+  caster: "ARCHMAGE.CREATUREROLES.caster",
+  leader: "ARCHMAGE.CREATUREROLES.leader",
+  mook: "ARCHMAGE.CREATUREROLES.mook",
+  spoiler: "ARCHMAGE.CREATUREROLES.spoiler",
+  troop: "ARCHMAGE.CREATUREROLES.troop",
+  wrecker: "ARCHMAGE.CREATUREROLES.wrecker"
 };
 
 ARCHMAGE.chakraSlots = {
-  'armor': 'ARCHMAGE.CHAKRA.armor',
-  'arrow': 'ARCHMAGE.CHAKRA.arrow',
-  'belt': 'ARCHMAGE.CHAKRA.belt',
-  'book': 'ARCHMAGE.CHAKRA.book',
-  'boots': 'ARCHMAGE.CHAKRA.boots',
-  'cloak': 'ARCHMAGE.CHAKRA.cloak',
-  'glove': 'ARCHMAGE.CHAKRA.glove',
-  'helmet': 'ARCHMAGE.CHAKRA.helmet',
-  'necklace': 'ARCHMAGE.CHAKRA.necklace',
-  'ring': 'ARCHMAGE.CHAKRA.ring',
-  'shield': 'ARCHMAGE.CHAKRA.shield',
-  'staff': 'ARCHMAGE.CHAKRA.staff',
-  'symbol': 'ARCHMAGE.CHAKRA.symbol',
-  'wand': 'ARCHMAGE.CHAKRA.wand',
-  'melee': 'ARCHMAGE.CHAKRA.melee',
-  'ranged': 'ARCHMAGE.CHAKRA.ranged',
-  'wondrous': 'ARCHMAGE.CHAKRA.wondrous',
+  armor: "ARCHMAGE.CHAKRA.armor",
+  arrow: "ARCHMAGE.CHAKRA.arrow",
+  belt: "ARCHMAGE.CHAKRA.belt",
+  book: "ARCHMAGE.CHAKRA.book",
+  boots: "ARCHMAGE.CHAKRA.boots",
+  cloak: "ARCHMAGE.CHAKRA.cloak",
+  glove: "ARCHMAGE.CHAKRA.glove",
+  helmet: "ARCHMAGE.CHAKRA.helmet",
+  necklace: "ARCHMAGE.CHAKRA.necklace",
+  ring: "ARCHMAGE.CHAKRA.ring",
+  shield: "ARCHMAGE.CHAKRA.shield",
+  staff: "ARCHMAGE.CHAKRA.staff",
+  symbol: "ARCHMAGE.CHAKRA.symbol",
+  wand: "ARCHMAGE.CHAKRA.wand",
+  melee: "ARCHMAGE.CHAKRA.melee",
+  ranged: "ARCHMAGE.CHAKRA.ranged",
+  wondrous: "ARCHMAGE.CHAKRA.wondrous"
 };
 
 ARCHMAGE.defaultTokens = {
-  'character': 'icons/svg/mystery-man.svg',
-  'npc': 'icons/svg/eye.svg',
-  'item': 'systems/archmage/assets/icons/items/backpack.jpg',
-  'power': 'systems/archmage/assets/icons/skills/weapon_27.jpg',
-  'trait': 'icons/svg/regen.svg',
-  'action': 'icons/svg/target.svg',
-  'nastierSpecial': 'icons/svg/poison.svg',
-  'tool': 'icons/svg/anchor.svg',
-  'loot': 'icons/svg/daze.svg',
-  'equipment': 'systems/archmage/assets/icons/items/inventory/backpack.jpg'
+  character: "icons/svg/mystery-man.svg",
+  npc: "icons/svg/eye.svg",
+  item: "systems/archmage/assets/icons/items/backpack.jpg",
+  power: "systems/archmage/assets/icons/skills/weapon_27.jpg",
+  trait: "icons/svg/regen.svg",
+  action: "icons/svg/target.svg",
+  nastierSpecial: "icons/svg/poison.svg",
+  tool: "icons/svg/anchor.svg",
+  loot: "icons/svg/daze.svg",
+  equipment: "systems/archmage/assets/icons/items/inventory/backpack.jpg"
 };
 
 ARCHMAGE.defaultMonsterTokens = {
-  'default': 'icons/svg/mystery-man.svg',
-  'default-toolkit': 'systems/archmage/assets/icons/tokens/monsters/token-neutral.webp',
-  'aberration': 'systems/archmage/assets/icons/tokens/monsters/aberration.webp',
-  'beast': 'systems/archmage/assets/icons/tokens/monsters/beast.webp',
-  'construct': 'systems/archmage/assets/icons/tokens/monsters/construct.webp',
-  'demon': 'systems/archmage/assets/icons/tokens/monsters/demon.webp',
-  'devil': 'systems/archmage/assets/icons/tokens/monsters/devil.webp',
-  'dragon': 'systems/archmage/assets/icons/tokens/monsters/dragon.webp',
-  'dragon-black': 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp',
-  'dragon-blue': 'systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp',
-  'dragon-brass': 'systems/archmage/assets/icons/tokens/monsters/dragon-brass.webp',
-  'dragon-bronze': 'systems/archmage/assets/icons/tokens/monsters/dragon-bronze.webp',
-  'dragon-copper': 'systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp',
-  'dragon-gold': 'systems/archmage/assets/icons/tokens/monsters/dragon-gold.webp',
-  'dragon-green': 'systems/archmage/assets/icons/tokens/monsters/dragon-green.webp',
-  'dragon-red': 'systems/archmage/assets/icons/tokens/monsters/dragon-red.webp',
-  'dragon-silver': 'systems/archmage/assets/icons/tokens/monsters/dragon-silver.webp',
-  'dragon-white': 'systems/archmage/assets/icons/tokens/monsters/dragon-white.webp',
-  'elemental': 'systems/archmage/assets/icons/tokens/monsters/elemental.webp',
-  'elemental-air': 'systems/archmage/assets/icons/tokens/monsters/elemental-air.webp',
-  'elemental-earth': 'systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp',
-  'elemental-fire': 'systems/archmage/assets/icons/tokens/monsters/elemental-fire.webp',
-  'elemental-water': 'systems/archmage/assets/icons/tokens/monsters/elemental-water.webp',
-  'giant': 'systems/archmage/assets/icons/tokens/monsters/giant.webp',
-  'humanoid': 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp',
-  'ooze': 'systems/archmage/assets/icons/tokens/monsters/ooze.webp',
-  'plant': 'systems/archmage/assets/icons/tokens/monsters/plant.webp',
-  'spirit': 'systems/archmage/assets/icons/tokens/monsters/spirit.webp',
-  'undead': 'systems/archmage/assets/icons/tokens/monsters/undead.webp',
+  default: "icons/svg/mystery-man.svg",
+  "default-toolkit": "systems/archmage/assets/icons/tokens/monsters/token-neutral.webp",
+  aberration: "systems/archmage/assets/icons/tokens/monsters/aberration.webp",
+  beast: "systems/archmage/assets/icons/tokens/monsters/beast.webp",
+  construct: "systems/archmage/assets/icons/tokens/monsters/construct.webp",
+  demon: "systems/archmage/assets/icons/tokens/monsters/demon.webp",
+  devil: "systems/archmage/assets/icons/tokens/monsters/devil.webp",
+  dragon: "systems/archmage/assets/icons/tokens/monsters/dragon.webp",
+  "dragon-black": "systems/archmage/assets/icons/tokens/monsters/dragon-black.webp",
+  "dragon-blue": "systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp",
+  "dragon-brass": "systems/archmage/assets/icons/tokens/monsters/dragon-brass.webp",
+  "dragon-bronze": "systems/archmage/assets/icons/tokens/monsters/dragon-bronze.webp",
+  "dragon-copper": "systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp",
+  "dragon-gold": "systems/archmage/assets/icons/tokens/monsters/dragon-gold.webp",
+  "dragon-green": "systems/archmage/assets/icons/tokens/monsters/dragon-green.webp",
+  "dragon-red": "systems/archmage/assets/icons/tokens/monsters/dragon-red.webp",
+  "dragon-silver": "systems/archmage/assets/icons/tokens/monsters/dragon-silver.webp",
+  "dragon-white": "systems/archmage/assets/icons/tokens/monsters/dragon-white.webp",
+  elemental: "systems/archmage/assets/icons/tokens/monsters/elemental.webp",
+  "elemental-air": "systems/archmage/assets/icons/tokens/monsters/elemental-air.webp",
+  "elemental-earth": "systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp",
+  "elemental-fire": "systems/archmage/assets/icons/tokens/monsters/elemental-fire.webp",
+  "elemental-water": "systems/archmage/assets/icons/tokens/monsters/elemental-water.webp",
+  giant: "systems/archmage/assets/icons/tokens/monsters/giant.webp",
+  humanoid: "systems/archmage/assets/icons/tokens/monsters/humanoid.webp",
+  ooze: "systems/archmage/assets/icons/tokens/monsters/ooze.webp",
+  plant: "systems/archmage/assets/icons/tokens/monsters/plant.webp",
+  spirit: "systems/archmage/assets/icons/tokens/monsters/spirit.webp",
+  undead: "systems/archmage/assets/icons/tokens/monsters/undead.webp"
 };
 
 ARCHMAGE.raceList = {
-  'aasimar': "ARCHMAGE.RACES.aasimar",
-  'darkelf': "ARCHMAGE.RACES.darkelf",
-  'demontouched': "ARCHMAGE.RACES.demontouched",
-  'dragonic': "ARCHMAGE.RACES.dragonic",
-  'dragonspawn': "ARCHMAGE.RACES.dragonspawn",
-  'drow': "ARCHMAGE.RACES.drow",
-  'dwarf': "ARCHMAGE.RACES.dwarf",
-  'dwarfforged': "ARCHMAGE.RACES.dwarfforged",
-  'forgeborn': "ARCHMAGE.RACES.forgeborn",
-  'gnome': "ARCHMAGE.RACES.gnome",
-  'halfelf': "ARCHMAGE.RACES.halfelf",
-  'halfling': "ARCHMAGE.RACES.halfling",
-  'halforc': "ARCHMAGE.RACES.halforc",
-  'highelf': "ARCHMAGE.RACES.highelf",
-  'holyone': "ARCHMAGE.RACES.holyone",
-  'human': "ARCHMAGE.RACES.human",
-  'tiefling': "ARCHMAGE.RACES.tiefling",
-  'trollkin': "ARCHMAGE.RACES.trollkin",
-  'silverelf': "ARCHMAGE.RACES.silverelf",
-  'woodelf': "ARCHMAGE.RACES.woodelf"
+  aasimar: "ARCHMAGE.RACES.aasimar",
+  darkelf: "ARCHMAGE.RACES.darkelf",
+  demontouched: "ARCHMAGE.RACES.demontouched",
+  dragonic: "ARCHMAGE.RACES.dragonic",
+  dragonspawn: "ARCHMAGE.RACES.dragonspawn",
+  drow: "ARCHMAGE.RACES.drow",
+  dwarf: "ARCHMAGE.RACES.dwarf",
+  dwarfforged: "ARCHMAGE.RACES.dwarfforged",
+  forgeborn: "ARCHMAGE.RACES.forgeborn",
+  gnome: "ARCHMAGE.RACES.gnome",
+  halfelf: "ARCHMAGE.RACES.halfelf",
+  halfling: "ARCHMAGE.RACES.halfling",
+  halforc: "ARCHMAGE.RACES.halforc",
+  highelf: "ARCHMAGE.RACES.highelf",
+  holyone: "ARCHMAGE.RACES.holyone",
+  human: "ARCHMAGE.RACES.human",
+  tiefling: "ARCHMAGE.RACES.tiefling",
+  trollkin: "ARCHMAGE.RACES.trollkin",
+  silverelf: "ARCHMAGE.RACES.silverelf",
+  woodelf: "ARCHMAGE.RACES.woodelf"
 };
 
 ARCHMAGE.classPacks = [
-  'classes',
-  'classes-kin-2e'
+  "classes",
+  "classes-kin-2e"
 ];
 
 ARCHMAGE.classList = {
-  'barbarian': 'ARCHMAGE.CLASSES.barbarian',
-  'bard': 'ARCHMAGE.CLASSES.bard',
-  'cleric': 'ARCHMAGE.CLASSES.cleric',
-  'fighter': 'ARCHMAGE.CLASSES.fighter',
-  'paladin': 'ARCHMAGE.CLASSES.paladin',
-  'ranger': 'ARCHMAGE.CLASSES.ranger',
-  'rogue': 'ARCHMAGE.CLASSES.rogue',
-  'sorcerer': 'ARCHMAGE.CLASSES.sorcerer',
-  'wizard': 'ARCHMAGE.CLASSES.wizard',
-  'chaosmage': 'ARCHMAGE.CLASSES.chaosmage',
-  'commander': 'ARCHMAGE.CLASSES.commander',
-  'druid': 'ARCHMAGE.CLASSES.druid',
-  'monk': 'ARCHMAGE.CLASSES.monk',
-  'necromancer': 'ARCHMAGE.CLASSES.necromancer',
-  'occultist': 'ARCHMAGE.CLASSES.occultist'
+  barbarian: "ARCHMAGE.CLASSES.barbarian",
+  bard: "ARCHMAGE.CLASSES.bard",
+  cleric: "ARCHMAGE.CLASSES.cleric",
+  fighter: "ARCHMAGE.CLASSES.fighter",
+  paladin: "ARCHMAGE.CLASSES.paladin",
+  ranger: "ARCHMAGE.CLASSES.ranger",
+  rogue: "ARCHMAGE.CLASSES.rogue",
+  sorcerer: "ARCHMAGE.CLASSES.sorcerer",
+  wizard: "ARCHMAGE.CLASSES.wizard",
+  chaosmage: "ARCHMAGE.CLASSES.chaosmage",
+  commander: "ARCHMAGE.CLASSES.commander",
+  druid: "ARCHMAGE.CLASSES.druid",
+  monk: "ARCHMAGE.CLASSES.monk",
+  necromancer: "ARCHMAGE.CLASSES.necromancer",
+  occultist: "ARCHMAGE.CLASSES.occultist"
 };
 
 ARCHMAGE.classes = {
@@ -978,15 +978,15 @@ ARCHMAGE.classes = {
 
 ARCHMAGE.classes2e = {
   barbarian: {
-    rec_die: 12,
+    rec_die: 12
   },
   bard: {
-    rec_die: 6,
+    rec_die: 6
   },
   chaosmage: {},
   cleric: {
     ac_hvy_pen: -2,
-    ac_lgt: 11,
+    ac_lgt: 11
   },
   commander: {},
   druid: {},
@@ -997,21 +997,21 @@ ARCHMAGE.classes2e = {
   paladin: {},
   ranger: {
     ac_lgt: 13,
-    rec_die: 6,
+    rec_die: 6
   },
   rogue: {},
   sorcerer: {
-    wpn_2h: 8,
+    wpn_2h: 8
   },
   wizard: {}
-}
+};
 
 ARCHMAGE.classResources = {
   // List custom resources to configure for classes that use them
   // Stored as an array of two-element arrays with label and reset
-  'chaosmage': [["CM Daily Spells", "full", 2, 2], ["CM Per-Battle Spells", "quick", 1, 1]],
-  'druid' : [["TC Daily Spells", "full", 1, 1]]
-}
+  chaosmage: [["CM Daily Spells", "full", 2, 2], ["CM Per-Battle Spells", "quick", 1, 1]],
+  druid: [["TC Daily Spells", "full", 1, 1]]
+};
 
 ARCHMAGE.classResources2e = {
   // List custom resources to configure for classes that use them - added if 2e enabled
@@ -1019,161 +1019,161 @@ ARCHMAGE.classResources2e = {
   // 'barbarian': [["Frenzy", "quickreset"]], // optional, manually setup via instructions
   // These were part of the 2e playtest but didn't make the cut
   // 'bard' : [["Combat Riffs", "quick", 2, 2], ["Healing Magics", "quick", 2, 2], ["Miss Me Effects", "quick", 2, 2]]
-}
+};
 
 ARCHMAGE.keyModifiers = {
   // Symmetrical dense matrix, store only lower triangle
   // Assumption: classes are stored in actors sorted in alphabetical order
-  'barbarian': {
-    'bard': ['str', 'cha'],
-    'chaosmage': ['str', 'cha'],
-    'cleric': ['str', 'wis'],
-    'commander': ['str', 'cha'],
-    'druid': ['str', 'wis'],
-    'fighter': ['str', 'con'],
-    'monk': ['str', 'dex'],
-    'necromancer': ['str', 'int'],
-    'occultist': ['str', 'int'],
-    'paladin': ['str', 'cha'],
-    'ranger': ['str', 'dex'],
-    'rogue': ['str', 'dex'],
-    'sorcerer': ['str', 'cha'],
-    'wizard': ['str', 'int'],
+  barbarian: {
+    bard: ["str", "cha"],
+    chaosmage: ["str", "cha"],
+    cleric: ["str", "wis"],
+    commander: ["str", "cha"],
+    druid: ["str", "wis"],
+    fighter: ["str", "con"],
+    monk: ["str", "dex"],
+    necromancer: ["str", "int"],
+    occultist: ["str", "int"],
+    paladin: ["str", "cha"],
+    ranger: ["str", "dex"],
+    rogue: ["str", "dex"],
+    sorcerer: ["str", "cha"],
+    wizard: ["str", "int"]
   },
-  'bard': {
-    'chaosmage': ['dex', 'cha'],
-    'cleric': ['wis', 'cha'],
-    'commander': ['str', 'cha'],
-    'druid': ['wis', 'cha'],
-    'fighter': ['str', 'cha'],
-    'monk': ['dex', 'cha'],
-    'necromancer': ['int', 'cha'],
-    'occultist': ['int', 'cha'],
-    'paladin': ['str', 'cha'],
-    'ranger': ['dex', 'cha'],
-    'rogue': ['dex', 'cha'],
-    'sorcerer': ['dex', 'cha'],
-    'wizard': ['int', 'cha'],
+  bard: {
+    chaosmage: ["dex", "cha"],
+    cleric: ["wis", "cha"],
+    commander: ["str", "cha"],
+    druid: ["wis", "cha"],
+    fighter: ["str", "cha"],
+    monk: ["dex", "cha"],
+    necromancer: ["int", "cha"],
+    occultist: ["int", "cha"],
+    paladin: ["str", "cha"],
+    ranger: ["dex", "cha"],
+    rogue: ["dex", "cha"],
+    sorcerer: ["dex", "cha"],
+    wizard: ["int", "cha"]
   },
-  'chaosmage': {
-    'cleric': ['wis', 'cha'],
-    'commander': ['str', 'cha'],
-    'druid': ['wis', 'cha'],
-    'fighter': ['str', 'cha'],
-    'monk': ['dex', 'cha'],
-    'necromancer': ['int', 'cha'],
-    'occultist': ['int', 'cha'],
-    'paladin': ['str', 'cha'],
-    'ranger': ['dex', 'cha'],
-    'rogue': ['dex', 'cha'],
-    'sorcerer': ['con', 'cha'],
-    'wizard': ['int', 'cha'],
+  chaosmage: {
+    cleric: ["wis", "cha"],
+    commander: ["str", "cha"],
+    druid: ["wis", "cha"],
+    fighter: ["str", "cha"],
+    monk: ["dex", "cha"],
+    necromancer: ["int", "cha"],
+    occultist: ["int", "cha"],
+    paladin: ["str", "cha"],
+    ranger: ["dex", "cha"],
+    rogue: ["dex", "cha"],
+    sorcerer: ["con", "cha"],
+    wizard: ["int", "cha"]
   },
-  'cleric': {
-    'commander': ['wis', 'cha'],
-    'druid': ['str', 'wis'],
-    'fighter': ['str', 'wis'],
-    'monk': ['dex', 'wis'],
-    'necromancer': ['int', 'wis'],
-    'occultist': ['int', 'wis'],
-    'paladin': ['str', 'wis'],
-    'ranger': ['str', 'wis'],
-    'rogue': ['dex', 'wis'],
-    'sorcerer': ['wis', 'cha'],
-    'wizard': ['int', 'wis'],
+  cleric: {
+    commander: ["wis", "cha"],
+    druid: ["str", "wis"],
+    fighter: ["str", "wis"],
+    monk: ["dex", "wis"],
+    necromancer: ["int", "wis"],
+    occultist: ["int", "wis"],
+    paladin: ["str", "wis"],
+    ranger: ["str", "wis"],
+    rogue: ["dex", "wis"],
+    sorcerer: ["wis", "cha"],
+    wizard: ["int", "wis"]
   },
-  'commander': {
-    'druid': ['wis', 'cha'],
-    'fighter': ['str', 'cha'],
-    'monk': ['str', 'dex'],
-    'necromancer': ['int', 'cha'],
-    'occultist': ['int', 'cha'],
-    'paladin': ['str', 'cha'],
-    'ranger': ['str', 'cha'],
-    'rogue': ['dex', 'cha'],
-    'sorcerer': ['str', 'cha'],
-    'wizard': ['int', 'cha'],
+  commander: {
+    druid: ["wis", "cha"],
+    fighter: ["str", "cha"],
+    monk: ["str", "dex"],
+    necromancer: ["int", "cha"],
+    occultist: ["int", "cha"],
+    paladin: ["str", "cha"],
+    ranger: ["str", "cha"],
+    rogue: ["dex", "cha"],
+    sorcerer: ["str", "cha"],
+    wizard: ["int", "cha"]
   },
-  'druid': {
-    'fighter': ['str', 'wis'],
-    'monk': ['dex', 'wis'],
-    'necromancer': ['int', 'wis'],
-    'occultist': ['int', 'wis'],
-    'paladin': ['str', 'wis'],
-    'ranger': ['dex', 'wis'],
-    'rogue': ['dex', 'wis'],
-    'sorcerer': ['wis', 'cha'],
-    'wizard': ['int', 'wis'],
+  druid: {
+    fighter: ["str", "wis"],
+    monk: ["dex", "wis"],
+    necromancer: ["int", "wis"],
+    occultist: ["int", "wis"],
+    paladin: ["str", "wis"],
+    ranger: ["dex", "wis"],
+    rogue: ["dex", "wis"],
+    sorcerer: ["wis", "cha"],
+    wizard: ["int", "wis"]
   },
-  'fighter': {
-    'monk': ['str', 'dex'],
-    'necromancer': ['str', 'int'],
-    'occultist': ['str', 'int'],
-    'paladin': ['str', 'cha'],
-    'ranger': ['str', 'dex'],
-    'rogue': ['str', 'dex'],
-    'sorcerer': ['str', 'cha'],
-    'wizard': ['str', 'int'],
+  fighter: {
+    monk: ["str", "dex"],
+    necromancer: ["str", "int"],
+    occultist: ["str", "int"],
+    paladin: ["str", "cha"],
+    ranger: ["str", "dex"],
+    rogue: ["str", "dex"],
+    sorcerer: ["str", "cha"],
+    wizard: ["str", "int"]
   },
-  'monk': {
-    'necromancer': ['dex', 'int'],
-    'occultist': ['dex', 'int'],
-    'paladin': ['str', 'dex'],
-    'ranger': ['str', 'dex'],
-    'rogue': ['str', 'dex'],
-    'sorcerer': ['dex', 'cha'],
-    'wizard': ['dex', 'int'],
+  monk: {
+    necromancer: ["dex", "int"],
+    occultist: ["dex", "int"],
+    paladin: ["str", "dex"],
+    ranger: ["str", "dex"],
+    rogue: ["str", "dex"],
+    sorcerer: ["dex", "cha"],
+    wizard: ["dex", "int"]
   },
-  'necromancer': {
-    'occultist': ['int', 'cha'],
-    'paladin': ['str', 'int'],
-    'ranger': ['dex', 'int'],
-    'rogue': ['dex', 'int'],
-    'sorcerer': ['int', 'cha'],
-    'wizard': ['int', 'cha'],
+  necromancer: {
+    occultist: ["int", "cha"],
+    paladin: ["str", "int"],
+    ranger: ["dex", "int"],
+    rogue: ["dex", "int"],
+    sorcerer: ["int", "cha"],
+    wizard: ["int", "cha"]
   },
-  'occultist': {
-    'paladin': ['str', 'int'],
-    'ranger': ['dex', 'int'],
-    'rogue': ['dex', 'int'],
-    'sorcerer': ['int', 'cha'],
-    'wizard': ['int', 'wis'],
+  occultist: {
+    paladin: ["str", "int"],
+    ranger: ["dex", "int"],
+    rogue: ["dex", "int"],
+    sorcerer: ["int", "cha"],
+    wizard: ["int", "wis"]
   },
-  'paladin': {
-    'ranger': ['str', 'dex'],
-    'rogue': ['str', 'dex'],
-    'sorcerer': ['str', 'cha'],
-    'wizard': ['str', 'int'],
+  paladin: {
+    ranger: ["str", "dex"],
+    rogue: ["str", "dex"],
+    sorcerer: ["str", "cha"],
+    wizard: ["str", "int"]
   },
-  'ranger': {
-    'rogue': ['str', 'dex'],
-    'sorcerer': ['dex', 'cha'],
-    'wizard': ['dex', 'int'],
+  ranger: {
+    rogue: ["str", "dex"],
+    sorcerer: ["dex", "cha"],
+    wizard: ["dex", "int"]
   },
-  'rogue': {
-    'sorcerer': ['dex', 'cha'],
-    'wizard': ['dex', 'int'],
+  rogue: {
+    sorcerer: ["dex", "cha"],
+    wizard: ["dex", "int"]
   },
-  'sorcerer': {
-    'wizard': ['int', 'cha'],
-  },
+  sorcerer: {
+    wizard: ["int", "cha"]
+  }
   // 'wizard': ,
 };
 
 // Explicit multipliers from 13TW
 ARCHMAGE.npcLevelupMultipliers = {
-  '1': 1.25,
-  '2': 1.6,
-  '3': 2.0,
-  '4': 2.5,
-  '5': 3.2,
-  '6': 4.0,
-  '-1': 1/1.25,
-  '-2': 1/1.6,
-  '-3': 1/2.0,
-  '-4': 1/2.5,
-  '-5': 1/3.2,
-  '-6': 1/4.0,
+  1: 1.25,
+  2: 1.6,
+  3: 2.0,
+  4: 2.5,
+  5: 3.2,
+  6: 4.0,
+  "-1": 1/1.25,
+  "-2": 1/1.6,
+  "-3": 1/2.0,
+  "-4": 1/2.5,
+  "-5": 1/3.2,
+  "-6": 1/4.0
 };
 
 // Colors used to display HP in token health bars
@@ -1190,9 +1190,9 @@ ARCHMAGE.REGEXP = {
   CONDITIONS: new Map(), // Actually populated in ready hook, after localization has been loaded
   FLEXIBLE_KINDS: {
     melee: /melee/i,
-    ranged: /ranged/i,
-  },
-}
+    ranged: /ranged/i
+  }
+};
 
 ARCHMAGE.baselineMonsterStats = {
   // arrays indexed by level, 0 to 14
@@ -1228,7 +1228,7 @@ ARCHMAGE.baselineMonsterStats = {
       hp: [60, 81, 108, 135, 162, 216, 270, 324, 432, 540, 648, 864, 1080, 1296, 1728]
     }
   }
-}
+};
 
 ARCHMAGE.baselineMonsterStats2e = {
   // arrays indexed by level, 0 to 14
@@ -1266,132 +1266,132 @@ ARCHMAGE.baselineMonsterStats2e = {
       hp: [75, 90, 120, 150, 180, 240, 300, 360, 480, 600, 720, 960, 1200, 1440, 1920]
     }
   }
-}
+};
 
 FLAGS.characterFlags = {
-  "overridePowerLevel": {
+  overridePowerLevel: {
     name: "ARCHMAGE.CHARACTERFLAGS.overridePowerLevelName",
     hint: "ARCHMAGE.CHARACTERFLAGS.overridePowerLevelHint",
     section: "Feats",
     type: Boolean
   },
-  "strongRecovery": {
+  strongRecovery: {
     name: "ARCHMAGE.CHARACTERFLAGS.strongRecoveryName",
     hint: "ARCHMAGE.CHARACTERFLAGS.strongRecoveryHint",
     section: "Feats",
     type: Boolean
   },
-  "initiativeAdv": {
+  initiativeAdv: {
     name: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvName",
     hint: "ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint",
     section: "Feats",
     type: Boolean
   },
-  "grimDetermination": {
+  grimDetermination: {
     name: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationName",
     hint: "ARCHMAGE.CHARACTERFLAGS.grimDeterminationHint",
     section: "Feats",
     type: Boolean
   },
-  "implacable": {
+  implacable: {
     name: "ARCHMAGE.CHARACTERFLAGS.implacableName",
     hint: "ARCHMAGE.CHARACTERFLAGS.implacableHint",
     section: "Feats",
     type: Boolean
   },
-  "dexToCha": {
+  dexToCha: {
     name: "ARCHMAGE.CHARACTERFLAGS.dexToChaName",
     hint: "ARCHMAGE.CHARACTERFLAGS.dexToChaHint",
     section: "Feats",
     type: Boolean
   },
-  "dexToInt": {
+  dexToInt: {
     name: "ARCHMAGE.CHARACTERFLAGS.dexToIntName",
     hint: "ARCHMAGE.CHARACTERFLAGS.dexToIntHint",
     section: "Feats",
     type: Boolean
   },
-  "averageRecoveries": {
+  averageRecoveries: {
     name: "ARCHMAGE.CHARACTERFLAGS.averageRecoveriesName",
     hint: "ARCHMAGE.CHARACTERFLAGS.averageRecoveriesHint",
     section: "Dice",
     type: Boolean
   },
-  "portraitRound": {
+  portraitRound: {
     name: "ARCHMAGE.CHARACTERFLAGS.portraitRoundName",
     hint: "ARCHMAGE.CHARACTERFLAGS.portraitRoundHint",
     section: "Sheet",
     type: Boolean
   },
-  "portraitFrame": {
+  portraitFrame: {
     name: "ARCHMAGE.CHARACTERFLAGS.portraitFrameName",
     hint: "ARCHMAGE.CHARACTERFLAGS.portraitFrameHint",
     section: "Sheet",
     type: Boolean
   },
-  "hideCurrency": {
+  hideCurrency: {
     name: "ARCHMAGE.CHARACTERFLAGS.hideCurrencyName",
     hint: "ARCHMAGE.CHARACTERFLAGS.hideCurrencyHint",
     section: "Sheet",
     type: Boolean
   },
-  "hideEmptyPowerGroups": {
+  hideEmptyPowerGroups: {
     name: "ARCHMAGE.CHARACTERFLAGS.hideEmptyPowerGroupsName",
     hint: "ARCHMAGE.CHARACTERFLAGS.hideEmptyPowerGroupsHint",
     section: "Sheet",
     type: Boolean
   },
-  "showTriggersTab": {
+  showTriggersTab: {
     name: "ARCHMAGE.CHARACTERFLAGS.showTriggersTabName",
     hint: "ARCHMAGE.CHARACTERFLAGS.showTriggersTabHint",
     section: "Sheet",
     type: Boolean
   },
-  "hideImportPowers": {
+  hideImportPowers: {
     name: "ARCHMAGE.CHARACTERFLAGS.hideImportPowersName",
     hint: "ARCHMAGE.CHARACTERFLAGS.hideImportPowersHint",
     section: "Sheet",
     type: Boolean
   },
-  "hideIncrementals": {
+  hideIncrementals: {
     name: "ARCHMAGE.CHARACTERFLAGS.hideIncrementalsName",
     hint: "ARCHMAGE.CHARACTERFLAGS.hideIncrementalsHint",
     section: "Sheet",
     type: Boolean
   },
-  "hideOneUniqueThing": {
+  hideOneUniqueThing: {
     name: "ARCHMAGE.CHARACTERFLAGS.hideOneUniqueThingName",
     hint: "ARCHMAGE.CHARACTERFLAGS.hideOneUniqueThingHint",
     section: "Sheet",
     type: Boolean
   },
-  "hideSettingsTab": {
+  hideSettingsTab: {
     name: "ARCHMAGE.CHARACTERFLAGS.hideSettingsTabName",
     hint: "ARCHMAGE.CHARACTERFLAGS.hideSettingsTabHint",
     section: "Sheet",
     type: Boolean
   },
-  "diceFormulaMode": {
+  diceFormulaMode: {
     name: "ARCHMAGE.CHARACTERFLAGS.diceFormulaModeName",
     hint: "ARCHMAGE.CHARACTERFLAGS.diceFormulaModeHint",
     section: "Sheet",
     type: String,
     options: {
-      'short': 'ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptshort',
-      'long': 'ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptlong',
-      'numeric': 'ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptnumeric'
+      short: "ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptshort",
+      long: "ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptlong",
+      numeric: "ARCHMAGE.CHARACTERFLAGS.diceFormulaModeOptnumeric"
     }
   }
 };
 
 FLAGS.npcFlags = {
-  "portraitRound": {
+  portraitRound: {
     name: "ARCHMAGE.CHARACTERFLAGS.portraitRoundName",
     hint: "ARCHMAGE.CHARACTERFLAGS.portraitRoundHint",
     section: "Sheet",
     type: Boolean
   },
-  "portraitFrame": {
+  portraitFrame: {
     name: "ARCHMAGE.CHARACTERFLAGS.portraitFrameName",
     hint: "ARCHMAGE.CHARACTERFLAGS.portraitFrameHint",
     section: "Sheet",

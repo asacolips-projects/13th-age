@@ -23,11 +23,11 @@ export default class NaturalRangeTrigger extends ITrigger {
     }
 
     _range(label) {
-        const match = label.match(ITrigger.naturalRegex('\\s*(\\d+)\\s*[-\u2013]\\s*(\\d+)'));
+        const match = label.match(ITrigger.naturalRegex("\\s*(\\d+)\\s*[-\u2013]\\s*(\\d+)"));
         if (!match) return undefined;
         const from = parseInt(match[1]);
         const to = parseInt(match[2]);
         if (from > to) return undefined;
-        return {from, to};
+        return { from, to };
     }
 }

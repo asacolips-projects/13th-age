@@ -8,11 +8,11 @@ const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
 
 export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
   vueParts = {
-    'archmage-equipment-sheet-vue': {
+    "archmage-equipment-sheet-vue": {
       component: ArchmageEquipmentSheetVue,
       template: `<archmage-equipment-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-equipment-sheet-vue>`
     }
-  }
+  };
 
   constructor(options = {}) {
     super(options);
@@ -23,7 +23,7 @@ export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItem
     classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
     position: {
       width: 950,
-      height: 650,
+      height: 650
     },
     window: {
       resizable: true,
@@ -42,10 +42,10 @@ export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItem
         }
       ]
     },
-    tag: 'form',
+    tag: "form",
     form: {
       submitOnChange: true,
-      submitOnClose: true,
+      submitOnClose: true
     },
     // Custom property that's merged into `this.options`
     dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
@@ -83,31 +83,31 @@ export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItem
       tabs: {
         primary: {
           details: {
-            key: 'details',
-            label: game.i18n.localize('ARCHMAGE.details'),
-            active: true,
+            key: "details",
+            label: game.i18n.localize("ARCHMAGE.details"),
+            active: true
           },
           bonuses: {
-            key: 'bonuses',
-            label: game.i18n.localize('ARCHMAGE.bonuses'),
-            active: false,
+            key: "bonuses",
+            label: game.i18n.localize("ARCHMAGE.bonuses"),
+            active: false
           },
           effects: {
-            key: 'effects',
-            label: game.i18n.localize('ARCHMAGE.effects'),
-            active: false,
+            key: "effects",
+            label: game.i18n.localize("ARCHMAGE.effects"),
+            active: false
           },
           children: {
-            key: 'children',
-            label: game.i18n.localize('ARCHMAGE.ITEM.children'),
-            active: false,
+            key: "children",
+            label: game.i18n.localize("ARCHMAGE.ITEM.children"),
+            active: false
           }
-        },
+        }
       },
       // Items added and removed along with this one.
       children: await this._prepareChildren(),
       // Force re-renders. Defined in the vue mixin.
-      _renderKey: this._renderKey ?? 0,
+      _renderKey: this._renderKey ?? 0
       // @todo add this after switching to DataModel
       // fields: this.document.schema.fields,
       // systemFields: this.document.system.schema.fields
@@ -127,21 +127,20 @@ export class ArchmageEquipmentSheetV2 extends VueRenderingMixin(ArchmageBaseItem
       toggled: true,
       collaborate: true,
       documentUUID: this.document.uuid,
-      height: 300,
+      height: 300
     };
 
     // Enrich the description.
     context.editors = {
-      'system.description.value': {
-        enriched: await wrapRolls(this.item.system.description.value ?? '', [], 'short', {}, 'description', enrichmentOptions),
+      "system.description.value": {
+        enriched: await wrapRolls(this.item.system.description.value ?? "", [], "short", {}, "description", enrichmentOptions),
         element: foundry.applications.elements.HTMLProseMirrorElement.create({
           ...editorOptions,
-          name: 'system.description.value',
-          value: context.system.description?.value ?? '',
-        }),
-      },
+          name: "system.description.value",
+          value: context.system.description?.value ?? ""
+        })
+      }
     };
-
 
     // Make another pass through the editors to fix the element contents.
     for (let [field, editor] of Object.entries(context.editors)) {

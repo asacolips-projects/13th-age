@@ -1,12 +1,12 @@
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
-import { compileAssets, compileImages, compileSvg } from './assets.mjs';
-import { copyFiles } from './copy.mjs';
-import { cleanPacks, compilePacks, extractPacks } from './packs.mjs';
-import { compileScss } from './scss.mjs';
-import { copyVueDependencies } from './vue-deps.mjs';
-import { compileYaml } from './yaml.mjs';
-import { log, runParallel } from './utils.mjs';
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+import { compileAssets, compileImages, compileSvg } from "./assets.mjs";
+import { copyFiles } from "./copy.mjs";
+import { cleanPacks, compilePacks, extractPacks } from "./packs.mjs";
+import { compileScss } from "./scss.mjs";
+import { copyVueDependencies } from "./vue-deps.mjs";
+import { compileYaml } from "./yaml.mjs";
+import { log, runParallel } from "./utils.mjs";
 
 const TASKS = {
   css: () => compileScss(),
@@ -16,26 +16,35 @@ const TASKS = {
   assets: () => compileAssets(),
   files: (options) => copyFiles(options),
   copy: (options) => copyFiles(options),
-  'vue-deps': () => copyVueDependencies(),
+  "vue-deps": () => copyVueDependencies(),
   cleanPacks: () => cleanPacks(),
   compilePacks: async () => {
     await cleanPacks();
     await compilePacks();
   },
-  extractPacks: () => extractPacks(),
+  extractPacks: () => extractPacks()
 };
 
+/**
+ *
+ * @param argv
+ */
 function parseArgs(argv) {
   const options = { prod: false, task: null };
 
   for (const arg of argv) {
-    if (arg.startsWith('--task=')) options.task = arg.slice('--task='.length);
-    if (arg === '--prod') options.prod = true;
+    if (arg.startsWith("--task=")) options.task = arg.slice("--task=".length);
+    if (arg === "--prod") options.prod = true;
   }
 
   return options;
 }
 
+/**
+ *
+ * @param taskName
+ * @param options
+ */
 export async function runTask(taskName, options = {}) {
   const task = TASKS[taskName];
   if (!task) {
@@ -45,15 +54,26 @@ export async function runTask(taskName, options = {}) {
   await task(options);
 }
 
+/**
+ *
+ * @param root0
+ * @param root0.prod
+ */
 export async function runDevTasks({ prod = false } = {}) {
   await runParallel([
     () => compileScss(),
     () => compileYaml(),
     () => compileAssets(),
-    () => copyFiles({ prod }),
+    () => copyFiles({ prod })
   ]);
 }
 
+/**
+ *
+ * @param root0
+ * @param root0.prod
+ * @param root0.packs
+ */
 export async function runBuildTasks({ prod = false, packs = false } = {}) {
   if (packs) {
     await cleanPacks();
@@ -65,7 +85,7 @@ export async function runBuildTasks({ prod = false, packs = false } = {}) {
     () => compileScss(),
     () => compileYaml(),
     () => compileAssets(),
-    () => copyFiles({ prod }),
+    () => copyFiles({ prod })
   ];
 
   if (packs) {
@@ -75,17 +95,21 @@ export async function runBuildTasks({ prod = false, packs = false } = {}) {
   await runParallel(tasks);
 }
 
+/**
+ *
+ */
 async function main() {
   const options = parseArgs(process.argv.slice(2));
 
   if (!options.task) {
-    console.error('Usage: node scripts/build/index.mjs --task=<name> [--prod]');
+    console.error("Usage: node scripts/build/index.mjs --task=<name> [--prod]");
     process.exit(1);
   }
 
   try {
     await runTask(options.task, options);
-  } catch (error) {
+  }
+ catch(error) {
     log(options.task, error.message);
     process.exit(1);
   }

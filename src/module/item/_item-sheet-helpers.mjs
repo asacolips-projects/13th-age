@@ -3,75 +3,84 @@
 
 /* ---------------------------------------------------- */
 
-export async function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null, field = null, enrichmentOptions = {}) {
+/**
+ *
+ * @param text
+ * @param replacements
+ * @param diceFormulaMode
+ * @param rollData
+ * @param field
+ * @param enrichmentOptions
+ */
+export async function wrapRolls(text, replacements = [], diceFormulaMode = "short", rollData = null, field = null, enrichmentOptions = {}) {
   // Unproxy the roll data object.
   rollData = rollData ? JSON.parse(JSON.stringify(rollData)) : {};
 
   // Fallback.
-  if (!diceFormulaMode) diceFormulaMode = 'short';
+  if (!diceFormulaMode) diceFormulaMode = "short";
 
   // Build a map of string replacements.
   let replaceMap = replacements.concat([
     // Put these at the top for higher replacement priority
-    ['[[/r', '<span class="expression">'],
-    ['(@lvl)d(@wpn.m.dieNum-2)', '(WPN-2)'],
-    ['(@lvl)d(@wpn.r.dieNum-2)', '(WPN-2)'],
+    ["[[/r", '<span class="expression">'],
+    ["(@lvl)d(@wpn.m.dieNum-2)", "(WPN-2)"],
+    ["(@lvl)d(@wpn.r.dieNum-2)", "(WPN-2)"],
     // Common replacements
-    ['[[', '<span class="expression">'],
-    [']]', '</span>'],
-    ['@ed', 'ED'],
-    ['@lvl', 'LVL'],
-    ['@std', 'LVL+ED'], //STD
-    ['@tier', 'TIER'],
-    ['@str.mod', 'STR'],
-    ['@str.dmg', 'STR×TIER'],
-    ['@con.mod', 'CON'],
-    ['@con.dmg', 'CON×TIER'],
-    ['@dex.mod', 'DEX'],
-    ['@dex.dmg', 'DEX×TIER'],
-    ['@int.mod', 'INT'],
-    ['@int.dmg', 'INT×TIER'],
-    ['@wis.mod', 'WIS'],
-    ['@wis.dmg', 'WIS×TIER'],
-    ['@cha.mod', 'CHA'],
-    ['@cha.dmg', 'CHA×TIER'],
-    ['@atk.mod', 'ATK'],
-    ['@wpn.m.dice', 'WPN'],
-    ['@wpn.r.dice', 'WPN'],
-    ['@wpn.j.dice', 'JAB'],
-    ['@wpn.p.dice', 'PUNCH'],
-    ['@wpn.k.dice', 'KICK'],
-    ['@atk.m.bonus', 'ITM'], //ITM_MLE
-    ['@atk.r.bonus', 'ITM'], //ITM_RNG
-    ['@atk.a.bonus', 'ITM'], //ITM_ARC
-    ['@atk.d.bonus', 'ITM'], //ITM_DIV
-    ['@animalCompanion.atk', 'Animal Atk'],
-    ['@animalCompanion.dmg', 'Animal Dmg'],
+    ["[[", '<span class="expression">'],
+    ["]]", "</span>"],
+    ["@ed", "ED"],
+    ["@lvl", "LVL"],
+    ["@std", "LVL+ED"], // STD
+    ["@tier", "TIER"],
+    ["@str.mod", "STR"],
+    ["@str.dmg", "STR×TIER"],
+    ["@con.mod", "CON"],
+    ["@con.dmg", "CON×TIER"],
+    ["@dex.mod", "DEX"],
+    ["@dex.dmg", "DEX×TIER"],
+    ["@int.mod", "INT"],
+    ["@int.dmg", "INT×TIER"],
+    ["@wis.mod", "WIS"],
+    ["@wis.dmg", "WIS×TIER"],
+    ["@cha.mod", "CHA"],
+    ["@cha.dmg", "CHA×TIER"],
+    ["@atk.mod", "ATK"],
+    ["@wpn.m.dice", "WPN"],
+    ["@wpn.r.dice", "WPN"],
+    ["@wpn.j.dice", "JAB"],
+    ["@wpn.p.dice", "PUNCH"],
+    ["@wpn.k.dice", "KICK"],
+    ["@atk.m.bonus", "ITM"], // ITM_MLE
+    ["@atk.r.bonus", "ITM"], // ITM_RNG
+    ["@atk.a.bonus", "ITM"], // ITM_ARC
+    ["@atk.d.bonus", "ITM"], // ITM_DIV
+    ["@animalCompanion.atk", "Animal Atk"],
+    ["@animalCompanion.dmg", "Animal Dmg"],
     // Do this last to remove stray multiplication symbols
-    ['*', '×']
+    ["*", "×"]
   ]);
 
   // Remove whitespace from inline rolls.
-  let clean = text ? text?.toString() ?? '' : '';  // cast to string, could be e.g. number
+  let clean = text ? text?.toString() ?? "" : "";  // cast to string, could be e.g. number
 
-  clean = replaceEffectAndConditionReferences(clean)
+  clean = replaceEffectAndConditionReferences(clean);
   clean = replaceActiveEffectLinkReferences(clean);
 
   // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
-  if (diceFormulaMode == 'short') {
+  if (diceFormulaMode == "short") {
     // Remove additional whitespace.
     clean.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
-      clean = clean.replace(match, match.replaceAll(' ', ''));
+      clean = clean.replace(match, match.replaceAll(" ", ""));
     });
     // Iterate over all of our potential replacements and replace them if
     // they're present.
     for (let [needle, replacement] of replaceMap) {
       clean = clean.replaceAll(needle, replacement);
-    };
+    }
   }
   // Handle replacements for the 'long' syntax, which is the original inline
   // roll. Ex: [[@wpn.m.dice+@dex+@lvl]]
-  else if (diceFormulaMode == 'long') {
+  else if (diceFormulaMode == "long") {
     // Run a regex over all inline rolls.
     clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
       return `<span class="expression">[${p2}]</span>`;
@@ -80,11 +89,11 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   // Handle replacements for the 'numeric' syntax, which replacements all
   // numeric and static terms and condenses them into as few numbers as
   // possible. Ex: 5d8+9
-  else if (diceFormulaMode == 'numeric') {
+  else if (diceFormulaMode == "numeric") {
     // Run a regex over all inline rolls.
     clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
       // Get the roll formula. If this is an attack, append the attack mod.
-      let rollFormula = field == 'attack' && p2.includes('d20') ? `${p2} + @atk.mod` : p2;
+      let rollFormula = field == "attack" && p2.includes("d20") ? `${p2} + @atk.mod` : p2;
       // Create the roll and evaluate it.
       let roll = null;
       try {
@@ -92,9 +101,10 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
         // @todo this sort of works in v12? It's aysnc, which should be problematic
         // in this context.
         roll.evaluate();
-      } catch (error) {
+      }
+ catch(error) {
         roll = null;
-        if (rollFormula.startsWith('/')) {
+        if (rollFormula.startsWith("/")) {
           rollFormula = `[[${rollFormula}]]`;
           console.log(`Skipping numeric roll replacement for ${rollFormula}`);
         }
@@ -118,12 +128,20 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   return parseMarkdown(clean);
 }
 
+/**
+ *
+ * @param text
+ */
 export function replaceEffectAndConditionReferences(text) {
-  let conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
-  const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.name)));
+  let conditions = CONFIG.ARCHMAGE.statusEffects.filter((x) => x.journal);
+  const conditionNames = new Set(conditions.map((x) => game.i18n.localize(x.name)));
 
+  /**
+   *
+   * @param name
+   */
   function generateConditionLink(name) {
-      const condition = conditions.find(x => game.i18n.localize(x.name) === name);
+      const condition = conditions.find((x) => game.i18n.localize(x.name) === name);
       return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="">
               <img class="effects-icon" src="${condition.img}" />
               ${name}</a>`;
@@ -138,6 +156,10 @@ export function replaceEffectAndConditionReferences(text) {
   return text;
 }
 
+/**
+ *
+ * @param text
+ */
 export function replaceActiveEffectLinkReferences(text) {
   return text.replaceAll(/@UUID\[(.*ActiveEffect.*)\]({.*})*/g, (all, uuid, name) => {
     const effect = fromUuidSync(uuid);
@@ -153,8 +175,8 @@ export function replaceActiveEffectLinkReferences(text) {
 /**
  * Condense numeric and operator terms into a single numeric term.
  *
- * @param {array} terms Array of roll term objects.
- * @returns {array}
+ * @param {Array} terms Array of roll term objects.
+ * @returns {Array}
  */
 export function termCondenser(terms) {
   const last = terms.length - 1;
@@ -170,12 +192,13 @@ export function termCondenser(terms) {
   let r = null;
   try {
     r = Roll.fromTerms(terms);
-  } catch (error) {
+  }
+ catch(error) {
     console.warn(error);
     return false;
   }
   // Create a new term from the total.
-  let t = new foundry.dice.terms.NumericTerm({number: r.total}).toJSON();
+  let t = new foundry.dice.terms.NumericTerm({ number: r.total }).toJSON();
   t.evaluated = true;
   // Return the new NumericTerm instance.
   return foundry.dice.terms.NumericTerm.fromJSON(JSON.stringify(t));
@@ -199,31 +222,31 @@ export function rollCondenser(roll) {
   let previousTermType = null;
 
   // Iterate over the original terms.
-  originalTerms.forEach(term => {
+  originalTerms.forEach((term) => {
     // Force the terms to be considered evaluated.
     term.evaluated = true;
     term._evaluated = true;
     // Check to see what kind of term this is.
     switch (term.constructor.name) {
       // If this is a numeric term, push it to our temporary nestedTerms array.
-      case 'NumericTerm':
+      case "NumericTerm":
         nestedTerms.push(term);
         break;
 
       // If this is an operator term, also push it to the temporary nestedTerms
       // array (but skip in certain cases).
-      case 'OperatorTerm':
+      case "OperatorTerm":
         // If this is the first operator, store that for later when we build
         // our final terms array. Don't store it if it's a double operator and
         // negative (usually means something like d12 + -2).
         // @todo this isn't quite functional yet. Doesn't work well with d12 - d8 + d6 + -3.
-        if (previousTermType !== 'OperatorTerm') {
+        if (previousTermType !== "OperatorTerm") {
           operator = term;
         }
         // If this is the first term and is multiplication or division, don't
         // include it in our array since we can't condense it.
         if (nestedTerms.length < 1) {
-          if (['*', '/'].includes(term.operator)) {
+          if (["*", "/"].includes(term.operator)) {
             break;
           }
         }
@@ -236,7 +259,7 @@ export function rollCondenser(roll) {
         // If our nestedTerms array has been modified, append it.
         if (nestedTerms.length > 0) {
           // If there's an operator, we neeed to append it first.
-          if ((operator) && (nestedTerms.length > 1 || nestedTerms[0].constructor.name !== 'OperatorTerm')) {
+          if ((operator) && (nestedTerms.length > 1 || nestedTerms[0].constructor.name !== "OperatorTerm")) {
             newTerms.push(operator);
           }
           // Condense the nestedTerms array into a single numeric term and
@@ -248,10 +271,10 @@ export function rollCondenser(roll) {
         // we previously appended a non-operator.
         if (newTerms.length > 0 && !newTerms[newTerms.length - 1]?.operator) {
           operator = foundry.dice.terms.OperatorTerm.fromJSON(JSON.stringify({
-            class: 'OperatorTerm',
+            class: "OperatorTerm",
             evaluated: true,
             _evaluated: true,
-            operator: '+'
+            operator: "+"
           }));
           newTerms.push(operator);
         }
@@ -284,7 +307,8 @@ export function rollCondenser(roll) {
   let newRoll = false;
   try {
     newRoll = Roll.fromTerms(newTerms);
-  } catch (error) {
+  }
+ catch(error) {
     // Return the unmodified roll if there's an error.
     console.warn(error);
     return roll;

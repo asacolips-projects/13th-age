@@ -1,4 +1,4 @@
-import {FeatureTour} from "./feature-tour.mjs";
+import { FeatureTour } from "./feature-tour.mjs";
 
 export class OneDotNineTour extends FeatureTour {
     constructor() {
@@ -16,50 +16,50 @@ export class OneDotNineTour extends FeatureTour {
               content: "ARCHMAGE.TOURS.190.aip"
             },
             {
-              selector: '.fa-users',
+              selector: ".fa-users",
               content: "ARCHMAGE.TOURS.190.baseStats",
-              position: 'bottom'
+              position: "bottom"
             },
             {
-              selector: '.fa-atlas',
+              selector: ".fa-atlas",
               content: "ARCHMAGE.TOURS.190.necromancer",
-              position: 'bottom'
+              position: "bottom"
             },
             {
-              selector: '.fa-atlas',
+              selector: ".fa-atlas",
               content: "ARCHMAGE.TOURS.190.inlineRoll",
-              position: 'bottom'
+              position: "bottom"
             },
             {
-              selector: '.fa-cogs',
+              selector: ".fa-cogs",
               content: "ARCHMAGE.TOURS.190.colorblind",
-              position: 'bottom'
+              position: "bottom"
             },
             {
-              selector: '#archmage-reference-btn',
+              selector: "#archmage-reference-btn",
               content: "ARCHMAGE.TOURS.190.inlineRollDocs",
-              position: 'bottom'
+              position: "bottom"
             },
             {
-              selector: '#archmage-help-btn',
+              selector: "#archmage-help-btn",
               content: "ARCHMAGE.TOURS.190.systemDocs",
-              position: 'bottom'
+              position: "bottom"
             },
             {
-              selector: '.fa-comments',
+              selector: ".fa-comments",
               content: "ARCHMAGE.TOURS.190.chatCards",
-              position: 'bottom'
+              position: "bottom"
             },
             {
               content: "ARCHMAGE.TOURS.190.end"
-            },
+            }
           ]
         });
     }
 
     async _preStep() {
       await super._preStep();
-      if ( this.currentStep?.selector?.includes(".fa") ) {
+      if (this.currentStep?.selector?.includes(".fa")) {
         $(this.currentStep.selector).click();
       }
     }

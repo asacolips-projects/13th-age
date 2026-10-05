@@ -1,37 +1,69 @@
+/**
+ *
+ * @param property
+ * @param defaultValue
+ */
 export function getSafeValue(property, defaultValue) {
   if (property) return property.value;
   return defaultValue;
 }
 
+/**
+ *
+ * @param key
+ * @param data
+ */
 export function localize(key, data = null) {
   return data ? game.i18n.format(key, data) : game.i18n.localize(key);
 }
 
+/**
+ *
+ * @param bonusProp
+ */
 export function localizeEquipmentBonus(bonusProp) {
   return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
 }
 
+/**
+ *
+ * @param {...any} keys
+ */
 export function tooltip(...keys) {
   return game.archmage.ArchmageUtility.tooltip(...keys);
 }
 
+/**
+ *
+ * @param string
+ */
 export function cssClass(string) {
   return encodeURIComponent(
     string.trim().toLowerCase()
-  ).replace(/%[0-9A-F]{2}/gi, '-');
+  ).replace(/%[0-9A-F]{2}/gi, "-");
 }
 
+/**
+ *
+ * @param value
+ * @param dec
+ * @param sign
+ */
 export function numberFormat(value, dec = 0, sign = false) {
   const parsedValue = parseFloat(value).toFixed(dec);
-  if (isNaN(parsedValue)) return value
-  if (sign ) return ( parsedValue >= 0 ) ? `+${parsedValue}` : parsedValue;
+  if (isNaN(parsedValue)) return value;
+  if (sign) return (parsedValue >= 0) ? `+${parsedValue}` : parsedValue;
   return parsedValue;
 }
 
+/**
+ *
+ * @param {...any} args
+ */
 export function concat(...args) {
   return args.reduce((acc, cur) => {
     return acc + cur;
-  }, '');
+  }, "");
 }
 
 /**
@@ -44,7 +76,7 @@ export function concat(...args) {
 export function hasFeats(power) {
   if (!power?.system?.feats) return false;
   return Object.values(power.system.feats)
-    .some(feat => feat.description.value || feat.isActive.value);
+    .some((feat) => feat.description.value || feat.isActive.value);
 }
 
 /**
@@ -77,10 +109,10 @@ export function equipmentBonuses(equipment) {
   const bonuses = {};
   for (let [prop, value] of Object.entries(equipment?.system?.attributes ?? {})) {
     if (value.bonus) {
-      if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengageInit';
+      if (prop == "disengage" && game.settings.get("archmage", "secondEdition")) prop = "disengageInit";
       bonuses[prop] = value.bonus;
     }
-    else if (prop == 'attack') {
+    else if (prop == "attack") {
       for (const [atkProp, atkValue] of Object.entries(value)) {
         if (atkValue.bonus) bonuses[atkProp] = atkValue.bonus;
       }
@@ -98,7 +130,7 @@ export function equipmentBonuses(equipment) {
  */
 export function getActionShort(actionType) {
   return CONFIG.ARCHMAGE.actionTypesShort[actionType]
-    ?? CONFIG.ARCHMAGE.actionTypesShort['standard'];
+    ?? CONFIG.ARCHMAGE.actionTypesShort.standard;
 }
 
 // Power usage colouring lives with the item code, so the actor sheets, the chat
@@ -108,15 +140,19 @@ export function getActionShort(actionType) {
 export {
   hasSecondaryUsage,
   powerAvailabilityClass,
-  powerUsageClass,
-} from '@src/module/item/power-usage.mjs';
+  powerUsageClass
+} from "@src/module/item/power-usage.mjs";
 
 // The inline-roll formatting used across every power renderer lives with the
 // item sheet helpers, so the sheets, the chat cards and the compendium browser
 // all format formulas the same way. Re-exported here because Vue components
 // import their helpers from this module.
-export { wrapRolls } from '@src/module/item/_item-sheet-helpers.mjs';
+export { wrapRolls } from "@src/module/item/_item-sheet-helpers.mjs";
 
+/**
+ *
+ * @param actorData
+ */
 export async function getActor(actorData) {
   // If no drag data is available, we can't retrieve the actor.
   if (!actorData?.dragData?.uuid) return false;
@@ -136,7 +172,7 @@ export async function getActor(actorData) {
  */
 export function getActorModuleArt(actor) {
   // UUID doesn't exactly match the format used in the map currently.
-  const actorMapId = actor.uuid.replace('.Actor', '');
+  const actorMapId = actor.uuid.replace(".Actor", "");
   // Retrieve the art from the map, or fallback to the actor image.
   const art = game.archmage.system.moduleArt.map.get(actorMapId);
   return art?.actor ?? actor.img;
@@ -153,11 +189,11 @@ export async function getPackIndex(packNames = [], fields = []) {
   if (!packNames) return;
   if (!fields || fields.length < 1) return;
 
-  const promises = packNames.map(async packName => {
+  const promises = packNames.map(async (packName) => {
     const pack = game.packs.get(packName);
     if (!pack) return [];
     const index = await pack.getIndex({ fields: fields });
-    return index.contents.map(x => ({ ...x, compendiumTitle: pack.title }));
+    return index.contents.map((x) => ({ ...x, compendiumTitle: pack.title }));
   });
   const results = await Promise.all(promises);
 
@@ -174,11 +210,12 @@ export async function getPackIndex(packNames = [], fields = []) {
  * @param {string} uuid Document UUID to open.
  * @param {string} type Document type to open. Defaults to 'Actor'.
  */
-export function openDocument(uuid, type = 'Actor') {
+export function openDocument(uuid, type = "Actor") {
   getDocumentClass(type).fromDropData({
     type: type,
     uuid: uuid
-  }).then(document => {
+  })
+.then((document) => {
     if (document?.sheet) {
       document.sheet.render(true);
     }
@@ -192,10 +229,11 @@ export function openDocument(uuid, type = 'Actor') {
  * Starts a drag event and provides document drop data.
  *
  * @param {Event} event Drag event.
- * @param {Object} entry Pack index entry object.
+ * @param {object} entry Pack index entry object.
+ * @param type
  */
-export function startDrag(event, entry, type = 'Actor') {
-  event.dataTransfer.setData('text/plain', JSON.stringify({
+export function startDrag(event, entry, type = "Actor") {
+  event.dataTransfer.setData("text/plain", JSON.stringify({
     type: type,
     uuid: entry.uuid
   }));

@@ -61,9 +61,9 @@ export default class ITrigger {
      * @returns {boolean}
      */
     static mentions(label, word, suffixes = []) {
-        const tail = suffixes.length > 0 ? `(?:${suffixes.join('|')})?` : '';
+        const tail = suffixes.length > 0 ? `(?:${suffixes.join("|")})?` : "";
         const regex = new RegExp(
-            `${ITrigger.NOT_ALPHANUM_BEFORE}${ITrigger._escape(word)}${tail}${ITrigger.NOT_ALPHANUM_AFTER}`, 'u');
+            `${ITrigger.NOT_ALPHANUM_BEFORE}${ITrigger._escape(word)}${tail}${ITrigger.NOT_ALPHANUM_AFTER}`, "u");
         return regex.test(label);
     }
 
@@ -75,7 +75,7 @@ export default class ITrigger {
      */
     static naturalRegex(pattern) {
         const natural = ITrigger._escape(ITrigger.word("natural"));
-        return new RegExp(`${ITrigger.NOT_ALPHANUM_BEFORE}${natural}${pattern}`, 'u');
+        return new RegExp(`${ITrigger.NOT_ALPHANUM_BEFORE}${natural}${pattern}`, "u");
     }
 
     /**
@@ -85,9 +85,9 @@ export default class ITrigger {
      */
     static disjunctions() {
         return ITrigger.word("disjunctions").split(",")
-            .map(word => word.trim())
-            .filter(word => word)
-            .map(word => ITrigger._escape(word))
+            .map((word) => word.trim())
+            .filter((word) => word)
+            .map((word) => ITrigger._escape(word))
             .join("|");
     }
 
@@ -102,11 +102,15 @@ export default class ITrigger {
         return new RegExp(`${ITrigger.NOT_ALPHANUM_BEFORE}${escalation}[^\\d.;]*?(\\d+)\\s*\\+`, flags);
     }
 
-    static get NOT_ALPHANUM_BEFORE() { return '(?<![\\p{L}\\p{N}])'; }
+    static get NOT_ALPHANUM_BEFORE() {
+ return "(?<![\\p{L}\\p{N}])";
+}
 
-    static get NOT_ALPHANUM_AFTER() { return '(?![\\p{L}\\p{N}])'; }
+    static get NOT_ALPHANUM_AFTER() {
+ return "(?![\\p{L}\\p{N}])";
+}
 
     static _escape(text) {
-        return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     }
 }
