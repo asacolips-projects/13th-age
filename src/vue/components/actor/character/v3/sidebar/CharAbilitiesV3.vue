@@ -64,14 +64,14 @@ function rollAbility(key) {
 }
 
 .ability-edit {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3rem;
   align-items: center;
   gap: 0.25rem;
 
   input[type='number'] {
-    flex: 1 1 auto;
-    min-width: 0;
     width: 100%;
+    min-width: 0;
     padding: 0 0.25rem;
     text-align: center;
   }
