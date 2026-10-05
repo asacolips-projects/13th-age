@@ -431,12 +431,15 @@ ARCHMAGE:
     groups:
       adjustments: Adjustments
       defenses: Defenses & Health
+      dice: Dice
+      feats: Miscellaneous
       flags: Character Flags
       hooks: Lifecycle Hooks
       modifiers: Modifiers
       resourcesCustom: Custom Resources
-      resourcesPerCombat: Per-Combat Resources
+      resourcesPerCombat: Class Resources
       resourcesSpendable: Spendable Resources
+      sheet: Sheet Options
       stances: Stances
       weaponDice: Weapon Dice
   CHARACTERSHEETV3:

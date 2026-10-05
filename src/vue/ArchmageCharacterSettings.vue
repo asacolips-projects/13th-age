@@ -1,7 +1,7 @@
 <template>
   <div class="archmage-appv2-vue flexcol">
     <!-- Tab links -->
-    <Tabs :tabs="tabs.primary" no-span="true"/>
+    <Tabs :tabs="tabs.primary" no-span="true" style="margin-bottom: 1rem;"/>
 
     <!-- Core: base stats, adjustments, modifiers -->
     <Tab group="primary" :tab="tabs.primary.core">
@@ -202,7 +202,7 @@
     <!-- Flags: one group box per flag section -->
     <Tab group="primary" :tab="tabs.primary.flags">
       <fieldset v-for="(groupFlags, section) in flagGroups" :key="section">
-        <legend>{{ section }}</legend>
+        <legend>{{ sectionLegend(section) }}</legend>
         <div v-for="flag in groupFlags" :key="flag.key" class="form-group" :data-key="flag.key">
           <div class="flexcol">
             <label>{{ localize(flag.name) }}</label>
@@ -221,6 +221,21 @@
     <!-- Resources -->
     <Tab group="primary" :tab="tabs.primary.resources">
       <fieldset>
+        <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesPerCombat') }}</legend>
+        <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="form-group" :data-key="r">
+          <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
+          <div class="field">
+            <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled" />
+          </div>
+        </div>
+        <div v-for="(resource, r) in resourcesSpendable" :key="r" class="form-group" :data-key="r">
+          <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
+          <div class="field">
+            <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled" />
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
         <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesCustom') }}</legend>
         <div v-for="(resource, r) in resourcesCustom" :key="r" class="form-group" :data-key="r">
           <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
@@ -235,21 +250,6 @@
               </option>
             </select>
           </p>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.resourcesPerCombat') }}</legend>
-        <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="form-group" :data-key="r">
-          <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
-          <div class="field">
-            <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled" />
-          </div>
-        </div>
-        <div v-for="(resource, r) in resourcesSpendable" :key="r" class="form-group" :data-key="r">
-          <label>{{ localize(`ARCHMAGE.CHARACTER.RESOURCES.${r}`) }}</label>
-          <div class="field">
-            <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled" />
-          </div>
         </div>
       </fieldset>
     </Tab>
@@ -323,6 +323,8 @@
   // offers "show full artwork" instead.
   const hiddenFlags = ['hideSettingsTab', 'showTriggersTab', 'portraitRound', 'portraitFrame'];
 
+  const sectionOrder = ['Dice', 'Sheet', 'Feats'];
+
   const flagGroups = computed(() => {
     const groups = {};
     for (const flag of Object.values(flagState)) {
@@ -330,8 +332,20 @@
       const section = flag.section ?? '';
       (groups[section] ??= []).push(flag);
     }
-    return groups;
+    const rank = section => {
+      const index = sectionOrder.indexOf(section);
+      return index === -1 ? sectionOrder.length : index;
+    };
+    return Object.fromEntries(
+      Object.entries(groups).sort((a, b) => rank(a[0]) - rank(b[0]))
+    );
   });
+
+  function sectionLegend(section) {
+    if (!section) return '';
+    const key = concat('ARCHMAGE.CHARACTERSETTINGS.groups.', section.toLowerCase());
+    return game.i18n.has(key) ? localize(key) : section;
+  }
 
   const abilities = ['str', 'con', 'dex', 'int', 'wis', 'cha'].map(ability => ({
     value: ability,
