@@ -4,7 +4,7 @@
          filled pips consumed, hollow pips free, squared pips past the
          allowance. Tracks with no allowance and nothing consumed don't show. -->
     <section v-for="section in sections" :key="section.key" class="loadout-section">
-      <h4 class="loadout-section-title unit-title">
+      <h4 class="loadout-section-title unit-title" :class="{ 'config-open': openConfig === section.key }">
         <span class="section-label">{{ localize(section.labelKey) }}</span>
         <!-- Edit mode only: per-section tracker config, persisted to the
              sheetDisplay.loadout flags, tucked behind a cog. The popover's
@@ -445,6 +445,14 @@ const sections = computed(() => {
     // The label takes the rest of the row, pushing the pip tracks to the end.
     .section-label {
       flex: 1;
+    }
+
+    // While a section's config popover is open, lift this header above its
+    // sibling headers: the sticky positioning makes each header its own
+    // stacking context, so the popover's z-index can't reach past it, and
+    // the next section's header would otherwise paint over the popover.
+    &.config-open {
+      z-index: 30;
     }
   }
 

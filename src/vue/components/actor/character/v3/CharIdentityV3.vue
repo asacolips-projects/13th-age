@@ -355,6 +355,7 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
       display: block;
       width: 100%;
       margin-bottom: 0.5rem;
+      background: var(--v3-surface);
       font-family: var(--v3-font-display);
       font-weight: normal;
     }
