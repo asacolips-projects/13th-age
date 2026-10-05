@@ -253,6 +253,44 @@ module.exports = {
 			env: {
 				node: true
 			}
+		},
+		{
+			files: ["*.vue"],
+			parser: "vue-eslint-parser",
+			parserOptions: {
+				parser: "@babel/eslint-parser"
+			},
+			extends: ["plugin:vue/vue3-recommended"],
+			rules: {
+				// The core indent rule doesn't understand SFCs; use the Vue equivalents.
+				indent: "off",
+				"vue/script-indent": ["warn", "tab", { switchCase: 1 }],
+				"vue/html-indent": ["warn", "tab"],
+				"vue/no-mutating-props": "off",
+				// Foundry content is enriched HTML that has to be rendered with v-html.
+				"vue/no-v-html": "off",
+				// Renaming components would ripple through every template that uses them.
+				"vue/multi-word-component-names": "off",
+				"vue/no-reserved-component-names": "off",
+				// Keep short elements and tags on one line.
+				"vue/singleline-html-element-content-newline": "off",
+				"vue/max-attributes-per-line": ["warn", { singleline: { max: 4 }, multiline: { max: 1 } }],
+				"max-len": "off",
+				"vue/max-len": [
+					"warn",
+					{
+						code: 120,
+						ignoreComments: true,
+						ignoreTrailingComments: true,
+						ignoreUrls: true,
+						ignoreStrings: true,
+						ignoreTemplateLiterals: true,
+						ignoreRegExpLiterals: true,
+						ignoreHTMLAttributeValues: true,
+						ignoreHTMLTextContents: true
+					}
+				]
+			}
 		}
 	],
 

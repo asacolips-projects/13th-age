@@ -19,7 +19,7 @@
          -o-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
   }
-  
+
   .introjs-fixParent {
     /* z-index: auto !important; */
     opacity: 1.0 !important;
@@ -29,13 +29,13 @@
          -o-transform: none !important;
             transform: none !important;
   }
-  
+
   .introjs-showElement,
   tr.introjs-showElement > td,
   tr.introjs-showElement > th {
     z-index: 9999999 !important;
   }
-  
+
   .introjs-disableInteraction {
     z-index: 99999999 !important;
     position: absolute;
@@ -43,13 +43,13 @@
     opacity: 0;
     filter: alpha(opacity=0);
   }
-  
+
   .introjs-relativePosition,
   tr.introjs-showElement > td,
   tr.introjs-showElement > th {
     position: relative;
   }
-  
+
   .introjs-helperLayer {
     box-sizing: content-box;
     position: absolute;
@@ -66,7 +66,7 @@
          -o-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
   }
-  
+
   .introjs-tooltipReferenceLayer {
     box-sizing: content-box;
     position: absolute;
@@ -79,7 +79,7 @@
          -o-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
   }
-  
+
   .introjs-helperLayer *,
   .introjs-helperLayer *:before,
   .introjs-helperLayer *:after {
@@ -89,7 +89,7 @@
          -o-box-sizing: content-box;
             box-sizing: content-box;
   }
-  
+
   .introjs-helperNumberLayer {
     box-sizing: content-box;
     position: absolute;
@@ -120,7 +120,7 @@
     filter: "progid:DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color=ff0000)"; /* IE10 text shadows */
     box-shadow: 0 2px 5px rgba(0,0,0,.4);
   }
-  
+
   .introjs-arrow {
     border: 5px solid transparent;
     content:'';
@@ -176,7 +176,7 @@
     bottom:10px;
     border-right-color:white;
   }
-  
+
   .introjs-tooltip {
     box-sizing: content-box;
     position: absolute;
@@ -193,12 +193,12 @@
          -o-transition: opacity 0.1s ease-out;
             transition: opacity 0.1s ease-out;
   }
-  
+
   .introjs-tooltipbuttons {
     text-align: right;
     white-space: nowrap;
   }
-  
+
   /*
    Buttons style by http://nicolasgallagher.com/lab/css3-github-buttons/
    Changed by Afshin Mehrabani
@@ -235,13 +235,13 @@
     *display: inline;
     margin-top: 10px;
   }
-  
+
   .introjs-button:hover {
     border-color: #bcbcbc;
     text-decoration: none;
     box-shadow: 0px 1px 1px #e3e3e3;
   }
-  
+
   .introjs-button:focus,
   .introjs-button:active {
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ececec), to(#f4f4f4));
@@ -249,45 +249,45 @@
     background-image: -o-linear-gradient(#ececec, #f4f4f4);
     background-image: linear-gradient(#ececec, #f4f4f4);
   }
-  
+
   /* overrides extra padding on button elements in Firefox */
   .introjs-button::-moz-focus-inner {
     padding: 0;
     border: 0;
   }
-  
+
   .introjs-skipbutton {
     box-sizing: content-box;
     margin-right: 5px;
     color: #7a7a7a;
   }
-  
+
   .introjs-prevbutton {
     -webkit-border-radius: 0.2em 0 0 0.2em;
     -moz-border-radius: 0.2em 0 0 0.2em;
     border-radius: 0.2em 0 0 0.2em;
     border-right: none;
   }
-  
+
   .introjs-prevbutton.introjs-fullbutton {
     border: 1px solid #d4d4d4;
     -webkit-border-radius: 0.2em;
     -moz-border-radius: 0.2em;
     border-radius: 0.2em;
   }
-  
+
   .introjs-nextbutton {
     -webkit-border-radius: 0 0.2em 0.2em 0;
     -moz-border-radius: 0 0.2em 0.2em 0;
     border-radius: 0 0.2em 0.2em 0;
   }
-  
+
   .introjs-nextbutton.introjs-fullbutton {
     -webkit-border-radius: 0.2em;
     -moz-border-radius: 0.2em;
     border-radius: 0.2em;
   }
-  
+
   .introjs-disabled, .introjs-disabled:hover, .introjs-disabled:focus {
     color: #9a9a9a;
     border-color: #d4d4d4;
@@ -297,11 +297,11 @@
     background-image: none;
     text-decoration: none;
   }
-  
+
   .introjs-hidden {
        display: none;
   }
-  
+
   .introjs-bullets {
     text-align: center;
   }
@@ -336,7 +336,7 @@
   .introjs-bullets ul li a.active {
     background: #999;
   }
-  
+
   .introjs-progress {
     box-sizing: content-box;
     overflow: hidden;
@@ -355,7 +355,7 @@
     text-align: center;
     background-color: #08c;
   }
-  
+
   .introjsFloatingElement {
     position: absolute;
     height: 0;
@@ -363,11 +363,11 @@
     left: 50%;
     top: 50%;
   }
-  
+
   .introjs-fixedTooltip {
     position: fixed;
   }
-  
+
   .introjs-hint {
     box-sizing: content-box;
     position: absolute;
@@ -383,15 +383,15 @@
   .introjs-hidehint {
     display: none;
   }
-  
+
   .introjs-fixedhint {
     position: fixed;
   }
-  
+
   .introjs-hint:hover > .introjs-hint-pulse {
     border: 5px solid rgba(60, 60, 60, 0.57);
   }
-  
+
   .introjs-hint-pulse {
     box-sizing: content-box;
     width: 10px;
@@ -435,7 +435,7 @@
     z-index: 1;
     opacity: 0;
   }
-  
+
   @-webkit-keyframes introjspulse {
       0% {
           -webkit-transform: scale(0);
@@ -458,7 +458,7 @@
           opacity: 0.0;
       }
   }
-  
+
   @-moz-keyframes introjspulse {
       0% {
           -moz-transform: scale(0);
@@ -481,7 +481,7 @@
           opacity: 0.0;
       }
   }
-  
+
   @keyframes introjspulse {
       0% {
           transform: scale(0);
@@ -504,4 +504,3 @@
           opacity: 0.0;
       }
   }
-  

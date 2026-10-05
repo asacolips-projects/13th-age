@@ -1,75 +1,73 @@
 <template>
-  <!-- Usage: -->
-  <!--
+	<!-- Usage: -->
+	<!--
     <ToggleInput>
       <template v-slot:edit><input type="text" name="foobar" v-model="foobar"></template>
       <template v-slot:display>{{foobar}}</template>
     </ToggleInput>
    -->
-  <div class="edit-wrapper">
-    <div :class="'input-edit' + (active ? ' active' : '')" @click="toggleEdit" :ref="'toggle-input'">
-      <slot name="edit"></slot>
-    </div>
-    <div class="input-display" @click="toggleEdit">
-      <slot name="display"></slot>
-    </div>
-    <a :class="'input-edit-toggle fas ' + (active ? 'fa-check' : 'fa-edit')" @click="toggleExternal" @focus="toggleEdit" tabindex="0"></a>
-  </div>
+	<div class="edit-wrapper">
+		<div :ref="'toggle-input'" :class="'input-edit' + (active ? ' active' : '')" @click="toggleEdit">
+			<slot name="edit" />
+		</div>
+		<div class="input-display" @click="toggleEdit">
+			<slot name="display" />
+		</div>
+		<a :class="'input-edit-toggle fas ' + (active ? 'fa-check' : 'fa-edit')" tabindex="0" @click="toggleExternal" @focus="toggleEdit" />
+	</div>
 </template>
 
 <script>
-import Input from '@/components/parts/Input.vue';
 export default {
-  name: 'ToggleInput',
-  props: ['closeInputs'],
-  components: { Input },
-  data() {
-    return {
-      active: false
-    }
-  },
-  computed: {},
-  methods: {
-    toggleEdit(event) {
-      // Determine if this is an input or not.
-      const isInput = ['INPUT','SELECT','OPTION'].includes(event.target.tagName);
+	name: "ToggleInput",
+	props: ["closeInputs"],
+	data() {
+		return {
+			active: false
+		};
+	},
+	computed: {},
+	watch: {
+		closeInputs: {
+			handler() {
+				this.watchForToggle();
+			}
+		}
+	},
+	methods: {
+		toggleEdit(event) {
+			// Determine if this is an input or not.
+			const isInput = ["INPUT", "SELECT", "OPTION"].includes(event.target.tagName);
 
-      // Toggle the state if this isn't an input, otherwise persist it.
-      this.active = !isInput ? !this.active : this.active;
+			// Toggle the state if this isn't an input, otherwise persist it.
+			this.active = !isInput ? !this.active : this.active;
 
-      // If we're active, select the first input.
-      if (this.active && !isInput) {
-        const $parent = $(event.target).parents('.edit-wrapper');
-        const $el = $parent.find('input,select').first()
-        if ($el.length > 0) {
-          setTimeout(() => {
-            $el.focus().trigger('select');
-          }, 100);
-        }
-      }
+			// If we're active, select the first input.
+			if (this.active && !isInput) {
+				const $parent = $(event.target).parents(".edit-wrapper");
+				const $el = $parent.find("input,select").first();
+				if ($el.length > 0) {
+					setTimeout(() => {
+						$el.focus().trigger("select");
+					}, 100);
+				}
+			}
 
-      // If we're no longer active, blur the toggle.
-      if (!this.active) {
-        if (event.target.classList.contains('input-edit-toggle')) {
-          event.target.blur();
-        }
-      }
-    },
-    // Method used to toggle the state when triggered by an external update.
-    watchForToggle() {
-      if (this.active && this.closeInputs) {
-        this.active = false;
-      }
-    }
-  },
-  watch: {
-    'closeInputs': {
-      handler() {
-        this.watchForToggle();
-      }
-    },
-  },
-}
+			// If we're no longer active, blur the toggle.
+			if (!this.active) {
+				if (event.target.classList.contains("input-edit-toggle")) {
+					event.target.blur();
+				}
+			}
+		},
+		// Method used to toggle the state when triggered by an external update.
+		watchForToggle() {
+			if (this.active && this.closeInputs) {
+				this.active = false;
+			}
+		}
+	}
+};
 </script>
 
 <style lang="scss">
