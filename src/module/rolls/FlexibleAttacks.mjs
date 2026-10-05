@@ -7,7 +7,8 @@ import Triggers from "../Triggers/Triggers.mjs";
  * Each maneuver is added as a card row labelled with its trigger ("Natural even hit: Me Smash!") and marked
  * active, unknown or inactive with the same trigger evaluation as the rest of the card (Triggers, which
  * DamageApplicator.rerollDice also runs again on these rows). Inactive rows are hidden by CSS unless
- * "show all" is clicked. Clicking a row rolls that power from the actor.
+ * "show all" is clicked. A maneuver with no uses left is always inactive. Clicking a row rolls that
+ * power from the actor.
  */
 export default class FlexibleAttacks {
 
@@ -75,7 +76,10 @@ export default class FlexibleAttacks {
       const pools = item.usagePools();
       const spent = pools.length > 0 && pools.every((pool) => pool.usage !== "at-will" && pool.uses <= 0);
       const note = spent ? ` <em>(${esc(game.i18n.localize("ARCHMAGE.CHAT.flexibleAttackNoUses"))})</em>` : "";
-      return `<div class="card-prop flexible-attack-row">${label}`
+      // A maneuver with no uses left does not apply, whatever the roll: trigger-fixed keeps
+      // DamageApplicator.rerollDice from evaluating it again.
+      const classes = spent ? "flexible-attack-row trigger-inactive trigger-fixed" : "flexible-attack-row";
+      return `<div class="card-prop ${classes}">${label}`
         + `<a class="flexible-attack-use" data-item-id="${esc(item.id)}"><img src="${esc(item.img)}" width="18" height="18"/> ${esc(item.name)}</a>${note}</div>`;
     });
     const heading = `<strong>${esc(game.i18n.localize("ARCHMAGE.CHAT.flexibleAttackHeading"))}</strong> `
@@ -84,7 +88,7 @@ export default class FlexibleAttacks {
 
     // The card was evaluated before these rows existed: mark them as preCreateChatMessageHandler.handle would.
     const triggers = new Triggers();
-    $group.find(".flexible-attack-row").each((i, row) => {
+    $group.find(".flexible-attack-row:not(.trigger-fixed)").each((i, row) => {
       const $row = $(row);
       const rowLabel = Triggers.labelOf($row);
       if (!triggers.isTriggerRow(rowLabel)) return;
