@@ -367,7 +367,8 @@
   }
 
   const resourcesCustom = computed(() => filterResources(actor.value.system.resources.spendable, key => key.includes('custom')));
-  const resourcesPerCombat = computed(() => filterResources(actor.value.system.resources.perCombat, () => true));
+  // Combat Rhythm - TODO: deprecated, remove at some future point far from end of 2e playtest
+  const resourcesPerCombat = computed(() => filterResources(actor.value.system.resources.perCombat, key => key !== 'rhythm'));
   const resourcesSpendable = computed(() => filterResources(actor.value.system.resources.spendable, key => !key.includes('custom') && !key.includes('reroll')));
 
   function isOverridden(path) {
