@@ -4,7 +4,7 @@
     <div class="ability-grid">
       <template v-for="(ability, key) in abilities" :key="`ability-${key}`">
         <button v-if="!editing" class="ability-button" type="button" @click="rollAbility(key)"
-          :data-tooltip="`${ability.value} / ${formatBonus(ability.mod)}`">
+          :data-tooltip="abilityTooltip(ability)">
           <span class="ability-abbr">{{ abilityAbbr(ability.label) }}</span>
           <span class="ability-bonus">{{ formatBonus(ability.lvl) }}</span>
         </button>
@@ -35,6 +35,13 @@ const abilities = computed(() => props.actor?.system?.abilities ?? {});
 
 function formatBonus(bonus) {
   return bonus >= 0 ? `+${bonus}` : `${bonus}`;
+}
+function abilityTooltip(ability) {
+  return game.i18n.format('ARCHMAGE.TOOLTIP.pcAbilityStats', {
+    score: ability?.value ?? '–',
+    mod: formatBonus(ability?.mod ?? 0),
+    lvl: formatBonus(ability?.lvl ?? 0)
+  });
 }
 function abilityAbbr(label) {
   return String(label ?? '').slice(0, 3).toUpperCase();

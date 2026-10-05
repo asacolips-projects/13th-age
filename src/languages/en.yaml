@@ -1143,6 +1143,8 @@ ARCHMAGE:
     portrait: Portrait image.<br>Click to edit (may need permissions).
     pcAbility: |
       Ability Scores (or <b>Abilities</b>) are distributed during character creation to fit the character you want to portray and can be increased upon reaching certain levels. The <b>Modifier</b> (or <b>Mod</b>) is derived from this value. The character level acts as a bonus.
+    pcAbilityStats: |
+      Ability score: {score}<br>Modifier: {mod}<br>Mod + Level: {lvl}
     pcAbilitySuffix: |
       Click to roll a <b>Skill Check</b> based on this ability. You can optionally apply a <b>Background</b> and <b>Situational Bonus</b> in the roll dialog.
     pcAbilitystr: |
