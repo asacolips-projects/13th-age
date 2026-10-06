@@ -17,11 +17,11 @@
     "files": "node scripts/build/index.mjs --task=files",
     "compilePacks": "node scripts/build/index.mjs --task=compilePacks",
     "extractPacks": "node scripts/build/index.mjs --task=extractPacks",
-    "lint": "eslint --ext .js,.cjs,.mjs .",
-    "lint:fix": "eslint --ext .js,.cjs,.mjs --fix .",
-    "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs .",
-    "lint:errors": "eslint --quiet --ext .js,.cjs,.mjs .",
-    "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs --fix ."
+    "lint": "eslint --ext .js,.cjs,.mjs,.vue .",
+    "lint:fix": "eslint --ext .js,.cjs,.mjs,.vue --fix .",
+    "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs,.vue .",
+    "lint:errors": "eslint --quiet --ext .js,.cjs,.mjs,.vue .",
+    "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs,.vue --fix ."
   },
   "browserslist": [
     "> 1%",

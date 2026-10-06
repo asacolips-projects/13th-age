@@ -1,36 +1,36 @@
 <template>
-  <div class="editor-wrapper">
-    <div class="editor">
-      <a class="editor-edit" v-if="canEdit"><i class="fas fa-edit"></i></a>
-      <div class="editor-content" :data-edit="target" v-html="editor"></div>
-    </div>
-  </div>
+	<div class="editor-wrapper">
+		<div class="editor">
+			<a v-if="canEdit" class="editor-edit"><i class="fas fa-edit" /></a>
+			<div class="editor-content" :data-edit="target" v-html="editor" />
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
-  name: 'Editor',
-  props: ['owner', 'target', 'content', 'button', 'editable', 'documents', 'links', 'rolls', 'rollData'],
-  async setup(props) {
-    const button = Boolean(props.button);
-    const editable = Boolean(props.editable);
-    const canEdit = (button && editable);
-    const editor = await foundry.applications.ux.TextEditor.implementation.enrichHTML(props.content || '', {
-      secrets: props.owner,
-      documents: props.documents ?? true,
-      links: props.links ?? true,
-      rolls: props.rolls ?? true,
-      rollData: props.rollData ?? {},
-      async: false
-    });
-    return {
-      canEdit,
-      editor
-    };
-  },
-  computed: {},
-  methods: {},
-}
+	name: "Editor",
+	props: ["owner", "target", "content", "button", "editable", "documents", "links", "rolls", "rollData"],
+	async setup(props) {
+		const button = Boolean(props.button);
+		const editable = Boolean(props.editable);
+		const canEdit = (button && editable);
+		const editor = await foundry.applications.ux.TextEditor.implementation.enrichHTML(props.content || "", {
+			secrets: props.owner,
+			documents: props.documents ?? true,
+			links: props.links ?? true,
+			rolls: props.rolls ?? true,
+			rollData: props.rollData ?? {},
+			async: false
+		});
+		return {
+			canEdit,
+			editor
+		};
+	},
+	computed: {},
+	methods: {}
+};
 </script>
 
 <style lang="scss">

@@ -1,37 +1,83 @@
+/**
+ * Get a property's value, or a default if the property is missing.
+ *
+ * @param {object} property Property object with a `value` key.
+ * @param {*} defaultValue Value to return if the property is missing.
+ * @returns {*}
+ */
 export function getSafeValue(property, defaultValue) {
-  if (property) return property.value;
-  return defaultValue;
+	if (property) return property.value;
+	return defaultValue;
 }
 
+/**
+ * Localize a string, formatting it with data if given.
+ *
+ * @param {string} key Localization key.
+ * @param {object|null} data Format data for game.i18n.format().
+ * @returns {string}
+ */
 export function localize(key, data = null) {
-  return data ? game.i18n.format(key, data) : game.i18n.localize(key);
+	return data ? game.i18n.format(key, data) : game.i18n.localize(key);
 }
 
+/**
+ * Localize an equipment bonus property name.
+ *
+ * @param {string} bonusProp Bonus property, such as 'ac'.
+ * @returns {string}
+ */
 export function localizeEquipmentBonus(bonusProp) {
-  return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
+	return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
 }
 
+/**
+ * Build tooltip HTML from one or more localization keys; see ArchmageUtility.tooltip().
+ *
+ * @param {...any} keys
+ * @returns {string|undefined}
+ */
 export function tooltip(...keys) {
-  return game.archmage.ArchmageUtility.tooltip(...keys);
+	return game.archmage.ArchmageUtility.tooltip(...keys);
 }
 
+/**
+ * Convert a string to a lowercase CSS class name, replacing special characters with dashes.
+ *
+ * @param {string} string String to convert.
+ * @returns {string}
+ */
 export function cssClass(string) {
-  return encodeURIComponent(
-    string.trim().toLowerCase()
-  ).replace(/%[0-9A-F]{2}/gi, '-');
+	return encodeURIComponent(
+		string.trim().toLowerCase()
+	).replace(/%[0-9A-F]{2}/gi, "-");
 }
 
+/**
+ * Format a number with a fixed number of decimals and an optional sign.
+ *
+ * @param {number|string} value Value to format.
+ * @param {number} dec Number of decimals.
+ * @param {boolean} sign Whether to prefix positive values with '+'.
+ * @returns {string|*} The formatted number, or the original value if it isn't numeric.
+ */
 export function numberFormat(value, dec = 0, sign = false) {
-  const parsedValue = parseFloat(value).toFixed(dec);
-  if (isNaN(parsedValue)) return value
-  if (sign ) return ( parsedValue >= 0 ) ? `+${parsedValue}` : parsedValue;
-  return parsedValue;
+	const parsedValue = parseFloat(value).toFixed(dec);
+	if (isNaN(parsedValue)) return value;
+	if (sign) return (parsedValue >= 0) ? `+${parsedValue}` : parsedValue;
+	return parsedValue;
 }
 
+/**
+ * Concatenate all arguments into a string.
+ *
+ * @param {...any} args
+ * @returns {string}
+ */
 export function concat(...args) {
-  return args.reduce((acc, cur) => {
-    return acc + cur;
-  }, '');
+	return args.reduce((acc, cur) => {
+		return acc + cur;
+	}, "");
 }
 
 /**
@@ -42,9 +88,9 @@ export function concat(...args) {
  * @returns {boolean}
  */
 export function hasFeats(power) {
-  if (!power?.system?.feats) return false;
-  return Object.values(power.system.feats)
-    .some(feat => feat.description.value || feat.isActive.value);
+	if (!power?.system?.feats) return false;
+	return Object.values(power.system.feats)
+		.some((feat) => feat.description.value || feat.isActive.value);
 }
 
 /**
@@ -55,10 +101,10 @@ export function hasFeats(power) {
  * @returns {object} The same shape, minus the empty entries.
  */
 export function filterFeats(feats) {
-  if (!feats) return {};
-  return Object.fromEntries(
-    Object.entries(feats).filter(([, feat]) => feat.description.value)
-  );
+	if (!feats) return {};
+	return Object.fromEntries(
+		Object.entries(feats).filter(([, feat]) => feat.description.value)
+	);
 }
 
 /**
@@ -74,19 +120,19 @@ export function filterFeats(feats) {
  * @returns {object} Keyed bonus values, e.g. {ac: 1, disengageInit: 2}.
  */
 export function equipmentBonuses(equipment) {
-  const bonuses = {};
-  for (let [prop, value] of Object.entries(equipment?.system?.attributes ?? {})) {
-    if (value.bonus) {
-      if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengageInit';
-      bonuses[prop] = value.bonus;
-    }
-    else if (prop == 'attack') {
-      for (const [atkProp, atkValue] of Object.entries(value)) {
-        if (atkValue.bonus) bonuses[atkProp] = atkValue.bonus;
-      }
-    }
-  }
-  return bonuses;
+	const bonuses = {};
+	for (let [prop, value] of Object.entries(equipment?.system?.attributes ?? {})) {
+		if (value.bonus) {
+			if (prop == "disengage" && game.settings.get("archmage", "secondEdition")) prop = "disengageInit";
+			bonuses[prop] = value.bonus;
+		}
+		else if (prop == "attack") {
+			for (const [atkProp, atkValue] of Object.entries(value)) {
+				if (atkValue.bonus) bonuses[atkProp] = atkValue.bonus;
+			}
+		}
+	}
+	return bonuses;
 }
 
 /**
@@ -97,8 +143,8 @@ export function equipmentBonuses(equipment) {
  * @returns {string}
  */
 export function getActionShort(actionType) {
-  return CONFIG.ARCHMAGE.actionTypesShort[actionType]
-    ?? CONFIG.ARCHMAGE.actionTypesShort['standard'];
+	return CONFIG.ARCHMAGE.actionTypesShort[actionType]
+		?? CONFIG.ARCHMAGE.actionTypesShort.standard;
 }
 
 // Power usage colouring lives with the item code, so the actor sheets, the chat
@@ -106,26 +152,32 @@ export function getActionShort(actionType) {
 // same way. Re-exported here because Vue components import their helpers from
 // this module.
 export {
-  hasSecondaryUsage,
-  powerAvailabilityClass,
-  powerUsageClass,
-} from '@src/module/item/power-usage.mjs';
+	hasSecondaryUsage,
+	powerAvailabilityClass,
+	powerUsageClass
+} from "@src/module/item/power-usage.mjs";
 
 // The inline-roll formatting used across every power renderer lives with the
 // item sheet helpers, so the sheets, the chat cards and the compendium browser
 // all format formulas the same way. Re-exported here because Vue components
 // import their helpers from this module.
-export { wrapRolls } from '@src/module/item/_item-sheet-helpers.mjs';
+export { wrapRolls } from "@src/module/item/_item-sheet-helpers.mjs";
 
+/**
+ * Load the actor referenced by an entry's drag data.
+ *
+ * @param {object} actorData Object with `dragData.uuid`.
+ * @returns {Promise<Actor|false>} The actor, or false if there's no drag data.
+ */
 export async function getActor(actorData) {
-  // If no drag data is available, we can't retrieve the actor.
-  if (!actorData?.dragData?.uuid) return false;
+	// If no drag data is available, we can't retrieve the actor.
+	if (!actorData?.dragData?.uuid) return false;
 
-  // Async load the actor/token from the UUID.
-  const document = await fromUuid(actorData.dragData.uuid);
+	// Async load the actor/token from the UUID.
+	const document = await fromUuid(actorData.dragData.uuid);
 
-  // If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
-  return document?.actor ?? document;
+	// If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
+	return document?.actor ?? document;
 }
 
 /**
@@ -135,11 +187,11 @@ export async function getActor(actorData) {
  * @returns {string} Path to art asset
  */
 export function getActorModuleArt(actor) {
-  // UUID doesn't exactly match the format used in the map currently.
-  const actorMapId = actor.uuid.replace('.Actor', '');
-  // Retrieve the art from the map, or fallback to the actor image.
-  const art = game.archmage.system.moduleArt.map.get(actorMapId);
-  return art?.actor ?? actor.img;
+	// UUID doesn't exactly match the format used in the map currently.
+	const actorMapId = actor.uuid.replace(".Actor", "");
+	// Retrieve the art from the map, or fallback to the actor image.
+	const art = game.archmage.system.moduleArt.map.get(actorMapId);
+	return art?.actor ?? actor.img;
 }
 
 /**
@@ -147,25 +199,25 @@ export function getActorModuleArt(actor) {
  *
  * @param {Array} packNames Array of compendiums to index.
  * @param {Array} fields Array of field paths to include in the index.
- * @returns Combined entries from the queried compendiums.
+ * @returns {Promise<object[]|undefined>} Combined entries from the queried compendiums.
  */
 export async function getPackIndex(packNames = [], fields = []) {
-  if (!packNames) return;
-  if (!fields || fields.length < 1) return;
+	if (!packNames) return;
+	if (!fields || fields.length < 1) return;
 
-  const promises = packNames.map(async packName => {
-    const pack = game.packs.get(packName);
-    if (!pack) return [];
-    const index = await pack.getIndex({ fields: fields });
-    return index.contents.map(x => ({ ...x, compendiumTitle: pack.title }));
-  });
-  const results = await Promise.all(promises);
+	const promises = packNames.map(async (packName) => {
+		const pack = game.packs.get(packName);
+		if (!pack) return [];
+		const index = await pack.getIndex({ fields: fields });
+		return index.contents.map((x) => ({ ...x, compendiumTitle: pack.title }));
+	});
+	const results = await Promise.all(promises);
 
-  let packs = [];
-  for (const result of results) {
-    packs = packs.concat(result);
-  }
-  return packs;
+	let packs = [];
+	for (const result of results) {
+		packs = packs.concat(result);
+	}
+	return packs;
 }
 
 /**
@@ -174,29 +226,31 @@ export async function getPackIndex(packNames = [], fields = []) {
  * @param {string} uuid Document UUID to open.
  * @param {string} type Document type to open. Defaults to 'Actor'.
  */
-export function openDocument(uuid, type = 'Actor') {
-  getDocumentClass(type).fromDropData({
-    type: type,
-    uuid: uuid
-  }).then(document => {
-    if (document?.sheet) {
-      document.sheet.render(true);
-    }
-    else {
-      console.warn(`No document found for ${uuid}`);
-    }
-  });
+export function openDocument(uuid, type = "Actor") {
+	getDocumentClass(type).fromDropData({
+		type: type,
+		uuid: uuid
+	})
+		.then((document) => {
+			if (document?.sheet) {
+				document.sheet.render(true);
+			}
+			else {
+				console.warn(`No document found for ${uuid}`);
+			}
+		});
 }
 
 /**
  * Starts a drag event and provides document drop data.
  *
  * @param {Event} event Drag event.
- * @param {Object} entry Pack index entry object.
+ * @param {object} entry Pack index entry object.
+ * @param {string} type Document type of the entry. Defaults to 'Actor'.
  */
-export function startDrag(event, entry, type = 'Actor') {
-  event.dataTransfer.setData('text/plain', JSON.stringify({
-    type: type,
-    uuid: entry.uuid
-  }));
+export function startDrag(event, entry, type = "Actor") {
+	event.dataTransfer.setData("text/plain", JSON.stringify({
+		type: type,
+		uuid: entry.uuid
+	}));
 }

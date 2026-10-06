@@ -8,25 +8,25 @@ import ITrigger from "./ITrigger.mjs";
  * ("natural 16+") or of a range ("natural 1-5"), both of which have their own trigger.
  */
 export default class NaturalExactTrigger extends ITrigger {
-    get group() {
-        return "natural";
-    }
+	get group() {
+		return "natural";
+	}
 
-    appliesTo(label) {
-        return this._scores(label) !== undefined;
-    }
+	appliesTo(label) {
+		return this._scores(label) !== undefined;
+	}
 
-    test(outcome, label) {
-        if (outcome.natural === undefined) return undefined;
-        const scores = this._scores(label);
-        if (scores === undefined) return undefined;
-        return scores.includes(outcome.natural);
-    }
+	test(outcome, label) {
+		if (outcome.natural === undefined) return undefined;
+		const scores = this._scores(label);
+		if (scores === undefined) return undefined;
+		return scores.includes(outcome.natural);
+	}
 
-    _scores(label) {
-        const or = ITrigger.disjunctions();
-        const separator = `(?:\\s*,\\s*(?:(?:${or})\\s+)?|\\s+(?:${or})\\s+)`;
-        const match = label.match(ITrigger.naturalRegex(`\\s*(\\d+(?:${separator}\\d+)*)(?!\\d)(?!\\s*[+\\-\u2013])`));
-        return match ? match[1].match(/\d+/g).map(score => parseInt(score)) : undefined;
-    }
+	_scores(label) {
+		const or = ITrigger.disjunctions();
+		const separator = `(?:\\s*,\\s*(?:(?:${or})\\s+)?|\\s+(?:${or})\\s+)`;
+		const match = label.match(ITrigger.naturalRegex(`\\s*(\\d+(?:${separator}\\d+)*)(?!\\d)(?!\\s*[+\\-\u2013])`));
+		return match ? match[1].match(/\d+/g).map((score) => parseInt(score)) : undefined;
+	}
 }

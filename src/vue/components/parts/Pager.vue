@@ -1,20 +1,28 @@
 <template>
-  <ul :class="`pager pager-style-${pagerOptions.style}`">
-    <li class="pager-page pager-first"><button type="button" @click="updateCurrent" :data-page="1" title="First page">«<span class="visually-hidden"> First page</span></button></li>
-    <li class="pager-page pager-prev"><button type="button" @click="updateCurrent" :data-page="Math.max(parseInt(pagerOptions.current) - 1, 1)" title="Previous page">&lt;<span class="visually-hidden"> Previous page</span></button></li>
-    <template v-if="pagerOptions.style == 'buttons'">
-      <li v-for="page in parseInt(pageCount)" :class="`pager-page pager-page-n${ pagerOptions.current == page ? ' pager-active' : ''}`">
-        <button type="button" @click="updateCurrent" :data-page="page">{{ page }}</button>
-      </li>
-    </template>
-    <template v-else>
-      <li class="pager-page pager-numeric">
-        <div class="flexrow"><input type="number" class="pager-input" v-model="pagerOptions.current" min="1" :max="pageCount"/> of <strong class="pager-max">{{ pageCount }}</strong></div>
-      </li>
-    </template>
-    <li class="pager-page pager-next"><button type="button" @click="updateCurrent" :data-page="Math.min(parseInt(pagerOptions.current) + 1, pageCount)" title="Next page">&gt;<span class="visually-hidden"> Next page</span></button></li>
-    <li class="pager-page pager-last"><button type="button" @click="updateCurrent" :data-page="pageCount" title="Last page">»<span class="visually-hidden"> Last page</span></button></li>
-  </ul>
+	<ul :class="`pager pager-style-${pagerOptions.style}`">
+		<li class="pager-page pager-first"><button type="button" :data-page="1" title="First page" @click="updateCurrent">«<span class="visually-hidden"> First page</span></button></li>
+		<li class="pager-page pager-prev"><button type="button" :data-page="Math.max(parseInt(pagerOptions.current) - 1, 1)" title="Previous page" @click="updateCurrent">&lt;<span class="visually-hidden"> Previous page</span></button></li>
+		<template v-if="pagerOptions.style == 'buttons'">
+			<li v-for="page in parseInt(pageCount)" :key="page" :class="`pager-page pager-page-n${ pagerOptions.current == page ? ' pager-active' : ''}`">
+				<button type="button" :data-page="page" @click="updateCurrent">{{ page }}</button>
+			</li>
+		</template>
+		<template v-else>
+			<li class="pager-page pager-numeric">
+				<div class="flexrow">
+					<input
+						v-model="pagerOptions.current"
+						type="number"
+						class="pager-input"
+						min="1"
+						:max="pageCount"
+					> of <strong class="pager-max">{{ pageCount }}</strong>
+				</div>
+			</li>
+		</template>
+		<li class="pager-page pager-next"><button type="button" :data-page="Math.min(parseInt(pagerOptions.current) + 1, pageCount)" title="Next page" @click="updateCurrent">&gt;<span class="visually-hidden"> Next page</span></button></li>
+		<li class="pager-page pager-last"><button type="button" :data-page="pageCount" title="Last page" @click="updateCurrent">»<span class="visually-hidden"> Last page</span></button></li>
+	</ul>
 </template>
 
 <script>
@@ -34,50 +42,50 @@
    * firstIndex: 0,
    * lastIndex: 0
    */
-  export default {
-    name: 'Pager',
-    props: ['pager-options'],
-    data() {
-      return {}
-    },
-    methods: {
-      updateCurrent(event = null) {
-        this.pagerOptions.current = event
-          ? event.target.dataset.page
-          : (this.pagerOptions.current ?? 1);
+export default {
+	name: "Pager",
+	props: ["pager-options"],
+	data() {
+		return {};
+	},
+	computed: {
+		pageCount() {
+			const count = this.pagerOptions.totalRows / this.pagerOptions.perPage;
+			const pageCount = Number.isInteger(count) ? count : Math.floor(count) + 1;
+			this.pagerOptions.pages = pageCount;
 
-        if (this.pagerOptions.current > this.pagerOptions.pages) {
-          this.pagerOptions.current = this.pagerOptions.pages;
-        }
+			this.updateCurrent();
 
-        if (this.pagerOptions.current < 1) {
-          this.pagerOptions.current = 1;
-        }
+			return pageCount;
+		}
+	},
+	async created() {
+		// Run an initial pager flow calculation.
+		this.updateCurrent();
+	},
+	methods: {
+		updateCurrent(event = null) {
+			this.pagerOptions.current = event
+				? event.target.dataset.page
+				: (this.pagerOptions.current ?? 1);
 
-        this.pagerOptions.firstIndex = (this.pagerOptions.current - 1) * this.pagerOptions.perPage;
-        this.pagerOptions.lastIndex = (this.pagerOptions.current * this.pagerOptions.perPage) - 1;
+			if (this.pagerOptions.current > this.pagerOptions.pages) {
+				this.pagerOptions.current = this.pagerOptions.pages;
+			}
 
-        if (this.pagerOptions.current == this.pagerOptions.pages) {
-          this.pagerOptions.lastIndex = this.pagerOptions.totalRows;
-        }
-      }
-    },
-    computed: {
-      pageCount() {
-        const count = this.pagerOptions.totalRows / this.pagerOptions.perPage;
-        const pageCount = Number.isInteger(count) ? count : Math.floor(count) + 1;
-        this.pagerOptions.pages = pageCount;
+			if (this.pagerOptions.current < 1) {
+				this.pagerOptions.current = 1;
+			}
 
-        this.updateCurrent();
+			this.pagerOptions.firstIndex = (this.pagerOptions.current - 1) * this.pagerOptions.perPage;
+			this.pagerOptions.lastIndex = (this.pagerOptions.current * this.pagerOptions.perPage) - 1;
 
-        return pageCount;
-      }
-    },
-    async created() {
-      // Run an initial pager flow calculation.
-      this.updateCurrent();
-    }
-  }
+			if (this.pagerOptions.current == this.pagerOptions.pages) {
+				this.pagerOptions.lastIndex = this.pagerOptions.totalRows;
+			}
+		}
+	}
+};
 </script>
 
 <style lang="scss">

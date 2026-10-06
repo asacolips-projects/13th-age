@@ -1,142 +1,167 @@
 <template>
-  <fieldset class="fieldset-description">
-    <legend>{{ game.i18n.localize('ARCHMAGE.description') }}</legend>
-    <Prosemirror :editable="context.editable" :field="context.editors['system.description.value']" />
+	<fieldset class="fieldset-description">
+		<legend>{{ game.i18n.localize('ARCHMAGE.description') }}</legend>
+		<Prosemirror :editable="context.editable" :field="context.editors['system.description.value']" />
 
-    <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.ITEM.chakraSlot') }}</label>
-      <div class="field">
-        <select name="system.chackra" v-model="item.system.chackra">
-          <option value="">{{ game.i18n.localize('ARCHMAGE.CHAKRA.none') }}</option>
-          <option v-for="(label, value) in CONFIG.ARCHMAGE.chakraSlots" :key="value" :value="value">{{ game.i18n.localize(label) }}</option>
-        </select>
-      </div>
-    </div>
+		<div class="form-group">
+			<label>{{ game.i18n.localize('ARCHMAGE.ITEM.chakraSlot') }}</label>
+			<div class="field">
+				<select v-model="item.system.chackra" name="system.chackra">
+					<option value="">{{ game.i18n.localize('ARCHMAGE.CHAKRA.none') }}</option>
+					<option
+						v-for="(label, value) in CONFIG.ARCHMAGE.chakraSlots"
+						:key="value"
+						:value="value"
+					>
+						{{ game.i18n.localize(label) }}
+					</option>
+				</select>
+			</div>
+		</div>
+	</fieldset>
 
-  </fieldset>
+	<fieldset class="fieldset-usage">
+		<legend>{{ game.i18n.localize('ARCHMAGE.GROUPS.powerUsage') }}</legend>
 
-  <fieldset class="fieldset-usage">
-    <legend>{{ game.i18n.localize('ARCHMAGE.GROUPS.powerUsage') }}</legend>
+		<div class="form-group">
+			<label>{{ game.i18n.localize('ARCHMAGE.CHAT.powerUsage') }}</label>
+			<div class="field">
+				<select v-model="item.system.powerUsage.value" name="system.powerUsage.value">
+					<option value="">{{ game.i18n.localize('ARCHMAGE.noneOption') }}</option>
+					<option v-for="(label, value) in CONFIG.ARCHMAGE.powerUsages" :key="value" :value="value">{{ label }}</option>
+				</select>
+			</div>
+		</div>
 
-    <div class="form-group">
-      <label>{{ game.i18n.localize('ARCHMAGE.CHAT.powerUsage') }}</label>
-      <div class="field">
-        <select name="system.powerUsage.value" v-model="item.system.powerUsage.value">
-          <option value="">{{ game.i18n.localize('ARCHMAGE.noneOption') }}</option>
-          <option v-for="(label, value) in CONFIG.ARCHMAGE.powerUsages" :key="value" :value="value">{{ label }}</option>
-        </select>
-      </div>
-    </div>
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.CHAT.recharge') }}
+				<InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.rechargeHint')" />
+			</label>
+			<div class="field">
+				<input
+					v-model="item.system.recharge.value"
+					type="number"
+					name="system.recharge.value"
+					:placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
+				>
+			</div>
+		</div>
 
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.CHAT.recharge') }}
-        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.rechargeHint')" />
-      </label>
-      <div class="field">
-        <input type="number" name="system.recharge.value" v-model="item.system.recharge.value"
-          :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')" />
-      </div>
-    </div>
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.ITEM.usesRemaining') }}
+				<InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')" />
+			</label>
+			<div class="field">
+				<input
+					v-model="item.system.quantity.value"
+					type="number"
+					name="system.quantity.value"
+					:placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')"
+				>
+			</div>
+		</div>
 
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.ITEM.usesRemaining') }}
-        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesRemainingHint')" />
-      </label>
-      <div class="field">
-        <input type="number" name="system.quantity.value" v-model="item.system.quantity.value"
-          :placeholder="game.i18n.localize('ARCHMAGE.CHAT.numbersOnly')" />
-      </div>
-    </div>
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.ITEM.usesMax') }}
+				<InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')" />
+			</label>
+			<div class="field">
+				<input
+					v-model="item.system.maxQuantity.value"
+					type="text"
+					name="system.maxQuantity.value"
+					:placeholder="game.i18n.localize('ARCHMAGE.ITEM.usesMaxPlaceholder')"
+				>
+			</div>
+		</div>
+	</fieldset>
 
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.ITEM.usesMax') }}
-        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.usesMaxHint')" />
-      </label>
-      <div class="field">
-        <input type="text" name="system.maxQuantity.value" v-model="item.system.maxQuantity.value"
-          :placeholder="game.i18n.localize('ARCHMAGE.ITEM.usesMaxPlaceholder')" />
-      </div>
-    </div>
-  </fieldset>
+	<fieldset class="fieldset-details">
+		<legend>{{ game.i18n.localize('ARCHMAGE.details') }}</legend>
 
-  <fieldset class="fieldset-details">
-    <legend>{{ game.i18n.localize('ARCHMAGE.details') }}</legend>
+		<!-- active -->
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.ITEM.active') }}
+			</label>
+			<div class="field">
+				<input v-model="item.system.isActive" type="checkbox" name="system.isActive">
+			</div>
+		</div>
 
-    <!-- active -->
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.ITEM.active') }}
-      </label>
-      <div class="field">
-        <input type="checkbox" name="system.isActive" v-model="item.system.isActive" />
-      </div>
-    </div>
+		<!-- tier -->
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.CHAT.tier') }}
+				<InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.rechargeHint')" />
+			</label>
+			<div class="field">
+				<select v-model="item.system.tier" name="system.tier">
+					<option value="">{{ game.i18n.localize('ARCHMAGE.noneOption') }}</option>
+					<option v-for="(label, value) in CONFIG.ARCHMAGE.featTiers" :key="value" :value="value">{{ label }}</option>
+				</select>
+			</div>
+		</div>
 
-    <!-- tier -->
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.CHAT.tier') }}
-        <InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.rechargeHint')" />
-      </label>
-      <div class="field">
-        <select name="system.tier" v-model="item.system.tier">
-          <option value="">{{ game.i18n.localize('ARCHMAGE.noneOption') }}</option>
-          <option v-for="(label, value) in CONFIG.ARCHMAGE.featTiers" :key="value" :value="value">{{ label }}</option>
-        </select>
-      </div>
-    </div>
+		<!-- icons -->
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.ITEM.icons') }}
+			</label>
+			<div class="field">
+				<input
+					v-model="item.system.icons"
+					type="text"
+					name="system.icons"
+					:placeholder="game.i18n.localize('ARCHMAGE.ITEM.iconPlaceholder')"
+				>
+			</div>
+		</div>
 
-    <!-- icons -->
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.ITEM.icons') }}
-      </label>
-      <div class="field">
-        <input type="text" name="system.icons" v-model="item.system.icons"
-          :placeholder="game.i18n.localize('ARCHMAGE.ITEM.iconPlaceholder')" />
-      </div>
-    </div>
+		<!-- publication source -->
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.CHARACTERSETTINGS.publicationSource') }}
+			</label>
+			<div class="field">
+				<input v-model="item.system.publicationSource" type="text" name="system.publicationSource" placeholder="13tw">
+			</div>
+		</div>
 
-    <!-- publication source -->
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.CHARACTERSETTINGS.publicationSource') }}
-      </label>
-      <div class="field">
-        <input type="text" name="system.publicationSource" v-model="item.system.publicationSource" placeholder="13tw" />
-      </div>
-    </div>
+		<!-- price -->
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.ITEM.price') }}
+			</label>
+			<div class="field">
+				<input
+					v-model="item.system.price.value"
+					type="text"
+					name="system.price.value"
+					:placeholder="game.i18n.localize('ARCHMAGE.ITEM.pricePlaceholder')"
+				>
+			</div>
+		</div>
+	</fieldset>
 
-    <!-- price -->
-    <div class="form-group">
-      <label>
-        {{ game.i18n.localize('ARCHMAGE.ITEM.price') }}
-      </label>
-      <div class="field">
-        <input type="text" name="system.price.value" v-model="item.system.price.value"
-          :placeholder="game.i18n.localize('ARCHMAGE.ITEM.pricePlaceholder')" />
-      </div>
-    </div>
-  </fieldset>
-
-  <fieldset class="fieldset-macro">
-    <legend>{{ game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro') }}</legend>
-    <div class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.macroEditorHint')"></div>
-    <CodemirrorWrapper class="attribute-value" name="system.embeddedMacro.value" :value="embeddedMacro" />
-  </fieldset>
+	<fieldset class="fieldset-macro">
+		<legend>{{ game.i18n.localize('ARCHMAGE.CHAT.embeddedMacro') }}</legend>
+		<div class="hint" v-html="game.i18n.localize('ARCHMAGE.TOOLTIP.macroEditorHint')" />
+		<CodemirrorWrapper class="attribute-value" name="system.embeddedMacro.value" :value="embeddedMacro" />
+	</fieldset>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 import {
-  CodemirrorWrapper,
-  Prosemirror,
-  InfoBubble,
-} from '@/components';
+	CodemirrorWrapper,
+	Prosemirror,
+	InfoBubble
+} from "@/components";
 
-const props = defineProps(['item', 'context']);
-const embeddedMacro = computed(() => props.item.system.embeddedMacro?.value ?? '');
+const props = defineProps(["item", "context"]);
+const embeddedMacro = computed(() => props.item.system.embeddedMacro?.value ?? "");
 </script>

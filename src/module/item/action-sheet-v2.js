@@ -4,207 +4,204 @@ import { wrapRolls } from "./_item-sheet-helpers.mjs";
 import VueRenderingMixin from "./_vue-application-mixin.mjs";
 import { ArchmageActionSheetVue } from "../../vue/components.vue.es.js";
 
-const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
-
 export class ArchmageActionSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
-  vueParts = {
-    'archmage-action-sheet-vue': {
-      component: ArchmageActionSheetVue,
-      template: `<archmage-action-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-action-sheet-vue>`
-    }
-  }
-  
-  constructor(options = {}) {
-    super(options);
-  }
+	vueParts = {
+		"archmage-action-sheet-vue": {
+			component: ArchmageActionSheetVue,
+			template: `<archmage-action-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-action-sheet-vue>`
+		}
+	};
 
-  /** @override */
-  static DEFAULT_OPTIONS = {
-    classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
-    actions: {
-      onEditImage: this._onEditImage,
-      edit: this._viewEffect,
-      create: this._createEffect,
-      delete: this._deleteEffect,
-      toggle: this._toggleEffect
-    },
-    position: {
-      width: 640,
-      height: 800,
-    },
-    window: {
-      resizable: true,
-      controls: [
-        {
-          action: "showItemArtwork",
-          icon: "fa-solid fa-image",
-          label: "ITEM.ViewArt",
-          ownership: "OWNER"
-        },
-        {
-          action: "parseInlineRolls",
-          icon: "fa-solid fa-dice",
-          label: "ARCHMAGE.UI.parseInlineRolls",
-          ownership: "OWNER"
-        }
-      ]
-    },
-    actions: {},
-    tag: 'form',
-    form: {
-      submitOnChange: true,
-      submitOnClose: true,
-    },
-    // Custom property that's merged into `this.options`
-    dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
-  };
+	constructor(options = {}) {
+		super(options);
+	}
 
-  /* -------------------------------------------- */
+	/** @override */
+	static DEFAULT_OPTIONS = {
+		classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
+		actions: {
+			onEditImage: this._onEditImage,
+			edit: this._viewEffect,
+			create: this._createEffect,
+			delete: this._deleteEffect,
+			toggle: this._toggleEffect
+		},
+		position: {
+			width: 640,
+			height: 800
+		},
+		window: {
+			resizable: true,
+			controls: [
+				{
+					action: "showItemArtwork",
+					icon: "fa-solid fa-image",
+					label: "ITEM.ViewArt",
+					ownership: "OWNER"
+				},
+				{
+					action: "parseInlineRolls",
+					icon: "fa-solid fa-dice",
+					label: "ARCHMAGE.UI.parseInlineRolls",
+					ownership: "OWNER"
+				}
+			]
+		},
+		tag: "form",
+		form: {
+			submitOnChange: true,
+			submitOnClose: true
+		},
+		// Custom property that's merged into `this.options`
+		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
+	};
 
-  /** @inheritDoc */
-  _onRender(context, options) {
-    super._onRender(context, options);
-    this._bindDragDrop();
-  }
+	/* -------------------------------------------- */
 
-  /** @override */
-  async _prepareContext(options) {
-    const context = {
-      // Validates both permissions and compendium status
-      editable: this.isEditable,
-      owner: this.isOwner,
-      limited: this.document.limited,
-      // Add the item document.
-      item: this.item.toObject(),
-      actor: this.actor?.toObject() ?? false,
-      // Adding system and flags for easier access
-      system: this.item.system,
-      flags: this.item.flags,
-      // Rolldata.
-      rollData: this.actor?.getRollData() ?? {},
-      // Adding a pointer to CONFIG.ARCHMAGE
-      config: CONFIG.ARCHMAGE,
-      // Sequencer (module) support.
-      sequencerEnabled: game.modules.get("sequencer")?.active && this.item.type === 'action',
-      // Force re-renders. Defined in the vue mixin.
-      _renderKey: this._renderKey ?? 0,
-      // @todo add this after switching to DataModel
-      // fields: this.document.schema.fields,
-      // systemFields: this.document.system.schema.fields
-    };
+	/** @inheritDoc */
+	_onRender(context, options) {
+		super._onRender(context, options);
+		this._bindDragDrop();
+	}
 
-    // Handle tabs.
-    this._prepareTabs(context);
+	/** @override */
+	async _prepareContext(options) {
+		const context = {
+			// Validates both permissions and compendium status
+			editable: this.isEditable,
+			owner: this.isOwner,
+			limited: this.document.limited,
+			// Add the item document.
+			item: this.item.toObject(),
+			actor: this.actor?.toObject() ?? false,
+			// Adding system and flags for easier access
+			system: this.item.system,
+			flags: this.item.flags,
+			// Rolldata.
+			rollData: this.actor?.getRollData() ?? {},
+			// Adding a pointer to CONFIG.ARCHMAGE
+			config: CONFIG.ARCHMAGE,
+			// Sequencer (module) support.
+			sequencerEnabled: game.modules.get("sequencer")?.active && this.item.type === "action",
+			// Force re-renders. Defined in the vue mixin.
+			_renderKey: this._renderKey ?? 0
+			// @todo add this after switching to DataModel
+			// fields: this.document.schema.fields,
+			// systemFields: this.document.system.schema.fields
+		};
 
-    // Handle enriched fields.
-    const enrichmentOptions = {
-      // Whether to show secret blocks in the finished html
-      secrets: this.document.isOwner,
-      // Data to fill in for inline rolls
-      rollData: this.item?.getRollData() ?? {},
-      // Relative UUID resolution
-      relativeTo: this.item
-    };
+		// Handle tabs.
+		this._prepareTabs(context);
 
-    const editorOptions = {
-      toggled: true,
-      collaborate: true,
-      documentUUID: this.document.uuid,
-      height: 300,
-    };
+		// Handle enriched fields.
+		const enrichmentOptions = {
+			// Whether to show secret blocks in the finished html
+			secrets: this.document.isOwner,
+			// Data to fill in for inline rolls
+			rollData: this.item?.getRollData() ?? {},
+			// Relative UUID resolution
+			relativeTo: this.item
+		};
 
-    // Enrich the description.
-    context.editors = {
-      'system.description.value': {
-        enriched: await wrapRolls(this.item.system.description.value ?? '', [], 'short', {}, 'description', enrichmentOptions),
-        element: foundry.applications.elements.HTMLProseMirrorElement.create({
-          ...editorOptions,
-          name: 'system.description.value',
-          value: context.system.description?.value ?? '',
-        }),
-      },
-    };
+		const editorOptions = {
+			toggled: true,
+			collaborate: true,
+			documentUUID: this.document.uuid,
+			height: 300
+		};
 
-    // Enrich powers and feats.
-    if (this.item.type === 'action') {
-      await this._enrichActions(context, enrichmentOptions, editorOptions);
-    }
+		// Enrich the description.
+		context.editors = {
+			"system.description.value": {
+				enriched: await wrapRolls(this.item.system.description.value ?? "", [], "short", {}, "description", enrichmentOptions),
+				element: foundry.applications.elements.HTMLProseMirrorElement.create({
+					...editorOptions,
+					name: "system.description.value",
+					value: context.system.description?.value ?? ""
+				})
+			}
+		};
 
-    // Make another pass through the editors to fix the element contents.
-    for (let [field, editor] of Object.entries(context.editors)) {
-      if (context.editors[field].element) {
-        context.editors[field].element.innerHTML = context.editors[field].enriched;
-      }
-    }
+		// Enrich powers and feats.
+		if (this.item.type === "action") {
+			await this._enrichActions(context, enrichmentOptions, editorOptions);
+		}
 
-    return context;
-  }
+		// Make another pass through the editors to fix the element contents.
+		for (let field of Object.keys(context.editors)) {
+			if (context.editors[field].element) {
+				context.editors[field].element.innerHTML = context.editors[field].enriched;
+			}
+		}
 
-  /**
-   * Enrich values for action fields.
-   * 
-   * @param {object} context 
-   * @param {object} enrichmentOptions 
-   * @param {object} editorOptions 
-   */
-  async _enrichActions(context, enrichmentOptions, editorOptions) {
-    // Enrich other fields.
-    const powerFields = [
-      'attack',
-      'hit',
-      'hit1',
-      'hit2',
-      'hit3',
-      'hit4',
-      'hit5',
-      'miss',
-    ];
+		return context;
+	}
 
-    for (let field of powerFields) {
-      context.editors[field] = {
-        // @todo write a power enricher.
-        enriched: await wrapRolls(this.item.system[field].value ?? '', [], 'short', {}, field, enrichmentOptions),
-        element: foundry.applications.elements.HTMLProseMirrorElement.create({
-          ...editorOptions,
-          name: `system.${field}.value`,
-          value: context.system[field]?.value ?? '',
-        }),
-      };
-    }
-  }
+	/**
+	 * Enrich values for action fields.
+	 *
+	 * @param {object} context
+	 * @param {object} enrichmentOptions
+	 * @param {object} editorOptions
+	 */
+	async _enrichActions(context, enrichmentOptions, editorOptions) {
+		// Enrich other fields.
+		const powerFields = [
+			"attack",
+			"hit",
+			"hit1",
+			"hit2",
+			"hit3",
+			"hit4",
+			"hit5",
+			"miss"
+		];
 
-  _prepareTabs(context) {
-    // Initialize tabs.
-    context.tabs = {
-      primary: {},
-    };
+		for (let field of powerFields) {
+			context.editors[field] = {
+				// @todo write a power enricher.
+				enriched: await wrapRolls(this.item.system[field].value ?? "", [], "short", {}, field, enrichmentOptions),
+				element: foundry.applications.elements.HTMLProseMirrorElement.create({
+					...editorOptions,
+					name: `system.${field}.value`,
+					value: context.system[field]?.value ?? ""
+				})
+			};
+		}
+	}
 
-    // Tabs available to all items.
-    context.tabs.primary.details = {
-      key: 'details',
-      label: game.i18n.localize('ARCHMAGE.details'),
-      active: false,
-    };
+	_prepareTabs(context) {
+		// Initialize tabs.
+		context.tabs = {
+			primary: {}
+		};
 
-    // Tabs limited to NPCs.
-    if (this.item.type === 'action') {
-      context.tabs.primary.attack = {
-        key: 'attack',
-        label: 'Attack',
-        active: true,
-      };
-    }
+		// Tabs available to all items.
+		context.tabs.primary.details = {
+			key: "details",
+			label: game.i18n.localize("ARCHMAGE.details"),
+			active: false
+		};
 
-    // More tabs available to all items.
-    context.tabs.primary.effects = {
-      key: 'effects',
-      label: 'Effects',
-      active: false,
-    };
+		// Tabs limited to NPCs.
+		if (this.item.type === "action") {
+			context.tabs.primary.attack = {
+				key: "attack",
+				label: "Attack",
+				active: true
+			};
+		}
 
-    // Ensure we have a default tab.
-    if (this.item.type !== 'action') {
-      context.tabs.primary.details.active = true;
-    }
-  }
+		// More tabs available to all items.
+		context.tabs.primary.effects = {
+			key: "effects",
+			label: "Effects",
+			active: false
+		};
+
+		// Ensure we have a default tab.
+		if (this.item.type !== "action") {
+			context.tabs.primary.details.active = true;
+		}
+	}
 }

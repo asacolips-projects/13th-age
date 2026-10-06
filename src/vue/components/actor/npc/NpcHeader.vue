@@ -1,218 +1,247 @@
 <template>
-  <!-- HEADER -->
-  <header :class="'header npc-header flexcol' + (headerCollapsed ? ' collapsed' : '')">
-    <section class="section section--header-top">
-      <!-- Name -->
-      <div class="unit unit--hide-label unit--name">
-        <label for="name">{{localize("ARCHMAGE.name")}}</label>
-        <ToggleInput :closeInputs="closeInputs">
-          <template v-slot:display><h1 class="actor-name">{{actor.name}}</h1></template>
-          <template v-slot:edit><Input type="text" name="name" class="input-secondary" :actor="actor" reactive="false"/></template>
-        </ToggleInput>
-      </div>
-    </section>
-    <section class="section section--header-bottom flexrow">
-      <section class="section section--details">
-        <!-- Flavor text -->
-        <div class="unit unit--hide-label unit--flavor">
-          <label for="system.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
-          <Suspense>
-            <Editor :owner="actor.owner" target='system.details.flavor.value' button="true" editable="true" :title="localize('ARCHMAGE.flavor')" :content="actor.system.details.flavor.value"/>
-          </Suspense>
-        </div>
-        <!-- Creature details -->
-        <div class="unit unit--roles">
-          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.system.attributes.init.value, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
-          <ToggleInput :closeInputs="closeInputs">
-            <!-- Display version of creature details. -->
-            <template v-slot:display>
-              <ul>
-                <li class="level">{{levelFormatted}}</li>
-                <li v-if="strengthFormatted && this.actor.system.details?.strength?.value !== 'normal'" class="details">{{strengthFormatted}}</li>
-                <li v-if="roleFormatted" class="role">{{roleFormatted}}</li>
-                <li v-if="typeFormatted" class="type">[<span class="size" v-if="this.actor.system.details?.size?.value !== 'normal'">{{ sizeFormatted }}</span>{{typeFormatted}}]</li>
-              </ul>
-            </template>
-            <!-- Form inputs for creature details. -->
-            <template v-slot:edit>
-              <span class="unit unit--input">
-                <label for="system.attributes.level.value">{{localize('ARCHMAGE.level')}}</label>
-                <Input type="number" name="system.attributes.level.value" :actor="actor" reactive="false"/>
-              </span>
-              <span class="unit unit--input">
-                <label for="system.attributes.init.value">{{localize('ARCHMAGE.initiative')}}</label>
-                <Input type="number" name="system.attributes.init.value" :actor="actor" reactive="false"/>
-              </span>
-              {{localize("ARCHMAGE.size")}}
-              <Select name="system.details.size.value" :actor="actor" :options="getOptions('creatureSizes')"/>
-              <br/>
-              {{localize("ARCHMAGE.strength")}}
-              <Select name="system.details.strength.value" :actor="actor" :options="getOptions('creatureStrengths')"/>
-              <br/>
-              {{localize("ARCHMAGE.role")}}
-              <Select name="system.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
-              /
-              <Select name="system.details.roleB.value" :actor="actor" :options="getOptions('creatureRoles', true)"/>
-              <br/>
-              {{localize("ARCHMAGE.type")}}
-              <Select name="system.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
-              /
-              <Select name="system.details.typeB.value" :actor="actor" :options="getOptions('creatureTypes', true)"/>
-              <br/>
-            </template>
-          </ToggleInput>
-        </div>
-        <!-- Resistance -->
-        <div class="unit unit--resistance flexrow" v-if="!headerCollapsed||actor.system.details.resistance.value">
-          <label for="system.details.resistance.value">{{localize('ARCHMAGE.resistance')}}: </label>
-          <input type="text" name="system.details.resistance.value" v-model="actor.system.details.resistance.value"/>
-        </div>
-        <!-- Vulnerability -->
-        <div class="unit unit--vulnerability flexrow" v-if="!headerCollapsed||actor.system.details.vulnerability.value">
-          <label for="system.details.vulnerability.value">{{localize('ARCHMAGE.vulnerability')}}: </label>
-          <input type="text" name="system.details.vulnerability.value" v-model="actor.system.details.vulnerability.value"/>
-        </div>
-      </section>
-      <section class="section section--avatar">
-        <!-- Actor image -->
-        <div class="unit unit--img profile-img">
-          <img :src="actor.img" ref="avatar" :alt="localize('ARCHMAGE.avatarAlt')" :width="avatarWidth" :height="avatarHeight" :class="avatarClass" data-edit="img"/>
-        </div>
-      </section>
-    </section>
-    <a class="toggle-header" @click="toggleHeader"><i class="fas fa-chevron-up"></i></a>
-  </header>
+	<!-- HEADER -->
+	<header :class="'header npc-header flexcol' + (headerCollapsed ? ' collapsed' : '')">
+		<section class="section section--header-top">
+			<!-- Name -->
+			<div class="unit unit--hide-label unit--name">
+				<label for="name">{{ localize("ARCHMAGE.name") }}</label>
+				<ToggleInput :close-inputs="closeInputs">
+					<template #display><h1 class="actor-name">{{ actor.name }}</h1></template>
+					<template #edit>
+						<Input
+							type="text"
+							name="name"
+							class="input-secondary"
+							:actor="actor"
+							reactive="false"
+						/>
+					</template>
+				</ToggleInput>
+			</div>
+		</section>
+		<section class="section section--header-bottom flexrow">
+			<section class="section section--details">
+				<!-- Flavor text -->
+				<div class="unit unit--hide-label unit--flavor">
+					<label for="system.details.flavor.value">{{ localize("ARCHMAGE.flavor") }}</label>
+					<Suspense>
+						<Editor
+							:owner="actor.owner"
+							target="system.details.flavor.value"
+							button="true"
+							editable="true"
+							:title="localize('ARCHMAGE.flavor')"
+							:content="actor.system.details.flavor.value"
+						/>
+					</Suspense>
+				</div>
+				<!-- Creature details -->
+				<div class="unit unit--roles">
+					<a class="rollable rollable--init" data-roll-type="init">{{ numberFormat(actor.system.attributes.init.value, 0, true) }} {{ localize('ARCHMAGE.initiative') }}</a>
+					<ToggleInput :close-inputs="closeInputs">
+						<!-- Display version of creature details. -->
+						<template #display>
+							<ul>
+								<li class="level">{{ levelFormatted }}</li>
+								<li v-if="strengthFormatted && actor.system.details?.strength?.value !== 'normal'" class="details">{{ strengthFormatted }}</li>
+								<li v-if="roleFormatted" class="role">{{ roleFormatted }}</li>
+								<li v-if="typeFormatted" class="type">[<span v-if="actor.system.details?.size?.value !== 'normal'" class="size">{{ sizeFormatted }}</span>{{ typeFormatted }}]</li>
+							</ul>
+						</template>
+						<!-- Form inputs for creature details. -->
+						<template #edit>
+							<span class="unit unit--input">
+								<label for="system.attributes.level.value">{{ localize('ARCHMAGE.level') }}</label>
+								<Input type="number" name="system.attributes.level.value" :actor="actor" reactive="false" />
+							</span>
+							<span class="unit unit--input">
+								<label for="system.attributes.init.value">{{ localize('ARCHMAGE.initiative') }}</label>
+								<Input type="number" name="system.attributes.init.value" :actor="actor" reactive="false" />
+							</span>
+							{{ localize("ARCHMAGE.size") }}
+							<Select name="system.details.size.value" :actor="actor" :options="getOptions('creatureSizes')" />
+							<br>
+							{{ localize("ARCHMAGE.strength") }}
+							<Select name="system.details.strength.value" :actor="actor" :options="getOptions('creatureStrengths')" />
+							<br>
+							{{ localize("ARCHMAGE.role") }}
+							<Select name="system.details.role.value" :actor="actor" :options="getOptions('creatureRoles')" />
+							/
+							<Select name="system.details.roleB.value" :actor="actor" :options="getOptions('creatureRoles', true)" />
+							<br>
+							{{ localize("ARCHMAGE.type") }}
+							<Select name="system.details.type.value" :actor="actor" :options="getOptions('creatureTypes')" />
+							/
+							<Select name="system.details.typeB.value" :actor="actor" :options="getOptions('creatureTypes', true)" />
+							<br>
+						</template>
+					</ToggleInput>
+				</div>
+				<!-- Resistance -->
+				<div v-if="!headerCollapsed||actor.system.details.resistance.value" class="unit unit--resistance flexrow">
+					<label for="system.details.resistance.value">{{ localize('ARCHMAGE.resistance') }}: </label>
+					<input v-model="actor.system.details.resistance.value" type="text" name="system.details.resistance.value">
+				</div>
+				<!-- Vulnerability -->
+				<div v-if="!headerCollapsed||actor.system.details.vulnerability.value" class="unit unit--vulnerability flexrow">
+					<label for="system.details.vulnerability.value">{{ localize('ARCHMAGE.vulnerability') }}: </label>
+					<input v-model="actor.system.details.vulnerability.value" type="text" name="system.details.vulnerability.value">
+				</div>
+			</section>
+			<section class="section section--avatar">
+				<!-- Actor image -->
+				<div class="unit unit--img profile-img">
+					<img
+						ref="avatar"
+						:src="actor.img"
+						:alt="localize('ARCHMAGE.avatarAlt')"
+						:width="avatarWidth"
+						:height="avatarHeight"
+						:class="avatarClass"
+						data-edit="img"
+					>
+				</div>
+			</section>
+		</section>
+		<a class="toggle-header" @click="toggleHeader"><i class="fas fa-chevron-up" /></a>
+	</header>
 </template>
 
 <script>
-  import { localize, numberFormat, getActor } from '@/methods/Helpers';
-  import ToggleInput from '@/components/parts/ToggleInput.vue';
-  import Input from '@/components/parts/Input.vue';
-  import Select from '@/components/parts/Select.vue';
-  import Editor from '@/components/parts/Editor.vue';
-  export default {
-    name: 'NpcHeader',
-    props: ['actor', 'flags', 'closeInputs'],
-    components: { ToggleInput, Input, Select, Editor },
-    setup() {
-      return {
-        localize,
-        numberFormat,
-        CONFIG,
-        game
-      }
-    },
-    data() {
-      return {
-        avatarClass: 'avatar',
-        avatarWidth: 110,
-        avatarHeight: 110,
-        headerCollapsed: this.flags?.sheetDisplay?.header?.collapsed ?? false
-      }
-    },
-    computed: {
-      levelFormatted() {
-        return game.archmage.ArchmageUtility.formatLevel(this.actor.system.attributes.level.value ?? 0);
-      },
-      sizeFormatted() {
-        let size = CONFIG.ARCHMAGE.creatureSizes[this.actor.system.details?.size?.value] ?? this.actor.system.details?.size?.value;
-        return typeof size == 'string' ? `${size.toUpperCase()} ` : '';
-      },
-      strengthFormatted() {
-        return CONFIG.ARCHMAGE.creatureStrengths[this.actor.system.details?.strength?.value] ?? this.actor.system.details?.strength?.value;
-      },
-      roleFormatted() {
-        const roleA = CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.role?.value] ?? this.actor.system.details?.role?.value;
-        const roleB = CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.roleB?.value] ?? this.actor.system.details?.roleB?.value;
-        return roleB ? `${roleA}/${roleB}` : roleA;
-      },
-      typeFormatted() {
-        let typeA = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.type?.value] ?? this.actor.system.details?.type?.value;
-        let typeB = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.typeB?.value] ?? this.actor.system.details?.typeB?.value;
-        if (typeB) return `${typeA.toUpperCase()}/${typeB.toUpperCase()}`;
-        if (typeof typeA == 'string') return typeA.toUpperCase();
-        return "";
-      },
-    },
-    methods: {
-      getAvatarDimensions() {
-        let img = this.$refs['avatar'];
-        let width = img.naturalWidth;
-        let height = img.naturalHeight;
+import { localize, numberFormat, getActor } from "@/methods/Helpers";
+import ToggleInput from "@/components/parts/ToggleInput.vue";
+import Input from "@/components/parts/Input.vue";
+import Select from "@/components/parts/Select.vue";
+import Editor from "@/components/parts/Editor.vue";
+export default {
+	name: "NpcHeader",
+	components: { ToggleInput, Input, Select, Editor },
+	props: ["actor", "flags", "closeInputs"],
+	setup() {
+		return {
+			localize,
+			numberFormat,
+			CONFIG,
+			game
+		};
+	},
+	data() {
+		return {
+			avatarClass: "avatar",
+			avatarWidth: 110,
+			avatarHeight: 110,
+			headerCollapsed: this.flags?.sheetDisplay?.header?.collapsed ?? false
+		};
+	},
+	computed: {
+		levelFormatted() {
+			return game.archmage.ArchmageUtility.formatLevel(this.actor.system.attributes.level.value ?? 0);
+		},
+		sizeFormatted() {
+			let size = CONFIG.ARCHMAGE.creatureSizes[this.actor.system.details?.size?.value]
+				?? this.actor.system.details?.size?.value;
+			return typeof size == "string" ? `${size.toUpperCase()} ` : "";
+		},
+		strengthFormatted() {
+			return CONFIG.ARCHMAGE.creatureStrengths[this.actor.system.details?.strength?.value]
+				?? this.actor.system.details?.strength?.value;
+		},
+		roleFormatted() {
+			const roleA = CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.role?.value]
+				?? this.actor.system.details?.role?.value;
+			const roleB = CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.roleB?.value]
+				?? this.actor.system.details?.roleB?.value;
+			return roleB ? `${roleA}/${roleB}` : roleA;
+		},
+		typeFormatted() {
+			let typeA = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.type?.value]
+				?? this.actor.system.details?.type?.value;
+			let typeB = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.typeB?.value]
+				?? this.actor.system.details?.typeB?.value;
+			if (typeB) return `${typeA.toUpperCase()}/${typeB.toUpperCase()}`;
+			if (typeof typeA == "string") return typeA.toUpperCase();
+			return "";
+		}
+	},
+	watch: {
+		"actor.img": {
+			deep: false,
+			handler() {
+				this.$nextTick(() => {
+					this.checkLoaded();
+				});
+			}
+		},
+		"actor.flags.archmage": {
+			deep: true,
+			handler() {
+				this.getAvatarDimensions();
+			}
+		}
+	},
+	async mounted() {
+		this.$nextTick(() => {
+			this.checkLoaded();
+		});
+	},
+	methods: {
+		getAvatarDimensions() {
+			let img = this.$refs.avatar;
+			let width = img.naturalWidth;
+			let height = img.naturalHeight;
 
-        let ratio = width / height;
-        let ratioClass = 'square';
-        let squareSize = width;
+			let ratio = width / height;
+			let ratioClass = "square";
+			let squareSize = width;
 
-        if (ratio < 0.9) {
-          ratioClass = 'portrait';
-          squareSize = width;
-        }
-        else if (ratio > 1.1) {
-          // TODO: Figure out a good layout for landscape.
-          // ratioClass = 'landscape';
-          ratioClass = 'square';
-          squareSize = height;
-        }
+			if (ratio < 0.9) {
+				ratioClass = "portrait";
+				squareSize = width;
+			}
+			else if (ratio > 1.1) {
+				// TODO: Figure out a good layout for landscape.
+				// ratioClass = 'landscape';
+				ratioClass = "square";
+				squareSize = height;
+			}
 
-        this.avatarWidth = ratioClass != 'square' ? width : squareSize;
-        this.avatarHeight = ratioClass != 'square' ? height : squareSize;
-        let classes = ['avatar', `avatar--${ratioClass}`];
-        let flags = this.actor.flags && this.actor.flags.archmage ? this.actor.flags.archmage : {};
-        if (flags.portraitRound) classes.push('avatar--round');
-        if (flags.portraitFrame) classes.push('avatar--frame');
-        this.avatarClass = classes.join(' ');
-      },
-      checkLoaded() {
-        if (this.$refs.avatar.complete) {
-          this.getAvatarDimensions();
-        }
-        else {
-          this.$refs.avatar.addEventListener('load', () => {
-            this.getAvatarDimensions();
-          });
-        }
-      },
-      toggleHeader(event) {
-        // Update the state.
-        this.headerCollapsed = !this.headerCollapsed;
-        // Set a flag.
-        if (!this.actor.pack) {
-          getActor(this.actor).then(actor => {
-            actor.setFlag('archmage', `sheetDisplay.header.collapsed`, this.headerCollapsed);
-          });
-        }
-      },
-      getOptions(key, includeNone = false) {
-        let options = CONFIG.ARCHMAGE[key] ?? [];
-        if (includeNone) {
-          options = {"":"", ...options};
-        }
-        return options;
-      }
-    },
-    watch: {
-      'actor.img': {
-        deep: false,
-        handler() {
-          this.$nextTick(() => {
-            this.checkLoaded();
-          });
-        }
-      },
-      'actor.flags.archmage': {
-        deep: true,
-        handler() {
-          this.getAvatarDimensions();
-        }
-      }
-    },
-    async mounted() {
-      this.$nextTick(() => {
-        this.checkLoaded();
-      });
-    }
-  }
+			this.avatarWidth = ratioClass != "square" ? width : squareSize;
+			this.avatarHeight = ratioClass != "square" ? height : squareSize;
+			let classes = ["avatar", `avatar--${ratioClass}`];
+			let flags = this.actor.flags && this.actor.flags.archmage ? this.actor.flags.archmage : {};
+			if (flags.portraitRound) classes.push("avatar--round");
+			if (flags.portraitFrame) classes.push("avatar--frame");
+			this.avatarClass = classes.join(" ");
+		},
+		checkLoaded() {
+			if (this.$refs.avatar.complete) {
+				this.getAvatarDimensions();
+			}
+			else {
+				this.$refs.avatar.addEventListener("load", () => {
+					this.getAvatarDimensions();
+				});
+			}
+		},
+		toggleHeader(event) {
+			// Update the state.
+			this.headerCollapsed = !this.headerCollapsed;
+			// Set a flag.
+			if (!this.actor.pack) {
+				getActor(this.actor).then((actor) => {
+					actor.setFlag("archmage", `sheetDisplay.header.collapsed`, this.headerCollapsed);
+				});
+			}
+		},
+		getOptions(key, includeNone = false) {
+			let options = CONFIG.ARCHMAGE[key] ?? [];
+			if (includeNone) {
+				options = { "": "", ...options };
+			}
+			return options;
+		}
+	}
+};
 </script>
 
 <style lang="scss">

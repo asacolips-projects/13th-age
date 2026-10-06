@@ -2,54 +2,54 @@
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.acBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.acBonus" />
+			<input v-model="viewModel.acBonus" type="number">
 		</div>
 	</div>
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.mdBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.mdBonus" />
+			<input v-model="viewModel.mdBonus" type="number">
 		</div>
 	</div>
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.pdBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.pdBonus" />
+			<input v-model="viewModel.pdBonus" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.hpBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.hpMax" />
+			<input v-model="viewModel.hpMax" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.recoveriesBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.recoveries" />
+			<input v-model="viewModel.recoveries" type="number">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.saveBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.saveBonus" />
+			<input v-model="viewModel.saveBonus" type="number">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.disengageBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.disengageBonus" />
+			<input v-model="viewModel.disengageBonus" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.initBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.initBonus" />
+			<input v-model="viewModel.initBonus" type="number">
 		</div>
 	</div>
 
@@ -59,20 +59,19 @@
 			<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.critDefBonusHint')" />
 		</label>
 		<div class="field">
-			<input type="number" v-model="viewModel.critDefBonus" />
+			<input v-model="viewModel.critDefBonus" type="number">
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { computed, inject, reactive, watch } from 'vue';
-import { localize } from '@/methods/Helpers';
-import { InfoBubble, } from '@/components';
+import { inject } from "vue";
+import { localize } from "@/methods/Helpers";
+import { InfoBubble } from "@/components";
 
-const props = defineProps(['viewModel']);
-const { effect } = props;
+defineProps(["viewModel"]);
 
-const foundryEffect = inject('itemDocument')
-const isNpc = foundryEffect?.parent?.type === 'npc'
+const foundryEffect = inject("itemDocument");
+const isNpc = foundryEffect?.parent?.type === "npc";
 
 </script>
