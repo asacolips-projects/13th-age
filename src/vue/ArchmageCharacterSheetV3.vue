@@ -214,9 +214,14 @@ async function openSettings() {
 
     /* Own the layout explicitly rather than relying on Foundry's .flexrow
        utility: the sidebar and right column must start at the top edge and
-       stretch to the full height of the window. */
+       stretch to the full height of the window. Nowrap matters in the narrow
+       layout: core's .flexrow wraps, and a wrapping column container pushes
+       children that exceed the window height onto a second flex line — a
+       column to the right of the first, splitting the sheet side by side.
+       Children must overflow (and scroll) instead. */
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: stretch;
 
     .sheet-controls {
@@ -246,6 +251,12 @@ async function openSettings() {
        scoped styles (class count beats class + attribute). */
     &.is-narrow {
       flex-direction: column;
+
+      /* Whole-window scrolling: the root itself is the scroll container
+         (wide keeps the per-region scrolls via min-height: 0 above). The
+         command bar and vitals are already flex: 0 0 auto, so they just
+         ride along; .sheet-main is re-pinned below. */
+      overflow-y: auto;
 
       /* Controls relocate over the command bar's right edge and grow to
          touch-friendly size. */
@@ -303,6 +314,20 @@ async function openSettings() {
          wraps onto rows (CharMainV3), so it never overflows. */
       .sheet-main .tab-link {
         padding: 0.5rem 0.625rem;
+      }
+
+      /* Size the main to its content instead of pinning it beneath the
+         vitals (CharMainV3's flex: 1 1 0), so the root overflows and the
+         window scrolls as one page. The tab body correspondingly gives up
+         its own scroll region — which only existed because CharMainV3
+         height-pinned it; the trade is that per-tab scroll positions are
+         no longer preserved on switch (the whole page scrolls instead). */
+      .sheet-main {
+        flex: 0 0 auto;
+      }
+
+      .sheet-main .tab-body.active {
+        overflow-y: visible;
       }
     }
   }
