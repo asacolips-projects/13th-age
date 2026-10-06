@@ -1,13 +1,8 @@
 <template>
   <section class="tab-catalog">
-    <!-- Sorts and filters. -->
-    <SortFilterBarV3 id="catalog" :sort-options="sortOptions" v-model:sort="sortBy" v-model:search="searchValue">
-      <div class="group-catalog">
-        <label for="catalog-group">{{localize('ARCHMAGE.groupBy')}}</label>
-        <select name="catalog-group" v-model="groupBy">
-          <option v-for="option in groupOptions" :key="option.value" :value="option.value">{{localize(`ARCHMAGE.GROUPS.${option.value}`)}}</option>
-        </select>
-      </div>
+    <!-- Sorts and filters. The group-by lives in the tab settings popover
+         beside the tab strip, since every tab carries its own. -->
+    <SortFilterBarV3 :id="concat('catalog-', tabId)" :sort-options="sortOptions" v-model:sort="sortBy" v-model:search="searchValue">
       <div class="import-catalog" v-if="canImport">
         <button type="button" class="catalog-import" :class="{ 'catalog-import--pulse': isEmptyCharacter }" :disabled="missingKinClass" :data-tooltip="importTooltip" @click="importPowers"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
       </div>
@@ -21,10 +16,10 @@
       @dragleave="onGroupDragLeave($event, section.key)"
       @drop="onGroupDrop($event, section.key)">
       <h4 class="catalog-group-title unit-title"
-        :draggable="canReorderGroups"
+        :draggable="canReorderNow"
         @dragstart="onGroupDragStart($event, section.key)"
         @dragend="onGroupDragEnd">
-        <i v-if="canReorderGroups" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
+        <i v-if="canReorderNow" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')"></i>
         <span class="group-title-label">{{ localize(section.labelKey) }}</span>
         <a v-if="editable && section.kind !== 'currency'" class="group-add" :title="addTitle(section)" @click.stop="createGroupItem(section)"><i class="fas fa-plus"></i></a>
       </h4>
@@ -38,51 +33,92 @@
         </div>
       </div>
       <ul v-else class="catalog-list flexcol">
-        <ExpandableRowV3 v-for="item in section.members" :key="item._id" :item="item" :actor="actor" :context="context"/>
+        <ExpandableRowV3 v-for="item in section.members" :key="item._id" :item="item" :actor="actor" :context="context"
+          :class="rowClasses(item._id)"
+          @dragstart="onRowDragStart($event, section.key, item._id)"
+          @dragover="onRowDragOver($event, section.key, item._id)"
+          @dragleave="onRowDragLeave($event, item._id)"
+          @drop="onRowDrop($event, section.key, item._id)"
+          @dragend="onRowDragEnd"/>
       </ul>
     </section>
   </section>
 </template>
 
 <script setup>
-import { computed, inject, ref, watch } from 'vue';
-import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, getActor, isSecondEdition, localize, orderedGroups, saveSheetDisplayPref, TIER_ORDER } from '@/methods/Helpers';
+import { computed, inject } from 'vue';
+import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, getActor, isSecondEdition, localize, orderedGroups, orderedRows, saveSheetDisplayPref, TIER_ORDER } from '@/methods/Helpers';
 import { useGroupReorder } from '@/composables/useGroupReorder';
+import { useRowReorder } from '@/composables/useRowReorder';
 import { useSearchFilter } from '@/composables/useSearchFilter';
 import SortFilterBarV3 from '@/components/actor/character/v3/parts/SortFilterBarV3.vue';
 import ExpandableRowV3 from '@/components/actor/character/v3/parts/ExpandableRowV3.vue';
 
-const props = defineProps(['actor', 'editable', 'context']);
+const props = defineProps(['actor', 'editable', 'context', 'tab']);
 
 // Creation writes go through the real actor document; props.actor is a clone.
 const actorDocument = inject('actorDocument');
 
-// Powers are grouped by the selected mode; equipment and loot keep their own
-// sections but share the ordering with the power groups.
+/**
+ * The tab definition drives the whole component: its group-by picks the
+ * grouping, its id keys the flag paths so every tab's preferences are
+ * independent. The definition lives in the sheetDisplay.catalog.tabs flags,
+ * edited from the tab settings popover beside the tab strip. The fixed Loot
+ * tab passes groupBy 'inventory' and renders only the inventory sections —
+ * loot and currency have no associated actions, so they keep one tab of
+ * their own.
+ */
+const tabId = computed(() => props.tab?.id ?? 'loot');
+const isInventory = computed(() => (props.tab?.groupBy ?? 'inventory') === 'inventory');
+
+// Powers are grouped by the selected mode; 'actionType' is the retired
+// action plan's fixed action groups, 'group' reads the free-text group
+// field. The other modes map onto the config's power fields.
 const GROUP_MODES = {
   powerType: 'powerTypes',
   powerUsage: 'powerUsages',
   powerSource: 'powerSources',
 };
 
-const groupOptions = [
-  { value: 'powerType' },
-  { value: 'powerUsage' },
-  { value: 'powerSource' },
-  { value: 'group' },
-];
+// Display order for the action groups; powers with an unknown action type
+// fall into the trailing 'other' group.
+const ACTION_ORDER = ['standard', 'move', 'quick', 'free', 'interrupt', 'other'];
+
 const sortOptions = [
   { value: 'name' },
   { value: 'level' },
   { value: 'custom' },
 ];
 
-// Grouping and sorting are persisted to the actor flag paths the v2 sheet
-// uses, so both sheets agree; the sort falls back to 'custom' like v2 does,
-// since drag-to-reorder writes item sort values that only that mode honors.
-const displayFlags = computed(() => props.actor?.flags?.archmage?.sheetDisplay?.powers ?? {});
-const groupBy = ref(displayFlags.value.groupBy?.value ?? 'powerType');
-const sortBy = ref(displayFlags.value.sortBy?.value ?? 'custom');
+// Sorting is the tab definition's, edited by the bar like before; writes
+// patch the stored tabs array so each tab's sort stays independent. The
+// Loot tab isn't in that array (it's fixed), so its sort gets a flag of
+// its own.
+const sortBy = computed({
+  get: () => isInventory.value
+    ? (props.actor?.flags?.archmage?.sheetDisplay?.catalog?.lootSort?.value ?? 'custom')
+    : (props.tab?.sortBy ?? 'custom'),
+  set: value => {
+    if (isInventory.value) {
+      saveSheetDisplayPref(props.actor, 'sheetDisplay.catalog.lootSort.value', value);
+      return;
+    }
+    saveTabDef({ sortBy: value });
+  },
+});
+
+/**
+ * Patch this tab's definition in the stored tabs flags. Nothing to patch
+ * until the tab set has been written once — migration seeds it on sheet
+ * render, and pack actors keep the derived defaults.
+ */
+const saveTabDef = async (patch) => {
+  if (!canReorder.value) return;
+  const defs = props.actor?.flags?.archmage?.sheetDisplay?.catalog?.tabs ?? [];
+  if (!defs.length) return;
+  const next = defs.map(def => def.id === tabId.value ? { ...def, ...patch } : def);
+  await saveSheetDisplayPref(props.actor, 'sheetDisplay.catalog.tabs', next);
+};
 
 // Searchable text for an item: what the v2 inventory tab matches (name,
 // chakra, equipment's bonus keys and values) plus the fields only the
@@ -106,27 +142,52 @@ const { searchValue, matchesSearch } = useSearchFilter(item => {
   return text;
 });
 
-// Group reordering is only offered when the sheet is editable and the actor
-// isn't a compendium entry (where flags can't be written).
-const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
+// Reordering (groups and rows alike) is only offered when the sheet is
+// editable and the actor isn't a compendium entry (where flags can't be
+// written).
+const canReorder = computed(() => props.editable === true && !props.actor?.pack);
+
+// Reordering pauses while a text filter hides rows: a drop on the filtered
+// view would rebuild the saved order from a partial list.
+const canReorderNow = computed(() => canReorder.value && !searchValue.value);
 
 // Group reordering, mirroring the v2 powers tab. The drag state is transient;
-// the ordering itself persists to the actor flag shared with v2 (per groupBy
-// mode) so the two sheets agree.
+// the ordering persists per tab and grouping mode, so each tab's arrangement
+// is its own.
 const {
   savedGroupOrder,
   groupClasses, onGroupDragStart, onGroupDragOver, onGroupDragLeave, onGroupDrop, onGroupDragEnd,
 } = useGroupReorder({
   actor: () => props.actor,
-  canReorder: canReorderGroups,
-  flagPath: () => `sheetDisplay.powers.groupOrder.${groupBy.value}`,
+  canReorder,
+  canStart: canReorderNow,
+  flagPath: () => `sheetDisplay.catalog.groupOrder.${tabId.value}.${props.tab?.groupBy ?? 'inventory'}`,
   getSections: () => catalogSections.value,
   classPrefix: 'catalog-group',
 });
 
-// The import button opens the power importer for the live actor. Like the v2
-// sheet, non-GM users who turned it off in the character settings don't see it.
-const canImport = computed(() =>
+// Row reordering within a group. The rows are the same draggable item rows
+// the sheet wires up for item drags, so their dragstart is left alone —
+// arming the item payload lets a drag out of the tab (to the hotbar, canvas
+// or another sheet) behave as usual — and only the drop is intercepted here.
+// The order persists to this tab's own flag: tabs reorder independently, and
+// the items' shared sort values the v2 sheet reads are never touched. A
+// tab's id is fixed for the component's lifetime, so the path reads once.
+const {
+  savedRowOrder,
+  rowClasses, onRowDragStart, onRowDragOver, onRowDragLeave, onRowDrop, onRowDragEnd,
+} = useRowReorder({
+  actor: () => props.actor,
+  canReorder,
+  canStart: canReorderNow,
+  flagPath: `sheetDisplay.catalog.rowOrder.${tabId.value}`,
+  getRows: sectionKey => catalogSections.value.find(section => section.key === sectionKey)?.members ?? [],
+});
+
+// The import button opens the power importer for the live actor. Like the
+// v2 sheet, non-GM users who turned it off in the character settings don't
+// see it, and the Loot tab — no powers there — doesn't either.
+const canImport = computed(() => !isInventory.value &&
   !(props.actor?.flags?.archmage?.hideImportPowers === true && !game.user.isGM));
 
 // The importer builds its tabs from the character's kin and class, so with
@@ -159,22 +220,6 @@ const coins = computed(() => props.actor?.system?.coins ?? {});
 // power groups collapse instead of staying visible for their "+" button.
 const hideEmptyPowerGroups = computed(() => props.actor?.flags?.archmage?.hideEmptyPowerGroups === true);
 
-const importPowers = async () => {
-  const actor = await getActor(props.actor);
-  await game.archmage?.ArchmagePowerImporterApplication?.show(actor);
-};
-
-watch(groupBy, value => {
-  if (!canReorderGroups.value) return;
-  saveSheetDisplayPref(props.actor, 'sheetDisplay.powers.groupBy.value', value);
-});
-watch(sortBy, value => {
-  if (!canReorderGroups.value) return;
-  saveSheetDisplayPref(props.actor, 'sheetDisplay.powers.sortBy.value', value);
-});
-
-const byCustom = (a, b) => (a.sort || 0) - (b.sort || 0);
-
 const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
 
 const byLevel = (a, b) => {
@@ -185,15 +230,28 @@ const byLevel = (a, b) => {
   return byPowerLevel(a, b);
 };
 
-const sortFns = { name: byName, level: byLevel, custom: byCustom };
+const sortFns = { name: byName, level: byLevel };
 
-const catalogItems = (types) => (props.actor?.items ?? [])
-  .filter(i => types.includes(i.type))
-  .filter(matchesSearch)
-  .sort(sortFns[sortBy.value] ?? byName);
+/**
+ * The tab's items of the given types in display order: 'custom' applies the
+ * tab's saved row order (name order for rows it doesn't know), the other
+ * modes ignore it.
+ */
+const catalogItems = (types) => {
+  const items = (props.actor?.items ?? [])
+    .filter(i => types.includes(i.type))
+    .filter(matchesSearch);
+  return sortBy.value === 'custom'
+    ? orderedRows(items, savedRowOrder.value, byName)
+    : [...items].sort(sortFns[sortBy.value] ?? byName);
+};
 
 const powers = computed(() => catalogItems(['power']));
+// Every magic item, for the inventory sections. In the action grouping only
+// those with a power usage join the groups — a usage of none (the sheet's
+// unset option) means there's no action to take.
 const equipment = computed(() => catalogItems(['equipment']));
+const actionEquipment = computed(() => equipment.value.filter(i => i.system?.powerUsage?.value));
 // Legacy 'tool' items are catalogued as loot, matching the inventory tab.
 const loot = computed(() => catalogItems(['loot', 'tool']));
 
@@ -208,17 +266,32 @@ const groupValue = (item, mode) => {
 };
 
 /**
- * Power groups for the current groupBy mode, in natural order: canonical
- * config order for built-in modes, first-appearance order for custom groups.
- * Empty groups are trimmed at display time when the hideEmptyPowerGroups
- * flag is set. Each group is {key, labelKey, raw, kind, members}.
+ * Power groups for the tab's groupBy mode, in natural order: canonical
+ * config order for built-in modes, first-appearance order for custom groups,
+ * the fixed action order for 'actionType' — powers by their action, equipment
+ * with a power usage folding in as free actions, matching the retired action
+ * plan tab. Empty groups are trimmed at display time when the
+ * hideEmptyPowerGroups flag is set. Each group is {key, labelKey, raw, kind,
+ * members}.
  */
 const powerGroups = computed(() => {
+  const mode = props.tab?.groupBy;
+
+  if (mode === 'actionType') {
+    const byAction = new Map(ACTION_ORDER.map(action =>
+      [action, { key: action, labelKey: `ARCHMAGE.${action}`, kind: 'power', members: [] }]));
+    for (const power of powers.value) {
+      const action = power.system?.actionType?.value;
+      byAction.get(ACTION_ORDER.includes(action) ? action : 'other').members.push(power);
+    }
+    byAction.get('free').members.push(...actionEquipment.value);
+    return [...byAction.values()];
+  }
+
   const items = powers.value;
-  const configKey = GROUP_MODES[groupBy.value];
+  const configKey = GROUP_MODES[mode];
 
   if (configKey) {
-    const mode = groupBy.value;
     const groups = [];
     for (const key of Object.keys(CONFIG.ARCHMAGE[configKey])) {
       const members = items.filter(i => groupValue(i, mode) === key);
@@ -251,15 +324,16 @@ const powerGroups = computed(() => {
   return groups;
 });
 
-// Keys for the inventory sections. The 'inventory-' prefix can't collide with
-// a custom power group, whose key is a stripped copy of its free-text name.
+// Keys for the inventory sections, the Loot tab's whole body. The
+// 'inventory-' prefix can't collide with a custom power group, whose key is
+// a stripped copy of its free-text name.
 const INVENTORY_SECTIONS = [
   { key: 'inventory-equipment', labelKey: 'ARCHMAGE.INVENTORY.equipment', kind: 'equipment', items: equipment },
   { key: 'inventory-loot', labelKey: 'ARCHMAGE.INVENTORY.loot', kind: 'loot', items: loot },
 ];
 
 // The currency group holds the coin purse inputs rather than items; it is
-// gated by the hideCurrency flag and defaults to the end of the catalog.
+// gated by the hideCurrency flag and defaults to the end of the tab.
 const CURRENCY_SECTION = {
   key: 'inventory-currency',
   labelKey: 'ARCHMAGE.INVENTORY.currency',
@@ -268,29 +342,26 @@ const CURRENCY_SECTION = {
 };
 
 /**
- * Every catalog section in display order: the power groups for the current
- * groupBy mode, then the equipment and loot sections, then the currency
- * group. With the hideEmptyPowerGroups flag set, empty power groups drop out
- * — except when every power group is empty, where the first one stays so its
- * "+" button still has a home — matching the v2 powers tab. Inventory
- * sections always show so their "+" buttons can fill them. Currency is a
- * draggable group like the rest, so its position persists alongside them in
- * the per-mode group order flag.
+ * Every section in display order. The item tabs show just the power groups
+ * for their groupBy mode; the Loot tab shows the inventory sections and the
+ * currency group instead. With the hideEmptyPowerGroups flag set, empty
+ * power groups drop out — except when every group is empty, where the first
+ * one stays so its "+" button still has a home — matching the v2 powers tab.
  */
 const catalogSections = computed(() => {
-  const sections = [
-    ...powerGroups.value,
-    ...INVENTORY_SECTIONS
-      .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value })),
-    ...(showCurrency.value ? [CURRENCY_SECTION] : []),
-  ];
-  const visible = hideEmptyPowerGroups.value
-    ? sections.filter(section => section.kind !== 'power' || section.members.length > 0)
-    : sections;
-  if (hideEmptyPowerGroups.value && !visible.some(section => section.kind === 'power')) {
-    const first = sections.find(section => section.kind === 'power');
-    if (first) visible.push(first);
+  if (isInventory.value) {
+    const sections = [
+      ...INVENTORY_SECTIONS
+        .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value })),
+      ...(showCurrency.value ? [CURRENCY_SECTION] : []),
+    ];
+    return orderedGroups(sections, savedGroupOrder.value);
   }
+  const groups = powerGroups.value;
+  const visible = hideEmptyPowerGroups.value
+    ? groups.filter(group => group.members.length > 0)
+    : groups;
+  if (hideEmptyPowerGroups.value && !visible.length && groups.length) visible.push(groups[0]);
   return orderedGroups(visible, savedGroupOrder.value);
 });
 
@@ -304,15 +375,16 @@ const addTitle = (section) => game.i18n.format('ARCHMAGE.addToGroup', {
 /**
  * Item data for a section's "+" button, pre-filled so the new item lands in
  * the group it was added from: built-in group modes set the mode's system
- * field (e.g. system.powerUsage.value), custom groups set the free-text group
- * (the default group leaves it empty), inventory sections just use their type.
+ * field (e.g. system.powerUsage.value), the action mode sets the action
+ * type, custom groups set the free-text group (the default group leaves it
+ * empty), inventory sections just use their type.
  */
 const groupCreateData = (section) => {
-  if (section.kind !== 'power') return { type: section.kind, system: {} };
-  if (groupBy.value === 'group') {
-    return { type: 'power', system: section.raw ? { group: { value: section.raw } } : {} };
-  }
-  return { type: 'power', system: { [groupBy.value]: { value: section.key } } };
+  const mode = props.tab?.groupBy;
+  if (mode === 'actionType') return { type: 'power', system: { actionType: { value: section.key } } };
+  if (mode === 'group') return { type: 'power', system: section.raw ? { group: { value: section.raw } } : {} };
+  if (GROUP_MODES[mode]) return { type: 'power', system: { [mode]: { value: section.key } } };
+  return { type: section.kind, system: {} };
 };
 
 /**
@@ -332,17 +404,7 @@ const createGroupItem = async (section) => {
 </script>
 
 <style scoped lang="scss">
-  // The group-by control slotted into the shared sort/filter bar: styled
-  // like the bar's own controls, whose scoped rules don't reach slot content.
-  .group-catalog {
-    flex: 0 auto;
-
-    label {
-      display: block;
-      width: 100%;
-      font-weight: bold;
-    }
-  }
+  @import 'v3/drag-reorder';
 
   // Coin purses, styled like the filter controls (label above slim input).
   // Units share the row evenly; gold/silver/copper copy the v2 sheet's

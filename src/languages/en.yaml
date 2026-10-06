@@ -4,10 +4,10 @@ ARCHMAGE:
   abilityScore: Ability Score
   act: Act.
   action: Action
-  actionPlan: Action Plan
   actions: Actions
   activeEffects: Active Effects
   add: Add
+  addTab: Add Tab
   addToGroup: Add to {group}
   adventurer: Adventurer
   arc: Arc
@@ -113,6 +113,7 @@ ARCHMAGE:
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
+  itemsByGroup: By {group}
   initBonus: Optional Initiative Bonus
   initiative: Initiative
   INT: INT
@@ -147,6 +148,8 @@ ARCHMAGE:
   MOV: MOV
   move: Move Action
   move-short: Move
+  moveDown: Move Down
+  moveUp: Move Up
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
@@ -181,6 +184,7 @@ ARCHMAGE:
   recharge-desperate: Recharge/Desperate
   recoveries: Recoveries
   recovery: Recovery
+  removeTab: Remove Tab
   rerollAcShort: Reroll vs. AC
   rerollSaveShort: Reroll Save
   resourceful: Resourceful
@@ -230,6 +234,7 @@ ARCHMAGE:
   standard-short: Standard
   STD: STD
   strength: Strength
+  tabSettings: Tab Settings
   talent: Talent
   talents: Talents
   terrains: Terrains

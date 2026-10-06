@@ -1,6 +1,11 @@
 <template>
   <main class="sheet-main flexcol">
-    <Tabs group="v3" :tabs="tabs" :actor="context.actor" :flags="flags" no-span="true" />
+    <!-- The catalog tabs are user-configured (see the settings popover
+         docked at the strip's end); the Loot tab follows them, fixed. -->
+    <div class="strip-row">
+      <Tabs group="v3" :tabs="stripTabs" :actor="context.actor" :flags="flags" no-span="true" />
+      <CharCatalogTabSettingsV3 v-if="canConfigureTabs" :actor="context.actor" />
+    </div>
 
     <!-- Every tab is mounted for the sheet's lifetime; the <Tab> wrapper only
          toggles visibility, which preserves component state and, because each
@@ -20,11 +25,8 @@
         </div>
       </Tab>
 
-      <Tab group="v3" :tab="tabs.catalog" classes="tab-body">
-        <CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" />
-      </Tab>
-      <Tab group="v3" :tab="tabs.actionPlan" classes="tab-body">
-        <CharActionPlanV3 :actor="context.actor" :editable="context.editable" :context="context" />
+      <Tab v-for="{ def, state } in catalogTabsView" :key="def.id" group="v3" :tab="state" classes="tab-body">
+        <CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" :tab="def" />
       </Tab>
       <Tab group="v3" :tab="tabs.triggers" classes="tab-body">
         <CharTriggersV3 :actor="context.actor" :editable="context.editable" :context="context" />
@@ -34,6 +36,9 @@
       </Tab>
       <Tab group="v3" :tab="tabs.loadout" classes="tab-body">
         <CharLoadoutV3 :actor="context.actor" :editable="context.editable" />
+      </Tab>
+      <Tab group="v3" :tab="tabs.loot" classes="tab-body">
+        <CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" :tab="LOOT_TAB" />
       </Tab>
       <Tab group="v3" :tab="tabs.progression" classes="tab-body">
         <CharProgressionV3 :actor="context.actor" :editable="context.editable" />
@@ -46,12 +51,13 @@
 </template>
 
 <script setup>
-import { computed, reactive, watchEffect } from 'vue';
+import { computed, reactive, ref, watchEffect } from 'vue';
 import { localize } from '@/methods/Helpers';
 import { Tabs, Tab } from '@/components';
-import CharActionPlanV3 from './tabs/CharActionPlanV3.vue';
-import CharTriggersV3 from './tabs/CharTriggersV3.vue';
+import { CATALOG_GROUP_ICONS, LOOT_TAB, catalogTabDefs, catalogTabLabel, migrateCatalogTabs } from '@/methods/CatalogTabs';
 import CharCatalogV3 from './tabs/CharCatalogV3.vue';
+import CharCatalogTabSettingsV3 from './parts/CatalogTabSettingsV3.vue';
+import CharTriggersV3 from './tabs/CharTriggersV3.vue';
 import CharEffectsV3 from './tabs/CharEffectsV3.vue';
 import CharLoadoutV3 from './tabs/CharLoadoutV3.vue';
 import CharProgressionV3 from './tabs/CharProgressionV3.vue';
@@ -69,13 +75,13 @@ const hasTriggers = computed(() => (props.context.actor?.items ?? [])
 // Tab definitions for parts/Tabs.vue: the object keys are the tab ids, and the
 // component flips `active` on the objects on click, which drives the matching
 // <Tab> wrappers above. reactive() so those mutations propagate; the object is
-// built once so actor updates never rebuild it. The character tab only exists
-// in the narrow layout, and the icon map backfills the strip there too (the
-// wide strip stays label-only, notes excepted).
+// built once so actor updates never rebuild it. The catalog tabs themselves are
+// user-configured and synced in below; the character tab only exists in the
+// narrow layout, and the icon map backfills the strip there too (the wide strip
+// stays label-only, notes excepted).
 const icons = {
-  catalog: 'fa-book',
-  actionPlan: 'fa-chess-knight',
-  triggers: 'fa-bolt',
+  loot: 'fa-suitcase',
+  triggers: 'fa-play',
   effects: 'fa-wand-magic-sparkles',
   loadout: 'fa-box',
   progression: 'fa-chart-line',
@@ -85,29 +91,88 @@ const icons = {
 
 const rawTabs = {
   character: { key: 'character', label: localize('ARCHMAGE.character') },
-  catalog: { key: 'catalog', label: localize('ARCHMAGE.catalog'), active: true },
-  actionPlan: { key: 'actionPlan', label: localize('ARCHMAGE.actionPlan') },
   triggers: { key: 'triggers', label: localize('ARCHMAGE.triggers') },
   effects: { key: 'effects', label: localize('ARCHMAGE.effects') },
   loadout: { key: 'loadout', label: localize('ARCHMAGE.loadout') },
-  progression: { key: 'progression', label: localize('ARCHMAGE.progression') },
-  notes: { key: 'notes', label: localize('ARCHMAGE.notes'), icon: 'fa-note-sticky', hideLabel: true },
+  progression: { key: 'progression', label: localize('ARCHMAGE.progression'),  hideLabel: true },
+  loot: { key: 'loot', label: localize('ARCHMAGE.loot'), hideLabel: true },
+  notes: { key: 'notes', label: localize('ARCHMAGE.notes'),  hideLabel: true },
 };
 const tabs = reactive(rawTabs);
+
+// The user-configured catalog tabs (sheetDisplay.catalog.tabs): stable
+// reactive state per tab id, synced from the flag-stored definitions so
+// re-renders never drop the active tab or the strip's click state. The
+// version ref just tells the computeds below when the set changed — the
+// flags only swap when the sheet re-renders.
+const catalogStates = new Map();
+const catalogVersion = ref(0);
+
+watchEffect(() => {
+  const defs = catalogTabDefs(props.context.actor);
+  const known = new Set(defs.map(def => def.id));
+  for (const id of [...catalogStates.keys()]) {
+    if (!known.has(id)) catalogStates.delete(id);
+  }
+  defs.forEach(def => {
+    let state = catalogStates.get(def.id);
+    if (!state) {
+      state = reactive({ key: def.id, active: false });
+      catalogStates.set(def.id, state);
+    }
+    state.label = catalogTabLabel(def);
+    state.icon = props.narrow ? (CATALOG_GROUP_ICONS[def.groupBy] ?? 'fa-book') : undefined;
+    state.hideLabel = props.narrow;
+  });
+
+  // Nothing active — first render, or the active tab was just removed:
+  // light the first catalog tab so the sheet never shows a dead strip.
+  if (!Object.values(tabs).some(t => t.active) && ![...catalogStates.values()].some(s => s.active)) {
+    const first = catalogStates.get(defs[0]?.id);
+    if (first) first.active = true;
+  }
+  catalogVersion.value++;
+});
+
+/**
+ * The strip's tab view: the static tabs with the catalog ones spliced in
+ * after the narrow-only character tab, in the stored tab order.
+ */
+const catalogTabsView = computed(() => {
+  catalogVersion.value;
+  return catalogTabDefs(props.context.actor).map(def => ({
+    def,
+    state: catalogStates.get(def.id) ?? { key: def.id, active: false },
+  }));
+});
+
+const stripTabs = computed(() => {
+  catalogVersion.value;
+  // Order follows the stored tab definitions, so popover reorders take
+  // effect — the state map's own insertion order would go stale.
+  const merged = { character: tabs.character };
+  for (const { state } of catalogTabsView.value) merged[state.key] = state;
+  for (const key of ['triggers', 'loadout', 'effects', 'loot', 'progression', 'notes']) {
+    merged[key] = tabs[key];
+  }
+  return merged;
+});
 
 // Runs immediately (so the first render already has the flag) and again
 // whenever the actor's items or the layout mode change. Hidden tabs: triggers
 // earn their slot only when the PC has trigger text, and the character tab
 // exists only in the narrow layout. If a tab is open when it becomes hidden,
 // move the active tab to the first visible one. Icons/labels: narrow swaps the
-// strip to icon-only (hideLabel keeps hover tooltips working).
+// strip to icon-only (hideLabel keeps hover tooltips working); the catalog
+// tabs' icons were set in the sync above.
 watchEffect(() => {
   tabs.triggers.hidden = !hasTriggers.value;
   tabs.character.hidden = !props.narrow;
 
-  for (const tab of Object.values(tabs)) {
-    tab.icon = props.narrow ? icons[tab.key] : (tab.key === 'notes' ? icons.notes : undefined);
-    tab.hideLabel = props.narrow || tab.key === 'notes';
+  for (const key of ['character', 'loot', 'triggers', 'effects', 'loadout', 'progression', 'notes']) {
+    const tab = tabs[key];
+    tab.icon = (props.narrow || tab.hideLabel) ? icons[key] : undefined
+    tab.hideLabel ||= props.narrow;
   }
 
   const hiddenActive = Object.values(tabs).find(t => t.hidden && t.active);
@@ -120,16 +185,31 @@ watchEffect(() => {
   }
 });
 
+// The settings popover only makes sense where its writes can land.
+const canConfigureTabs = computed(() => props.context?.editable === true && !props.context.actor?.pack);
+
+// One-time migration: seed the catalog tab set (and its saved orders) from
+// the legacy powers/actionPlan flags, leaving those in place for the v2
+// sheet. Fire and forget — the sheet re-renders when the flags land.
+if (props.context?.editable === true && !props.context.actor?.pack) {
+  migrateCatalogTabs(props.context.actor);
+}
+
 // parts/Tabs.vue restores the last-open tab from this blob in mounted() and
 // persists clicks through the actor prop (pack actors are skipped there) under
 // archmage.sheetDisplay.tabs.v3.value like before — its own group so stale V2
 // values can't collide. A stored value pointing at a tab that no longer exists
-// would crash its mounted() lookup, so sanitize it back to the default.
+// (a removed catalog tab among them) would crash its mounted() lookup, so
+// sanitize it back to the default.
 const storedTab = props.context.actor?.flags?.archmage?.sheetDisplay?.tabs?.v3?.value;
+const knownTabs = new Set([
+  ...Object.keys(rawTabs),
+  ...catalogTabDefs(props.context.actor).map(def => def.id),
+]);
 const flags = {
   sheetDisplay: {
     tabs: {
-      v3: { value: Object.hasOwn(rawTabs, storedTab) ? storedTab : undefined }
+      v3: { value: knownTabs.has(storedTab) ? storedTab : undefined }
     }
   }
 };
@@ -146,13 +226,20 @@ const flags = {
     flex-direction: column;
   }
 
-  /* Local styles for parts/Tabs.vue: its own SCSS is nested under .archmage-v2,
-     which the V3 sheet root doesn't have (same situation as RollableV3.vue),
-     so keep the strip Foundry-native with just the tweak the hand-rolled
-     version had. The section wrapper is the component's root, so :deep()
-     reaches the links inside. */
-  .section--tabs {
+  /* The strip and its settings cog share a row; the strip takes the
+     remaining width. Local styles for parts/Tabs.vue: its own SCSS is nested
+     under .archmage-v2, which the V3 sheet root doesn't have (same situation
+     as RollableV3.vue), so keep the strip Foundry-native with just the tweak
+     the hand-rolled version had. The section wrapper is the component's
+     root, so :deep() reaches the links inside. */
+  .strip-row {
     flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .strip-row .section--tabs {
+    flex: 1 1 auto;
 
     :deep(.tab-link) {
       padding: 0.25rem;
