@@ -223,7 +223,8 @@ export class DamageApplicator {
               }
 
               const rowLabel = Triggers.labelOf($rowSelf);
-              if (triggers.isTriggerRow(rowLabel)) {
+              // A row marked trigger-fixed was classified by something other than the roll.
+              if (triggers.isTriggerRow(rowLabel) && !$rowSelf.hasClass('trigger-fixed')) {
                 let active = triggers.evaluateRow(rowLabel, hitEvaluationResults.rollOutcomes);
 
                 // Remove previous classes.

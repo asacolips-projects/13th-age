@@ -1,6 +1,10 @@
 import ITrigger from "./ITrigger.mjs";
 
 export default class MissTrigger extends ITrigger {
+    get group() {
+        return "outcome";
+    }
+
     appliesTo(label) {
         return ITrigger.mentions(label, ITrigger.word("miss"), ["es"]);
     }

@@ -30,6 +30,7 @@ import { ArchmageCharacterSettingsApp } from './applications/character-settings.
 import { ArchmagePowerImporterApplication } from './applications/power-importer.js';
 import { ArchmageActiveEffectSheetV2 } from './active-effects/effect-sheet-v2.js';
 import { baselineMonsterDialog } from './actor/baseline-monster.js';
+import FlexibleAttacks from './rolls/FlexibleAttacks.mjs';
 
 Hooks.once('init', async function() {
 
@@ -673,6 +674,10 @@ Hooks.on('ready', () => {
           ]
       })
   );
+  for (const kind of Object.keys(CONFIG.ARCHMAGE.REGEXP.FLEXIBLE_KINDS)) {
+    const word = game.i18n.localize(`ARCHMAGE.${kind}`).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    CONFIG.ARCHMAGE.REGEXP.FLEXIBLE_KINDS[kind] = new RegExp(word, "i");
+  }
 
   // Optionally Hide ruler distance labels — 13th Age uses abstract movement where distances are irrelevant.
   if (game.settings.get('archmage', 'disableMovementDistances')) {
@@ -1502,6 +1507,9 @@ function uuidv4() {
 
 Hooks.on('renderChatMessageHTML', (chatMessage, rawhtml, options) => {
   const html = $(rawhtml);
+
+  // Flexible attack rows on an attack's card.
+  FlexibleAttacks.activateListeners(chatMessage, html);
 
   // Override the inline roll click behavior.
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');

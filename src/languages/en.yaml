@@ -860,9 +860,15 @@ ARCHMAGE:
     effect: Effect
     effectRemoved: temporary effect removed
     effectTitle: General effect of a spell or power when it's used.
+    disjunctions: or, otherwise
     epic: Epic Feat
     even: even
     finalVerse: Final Verse
+    flexibleAttackHeading: Flexible attacks
+    flexibleAttackNoUses: no uses left
+    flexibleAttackShowAll: show all
+    flexibleAttackShowApplicable: show applicable
+    flexibleAttackNotOwner: You do not own {actor}.
     FullHeal: Full Heal-Up
     FullHealBody: Regain all health, recoveries, and power uses.
     FullHealHP: reset to maximum
