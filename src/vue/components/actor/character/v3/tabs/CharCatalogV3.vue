@@ -247,9 +247,9 @@ const catalogItems = (types) => {
 };
 
 const powers = computed(() => catalogItems(['power']));
-// Every magic item, for the inventory sections. In the action grouping only
-// those with a power usage join the groups — a usage of none (the sheet's
-// unset option) means there's no action to take.
+// Magic items only join the action grouping, where those with a power usage
+// take a free-action slot — a usage of none (the sheet's unset option) means
+// there's no action to take.
 const equipment = computed(() => catalogItems(['equipment']));
 const actionEquipment = computed(() => equipment.value.filter(i => i.system?.powerUsage?.value));
 // Legacy 'tool' items are catalogued as loot, matching the inventory tab.
@@ -324,16 +324,16 @@ const powerGroups = computed(() => {
   return groups;
 });
 
-// Keys for the inventory sections, the Loot tab's whole body. The
-// 'inventory-' prefix can't collide with a custom power group, whose key is
-// a stripped copy of its free-text name.
+// Keys for the inventory sections, the Loot tab's whole body: loot only —
+// magic items take their actions in the action grouping and otherwise live
+// on the loadout. The 'inventory-' prefix can't collide with a custom power
+// group, whose key is a stripped copy of its free-text name.
 const INVENTORY_SECTIONS = [
-  { key: 'inventory-equipment', labelKey: 'ARCHMAGE.INVENTORY.equipment', kind: 'equipment', items: equipment },
   { key: 'inventory-loot', labelKey: 'ARCHMAGE.INVENTORY.loot', kind: 'loot', items: loot },
 ];
 
 // The currency group holds the coin purse inputs rather than items; it is
-// gated by the hideCurrency flag and defaults to the end of the tab.
+// gated by the hideCurrency flag and defaults to the top of the tab.
 const CURRENCY_SECTION = {
   key: 'inventory-currency',
   labelKey: 'ARCHMAGE.INVENTORY.currency',
@@ -343,17 +343,17 @@ const CURRENCY_SECTION = {
 
 /**
  * Every section in display order. The item tabs show just the power groups
- * for their groupBy mode; the Loot tab shows the inventory sections and the
- * currency group instead. With the hideEmptyPowerGroups flag set, empty
+ * for their groupBy mode; the Loot tab shows the currency group and the
+ * inventory sections instead. With the hideEmptyPowerGroups flag set, empty
  * power groups drop out — except when every group is empty, where the first
  * one stays so its "+" button still has a home — matching the v2 powers tab.
  */
 const catalogSections = computed(() => {
   if (isInventory.value) {
     const sections = [
+      ...(showCurrency.value ? [CURRENCY_SECTION] : []),
       ...INVENTORY_SECTIONS
         .map(({ key, labelKey, kind, items }) => ({ key, labelKey, kind, members: items.value })),
-      ...(showCurrency.value ? [CURRENCY_SECTION] : []),
     ];
     return orderedGroups(sections, savedGroupOrder.value);
   }
