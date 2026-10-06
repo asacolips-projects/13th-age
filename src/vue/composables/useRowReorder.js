@@ -1,5 +1,5 @@
-import { computed, ref } from 'vue';
-import { saveSheetDisplayPref } from '@/methods/Helpers';
+import { computed, ref } from "vue";
+import { saveSheetDisplayPref } from "@/methods/Helpers";
 
 // Shared drag-feedback classes for reorderable rows, styled by the v3
 // drag-reorder SCSS partial: the dragged row dims, the hovered row shows an
@@ -46,148 +46,153 @@ import { saveSheetDisplayPref } from '@/methods/Helpers';
  *   with.
  */
 export function useRowReorder({
-  actor,
-  canReorder,
-  canStart = null,
-  flagPath = null,
-  getRows = null,
-  rows = null,
-  persist = null,
-  startDrag = null,
+	actor,
+	canReorder,
+	canStart = null,
+	flagPath = null,
+	getRows = null,
+	rows = null,
+	persist = null,
+	startDrag = null
 }) {
-  const draggedRow = ref(null);
-  const draggedContainer = ref(null);
-  const dragOverRow = ref(null);
-  const dropAfter = ref(false);
+	const draggedRow = ref(null);
+	const draggedContainer = ref(null);
+	const dragOverRow = ref(null);
+	const dropAfter = ref(false);
 
-  // The saved order, when the rows persist to a flag.
-  const savedRowOrder = computed(() => {
-    if (!flagPath) return [];
-    const stored = foundry.utils.getProperty(actor()?.flags?.archmage ?? {}, flagPath);
-    return Array.isArray(stored) ? stored : [];
-  });
+	// The saved order, when the rows persist to a flag.
+	const savedRowOrder = computed(() => {
+		if (!flagPath) return [];
+		const stored = foundry.utils.getProperty(actor()?.flags?.archmage ?? {}, flagPath);
+		return Array.isArray(stored) ? stored : [];
+	});
 
-  /**
-   * Classes for an item row, including drag feedback.
-   */
-  const rowClasses = (rowId) => ({
-    'v3-row--dragging': draggedRow.value === rowId,
-    'v3-row--drop-above': dragOverRow.value === rowId && !dropAfter.value,
-    'v3-row--drop-below': dragOverRow.value === rowId && dropAfter.value,
-  });
+	/**
+	 * Classes for an item row, including drag feedback.
+	 * @param rowId
+	 */
+	const rowClasses = (rowId) => ({
+		"v3-row--dragging": draggedRow.value === rowId,
+		"v3-row--drop-above": dragOverRow.value === rowId && !dropAfter.value,
+		"v3-row--drop-below": dragOverRow.value === rowId && dropAfter.value
+	});
 
-  const onRowDragStart = (event, containerKey, rowId) => {
-    if (!(canStart ?? canReorder).value) return;
-    draggedRow.value = rowId;
-    draggedContainer.value = containerKey;
-    if (startDrag) startDrag(event, containerKey, rowId);
-  };
+	const onRowDragStart = (event, containerKey, rowId) => {
+		if (!(canStart ?? canReorder).value) return;
+		draggedRow.value = rowId;
+		draggedContainer.value = containerKey;
+		if (startDrag) startDrag(event, containerKey, rowId);
+	};
 
-  const onRowDragOver = (event, containerKey, rowId, forceAfter = false) => {
-    if (!draggedRow.value) return;
-    // A row drag stays ours end to end: keep it away from the sheet's item
-    // sorting even over another group's rows, where the drop would be a no-op.
-    event.preventDefault();
-    event.stopPropagation();
-    event.dataTransfer.dropEffect = 'move';
-    if (draggedContainer.value !== containerKey || rowId === draggedRow.value) return;
-    if (forceAfter) {
-      // The drop always lands after the target, e.g. the loadout's feat
-      // block, which sits below its power row.
-      dropAfter.value = true;
-    }
-    else {
-      const rect = event.currentTarget.getBoundingClientRect();
-      dropAfter.value = (event.clientY - rect.top) >= (rect.height / 2);
-    }
-    dragOverRow.value = rowId;
-  };
+	const onRowDragOver = (event, containerKey, rowId, forceAfter = false) => {
+		if (!draggedRow.value) return;
+		// A row drag stays ours end to end: keep it away from the sheet's item
+		// sorting even over another group's rows, where the drop would be a no-op.
+		event.preventDefault();
+		event.stopPropagation();
+		event.dataTransfer.dropEffect = "move";
+		if (draggedContainer.value !== containerKey || rowId === draggedRow.value) return;
+		if (forceAfter) {
+			// The drop always lands after the target, e.g. the loadout's feat
+			// block, which sits below its power row.
+			dropAfter.value = true;
+		}
+		else {
+			const rect = event.currentTarget.getBoundingClientRect();
+			dropAfter.value = (event.clientY - rect.top) >= (rect.height / 2);
+		}
+		dragOverRow.value = rowId;
+	};
 
-  const onRowDragLeave = (event, rowId) => {
-    if (dragOverRow.value !== rowId) return;
-    // dragleave also fires when moving between the row's children, so only
-    // clear the indicator once the cursor has actually left the row.
-    if (event.currentTarget.contains(event.relatedTarget)) return;
-    dragOverRow.value = null;
-  };
+	const onRowDragLeave = (event, rowId) => {
+		if (dragOverRow.value !== rowId) return;
+		// dragleave also fires when moving between the row's children, so only
+		// clear the indicator once the cursor has actually left the row.
+		if (event.currentTarget.contains(event.relatedTarget)) return;
+		dragOverRow.value = null;
+	};
 
-  const onRowDrop = async (event, containerKey, targetId, forceAfter = null) => {
-    if (!draggedRow.value) return;
-    // A row is being reordered, so keep this away from item sorting.
-    event.preventDefault();
-    event.stopPropagation();
+	const onRowDrop = async (event, containerKey, targetId, forceAfter = null) => {
+		if (!draggedRow.value) return;
+		// A row is being reordered, so keep this away from item sorting.
+		event.preventDefault();
+		event.stopPropagation();
 
-    const sourceId = draggedRow.value;
-    const sourceContainer = draggedContainer.value;
-    const after = forceAfter ?? dropAfter.value;
-    clearRowDrag();
-    // Cross-group drops do nothing: which group a row belongs to follows the
-    // item's own data, which the tab doesn't edit. Single-list tabs pass the
-    // same container key throughout, so the check passes trivially.
-    if (sourceContainer !== containerKey || sourceId === targetId) return;
+		const sourceId = draggedRow.value;
+		const sourceContainer = draggedContainer.value;
+		const after = forceAfter ?? dropAfter.value;
+		clearRowDrag();
+		// Cross-group drops do nothing: which group a row belongs to follows the
+		// item's own data, which the tab doesn't edit. Single-list tabs pass the
+		// same container key throughout, so the check passes trivially.
+		if (sourceContainer !== containerKey || sourceId === targetId) return;
 
-    await insertRow(containerKey, sourceId, targetId, after);
-  };
+		await insertRow(containerKey, sourceId, targetId, after);
+	};
 
-  const onRowDragEnd = () => clearRowDrag();
+	const onRowDragEnd = () => clearRowDrag();
 
-  const clearRowDrag = () => {
-    draggedRow.value = null;
-    draggedContainer.value = null;
-    dragOverRow.value = null;
-    dropAfter.value = false;
-  };
+	const clearRowDrag = () => {
+		draggedRow.value = null;
+		draggedContainer.value = null;
+		dragOverRow.value = null;
+		dropAfter.value = false;
+	};
 
-  /**
-   * Rebuild a container's order from what's currently displayed, inserting
-   * above or below the target based on where the cursor was released.
-   */
-  const insertRow = async (containerKey, sourceId, targetId, after) => {
-    const displayed = displayedRows(containerKey);
-    const rowIds = displayed.map(row => row._id);
-    const order = rowIds.filter(id => id !== sourceId);
-    const index = order.indexOf(targetId);
-    if (index < 0) return;
-    order.splice(after ? index + 1 : index, 0, sourceId);
+	/**
+	 * Rebuild a container's order from what's currently displayed, inserting
+	 * above or below the target based on where the cursor was released.
+	 * @param containerKey
+	 * @param sourceId
+	 * @param targetId
+	 * @param after
+	 */
+	const insertRow = async (containerKey, sourceId, targetId, after) => {
+		const displayed = displayedRows(containerKey);
+		const rowIds = displayed.map((row) => row._id);
+		const order = rowIds.filter((id) => id !== sourceId);
+		const index = order.indexOf(targetId);
+		if (index < 0) return;
+		order.splice(after ? index + 1 : index, 0, sourceId);
 
-    // Keep every other group's entries (pruning deleted items) and append this
-    // group's slice: position within the flat array only matters relative to
-    // an item's own group, since the order is applied per group. Tabs that
-    // persist through something other than the flat flag read no saved order,
-    // so nothing precedes the reordered slice.
-    const containerIds = new Set(rowIds);
-    const itemIds = new Set((actor()?.items ?? []).map(item => item._id));
-    const rest = savedRowOrder.value.filter(id => !containerIds.has(id) && itemIds.has(id));
-    await saveRowOrder([...rest, ...order]);
-  };
+		// Keep every other group's entries (pruning deleted items) and append this
+		// group's slice: position within the flat array only matters relative to
+		// an item's own group, since the order is applied per group. Tabs that
+		// persist through something other than the flat flag read no saved order,
+		// so nothing precedes the reordered slice.
+		const containerIds = new Set(rowIds);
+		const itemIds = new Set((actor()?.items ?? []).map((item) => item._id));
+		const rest = savedRowOrder.value.filter((id) => !containerIds.has(id) && itemIds.has(id));
+		await saveRowOrder([...rest, ...order]);
+	};
 
-  const saveRowOrder = async (order) => {
-    if (!canReorder.value) return;
-    if (persist) {
-      await persist(order);
-      return;
-    }
-    await saveSheetDisplayPref(actor(), flagPath, order);
-  };
+	const saveRowOrder = async (order) => {
+		if (!canReorder.value) return;
+		if (persist) {
+			await persist(order);
+			return;
+		}
+		await saveSheetDisplayPref(actor(), flagPath, order);
+	};
 
-  const displayedRows = (containerKey) => getRows
-    ? getRows(containerKey)
-    : (rows?.() ?? []);
+	const displayedRows = (containerKey) => getRows
+		? getRows(containerKey)
+		: (rows?.() ?? []);
 
-  return {
-    draggedRow,
-    draggedContainer,
-    dragOverRow,
-    dropAfter,
-    savedRowOrder,
-    rowClasses,
-    onRowDragStart,
-    onRowDragOver,
-    onRowDragLeave,
-    onRowDrop,
-    onRowDragEnd,
-    clearRowDrag,
-    insertRow,
-    saveRowOrder,
-  };
+	return {
+		draggedRow,
+		draggedContainer,
+		dragOverRow,
+		dropAfter,
+		savedRowOrder,
+		rowClasses,
+		onRowDragStart,
+		onRowDragOver,
+		onRowDragLeave,
+		onRowDrop,
+		onRowDragEnd,
+		clearRowDrag,
+		insertRow,
+		saveRowOrder
+	};
 }

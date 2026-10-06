@@ -1,15 +1,15 @@
 <template>
-  <aside class="sheet-sidebar">
-    <CharIdentityV3 :actor="actor" />
-    <CharSidebarBodyV3 :actor="actor" />
-  </aside>
+	<aside class="sheet-sidebar">
+		<CharIdentityV3 :actor="actor" />
+		<CharSidebarBodyV3 :actor="actor" />
+	</aside>
 </template>
 
 <script setup>
-import CharIdentityV3 from './CharIdentityV3.vue';
-import CharSidebarBodyV3 from './CharSidebarBodyV3.vue';
+import CharIdentityV3 from "./CharIdentityV3.vue";
+import CharSidebarBodyV3 from "./CharSidebarBodyV3.vue";
 
-defineProps(['actor']);
+defineProps(["actor"]);
 </script>
 
 <!-- Unscoped: the shared unit scaffolding must reach into the child

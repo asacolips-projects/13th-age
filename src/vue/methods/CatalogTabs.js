@@ -1,4 +1,4 @@
-import { getActor, localize } from '@/methods/Helpers';
+import { getActor, localize } from "@/methods/Helpers";
 
 /**
  * The catalog's configurable tab set, stored under the sheetDisplay.catalog
@@ -18,21 +18,21 @@ import { getActor, localize } from '@/methods/Helpers';
 
 // Group-by modes a user tab can take, in the settings popover's order.
 // 'inventory' is the Loot tab's mode and not offered.
-export const CATALOG_GROUP_MODES = ['powerType', 'powerUsage', 'powerSource', 'group', 'actionType'];
+export const CATALOG_GROUP_MODES = ["powerType", "powerUsage", "powerSource", "group", "actionType"];
 
 // Icons for the narrow layout's icon-only strip, keyed by group-by mode.
 export const CATALOG_GROUP_ICONS = {
-  powerType: 'fa-book',
-  powerUsage: 'fa-bolt',
-  powerSource: 'fa-hat-wizard',
-  group: 'fa-layer-group',
-  actionType: 'fa-chess-knight',
+	powerType: "fa-book",
+	powerUsage: "fa-bolt",
+	powerSource: "fa-hat-wizard",
+	group: "fa-layer-group",
+	actionType: "fa-chess-knight"
 };
 
 // The fixed Loot tab: passes groupBy 'inventory' to the catalog component.
-export const LOOT_TAB = { id: 'loot', groupBy: 'inventory' };
+export const LOOT_TAB = { id: "loot", groupBy: "inventory" };
 
-const SORTS = ['name', 'level', 'custom'];
+const SORTS = ["name", "level", "custom"];
 
 /**
  * The actor's catalog tab definitions: the stored sheetDisplay.catalog.tabs
@@ -41,48 +41,50 @@ const SORTS = ['name', 'level', 'custom'];
  * the v2 sheet still owns, "Items by Action" from the retired action plan's.
  * Pack actors and not-yet-migrated actors get the derivation fresh on every
  * render, since their flags can't be written.
+ * @param actorData
  */
 export function catalogTabDefs(actorData) {
-  const stored = actorData?.flags?.archmage?.sheetDisplay?.catalog?.tabs;
-  if (Array.isArray(stored) && stored.length) {
-    const defs = stored
-      .filter(def => def?.id)
-      .map(def => ({
-        id: def.id,
-        label: typeof def.label === 'string' ? def.label : '',
-        groupBy: CATALOG_GROUP_MODES.includes(def.groupBy) ? def.groupBy : 'powerType',
-        sortBy: SORTS.includes(def.sortBy) ? def.sortBy : 'custom',
-      }));
-    if (defs.length) return defs;
-  }
-  const powers = actorData?.flags?.archmage?.sheetDisplay?.powers ?? {};
-  const plan = actorData?.flags?.archmage?.sheetDisplay?.actionPlan ?? {};
-  return [
-    {
-      id: 'byType',
-      label: '',
-      groupBy: CATALOG_GROUP_MODES.includes(powers.groupBy?.value) ? powers.groupBy.value : 'powerType',
-      sortBy: SORTS.includes(powers.sortBy?.value) ? powers.sortBy.value : 'custom',
-    },
-    {
-      id: 'byAction',
-      label: '',
-      groupBy: 'actionType',
-      sortBy: SORTS.includes(plan.sortBy?.value) ? plan.sortBy.value : 'custom',
-    },
-  ];
+	const stored = actorData?.flags?.archmage?.sheetDisplay?.catalog?.tabs;
+	if (Array.isArray(stored) && stored.length) {
+		const defs = stored
+			.filter((def) => def?.id)
+			.map((def) => ({
+				id: def.id,
+				label: typeof def.label === "string" ? def.label : "",
+				groupBy: CATALOG_GROUP_MODES.includes(def.groupBy) ? def.groupBy : "powerType",
+				sortBy: SORTS.includes(def.sortBy) ? def.sortBy : "custom"
+			}));
+		if (defs.length) return defs;
+	}
+	const powers = actorData?.flags?.archmage?.sheetDisplay?.powers ?? {};
+	const plan = actorData?.flags?.archmage?.sheetDisplay?.actionPlan ?? {};
+	return [
+		{
+			id: "byType",
+			label: "",
+			groupBy: CATALOG_GROUP_MODES.includes(powers.groupBy?.value) ? powers.groupBy.value : "powerType",
+			sortBy: SORTS.includes(powers.sortBy?.value) ? powers.sortBy.value : "custom"
+		},
+		{
+			id: "byAction",
+			label: "",
+			groupBy: "actionType",
+			sortBy: SORTS.includes(plan.sortBy?.value) ? plan.sortBy.value : "custom"
+		}
+	];
 }
 
 /**
  * Display label for a tab: its custom name, or one derived from its
  * group-by mode — "Items by Type", "Items by Action", and so on.
+ * @param def
  */
 export function catalogTabLabel(def) {
-  const custom = def?.label?.trim();
-  if (custom) return custom;
-  return game.i18n.format('ARCHMAGE.itemsByGroup', {
-    group: localize(`ARCHMAGE.GROUPS.${def?.groupBy ?? 'powerType'}`),
-  });
+	const custom = def?.label?.trim();
+	if (custom) return custom;
+	return game.i18n.format("ARCHMAGE.itemsByGroup", {
+		group: localize(`ARCHMAGE.GROUPS.${def?.groupBy ?? "powerType"}`)
+	});
 }
 
 /**
@@ -98,34 +100,36 @@ export function catalogTabLabel(def) {
  *   start from.
  *
  * The legacy flags are left in place for the v2 sheet.
+ * @param actorData
  */
 export async function migrateCatalogTabs(actorData) {
-  const sheetDisplay = actorData?.flags?.archmage?.sheetDisplay ?? {};
-  if (Array.isArray(sheetDisplay.catalog?.tabs) && sheetDisplay.catalog.tabs.length) return;
+	const sheetDisplay = actorData?.flags?.archmage?.sheetDisplay ?? {};
+	if (Array.isArray(sheetDisplay.catalog?.tabs) && sheetDisplay.catalog.tabs.length) return;
 
-  const updates = [['sheetDisplay.catalog.tabs', catalogTabDefs(actorData)]];
-  const legacyGroupOrders = sheetDisplay.powers?.groupOrder ?? {};
-  if (Object.keys(legacyGroupOrders).length) {
-    updates.push(['sheetDisplay.catalog.groupOrder.byType', legacyGroupOrders]);
-  }
-  const plan = sheetDisplay.actionPlan ?? {};
-  if (Array.isArray(plan.groupOrder) && plan.groupOrder.length) {
-    updates.push(['sheetDisplay.catalog.groupOrder.byAction.actionType', plan.groupOrder]);
-  }
-  if (Array.isArray(plan.rowOrder) && plan.rowOrder.length) {
-    updates.push(['sheetDisplay.catalog.rowOrder.byAction', plan.rowOrder]);
-  }
+	const updates = [["sheetDisplay.catalog.tabs", catalogTabDefs(actorData)]];
+	const legacyGroupOrders = sheetDisplay.powers?.groupOrder ?? {};
+	if (Object.keys(legacyGroupOrders).length) {
+		updates.push(["sheetDisplay.catalog.groupOrder.byType", legacyGroupOrders]);
+	}
+	const plan = sheetDisplay.actionPlan ?? {};
+	if (Array.isArray(plan.groupOrder) && plan.groupOrder.length) {
+		updates.push(["sheetDisplay.catalog.groupOrder.byAction.actionType", plan.groupOrder]);
+	}
+	if (Array.isArray(plan.rowOrder) && plan.rowOrder.length) {
+		updates.push(["sheetDisplay.catalog.rowOrder.byAction", plan.rowOrder]);
+	}
 
-  const bySort = (a, b) => (a.sort || 0) - (b.sort || 0);
-  const ids = (actorData?.items ?? []).slice().sort(bySort).map(item => item._id);
-  if (ids.length) {
-    updates.push(['sheetDisplay.catalog.rowOrder.byType', ids]);
-    updates.push(['sheetDisplay.catalog.rowOrder.loot', ids]);
-  }
+	const bySort = (a, b) => (a.sort || 0) - (b.sort || 0);
+	const ids = (actorData?.items ?? []).slice().sort(bySort)
+		.map((item) => item._id);
+	if (ids.length) {
+		updates.push(["sheetDisplay.catalog.rowOrder.byType", ids]);
+		updates.push(["sheetDisplay.catalog.rowOrder.loot", ids]);
+	}
 
-  const actor = await getActor(actorData);
-  if (!actor) return;
-  for (const [path, value] of updates) {
-    await actor.setFlag('archmage', path, value);
-  }
+	const actor = await getActor(actorData);
+	if (!actor) return;
+	for (const [path, value] of updates) {
+		await actor.setFlag("archmage", path, value);
+	}
 }

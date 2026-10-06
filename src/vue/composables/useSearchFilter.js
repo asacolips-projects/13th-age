@@ -1,5 +1,5 @@
-import { ref } from 'vue';
-import { cleanFilterKey, stripTags } from '@/methods/Helpers';
+import { ref } from "vue";
+import { cleanFilterKey, stripTags } from "@/methods/Helpers";
 
 /**
  * Text filter state for the v3 tabs' listings: the filter box's value and
@@ -15,18 +15,18 @@ import { cleanFilterKey, stripTags } from '@/methods/Helpers';
  * @returns {object} The `searchValue` ref, `clearSearch` and `matchesSearch`.
  */
 export function useSearchFilter(searchText) {
-  const searchValue = ref(null);
+	const searchValue = ref(null);
 
-  // The filter box's clear widget; resetting to null also hides the button.
-  const clearSearch = () => {
-    searchValue.value = null;
-  };
+	// The filter box's clear widget; resetting to null also hides the button.
+	const clearSearch = () => {
+		searchValue.value = null;
+	};
 
-  const matchesSearch = (item) => {
-    const needle = cleanFilterKey(searchValue.value ?? '');
-    if (!needle) return true;
-    return cleanFilterKey(stripTags(searchText(item))).includes(needle);
-  };
+	const matchesSearch = (item) => {
+		const needle = cleanFilterKey(searchValue.value ?? "");
+		if (!needle) return true;
+		return cleanFilterKey(stripTags(searchText(item))).includes(needle);
+	};
 
-  return { searchValue, clearSearch, matchesSearch };
+	return { searchValue, clearSearch, matchesSearch };
 }

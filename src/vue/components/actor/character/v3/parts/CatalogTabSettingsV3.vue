@@ -1,31 +1,43 @@
 <template>
-  <span class="catalog-tabs-menu">
-    <button type="button" class="catalog-tabs-toggle" :class="{ open }" :title="localize('ARCHMAGE.tabSettings')" @click.stop="toggle">
-      <i class="fas fa-gear"></i>
-    </button>
-    <!-- One popover for the whole tab set: rename each tab, pick its
+	<span class="catalog-tabs-menu">
+		<button
+			type="button"
+			class="catalog-tabs-toggle"
+			:class="{ open }"
+			:title="localize('ARCHMAGE.tabSettings')"
+			@click.stop="toggle"
+		>
+			<i class="fas fa-gear" />
+		</button>
+		<!-- One popover for the whole tab set: rename each tab, pick its
          group-by, reorder, add or remove (one tab minimum). Empty names
          fall back to the derived label, shown as the input's placeholder. -->
-    <div v-if="open" class="catalog-tabs-popover" @click.stop>
-      <div class="catalog-tab-row catalog-tab-row--head">
-        <span class="row-label">{{ localize('ARCHMAGE.name') }}</span>
-        <span class="row-group">{{ localize('ARCHMAGE.groupBy') }}</span>
-        <span class="row-actions"></span>
-      </div>
-      <div v-for="(def, index) in defs" :key="def.id" class="catalog-tab-row">
-        <input type="text" class="row-label" :value="def.label" :placeholder="derivedLabel(def)" @change="rename(def, $event)">
-        <select class="row-group" :value="def.groupBy" @change="regroup(def, $event)">
-          <option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
-        </select>
-        <span class="row-actions">
-          <button type="button" :disabled="index === 0" :title="localize('ARCHMAGE.moveUp')" @click="move(def, -1)"><i class="fas fa-chevron-up"></i></button>
-          <button type="button" :disabled="index === defs.length - 1" :title="localize('ARCHMAGE.moveDown')" @click="move(def, 1)"><i class="fas fa-chevron-down"></i></button>
-          <button type="button" :disabled="defs.length < 2" :title="localize('ARCHMAGE.removeTab')" @click="remove(def)"><i class="fas fa-times"></i></button>
-        </span>
-      </div>
-      <button type="button" class="catalog-tab-add" @click="add"><i class="fas fa-plus"></i> {{ localize('ARCHMAGE.addTab') }}</button>
-    </div>
-  </span>
+		<div v-if="open" class="catalog-tabs-popover" @click.stop>
+			<div class="catalog-tab-row catalog-tab-row--head">
+				<span class="row-label">{{ localize('ARCHMAGE.name') }}</span>
+				<span class="row-group">{{ localize('ARCHMAGE.groupBy') }}</span>
+				<span class="row-actions" />
+			</div>
+			<div v-for="(def, index) in defs" :key="def.id" class="catalog-tab-row">
+				<input
+					type="text"
+					class="row-label"
+					:value="def.label"
+					:placeholder="derivedLabel(def)"
+					@change="rename(def, $event)"
+				>
+				<select class="row-group" :value="def.groupBy" @change="regroup(def, $event)">
+					<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
+				</select>
+				<span class="row-actions">
+					<button type="button" :disabled="index === 0" :title="localize('ARCHMAGE.moveUp')" @click="move(def, -1)"><i class="fas fa-chevron-up" /></button>
+					<button type="button" :disabled="index === defs.length - 1" :title="localize('ARCHMAGE.moveDown')" @click="move(def, 1)"><i class="fas fa-chevron-down" /></button>
+					<button type="button" :disabled="defs.length < 2" :title="localize('ARCHMAGE.removeTab')" @click="remove(def)"><i class="fas fa-times" /></button>
+				</span>
+			</div>
+			<button type="button" class="catalog-tab-add" @click="add"><i class="fas fa-plus" /> {{ localize('ARCHMAGE.addTab') }}</button>
+		</div>
+	</span>
 </template>
 
 <script setup>
@@ -36,13 +48,13 @@
  * and an add button. Changes persist to the sheetDisplay.catalog.tabs
  * flags, which re-render the sheet and with it the strip.
  */
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
-import { localize, saveSheetDisplayPref } from '@/methods/Helpers';
-import { CATALOG_GROUP_MODES, catalogTabDefs, catalogTabLabel } from '@/methods/CatalogTabs';
+import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
+import { CATALOG_GROUP_MODES, catalogTabDefs, catalogTabLabel } from "@/methods/CatalogTabs";
 
-const props = defineProps(['actor']);
+const props = defineProps(["actor"]);
 
-const groupOptions = CATALOG_GROUP_MODES.map(value => ({ value }));
+const groupOptions = CATALOG_GROUP_MODES.map((value) => ({ value }));
 
 const defs = computed(() => catalogTabDefs(props.actor));
 
@@ -50,60 +62,65 @@ const defs = computed(() => catalogTabDefs(props.actor));
 // or Escape closes it.
 const open = ref(false);
 
-const toggle = () => { open.value = !open.value; };
+const toggle = () => {
+	open.value = !open.value;
+};
 
 const onDocClick = (event) => {
-  if (open.value && !event.target.closest?.('.catalog-tabs-menu')) open.value = false;
+	if (open.value && !event.target.closest?.(".catalog-tabs-menu")) open.value = false;
 };
 
 const onDocKeydown = (event) => {
-  if (event.key === 'Escape') open.value = false;
+	if (event.key === "Escape") open.value = false;
 };
 
 onMounted(() => {
-  document.addEventListener('click', onDocClick);
-  document.addEventListener('keydown', onDocKeydown);
+	document.addEventListener("click", onDocClick);
+	document.addEventListener("keydown", onDocKeydown);
 });
 
 onBeforeUnmount(() => {
-  document.removeEventListener('click', onDocClick);
-  document.removeEventListener('keydown', onDocKeydown);
+	document.removeEventListener("click", onDocClick);
+	document.removeEventListener("keydown", onDocKeydown);
 });
 
-const derivedLabel = (def) => catalogTabLabel({ ...def, label: '' });
+const derivedLabel = (def) => catalogTabLabel({ ...def, label: "" });
 
-/** Persist a new tabs array; the sheet re-renders from the flags. */
-const save = (tabs) => saveSheetDisplayPref(props.actor, 'sheetDisplay.catalog.tabs', tabs);
+/**
+ * Persist a new tabs array; the sheet re-renders from the flags.
+ * @param tabs
+ */
+const save = (tabs) => saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", tabs);
 
-const rename = (def, event) => save(defs.value.map(other =>
-  other.id === def.id ? { ...other, label: event.target.value } : other));
+const rename = (def, event) => save(defs.value.map((other) =>
+	other.id === def.id ? { ...other, label: event.target.value } : other));
 
-const regroup = (def, event) => save(defs.value.map(other =>
-  other.id === def.id ? { ...other, groupBy: event.target.value } : other));
+const regroup = (def, event) => save(defs.value.map((other) =>
+	other.id === def.id ? { ...other, groupBy: event.target.value } : other));
 
 const move = (def, delta) => {
-  const tabs = [...defs.value];
-  const from = tabs.findIndex(other => other.id === def.id);
-  const to = from + delta;
-  if (from < 0 || to < 0 || to >= tabs.length) return;
-  [tabs[from], tabs[to]] = [tabs[to], tabs[from]];
-  save(tabs);
+	const tabs = [...defs.value];
+	const from = tabs.findIndex((other) => other.id === def.id);
+	const to = from + delta;
+	if (from < 0 || to < 0 || to >= tabs.length) return;
+	[tabs[from], tabs[to]] = [tabs[to], tabs[from]];
+	save(tabs);
 };
 
 const remove = (def) => {
-  // A tab's saved group/row orders are left behind: re-adding a tab with a
-  // fresh id starts clean, and sweeping the orphaned paths isn't worth the
-  // flag churn.
-  if (defs.value.length < 2) return;
-  save(defs.value.filter(other => other.id !== def.id));
+	// A tab's saved group/row orders are left behind: re-adding a tab with a
+	// fresh id starts clean, and sweeping the orphaned paths isn't worth the
+	// flag churn.
+	if (defs.value.length < 2) return;
+	save(defs.value.filter((other) => other.id !== def.id));
 };
 
 // New tabs take the first group-by mode nothing uses yet, so the defaults
 // cycle through the sensible choices before repeating any.
 const add = () => {
-  const used = new Set(defs.value.map(def => def.groupBy));
-  const groupBy = CATALOG_GROUP_MODES.find(mode => !used.has(mode)) ?? 'group';
-  save([...defs.value, { id: foundry.utils.randomID(), label: '', groupBy, sortBy: 'custom' }]);
+	const used = new Set(defs.value.map((def) => def.groupBy));
+	const groupBy = CATALOG_GROUP_MODES.find((mode) => !used.has(mode)) ?? "group";
+	save([...defs.value, { id: foundry.utils.randomID(), label: "", groupBy, sortBy: "custom" }]);
 };
 </script>
 

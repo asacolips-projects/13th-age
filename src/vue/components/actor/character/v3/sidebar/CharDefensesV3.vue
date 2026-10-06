@@ -1,15 +1,15 @@
 <template>
-  <section class="unit unit--defenses">
-    <p class="unit-value flexrow">
-      <span class="defense"><span class="defense-label">AC</span> {{ actor?.system?.attributes?.ac?.value }}</span>
-      <span class="defense"><span class="defense-label">PD</span> {{ actor?.system?.attributes?.pd?.value }}</span>
-      <span class="defense"><span class="defense-label">MD</span> {{ actor?.system?.attributes?.md?.value }}</span>
-    </p>
-  </section>
+	<section class="unit unit--defenses">
+		<p class="unit-value flexrow">
+			<span class="defense"><span class="defense-label">AC</span> {{ actor?.system?.attributes?.ac?.value }}</span>
+			<span class="defense"><span class="defense-label">PD</span> {{ actor?.system?.attributes?.pd?.value }}</span>
+			<span class="defense"><span class="defense-label">MD</span> {{ actor?.system?.attributes?.md?.value }}</span>
+		</p>
+	</section>
 </template>
 
 <script setup>
-defineProps(['actor']);
+defineProps(["actor"]);
 </script>
 
 <style scoped lang="scss">

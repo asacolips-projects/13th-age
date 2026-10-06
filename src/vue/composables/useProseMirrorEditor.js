@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref } from "vue";
 
 /**
  * A Foundry ProseMirror editor mounted onto a host element, enriched like the
@@ -26,41 +26,48 @@ import { ref } from 'vue';
  *   `mountEditor`.
  */
 export function useProseMirrorEditor({
-  host,
-  field,
-  getValue,
-  owner,
-  documentUUID = null,
-  toggled = false,
-  disabled = null,
+	host,
+	field,
+	getValue,
+	owner,
+	documentUUID = null,
+	toggled = false,
+	disabled = null
 }) {
-  const editorEl = ref(null);
+	const editorEl = ref(null);
 
-  async function enrich(raw) {
-    return foundry.applications.ux.TextEditor.implementation.enrichHTML(raw, {
-      secrets: owner(),
-      documents: true,
-      links: true,
-      rolls: true,
-      rollData: {},
-      async: false
-    });
-  }
+	/**
+	 *
+	 * @param raw
+	 */
+	async function enrich(raw) {
+		return foundry.applications.ux.TextEditor.implementation.enrichHTML(raw, {
+			secrets: owner(),
+			documents: true,
+			links: true,
+			rolls: true,
+			rollData: {},
+			async: false
+		});
+	}
 
-  async function mountEditor() {
-    const raw = getValue();
-    const editor = foundry.applications.elements.HTMLProseMirrorElement.create({
-      name: field,
-      value: raw,
-      enriched: await enrich(raw),
-      toggled,
-      documentUUID,
-      ...(disabled ? {disabled: disabled()} : {})
-    });
-    editorEl.value = editor;
-    host.value.replaceChildren(editor);
-    return editor;
-  }
+	/**
+	 *
+	 */
+	async function mountEditor() {
+		const raw = getValue();
+		const editor = foundry.applications.elements.HTMLProseMirrorElement.create({
+			name: field,
+			value: raw,
+			enriched: await enrich(raw),
+			toggled,
+			documentUUID,
+			...(disabled ? { disabled: disabled() } : {})
+		});
+		editorEl.value = editor;
+		host.value.replaceChildren(editor);
+		return editor;
+	}
 
-  return { editorEl, enrich, mountEditor };
+	return { editorEl, enrich, mountEditor };
 }

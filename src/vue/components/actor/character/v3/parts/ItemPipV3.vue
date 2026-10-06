@@ -1,13 +1,20 @@
 <template>
-  <!-- The item's state pip: hollow until on, filled once it is. Two pips,
+	<!-- The item's state pip: hollow until on, filled once it is. Two pips,
        stacked, mark an item that attunes as two slots. Clicked, it emits and
        the owning row decides what the toggle means. -->
-  <div class="equipment-feat-pips" :class="`pip-${variant}`" :data-tooltip="tooltip">
-    <ul class="feat-pips" :class="{double: count > 1}">
-      <li v-for="n in count" :key="n" :class="concat('feat-pip', (active ? ' active' : ''))"
-        :data-item-id="itemId" @click="$emit('toggle-pip')"><div class="hide">{{active}}</div></li>
-    </ul>
-  </div>
+	<div class="equipment-feat-pips" :class="`pip-${variant}`" :data-tooltip="tooltip">
+		<ul class="feat-pips" :class="{double: count > 1}">
+			<li
+				v-for="n in count"
+				:key="n"
+				:class="concat('feat-pip', (active ? ' active' : ''))"
+				:data-item-id="itemId"
+				@click="$emit('toggle-pip')"
+			>
+				<div class="hide">{{ active }}</div>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script setup>
@@ -20,24 +27,24 @@
  *
  * Clicking emits `toggle-pip`; rows with no toggle to offer ignore it.
  */
-import { concat } from '@/methods/Helpers';
+import { concat } from "@/methods/Helpers";
 
 defineProps({
-  // Powers on an actor toggle their feats by clicking a pip.
-  itemId: {type: String, default: null},
-  // The pip's state — filled when true — and, for an item above the
-  // character's tier, a count of two for the stacked pair. `tooltip`
-  // stands in for the powers' feats tooltip.
-  active: {type: Boolean, default: false},
-  count: {type: Number, default: 1},
-  tooltip: {type: String, default: ''},
-  // Which surface the pip serves: 'attunement' rides the equipment row's
-  // white-on-colour text, 'feat' sits on ordinary body text. The variant
-  // picks the pip's colour — see the style block.
-  variant: {type: String, default: 'feat'},
+	// Powers on an actor toggle their feats by clicking a pip.
+	itemId: { type: String, default: null },
+	// The pip's state — filled when true — and, for an item above the
+	// character's tier, a count of two for the stacked pair. `tooltip`
+	// stands in for the powers' feats tooltip.
+	active: { type: Boolean, default: false },
+	count: { type: Number, default: 1 },
+	tooltip: { type: String, default: "" },
+	// Which surface the pip serves: 'attunement' rides the equipment row's
+	// white-on-colour text, 'feat' sits on ordinary body text. The variant
+	// picks the pip's colour — see the style block.
+	variant: { type: String, default: "feat" }
 });
 
-defineEmits(['toggle-pip']);
+defineEmits(["toggle-pip"]);
 </script>
 
 <style scoped lang="scss">

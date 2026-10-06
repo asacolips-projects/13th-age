@@ -1,132 +1,182 @@
 <template>
-  <!-- Wide layout: hero banner. The portrait bleeds across a fixed-height
+	<!-- Wide layout: hero banner. The portrait bleeds across a fixed-height
        area with the name docked to its bottom edge. The profile-img class
        goes on the hero itself: ContextMenu injects the menu into the matched
        element and forces an inline `position: relative` on it that it never
        removes, so the hook must live on an element that is already
        relative — putting it on the absolutely-positioned portrait layer
        would knock the image out of the banner for good. -->
-  <header v-if="!narrow" class="sheet-header sheet-header--hero">
-    <div class="header-hero profile-img">
-      <div class="header-portrait" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame, 'portrait--full': portraitFull }">
-        <img :src="actor?.img" :alt="localize('ARCHMAGE.avatarAlt')" :title="actor?.name"
-          data-edit="img" data-action="onEditImage" :data-tooltip="tooltip('portrait')" />
-      </div>
+	<header v-if="!narrow" class="sheet-header sheet-header--hero">
+		<div class="header-hero profile-img">
+			<div class="header-portrait" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame, 'portrait--full': portraitFull }">
+				<img
+					:src="actor?.img"
+					:alt="localize('ARCHMAGE.avatarAlt')"
+					:title="actor?.name"
+					data-edit="img"
+					data-action="onEditImage"
+					:data-tooltip="tooltip('portrait')"
+				>
+			</div>
 
-      <!-- Name + subtitle, or their edit fields -->
-      <div class="header-id flexcol" :class="{ 'header-id--editing': editing }">
-        <template v-if="!editing">
-          <h1 class="char-name">{{ actor?.name }}</h1>
-          <p class="char-subtitle" v-if="subtitle">{{ subtitle }}</p>
-        </template>
-        <template v-else>
-          <input type="text" name="name" v-model="actor.name" :placeholder="localize('ARCHMAGE.name')">
-          <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
-          <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
-          <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
-        </template>
-      </div>
-    </div>
+			<!-- Name + subtitle, or their edit fields -->
+			<div class="header-id flexcol" :class="{ 'header-id--editing': editing }">
+				<template v-if="!editing">
+					<h1 class="char-name">{{ actor?.name }}</h1>
+					<p v-if="subtitle" class="char-subtitle">{{ subtitle }}</p>
+				</template>
+				<template v-else>
+					<input v-model="actor.name" type="text" name="name" :placeholder="localize('ARCHMAGE.name')">
+					<input
+						v-model="actor.system.details.race.value"
+						type="text"
+						name="system.details.race.value"
+						:class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
+						:placeholder="kinLabel"
+					>
+					<input
+						v-model="actor.system.details.class.value"
+						type="text"
+						name="system.details.class.value"
+						:class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
+						:placeholder="localize('ARCHMAGE.class')"
+					>
+					<input
+						v-model="actor.system.attributes.level.value"
+						type="number"
+						name="system.attributes.level.value"
+						:class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }"
+						min="0"
+						max="10"
+					>
+				</template>
+			</div>
+		</div>
 
-    <!-- One Unique Thing -->
-    <div class="header-out" :class="{ 'header-out--editing': editing }">
-      <h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
-      <!-- Display shows the enriched HTML; edit mode swaps in a full
+		<!-- One Unique Thing -->
+		<div class="header-out" :class="{ 'header-out--editing': editing }">
+			<h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
+			<!-- Display shows the enriched HTML; edit mode swaps in a full
            ProseMirror editor (same mechanism as the notes tab). -->
-      <div class="out-text" v-if="!editing" v-html="outEnriched"></div>
-      <div class="out-editor" v-else ref="outEditorHost"></div>
-    </div>
-  </header>
+			<div v-if="!editing" class="out-text" v-html="outEnriched" />
+			<div v-else ref="outEditorHost" class="out-editor" />
+		</div>
+	</header>
 
-  <!-- Narrow layout: compact command bar, one row — portrait thumb,
+	<!-- Narrow layout: compact command bar, one row — portrait thumb,
        name/subtitle left-aligned, One Unique Thing clamped to a couple of
        lines. Here the portrait wrapper is in the normal flow, so the
        profile-img hook can live on it directly. -->
-  <header v-else class="sheet-header sheet-header--bar">
-    <div class="header-portrait profile-img" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame }">
-      <img :src="actor?.img" :alt="localize('ARCHMAGE.avatarAlt')" :title="actor?.name"
-        data-edit="img" data-action="onEditImage" :data-tooltip="tooltip('portrait')" />
-    </div>
+	<header v-else class="sheet-header sheet-header--bar">
+		<div class="header-portrait profile-img" :class="{ 'portrait--round': portraitRound, 'portrait--frame': portraitFrame }">
+			<img
+				:src="actor?.img"
+				:alt="localize('ARCHMAGE.avatarAlt')"
+				:title="actor?.name"
+				data-edit="img"
+				data-action="onEditImage"
+				:data-tooltip="tooltip('portrait')"
+			>
+		</div>
 
-    <!-- Name + subtitle, or their edit fields -->
-    <div class="header-id flexcol" :class="{ 'header-id--editing': editing }">
-      <template v-if="!editing">
-        <h1 class="char-name">{{ actor?.name }}</h1>
-        <p class="char-subtitle" v-if="subtitle">{{ subtitle }}</p>
-      </template>
-      <template v-else>
-        <input type="text" name="name" v-model="actor.name" :placeholder="localize('ARCHMAGE.name')">
-        <input type="text" name="system.details.race.value" v-model="actor.system.details.race.value" :class="{ 'field-empty': isBlank(actor.system.details.race.value) }" :placeholder="kinLabel">
-        <input type="text" name="system.details.class.value" v-model="actor.system.details.class.value" :class="{ 'field-empty': isBlank(actor.system.details.class.value) }" :placeholder="localize('ARCHMAGE.class')">
-        <input type="number" name="system.attributes.level.value" v-model="actor.system.attributes.level.value" :class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }" min="0" max="10">
-      </template>
-    </div>
+		<!-- Name + subtitle, or their edit fields -->
+		<div class="header-id flexcol" :class="{ 'header-id--editing': editing }">
+			<template v-if="!editing">
+				<h1 class="char-name">{{ actor?.name }}</h1>
+				<p v-if="subtitle" class="char-subtitle">{{ subtitle }}</p>
+			</template>
+			<template v-else>
+				<input v-model="actor.name" type="text" name="name" :placeholder="localize('ARCHMAGE.name')">
+				<input
+					v-model="actor.system.details.race.value"
+					type="text"
+					name="system.details.race.value"
+					:class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
+					:placeholder="kinLabel"
+				>
+				<input
+					v-model="actor.system.details.class.value"
+					type="text"
+					name="system.details.class.value"
+					:class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
+					:placeholder="localize('ARCHMAGE.class')"
+				>
+				<input
+					v-model="actor.system.attributes.level.value"
+					type="number"
+					name="system.attributes.level.value"
+					:class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }"
+					min="0"
+					max="10"
+				>
+			</template>
+		</div>
 
-    <!-- One Unique Thing -->
-    <div class="header-out" :class="{ 'header-out--editing': editing }">
-      <h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
-      <div class="out-text" v-if="!editing" v-html="outEnriched"></div>
-      <div class="out-editor" v-else ref="outEditorHost"></div>
-    </div>
-  </header>
+		<!-- One Unique Thing -->
+		<div class="header-out" :class="{ 'header-out--editing': editing }">
+			<h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
+			<div v-if="!editing" class="out-text" v-html="outEnriched" />
+			<div v-else ref="outEditorHost" class="out-editor" />
+		</div>
+	</header>
 </template>
 
 <script setup>
-import { ref, computed, inject, watch, nextTick } from 'vue';
-import { isBlank, isSecondEdition, isZeroish, localize, tooltip } from '@/methods/Helpers';
-import { useProseMirrorEditor } from '@/composables/useProseMirrorEditor';
+import { ref, computed, inject, watch, nextTick } from "vue";
+import { isBlank, isSecondEdition, isZeroish, localize, tooltip } from "@/methods/Helpers";
+import { useProseMirrorEditor } from "@/composables/useProseMirrorEditor";
 
-const props = defineProps(['actor']);
+const props = defineProps(["actor"]);
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
-const editing = inject('editMode', ref(false));
+const editing = inject("editMode", ref(false));
 
 // The sheet root broadcasts the layout switch the same way: the sidebar
 // renders the hero banner, the narrow command bar renders the compact row.
-const narrow = inject('narrowLayout', ref(false));
+const narrow = inject("narrowLayout", ref(false));
 
 // The real document provides a UUID for ProseMirror's relative links.
-const actorDocument = inject('actorDocument');
+const actorDocument = inject("actorDocument");
 
 // Non-reactive: the setting read is cached once per mount, like the V2
 // sheet's use.
 const secondEdition = computed(isSecondEdition);
-const kinLabel = computed(() => secondEdition.value ? localize('ARCHMAGE.kin') : localize('ARCHMAGE.race'));
+const kinLabel = computed(() => secondEdition.value ? localize("ARCHMAGE.kin") : localize("ARCHMAGE.race"));
 
 const subtitle = computed(() => {
-  const parts = [
-    props.actor?.system?.details?.race?.value,
-    props.actor?.system?.details?.class?.value,
-    props.actor?.system?.attributes?.level?.value
-  ].filter(part => part !== undefined && part !== null && part !== '');
-  return parts.join(' · ');
+	const parts = [
+		props.actor?.system?.details?.race?.value,
+		props.actor?.system?.details?.class?.value,
+		props.actor?.system?.attributes?.level?.value
+	].filter((part) => part !== undefined && part !== null && part !== "");
+	return parts.join(" · ");
 });
-const outRaw = computed(() => props.actor?.system?.details?.out?.value ?? '');
-const outEnriched = ref('');
+const outRaw = computed(() => props.actor?.system?.details?.out?.value ?? "");
+const outEnriched = ref("");
 
 // One Unique Thing: display shows enriched HTML; edit mode swaps the field for
 // a full ProseMirror editor bound to the document field (created on demand via
 // the edit-mode watch). Enrichment is async-only, so the rendered HTML lives
 // in a ref fed by a watcher.
 const outEditorHost = ref(null);
-const outField = 'system.details.out.value';
+const outField = "system.details.out.value";
 
 const { enrich: enrichOut, mountEditor: mountOutEditor } = useProseMirrorEditor({
-  host: outEditorHost,
-  field: outField,
-  getValue: () => outRaw.value,
-  owner: () => props.actor?.owner,
-  documentUUID: actorDocument?.uuid,
+	host: outEditorHost,
+	field: outField,
+	getValue: () => outRaw.value,
+	owner: () => props.actor?.owner,
+	documentUUID: actorDocument?.uuid
 });
 
-watch(outRaw, async raw => {
-  const enriched = await enrichOut(raw);
-  // Skip stale resolutions if the value changed while enriching.
-  if (outRaw.value === raw) outEnriched.value = enriched;
+watch(outRaw, async (raw) => {
+	const enriched = await enrichOut(raw);
+	// Skip stale resolutions if the value changed while enriching.
+	if (outRaw.value === raw) outEnriched.value = enriched;
 }, { immediate: true });
 
-watch(editing, value => {
-  if (value) nextTick(mountOutEditor);
+watch(editing, (value) => {
+	if (value) nextTick(mountOutEditor);
 });
 
 // Portrait treatment flags (the round/frame ones the V2 sheets honor, plus

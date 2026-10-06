@@ -1,58 +1,93 @@
 <template>
-  <li :class="concat('item ', kindClass, '-item ', kindClass, '-item--', item._id)" :data-item-id="item._id" data-document-class="Item" data-draggable="true" draggable="true">
-    <!-- Clickable summary header, laid out on the columns this listing passes in. -->
-    <PowerSummaryRow v-if="isPower" :power="item" :actor="actor" :active="active" :trigger="trigger"
-      :style="{ gridTemplateColumns: columns }" @toggle="toggle">
-      <!-- The portrait, which activates the power; .stop keeps the click from
+	<li
+		:class="concat('item ', kindClass, '-item ', kindClass, '-item--', item._id)"
+		:data-item-id="item._id"
+		data-document-class="Item"
+		data-draggable="true"
+		draggable="true"
+	>
+		<!-- Clickable summary header, laid out on the columns this listing passes in. -->
+		<PowerSummaryRow
+			v-if="isPower"
+			:power="item"
+			:actor="actor"
+			:active="active"
+			:trigger="trigger"
+			:style="{ gridTemplateColumns: columns }"
+			@toggle="toggle"
+		>
+			<!-- The portrait, which activates the power; .stop keeps the click from
            also reaching the sheet's delegated roll listener. -->
-      <template #image>
-        <RollableV3 :overlay="true" @click.stop="activateItem">
-          <img :src="item.img" class="power-image"/>
-        </RollableV3>
-      </template>
-      <!-- The header cells after the name, defaulting to the catalog row's
+			<template #image>
+				<RollableV3 :overlay="true" @click.stop="activateItem">
+					<img :src="item.img" class="power-image">
+				</RollableV3>
+			</template>
+			<!-- The header cells after the name, defaulting to the catalog row's
            feat letters, action, recharge, uses and controls. -->
-      <slot name="cells" :toggle="toggle">
-        <!-- The feat tiers as display-only letters: bright when taken, dim
+			<slot name="cells" :toggle="toggle">
+				<!-- The feat tiers as display-only letters: bright when taken, dim
              when not. A feat's taken state is toggled from its row in the
              expanded details. -->
-        <div class="power-feat-pips" v-if="hasFeats(item)" :data-tooltip="localize('ARCHMAGE.feats')">
-          <ul class="feat-letters">
-            <li v-for="{key, letter, taken} in featLetters(item)" :key="key"
-              :class="{active: taken}">{{letter}}</li>
-          </ul>
-        </div>
-        <div class="power-action" v-if="item.system.actionType.value">{{getActionShort(item.system.actionType.value)}}</div>
-        <div class="power-recharge" v-if="item.system.recharge.value && ['recharge', 'recharge-desperate'].includes(item.system.powerUsage.value)">
-          <Rollable name="recharge" type="recharge" :opt="item._id">{{Number(item.system.recharge.value) || 16}}+</Rollable>
-        </div>
-        <div class="power-uses">
-          <span v-if="item.system.quantity.value !== null" class="power-uses-primary" :data-item-id="item._id" :data-quantity="item.system.quantity.value"
-            @click.stop="changeQuantity(actor, item._id)" @contextmenu.stop.prevent="changeQuantity(actor, item._id, false)">{{item.system.quantity.value}}</span>
-          <template v-if="hasSecondaryUsage(item)">
-            <span v-if="item.system.quantity.value !== null" class="power-uses-separator">-</span>
-            <span class="power-uses-secondary" :data-item-id="item._id" :data-quantity="item.system.quantitySecondary.value"
-              @click.stop="changeQuantity(actor, item._id, true, true)" @contextmenu.stop.prevent="changeQuantity(actor, item._id, false, true)">{{item.system.quantitySecondary.value}}</span>
-          </template>
-        </div>
-        <div class="item-controls">
-          <a class="item-control item-edit" :data-item-id="item._id" @click.stop="editItem(actor, item._id)"><i class="fas fa-edit"></i></a>
-          <a class="item-control item-delete" :data-item-id="item._id" @click.stop="deleteItem(actor, item._id, $event.shiftKey)"><i class="fas fa-trash"></i></a>
-        </div>
-      </slot>
-    </PowerSummaryRow>
-    <!-- Equipment and loot share their summary row: whichever cells the item
+				<div v-if="hasFeats(item)" class="power-feat-pips" :data-tooltip="localize('ARCHMAGE.feats')">
+					<ul class="feat-letters">
+						<li
+							v-for="{key, letter, taken} in featLetters(item)"
+							:key="key"
+							:class="{active: taken}"
+						>
+							{{ letter }}
+						</li>
+					</ul>
+				</div>
+				<div v-if="item.system.actionType.value" class="power-action">{{ getActionShort(item.system.actionType.value) }}</div>
+				<div v-if="item.system.recharge.value && ['recharge', 'recharge-desperate'].includes(item.system.powerUsage.value)" class="power-recharge">
+					<Rollable name="recharge" type="recharge" :opt="item._id">{{ Number(item.system.recharge.value) || 16 }}+</Rollable>
+				</div>
+				<div class="power-uses">
+					<span
+						v-if="item.system.quantity.value !== null"
+						class="power-uses-primary"
+						:data-item-id="item._id"
+						:data-quantity="item.system.quantity.value"
+						@click.stop="changeQuantity(actor, item._id)"
+						@contextmenu.stop.prevent="changeQuantity(actor, item._id, false)"
+					>{{ item.system.quantity.value }}</span>
+					<template v-if="hasSecondaryUsage(item)">
+						<span v-if="item.system.quantity.value !== null" class="power-uses-separator">-</span>
+						<span
+							class="power-uses-secondary"
+							:data-item-id="item._id"
+							:data-quantity="item.system.quantitySecondary.value"
+							@click.stop="changeQuantity(actor, item._id, true, true)"
+							@contextmenu.stop.prevent="changeQuantity(actor, item._id, false, true)"
+						>{{ item.system.quantitySecondary.value }}</span>
+					</template>
+				</div>
+				<div class="item-controls">
+					<a class="item-control item-edit" :data-item-id="item._id" @click.stop="editItem(actor, item._id)"><i class="fas fa-edit" /></a>
+					<a class="item-control item-delete" :data-item-id="item._id" @click.stop="deleteItem(actor, item._id, $event.shiftKey)"><i class="fas fa-trash" /></a>
+				</div>
+			</slot>
+		</PowerSummaryRow>
+		<!-- Equipment and loot share their summary row: whichever cells the item
          has data for, the active pip exclusive to equipment items. -->
-    <EquipmentSummaryRow v-else :equipment="item" :actor="actor" @toggle="toggle"/>
-    <!-- Expanded content. -->
-    <div :class="concat(kindClass, '-content', (active ? ' active' : ''))">
-      <Transition name="slide-fade">
-        <PowerDetailsV3 v-if="active && isPower" :power="item" :actor="actor" :context="context" :show-feats="showFeats"/>
-        <EquipmentDetailsV3 v-else-if="active && item.type === 'equipment'" :equipment="item" :actor="actor" :context="context"/>
-        <LootDetailsV3 v-else-if="active" :equipment="item" :actor="actor" :context="context"/>
-      </Transition>
-    </div>
-  </li>
+		<EquipmentSummaryRow v-else :equipment="item" :actor="actor" @toggle="toggle" />
+		<!-- Expanded content. -->
+		<div :class="concat(kindClass, '-content', (active ? ' active' : ''))">
+			<Transition name="slide-fade">
+				<PowerDetailsV3
+					v-if="active && isPower"
+					:power="item"
+					:actor="actor"
+					:context="context"
+					:show-feats="showFeats"
+				/>
+				<EquipmentDetailsV3 v-else-if="active && item.type === 'equipment'" :equipment="item" :actor="actor" :context="context" />
+				<LootDetailsV3 v-else-if="active" :equipment="item" :actor="actor" :context="context" />
+			</Transition>
+		</div>
+	</li>
 </template>
 
 <script setup>
@@ -77,70 +112,71 @@
  * classes, e.g. `trigger` -> `trigger-item--<id>` and `trigger-content`. It
  * defaults from the item's type, whose wrapper classes the styles enumerate.
  */
-import { computed, inject, ref } from 'vue';
-import { changeQuantity, concat, deleteItem, editItem, filterFeats, getActionShort, hasFeats, hasSecondaryUsage, localize, TIERS } from '@/methods/Helpers';
-import PowerSummaryRow from '@/components/parts/PowerSummaryRow.vue';
-import Rollable from '@/components/parts/Rollable.vue';
-import EquipmentSummaryRow from './EquipmentSummaryRow.vue';
-import EquipmentDetailsV3 from './EquipmentDetailsV3.vue';
-import LootDetailsV3 from './LootDetailsV3.vue';
-import PowerDetailsV3 from './PowerDetailsV3.vue';
-import RollableV3 from '../RollableV3.vue';
+import { computed, inject, ref } from "vue";
+import { changeQuantity, concat, deleteItem, editItem, filterFeats, getActionShort, hasFeats, hasSecondaryUsage, localize, TIERS } from "@/methods/Helpers";
+import PowerSummaryRow from "@/components/parts/PowerSummaryRow.vue";
+import Rollable from "@/components/parts/Rollable.vue";
+import EquipmentSummaryRow from "./EquipmentSummaryRow.vue";
+import EquipmentDetailsV3 from "./EquipmentDetailsV3.vue";
+import LootDetailsV3 from "./LootDetailsV3.vue";
+import PowerDetailsV3 from "./PowerDetailsV3.vue";
+import RollableV3 from "../RollableV3.vue";
 
 const props = defineProps({
-  item: {type: Object, required: true},
-  actor: {type: [Object, Boolean], default: null},
-  context: {type: Object, default: null},
-  // Names the item kind for the wrapper classes. Defaults from the item's
-  // type: powers read as `power`, the other kinds share the equipment
-  // row's classes.
-  baseClass: {type: String, default: null},
-  // The summary's grid-template-columns, the one thing that differs between
-  // the power listings. Equipment rows lay out on their own grid.
-  columns: {type: String, default: '32px auto 36px 44px 60px 44px 64px'},
-  // Whether the trigger reads as a hover tooltip; listings that give the
-  // trigger a cell of its own turn this off.
-  trigger: {type: Boolean, default: true},
-  // The feats section at the bottom of the expanded power details; the
-  // loadout tab renders the feats as rows of their own beneath the power's
-  // row instead.
-  showFeats: {type: Boolean, default: true},
+	item: { type: Object, required: true },
+	actor: { type: [Object, Boolean], default: null },
+	context: { type: Object, default: null },
+	// Names the item kind for the wrapper classes. Defaults from the item's
+	// type: powers read as `power`, the other kinds share the equipment
+	// row's classes.
+	baseClass: { type: String, default: null },
+	// The summary's grid-template-columns, the one thing that differs between
+	// the power listings. Equipment rows lay out on their own grid.
+	columns: { type: String, default: "32px auto 36px 44px 60px 44px 64px" },
+	// Whether the trigger reads as a hover tooltip; listings that give the
+	// trigger a cell of its own turn this off.
+	trigger: { type: Boolean, default: true },
+	// The feats section at the bottom of the expanded power details; the
+	// loadout tab renders the feats as rows of their own beneath the power's
+	// row instead.
+	showFeats: { type: Boolean, default: true }
 });
 
-const isPower = computed(() => props.item.type === 'power');
+const isPower = computed(() => props.item.type === "power");
 
 const kindClass = computed(() =>
-  props.baseClass ?? (isPower.value ? 'power' : 'equipment'));
+	props.baseClass ?? (isPower.value ? "power" : "equipment"));
 
 const active = ref(false);
 
 const toggle = () => {
-  active.value = !active.value;
+	active.value = !active.value;
 };
 
 // DiceArchmage and the roll methods live on the real document; props.actor is
 // the context's prepared clone. The sheet provides the document for injection.
-const actorDocument = inject('actorDocument', null);
+const actorDocument = inject("actorDocument", null);
 
 /**
  * Activate the item: its roll() runs the usage dialog, spends uses and
  * resources, and posts the card to chat.
  */
 function activateItem() {
-  actorDocument?.items?.get(props.item._id)?.roll();
+	actorDocument?.items?.get(props.item._id)?.roll();
 }
 
 /**
  * Each of the power's feats as its tier letter plus its taken state, in tier
  * order: A for adventurer, C for champion, E for epic, Z for zenith.
+ * @param power
  */
 function featLetters(power) {
-  return Object.entries(filterFeats(power.system.feats))
-    .map(([key, feat]) => ({
-      key,
-      letter: TIERS.find(tier => tier.key === feat.tier?.value)?.letter ?? '',
-      taken: feat.isActive?.value ?? false,
-    }));
+	return Object.entries(filterFeats(power.system.feats))
+		.map(([key, feat]) => ({
+			key,
+			letter: TIERS.find((tier) => tier.key === feat.tier?.value)?.letter ?? "",
+			taken: feat.isActive?.value ?? false
+		}));
 }
 </script>
 

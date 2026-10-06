@@ -1,26 +1,26 @@
 <template>
-  <component :is="tag" class="rollable" :class="modifiers"><slot></slot></component>
+	<component :is="tag" class="rollable" :class="modifiers"><slot /></component>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const props = defineProps({
-  // Modifier hook, e.g. 'save' or 'recovery' (renders .rollable--save).
-  name: { type: String, default: '' },
-  // Centre the die icon over the slotted image; the two crossfade on hover.
-  overlay: { type: Boolean, default: false },
-  // Read inert: muted die, no pointer or glow, and clicks don't land.
-  disabled: { type: Boolean, default: false },
-  // Render the rollable as a different element (e.g. 'span') when a link
-  // isn't appropriate.
-  tag: { type: String, default: 'a' }
+	// Modifier hook, e.g. 'save' or 'recovery' (renders .rollable--save).
+	name: { type: String, default: "" },
+	// Centre the die icon over the slotted image; the two crossfade on hover.
+	overlay: { type: Boolean, default: false },
+	// Read inert: muted die, no pointer or glow, and clicks don't land.
+	disabled: { type: Boolean, default: false },
+	// Render the rollable as a different element (e.g. 'span') when a link
+	// isn't appropriate.
+	tag: { type: String, default: "a" }
 });
 
 const modifiers = computed(() => [
-  props.name ? `rollable--${props.name}` : '',
-  props.overlay ? 'overlay' : '',
-  props.disabled ? 'disabled' : ''
+	props.name ? `rollable--${props.name}` : "",
+	props.overlay ? "overlay" : "",
+	props.disabled ? "disabled" : ""
 ]);
 </script>
 

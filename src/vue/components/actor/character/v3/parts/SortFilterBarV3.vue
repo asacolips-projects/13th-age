@@ -1,21 +1,29 @@
 <template>
-  <header class="sort-filter-bar">
-    <div class="sort-control">
-      <label :for="concat(id, '-sort')">{{localize('ARCHMAGE.sort')}}</label>
-      <select :name="concat(id, '-sort')" v-model="sort">
-        <option v-for="option in sortOptions" :key="option.value" :value="option.value">{{localize(`ARCHMAGE.SORTS.${option.value}`)}}</option>
-      </select>
-    </div>
-    <div class="search-control">
-      <label :for="concat(id, '-filter')">{{localize('ARCHMAGE.filter')}}</label>
-      <div class="search-input">
-        <input type="text" :name="concat(id, '-filter')" v-model="search" :placeholder="localize('ARCHMAGE.filterName')"/>
-        <button v-if="search" type="button" class="search-clear" :title="localize('ARCHMAGE.clear')" @click="search = null"><i class="fas fa-times"></i></button>
-      </div>
-    </div>
-    <!-- Extra controls, e.g. a group-by select or the import button. -->
-    <slot/>
-  </header>
+	<header class="sort-filter-bar">
+		<div class="sort-control">
+			<label :for="concat(id, '-sort')">{{ localize('ARCHMAGE.sort') }}</label>
+			<select v-model="sort" :name="concat(id, '-sort')">
+				<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
+			</select>
+		</div>
+		<div class="search-control">
+			<label :for="concat(id, '-filter')">{{ localize('ARCHMAGE.filter') }}</label>
+			<div class="search-input">
+				<input v-model="search" type="text" :name="concat(id, '-filter')" :placeholder="localize('ARCHMAGE.filterName')">
+				<button
+					v-if="search"
+					type="button"
+					class="search-clear"
+					:title="localize('ARCHMAGE.clear')"
+					@click="search = null"
+				>
+					<i class="fas fa-times" />
+				</button>
+			</div>
+		</div>
+		<!-- Extra controls, e.g. a group-by select or the import button. -->
+		<slot />
+	</header>
 </template>
 
 <script setup>
@@ -26,16 +34,16 @@
  * toggle). Sort and search are v-models; the search's clear widget is owned
  * here, resetting the model to null.
  */
-import { concat, localize } from '@/methods/Helpers';
+import { concat, localize } from "@/methods/Helpers";
 
 defineProps({
-  // Prefix for the controls' ids and names, e.g. 'plan' -> plan-sort.
-  id: { type: String, required: true },
-  sortOptions: { type: Array, required: true },
+	// Prefix for the controls' ids and names, e.g. 'plan' -> plan-sort.
+	id: { type: String, required: true },
+	sortOptions: { type: Array, required: true }
 });
 
-const sort = defineModel('sort');
-const search = defineModel('search');
+const sort = defineModel("sort");
+const search = defineModel("search");
 </script>
 
 <style scoped lang="scss">

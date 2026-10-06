@@ -22,24 +22,24 @@
  *   submits its form itself).
  * @returns {Promise} The FilePicker browse promise, or false when not editable.
  */
-export async function pickImage(app, event, target = event.currentTarget, {respectSubmitOnChange = false} = {}) {
-  if (!app.isEditable) return false;
-  const attr = target.dataset.edit;
-  const current = foundry.utils.getProperty(app.document, attr);
-  const { img } = app.document.constructor.getDefaultArtwork?.(app.document.toObject()) ?? {};
-  const fp = new foundry.applications.apps.FilePicker.implementation({
-    current,
-    type: "image",
-    redirectToRoot: img ? [img] : [],
-    callback: path => {
-      target.src = path;
-      if (respectSubmitOnChange && !app.options.submitOnChange) return;
-      return app.document.update({[attr]: path});
-    },
-    top: app.position.top + 40,
-    left: app.position.left + 10
-  });
-  return fp.browse();
+export async function pickImage(app, event, target = event.currentTarget, { respectSubmitOnChange = false } = {}) {
+	if (!app.isEditable) return false;
+	const attr = target.dataset.edit;
+	const current = foundry.utils.getProperty(app.document, attr);
+	const { img } = app.document.constructor.getDefaultArtwork?.(app.document.toObject()) ?? {};
+	const fp = new foundry.applications.apps.FilePicker.implementation({
+		current,
+		type: "image",
+		redirectToRoot: img ? [img] : [],
+		callback: (path) => {
+			target.src = path;
+			if (respectSubmitOnChange && !app.options.submitOnChange) return;
+			return app.document.update({ [attr]: path });
+		},
+		top: app.position.top + 40,
+		left: app.position.left + 10
+	});
+	return fp.browse();
 }
 
 /**
@@ -53,16 +53,16 @@ export async function pickImage(app, event, target = event.currentTarget, {respe
  * @returns {DragDrop[]} An array of DragDrop handlers.
  */
 export function createDragDropHandlers(app) {
-  return app.options.dragDrop.map(d => {
-    d.permissions = {
-      dragstart: app._canDragStart.bind(app),
-      drop: app._canDragDrop.bind(app)
-    };
-    d.callbacks = {
-      dragstart: app._onDragStart.bind(app),
-      dragover: app._onDragOver.bind(app),
-      drop: app._onDrop.bind(app)
-    };
-    return new foundry.applications.ux.DragDrop.implementation(d);
-  });
+	return app.options.dragDrop.map((d) => {
+		d.permissions = {
+			dragstart: app._canDragStart.bind(app),
+			drop: app._canDragDrop.bind(app)
+		};
+		d.callbacks = {
+			dragstart: app._onDragStart.bind(app),
+			dragover: app._onDragOver.bind(app),
+			drop: app._onDrop.bind(app)
+		};
+		return new foundry.applications.ux.DragDrop.implementation(d);
+	});
 }

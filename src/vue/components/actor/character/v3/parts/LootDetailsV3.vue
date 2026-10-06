@@ -1,13 +1,20 @@
 <template>
-  <article class="loot-details">
-    <!-- Description: sectioned like the item sheet's fieldsets for
+	<article class="loot-details">
+		<!-- Description: sectioned like the item sheet's fieldsets for
          readability. -->
-    <fieldset v-if="equipment.system.description.value" class="fieldset-description">
-      <Enriched tag="div" class="detail-value" :text="equipment.system.description.value" :replacements="[]"
-        :dice-formula-mode="diceFormulaMode" :roll-data="context?.rollData" field="description"
-        :enrichment-options="enrichmentOptions"/>
-    </fieldset>
-  </article>
+		<fieldset v-if="equipment.system.description.value" class="fieldset-description">
+			<Enriched
+				tag="div"
+				class="detail-value"
+				:text="equipment.system.description.value"
+				:replacements="[]"
+				:dice-formula-mode="diceFormulaMode"
+				:roll-data="context?.rollData"
+				field="description"
+				:enrichment-options="enrichmentOptions"
+			/>
+		</fieldset>
+	</article>
 </template>
 
 <script setup>
@@ -16,19 +23,19 @@
  * description, enriched like the item sheet enriches it. Legacy 'tool' items
  * are rendered here too.
  */
-import { useItemEnrichment } from '@/composables/useItemEnrichment';
-import Enriched from '@/components/parts/Enriched.vue';
+import { useItemEnrichment } from "@/composables/useItemEnrichment";
+import Enriched from "@/components/parts/Enriched.vue";
 
 const props = defineProps({
-  equipment: { type: Object, required: true },
-  actor: { type: [Object, Boolean], default: null },
-  context: { type: Object, default: null },
+	equipment: { type: Object, required: true },
+	actor: { type: [Object, Boolean], default: null },
+	context: { type: Object, default: null }
 });
 
 const { diceFormulaMode, enrichmentOptions } = useItemEnrichment(
-  () => props.equipment,
-  () => props.actor,
-  () => props.context
+	() => props.equipment,
+	() => props.actor,
+	() => props.context
 );
 </script>
 

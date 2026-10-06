@@ -1,24 +1,30 @@
 <template>
-  <section class="tab-effects">
-    <header class="effects-header">
-      <div v-if="editable" class="effect-controls">
-        <a class="effect-control" :title="localize('ARCHMAGE.EFFECT.AE.new')" @click="createEffect"><i class="fas fa-plus"></i></a>
-      </div>
-    </header>
+	<section class="tab-effects">
+		<header class="effects-header">
+			<div v-if="editable" class="effect-controls">
+				<a class="effect-control" :title="localize('ARCHMAGE.EFFECT.AE.new')" @click="createEffect"><i class="fas fa-plus" /></a>
+			</div>
+		</header>
 
-    <ul v-if="effects.length" class="effects-list">
-      <EffectRowV3 v-for="effect in effects" :key="effect._id" :effect="effect" :actor="actor" :editable="editable"
-        :class="rowClasses(effect._id)"
-        :draggable="canReorder"
-        @dragstart="onRowDragStart($event, 'effects', effect._id)"
-        @dragover="onRowDragOver($event, 'effects', effect._id)"
-        @dragleave="onRowDragLeave($event, effect._id)"
-        @drop="onRowDrop($event, 'effects', effect._id)"
-        @dragend="onRowDragEnd"/>
-    </ul>
+		<ul v-if="effects.length" class="effects-list">
+			<EffectRowV3
+				v-for="effect in effects"
+				:key="effect._id"
+				:effect="effect"
+				:actor="actor"
+				:editable="editable"
+				:class="rowClasses(effect._id)"
+				:draggable="canReorder"
+				@dragstart="onRowDragStart($event, 'effects', effect._id)"
+				@dragover="onRowDragOver($event, 'effects', effect._id)"
+				@dragleave="onRowDragLeave($event, effect._id)"
+				@drop="onRowDrop($event, 'effects', effect._id)"
+				@dragend="onRowDragEnd"
+			/>
+		</ul>
 
-    <p v-else class="v3-empty">&mdash;</p>
-  </section>
+		<p v-else class="v3-empty">&mdash;</p>
+	</section>
 </template>
 
 <script setup>
@@ -28,34 +34,37 @@
  * new effects and drag-to-reorder, writing through the actor document
  * injected by the sheet, since props.actor is the context's toObject() clone.
  */
-import { computed, inject } from 'vue';
-import { getActor, localize } from '@/methods/Helpers';
-import { useRowReorder } from '@/composables/useRowReorder';
-import EffectRowV3 from '@/components/actor/character/v3/EffectRowV3.vue';
+import { computed, inject } from "vue";
+import { getActor, localize } from "@/methods/Helpers";
+import { useRowReorder } from "@/composables/useRowReorder";
+import EffectRowV3 from "@/components/actor/character/v3/EffectRowV3.vue";
 
-const props = defineProps(['actor', 'editable']);
+const props = defineProps(["actor", "editable"]);
 
 // Updates go through the real actor document; props.actor is a data clone.
-const actorDocument = inject('actorDocument');
+const actorDocument = inject("actorDocument");
 
 // Display order: the effects' own sort values, which drag-and-drop here and
 // on the v2 effects tab both write. The sort is stable, so ties keep the
 // collection's order.
 const effects = computed(() => [...(props.actor?.effects ?? [])]
-  .sort((a, b) => (a.sort || 0) - (b.sort || 0)));
+	.sort((a, b) => (a.sort || 0) - (b.sort || 0)));
 
 // Reordering is only offered when the sheet is editable and the actor isn't
 // a compendium entry (where documents can't be written).
 const canReorder = computed(() => props.editable === true && !props.actor?.pack);
 
+/**
+ *
+ */
 async function createEffect() {
-  if (!actorDocument) return;
-  await actorDocument.createEmbeddedDocuments('ActiveEffect', [{
-    name: localize('ARCHMAGE.EFFECT.AE.new'),
-    img: 'icons/svg/aura.svg',
-    origin: actorDocument.uuid,
-    disabled: false
-  }]);
+	if (!actorDocument) return;
+	await actorDocument.createEmbeddedDocuments("ActiveEffect", [{
+		name: localize("ARCHMAGE.EFFECT.AE.new"),
+		img: "icons/svg/aura.svg",
+		origin: actorDocument.uuid,
+		disabled: false
+	}]);
 }
 
 // Row reordering. The rows are the tab's own drags from the start — nothing
@@ -70,29 +79,29 @@ const SORT_SPACING = 100;
 // written before. props.actor is a data clone; resolve the live document,
 // with the drag-data lookup as fallback.
 const saveEffectOrder = async (orderedIds) => {
-  const actor = actorDocument ?? await getActor(props.actor);
-  const updates = orderedIds.map((id, index) => ({_id: id, sort: (index + 1) * SORT_SPACING}));
-  await actor?.updateEmbeddedDocuments('ActiveEffect', updates);
+	const actor = actorDocument ?? await getActor(props.actor);
+	const updates = orderedIds.map((id, index) => ({ _id: id, sort: (index + 1) * SORT_SPACING }));
+	await actor?.updateEmbeddedDocuments("ActiveEffect", updates);
 };
 
 const {
-  rowClasses, onRowDragStart, onRowDragOver, onRowDragLeave, onRowDrop, onRowDragEnd,
+	rowClasses, onRowDragStart, onRowDragOver, onRowDragLeave, onRowDrop, onRowDragEnd
 } = useRowReorder({
-  actor: () => props.actor,
-  canReorder,
-  persist: saveEffectOrder,
-  rows: () => effects.value,
-  startDrag: (event, _containerKey, effectId) => {
-    event.dataTransfer.effectAllowed = 'move';
-    // Firefox needs data for the drag to start; tag the payload so nothing
-    // downstream mistakes this for an item drag.
-    event.dataTransfer.setData('text/plain', JSON.stringify({
-      type: 'ArchmageEffectOrder',
-      effectId
-    }));
-    // Don't let the sheet's drop handling see this.
-    event.stopPropagation();
-  },
+	actor: () => props.actor,
+	canReorder,
+	persist: saveEffectOrder,
+	rows: () => effects.value,
+	startDrag: (event, _containerKey, effectId) => {
+		event.dataTransfer.effectAllowed = "move";
+		// Firefox needs data for the drag to start; tag the payload so nothing
+		// downstream mistakes this for an item drag.
+		event.dataTransfer.setData("text/plain", JSON.stringify({
+			type: "ArchmageEffectOrder",
+			effectId
+		}));
+		// Don't let the sheet's drop handling see this.
+		event.stopPropagation();
+	}
 });
 </script>
 

@@ -1,34 +1,34 @@
 <template>
-  <section class="tab-notes" ref="host"></section>
+	<section ref="host" class="tab-notes" />
 </template>
 
 <script setup>
-import { ref, inject, watch, onMounted } from 'vue';
-import { useProseMirrorEditor } from '@/composables/useProseMirrorEditor';
+import { ref, inject, watch, onMounted } from "vue";
+import { useProseMirrorEditor } from "@/composables/useProseMirrorEditor";
 
-const props = defineProps(['actor', 'editable']);
+const props = defineProps(["actor", "editable"]);
 
 // The real document provides a UUID for ProseMirror's relative links.
-const actorDocument = inject('actorDocument');
+const actorDocument = inject("actorDocument");
 
 const host = ref(null);
-const editorField = 'system.details.biography.value';
+const editorField = "system.details.biography.value";
 
 const { editorEl, mountEditor } = useProseMirrorEditor({
-  host,
-  field: editorField,
-  getValue: () => props.actor?.system?.details?.biography?.value ?? '',
-  owner: () => props.actor?.owner,
-  documentUUID: actorDocument?.uuid,
-  toggled: true,
-  disabled: () => props.editable === false,
+	host,
+	field: editorField,
+	getValue: () => props.actor?.system?.details?.biography?.value ?? "",
+	owner: () => props.actor?.owner,
+	documentUUID: actorDocument?.uuid,
+	toggled: true,
+	disabled: () => props.editable === false
 });
 
 // Rebuild the (inactive) editor when the stored value changes elsewhere, e.g.
 // after a save round-trips back through _prepareContext. Never touch it while
 // the ProseMirror instance is open, so in-progress edits survive.
 watch(() => props.actor?.system?.details?.biography?.value, () => {
-  if (editorEl.value && !editorEl.value.hasAttribute('open')) mountEditor();
+	if (editorEl.value && !editorEl.value.hasAttribute("open")) mountEditor();
 });
 
 onMounted(mountEditor);

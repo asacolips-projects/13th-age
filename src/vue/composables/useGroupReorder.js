@@ -1,5 +1,5 @@
-import { computed, ref } from 'vue';
-import { saveSheetDisplayPref } from '@/methods/Helpers';
+import { computed, ref } from "vue";
+import { saveSheetDisplayPref } from "@/methods/Helpers";
 
 /**
  * Drag-to-reorder for the v3 tabs' group sections, shared by the action plan
@@ -32,96 +32,98 @@ import { saveSheetDisplayPref } from '@/methods/Helpers';
  *   with.
  */
 export function useGroupReorder({ actor, canReorder, canStart = null, getSections, flagPath, classPrefix }) {
-  const draggedGroup = ref(null);
-  const dragOverGroup = ref(null);
+	const draggedGroup = ref(null);
+	const dragOverGroup = ref(null);
 
-  // The saved order, when one has been stored for the flag path; per-mode
-  // paths (the catalog's) re-read as the mode changes.
-  const savedGroupOrder = computed(() => {
-    const path = typeof flagPath === 'function' ? flagPath() : flagPath;
-    const stored = foundry.utils.getProperty(actor()?.flags?.archmage ?? {}, path);
-    return Array.isArray(stored) ? stored : [];
-  });
+	// The saved order, when one has been stored for the flag path; per-mode
+	// paths (the catalog's) re-read as the mode changes.
+	const savedGroupOrder = computed(() => {
+		const path = typeof flagPath === "function" ? flagPath() : flagPath;
+		const stored = foundry.utils.getProperty(actor()?.flags?.archmage ?? {}, path);
+		return Array.isArray(stored) ? stored : [];
+	});
 
-  /**
-   * Classes for a group section, including drag feedback.
-   */
-  const groupClasses = (groupKey) => ({
-    [`${classPrefix}--dragging`]: draggedGroup.value === groupKey,
-    [`${classPrefix}--drop-target`]: dragOverGroup.value === groupKey,
-  });
+	/**
+	 * Classes for a group section, including drag feedback.
+	 * @param groupKey
+	 */
+	const groupClasses = (groupKey) => ({
+		[`${classPrefix}--dragging`]: draggedGroup.value === groupKey,
+		[`${classPrefix}--drop-target`]: dragOverGroup.value === groupKey
+	});
 
-  const onGroupDragStart = (event, groupKey) => {
-    if (!(canStart ?? canReorder).value) return;
-    draggedGroup.value = groupKey;
-    event.dataTransfer.effectAllowed = 'move';
-    // Tag the payload so nothing downstream mistakes this for an item drag.
-    event.dataTransfer.setData('text/plain', JSON.stringify({
-      type: 'ArchmagePowerGroup',
-      groupKey
-    }));
-    // Don't let the sheet's item drag handling see this.
-    event.stopPropagation();
-  };
+	const onGroupDragStart = (event, groupKey) => {
+		if (!(canStart ?? canReorder).value) return;
+		draggedGroup.value = groupKey;
+		event.dataTransfer.effectAllowed = "move";
+		// Tag the payload so nothing downstream mistakes this for an item drag.
+		event.dataTransfer.setData("text/plain", JSON.stringify({
+			type: "ArchmagePowerGroup",
+			groupKey
+		}));
+		// Don't let the sheet's item drag handling see this.
+		event.stopPropagation();
+	};
 
-  const onGroupDragOver = (event, groupKey) => {
-    if (!draggedGroup.value) return;
-    event.preventDefault();
-    event.stopPropagation();
-    dragOverGroup.value = groupKey === draggedGroup.value ? null : groupKey;
-  };
+	const onGroupDragOver = (event, groupKey) => {
+		if (!draggedGroup.value) return;
+		event.preventDefault();
+		event.stopPropagation();
+		dragOverGroup.value = groupKey === draggedGroup.value ? null : groupKey;
+	};
 
-  const onGroupDragLeave = (event, groupKey) => {
-    if (dragOverGroup.value !== groupKey) return;
-    // dragleave also fires when moving between children of the section, so
-    // only clear the highlight once the cursor has actually left it.
-    if (event.currentTarget.contains(event.relatedTarget)) return;
-    dragOverGroup.value = null;
-  };
+	const onGroupDragLeave = (event, groupKey) => {
+		if (dragOverGroup.value !== groupKey) return;
+		// dragleave also fires when moving between children of the section, so
+		// only clear the highlight once the cursor has actually left it.
+		if (event.currentTarget.contains(event.relatedTarget)) return;
+		dragOverGroup.value = null;
+	};
 
-  const onGroupDrop = async (event, groupKey) => {
-    if (!draggedGroup.value) return;
-    // A group is being reordered, so keep this away from item sorting.
-    event.preventDefault();
-    event.stopPropagation();
+	const onGroupDrop = async (event, groupKey) => {
+		if (!draggedGroup.value) return;
+		// A group is being reordered, so keep this away from item sorting.
+		event.preventDefault();
+		event.stopPropagation();
 
-    const source = draggedGroup.value;
-    draggedGroup.value = null;
-    dragOverGroup.value = null;
-    if (source === groupKey) return;
+		const source = draggedGroup.value;
+		draggedGroup.value = null;
+		dragOverGroup.value = null;
+		if (source === groupKey) return;
 
-    // Rebuild the full order from what's currently displayed, dropping above
-    // or below the target based on where the cursor was released.
-    const order = getSections().map(g => g.key).filter(key => key !== source);
-    const index = order.indexOf(groupKey);
-    if (index < 0) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const before = (event.clientY - rect.top) < (rect.height / 2);
-    order.splice(before ? index : index + 1, 0, source);
+		// Rebuild the full order from what's currently displayed, dropping above
+		// or below the target based on where the cursor was released.
+		const order = getSections().map((g) => g.key)
+			.filter((key) => key !== source);
+		const index = order.indexOf(groupKey);
+		if (index < 0) return;
+		const rect = event.currentTarget.getBoundingClientRect();
+		const before = (event.clientY - rect.top) < (rect.height / 2);
+		order.splice(before ? index : index + 1, 0, source);
 
-    await saveGroupOrder(order);
-  };
+		await saveGroupOrder(order);
+	};
 
-  const onGroupDragEnd = () => {
-    draggedGroup.value = null;
-    dragOverGroup.value = null;
-  };
+	const onGroupDragEnd = () => {
+		draggedGroup.value = null;
+		dragOverGroup.value = null;
+	};
 
-  const saveGroupOrder = async (order) => {
-    if (!canReorder.value) return;
-    const path = typeof flagPath === 'function' ? flagPath() : flagPath;
-    await saveSheetDisplayPref(actor(), path, order);
-  };
+	const saveGroupOrder = async (order) => {
+		if (!canReorder.value) return;
+		const path = typeof flagPath === "function" ? flagPath() : flagPath;
+		await saveSheetDisplayPref(actor(), path, order);
+	};
 
-  return {
-    draggedGroup,
-    dragOverGroup,
-    savedGroupOrder,
-    groupClasses,
-    onGroupDragStart,
-    onGroupDragOver,
-    onGroupDragLeave,
-    onGroupDrop,
-    onGroupDragEnd,
-  };
+	return {
+		draggedGroup,
+		dragOverGroup,
+		savedGroupOrder,
+		groupClasses,
+		onGroupDragStart,
+		onGroupDragOver,
+		onGroupDragLeave,
+		onGroupDrop,
+		onGroupDragEnd
+	};
 }

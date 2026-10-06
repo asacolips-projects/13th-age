@@ -1,109 +1,115 @@
 <template>
-  <div ref="rootEl" class="archmage-v3-vue character flexrow" :class="[context.cssClass, { 'is-narrow': narrow }]">
-    <!-- Control cluster: the edit toggle (owned at the sheet level, broadcast
+	<div ref="rootEl" class="archmage-v3-vue character flexrow" :class="[context.cssClass, { 'is-narrow': narrow }]">
+		<!-- Control cluster: the edit toggle (owned at the sheet level, broadcast
          to children via provide/inject) and the settings cog. Absolutely
          positioned in both layouts — over the sidebar's top-left corner in
          the wide layout, over the command bar's right edge in narrow. -->
-    <div v-if="context.editable" class="sheet-controls">
-      <button type="button" class="sheet-edit-toggle" :title="localize('ARCHMAGE.edit')" @click="toggleEdit">
-        <i :class="editing ? 'fas fa-check' : 'fas fa-pen-to-square'"></i>
-      </button>
-      <button type="button" class="sheet-settings-toggle" :title="localize('ARCHMAGE.CHARACTERSETTINGS.settings')" @click="openSettings">
-        <i class="fas fa-gear"></i>
-      </button>
-    </div>
+		<div v-if="context.editable" class="sheet-controls">
+			<button type="button" class="sheet-edit-toggle" :title="localize('ARCHMAGE.edit')" @click="toggleEdit">
+				<i :class="editing ? 'fas fa-check' : 'fas fa-pen-to-square'" />
+			</button>
+			<button type="button" class="sheet-settings-toggle" :title="localize('ARCHMAGE.CHARACTERSETTINGS.settings')" @click="openSettings">
+				<i class="fas fa-gear" />
+			</button>
+		</div>
 
-    <!-- Wide layout: full-height sidebar (identity, defenses, abilities) over
+		<!-- Wide layout: full-height sidebar (identity, defenses, abilities) over
          to a right column with a fixed stats header and the tabbed main. -->
-    <template v-if="!narrow">
-      <CharSidebarV3 :actor="context.actor" />
+		<template v-if="!narrow">
+			<CharSidebarV3 :actor="context.actor" />
 
-      <section class="sheet-right flexcol">
-        <CharStatsHeaderV3 :actor="context.actor" />
-        <CharMainV3 :context="context" />
-      </section>
-    </template>
+			<section class="sheet-right flexcol">
+				<CharStatsHeaderV3 :actor="context.actor" />
+				<CharMainV3 :context="context" />
+			</section>
+		</template>
 
-    <!-- Narrow layout: single column. Identity condenses into a command bar,
+		<!-- Narrow layout: single column. Identity condenses into a command bar,
          the vitals stay pinned beneath it, and the sidebar's units re-home
          into a character tab inside CharMainV3. -->
-    <template v-else>
-      <header class="sheet-command-bar">
-        <CharIdentityV3 :actor="context.actor" />
-      </header>
+		<template v-else>
+			<header class="sheet-command-bar">
+				<CharIdentityV3 :actor="context.actor" />
+			</header>
 
-      <CharStatsHeaderV3 :actor="context.actor" />
-      <!-- Bound explicitly: a bare `narrow` attribute would arrive as ""
+			<CharStatsHeaderV3 :actor="context.actor" />
+			<!-- Bound explicitly: a bare `narrow` attribute would arrive as ""
            (falsy) because array-declared props get no boolean casting. -->
-      <CharMainV3 :context="context" :narrow="narrow" />
-    </template>
-  </div>
+			<CharMainV3 :context="context" :narrow="narrow" />
+		</template>
+	</div>
 </template>
 
 <script setup>
-  import { ref, computed, provide, onMounted, onBeforeUnmount } from 'vue';
-  import { localize, getActor } from '@/methods/Helpers';
-  import CharSidebarV3 from '@/components/actor/character/v3/CharSidebarV3.vue';
-  import CharIdentityV3 from '@/components/actor/character/v3/CharIdentityV3.vue';
-  import CharStatsHeaderV3 from '@/components/actor/character/v3/CharStatsHeaderV3.vue';
-  import CharMainV3 from '@/components/actor/character/v3/CharMainV3.vue';
+import { ref, computed, provide, onMounted, onBeforeUnmount } from "vue";
+import { localize, getActor } from "@/methods/Helpers";
+import CharSidebarV3 from "@/components/actor/character/v3/CharSidebarV3.vue";
+import CharIdentityV3 from "@/components/actor/character/v3/CharIdentityV3.vue";
+import CharStatsHeaderV3 from "@/components/actor/character/v3/CharStatsHeaderV3.vue";
+import CharMainV3 from "@/components/actor/character/v3/CharMainV3.vue";
 
-  const props = defineProps(['context']);
+const props = defineProps(["context"]);
 
-  const editing = ref(false);
-  provide('editMode', editing);
+const editing = ref(false);
+provide("editMode", editing);
 
-  function toggleEdit() {
-    editing.value = !editing.value;
-  }
+/**
+ *
+ */
+function toggleEdit() {
+	editing.value = !editing.value;
+}
 
-  // First-run experience. A character with neither kin nor class filled in is
-  // presumed brand new, so the sheet opens straight into edit mode once; the
-  // blank fields then pulse for attention (CharIdentityV3), since the power
-  // importer depends on both.
-  const missingKinClass = computed(() => {
-    const details = props.context.actor?.system?.details ?? {};
-    return !details.race?.value && !details.class?.value;
-  });
+// First-run experience. A character with neither kin nor class filled in is
+// presumed brand new, so the sheet opens straight into edit mode once; the
+// blank fields then pulse for attention (CharIdentityV3), since the power
+// importer depends on both.
+const missingKinClass = computed(() => {
+	const details = props.context.actor?.system?.details ?? {};
+	return !details.race?.value && !details.class?.value;
+});
 
-  // Narrow layout switch: key off the sheet's own width rather than the
-  // viewport, because a Foundry window resizes independently of the device.
-  // Below the breakpoint the root renders the single-column arrangement.
-  const NARROW_BREAKPOINT = 720;
+// Narrow layout switch: key off the sheet's own width rather than the
+// viewport, because a Foundry window resizes independently of the device.
+// Below the breakpoint the root renders the single-column arrangement.
+const NARROW_BREAKPOINT = 720;
 
-  const rootEl = ref(null);
-  const narrow = ref(false);
-  // Children that render differently per layout (the identity's hero banner
-  // vs. command bar) branch on this, the same way they do on editMode.
-  provide('narrowLayout', narrow);
-  let resizeObserver = null;
+const rootEl = ref(null);
+const narrow = ref(false);
+// Children that render differently per layout (the identity's hero banner
+// vs. command bar) branch on this, the same way they do on editMode.
+provide("narrowLayout", narrow);
+let resizeObserver = null;
 
-  onMounted(() => {
-    resizeObserver = new ResizeObserver(entries => {
-      narrow.value = entries[0].contentRect.width < NARROW_BREAKPOINT;
-    });
-    resizeObserver.observe(rootEl.value);
+onMounted(() => {
+	resizeObserver = new ResizeObserver((entries) => {
+		narrow.value = entries[0].contentRect.width < NARROW_BREAKPOINT;
+	});
+	resizeObserver.observe(rootEl.value);
 
-    // Open a character missing its kin and class straight into edit mode,
-    // once per mount — filling them in later shouldn't hijack the user's
-    // cursor.
-    if (props.context.editable && !props.context.actor?.pack && missingKinClass.value) {
-      editing.value = true;
-    }
-  });
+	// Open a character missing its kin and class straight into edit mode,
+	// once per mount — filling them in later shouldn't hijack the user's
+	// cursor.
+	if (props.context.editable && !props.context.actor?.pack && missingKinClass.value) {
+		editing.value = true;
+	}
+});
 
-  onBeforeUnmount(() => resizeObserver?.disconnect());
+onBeforeUnmount(() => resizeObserver?.disconnect());
 
-  // Opens the per-character settings window. The AppV2 class lives in the
-  // module bundle (exposed on game.archmage) to keep the module -> vue bundle
-  // dependency one-directional.
-  async function openSettings() {
-    const App = game.archmage?.ArchmageCharacterSettingsApp;
-    if (!App || props.context.actor?.pack) return;
-    const actor = await getActor(props.context.actor);
-    if (!actor) return;
-    App.show(actor);
-  }
+// Opens the per-character settings window. The AppV2 class lives in the
+// module bundle (exposed on game.archmage) to keep the module -> vue bundle
+// dependency one-directional.
+/**
+ *
+ */
+async function openSettings() {
+	const App = game.archmage?.ArchmageCharacterSettingsApp;
+	if (!App || props.context.actor?.pack) return;
+	const actor = await getActor(props.context.actor);
+	if (!actor) return;
+	App.show(actor);
+}
 </script>
 
 <style lang="scss">

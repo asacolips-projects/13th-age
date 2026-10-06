@@ -1,10 +1,20 @@
+/**
+ *
+ * @param property
+ * @param defaultValue
+ */
 export function getSafeValue(property, defaultValue) {
-  if (property) return property.value;
-  return defaultValue;
+	if (property) return property.value;
+	return defaultValue;
 }
 
+/**
+ *
+ * @param key
+ * @param data
+ */
 export function localize(key, data = null) {
-  return data ? game.i18n.format(key, data) : game.i18n.localize(key);
+	return data ? game.i18n.format(key, data) : game.i18n.localize(key);
 }
 
 /**
@@ -16,7 +26,7 @@ export function localize(key, data = null) {
  * @returns {string}
  */
 export function chakraLabel(chakra) {
-  return localize(concat('ARCHMAGE.CHAKRA.', chakra, 'Label'));
+	return localize(concat("ARCHMAGE.CHAKRA.", chakra, "Label"));
 }
 
 /**
@@ -31,9 +41,9 @@ export function chakraLabel(chakra) {
  * @returns {string} Plain text.
  */
 export function stripHtml(html) {
-  if (!html) return '';
-  const doc = new DOMParser().parseFromString(html, 'text/html');
-  return doc.body.textContent.replace(/\s+/g, ' ').trim();
+	if (!html) return "";
+	const doc = new DOMParser().parseFromString(html, "text/html");
+	return doc.body.textContent.replace(/\s+/g, " ").trim();
 }
 
 /**
@@ -46,7 +56,7 @@ export function stripHtml(html) {
  * @returns {string}
  */
 export function stripTags(html) {
-  return (html ?? '').replace(/<[^>]+>/g, '');
+	return (html ?? "").replace(/<[^>]+>/g, "");
 }
 
 /**
@@ -58,7 +68,7 @@ export function stripTags(html) {
  * @returns {string} The stripped key, e.g. 'Finger-Wiggle' -> 'fingerwiggle'.
  */
 export function cleanFilterKey(string) {
-  return string ? string.toLowerCase().replace(/[^a-zA-Z\d]/g, '') : '';
+	return string ? string.toLowerCase().replace(/[^a-zA-Z\d]/g, "") : "";
 }
 
 /**
@@ -70,7 +80,7 @@ export function cleanFilterKey(string) {
  * @returns {number}
  */
 export function byName(a, b) {
-  return a.name.localeCompare(b.name);
+	return a.name.localeCompare(b.name);
 }
 
 /**
@@ -82,7 +92,7 @@ export function byName(a, b) {
  * @returns {number}
  */
 export function byLevel(a, b) {
-  return Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
+	return Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
 }
 
 /**
@@ -95,10 +105,10 @@ export function byLevel(a, b) {
  * @returns {Array} The groups in display order.
  */
 export function orderedGroups(groups, order) {
-  if (!order?.length) return groups;
-  const byKey = new Map(groups.map(g => [g.key, g]));
-  return order.filter(key => byKey.has(key)).map(key => byKey.get(key))
-    .concat(groups.filter(g => !order.includes(g.key)));
+	if (!order?.length) return groups;
+	const byKey = new Map(groups.map((g) => [g.key, g]));
+	return order.filter((key) => byKey.has(key)).map((key) => byKey.get(key))
+		.concat(groups.filter((g) => !order.includes(g.key)));
 }
 
 /**
@@ -113,20 +123,24 @@ export function orderedGroups(groups, order) {
  * @returns {Array} The rows in display order.
  */
 export function orderedRows(rows, order, tiebreak = null) {
-  const positions = new Map(order.map((id, index) => [id, index]));
-  if (!positions.size) return rows;
-  return [...rows].sort((a, b) => {
-    const ai = positions.get(a._id);
-    const bi = positions.get(b._id);
-    if (ai === undefined && bi === undefined) return tiebreak ? tiebreak(a, b) : 0;
-    if (ai === undefined) return 1;
-    if (bi === undefined) return -1;
-    return ai - bi;
-  });
+	const positions = new Map(order.map((id, index) => [id, index]));
+	if (!positions.size) return rows;
+	return [...rows].sort((a, b) => {
+		const ai = positions.get(a._id);
+		const bi = positions.get(b._id);
+		if (ai === undefined && bi === undefined) return tiebreak ? tiebreak(a, b) : 0;
+		if (ai === undefined) return 1;
+		if (bi === undefined) return -1;
+		return ai - bi;
+	});
 }
 
+/**
+ *
+ * @param bonusProp
+ */
 export function localizeEquipmentBonus(bonusProp) {
-  return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
+	return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
 }
 
 /**
@@ -136,30 +150,48 @@ export function localizeEquipmentBonus(bonusProp) {
  * (kin label, death-save glyphs, 2e resources and incrementals).
  */
 export function isSecondEdition() {
-  return game.settings.get('archmage', 'secondEdition') === true;
+	return game.settings.get("archmage", "secondEdition") === true;
 }
 
+/**
+ *
+ * @param {...any} keys
+ */
 export function tooltip(...keys) {
-  return game.archmage.ArchmageUtility.tooltip(...keys);
+	return game.archmage.ArchmageUtility.tooltip(...keys);
 }
 
+/**
+ *
+ * @param string
+ */
 export function cssClass(string) {
-  return encodeURIComponent(
-    string.trim().toLowerCase()
-  ).replace(/%[0-9A-F]{2}/gi, '-');
+	return encodeURIComponent(
+		string.trim().toLowerCase()
+	).replace(/%[0-9A-F]{2}/gi, "-");
 }
 
+/**
+ *
+ * @param value
+ * @param dec
+ * @param sign
+ */
 export function numberFormat(value, dec = 0, sign = false) {
-  const parsedValue = parseFloat(value).toFixed(dec);
-  if (isNaN(parsedValue)) return value
-  if (sign ) return ( parsedValue >= 0 ) ? `+${parsedValue}` : parsedValue;
-  return parsedValue;
+	const parsedValue = parseFloat(value).toFixed(dec);
+	if (isNaN(parsedValue)) return value;
+	if (sign) return (parsedValue >= 0) ? `+${parsedValue}` : parsedValue;
+	return parsedValue;
 }
 
+/**
+ *
+ * @param {...any} args
+ */
 export function concat(...args) {
-  return args.reduce((acc, cur) => {
-    return acc + cur;
-  }, '');
+	return args.reduce((acc, cur) => {
+		return acc + cur;
+	}, "");
 }
 
 /**
@@ -171,7 +203,7 @@ export function concat(...args) {
  * @returns {boolean}
  */
 export function isBlank(value) {
-  return (value ?? '').toString().trim() === '';
+	return (value ?? "").toString().trim() === "";
 }
 
 /**
@@ -183,7 +215,7 @@ export function isBlank(value) {
  * @returns {boolean}
  */
 export function isZeroish(value) {
-  return !value || Number(value) === 0;
+	return !value || Number(value) === 0;
 }
 
 /**
@@ -194,9 +226,9 @@ export function isZeroish(value) {
  * @returns {boolean}
  */
 export function hasFeats(power) {
-  if (!power?.system?.feats) return false;
-  return Object.values(power.system.feats)
-    .some(feat => feat.description.value || feat.isActive.value);
+	if (!power?.system?.feats) return false;
+	return Object.values(power.system.feats)
+		.some((feat) => feat.description.value || feat.isActive.value);
 }
 
 /**
@@ -207,10 +239,10 @@ export function hasFeats(power) {
  * @returns {object} The same shape, minus the empty entries.
  */
 export function filterFeats(feats) {
-  if (!feats) return {};
-  return Object.fromEntries(
-    Object.entries(feats).filter(([, feat]) => feat.description.value)
-  );
+	if (!feats) return {};
+	return Object.fromEntries(
+		Object.entries(feats).filter(([, feat]) => feat.description.value)
+	);
 }
 
 /**
@@ -226,19 +258,19 @@ export function filterFeats(feats) {
  * @returns {object} Keyed bonus values, e.g. {ac: 1, disengageInit: 2}.
  */
 export function equipmentBonuses(equipment) {
-  const bonuses = {};
-  for (let [prop, value] of Object.entries(equipment?.system?.attributes ?? {})) {
-    if (value.bonus) {
-      if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengageInit';
-      bonuses[prop] = value.bonus;
-    }
-    else if (prop == 'attack') {
-      for (const [atkProp, atkValue] of Object.entries(value)) {
-        if (atkValue.bonus) bonuses[atkProp] = atkValue.bonus;
-      }
-    }
-  }
-  return bonuses;
+	const bonuses = {};
+	for (let [prop, value] of Object.entries(equipment?.system?.attributes ?? {})) {
+		if (value.bonus) {
+			if (prop == "disengage" && game.settings.get("archmage", "secondEdition")) prop = "disengageInit";
+			bonuses[prop] = value.bonus;
+		}
+		else if (prop == "attack") {
+			for (const [atkProp, atkValue] of Object.entries(value)) {
+				if (atkValue.bonus) bonuses[atkProp] = atkValue.bonus;
+			}
+		}
+	}
+	return bonuses;
 }
 
 /**
@@ -249,8 +281,8 @@ export function equipmentBonuses(equipment) {
  * @returns {string}
  */
 export function getActionShort(actionType) {
-  return CONFIG.ARCHMAGE.actionTypesShort[actionType]
-    ?? CONFIG.ARCHMAGE.actionTypesShort['standard'];
+	return CONFIG.ARCHMAGE.actionTypesShort[actionType]
+    ?? CONFIG.ARCHMAGE.actionTypesShort.standard;
 }
 
 // The character tiers, keyed by the values featTiers and system.tier use. 'Z'
@@ -259,10 +291,10 @@ export function getActionShort(actionType) {
 // level the tier's slots begin at; cap is how many the tier grants across its
 // levels.
 export const TIERS = [
-  { key: 'adventurer', letter: 'A', firstSlot: 1, cap: 4 },
-  { key: 'champion', letter: 'C', firstSlot: 5, cap: 3 },
-  { key: 'epic', letter: 'E', firstSlot: 8, cap: 3 },
-  { key: 'iconic', letter: 'Z', firstSlot: 10, cap: 1 },
+	{ key: "adventurer", letter: "A", firstSlot: 1, cap: 4 },
+	{ key: "champion", letter: "C", firstSlot: 5, cap: 3 },
+	{ key: "epic", letter: "E", firstSlot: 8, cap: 3 },
+	{ key: "iconic", letter: "Z", firstSlot: 10, cap: 1 }
 ];
 
 export const TIER_ORDER = Object.fromEntries(TIERS.map((tier, i) => [tier.key, i]));
@@ -275,7 +307,7 @@ export const TIER_ORDER = Object.fromEntries(TIERS.map((tier, i) => [tier.key, i
  * @returns {number} Index into TIERS.
  */
 export const characterTierIndex = (level) =>
-  TIERS.reduce((index, tier, i) => level >= tier.firstSlot ? i : index, 0);
+	TIERS.reduce((index, tier, i) => level >= tier.firstSlot ? i : index, 0);
 
 /**
  * Attunement cost against the level limit: an item at or below your tier
@@ -288,33 +320,37 @@ export const characterTierIndex = (level) =>
  * @returns {number} Slots the item consumes when attuned.
  */
 export const attunementCost = (item, charTier) =>
-  (TIER_ORDER[item.system?.tier] ?? 0) > charTier ? 2 : 1;
+	(TIER_ORDER[item.system?.tier] ?? 0) > charTier ? 2 : 1;
 
 // Power usage colouring lives with the item code, so the actor sheets, the chat
 // cards, the compendium browser and the power importer all colour a power the
 // same way. Re-exported here because Vue components import their helpers from
 // this module.
 export {
-  hasSecondaryUsage,
-  powerAvailabilityClass,
-  powerUsageClass,
-} from '@src/module/item/power-usage.mjs';
+	hasSecondaryUsage,
+	powerAvailabilityClass,
+	powerUsageClass
+} from "@src/module/item/power-usage.mjs";
 
 // The inline-roll formatting used across every power renderer lives with the
 // item sheet helpers, so the sheets, the chat cards and the compendium browser
 // all format formulas the same way. Re-exported here because Vue components
 // import their helpers from this module.
-export { wrapRolls } from '@src/module/item/_item-sheet-helpers.mjs';
+export { wrapRolls } from "@src/module/item/_item-sheet-helpers.mjs";
 
+/**
+ *
+ * @param actorData
+ */
 export async function getActor(actorData) {
-  // If no drag data is available, we can't retrieve the actor.
-  if (!actorData?.dragData?.uuid) return false;
+	// If no drag data is available, we can't retrieve the actor.
+	if (!actorData?.dragData?.uuid) return false;
 
-  // Async load the actor/token from the UUID.
-  const document = await fromUuid(actorData.dragData.uuid);
+	// Async load the actor/token from the UUID.
+	const document = await fromUuid(actorData.dragData.uuid);
 
-  // If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
-  return document?.actor ?? document;
+	// If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
+	return document?.actor ?? document;
 }
 
 /**
@@ -328,14 +364,14 @@ export async function getActor(actorData) {
  * @param {*} value The preference value.
  */
 export async function saveSheetDisplayPref(actorData, flagPath, value) {
-  // Pack actors have no setFlag; getActor resolves the live document from
-  // the context actor's drag data.
-  if (actorData?.pack) return;
-  const actor = await getActor(actorData);
-  const current = foundry.utils.getProperty(actorData?.flags?.archmage ?? {}, flagPath);
-  if (actor && current !== value) {
-    await actor.setFlag('archmage', flagPath, value);
-  }
+	// Pack actors have no setFlag; getActor resolves the live document from
+	// the context actor's drag data.
+	if (actorData?.pack) return;
+	const actor = await getActor(actorData);
+	const current = foundry.utils.getProperty(actorData?.flags?.archmage ?? {}, flagPath);
+	if (actor && current !== value) {
+		await actor.setFlag("archmage", flagPath, value);
+	}
 }
 
 /**
@@ -351,8 +387,8 @@ export async function saveSheetDisplayPref(actorData, flagPath, value) {
  * @param {string} itemId Item id, e.g. `power._id`.
  */
 export async function editItem(actorData, itemId) {
-  const actor = await getActor(actorData);
-  actor?.items.get(itemId)?.sheet.render(true);
+	const actor = await getActor(actorData);
+	actor?.items.get(itemId)?.sheet.render(true);
 }
 
 /**
@@ -363,22 +399,22 @@ export async function editItem(actorData, itemId) {
  * @param {boolean} bypass Skip the confirmation, e.g. for shift-clicks.
  */
 export async function deleteItem(actorData, itemId, bypass = false) {
-  const actor = await getActor(actorData);
-  const item = actor?.items.get(itemId);
-  if (!item) return;
+	const actor = await getActor(actorData);
+	const item = actor?.items.get(itemId);
+	if (!item) return;
 
-  if (bypass) {
-    await item.delete();
-    return;
-  }
+	if (bypass) {
+		await item.delete();
+		return;
+	}
 
-  const confirmed = await foundry.applications.api.DialogV2.confirm({
-    window: {title: localize('ARCHMAGE.CHAT.DeleteConfirmTitle')},
-    content: `<p>${localize('ARCHMAGE.CHAT.DeleteConfirm')}</p>`,
-    confirm: {label: localize('ARCHMAGE.CHAT.Delete')},
-    cancel: {label: localize('ARCHMAGE.CHAT.Cancel')}
-  });
-  if (confirmed) await item.delete();
+	const confirmed = await foundry.applications.api.DialogV2.confirm({
+		window: { title: localize("ARCHMAGE.CHAT.DeleteConfirmTitle") },
+		content: `<p>${localize("ARCHMAGE.CHAT.DeleteConfirm")}</p>`,
+		confirm: { label: localize("ARCHMAGE.CHAT.Delete") },
+		cancel: { label: localize("ARCHMAGE.CHAT.Cancel") }
+	});
+	if (confirmed) await item.delete();
 }
 
 /**
@@ -391,19 +427,19 @@ export async function deleteItem(actorData, itemId, bypass = false) {
  *   of the primary one.
  */
 export async function changeQuantity(actorData, itemId, increase = true, secondary = false) {
-  const actor = await getActor(actorData);
-  const item = actor?.items.get(itemId);
-  if (!item) return;
+	const actor = await getActor(actorData);
+	const item = actor?.items.get(itemId);
+	if (!item) return;
 
-  const quantityKey = secondary ? 'quantitySecondary' : 'quantity';
-  if (item.system?.[quantityKey]?.value == null) return;
-  let quantity = Number(item.system[quantityKey].value);
-  quantity = increase ? quantity + 1 : quantity - 1;
+	const quantityKey = secondary ? "quantitySecondary" : "quantity";
+	if (item.system?.[quantityKey]?.value == null) return;
+	let quantity = Number(item.system[quantityKey].value);
+	quantity = increase ? quantity + 1 : quantity - 1;
 
-  // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
-  let maxQuantity = await item.resolveMaxQuantity(secondary ? 'maxQuantitySecondary' : 'maxQuantity') ?? 99;
+	// TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
+	let maxQuantity = await item.resolveMaxQuantity(secondary ? "maxQuantitySecondary" : "maxQuantity") ?? 99;
 
-  await item.update({[`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, quantity) : Math.max(0, quantity)});
+	await item.update({ [`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, quantity) : Math.max(0, quantity) });
 }
 
 /**
@@ -416,22 +452,22 @@ export async function changeQuantity(actorData, itemId, increase = true, seconda
  *   for equipment items, which carry a single active pip.
  */
 export async function togglePip(actorData, itemId, tier = null) {
-  const actor = await getActor(actorData);
-  const item = actor?.items.get(itemId);
-  if (!item) return;
+	const actor = await getActor(actorData);
+	const item = actor?.items.get(itemId);
+	if (!item) return;
 
-  let updateData = {};
-  if (item.type === 'power') {
-    if (!tier) return;
-    let isActive = item.system.feats[tier].isActive.value;
-    updateData[`system.feats.${tier}.isActive.value`] = !isActive;
-  }
-  else if (item.type === 'equipment') {
-    updateData['system.isActive'] = !item.system.isActive;
-  }
-  else return;
+	let updateData = {};
+	if (item.type === "power") {
+		if (!tier) return;
+		let isActive = item.system.feats[tier].isActive.value;
+		updateData[`system.feats.${tier}.isActive.value`] = !isActive;
+	}
+	else if (item.type === "equipment") {
+		updateData["system.isActive"] = !item.system.isActive;
+	}
+	else return;
 
-  await item.update(updateData);
+	await item.update(updateData);
 }
 
 /**
@@ -441,11 +477,11 @@ export async function togglePip(actorData, itemId, tier = null) {
  * @returns {string} Path to art asset
  */
 export function getActorModuleArt(actor) {
-  // UUID doesn't exactly match the format used in the map currently.
-  const actorMapId = actor.uuid.replace('.Actor', '');
-  // Retrieve the art from the map, or fallback to the actor image.
-  const art = game.archmage.system.moduleArt.map.get(actorMapId);
-  return art?.actor ?? actor.img;
+	// UUID doesn't exactly match the format used in the map currently.
+	const actorMapId = actor.uuid.replace(".Actor", "");
+	// Retrieve the art from the map, or fallback to the actor image.
+	const art = game.archmage.system.moduleArt.map.get(actorMapId);
+	return art?.actor ?? actor.img;
 }
 
 /**
@@ -456,22 +492,22 @@ export function getActorModuleArt(actor) {
  * @returns Combined entries from the queried compendiums.
  */
 export async function getPackIndex(packNames = [], fields = []) {
-  if (!packNames) return;
-  if (!fields || fields.length < 1) return;
+	if (!packNames) return;
+	if (!fields || fields.length < 1) return;
 
-  const promises = packNames.map(async packName => {
-    const pack = game.packs.get(packName);
-    if (!pack) return [];
-    const index = await pack.getIndex({ fields: fields });
-    return index.contents.map(x => ({ ...x, compendiumTitle: pack.title }));
-  });
-  const results = await Promise.all(promises);
+	const promises = packNames.map(async (packName) => {
+		const pack = game.packs.get(packName);
+		if (!pack) return [];
+		const index = await pack.getIndex({ fields: fields });
+		return index.contents.map((x) => ({ ...x, compendiumTitle: pack.title }));
+	});
+	const results = await Promise.all(promises);
 
-  let packs = [];
-  for (const result of results) {
-    packs = packs.concat(result);
-  }
-  return packs;
+	let packs = [];
+	for (const result of results) {
+		packs = packs.concat(result);
+	}
+	return packs;
 }
 
 /**
@@ -480,29 +516,31 @@ export async function getPackIndex(packNames = [], fields = []) {
  * @param {string} uuid Document UUID to open.
  * @param {string} type Document type to open. Defaults to 'Actor'.
  */
-export function openDocument(uuid, type = 'Actor') {
-  getDocumentClass(type).fromDropData({
-    type: type,
-    uuid: uuid
-  }).then(document => {
-    if (document?.sheet) {
-      document.sheet.render(true);
-    }
-    else {
-      console.warn(`No document found for ${uuid}`);
-    }
-  });
+export function openDocument(uuid, type = "Actor") {
+	getDocumentClass(type).fromDropData({
+		type: type,
+		uuid: uuid
+	})
+		.then((document) => {
+			if (document?.sheet) {
+				document.sheet.render(true);
+			}
+			else {
+				console.warn(`No document found for ${uuid}`);
+			}
+		});
 }
 
 /**
  * Starts a drag event and provides document drop data.
  *
  * @param {Event} event Drag event.
- * @param {Object} entry Pack index entry object.
+ * @param {object} entry Pack index entry object.
+ * @param type
  */
-export function startDrag(event, entry, type = 'Actor') {
-  event.dataTransfer.setData('text/plain', JSON.stringify({
-    type: type,
-    uuid: entry.uuid
-  }));
+export function startDrag(event, entry, type = "Actor") {
+	event.dataTransfer.setData("text/plain", JSON.stringify({
+		type: type,
+		uuid: entry.uuid
+	}));
 }
