@@ -1,9 +1,9 @@
 <template>
-  <span class="info-bubble" :data-tooltip="tooltip" :data-direction="direction ?? 'DOWN'">
-    <span><i class="fa-regular fa-info-circle"></i></span>
-  </span>
+	<span class="info-bubble" :data-tooltip="tooltip" :data-direction="direction ?? 'DOWN'">
+		<span><i class="fa-regular fa-info-circle" /></span>
+	</span>
 </template>
 
 <script setup>
-  const props = defineProps(['tooltip', 'direction'])
+defineProps(["tooltip", "direction"]);
 </script>

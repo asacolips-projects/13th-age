@@ -2,14 +2,14 @@
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.ongoingDamage') }} </label>
 		<div class="field">
-			<input type="number" step="0.5" v-model="flags.ongoingDamage" />
+			<input v-model="flags.ongoingDamage" type="number" step="0.5">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.damageType') }} </label>
 		<div class="field">
-			<input type="text" v-model="flags.ongoingDamageType" />
+			<input v-model="flags.ongoingDamageType" type="text">
 		</div>
 	</div>
 
@@ -26,20 +26,20 @@
 </template>
 
 <script setup>
-import { inject, reactive, watch } from 'vue';
-import { localize } from '@/methods/Helpers';
+import { inject, reactive, watch } from "vue";
+import { localize } from "@/methods/Helpers";
 
-const props = defineProps(['effect', 'context']);
+const props = defineProps(["effect", "context"]);
 const { effect } = props;
-const foundryEffect = inject('itemDocument')
+const foundryEffect = inject("itemDocument");
 
 const multipliers = CONFIG.ARCHMAGE.ongoingDamageMultipliers;
 
 const flags = reactive(effect.flags.archmage || {});
 if (!flags.ongoingDamageMultiplier) flags.ongoingDamageMultiplier = 1;
 watch(() => flags, (newValue) => {
-	foundryEffect.setFlag('archmage', 'ongoingDamage', newValue.ongoingDamage);
-	foundryEffect.setFlag('archmage', 'ongoingDamageType', newValue.ongoingDamageType);
-	foundryEffect.setFlag('archmage', 'ongoingDamageMultiplier', newValue.ongoingDamageMultiplier);
-}, { deep: true })
+	foundryEffect.setFlag("archmage", "ongoingDamage", newValue.ongoingDamage);
+	foundryEffect.setFlag("archmage", "ongoingDamageType", newValue.ongoingDamageType);
+	foundryEffect.setFlag("archmage", "ongoingDamageMultiplier", newValue.ongoingDamageMultiplier);
+}, { deep: true });
 </script>

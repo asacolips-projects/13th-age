@@ -36,12 +36,12 @@ table {
     border: 10px solid $c-blue--dark;
     border-left: 0;
     border-right: 0;
-    
+
     tr {
       &:nth-child(odd) {
         background: transparent;
       }
-  
+
       &:nth-child(even) {
         background: $c-blue--25;
       }

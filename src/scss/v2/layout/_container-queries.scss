@@ -111,14 +111,14 @@
           align-items: flex-end;
           padding-bottom: 11px;
           position: relative;
-  
+
           &:hover {
             .tabs--mobile {
               display: flex;
             }
           }
         }
-  
+
         .sheet-tabs-toggle--mobile {
           width: 100%;
           height: 44px;
@@ -162,7 +162,7 @@
             display: none;
           }
         }
-  
+
         .tabs--mobile {
           display: none;
           border: none;
@@ -176,45 +176,45 @@
           align-items: flex-start;
           padding: 0;
           margin: 0 !important;
-  
+
           &.active {
             display: flex;
           }
-  
+
           > span {
             width: 100%;
-            
+
             .tab-link {
               flex: 1;
               color: $c-white--50;
               background: transparent;
-  
+
               &.active,
               &:hover,
               &:focus {
-                color: $c-white;  
+                color: $c-white;
               }
-  
+
               &:hover {
                 background-color: $c-white--25;
               }
             }
           }
         }
-  
+
         .tab[data-tab][data-group="mobile"] {
           display: none;
-  
+
           &.active {
             display: block;
           }
         }
-  
+
         .container--top {
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-  
+
           .character-header {
             flex: 1;
             order: 1;
@@ -223,36 +223,36 @@
             label {
               opacity: 0.25;
             }
-  
+
             .unit--name {
               grid-column-start: 1;
               grid-column-end: span 4;
             }
-  
+
             .unit--race { grid-column-end: span 3; }
             .unit--class { grid-column-end: span 3; }
-            .unit--level { 
+            .unit--level {
               grid-column-start: 5;
               grid-row-start: 1;
-              grid-column-end: span 2; 
+              grid-column-end: span 2;
             }
           }
-  
+
           .section--tabs-mobile {
             flex: 0 0 44px;
             margin-left: 10px;
             order: 2;
           }
-  
+
           .tab.attributes {
             flex: 100%;
             order: 3;
           }
-  
+
           .section--attributes {
             flex-direction: column;
           }
-  
+
           .unit--attributes {
             grid-template-columns: repeat(6, minmax(0, 1fr));
             padding-bottom: 0;
@@ -260,17 +260,17 @@
             &::after {
               top: calc(50% + 6px);
             }
-  
+
             .unit {
               grid-column-end: span 2;
             }
           }
-  
+
           .unit--saves {
             grid-column-start: 2;
           }
         }
-  
+
         .tabs--primary {
           .tab-link {
             font-size: 16px;
@@ -278,10 +278,10 @@
             margin: 2px;
           }
         }
-  
+
         .container--bottom {
           flex-direction: column;
-  
+
           .section--sidebar,
           .section--main {
             height: auto;
@@ -290,42 +290,42 @@
             overflow-y: visible;
             flex: 1;
           }
-  
+
           .section--resources {
             // display: flex;
             // flex-direction: row;
             // flex-wrap: wrap;
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-  
+
             .unit {
               max-width: none;
               margin: 8px 0;
               border-left: none;
             }
-  
+
             .resource-divider {
               display: none;
             }
           }
-  
+
           // Space is at a premium on mobile. Hide feats, recharge, and search.
           .filter-search-powers {
             display: none;
           }
-  
+
           .power-grid {
             grid-template-columns: 32px auto 0px 44px 0px 36px 64px;
-  
+
             .power-recharge,
             .power-feat-pips {
               display: none;
             }
           }
-  
+
           .equipment-grid {
             grid-template-columns: 32px auto 36px 0px 0px 0px 36px 56px;
-  
+
             .equipment-feat-pips,
             .equipment-bonus,
             .equipment-chakra,
@@ -333,7 +333,7 @@
               display: none;
             }
           }
-  
+
           .sheet-settings {
             grid-template-columns: repeat(1, minmax(0, 1fr));
           }
@@ -397,16 +397,16 @@
       .section--main {
         flex-direction: column;
       }
-  
+
       .section--resources {
         align-items: flex-center;
         justify-content: flex-center;
-  
+
         .unit {
           padding: 10px;
           border: none !important;
         }
-  
+
         .resource-divider {
           display: none;
         }

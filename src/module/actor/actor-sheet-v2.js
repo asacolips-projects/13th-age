@@ -225,7 +225,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
   // Update initial content throughout all editors.
   _updateEditors(html) {
-    for (let [name, editor] of Object.entries(this.editors)) {
+    for (let name of Object.keys(this.editors)) {
       // const data = this.object instanceof Document ? this.object.data : this.object;
       const data = this.object;
       const initialContent = getProperty(data, name);
@@ -548,7 +548,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
    * Handle rollable clicks.
    */
   async _onRollable(event) {
-    event.preventDefault;
+    event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
 
@@ -781,7 +781,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
    * Handle rests.
    */
    _onRest(event) {
-    event.preventDefault;
+    event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
 

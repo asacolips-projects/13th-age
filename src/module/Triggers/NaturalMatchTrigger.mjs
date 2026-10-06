@@ -9,23 +9,23 @@ import ITrigger from "./ITrigger.mjs";
  * EscalationTrigger's.
  */
 export default class NaturalMatchTrigger extends ITrigger {
-    get group() {
-        return "natural";
-    }
+	get group() {
+		return "natural";
+	}
 
-    appliesTo(label) {
-        return this._threshold(label) !== undefined;
-    }
+	appliesTo(label) {
+		return this._threshold(label) !== undefined;
+	}
 
-    test(outcome, label) {
-        if (outcome.natural === undefined) return undefined;
-        const threshold = this._threshold(label);
-        if (threshold === undefined) return undefined;
-        return outcome.natural >= threshold;
-    }
+	test(outcome, label) {
+		if (outcome.natural === undefined) return undefined;
+		const threshold = this._threshold(label);
+		if (threshold === undefined) return undefined;
+		return outcome.natural >= threshold;
+	}
 
-    _threshold(label) {
-        const match = label.replace(ITrigger.escalationRegex("gu"), "").match(/(\d+)\s*\+/);
-        return match ? parseInt(match[1]) : undefined;
-    }
+	_threshold(label) {
+		const match = label.replace(ITrigger.escalationRegex("gu"), "").match(/(\d+)\s*\+/);
+		return match ? parseInt(match[1]) : undefined;
+	}
 }

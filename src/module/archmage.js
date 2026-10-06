@@ -38,7 +38,7 @@ Hooks.once('init', async function() {
   // @see https://foundryvtt.com/article/v11-active-effects/
   CONFIG.ActiveEffect.legacyTransferral = false;
 
-  if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
+  if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != 'undefined') {
     var cssId = 'archmage-codemirror';
     if (!document.getElementById(cssId))
     {

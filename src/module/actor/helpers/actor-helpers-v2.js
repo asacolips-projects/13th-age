@@ -23,7 +23,7 @@ export class ActorHelpersV2 {
   static _prepareIcons(actorData) {
     // Handle icons.
     if (actorData.system?.icons) {
-      for (let [k,v] of Object.entries(actorData.system.icons)) {
+      for (let v of Object.values(actorData.system.icons)) {
         if (v.results) {
           let results = {};
           for (let i = 0; i < v.bonus.value; i++) {
@@ -72,10 +72,10 @@ export class ActorHelpersV2 {
       });
     }
 
-    // Use array.sort()[1] to grab the middle of the three ability mods.
-    data.attributes.ac.value = data.attributes.ac.base + [data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort()[1] + data.attributes.level.value + acBonus;
-    data.attributes.pd.value = data.attributes.pd.base + [data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort()[1] + data.attributes.level.value + pdBonus;
-    data.attributes.md.value = data.attributes.md.base + [data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort()[1] + data.attributes.level.value + mdBonus;
+    // Sort numerically (the default sort compares as strings) and take [1], the median of the three ability mods.
+    data.attributes.ac.value = data.attributes.ac.base + [data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort((a, b) => a - b)[1] + data.attributes.level.value + acBonus;
+    data.attributes.pd.value = data.attributes.pd.base + [data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort((a, b) => a - b)[1] + data.attributes.level.value + pdBonus;
+    data.attributes.md.value = data.attributes.md.base + [data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort((a, b) => a - b)[1] + data.attributes.level.value + mdBonus;
   }
 
   static _getBonusOr0(type) {

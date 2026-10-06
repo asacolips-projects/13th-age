@@ -2,55 +2,55 @@
 	<div class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.toHitBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.attackMod" />
+			<input v-model="viewModel.attackMod" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.meleeBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.meleeBonus" />
+			<input v-model="viewModel.meleeBonus" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.rangedBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.rangedBonus" />
+			<input v-model="viewModel.rangedBonus" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.divineBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.divineBonus" />
+			<input v-model="viewModel.divineBonus" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label> {{ localize('ARCHMAGE.ITEM.arcaneBonus') }} </label>
 		<div class="field">
-			<input type="number" v-model="viewModel.arcaneBonus" />
+			<input v-model="viewModel.arcaneBonus" type="number">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label>
 			{{ localize('ARCHMAGE.ITEM.meleeWeaponDamageBonus') }}
 			<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.diceExpressionHint')" />
 		</label>
 		<div class="field">
-			<input type="text" v-model="viewModel.meleeDice" placeholder="+2d10" />
+			<input v-model="viewModel.meleeDice" type="text" placeholder="+2d10">
 		</div>
 	</div>
 
-	<div class="form-group" v-if="!isNpc">
+	<div v-if="!isNpc" class="form-group">
 		<label>
 			{{ localize('ARCHMAGE.ITEM.rangedWeaponDamageBonus') }}
 			<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.diceExpressionHint')" />
 		</label>
 		<div class="field">
-			<input type="text" v-model="viewModel.rangedDice" placeholder="+2d10" />
+			<input v-model="viewModel.rangedDice" type="text" placeholder="+2d10">
 		</div>
 	</div>
 
@@ -60,7 +60,7 @@
 			<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.critModBonusHint')" />
 		</label>
 		<div class="field">
-			<input type="number" v-model="viewModel.critMod" placeholder="0" />
+			<input v-model="viewModel.critMod" type="number" placeholder="0">
 		</div>
 	</div>
 
@@ -70,19 +70,19 @@
 			<InfoBubble :tooltip="localize('ARCHMAGE.ITEM.escalationBlockedHint')" />
 		</label>
 		<div class="field">
-			<input type="checkbox" v-model="viewModel.edBlocked" />
+			<input v-model="viewModel.edBlocked" type="checkbox">
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { computed, inject, reactive, watch } from 'vue';
-import { localize } from '@/methods/Helpers';
-import { InfoBubble, } from '@/components';
+import { inject } from "vue";
+import { localize } from "@/methods/Helpers";
+import { InfoBubble } from "@/components";
 
-const props = defineProps(['viewModel']);
+defineProps(["viewModel"]);
 
-const foundryEffect = inject('itemDocument')
-const isNpc = foundryEffect?.parent?.type === 'npc'
+const foundryEffect = inject("itemDocument");
+const isNpc = foundryEffect?.parent?.type === "npc";
 
 </script>

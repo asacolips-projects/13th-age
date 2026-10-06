@@ -5,325 +5,317 @@ import { powerFieldKeys } from "./power-fields.mjs";
 import VueRenderingMixin from "./_vue-application-mixin.mjs";
 import { ArchmagePowerSheetVue } from "../../vue/components.vue.es.js";
 
-const { DOCUMENT_OWNERSHIP_LEVELS } = CONST;
-
 export class ArchmagePowerSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheetV2) {
-  vueParts = {
-    'archmage-power-sheet-vue': {
-      component: ArchmagePowerSheetVue,
-      template: `<archmage-power-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-power-sheet-vue>`
-    }
-  }
-  
-  constructor(options = {}) {
-    super(options);
-  }
+	vueParts = {
+		"archmage-power-sheet-vue": {
+			component: ArchmagePowerSheetVue,
+			template: `<archmage-power-sheet-vue :context="context">Vue rendering for sheet failed.</archmage-power-sheet-vue>`
+		}
+	};
 
-  /** @override */
-  static DEFAULT_OPTIONS = {
-    classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
-    actions: {
-      onEditImage: this._onEditImage,
-      edit: this._viewEffect,
-      create: this._createEffect,
-      delete: this._deleteEffect,
-      toggle: this._toggleEffect
-    },
-    position: {
-      width: 860,
-      height: 630,
-    },
-    window: {
-      resizable: true,
-      controls: [
-        {
-          action: "showItemArtwork",
-          icon: "fa-solid fa-image",
-          label: "ITEM.ViewArt",
-          ownership: "OWNER"
-        },
-        {
-          action: "parseInlineRolls",
-          icon: "fa-solid fa-dice",
-          label: "ARCHMAGE.UI.parseInlineRolls",
-          ownership: "OWNER"
-        }
-      ]
-    },
-    actions: {
-      createFeat: this._updateFeat,
-      deleteFeat: this._updateFeat,
-      moveFeatUp: this._updateFeat,
-      moveFeatDown: this._updateFeat,
-    },
-    tag: 'form',
-    form: {
-      submitOnChange: true,
-      submitOnClose: true,
-    },
-    // Custom property that's merged into `this.options`
-    dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
-  };
+	constructor(options = {}) {
+		super(options);
+	}
 
-  /* -------------------------------------------- */
+	/** @override */
+	static DEFAULT_OPTIONS = {
+		classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
+		position: {
+			width: 860,
+			height: 630
+		},
+		window: {
+			resizable: true,
+			controls: [
+				{
+					action: "showItemArtwork",
+					icon: "fa-solid fa-image",
+					label: "ITEM.ViewArt",
+					ownership: "OWNER"
+				},
+				{
+					action: "parseInlineRolls",
+					icon: "fa-solid fa-dice",
+					label: "ARCHMAGE.UI.parseInlineRolls",
+					ownership: "OWNER"
+				}
+			]
+		},
+		actions: {
+			createFeat: this._updateFeat,
+			deleteFeat: this._updateFeat,
+			moveFeatUp: this._updateFeat,
+			moveFeatDown: this._updateFeat
+		},
+		tag: "form",
+		form: {
+			submitOnChange: true,
+			submitOnClose: true
+		},
+		// Custom property that's merged into `this.options`
+		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }]
+	};
 
-  /** @inheritDoc */
-  _onRender(context, options) {
-    super._onRender(context, options);
-    this._bindDragDrop();
-  }
+	/* -------------------------------------------- */
 
-  /** @override */
-  async _prepareContext(options) {
+	/** @inheritDoc */
+	_onRender(context, options) {
+		super._onRender(context, options);
+		this._bindDragDrop();
+	}
 
-    // Source data lacks the secondary usage fields on powers created before
-    // they existed, which the sheet inputs bind against. ItemArchmage's derived
-    // data has them defaulted, so fill any gaps from there.
-    const itemData = this.item.toObject();
-    for (const key of ['powerUsageSecondary', 'quantitySecondary', 'maxQuantitySecondary']) {
-      itemData.system[key] ??= foundry.utils.deepClone(this.item.system[key]);
-    }
+	/** @override */
+	async _prepareContext(options) {
 
-    const context = {
-      // Validates both permissions and compendium status
-      editable: this.isEditable,
-      owner: this.isOwner,
-      limited: this.document.limited,
-      // Add the item document.
-      item: itemData,
-      actor: this.actor?.toObject() ?? false,
-      // Adding system and flags for easier access
-      system: this.item.system,
-      flags: this.item.flags,
-      // Rolldata.
-      rollData: this.actor?.getRollData() ?? {},
-      // Adding a pointer to CONFIG.ARCHMAGE
-      config: CONFIG.ARCHMAGE,
-      // Sequencer (module) support.
-      sequencerEnabled: game.modules.get("sequencer")?.active,
-      // Add tabs:
-      tabs: {
-        primary: {
-          details: {
-            key: 'details',
-            label: game.i18n.localize('ARCHMAGE.details'),
-            active: true,
-          },
-          attack: {
-            key: 'attack',
-            label: game.i18n.localize('ARCHMAGE.attack'),
-            active: false,
-          },
-          special: {
-            key: 'special',
-            label: game.i18n.localize('ARCHMAGE.special'),
-            active: false,
-          },
-          feats: {
-            key: 'feats',
-            label: game.i18n.localize('ARCHMAGE.feats'),
-            active: false,
-          },
-          effects: {
-            key: 'effects',
-            label: game.i18n.localize('ARCHMAGE.effects'),
-            active: false,
-          },
-          children: {
-            key: 'children',
-            label: game.i18n.localize('ARCHMAGE.ITEM.children'),
-            active: false,
-          }
-        },
-      },
-      // Items added and removed along with this one.
-      children: await this._prepareChildren(),
-      // Force re-renders. Defined in the vue mixin.
-      _renderKey: this._renderKey ?? 0,
-      // @todo add this after switching to DataModel
-      // fields: this.document.schema.fields,
-      // systemFields: this.document.system.schema.fields
-    };
+		// Source data lacks the secondary usage fields on powers created before
+		// they existed, which the sheet inputs bind against. ItemArchmage's derived
+		// data has them defaulted, so fill any gaps from there.
+		const itemData = this.item.toObject();
+		for (const key of ["powerUsageSecondary", "quantitySecondary", "maxQuantitySecondary"]) {
+			itemData.system[key] ??= foundry.utils.deepClone(this.item.system[key]);
+		}
 
-    // Handle enriched fields.
-    const enrichmentOptions = {
-      // Whether to show secret blocks in the finished html
-      secrets: this.document.isOwner,
-      // Data to fill in for inline rolls
-      rollData: this.item?.getRollData() ?? {},
-      // Relative UUID resolution
-      relativeTo: this.item
-    };
+		const context = {
+			// Validates both permissions and compendium status
+			editable: this.isEditable,
+			owner: this.isOwner,
+			limited: this.document.limited,
+			// Add the item document.
+			item: itemData,
+			actor: this.actor?.toObject() ?? false,
+			// Adding system and flags for easier access
+			system: this.item.system,
+			flags: this.item.flags,
+			// Rolldata.
+			rollData: this.actor?.getRollData() ?? {},
+			// Adding a pointer to CONFIG.ARCHMAGE
+			config: CONFIG.ARCHMAGE,
+			// Sequencer (module) support.
+			sequencerEnabled: game.modules.get("sequencer")?.active,
+			// Add tabs:
+			tabs: {
+				primary: {
+					details: {
+						key: "details",
+						label: game.i18n.localize("ARCHMAGE.details"),
+						active: true
+					},
+					attack: {
+						key: "attack",
+						label: game.i18n.localize("ARCHMAGE.attack"),
+						active: false
+					},
+					special: {
+						key: "special",
+						label: game.i18n.localize("ARCHMAGE.special"),
+						active: false
+					},
+					feats: {
+						key: "feats",
+						label: game.i18n.localize("ARCHMAGE.feats"),
+						active: false
+					},
+					effects: {
+						key: "effects",
+						label: game.i18n.localize("ARCHMAGE.effects"),
+						active: false
+					},
+					children: {
+						key: "children",
+						label: game.i18n.localize("ARCHMAGE.ITEM.children"),
+						active: false
+					}
+				}
+			},
+			// Items added and removed along with this one.
+			children: await this._prepareChildren(),
+			// Force re-renders. Defined in the vue mixin.
+			_renderKey: this._renderKey ?? 0
+			// @todo add this after switching to DataModel
+			// fields: this.document.schema.fields,
+			// systemFields: this.document.system.schema.fields
+		};
 
-    const editorOptions = {
-      toggled: true,
-      collaborate: true,
-      documentUUID: this.document.uuid,
-      height: 300,
-    };
+		// Handle enriched fields.
+		const enrichmentOptions = {
+			// Whether to show secret blocks in the finished html
+			secrets: this.document.isOwner,
+			// Data to fill in for inline rolls
+			rollData: this.item?.getRollData() ?? {},
+			// Relative UUID resolution
+			relativeTo: this.item
+		};
 
-    // Enrich the description.
-    context.editors = {
-      'system.description.value': {
-        enriched: await wrapRolls(this.item.system.description.value ?? '', [], 'short', {}, 'description', enrichmentOptions),
-        element: foundry.applications.elements.HTMLProseMirrorElement.create({
-          ...editorOptions,
-          name: 'system.description.value',
-          value: context.system.description?.value ?? '',
-        }),
-      },
-    };
+		const editorOptions = {
+			toggled: true,
+			collaborate: true,
+			documentUUID: this.document.uuid,
+			height: 300
+		};
 
-    // Enrich powers and feats.
-    await this._enrichPowers(context, enrichmentOptions, editorOptions);
-    await this._enrichFeats(context, enrichmentOptions, editorOptions);
+		// Enrich the description.
+		context.editors = {
+			"system.description.value": {
+				enriched: await wrapRolls(this.item.system.description.value ?? "", [], "short", {}, "description", enrichmentOptions),
+				element: foundry.applications.elements.HTMLProseMirrorElement.create({
+					...editorOptions,
+					name: "system.description.value",
+					value: context.system.description?.value ?? ""
+				})
+			}
+		};
 
-    // Make another pass through the editors to fix the element contents.
-    for (let [field, editor] of Object.entries(context.editors)) {
-      if (context.editors[field].element) {
-        context.editors[field].element.innerHTML = context.editors[field].enriched;
-      }
-    }
+		// Enrich powers and feats.
+		await this._enrichPowers(context, enrichmentOptions, editorOptions);
+		await this._enrichFeats(context, enrichmentOptions, editorOptions);
 
-    return context;
-  }
+		// Make another pass through the editors to fix the element contents.
+		for (let field of Object.keys(context.editors)) {
+			if (context.editors[field].element) {
+				context.editors[field].element.innerHTML = context.editors[field].enriched;
+			}
+		}
 
-  /**
-   * Enrich values for power fields.
-   * 
-   * @param {object} context 
-   * @param {object} enrichmentOptions 
-   * @param {object} editorOptions 
-   */
-  async _enrichPowers(context, enrichmentOptions, editorOptions) {
-    for (let field of powerFieldKeys()) {
-      context.editors[field] = {
-        // @todo write a power enricher.
-        enriched: await wrapRolls(this.item.system[field].value ?? '', [], 'short', {}, field, enrichmentOptions),
-        element: foundry.applications.elements.HTMLProseMirrorElement.create({
-          ...editorOptions,
-          name: `system.${field}.value`,
-          value: context.system[field]?.value ?? '',
-        }),
-      };
-    }
-  }
+		return context;
+	}
 
-  /**
-   * Enrich values for feats.
-   * 
-   * @param {object} context 
-   * @param {object} enrichmentOptions 
-   * @param {object} editorOptions 
-   */
-  async _enrichFeats(context, enrichmentOptions, editorOptions) {
-    // Enrich feats.
-    if (this.item.system.feats) {
-      for (let [featKey, feat] of Object.entries(this.item.system.feats)) {
-        context.editors[`feat.${featKey}`] = {
-          enriched: await wrapRolls(feat.description.value ?? '', [], 'short', {}, featKey, enrichmentOptions),
-          element: foundry.applications.elements.HTMLProseMirrorElement.create({
-            ...editorOptions,
-            name: `system.feats.${featKey}.description.value`,
-            value: feat.description.value ?? '',
-          }),
-        }
-      }
-    }
-  }
+	/**
+	 * Enrich values for power fields.
+	 *
+	 * @param {object} context
+	 * @param {object} enrichmentOptions
+	 * @param {object} editorOptions
+	 */
+	async _enrichPowers(context, enrichmentOptions, editorOptions) {
+		for (let field of powerFieldKeys()) {
+			context.editors[field] = {
+				// @todo write a power enricher.
+				enriched: await wrapRolls(this.item.system[field].value ?? "", [], "short", {}, field, enrichmentOptions),
+				element: foundry.applications.elements.HTMLProseMirrorElement.create({
+					...editorOptions,
+					name: `system.${field}.value`,
+					value: context.system[field]?.value ?? ""
+				})
+			};
+		}
+	}
 
-  /* ---------------------------------------------------- */
+	/**
+	 * Enrich values for feats.
+	 *
+	 * @param {object} context
+	 * @param {object} enrichmentOptions
+	 * @param {object} editorOptions
+	 */
+	async _enrichFeats(context, enrichmentOptions, editorOptions) {
+		// Enrich feats.
+		if (this.item.system.feats) {
+			for (let [featKey, feat] of Object.entries(this.item.system.feats)) {
+				context.editors[`feat.${featKey}`] = {
+					enriched: await wrapRolls(feat.description.value ?? "", [], "short", {}, featKey, enrichmentOptions),
+					element: foundry.applications.elements.HTMLProseMirrorElement.create({
+						...editorOptions,
+						name: `system.feats.${featKey}.description.value`,
+						value: feat.description.value ?? ""
+					})
+				};
+			}
+		}
+	}
 
-  /**
-   * Add/delete/reorder feats on a power.
-   *
-   * @param {Event} event
-   *   Html event that triggered the method.
-   */
-  static async _updateFeat(event, target) {
-    if (!this.isEditable) return;
+	/* ---------------------------------------------------- */
 
-    let dataset = target.dataset;
+	/**
+	 * Add/delete/reorder feats on a power.
+	 *
+	 * @param {Event} event
+	 *   Html event that triggered the method.
+	 * @param {HTMLElement} target The element with the data-action attribute
+	 */
+	static async _updateFeat(event, target) {
+		if (!this.isEditable) return;
 
-    let item = this.item;
-    if (item.type != "power") return;
+		let dataset = target.dataset;
 
-    let featIndex = Number(dataset.featKey);
-    let feats = item.system.feats;
+		let item = this.item;
+		if (item.type != "power") return;
 
-    let deleteFeat = (async () => {return;});
-    switch(dataset.action) {
-      case 'createFeat':
-        if (feats) feats = Object.values(feats);
-        else feats = [];
-        feats.push({
-          "description": {
-            "type": "String",
-            "value": ""
-          },
-          "isActive": {
-            "type": "Boolean",
-            "value": false
-          },
-          "tier": {
-            "type": "String",
-            "value": "adventurer"
-          },
-          "powerUsage": {
-            "type": "String",
-            "value": ""
-          },
-          "quantity": {
-            "type": "Number",
-            "value": null
-          },
-          "maxQuantity": {
-            "type": "Number",
-            "value": null
-          }
-        });
-        await item.update({'system.feats': Object.assign({}, feats)});
-        return;
-      case 'deleteFeat':
-        deleteFeat = (async () => {
-          let newFeats = foundry.utils.deepClone(feats);
-          delete newFeats[featIndex];
-          newFeats = Object.assign({}, Object.values(newFeats));  // Re-index from 0
-          let updateData = {'system.feats': newFeats};
-          for (let key of Object.keys(item.system.feats)) {
-            if (!newFeats[key]) updateData[`system.feats.-=${key}`] = null;
-          }
-          await item.update(updateData);
-        });
-        break;
-      case 'moveFeatUp':
-        if (featIndex == 0) return;
-        feats = Object.values(feats);
-        [feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]]
-        await item.update({'system.feats': Object.assign({}, feats)});
-        return;
-      case 'moveFeatDown':
-        feats = Object.values(feats);
-        if (featIndex >= feats.length - 1) return;
-        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]]
-        await item.update({'system.feats': Object.assign({}, feats)});
-        return;
-    }
+		let featIndex = Number(dataset.featKey);
+		let feats = item.system.feats;
 
-    let bypass = event.shiftKey ? true : false;
-    if (bypass) {
-      await deleteFeat();
-      return;
-    }
-    foundry.applications.api.DialogV2.prompt({
-      window: {title: 'Delete feat?'},
-      content: `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm")}</p>`,
-      rejectClose: false,
-      ok: {
-        callback: (event, button, dialog) => {
-          deleteFeat();
-        }
-      }
-    });
-  }
+		let deleteFeat = (async () => {});
+		switch (dataset.action) {
+			case "createFeat":
+				if (feats) feats = Object.values(feats);
+				else feats = [];
+				feats.push({
+					description: {
+						type: "String",
+						value: ""
+					},
+					isActive: {
+						type: "Boolean",
+						value: false
+					},
+					tier: {
+						type: "String",
+						value: "adventurer"
+					},
+					powerUsage: {
+						type: "String",
+						value: ""
+					},
+					quantity: {
+						type: "Number",
+						value: null
+					},
+					maxQuantity: {
+						type: "Number",
+						value: null
+					}
+				});
+				await item.update({ "system.feats": { ...feats } });
+				return;
+			case "deleteFeat":
+				deleteFeat = (async () => {
+					let newFeats = foundry.utils.deepClone(feats);
+					delete newFeats[featIndex];
+					newFeats = { ...Object.values(newFeats) };  // Re-index from 0
+					let updateData = { "system.feats": newFeats };
+					for (let key of Object.keys(item.system.feats)) {
+						if (!newFeats[key]) updateData[`system.feats.-=${key}`] = null;
+					}
+					await item.update(updateData);
+				});
+				break;
+			case "moveFeatUp":
+				if (featIndex == 0) return;
+				feats = Object.values(feats);
+				[feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]];
+				await item.update({ "system.feats": { ...feats } });
+				return;
+			case "moveFeatDown":
+				feats = Object.values(feats);
+				if (featIndex >= feats.length - 1) return;
+				[feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]];
+				await item.update({ "system.feats": { ...feats } });
+				return;
+		}
+
+		let bypass = !!event.shiftKey;
+		if (bypass) {
+			await deleteFeat();
+			return;
+		}
+		foundry.applications.api.DialogV2.prompt({
+			window: { title: "Delete feat?" },
+			content: `<p>${game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm")}</p>`,
+			rejectClose: false,
+			ok: {
+				callback: (event, button, dialog) => {
+					deleteFeat();
+				}
+			}
+		});
+	}
 }

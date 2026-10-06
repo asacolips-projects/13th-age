@@ -47,7 +47,7 @@ export default {
       }
 
       // Update the tab displays.
-      for (let [k,v] of Object.entries(this.tabs)) {
+      for (let k of Object.keys(this.tabs)) {
         this.tabs[k].active = false;
       }
 

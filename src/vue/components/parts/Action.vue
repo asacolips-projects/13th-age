@@ -1,68 +1,68 @@
 <template>
-  <section class="action">
-    <!-- Primary properties (attack, hit, effect, etc.). -->
-    <Suspense>
-      <section class="action-details flexcol">
-        <div v-if="action.system?.hit1?.value" class="hanging-indent action-hit1">
-          <Enriched tag="em" :text="action.system?.hit1?.name + ':'"/>&nbsp;
-          <Enriched tag="span" :text="action.system.hit1.value"/>
-        </div>
-        <div v-if="action.system?.hit2?.value" class="hanging-indent action-hit2">
-          <Enriched tag="em" :text="action.system?.hit2?.name + ':'"/>&nbsp;
-          <Enriched tag="span" :text="action.system.hit2.value"/>
-        </div>
-        <div v-if="action.system?.hit3?.value" class="hanging-indent action-hit3">
-          <Enriched tag="em" :text="action.system?.hit3?.name + ':'"/>&nbsp;
-          <Enriched tag="span" :text="action.system.hit3.value"/>
-        </div>
-        <div v-if="action.system?.hit4?.value" class="hanging-indent action-hit4">
-          <Enriched tag="em" :text="action.system?.hit4?.name + ':'"/>&nbsp;
-          <Enriched tag="span" :text="action.system.hit4.value"/>
-        </div>
-        <div v-if="action.system?.hit5?.value" class="hanging-indent action-hit5">
-          <Enriched tag="em" :text="action.system?.hit5?.name + ':'"/>&nbsp;
-          <Enriched tag="span" :text="action.system.hit5.value"/>
-        </div>
-        <div v-if="action.system?.miss?.value" class="hanging-indent action-miss">
-          <em>{{localize('ARCHMAGE.miss')}}:</em>&nbsp;
-          <Enriched tag="span" :text="action.system.miss.value"/>
-        </div>
-        <div v-if="action.system?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
-          <Enriched tag="span" class="action-detail-value" :text="action.system.description.value"/>
-        </div>
-      </section>
-    </Suspense>
-  </section>
+	<section class="action">
+		<!-- Primary properties (attack, hit, effect, etc.). -->
+		<Suspense>
+			<section class="action-details flexcol">
+				<div v-if="action.system?.hit1?.value" class="hanging-indent action-hit1">
+					<Enriched tag="em" :text="action.system?.hit1?.name + ':'" />&nbsp;
+					<Enriched tag="span" :text="action.system.hit1.value" />
+				</div>
+				<div v-if="action.system?.hit2?.value" class="hanging-indent action-hit2">
+					<Enriched tag="em" :text="action.system?.hit2?.name + ':'" />&nbsp;
+					<Enriched tag="span" :text="action.system.hit2.value" />
+				</div>
+				<div v-if="action.system?.hit3?.value" class="hanging-indent action-hit3">
+					<Enriched tag="em" :text="action.system?.hit3?.name + ':'" />&nbsp;
+					<Enriched tag="span" :text="action.system.hit3.value" />
+				</div>
+				<div v-if="action.system?.hit4?.value" class="hanging-indent action-hit4">
+					<Enriched tag="em" :text="action.system?.hit4?.name + ':'" />&nbsp;
+					<Enriched tag="span" :text="action.system.hit4.value" />
+				</div>
+				<div v-if="action.system?.hit5?.value" class="hanging-indent action-hit5">
+					<Enriched tag="em" :text="action.system?.hit5?.name + ':'" />&nbsp;
+					<Enriched tag="span" :text="action.system.hit5.value" />
+				</div>
+				<div v-if="action.system?.miss?.value" class="hanging-indent action-miss">
+					<em>{{ localize('ARCHMAGE.miss') }}:</em>&nbsp;
+					<Enriched tag="span" :text="action.system.miss.value" />
+				</div>
+				<div v-if="action.system?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
+					<Enriched tag="span" class="action-detail-value" :text="action.system.description.value" />
+				</div>
+			</section>
+		</Suspense>
+	</section>
 </template>
 
 <script>
-import { concat, localize } from '@/methods/Helpers';
-import Enriched from '@/components/parts/Enriched.vue';
+import { concat, localize } from "@/methods/Helpers";
+import Enriched from "@/components/parts/Enriched.vue";
 export default {
-  name: 'Action',
-  props: ['action'],
-  setup() {
-    return {
-      concat,
-      localize,
-    }
-  },
-  components: {
-    Enriched,
-  },
-  data() {
-    return {
-      enrichedActions: {}
-    }
-  },
-  computed: {
-    constants() {
-      return CONFIG.ARCHMAGE;
-    },
-  },
-  methods: {},
-  async mounted() {}
-}
+	name: "Action",
+	components: {
+		Enriched
+	},
+	props: ["action"],
+	setup() {
+		return {
+			concat,
+			localize
+		};
+	},
+	data() {
+		return {
+			enrichedActions: {}
+		};
+	},
+	computed: {
+		constants() {
+			return CONFIG.ARCHMAGE;
+		}
+	},
+	async mounted() {},
+	methods: {}
+};
 </script>
 
 <style lang="scss">
