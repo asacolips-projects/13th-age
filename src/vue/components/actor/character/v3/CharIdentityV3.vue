@@ -248,11 +248,9 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
     .header-out {
       /* The hero bleeds edge to edge, so the OUT block carries the gutter the
          header's old padding used to provide. */
-      margin: 0 0.75rem 0.75rem;
-      border-top: 1px solid var(--color-border);
+      margin: 0.5rem;
+      padding: 0.5rem;
       border-bottom: 1px solid var(--color-border);
-      padding: 0.75rem;
-      overflow-y: auto;
 
       .out-label {
         margin: 0 0 0.25rem;
