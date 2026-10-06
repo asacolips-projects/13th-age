@@ -2,7 +2,7 @@
   <!-- The item's state pip: hollow until on, filled once it is. Two pips,
        stacked, mark an item that attunes as two slots. Clicked, it emits and
        the owning row decides what the toggle means. -->
-  <div class="equipment-feat-pips" :data-tooltip="tooltip">
+  <div class="equipment-feat-pips" :class="`pip-${variant}`" :data-tooltip="tooltip">
     <ul class="feat-pips" :class="{double: count > 1}">
       <li v-for="n in count" :key="n" :class="concat('feat-pip', (active ? ' active' : ''))"
         :data-item-id="itemId" @click="$emit('toggle-pip')"><div class="hide">{{active}}</div></li>
@@ -31,6 +31,10 @@ defineProps({
   active: {type: Boolean, default: false},
   count: {type: Number, default: 1},
   tooltip: {type: String, default: ''},
+  // Which surface the pip serves: 'attunement' rides the equipment row's
+  // white-on-colour text, 'feat' sits on ordinary body text. The variant
+  // picks the pip's colour — see the style block.
+  variant: {type: String, default: 'feat'},
 });
 
 defineEmits(['toggle-pip']);
@@ -57,13 +61,13 @@ defineEmits(['toggle-pip']);
     height: 8px;
     background: transparent;
     border-radius: 50%;
-    border: 1px solid var(--c-white);
+    border: 1px solid var(--color-text-primary);
     margin: 0 1px;
     padding: 0;
     cursor: pointer;
 
     &.active {
-      background: var(--c-white);
+      background: var(--color-text-primary);
     }
   }
 
@@ -74,6 +78,20 @@ defineEmits(['toggle-pip']);
 
     .feat-pip {
       margin: 0;
+    }
+  }
+}
+
+// The attunement variant rides on the equipment row — white text over its
+// colour fill — so in light mode, where the body-text token darkens, the
+// pip retints to the row's white to stay visible. Feats sit on ordinary
+// body text and keep the token everywhere.
+.theme-light .pip-attunement {
+  .feat-pip {
+    border-color: var(--c-white);
+
+    &.active {
+      background: var(--c-white);
     }
   }
 }

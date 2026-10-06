@@ -9,7 +9,7 @@
     </a>
     <!-- Active pip, equipment only. Two stacked pips mark an item above the
          character's tier: attuning it spends two slots. -->
-    <ItemPipV3 v-if="equipment.type === 'equipment'" :active="equipment.system.isActive" :count="costsTwo ? 2 : 1"
+    <ItemPipV3 v-if="equipment.type === 'equipment'" variant="attunement" :active="equipment.system.isActive" :count="costsTwo ? 2 : 1"
       :item-id="equipment._id" :tooltip="pipTooltip" @toggle-pip="togglePip(actor, equipment._id)"/>
     <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
       <span class="bonus" v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp">
