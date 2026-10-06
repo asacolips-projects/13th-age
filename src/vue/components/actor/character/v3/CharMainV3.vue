@@ -253,6 +253,13 @@ const flags = {
   .strip-row .section--tabs {
     flex: 1 1 auto;
 
+    /* Core pins .tabs to one line (flex-wrap: nowrap + gap); let the strip
+       wrap onto further rows so the sheet scales narrower without clipping
+       tabs. The core gap covers the spacing between wrapped rows too. */
+    :deep(nav.tabs) {
+      flex-wrap: wrap;
+    }
+
     :deep(.tab-link) {
       padding: 0.25rem;
     }

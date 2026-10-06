@@ -680,7 +680,7 @@ ARCHMAGE:
   GROUPS:
     actionType: Action
     group: Custom Groups
-    powerSource: Class/Race/Item
+    powerSource: Source
     powerType: Type
     powerUsage: Usage
   MONKFORMS:

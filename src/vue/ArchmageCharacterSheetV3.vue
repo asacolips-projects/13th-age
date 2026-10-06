@@ -299,12 +299,8 @@ async function openSettings() {
       }
 
       /* Tab strip: icon-only (labels are dropped via the tabs data in
-         CharMainV3, tooltips survive through hideLabel) and scrollable for
-         very small windows; links grow to touch-friendly size. */
-      .sheet-main .section--tabs {
-        overflow-x: auto;
-      }
-
+         CharMainV3); links grow to touch-friendly size. The strip itself
+         wraps onto rows (CharMainV3), so it never overflows. */
       .sheet-main .tab-link {
         padding: 0.5rem 0.625rem;
       }
