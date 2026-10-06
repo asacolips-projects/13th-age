@@ -1,6 +1,6 @@
 <template>
 	<li
-		:class="concat('item ', kindClass, '-item ', kindClass, '-item--', item._id)"
+		:class="concat('item ', kindClass, '-item ', kindClass, '-item--', item._id, narrowSummary ? ' narrow-summary' : '')"
 		:data-item-id="item._id"
 		data-document-class="Item"
 		data-draggable="true"
@@ -13,7 +13,7 @@
 			:actor="actor"
 			:active="active"
 			:trigger="trigger"
-			:style="{ gridTemplateColumns: columns }"
+			:style="{ gridTemplateColumns: summaryColumns }"
 			@toggle="toggle"
 		>
 			<!-- The portrait, which activates the power; .stop keeps the click from
@@ -112,7 +112,7 @@
  * classes, e.g. `trigger` -> `trigger-item--<id>` and `trigger-content`. It
  * defaults from the item's type, whose wrapper classes the styles enumerate.
  */
-import { computed, inject, ref } from "vue";
+import { computed, inject, ref, useSlots } from "vue";
 import { changeQuantity, concat, deleteItem, editItem, filterFeats, getActionShort, hasFeats, hasSecondaryUsage, localize, TIERS } from "@/methods/Helpers";
 import PowerSummaryRow from "@/components/parts/PowerSummaryRow.vue";
 import Rollable from "@/components/parts/Rollable.vue";
@@ -131,8 +131,15 @@ const props = defineProps({
 	// row's classes.
 	baseClass: { type: String, default: null },
 	// The summary's grid-template-columns, the one thing that differs between
-	// the power listings. Equipment rows lay out on their own grid.
+	// the power listings: portrait, name, feat letters, action, recharge,
+	// uses, controls. Equipment rows lay out on their own grid.
 	columns: { type: String, default: "32px auto 36px 44px 60px 44px 64px" },
+	// The narrow layout's collapsed template: portrait, name, action, uses,
+	// controls — the feat letters and recharge fold into the expanded
+	// details, which carry the same data. Only applies when the row lays out
+	// its own trailing cells; listings that supply their own keep their
+	// columns (see narrowSummary).
+	narrowColumns: { type: String, default: "32px auto 44px 44px 64px" },
 	// Whether the trigger reads as a hover tooltip; listings that give the
 	// trigger a cell of its own turn this off.
 	trigger: { type: Boolean, default: true },
@@ -143,6 +150,20 @@ const props = defineProps({
 });
 
 const isPower = computed(() => props.item.type === "power");
+
+// Narrow layout, injected from the sheet root the same way the identity
+// branches its command bar. The collapse is the row folding its OWN
+// standard cells (feat letters, recharge) away; a listing that supplies its
+// own trailing cells keeps its layout — the triggers tab's trigger text is
+// critical there. The summaryColumns swap would strand those custom cells
+// on the collapsed grid's tracks.
+const narrow = inject("narrowLayout", ref(false));
+const slots = useSlots();
+
+const narrowSummary = computed(() => narrow.value && !slots.cells);
+
+const summaryColumns = computed(() =>
+	(narrowSummary.value ? props.narrowColumns : props.columns));
 
 const kindClass = computed(() =>
 	props.baseClass ?? (isPower.value ? "power" : "equipment"));
@@ -270,6 +291,21 @@ function featLetters(power) {
   .power-uses-separator {
     opacity: 0.6;
   }
+}
+
+// Narrow summary rows: the template swaps to portrait, name, action, uses,
+// controls (the bound summaryColumns style), so the dropped cells hide and
+// the kept ones re-seat onto the five tracks. Scoped under .power-grid so
+// nothing in the expanded details matches by accident.
+.narrow-summary .power-grid {
+  .power-feat-pips,
+  .power-recharge {
+    display: none;
+  }
+
+  .power-action { grid-column-start: 3; }
+  .power-uses { grid-column-start: 4; }
+  .item-controls { grid-column-start: 5; }
 }
 
 // Left-click spends a use, right-click restores one.

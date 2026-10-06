@@ -1,5 +1,5 @@
 <template>
-	<section ref="host" class="tab-notes" />
+	<section ref="host" class="tab-notes" :class="{ 'narrow-notes': narrow }" />
 </template>
 
 <script setup>
@@ -10,6 +10,11 @@ const props = defineProps(["actor", "editable"]);
 
 // The real document provides a UUID for ProseMirror's relative links.
 const actorDocument = inject("actorDocument");
+
+// The narrow layout, injected from the sheet root like the row components
+// read it: the tab there sizes to its content (the sheet scrolls as one
+// page), which the fill-the-container editor below depends on.
+const narrow = inject("narrowLayout", ref(false));
 
 const host = ref(null);
 const editorField = "system.details.biography.value";
@@ -47,6 +52,25 @@ onMounted(mountEditor);
     :deep(prose-mirror.editor) {
       flex: 1 1 0;
       min-height: 0;
+    }
+  }
+
+  // Narrow: the tab body rides at its content height (the whole sheet
+  // scrolls as one page), so the fill-the-container arrangement has no
+  // height to fill and collapses to nothing. Let the biography flow with
+  // the page scroll instead: the host drops its flex fill and the content
+  // layer drops the absolute inset that pins it to the editor's box.
+  .tab-notes.narrow-notes {
+    flex: 0 0 auto;
+    display: block;
+
+    :deep(prose-mirror.editor) {
+      display: block;
+      height: auto;
+
+      .editor-content {
+        position: static;
+      }
     }
   }
 </style>

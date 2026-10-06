@@ -1,5 +1,5 @@
 <template>
-	<div class="equipment-summary grid equipment-grid equipment">
+	<div class="equipment-summary grid equipment-grid equipment" :class="{ 'narrow-summary': narrow }">
 		<!-- Portrait, which activates the item; .stop keeps the click from also
          reaching the sheet's delegated roll listener. -->
 		<RollableV3 :overlay="true" @click.stop="activateItem"><img :src="equipment.img" class="equipment-image"></RollableV3>
@@ -56,7 +56,7 @@
  * the sheet passes down. The portrait is the exception: it activates the item
  * directly through the injected actor document.
  */
-import { inject, computed } from "vue";
+import { inject, computed, ref } from "vue";
 import { attunementCost, changeQuantity, characterTierIndex, chakraLabel, equipmentBonuses, deleteItem, editItem, localize, localizeEquipmentBonus, numberFormat, togglePip } from "@/methods/Helpers";
 import ItemPipV3 from "./ItemPipV3.vue";
 import RollableV3 from "@/components/actor/character/v3/RollableV3.vue";
@@ -81,9 +81,14 @@ const pipTooltip = computed(() =>
 	localize(costsTwo.value ? "ARCHMAGE.ITEM.attunesTwo" : "ARCHMAGE.ITEM.active"));
 
 // DiceArchmage and the roll methods live on the real document, which the
-// listing's context only carries as a prepared clone. The sheet provides the
-// document for injection.
+// listing's context only carries as a prepared clone. The sheet provides
+// the document for injection.
 const actorDocument = inject("actorDocument", null);
+
+// Narrow layout, injected from the sheet root like the power rows read it:
+// the summary collapses to the portrait, name, attunement pip, quantity and
+// controls; bonus, chakra and recharge fold into the expanded details.
+const narrow = inject("narrowLayout", ref(false));
 
 /**
  * Activate the item: its roll() is the same entry point the sheet's delegated
@@ -241,6 +246,22 @@ function rechargeItem() {
 // Left-click spends a use, right-click restores one.
 .equipment-quantity {
   cursor: pointer;
+}
+
+// Narrow summary rows: the template swaps to portrait, name, attunement pip,
+// quantity, controls, so the dropped cells hide and the kept ones re-seat
+// onto the five tracks (the pip keeps the third, its standard slot).
+.equipment-summary.narrow-summary {
+  grid-template-columns: 32px auto 36px 36px 56px;
+
+  .equipment-bonus,
+  .equipment-chakra,
+  .equipment-recharge {
+    display: none;
+  }
+
+  .equipment-quantity { grid-column-start: 4; }
+  .item-controls { grid-column-start: 5; }
 }
 
 .item-control {
