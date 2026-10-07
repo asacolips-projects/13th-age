@@ -248,7 +248,7 @@ system:
     label: 3rd Level Spell
     type: String
     value: gift and resilience now grant [[12]] temporary hit points; aura/tentacles
-      damage is 2d10.  [[2d10]]
+      damage is [[2d10]].
   spellLevel4:
     hide: true
     label: 4th Level Spell
@@ -259,7 +259,7 @@ system:
     label: 5th Level Spell
     type: String
     value: gift and resilience now grant [[20]] temporary hit points; aura/tentacles
-      damage is 4d10.  [[4d10]]
+      damage is [[4d10]].
   spellLevel6:
     hide: true
     label: 6th Level Spell
@@ -270,7 +270,7 @@ system:
     label: 7th Level Spell
     type: String
     value: gift and resilience now grant [[35]] temporary hit points; aura/tentacles
-      damage is 6d8.   [[6d8]]
+      damage is [[6d8]].
   spellLevel8:
     hide: true
     label: 8th Level Spell
@@ -281,7 +281,7 @@ system:
     label: 9th Level Spell
     type: String
     value: gift and resilience now grant [[60]] temporary hit points; aura/tentacles
-      damage is 10d8.   [[10d8]]
+      damage is [[10d8]].
   sustainOn:
     label: Sustain On
     type: Number
