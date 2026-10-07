@@ -218,6 +218,10 @@ const {
 const canImport = computed(() => !isInventory.value
 	&& !(props.actor?.flags?.archmage?.hideImportPowers === true && !game.user.isGM));
 
+// The static gathers the import data and opens the one-per-actor importer
+// window; it ignores pack actors and falsy actors itself.
+const importPowers = () => game.archmage.ArchmagePowerImporterApplication.show(actorDocument ?? props.actor);
+
 // The importer builds its tabs from the character's kin and class, so with
 // neither set it would just silently do nothing; the button disables itself
 // with an explanatory tooltip instead.
@@ -486,7 +490,6 @@ const createGroupItem = async (section) => {
       height: var(--input-height);
       font-size: var(--font-size-12);
       border-radius: 3px;
-      background: transparent;
 
       &:disabled {
         opacity: 0.5;
