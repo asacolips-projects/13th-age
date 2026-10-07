@@ -49,7 +49,7 @@ system:
   effect:
     label: Effect
     type: String
-    value: '<p>Roll a d20 to determine the blessing.</p>'
+    value: '<p>Roll a d20 to determine the blessing.</p><p>@UUID[Compendium.archmage.system-rolltables.DeTIXGahsCFcZJgz]{Chaos Blessing}</p>'
   embeddedMacro:
     label: Embedded Macro
     type: String
