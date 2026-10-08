@@ -1,5 +1,5 @@
 <template>
-	<div class="equipment-summary grid equipment-grid equipment" :class="{ 'narrow-summary': narrow }">
+	<div class="equipment-summary grid equipment-grid equipment" :class="{ 'narrow-summary': narrow, 'loot-summary': isLoot }">
 		<!-- Portrait, which activates the item; .stop keeps the click from also
          reaching the sheet's delegated roll listener. -->
 		<RollableV3 :overlay="true" @click.stop="activateItem"><img :src="equipment.img" class="equipment-image"></RollableV3>
@@ -89,6 +89,11 @@ const actorDocument = inject("actorDocument", null);
 // the summary collapses to the portrait, name, attunement pip, quantity and
 // controls; bonus, chakra and recharge fold into the expanded details.
 const narrow = inject("narrowLayout", ref(false));
+
+// Loot and legacy tool rows render only the quantity and controls after the
+// name — their schema has no attunement pip, bonuses, chakra or recharge —
+// so their grid drops the tracks those empty cells would hold.
+const isLoot = computed(() => props.equipment.type !== "equipment");
 
 /**
  * Activate the item: its roll() is the same entry point the sheet's delegated
@@ -225,6 +230,7 @@ function rechargeItem() {
 
 .equipment-chakra {
   text-transform: uppercase;
+  font-size: var(--font-size-10);
 }
 
 .bonus {
@@ -262,6 +268,17 @@ function rechargeItem() {
 
   .equipment-quantity { grid-column-start: 4; }
   .item-controls { grid-column-start: 5; }
+}
+
+// Loot and legacy tool rows: no pip, bonus, chakra or recharge cells render,
+// so the grid collapses to portrait, name, quantity and controls — the name
+// takes the space the other kinds spend on their extra cells. Kept after the
+// narrow block so it also wins for a narrow loot row.
+.equipment-summary.loot-summary {
+  grid-template-columns: 32px auto 36px 56px;
+
+  .equipment-quantity { grid-column-start: 3; }
+  .item-controls { grid-column-start: 4; }
 }
 
 .item-control {
