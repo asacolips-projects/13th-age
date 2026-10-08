@@ -1,0 +1,74 @@
+_id: DeTIXGahsCFcZJgz
+_key: '!tables!DeTIXGahsCFcZJgz'
+description: ''
+displayRoll: false
+flags: {}
+folder: null
+formula: 1d20
+img: icons/svg/d20-grey.svg
+name: Chaos Blessing
+ownership:
+  default: 0
+replacement: true
+results:
+- _id: Mi5wi06MyEJAmWQx
+  _key: '!tables.results!DeTIXGahsCFcZJgz.Mi5wi06MyEJAmWQx'
+  description: '<em>Gift&mdash;</em>You or one of your nearby allies gains [[7]] temporary hit points.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 1
+  - 4
+  type: text
+  weight: 1
+- _id: HCcoHF4iTLK08Pv5
+  _key: '!tables.results!DeTIXGahsCFcZJgz.HCcoHF4iTLK08Pv5'
+  description: '<em>Resilience&mdash;</em>You gain [[7]] temporary hit points.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 5
+  - 8
+  type: text
+  weight: 1
+- _id: QnHGw9USgJFx6cGl
+  _key: '!tables.results!DeTIXGahsCFcZJgz.QnHGw9USgJFx6cGl'
+  description: '<em>Aura/tentacles&mdash;</em>The next enemy that moves to engage you this battle takes [[2d6]] damage.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 9
+  - 12
+  type: text
+  weight: 1
+- _id: 5D9qFqbBjU3L9fyG
+  _key: '!tables.results!DeTIXGahsCFcZJgz.5D9qFqbBjU3L9fyG'
+  description: '<em>Defense bonus&mdash;</em>You gain a +2 bonus to the defense of your choice (AC, PD, or MD) until an attack against that defense misses you or until the end of the battle.'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 13
+  - 16
+  type: text
+  weight: 1
+- _id: bWCOm581Ya1ygauD
+  _key: '!tables.results!DeTIXGahsCFcZJgz.bWCOm581Ya1ygauD'
+  description: '<em>Healing&mdash;</em>You or your nearby ally with the fewest hit points can heal using a recovery. (If you&rsquo;re the one with the fewest hit points among you and your nearby allies, it&rsquo;s you.)'
+  drawn: false
+  flags: {}
+  img: icons/svg/d20-black.svg
+  name: ''
+  range:
+  - 17
+  - 20
+  type: text
+  weight: 1
+sort: 3000000
