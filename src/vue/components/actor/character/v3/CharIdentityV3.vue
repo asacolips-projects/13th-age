@@ -53,8 +53,9 @@
 			</div>
 		</div>
 
-		<!-- One Unique Thing -->
-		<div class="header-out" :class="{ 'header-out--editing': editing }">
+		<!-- One Unique Thing, hidden by the character settings flag like the
+       v2 sidebar's OUT block. -->
+		<div v-if="showOut" class="header-out" :class="{ 'header-out--editing': editing }">
 			<h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
 			<!-- Display shows the enriched HTML; edit mode swaps in a full
            ProseMirror editor (same mechanism as the notes tab). -->
@@ -112,8 +113,9 @@
 			</template>
 		</div>
 
-		<!-- One Unique Thing -->
-		<div class="header-out" :class="{ 'header-out--editing': editing }">
+		<!-- One Unique Thing, hidden by the character settings flag like the
+       v2 sidebar's OUT block. -->
+		<div v-if="showOut" class="header-out" :class="{ 'header-out--editing': editing }">
 			<h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
 			<div v-if="!editing" class="out-text" v-html="outEnriched" />
 			<div v-else ref="outEditorHost" class="out-editor" />
@@ -161,6 +163,11 @@ const outEnriched = ref("");
 const outEditorHost = ref(null);
 const outField = "system.details.out.value";
 
+// The character settings flag shared with the v2 sidebar's OUT block. When
+// set, the block is gone in both layouts, so the edit-mode watcher must not
+// try to mount the ProseMirror editor into a host that isn't rendered.
+const showOut = computed(() => props.actor?.flags?.archmage?.hideOneUniqueThing !== true);
+
 const { enrich: enrichOut, mountEditor: mountOutEditor } = useProseMirrorEditor({
 	host: outEditorHost,
 	field: outField,
@@ -176,7 +183,7 @@ watch(outRaw, async (raw) => {
 }, { immediate: true });
 
 watch(editing, (value) => {
-	if (value) nextTick(mountOutEditor);
+	if (value && showOut.value) nextTick(mountOutEditor);
 });
 
 // Portrait treatment flags (the round/frame ones the V2 sheets honor, plus
