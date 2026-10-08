@@ -44,6 +44,7 @@ import { toRaw } from "vue";
 export default {
 	name: "Tabs",
 	props: ["context", "actor", "group", "tabs", "flags", "hamburger", "no-span"],
+	emits: ["change"],
 	setup() {
 		return { concat };
 	},
@@ -66,9 +67,13 @@ export default {
 	},
 	methods: {
 		changeTab(event) {
-			// If this was a click, update the default tab.
+			// If this was a click, update the default tab and tell the parent
+			// where the change came from, so it can run transitions. The
+			// mounted() restore below passes no event and stays silent.
 			if (event && event.currentTarget) {
+				const from = this.currentTab;
 				this.currentTab = event.currentTarget.dataset.tab;
+				this.$emit("change", { from, to: this.currentTab });
 			}
 
 			// Update the tab displays.

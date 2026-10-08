@@ -9,6 +9,7 @@
 				:actor="context.actor"
 				:flags="flags"
 				no-span="true"
+				@change="onTabChange"
 			/>
 			<CharCatalogTabSettingsV3 v-if="canConfigureTabs" :actor="context.actor" />
 		</div>
@@ -18,7 +19,7 @@
          tab-body is its own scroll container, per-tab scroll positions.
          Exception: the narrow-only character tab below is conditional, since
          its body would duplicate the sidebar's named form inputs. -->
-		<div class="tab-content">
+		<div class="tab-content" :class="slideDir ? `slide-${slideDir}` : null" @animationend="endSlide">
 			<!-- Narrow layout only: the sidebar's units re-homed as a tab (the
            identity lives in the command bar instead). Conditional on narrow
            rather than visibility-hidden: these inputs carry the same name=
@@ -63,7 +64,7 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref, watchEffect } from "vue";
+import { computed, onUnmounted, reactive, ref, watchEffect } from "vue";
 import { localize } from "@/methods/Helpers";
 import { Tabs, Tab } from "@/components";
 import { CATALOG_GROUP_ICONS, LOOT_TAB, catalogTabDefs, catalogTabLabel, migrateCatalogTabs } from "@/methods/CatalogTabs";
@@ -197,6 +198,39 @@ watchEffect(() => {
 	}
 });
 
+// Tab-change transition: a 300ms push. The entering tab slides in from the
+// right when the new tab sits after the old one in the strip, from the left
+// otherwise, and the outgoing one lingers as an overlay (Tab.vue renders the
+// leaving class from the flag set here) and slides out the opposite way.
+// Driven purely by strip clicks (the change event from parts/Tabs.vue), so
+// programmatic active flips — a tab becoming hidden, the narrow/wide
+// relayout, restoring the saved tab on open — never animate. The leaving
+// flag clears on the slide-out's animationend, with a timeout fallback for
+// when the animation never runs (reduced motion, backgrounded sheet).
+const slideDir = ref(null); // null until the first click: no slide on open
+let slideFallback;
+const stripIndexOf = (key) => Object.keys(stripTabs.value).indexOf(key);
+
+function onTabChange({ from, to }) {
+	const [fromIdx, toIdx] = [stripIndexOf(from), stripIndexOf(to)];
+	if (fromIdx < 0 || toIdx < 0 || fromIdx === toIdx) return;
+	slideDir.value = toIdx > fromIdx ? "right" : "left";
+	const prevTab = stripTabs.value[from];
+	if (prevTab) prevTab.leaving = true;
+	clearTimeout(slideFallback);
+	slideFallback = setTimeout(endSlide, 400);
+}
+
+function endSlide(event) {
+	// Only the outgoing tab's slide-out ends the transition; the incoming
+	// tab's slide-in bubbles an animationend here too.
+	if (event && !(event.animationName.startsWith("slide-out") && event.target.classList.contains("leaving"))) return;
+	clearTimeout(slideFallback);
+	for (const t of Object.values(stripTabs.value)) t.leaving = false;
+}
+
+onUnmounted(() => clearTimeout(slideFallback));
+
 // The settings popover only makes sense where its writes can land.
 const canConfigureTabs = computed(() => props.context?.editable === true && !props.context.actor?.pack);
 
@@ -286,6 +320,41 @@ const flags = {
     min-height: 0;
     display: flex;
     flex-direction: column;
+
+    /* Clip the sliding tab mid-animation; the tab-body owns its own scroll,
+       so nothing here needs to scroll. Also the positioning context for the
+       leaving tab's inset: 0 overlay. */
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Tab-change transition (see onTabChange in the script): a 300ms push.
+     The animation on .active restarts on every activation because the
+     tab-body's display toggles none -> flex. The two tabs move at the same
+     speed with their edges glued together, so there's no gap or overlap to
+     fade — a clean wipe, no opacity trickery needed. */
+  .tab-content.slide-right > .tab-body.active {
+    animation: slide-in-right 300ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .tab-content.slide-left > .tab-body.active {
+    animation: slide-in-left 300ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes slide-in-left {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tab-content > .tab-body.active {
+      animation: none !important;
+    }
   }
 
   /* Each tab owns its scroll container so switching tabs (visibility only)
@@ -306,5 +375,48 @@ const flags = {
 
   .tab-body:not(.active) {
     display: none;
+  }
+
+  /* The outgoing tab lingers for the slide-out (its leaving flag clears on
+     animationend — see onTabChange in the script). Overlayed on the incoming
+     tab, which stays in normal flow. Rule must follow the display:none above
+     to win the cascade. */
+  .tab-body.leaving {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .tab-content.slide-right > .tab-body.leaving {
+    animation: slide-out-left 300ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .tab-content.slide-left > .tab-body.leaving {
+    animation: slide-out-right 300ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  @keyframes slide-out-left {
+    to { transform: translateX(-100%); }
+  }
+
+  @keyframes slide-out-right {
+    to { transform: translateX(100%); }
+  }
+
+  /* Reduced motion: drop the animations and the linger — the leaving tab
+     hides immediately like it used to, and the timeout fallback in
+     onTabChange reaps its flag. */
+  @media (prefers-reduced-motion: reduce) {
+    .tab-content > .tab-body.active,
+    .tab-content > .tab-body.leaving {
+      animation: none !important;
+      display: none !important;
+    }
+    .tab-content > .tab-body.active {
+      display: flex !important;
+    }
   }
 </style>
