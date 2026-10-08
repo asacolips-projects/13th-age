@@ -10,96 +10,94 @@
              sheetDisplay.loadout flags, tucked behind a cog. The popover's
              checkbox hides the section's tracks; the number(s) grant slots
              beyond the level's allowance -->
-				<template v-if="editing">
-					<span class="track-config-menu">
-						<button
-							type="button"
-							class="track-config-toggle"
-							:class="{ open: openConfig === section.key }"
-							:title="localize('ARCHMAGE.trackerSettings')"
-							@click="toggleConfig(section.key)"
-						>
-							<i class="fas fa-gear" />
-						</button>
-						<div v-if="openConfig === section.key" class="track-config-popover">
-							<label class="track-config-option">
-								<span class="option-label">{{ localize('ARCHMAGE.enableTracker') }}</span>
+				<span class="track-config-menu">
+					<button
+						type="button"
+						class="track-config-toggle"
+						:class="{ open: openConfig === section.key }"
+						:title="localize('ARCHMAGE.trackerSettings')"
+						@click="toggleConfig(section.key)"
+					>
+						<i class="fas fa-gear" />
+					</button>
+					<div v-if="openConfig === section.key" class="track-config-popover">
+						<label class="track-config-option">
+							<span class="option-label">{{ localize('ARCHMAGE.enableTracker') }}</span>
+							<input
+								type="checkbox"
+								:checked="section.config.enabled"
+								@change="saveSectionFlag(section.key, 'enabled', $event.target.checked)"
+							>
+						</label>
+						<!-- The feats tracker's bonuses: Resourceful's slot lands in the
+                  character's highest tier; Prodigious Learner grants three
+                  adventurer-tier feats that climb the tiers with level. Both
+                  ride past the tier caps, as do the per-tier extras. -->
+						<template v-if="section.kind === 'feats'">
+							<label class="track-config-option" :data-tooltip="localize('ARCHMAGE.resourcefulHint')">
+								<span class="option-label">{{ localize('ARCHMAGE.resourceful') }}</span>
 								<input
 									type="checkbox"
-									:checked="section.config.enabled"
-									@change="saveSectionFlag(section.key, 'enabled', $event.target.checked)"
+									:checked="section.config.resourceful"
+									@change="saveSectionFlag(section.key, 'resourceful', $event.target.checked)"
 								>
 							</label>
-							<!-- The feats tracker's bonuses: Resourceful's slot lands in the
-                   character's highest tier; Prodigious Learner grants three
-                   adventurer-tier feats that climb the tiers with level. Both
-                   ride past the tier caps, as do the per-tier extras. -->
-							<template v-if="section.kind === 'feats'">
-								<label class="track-config-option" :data-tooltip="localize('ARCHMAGE.resourcefulHint')">
-									<span class="option-label">{{ localize('ARCHMAGE.resourceful') }}</span>
-									<input
-										type="checkbox"
-										:checked="section.config.resourceful"
-										@change="saveSectionFlag(section.key, 'resourceful', $event.target.checked)"
-									>
-								</label>
-								<label class="track-config-option" :data-tooltip="localize('ARCHMAGE.prodigiousLearnerHint')">
-									<span class="option-label">{{ localize('ARCHMAGE.prodigiousLearner') }}</span>
-									<input
-										type="checkbox"
-										:checked="section.config.prodigiousLearner"
-										@change="saveSectionFlag(section.key, 'prodigiousLearner', $event.target.checked)"
-									>
-								</label>
-								<label class="track-config-option">
-									<span class="option-label">{{ localize('ARCHMAGE.extraASlots') }}</span>
-									<input
-										type="number"
-										min="0"
-										:value="section.config.extraSlots.A"
-										@change="saveExtraSlots(section.key, 'extraSlots.A', $event)"
-									>
-								</label>
-								<label class="track-config-option">
-									<span class="option-label">{{ localize('ARCHMAGE.extraCSlots') }}</span>
-									<input
-										type="number"
-										min="0"
-										:value="section.config.extraSlots.C"
-										@change="saveExtraSlots(section.key, 'extraSlots.C', $event)"
-									>
-								</label>
-								<label class="track-config-option">
-									<span class="option-label">{{ localize('ARCHMAGE.extraESlots') }}</span>
-									<input
-										type="number"
-										min="0"
-										:value="section.config.extraSlots.E"
-										@change="saveExtraSlots(section.key, 'extraSlots.E', $event)"
-									>
-								</label>
-								<label class="track-config-option">
-									<span class="option-label">{{ localize('ARCHMAGE.extraZSlots') }}</span>
-									<input
-										type="number"
-										min="0"
-										:value="section.config.extraSlots.Z"
-										@change="saveExtraSlots(section.key, 'extraSlots.Z', $event)"
-									>
-								</label>
-							</template>
-							<label v-else class="track-config-option">
-								<span class="option-label">{{ localize('ARCHMAGE.extraSlots') }}</span>
+							<label class="track-config-option" :data-tooltip="localize('ARCHMAGE.prodigiousLearnerHint')">
+								<span class="option-label">{{ localize('ARCHMAGE.prodigiousLearner') }}</span>
+								<input
+									type="checkbox"
+									:checked="section.config.prodigiousLearner"
+									@change="saveSectionFlag(section.key, 'prodigiousLearner', $event.target.checked)"
+								>
+							</label>
+							<label class="track-config-option">
+								<span class="option-label">{{ localize('ARCHMAGE.extraASlots') }}</span>
 								<input
 									type="number"
 									min="0"
-									:value="section.config.extraSlots"
-									@change="saveExtraSlots(section.key, 'extraSlots', $event)"
+									:value="section.config.extraSlots.A"
+									@change="saveExtraSlots(section.key, 'extraSlots.A', $event)"
 								>
 							</label>
-						</div>
-					</span>
-				</template>
+							<label class="track-config-option">
+								<span class="option-label">{{ localize('ARCHMAGE.extraCSlots') }}</span>
+								<input
+									type="number"
+									min="0"
+									:value="section.config.extraSlots.C"
+									@change="saveExtraSlots(section.key, 'extraSlots.C', $event)"
+								>
+							</label>
+							<label class="track-config-option">
+								<span class="option-label">{{ localize('ARCHMAGE.extraESlots') }}</span>
+								<input
+									type="number"
+									min="0"
+									:value="section.config.extraSlots.E"
+									@change="saveExtraSlots(section.key, 'extraSlots.E', $event)"
+								>
+							</label>
+							<label class="track-config-option">
+								<span class="option-label">{{ localize('ARCHMAGE.extraZSlots') }}</span>
+								<input
+									type="number"
+									min="0"
+									:value="section.config.extraSlots.Z"
+									@change="saveExtraSlots(section.key, 'extraSlots.Z', $event)"
+								>
+							</label>
+						</template>
+						<label v-else class="track-config-option">
+							<span class="option-label">{{ localize('ARCHMAGE.extraSlots') }}</span>
+							<input
+								type="number"
+								min="0"
+								:value="section.config.extraSlots"
+								@change="saveExtraSlots(section.key, 'extraSlots', $event)"
+							>
+						</label>
+					</div>
+				</span>
 				<span class="slot-tracks">
 					<template v-for="track in section.tracks" :key="track.key">
 						<span v-if="track.shown" class="tier-track" :data-tier="track.key">

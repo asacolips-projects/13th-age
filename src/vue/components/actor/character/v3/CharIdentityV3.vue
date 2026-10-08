@@ -201,7 +201,7 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
 
   .sheet-header--hero {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
 
     /* Hero banner: fixed height, portrait bleeding across it, identity text
        docked to the bottom edge. isolation contains the negative-z portrait
@@ -298,7 +298,6 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
     .header-out {
       /* The hero bleeds edge to edge, so the OUT block carries the gutter the
          header's old padding used to provide. */
-      margin: 0.5rem;
       padding: 0.5rem;
       border-bottom: 1px solid var(--color-border);
 
