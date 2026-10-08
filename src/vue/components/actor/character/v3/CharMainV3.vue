@@ -2,7 +2,7 @@
 	<main class="sheet-main flexcol">
 		<!-- The catalog tabs are user-configured (see the settings popover
          docked at the strip's end); the Loot tab follows them, fixed. -->
-		<div class="strip-row">
+		<div class="strip-row" :class="{ narrow }">
 			<Tabs
 				group="v3"
 				:tabs="stripTabs"
@@ -262,6 +262,22 @@ const flags = {
 
     :deep(.tab-link) {
       padding: 0.25rem;
+    }
+
+    /* Wide layout only: let the label-bearing tabs divide the spare width
+       between them while the icon-only tabs keep their natural size, so the
+       icons bunch together at the row's end instead of being stretched into
+       an even grid. Icon tabs are the ones holding an <i> with no <span>;
+       narrow mode is excluded since there every tab is icon-only and the
+       even spread is what we want. */
+    &:not(.narrow) {
+      :deep(.tab-link) {
+        flex: 1 1 auto;
+      }
+
+      :deep(.tab-link:has(> i):not(:has(> span))) {
+        flex: 0 0 auto;
+      }
     }
   }
 
