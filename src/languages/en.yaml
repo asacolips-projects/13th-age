@@ -206,6 +206,8 @@ ARCHMAGE:
   recoveryIconicFull: Iconic Potion
   recoveryNormal: Normal
   recoveryRoll: Recovery Roll
+  recoveryAvgTooltip: 'Average: {avg}'
+  recoveryFormulaTooltip: 'Formula: {formula}'
   resistance: Resistance
   role: Role
   rollAdvantageShort: Adv.

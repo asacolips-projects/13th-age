@@ -32,7 +32,7 @@
 			<div class="stats-unit stats-unit--recoveries">
 				<h2 class="unit-title">
 					{{ localize('ARCHMAGE.recoveries') }}
-					<RollableV3 name="recovery" @click="rollRecovery">{{ recoveryFormula }}</RollableV3>
+					<RollableV3 name="recovery" :data-tooltip="recoveryTooltip" @click="rollRecovery">{{ recoveryFormula }}</RollableV3>
 				</h2>
 				<Progress
 					name="recoveries"
@@ -131,6 +131,18 @@ const recoveryFormula = computed(() => {
 	}
 	if (recoveries?.formula && recoveries?.avg) return recoveries.formula;
 	return localize("ARCHMAGE.recoveryRoll");
+});
+
+// Hover hint on the roll link shows what the visible display doesn't: the
+// average alongside the dice formula, and the formula in average mode.
+const recoveryTooltip = computed(() => {
+	const recoveries = props.actor?.system?.attributes?.recoveries;
+	const { formula, avg } = recoveries ?? {};
+	if (!avg || !formula) return null;
+	if (props.actor?.flags?.archmage?.averageRecoveries) {
+		return localize("ARCHMAGE.recoveryFormulaTooltip", { formula });
+	}
+	return localize("ARCHMAGE.recoveryAvgTooltip", { avg });
 });
 
 const deathFails = computed(() => {
