@@ -117,10 +117,7 @@ const effect = computed(() => props.context.document);
 
 const changes = computed(() => game.archmage.ArchmageUtility.getActiveEffectChanges(effect.value));
 
-const duration = computed(() => {
-	const rawDuration = effect.value.flags.archmage.duration;
-	return game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[rawDuration]);
-});
+const duration = computed(() => game.archmage.MacroUtils.getDurationLabel(effect.value));
 
 const ongoingDamage = computed(() => {
 	const dmg = roundOngoingDamage(effect.value.flags.archmage.ongoingDamage || 0);

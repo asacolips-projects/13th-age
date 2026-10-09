@@ -679,10 +679,38 @@ export class ArchmageUtility {
  */
 export class MacroUtils {
 	/**
+	 * Default save targets of the save ends durations
+	 */
+	static SAVE_ENDS_TARGETS = { EasySaveEnds: 6, NormalSaveEnds: 11, HardSaveEnds: 16 };
+
+	/**
+	 * Get the save target of a save ends effect, its custom DC if it has one
+	 * @param effect
+	 */
+	static getSaveTarget(effect) {
+		const duration = effect?.flags?.archmage?.duration;
+		if (!MacroUtils.SAVE_ENDS_TARGETS[duration]) return undefined;
+		const saveDC = effect.flags.archmage.saveDC;
+		return Number.isFinite(saveDC) ? saveDC : MacroUtils.SAVE_ENDS_TARGETS[duration];
+	}
+
+	/**
+	 * Get the localized duration of an effect, with its custom save DC if it has one
+	 * @param effect
+	 */
+	static getDurationLabel(effect) {
+		const duration = effect?.flags?.archmage?.duration;
+		const label = game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[duration] ?? "");
+		const saveDC = effect?.flags?.archmage?.saveDC;
+		if (MacroUtils.SAVE_ENDS_TARGETS[duration] && Number.isFinite(saveDC)) return `${label} (${saveDC}+)`;
+		return label;
+	}
+
+	/**
 	 * Generate durations for active effects
 	 * @param {object} data Active effect data to modify.
 	 * @param {string} duration Duration type key or its CONFIG.ARCHMAGE.effectDurationTypes value.
-	 * @param {object} options Extra options: sourceTurnUuid, round and showIcon.
+	 * @param {object} options Extra options: sourceTurnUuid, round, showIcon and saveDC (a custom target for save ends durations).
 	 * @returns {object} The modified effect data.
 	 */
 	static setDuration(data, duration, options={}) {
@@ -747,6 +775,13 @@ export class MacroUtils {
 			default:
 				console.warn("Unknown duration ", duration);
 		}
+		// Only save ends durations carry a DC, drop any stale one left on the data
+		// Number() would turn null and "" into 0
+		const saveDC = [null, undefined, ""].includes(options.saveDC) ? NaN : Number(options.saveDC);
+		if (MacroUtils.SAVE_ENDS_TARGETS[data.flags.archmage.duration] && Number.isFinite(saveDC)) {
+			data.flags.archmage.saveDC = saveDC;
+		}
+		else delete data.flags.archmage.saveDC;
 		// Set Foundry core duration to make the thing appear on tokens
 		if (data.flags.archmage.duration != "Infinite" || options.showIcon) {
 			data.showIcon = 2; // Always

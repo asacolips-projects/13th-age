@@ -930,10 +930,10 @@ export class ActorArchmage extends Actor {
 		return parts.filter((p) => p !== null).join(" + ");
 	}
 
-	async rollSave(difficulty, target=11) {
-		// Determine target dc
-		if (difficulty == "easy") target = 6;
-		else if (["hard", "death", "lastGasp"].includes(difficulty)) target = 16;
+	async rollSave(difficulty, target) {
+		// Determine target dc, unless an explicit one overrides the difficulty
+		const defaultTarget = { easy: 6, normal: 11, hard: 16, death: 16, lastGasp: 16 }[difficulty] ?? 11;
+		target ??= defaultTarget;
 
 		let formula = "d20";
 		// Add bonuses, if any
@@ -943,7 +943,9 @@ export class ActorArchmage extends Actor {
 		let result = await roll.roll();
 
 		// Create the chat message title.
-		let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
+		let label = target === defaultTarget
+			? game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`)
+			: game.i18n.format("ARCHMAGE.SAVE.custom", { target });
 
 		// Determine the roll result.
 		let rollResult = result.total;

@@ -1004,6 +1004,9 @@ ARCHMAGE:
     every: every
     random: random
   SAVE:
+    custom: Save ({target}+)
+    dc: Save DC
+    dcHint: Leave blank to use the difficulty's default.
     death: Death Save
     disengage: Disengage
     easy: Easy Save
