@@ -33,6 +33,7 @@
 						:placeholder="kinLabel"
 						:suggestions="kinSuggestions"
 						:input-class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
+						:separator="kinSeparators"
 					/>
 					<AutocompleteInput
 						v-model="actor.system.details.class.value"
@@ -95,6 +96,7 @@
 					:placeholder="kinLabel"
 					:suggestions="kinSuggestions"
 					:input-class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
+					:separator="kinSeparators"
 				/>
 				<AutocompleteInput
 					v-model="actor.system.details.class.value"
@@ -136,14 +138,17 @@ const props = defineProps(["actor"]);
 // Kin and class name completion: the same lists the power importer routes on
 // (CONFIG.ARCHMAGE.classList / raceList, whose values are localized into
 // display names at setup). A picked name cleans back to the importer's keys,
-// e.g. "Chaos Mage" -> "chaosmage". The class field completes per segment, so
-// multiclass entries like "Fighter / Wiz" complete their trailing class; the
-// joiners are the spellings the importer's class detector tolerates (it
-// strips every non-alphanumeric and matches the names anywhere in the
-// string), minus the spaces that class names themselves contain.
+// e.g. "Chaos Mage" -> "chaosmage". Both fields complete per segment, so
+// multiclass and multikin entries like "Fighter / Wiz" or "Dwarf / Hum"
+// complete their trailing name; the joiners are the spellings the importer
+// tolerates (it matches each name on word boundaries anywhere in the string,
+// or strips every non-alphanumeric for classes), minus the spaces that names
+// themselves contain — and, for kin, the dash that kin names like "Half-Elf"
+// contain.
 const classSuggestions = Object.values(CONFIG.ARCHMAGE.classList).sort((a, b) => a.localeCompare(b));
 const kinSuggestions = Object.values(CONFIG.ARCHMAGE.raceList).sort((a, b) => a.localeCompare(b));
 const classSeparators = ["/", ",", ";", "&", "+", "-", "and"];
+const kinSeparators = ["/", ",", ";", "&", "+", "and"];
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject("editMode", ref(false));
