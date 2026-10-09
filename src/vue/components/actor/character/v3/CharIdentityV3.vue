@@ -40,6 +40,7 @@
 						:placeholder="localize('ARCHMAGE.class')"
 						:suggestions="classSuggestions"
 						:input-class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
+						:separator="classSeparators"
 					/>
 					<input
 						v-model="actor.system.attributes.level.value"
@@ -101,6 +102,7 @@
 					:placeholder="localize('ARCHMAGE.class')"
 					:suggestions="classSuggestions"
 					:input-class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
+					:separator="classSeparators"
 				/>
 				<input
 					v-model="actor.system.attributes.level.value"
@@ -134,9 +136,14 @@ const props = defineProps(["actor"]);
 // Kin and class name completion: the same lists the power importer routes on
 // (CONFIG.ARCHMAGE.classList / raceList, whose values are localized into
 // display names at setup). A picked name cleans back to the importer's keys,
-// e.g. "Chaos Mage" -> "chaosmage".
+// e.g. "Chaos Mage" -> "chaosmage". The class field completes per segment, so
+// multiclass entries like "Fighter / Wiz" complete their trailing class; the
+// joiners are the spellings the importer's class detector tolerates (it
+// strips every non-alphanumeric and matches the names anywhere in the
+// string), minus the spaces that class names themselves contain.
 const classSuggestions = Object.values(CONFIG.ARCHMAGE.classList).sort((a, b) => a.localeCompare(b));
 const kinSuggestions = Object.values(CONFIG.ARCHMAGE.raceList).sort((a, b) => a.localeCompare(b));
+const classSeparators = ["/", ",", ";", "&", "+", "-", "and"];
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject("editMode", ref(false));

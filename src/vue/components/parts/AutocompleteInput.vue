@@ -38,7 +38,7 @@
 <script setup>
 import { ref, computed, onBeforeUnmount } from "vue";
 
-const props = defineProps(["modelValue", "name", "placeholder", "suggestions", "inputClass"]);
+const props = defineProps(["modelValue", "name", "placeholder", "suggestions", "inputClass", "separator"]);
 const emit = defineEmits(["update:modelValue"]);
 
 const inputEl = ref(null);
@@ -49,14 +49,41 @@ const highlighted = ref(-1);
 // the list opens or the page moves under it.
 const listStyle = ref({});
 
+// Where the last separator in a value ends, or -1 when there is none. The
+// separator prop takes one string or a list: punctuation joins segments
+// literally, while an all-letters separator ("and") only counts as a whole
+// word, so names merely containing it ("Islander") never split.
+const lastSeparatorAt = (value) => {
+	const separators = Array.isArray(props.separator) ? props.separator : [props.separator];
+	let end = -1;
+	for (const separator of separators) {
+		if (/^[a-z]+$/i.test(separator)) {
+			const word = new RegExp(`\\b${separator}\\b`, "ig");
+			for (const match of value.matchAll(word)) end = Math.max(end, match.index + match[0].length);
+		} else {
+			const at = value.lastIndexOf(separator);
+			if (at >= 0) end = Math.max(end, at + separator.length);
+		}
+	}
+	return end;
+};
+
+// The trailing segment being matched: with separator(s) set, the text after
+// the last one ("Fighter / Wiz" -> "Wiz"); the whole value otherwise. Trimmed
+// and lowercased for matching.
+const query = computed(() => {
+	const value = String(props.modelValue ?? "");
+	const at = lastSeparatorAt(value);
+	return (at >= 0 ? value.slice(at) : value).trim().toLowerCase();
+});
+
 // Case-insensitive substring filter over the caller's list; an empty query
 // lists everything, so the dropdown doubles as a picker. The caller owns the
 // order, which the filter preserves.
 const matches = computed(() => {
-	const query = String(props.modelValue ?? "").trim()
-		.toLowerCase();
+	const needle = query.value;
 	const list = props.suggestions ?? [];
-	return query ? list.filter((suggestion) => suggestion.toLowerCase().includes(query)) : list;
+	return needle ? list.filter((suggestion) => suggestion.toLowerCase().includes(needle)) : list;
 });
 
 const positionList = () => {
@@ -128,8 +155,20 @@ const onKeydown = (event) => {
 	}
 };
 
+// Splicing a pick into a segmented value keeps everything up to and including
+// the last separator — the earlier segments, in the exact spacing the user
+// typed, down to whether they put a space after it — and replaces only the
+// trailing one. Without separators the pick replaces the whole value.
+const complete = (match) => {
+	const current = String(props.modelValue ?? "");
+	const at = lastSeparatorAt(current);
+	if (at < 0) return match;
+	const [lead = ""] = current.slice(at).match(/^\s*/) ?? [];
+	return current.slice(0, at) + lead + match;
+};
+
 const choose = (value) => {
-	emit("update:modelValue", value);
+	emit("update:modelValue", complete(value));
 	open.value = false;
 	highlighted.value = -1;
 };
