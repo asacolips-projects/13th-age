@@ -27,20 +27,20 @@
 				</template>
 				<template v-else>
 					<input v-model="actor.name" type="text" name="name" :placeholder="localize('ARCHMAGE.name')">
-					<input
+					<AutocompleteInput
 						v-model="actor.system.details.race.value"
-						type="text"
 						name="system.details.race.value"
-						:class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
 						:placeholder="kinLabel"
-					>
-					<input
+						:suggestions="kinSuggestions"
+						:input-class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
+					/>
+					<AutocompleteInput
 						v-model="actor.system.details.class.value"
-						type="text"
 						name="system.details.class.value"
-						:class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
 						:placeholder="localize('ARCHMAGE.class')"
-					>
+						:suggestions="classSuggestions"
+						:input-class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
+					/>
 					<input
 						v-model="actor.system.attributes.level.value"
 						type="number"
@@ -88,20 +88,20 @@
 			</template>
 			<template v-else>
 				<input v-model="actor.name" type="text" name="name" :placeholder="localize('ARCHMAGE.name')">
-				<input
+				<AutocompleteInput
 					v-model="actor.system.details.race.value"
-					type="text"
 					name="system.details.race.value"
-					:class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
 					:placeholder="kinLabel"
-				>
-				<input
+					:suggestions="kinSuggestions"
+					:input-class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
+				/>
+				<AutocompleteInput
 					v-model="actor.system.details.class.value"
-					type="text"
 					name="system.details.class.value"
-					:class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
 					:placeholder="localize('ARCHMAGE.class')"
-				>
+					:suggestions="classSuggestions"
+					:input-class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
+				/>
 				<input
 					v-model="actor.system.attributes.level.value"
 					type="number"
@@ -127,8 +127,16 @@
 import { ref, computed, inject, watch, nextTick } from "vue";
 import { isBlank, isSecondEdition, isZeroish, localize, tooltip } from "@/methods/Helpers";
 import { useProseMirrorEditor } from "@/composables/useProseMirrorEditor";
+import AutocompleteInput from "@/components/parts/AutocompleteInput.vue";
 
 const props = defineProps(["actor"]);
+
+// Kin and class name completion: the same lists the power importer routes on
+// (CONFIG.ARCHMAGE.classList / raceList, whose values are localized into
+// display names at setup). A picked name cleans back to the importer's keys,
+// e.g. "Chaos Mage" -> "chaosmage".
+const classSuggestions = Object.values(CONFIG.ARCHMAGE.classList).sort((a, b) => a.localeCompare(b));
+const kinSuggestions = Object.values(CONFIG.ARCHMAGE.raceList).sort((a, b) => a.localeCompare(b));
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject("editMode", ref(false));
@@ -405,7 +413,10 @@ const portraitFull = computed(() => archmageFlags.value.portraitFull === true);
       padding-inline: 0.75rem;
     }
 
-    input {
+    /* :deep(): the kin/class fields are AutocompleteInput children, whose
+       inputs carry no scope attribute of their own. */
+    input,
+    :deep(input) {
       display: block;
       width: 100%;
       margin-bottom: 0.5rem;

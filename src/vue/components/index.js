@@ -12,6 +12,7 @@ export { default as Prosemirror } from "@/components/parts/Prosemirror.vue";
 export { default as TextareaGrow } from "@/components/parts/TextareaGrow.vue";
 export { default as InlineRollsReferenceHint } from "@/components/parts/InlineRollsReferenceHint.vue";
 export { default as InfoBubble } from "@/components/parts/InfoBubble.vue";
+export { default as AutocompleteInput } from "@/components/parts/AutocompleteInput.vue";
 
 export { default as EffectDetails } from "@/components/effects/EffectDetails.vue";
 export { default as EffectAttack } from "@/components/effects/EffectAttack.vue";
