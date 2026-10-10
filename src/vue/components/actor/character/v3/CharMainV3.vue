@@ -1,8 +1,9 @@
 <template>
 	<main class="sheet-main flexcol">
 		<!-- The catalog tabs are user-configured (see the settings popover
-         docked at the strip's end); the Loot tab follows them, fixed. -->
+         docked at the strip's start). -->
 		<div class="strip-row" :class="{ narrow }">
+			<CharCatalogTabSettingsV3 v-if="canConfigureTabs" :actor="context.actor" />
 			<Tabs
 				group="v3"
 				:tabs="stripTabs"
@@ -11,7 +12,6 @@
 				no-span="true"
 				@change="onTabChange"
 			/>
-			<CharCatalogTabSettingsV3 v-if="canConfigureTabs" :actor="context.actor" />
 		</div>
 
 		<!-- Every tab is mounted for the sheet's lifetime; the <Tab> wrapper only
@@ -50,9 +50,6 @@
 			<Tab group="v3" :tab="tabs.loadout" classes="tab-body">
 				<CharLoadoutV3 :actor="context.actor" :editable="context.editable" />
 			</Tab>
-			<Tab group="v3" :tab="tabs.loot" classes="tab-body">
-				<CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" :tab="LOOT_TAB" />
-			</Tab>
 			<Tab group="v3" :tab="tabs.progression" classes="tab-body">
 				<CharProgressionV3 :actor="context.actor" :editable="context.editable" />
 			</Tab>
@@ -67,7 +64,7 @@
 import { computed, onUnmounted, reactive, ref, watchEffect } from "vue";
 import { localize } from "@/methods/Helpers";
 import { Tabs, Tab } from "@/components";
-import { CATALOG_GROUP_ICONS, LOOT_TAB, catalogTabDefs, catalogTabLabel, migrateCatalogTabs } from "@/methods/CatalogTabs";
+import { CATALOG_GROUP_ICONS, catalogTabDefs, catalogTabLabel, migrateCatalogTabs } from "@/methods/CatalogTabs";
 import CharCatalogV3 from "./tabs/CharCatalogV3.vue";
 import CharCatalogTabSettingsV3 from "./parts/CatalogTabSettingsV3.vue";
 import CharTriggersV3 from "./tabs/CharTriggersV3.vue";
@@ -93,7 +90,6 @@ const hasTriggers = computed(() => (props.context.actor?.items ?? [])
 // narrow layout, and the icon map backfills the strip there too (the wide strip
 // stays label-only, notes excepted).
 const icons = {
-	loot: "fa-suitcase",
 	triggers: "fa-play",
 	effects: "fa-wand-magic-sparkles",
 	loadout: "fa-box",
@@ -108,7 +104,6 @@ const rawTabs = {
 	effects: { key: "effects", label: localize("ARCHMAGE.effects") },
 	loadout: { key: "loadout", label: localize("ARCHMAGE.loadout") },
 	progression: { key: "progression", label: localize("ARCHMAGE.progression"), hideLabel: true },
-	loot: { key: "loot", label: localize("ARCHMAGE.loot"), hideLabel: true },
 	notes: { key: "notes", label: localize("ARCHMAGE.notes"), hideLabel: true }
 };
 const tabs = reactive(rawTabs);
@@ -165,7 +160,7 @@ const stripTabs = computed(() => {
 	// effect — the state map's own insertion order would go stale.
 	const merged = { character: tabs.character };
 	for (const { state } of catalogTabsView.value) merged[state.key] = state;
-	for (const key of ["triggers", "loadout", "effects", "loot", "progression", "notes"]) {
+	for (const key of ["triggers", "loadout", "effects", "progression", "notes"]) {
 		merged[key] = tabs[key];
 	}
 	return merged;
@@ -182,7 +177,7 @@ watchEffect(() => {
 	tabs.triggers.hidden = !hasTriggers.value;
 	tabs.character.hidden = !props.narrow;
 
-	for (const key of ["character", "loot", "triggers", "effects", "loadout", "progression", "notes"]) {
+	for (const key of ["character", "triggers", "effects", "loadout", "progression", "notes"]) {
 		const tab = tabs[key];
 		tab.icon = (props.narrow || tab.hideLabel) ? icons[key] : undefined;
 		tab.hideLabel ||= props.narrow;

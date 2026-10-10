@@ -4,21 +4,31 @@
 			type="button"
 			class="catalog-tabs-toggle"
 			:class="{ open }"
-			:title="localize('ARCHMAGE.tabSettings')"
+			:data-tooltip="localize('ARCHMAGE.tabSettings')"
 			@click.stop="toggle"
 		>
-			<i class="fas fa-gear" />
+			<i class="fas fa-ellipsis-vertical" />
 		</button>
-		<!-- One popover for the whole tab set: rename each tab, pick its
-         group-by, reorder, add or remove (one tab minimum). Empty names
-         fall back to the derived label, shown as the input's placeholder. -->
+		<!-- One popover for the whole tab set: rename each tab, drag the grip
+       to reorder, add or remove (one tab minimum). Empty names fall back to
+       the derived label, shown as the input's placeholder. -->
 		<div v-if="open" class="catalog-tabs-popover" @click.stop>
-			<div class="catalog-tab-row catalog-tab-row--head">
-				<span class="row-label">{{ localize('ARCHMAGE.name') }}</span>
-				<span class="row-group">{{ localize('ARCHMAGE.groupBy') }}</span>
-				<span class="row-actions" />
-			</div>
-			<div v-for="(def, index) in defs" :key="def.id" class="catalog-tab-row">
+			<div
+				v-for="def in defs"
+				:key="def.id"
+				class="catalog-tab-row"
+				:class="{ 'catalog-tab-row--drop-target': dragOverId === def.id }"
+				@dragover="onDragOver($event, def)"
+				@dragleave="onDragLeave($event, def)"
+				@drop="onDrop($event, def)"
+			>
+				<i
+					class="fas fa-grip-lines row-grip"
+					draggable="true"
+					:title="localize('ARCHMAGE.dragToReorderTab')"
+					@dragstart="onDragStart($event, def)"
+					@dragend="onDragEnd"
+				/>
 				<input
 					type="text"
 					class="row-label"
@@ -26,23 +36,11 @@
 					:placeholder="derivedLabel(def)"
 					@change="rename(def, $event)"
 				>
-				<select class="row-group" :value="def.groupBy" @change="regroup(def, $event)">
-					<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
-				</select>
 				<span class="row-actions">
-					<button type="button" :disabled="index === 0" :title="localize('ARCHMAGE.moveUp')" @click="move(def, -1)"><i class="fas fa-chevron-up" /></button>
-					<button type="button" :disabled="index === defs.length - 1" :title="localize('ARCHMAGE.moveDown')" @click="move(def, 1)"><i class="fas fa-chevron-down" /></button>
 					<button type="button" :disabled="defs.length < 2" :title="localize('ARCHMAGE.removeTab')" @click="remove(def)"><i class="fas fa-times" /></button>
 				</span>
 			</div>
 			<div class="catalog-tab-actions">
-				<button
-					type="button"
-					class="catalog-tab-add"
-					:disabled="!detectedClasses.length"
-					:title="localize('ARCHMAGE.resetClassTabs')"
-					@click="resetToClassPreset"
-				><i class="fas fa-rotate-left" /> {{ localize('ARCHMAGE.resetClassTabs') }}</button>
 				<button type="button" class="catalog-tab-add" @click="add"><i class="fas fa-plus" /> {{ localize('ARCHMAGE.addTab') }}</button>
 			</div>
 		</div>
@@ -52,19 +50,17 @@
 <script setup>
 /**
  * The catalog tabs' settings popover, docked beside the tab strip: one row
- * per tab with a name input and a group-by select, up/down buttons to
- * reorder the strip, an X to remove (disabled while only one tab is left),
- * and an add button. Changes persist to the sheetDisplay.catalog.tabs
- * flags, which re-render the sheet and with it the strip.
+ * per tab with a name input, a grip to drag-reorder, an X to remove
+ * (disabled while only one tab is left), and an add button — the set's
+ * size, names and order are all it manages. Changes persist to the
+ * sheetDisplay.catalog.tabs flags, which re-render the sheet and with it
+ * the strip.
  */
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
 import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
-import { CATALOG_GROUP_MODES, catalogTabDefs, catalogTabLabel } from "@/methods/CatalogTabs";
-import { classCatalogTabPreset } from "@src/module/actor/catalog-tab-presets.js";
+import { catalogTabDefs, catalogTabLabel } from "@/methods/CatalogTabs";
 
 const props = defineProps(["actor"]);
-
-const groupOptions = CATALOG_GROUP_MODES.map((value) => ({ value }));
 
 const defs = computed(() => catalogTabDefs(props.actor));
 
@@ -97,96 +93,127 @@ onBeforeUnmount(() => {
 const derivedLabel = (def) => catalogTabLabel({ ...def, label: "" });
 
 /**
- * Persist a new tabs array; the sheet re-renders from the flags. Any edit
- * here is a customization, so the class presets stop managing the tab set
- * (the presetClasses marker clears) until the reset button reapplies them.
+ * Persist a new tabs array; the sheet re-renders from the flags.
  * @param tabs
  */
 const save = async (tabs) => {
 	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", tabs);
-	if (typeof props.actor?.flags?.archmage?.sheetDisplay?.catalog?.presetClasses === "string") {
-		await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.presetClasses", null);
-	}
 };
 
 const rename = (def, event) => save(defs.value.map((other) =>
 	other.id === def.id ? { ...other, label: event.target.value } : other));
 
-const regroup = (def, event) => save(defs.value.map((other) =>
-	other.id === def.id ? { ...other, groupBy: event.target.value } : other));
-
-const move = (def, delta) => {
-	const tabs = [...defs.value];
-	const from = tabs.findIndex((other) => other.id === def.id);
-	const to = from + delta;
-	if (from < 0 || to < 0 || to >= tabs.length) return;
-	[tabs[from], tabs[to]] = [tabs[to], tabs[from]];
-	save(tabs);
-};
-
 const remove = (def) => {
-	// A tab's saved group/row orders are left behind: re-adding a tab with a
-	// fresh id starts clean, and sweeping the orphaned paths isn't worth the
-	// flag churn.
 	if (defs.value.length < 2) return;
 	save(defs.value.filter((other) => other.id !== def.id));
 };
 
-// New tabs take the first group-by mode nothing uses yet, so the defaults
-// cycle through the sensible choices before repeating any.
-const add = () => {
-	const used = new Set(defs.value.map((def) => def.groupBy));
-	const groupBy = CATALOG_GROUP_MODES.find((mode) => !used.has(mode)) ?? "group";
-	save([...defs.value, { id: foundry.utils.randomID(), label: "", groupBy, sortBy: "custom" }]);
+// Row reordering: the grip starts the drag, the rows highlight as drop
+// targets, and the drop rebuilds the array around the release point (above
+// or below the target row, by cursor position). The drag state is transient.
+const draggedId = ref(null);
+const dragOverId = ref(null);
+
+const onDragStart = (event, def) => {
+	draggedId.value = def.id;
+	event.dataTransfer.effectAllowed = "move";
+	// Tag the payload so nothing downstream mistakes this for an item drag.
+	event.dataTransfer.setData("text/plain", JSON.stringify({ type: "CatalogTabOrder", tabId: def.id }));
 };
 
-// The character's detected classes, and their preset tabs — the reset
-// reapplies the class defaults over whatever the tabs have become.
-const detectedClasses = computed(() => props.actor?.system?.details?.detectedClasses ?? []);
+const onDragOver = (event, def) => {
+	if (!draggedId.value || dragOverId.value === def.id) return;
+	event.preventDefault();
+	event.dataTransfer.dropEffect = "move";
+	dragOverId.value = def.id;
+};
 
-const resetToClassPreset = async () => {
-	const tabs = classCatalogTabPreset(detectedClasses.value);
-	if (!tabs.length) return;
-	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", tabs);
-	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.presetClasses", detectedClasses.value.join(","));
+const onDragLeave = (event, def) => {
+	if (dragOverId.value !== def.id) return;
+	// dragleave also fires when moving between the row's children, so only
+	// clear the highlight once the cursor has actually left the row.
+	if (event.currentTarget.contains(event.relatedTarget)) return;
+	dragOverId.value = null;
+};
+
+const onDrop = (event, def) => {
+	const source = draggedId.value;
+	draggedId.value = null;
+	dragOverId.value = null;
+	if (!source || source === def.id) return;
+	const from = defs.value.findIndex((other) => other.id === source);
+	if (from < 0) return;
+	const rect = event.currentTarget.getBoundingClientRect();
+	const before = (event.clientY - rect.top) < (rect.height / 2);
+	const tabs = defs.value.filter((other) => other.id !== source);
+	const to = tabs.findIndex((other) => other.id === def.id);
+	if (to < 0) return;
+	tabs.splice(before ? to : to + 1, 0, defs.value[from]);
+	save(tabs);
+};
+
+const onDragEnd = () => {
+	draggedId.value = null;
+	dragOverId.value = null;
+};
+
+const add = () => {
+	// "Catalog N", one past the highest number already in the set.
+	const nums = defs.value
+		.map((def) => /^Catalog (\d+)$/.exec(def.label ?? ""))
+		.filter((match) => match)
+		.map((match) => Number(match[1]));
+	save([...defs.value, { id: foundry.utils.randomID(), label: `Catalog ${(nums.length ? Math.max(...nums) : 0) + 1}` }]);
 };
 </script>
 
 <style scoped lang="scss">
-  // Docked at the strip's end, next to the last tab.
+  // Docked at the strip's start, before the first tab.
   .catalog-tabs-menu {
     position: relative;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    padding: 0 0.25rem;
   }
 
+  // Dressed as one of the strip's tab links (Foundry's nav.tabs [data-tab])
+  // rather than a button: no chrome, the tab-link padding and icon size, and
+  // the link's base/hover/.active colors and text-shadow glow.
   .catalog-tabs-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.25rem;
-    height: 1.25rem;
-    padding: 0;
-    font-size: var(--font-size-10);
+    padding: 0.25rem;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: var(--font-size-14);
     line-height: 1;
+    color: var(--color-text-secondary);
+    cursor: var(--cursor-pointer);
 
-    // Lit while its popover is open.
-    &.open i {
-      color: var(--v3-rollable);
+    &:hover {
+      color: var(--color-text-primary);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+    }
+
+    // Lit while its popover is open, like a link's active tab.
+    &.open {
+      color: var(--color-text-emphatic);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
     }
   }
 
   .catalog-tabs-popover {
     position: absolute;
     top: calc(100% + 0.25rem);
-    right: 0;
+    left: 0;
     z-index: 40;
     display: flex;
     flex-direction: column;
     gap: 0.375rem;
-    width: max(24rem, 40vw);
+    width: 15rem;
     padding: 0.5rem 0.625rem;
     background: var(--v3-surface);
     border: 1px solid var(--color-border);
@@ -199,20 +226,25 @@ const resetToClassPreset = async () => {
     align-items: center;
     gap: 0.375rem;
 
-    // Column captions for the input and the select.
-    &--head {
-      font-family: var(--v3-font-label);
-      font-size: var(--font-size-10);
-      font-weight: bold;
+    // Reorder affordances, matching the catalog's group titles.
+    .row-grip {
+      flex: 0 0 auto;
+      font-size: var(--font-size-14);
+      opacity: 0.35;
+      cursor: grab;
 
-      .row-label,
-      .row-group {
-        padding: 0;
+      &:active {
+        cursor: grabbing;
       }
+    }
 
-      .row-actions {
-        width: auto;
-      }
+    &:hover .row-grip {
+      opacity: 1;
+    }
+
+    &--drop-target {
+      outline: 2px dashed;
+      outline-offset: 2px;
     }
 
     .row-label {
@@ -223,18 +255,10 @@ const resetToClassPreset = async () => {
       font-size: var(--font-size-12);
     }
 
-    .row-group {
-      flex: 0 0 auto;
-      width: 9rem;
-      height: 1.5rem;
-      font-size: var(--font-size-12);
-    }
-
     .row-actions {
       flex: 0 0 auto;
       display: flex;
       gap: 0.125rem;
-      width: 4.5rem;
       justify-content: flex-end;
 
       button {
@@ -256,13 +280,10 @@ const resetToClassPreset = async () => {
     }
   }
 
-  // The popover's footer: the class-preset reset docked left, the add
-  // button right.
   .catalog-tab-actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.375rem;
+    justify-content: flex-end;
   }
 
   .catalog-tab-add {
