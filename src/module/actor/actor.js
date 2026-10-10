@@ -1,6 +1,7 @@
 import { ArchmageUtility } from "../setup/utility-classes.js";
 import { MacroUtils } from "../setup/utility-classes.js";
 import { DiceArchmage } from "./dice.js";
+import { applyClassCatalogTabs } from "./catalog-tab-presets.js";
 
 /**
  * Extend the base Actor class to implement additional logic specialized for the system.
@@ -2767,8 +2768,7 @@ export class ActorArchmage extends Actor {
 			// Here we received an update of the class name for a character
 
 			let matchedClasses = ArchmageUtility.detectClasses(data.system.details.class.value);
-			if (matchedClasses !== null
-        && game.settings.get("archmage", "automateBaseStatsFromClass")) {
+			if (matchedClasses !== null) {
 				// Remove duplicates and Sort to avoid problems with future matches
 				matchedClasses = [...new Set(matchedClasses)].sort();
 
@@ -2779,6 +2779,15 @@ export class ActorArchmage extends Actor {
 					return;
 				}
 
+				// Regenerate the V3 sheet's class-flavored catalog tabs on the same
+				// update. Not gated on the stat automation below: tab layout is
+				// presentation, and applyClassCatalogTabs only manages the tabs
+				// while they're still preset-generated.
+				applyClassCatalogTabs(data, this, matchedClasses);
+			}
+
+			if (matchedClasses !== null
+        && game.settings.get("archmage", "automateBaseStatsFromClass")) {
 				// Class changed, alert the user we're about to muck with the base stats
 				ui.notifications.info(game.i18n.format("ARCHMAGE.UI.classChange",
 					{ classes: ArchmageUtility.formatClassList(matchedClasses) }));

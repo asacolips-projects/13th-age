@@ -146,6 +146,11 @@ const saveTabDef = async (patch) => {
 	if (!defs.length) return;
 	const next = defs.map((def) => def.id === tabId.value ? { ...def, ...patch } : def);
 	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", next);
+	// A sort change is a customization: the class presets stop managing the
+	// tab set from here on.
+	if (typeof props.actor?.flags?.archmage?.sheetDisplay?.catalog?.presetClasses === "string") {
+		await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.presetClasses", null);
+	}
 };
 
 // Searchable text for an item: what the v2 inventory tab matches (name,
@@ -267,12 +272,17 @@ const sortFns = { name: byName, level: byLevel };
 /**
  * The tab's items of the given types in display order: 'custom' applies the
  * tab's saved row order (name order for rows it doesn't know), the other
- * modes ignore it.
+ * modes ignore it. A tab definition may also carry a filter — a map from
+ * power system field to the values that stay (the class presets use it to
+ * pin tabs to a single power source) — applied before grouping; items
+ * without the field drop out of a filtered tab.
  * @param types
  */
 const catalogItems = (types) => {
+	const filter = props.tab?.filter;
 	const items = (props.actor?.items ?? [])
 		.filter((i) => types.includes(i.type))
+		.filter((i) => !filter || Object.entries(filter).every(([key, values]) => values.includes(i.system?.[key]?.value)))
 		.filter(matchesSearch);
 	return sortBy.value === "custom"
 		? orderedRows(items, savedRowOrder.value, byName)
@@ -413,15 +423,27 @@ const addTitle = (section) => game.i18n.format("ARCHMAGE.addToGroup", {
  * the group it was added from: built-in group modes set the mode's system
  * field (e.g. system.powerUsage.value), the action mode sets the action
  * type, custom groups set the free-text group (the default group leaves it
- * empty), inventory sections just use their type.
+ * empty), inventory sections just use their type. Filtered tabs also fill
+ * their filter's fields (first listed value), so what's created there stays
+ * in the tab that created it.
  * @param section
  */
 const groupCreateData = (section) => {
 	const mode = props.tab?.groupBy;
-	if (mode === "actionType") return { type: "power", system: { actionType: { value: section.key } } };
-	if (mode === "group") return { type: "power", system: section.raw ? { group: { value: section.raw } } : {} };
-	if (GROUP_MODES[mode]) return { type: "power", system: { [mode]: { value: section.key } } };
-	return { type: section.kind, system: {} };
+	const data = { type: "power", system: {} };
+	if (mode === "actionType") data.system.actionType = { value: section.key };
+	else if (mode === "group") {
+		if (section.raw) data.system.group = { value: section.raw };
+	}
+	else if (GROUP_MODES[mode]) data.system[mode] = { value: section.key };
+	else data.type = section.kind;
+	const filter = props.tab?.filter;
+	if (data.type === "power" && filter) {
+		for (const [key, values] of Object.entries(filter)) {
+			if (key !== mode && data.system[key] === undefined) data.system[key] = { value: values[0] };
+		}
+	}
+	return data;
 };
 
 /**

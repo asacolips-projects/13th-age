@@ -35,7 +35,16 @@
 					<button type="button" :disabled="defs.length < 2" :title="localize('ARCHMAGE.removeTab')" @click="remove(def)"><i class="fas fa-times" /></button>
 				</span>
 			</div>
-			<button type="button" class="catalog-tab-add" @click="add"><i class="fas fa-plus" /> {{ localize('ARCHMAGE.addTab') }}</button>
+			<div class="catalog-tab-actions">
+				<button
+					type="button"
+					class="catalog-tab-add"
+					:disabled="!detectedClasses.length"
+					:title="localize('ARCHMAGE.resetClassTabs')"
+					@click="resetToClassPreset"
+				><i class="fas fa-rotate-left" /> {{ localize('ARCHMAGE.resetClassTabs') }}</button>
+				<button type="button" class="catalog-tab-add" @click="add"><i class="fas fa-plus" /> {{ localize('ARCHMAGE.addTab') }}</button>
+			</div>
 		</div>
 	</span>
 </template>
@@ -51,6 +60,7 @@
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
 import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
 import { CATALOG_GROUP_MODES, catalogTabDefs, catalogTabLabel } from "@/methods/CatalogTabs";
+import { classCatalogTabPreset } from "@src/module/actor/catalog-tab-presets.js";
 
 const props = defineProps(["actor"]);
 
@@ -87,10 +97,17 @@ onBeforeUnmount(() => {
 const derivedLabel = (def) => catalogTabLabel({ ...def, label: "" });
 
 /**
- * Persist a new tabs array; the sheet re-renders from the flags.
+ * Persist a new tabs array; the sheet re-renders from the flags. Any edit
+ * here is a customization, so the class presets stop managing the tab set
+ * (the presetClasses marker clears) until the reset button reapplies them.
  * @param tabs
  */
-const save = (tabs) => saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", tabs);
+const save = async (tabs) => {
+	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", tabs);
+	if (typeof props.actor?.flags?.archmage?.sheetDisplay?.catalog?.presetClasses === "string") {
+		await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.presetClasses", null);
+	}
+};
 
 const rename = (def, event) => save(defs.value.map((other) =>
 	other.id === def.id ? { ...other, label: event.target.value } : other));
@@ -121,6 +138,17 @@ const add = () => {
 	const used = new Set(defs.value.map((def) => def.groupBy));
 	const groupBy = CATALOG_GROUP_MODES.find((mode) => !used.has(mode)) ?? "group";
 	save([...defs.value, { id: foundry.utils.randomID(), label: "", groupBy, sortBy: "custom" }]);
+};
+
+// The character's detected classes, and their preset tabs — the reset
+// reapplies the class defaults over whatever the tabs have become.
+const detectedClasses = computed(() => props.actor?.system?.details?.detectedClasses ?? []);
+
+const resetToClassPreset = async () => {
+	const tabs = classCatalogTabPreset(detectedClasses.value);
+	if (!tabs.length) return;
+	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", tabs);
+	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.presetClasses", detectedClasses.value.join(","));
 };
 </script>
 
@@ -228,11 +256,24 @@ const add = () => {
     }
   }
 
+  // The popover's footer: the class-preset reset docked left, the add
+  // button right.
+  .catalog-tab-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.375rem;
+  }
+
   .catalog-tab-add {
-    align-self: flex-start;
     height: var(--input-height);
     font-size: var(--font-size-12);
     border-radius: 3px;
     background: transparent;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 </style>

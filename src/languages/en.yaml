@@ -47,6 +47,7 @@ ARCHMAGE:
   class: Class
   clear: Clear
   classFeat: Class Feat
+  classFeatsTab: Features & Talents
   combat: Combat
   Conflicted: Conflicted
   contextReroll: Reroll
@@ -187,6 +188,7 @@ ARCHMAGE:
   removeTab: Remove Tab
   rerollAcShort: Reroll vs. AC
   rerollSaveShort: Reroll Save
+  resetClassTabs: Reset Tabs to Class Defaults
   resourceful: Resourceful
   resourcefulHint: Grants one extra feat slot in the highest tier the character has reached, beyond the tier's usual cap.
   recoveryAdventurer: Potion (Adv.)
