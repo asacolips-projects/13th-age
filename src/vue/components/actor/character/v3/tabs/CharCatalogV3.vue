@@ -17,7 +17,7 @@
 					:data-tooltip="importTooltip"
 					@click="importPowers"
 				>
-					<i class="fas fa-atlas" /> {{ localize('ARCHMAGE.import') }}
+					<i class="fas fa-atlas" />
 				</button>
 			</div>
 		</SortFilterBarV3>
@@ -202,7 +202,7 @@ const kinLabel = computed(() =>
 
 const importTooltip = computed(() => missingKinClass.value
 	? game.i18n.format("ARCHMAGE.importNeedsKinClass", { kin: kinLabel.value })
-	: null);
+	: game.i18n.localize('ARCHMAGE.import'));
 
 // The button pulses while the character has no items, advertising where a
 // new character's powers come from.

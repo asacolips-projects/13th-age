@@ -1,8 +1,6 @@
 import { ArchmageUtility } from "../setup/utility-classes.js";
 import { MacroUtils } from "../setup/utility-classes.js";
 import { DiceArchmage } from "./dice.js";
-import { applyClassCatalogTabs } from "./catalog-tab-presets.js";
-
 /**
  * Extend the base Actor class to implement additional logic specialized for the system.
  */
@@ -2778,12 +2776,6 @@ export class ActorArchmage extends Actor {
 				) {
 					return;
 				}
-
-				// Regenerate the V3 sheet's class-flavored catalog tabs on the same
-				// update. Not gated on the stat automation below: tab layout is
-				// presentation, and applyClassCatalogTabs only manages the tabs
-				// while they're still preset-generated.
-				applyClassCatalogTabs(data, this, matchedClasses);
 			}
 
 			if (matchedClasses !== null

@@ -1,18 +1,14 @@
 /**
  * Class-flavored catalog tab presets for the V3 sheet.
  *
- * When a character's class changes, `_preUpdate` regenerates the sheet's
- * catalog tab set (sheetDisplay.catalog.tabs) from these recipes — the same
- * update that recalculates base stats from the class. Import-free on purpose:
- * both bundles load this file (the module scripts copy it raw, the Vue bundle
- * inlines it), so it may only touch runtime globals like CONFIG and game.
- *
- * Presets are only written over a tab set this feature manages: the
- * `sheetDisplay.catalog.presetClasses` marker (a comma-joined list of the
- * detected class keys the current tabs were generated for, "" = none yet).
- * Any customization through the tab settings popover clears the marker to
- * null, and a missing or null marker means the user owns the tabs — the
- * settings popover's reset button re-applies the preset on demand.
+ * These recipes are the default tab set for a character with detected
+ * classes: `catalogTabDefs` falls back to them when no tab set is stored
+ * yet, and the one-time tab migration seeds them as the stored flags.
+ * They are applied once — the stored tab set is never rewritten afterward,
+ * so changing a character's class doesn't touch the tabs. Import-free on
+ * purpose: both bundles load this file (the module scripts copy it raw, the
+ * Vue bundle inlines it), so it may only touch runtime globals like CONFIG
+ * and game.
  */
 
 /**
@@ -112,35 +108,4 @@ export function classCatalogTabPreset(matchedClasses) {
 		if (!usedIds.has(id)) tabs.push({ id, label, groupBy, sortBy: "custom" });
 	}
 	return tabs;
-}
-
-/**
- * Ride a class-change update (the `_preUpdate` branch that also recalculates
- * base stats) with a regenerated tab preset. Only manages the tab set while
- * it is still preset-generated: the stored marker must be a string, and it
- * must name a different class list than the new one.
- *
- * The whole sheetDisplay flag is rewritten (copied from the actor's current
- * flags with only the catalog's tabs and marker swapped) so the update
- * carries complete data no matter how Foundry expands it.
- *
- * @param {object} data The pending update data, mutated in place.
- * @param {object} actor The actor document being updated.
- * @param {string[]} matchedClasses The newly detected class keys.
- * @returns {undefined}
- */
-export function applyClassCatalogTabs(data, actor, matchedClasses) {
-	const catalog = actor?.flags?.archmage?.sheetDisplay?.catalog;
-	if (typeof catalog?.presetClasses !== "string") return;
-	const key = matchedClasses.join(",");
-	if (catalog.presetClasses === key) return;
-	const sheetDisplay = foundry.utils.duplicate(actor.flags.archmage.sheetDisplay ?? {});
-	sheetDisplay.catalog = {
-		...sheetDisplay.catalog,
-		tabs: classCatalogTabPreset(matchedClasses),
-		presetClasses: key
-	};
-	data.flags ??= {};
-	data.flags.archmage ??= {};
-	data.flags.archmage.sheetDisplay = sheetDisplay;
 }

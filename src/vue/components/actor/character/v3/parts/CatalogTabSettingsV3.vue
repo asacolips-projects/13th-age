@@ -10,8 +10,9 @@
 			<i class="fas fa-ellipsis-vertical" />
 		</button>
 		<!-- One popover for the whole tab set: rename each tab, drag the grip
-       to reorder, add or remove (one tab minimum). Empty names fall back to
-       the derived label, shown as the input's placeholder. -->
+       to reorder, add or remove (one tab minimum). An empty name makes the
+       tab fall back to its derived label; the input's placeholder is a
+       plain "Title" prompt. -->
 		<div v-if="open" class="catalog-tabs-popover" @click.stop>
 			<div
 				v-for="def in defs"
@@ -33,7 +34,7 @@
 					type="text"
 					class="row-label"
 					:value="def.label"
-					:placeholder="derivedLabel(def)"
+					:placeholder="localize('ARCHMAGE.title')"
 					@change="rename(def, $event)"
 				>
 				<span class="row-actions">
@@ -58,7 +59,7 @@
  */
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
 import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
-import { catalogTabDefs, catalogTabLabel } from "@/methods/CatalogTabs";
+import { catalogTabDefs } from "@/methods/CatalogTabs";
 
 const props = defineProps(["actor"]);
 
@@ -89,8 +90,6 @@ onBeforeUnmount(() => {
 	document.removeEventListener("click", onDocClick);
 	document.removeEventListener("keydown", onDocKeydown);
 });
-
-const derivedLabel = (def) => catalogTabLabel({ ...def, label: "" });
 
 /**
  * Persist a new tabs array; the sheet re-renders from the flags.
