@@ -5,7 +5,7 @@
 			<li v-for="background in backgrounds" :key="background.key">
 				<button v-if="!editing" class="background-button" type="button" @click="rollBackground(background.name)">
 					<span class="background-bonus">{{ formatBonus(background.bonus) }}</span>
-					{{ background.name }}
+					<span class="background-name">{{ background.name }}</span>
 				</button>
 				<div v-else class="background-edit">
 					<input
@@ -91,10 +91,26 @@ function rollBackground(name) {
 
 .background-button {
   width: 100%;
+  /* Foundry core clamps every `button` to a single-line box via
+     height/min-height: var(--button-size). Keep the 2em floor so one-line
+     rows are unchanged, but let the button grow when the name wraps. */
+  height: auto;
+  min-height: var(--button-size);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  text-align: left;
 }
 
 .background-bonus {
-  text-align: right;
+  flex: 0 0 auto;
+  min-width: 2ch;
+}
+
+.background-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
 }
 
 .background-edit {
