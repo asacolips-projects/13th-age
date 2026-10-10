@@ -1,13 +1,37 @@
 <template>
 	<section class="tab-catalog">
-		<!-- Sorts, filters, the group-by select and the import button. -->
+		<!-- The ellipsis (grouping/sorting popover), the filter entry and the
+       import button. -->
 		<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
-			<div class="group-catalog">
-				<label :for="concat('catalog-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
-				<select :id="concat('catalog-group-', tabId)" v-model="groupBy" :name="concat('catalog-group-', tabId)">
-					<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
-				</select>
-			</div>
+			<!-- Ellipsis, opening the popover that holds this tab's grouping
+         and sorting selects. -->
+			<template #sort>
+				<span class="view-catalog">
+					<button
+						type="button"
+						class="catalog-view"
+						:class="{ 'catalog-view--open': openView }"
+						:data-tooltip="localize('ARCHMAGE.groupAndSort')"
+						@click.stop="openView = !openView"
+					>
+						<i class="fas fa-ellipsis-vertical" />
+					</button>
+					<div v-if="openView" class="view-catalog-popover" @click.stop>
+						<div class="group-catalog">
+							<label :for="concat('catalog-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
+							<select :id="concat('catalog-group-', tabId)" v-model="groupBy" :name="concat('catalog-group-', tabId)">
+								<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
+							</select>
+						</div>
+						<div class="group-catalog">
+							<label :for="concat('catalog-sort-', tabId)">{{ localize('ARCHMAGE.sort') }}</label>
+							<select :id="concat('catalog-sort-', tabId)" v-model="sortBy" :name="concat('catalog-sort-', tabId)">
+								<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
+							</select>
+						</div>
+					</div>
+				</span>
+			</template>
 			<div v-if="canImport" class="import-catalog">
 				<button
 					type="button"
@@ -72,7 +96,7 @@
 </template>
 
 <script setup>
-import { computed, inject } from "vue";
+import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
 import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, isSecondEdition, localize, orderedGroups, saveSheetDisplayPref, TIER_ORDER } from "@/methods/Helpers";
 import { useGroupReorder } from "@/composables/useGroupReorder";
 import { useSearchFilter } from "@/composables/useSearchFilter";
@@ -142,6 +166,28 @@ const groupBy = computed({
 const sortBy = computed({
 	get: () => props.tab?.sortBy ?? "custom",
 	set: (value) => saveTabDef({ sortBy: value })
+});
+
+// The grouping/sorting popover's open state is transient; a document click
+// outside the ellipsis or Escape closes it.
+const openView = ref(false);
+
+const onDocClick = (event) => {
+	if (openView.value && !event.target.closest?.(".view-catalog")) openView.value = false;
+};
+
+const onDocKeydown = (event) => {
+	if (event.key === "Escape") openView.value = false;
+};
+
+onMounted(() => {
+	document.addEventListener("click", onDocClick);
+	document.addEventListener("keydown", onDocKeydown);
+});
+
+onBeforeUnmount(() => {
+	document.removeEventListener("click", onDocClick);
+	document.removeEventListener("keydown", onDocKeydown);
 });
 
 // Searchable text for an item: what the v2 inventory tab matches (name,
@@ -369,15 +415,69 @@ const createGroupItem = async (section) => {
 </script>
 
 <style scoped lang="scss">
-  // The group-by control slotted into the shared sort/filter bar: styled
-  // like the bar's own controls, whose scoped rules don't reach slot content.
-  .group-catalog {
-    flex: 0 auto;
+  // The ellipsis and its grouping/sorting popover, docked at the bar's
+  // start (in the bar's #sort slot, ahead of the filter entry).
+  .view-catalog {
+    position: relative;
+    flex: 0 0 auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+  }
 
-    label {
-      display: block;
-      width: 100%;
-      font-weight: bold;
+  .catalog-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: var(--font-size-14);
+    line-height: 1;
+    color: var(--color-text-secondary);
+    cursor: var(--cursor-pointer);
+
+    &:hover {
+      color: var(--color-text-primary);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+    }
+
+    // Lit while its popover is open, like the tab strip's settings menu.
+    &.catalog-view--open {
+      color: var(--color-text-emphatic);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+    }
+  }
+
+  .view-catalog-popover {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    width: 12rem;
+    padding: 0.5rem 0.625rem;
+    background: var(--v3-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 8px var(--c-black--50);
+
+    // The group and sort selects, styled like the bar's own controls,
+    // whose scoped rules don't reach slot content.
+    .group-catalog {
+      label {
+        display: block;
+        width: 100%;
+        font-weight: bold;
+      }
+
+      select {
+        width: 100%;
+      }
     }
   }
 
