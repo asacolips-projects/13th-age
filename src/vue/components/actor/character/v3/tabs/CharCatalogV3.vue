@@ -1,10 +1,10 @@
 <template>
 	<section class="tab-catalog">
-		<!-- The ellipsis (grouping/sorting popover), the filter entry and the
-       import button. -->
+		<!-- The ellipsis (grouping/sorting/filtering popover), the filter entry
+       and the import button. -->
 		<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
 			<!-- Ellipsis, opening the popover that holds this tab's grouping
-         and sorting selects. -->
+         and sorting selects and its filter chips. -->
 			<template #sort>
 				<span class="view-catalog">
 					<button
@@ -15,19 +15,57 @@
 						@click.stop="openView = !openView"
 					>
 						<i class="fas fa-ellipsis-vertical" />
+						<span v-if="activeFilterCount" class="catalog-view-count">{{ activeFilterCount }}</span>
 					</button>
 					<div v-if="openView" class="view-catalog-popover" @click.stop>
-						<div class="group-catalog">
-							<label :for="concat('catalog-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
-							<select :id="concat('catalog-group-', tabId)" v-model="groupBy" :name="concat('catalog-group-', tabId)">
-								<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
-							</select>
+						<!-- Group and sort share the top row, a column each. -->
+						<div class="group-sort-row">
+							<div class="group-catalog">
+								<label :for="concat('catalog-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
+								<select :id="concat('catalog-group-', tabId)" v-model="groupBy" :name="concat('catalog-group-', tabId)">
+									<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
+								</select>
+							</div>
+							<div class="group-catalog">
+								<label :for="concat('catalog-sort-', tabId)">{{ localize('ARCHMAGE.sort') }}</label>
+								<select :id="concat('catalog-sort-', tabId)" v-model="sortBy" :name="concat('catalog-sort-', tabId)">
+									<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
+								</select>
+							</div>
 						</div>
-						<div class="group-catalog">
-							<label :for="concat('catalog-sort-', tabId)">{{ localize('ARCHMAGE.sort') }}</label>
-							<select :id="concat('catalog-sort-', tabId)" v-model="sortBy" :name="concat('catalog-sort-', tabId)">
-								<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
-							</select>
+						<!-- Filter facets: chips for the values this character's
+             items actually carry plus its groups' canonical values, OR
+             within a row and AND across rows (and with the search).
+             Cleared as a whole; persisted per tab like group and sort. -->
+						<div class="filter-catalog">
+							<div class="filter-head">
+								<h4 class="filter-title">
+									<span>{{ localize('ARCHMAGE.filters') }}</span>
+									<InfoBubble :tooltip="localize('ARCHMAGE.filterHint')" />
+								</h4>
+								<button v-if="filtersActive" type="button" class="filter-clear" @click="clearFilters">{{ localize('ARCHMAGE.clearFilters') }}</button>
+							</div>
+							<div v-for="row in facetRows" :key="row.key" class="facet-row">
+								<span class="facet-row-label">
+									<span>{{ localize(row.labelKey) }}</span>
+									<button
+										type="button"
+										class="facet-all"
+										:class="{ 'facet-all--on': row.allActive }"
+										@click="toggleAllFilters(row.key)"
+									>{{ localize('ARCHMAGE.all') }}</button>
+								</span>
+								<div class="facet-row-chips">
+									<button
+										v-for="chip in row.chips"
+										:key="chip.value"
+										type="button"
+										class="facet-chip"
+										:class="{ 'facet-chip--on': chip.active, 'facet-chip--empty': chip.empty, 'facet-chip--hide': row.key === 'sections' }"
+										@click="toggleFilter(row.key, chip.value)"
+									>{{ chip.label }}</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</span>
@@ -67,18 +105,20 @@
 				<span class="group-title-label">{{ localize(section.labelKey) }}</span>
 				<a v-if="editable && section.kind !== 'currency'" class="group-add" :title="addTitle(section)" @click.stop="createGroupItem(section)"><i class="fas fa-plus" /></a>
 			</h4>
-			<!-- Coin purses, matching the v2 inventory tab; the named inputs
-           persist via the sheet's submitOnChange, like the resource units
-           in the stats header. -->
+			<!-- Coin purses, matching the v2 inventory tab. Deliberately
+           nameless inputs persisting through the live actor document on
+           change: every mounted catalog tab renders this row, and named
+           copies would make the sheet's form submit collect each field
+           twice as an array. -->
 			<div v-if="section.kind === 'currency'" class="catalog-currency flexrow">
 				<div v-for="type in CURRENCY" :key="type" :class="concat('currency-unit currency-unit-', type)">
-					<label :for="concat('catalog-coin-', type)">{{ localize(`ARCHMAGE.COINS.${type}`) }}</label>
+					<label :for="concat('catalog-coin-', tabId, '-', type)">{{ localize(`ARCHMAGE.COINS.${type}`) }}</label>
 					<input
-						:id="concat('catalog-coin-', type)"
-						v-model="coins[type].value"
+						:id="concat('catalog-coin-', tabId, '-', type)"
+						:value="coinValue(type)"
 						type="number"
-						:name="concat('system.coins.', type, '.value')"
 						placeholder="0"
+						@change="setCoin(type, $event)"
 					>
 				</div>
 			</div>
@@ -98,10 +138,12 @@
 <script setup>
 import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
 import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, isSecondEdition, localize, orderedGroups, saveSheetDisplayPref, TIER_ORDER } from "@/methods/Helpers";
+import { ACTION_ORDER, GROUP_MODES, useFacetFilters } from "@/composables/useFacetFilters";
 import { useGroupReorder } from "@/composables/useGroupReorder";
 import { useSearchFilter } from "@/composables/useSearchFilter";
 import SortFilterBarV3 from "@/components/actor/character/v3/parts/SortFilterBarV3.vue";
 import ExpandableRowV3 from "@/components/actor/character/v3/parts/ExpandableRowV3.vue";
+import InfoBubble from "@/components/parts/InfoBubble.vue";
 
 const props = defineProps(["actor", "editable", "context", "tab"]);
 
@@ -112,19 +154,6 @@ const actorDocument = inject("actorDocument");
 // tab renders the same list, and duplicate name= attributes would make the
 // sheet's form submit collect each field twice.
 const tabId = computed(() => props.tab?.id ?? "catalog");
-
-// Grouping modes: the item field each reads. The power field modes also name
-// the CONFIG key giving their canonical group order.
-const GROUP_MODES = {
-	actionType: { field: "actionType" },
-	powerType: { field: "powerType", config: "powerTypes" },
-	powerUsage: { field: "powerUsage", config: "powerUsages" },
-	powerSource: { field: "powerSource", config: "powerSources" },
-	group: { field: "group" }
-};
-
-// Display order for the action grouping; the catch-all group trails it.
-const ACTION_ORDER = ["standard", "move", "quick", "free", "interrupt"];
 
 const groupOptions = [
 	{ value: "actionType" },
@@ -212,6 +241,26 @@ const { searchValue, matchesSearch } = useSearchFilter((item) => {
 	return text;
 });
 
+// Filter facets: the popover's chip rows and the matcher the listing filters
+// through come from the shared composable; the chip selections persist per
+// tab like group and sort, through this tab's definition patcher.
+const {
+	facetRows, activeFilters, activeFilterCount, filtersActive, hiddenSections, matchesFilters, toggleFilter, toggleAllFilters, clearFilters
+} = useFacetFilters({
+	items: () => props.actor?.items ?? [],
+	filters: () => props.tab?.filters ?? {},
+	save: (filters) => saveTabDef({ filters })
+});
+
+// Section keys the active chips hold open: an empty group whose chip is
+// selected still renders, so its add button stays reachable for filling it.
+// The chips of the tab's own grouping mode name its sections directly, and
+// a selected loot chip holds the loot group open whatever the mode.
+const keptSections = computed(() => new Set([
+	...(activeFilters.value[groupBy.value] ?? []),
+	...(activeFilters.value.type.includes("loot") ? ["inventory-loot"] : [])
+]));
+
 // Group reordering is only offered when the sheet is editable and the actor
 // isn't a compendium entry (where flags can't be written).
 const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
@@ -255,11 +304,36 @@ const importTooltip = computed(() => missingKinClass.value
 const isEmptyCharacter = computed(() => (props.actor?.items ?? []).length === 0);
 
 // Coin purses edited in place, like the v2 inventory tab's currency strip;
-// the character settings flag hides the whole row. The named inputs persist
-// through the sheet's submitOnChange, like the stats header's resource units.
+// the character settings flag hides the whole row.
 const CURRENCY = ["platinum", "gold", "silver", "copper"];
 const showCurrency = computed(() => props.actor?.flags?.archmage?.hideCurrency !== true);
 const coins = computed(() => props.actor?.system?.coins ?? {});
+
+/**
+ * A purse's value, read defensively: the stored shape is coins.<type>.value,
+ * but the template defaults a fresh actor's coins to plain numbers and
+ * actors hit by the duplicate-name submit bug carry arrays there — nothing
+ * a number input can display, so anything non-numeric reads as empty.
+ * @param type
+ */
+const coinValue = (type) => {
+	const stored = coins.value?.[type];
+	const raw = stored && typeof stored === "object" ? stored.value : stored;
+	const num = Number(raw);
+	return raw === null || raw === undefined || raw === "" || !Number.isFinite(num) ? null : num;
+};
+
+/**
+ * Persist a purse through the real actor document on change, like the
+ * loadout's tracker inputs — not through the sheet's named-input submit,
+ * which every mounted catalog tab would join.
+ * @param type
+ * @param event
+ */
+const setCoin = async (type, event) => {
+	const num = Number(event.target.value);
+	await actorDocument?.update({ [`system.coins.${type}.value`]: Number.isFinite(num) ? num : 0 });
+};
 
 // The static gathers the import data and opens the one-per-actor importer
 // window; it ignores pack actors and falsy actors itself.
@@ -282,6 +356,7 @@ const sortFns = { name: byName, level: byLevel, custom: byCustom };
 const catalogItems = (types) => (props.actor?.items ?? [])
 	.filter((i) => types.includes(i.type))
 	.filter(matchesSearch)
+	.filter(matchesFilters)
 	.sort(sortFns[sortBy.value] ?? byName);
 
 // The items the group-by mode collates: powers and equipment by their field
@@ -323,10 +398,12 @@ const groupLabel = (mode, key) => mode === "powerType" ? `ARCHMAGE.${key}s` : `A
  * Every catalog section in display order: the mode's canonical groups, the
  * 'Other' catch-all for items that fell through, then the loot and currency
  * groups. Collating is by field value only — an item joins the canonical
- * group its value names, or the catch-all — and every group renders, empty
- * or not; filtering groups is left to the tab's own (user-configurable)
- * filter. Group order is per tab and mode, shared by power groups, the
- * catch-all, loot and currency alike.
+ * group its value names, or the catch-all — and while the list is unfiltered
+ * every group renders, empty or not, keeping its add button reachable; once
+ * the search or the chip filters are active, groups nothing matched drop
+ * out. The sections facet's hide-chips drop the catch-all and the currency
+ * strip on this tab outright. Group order is per tab and mode, shared by
+ * power groups, the catch-all, loot and currency alike.
  */
 const catalogSections = computed(() => {
 	const mode = groupBy.value;
@@ -365,11 +442,20 @@ const catalogSections = computed(() => {
 
 	const sections = [
 		...groups.values(),
-		other,
+		...(hiddenSections.value.has("other") ? [] : [other]),
 		{ key: "inventory-loot", labelKey: "ARCHMAGE.INVENTORY.loot", kind: "loot", members: loot.value },
-		...(showCurrency.value ? [{ key: "inventory-currency", labelKey: "ARCHMAGE.INVENTORY.currency", kind: "currency", members: [] }] : [])
+		...(showCurrency.value && !hiddenSections.value.has("currency")
+			? [{ key: "inventory-currency", labelKey: "ARCHMAGE.INVENTORY.currency", kind: "currency", members: [] }]
+			: [])
 	];
-	return orderedGroups(sections, savedGroupOrder.value);
+	// The currency strip never carries members, so it is exempt from the
+	// empty-group hiding, as are the sections the active chips hold open.
+	const visible = (filtersActive.value || searchValue.value)
+		? sections.filter((section) => section.kind === "currency"
+			|| section.members.length > 0
+			|| keptSections.value.has(section.key))
+		: sections;
+	return orderedGroups(visible, savedGroupOrder.value);
 });
 
 /**
@@ -429,6 +515,7 @@ const createGroupItem = async (section) => {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     padding: 0.25rem;
     background: none;
     border: none;
@@ -449,6 +536,23 @@ const createGroupItem = async (section) => {
       color: var(--color-text-emphatic);
       text-shadow: 0 0 10px var(--color-shadow-primary);
     }
+
+    // Filter count badge: chips can hide list content while the popover is
+    // closed, so the closed ellipsis carries the number of active chips.
+    .catalog-view-count {
+      position: absolute;
+      top: -0.3rem;
+      right: -0.4rem;
+      min-width: 1em;
+      padding: 0 0.25em;
+      border-radius: 1em;
+      background: var(--v3-hint);
+      color: var(--c-black);
+      font-size: var(--font-size-10);
+      font-weight: bold;
+      line-height: 1.3;
+      text-align: center;
+    }
   }
 
   .view-catalog-popover {
@@ -459,24 +563,182 @@ const createGroupItem = async (section) => {
     display: flex;
     flex-direction: column;
     gap: 0.375rem;
-    width: 12rem;
+    width: 24rem;
     padding: 0.5rem 0.625rem;
     background: var(--v3-surface);
     border: 1px solid var(--color-border);
     border-radius: 0.25rem;
     box-shadow: 0 2px 8px var(--c-black--50);
 
-    // The group and sort selects, styled like the bar's own controls,
-    // whose scoped rules don't reach slot content.
-    .group-catalog {
-      label {
-        display: block;
-        width: 100%;
+    // The group and sort selects share the top row, a labelled column
+    // each; styled like the bar's own controls, whose scoped rules don't
+    // reach slot content.
+    .group-sort-row {
+      display: flex;
+      gap: 0.375rem;
+
+      .group-catalog {
+        flex: 1;
+        min-width: 0;
+
+        label {
+          display: block;
+          width: 100%;
+          font-weight: bold;
+        }
+
+        select {
+          width: 100%;
+        }
+      }
+    }
+
+    // The filter facet rows, under a dashed rule matching the bar's own
+    // divider: a bold label and a wrap of toggle chips each.
+    .filter-catalog {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      padding-top: 0.375rem;
+      border-top: 1px dashed var(--color-border);
+
+      .filter-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        // The filter heading, an h4 for a bit more division than a plain
+        // label, with its hint bubble grouped at the row's start.
+        h4.filter-title {
+          margin: 0;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: var(--font-size-16);
+          font-weight: bold;
+        }
+      }
+
+      .filter-clear {
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: inherit;
+        color: var(--color-text-secondary);
+        text-decoration: underline;
+        cursor: var(--cursor-pointer);
+
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
+      }
+
+      .facet-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .facet-row-label {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
         font-weight: bold;
       }
 
-      select {
-        width: 100%;
+      // The row's select-all widget, styled like the clear button.
+      .facet-all {
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: inherit;
+        font-weight: normal;
+        color: var(--color-text-secondary);
+        text-decoration: underline;
+        cursor: var(--cursor-pointer);
+
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
+
+        // Lit while the row's every chip is active, like the chips themselves.
+        &.facet-all--on {
+          color: var(--color-text-emphatic);
+          text-shadow: 0 0 5px var(--color-shadow-primary);
+        }
+      }
+
+      .facet-row-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+      }
+
+      .facet-chip {
+        padding: 0.125rem 0.5rem;
+        border: 1px solid var(--color-border);
+        border-radius: 1rem;
+        background: var(--v3-chip-bg);
+        font-size: inherit;
+        line-height: 1.3;
+        color: var(--color-text-secondary);
+        cursor: var(--cursor-pointer);
+
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
+
+        // On chips light up like the open ellipsis does.
+        &.facet-chip--on {
+          border-color: currentcolor;
+          color: var(--color-text-emphatic);
+          text-shadow: 0 0 5px var(--color-shadow-primary);
+        }
+
+        // A chip no item carries: the dashed outline and dimmed label mark
+        // the group as empty — toggling one just holds its section open
+        // for adding to. Interaction and a held-open selection restore
+        // full legibility.
+        &.facet-chip--empty {
+          border-style: dashed;
+          opacity: 0.6;
+
+          &:hover,
+          &.facet-chip--on {
+            opacity: 1;
+          }
+        }
+
+        // The hide row's chips drop whole sections rather than narrowing
+        // items: a muted hint of the negative accent sets them apart from
+        // the filter facets without shouting. The wash stays behind
+        // theme-appropriate text so the chip reads on parchment and dark
+        // glass alike.
+        &.facet-chip--hide {
+          border-color: rgba(224, 22, 22, 0.4);
+          background: rgba(224, 22, 22, 0.05);
+
+          // Lit while its section is hidden: only then does the accent
+          // come fully out — solid border, deeper wash, and the label in
+          // the dark theme's lighter fail red over the raw negative red.
+          &.facet-chip--on {
+            border-color: var(--v3-negative);
+            background: rgba(224, 22, 22, 0.16);
+            color: var(--c-fail);
+            text-shadow: none;
+
+            .theme-light & {
+              color: var(--v3-negative);
+            }
+          }
+        }
       }
     }
   }

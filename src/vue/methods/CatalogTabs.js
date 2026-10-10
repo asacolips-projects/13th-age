@@ -6,14 +6,16 @@ import { classCatalogTabPreset } from "@src/module/actor/catalog-tab-presets.js"
  * flags:
  *
  *   sheetDisplay.catalog: {
- *     tabs: [{ id, label, groupBy, sortBy, filter? }, ...]   // at least one
+ *     tabs: [{ id, label, groupBy, sortBy, filter?, filters? }, ...]   // at least one
  *     groupOrder: { <tabId>: { <groupBy>: [keys] } }
  *     rowOrder:   { <tabId>: [itemIds] }
  *   }
  *
  * Each tab groups and sorts independently, and its saved group/row orders
  * key off the tab's id. An optional filter restricts the tab to items whose
- * power system fields match (e.g. the class presets' `powerSource: ["class"]`).
+ * power system fields match (e.g. the class presets' `powerSource: ["class"]`);
+ * the optional filters hold the tab's own chip selections (see
+ * sanitizeTabFilters).
  */
 
 // Group-by modes a user tab can take, in the settings popover's order.
@@ -49,14 +51,35 @@ function sanitizeTabFilter(filter) {
 	return Object.keys(clean).length ? clean : undefined;
 }
 
+// Chip dimensions a tab's own filters may select, matching the catalog
+// popover's facet rows — item values plus the sections row, whose chips
+// filter the catch-all group and currency strip out per tab.
+const CHIP_FILTER_KEYS = ["type", "powerType", "powerUsage", "powerSource", "actionType", "group", "sections"];
+
+/**
+ * Sanitize the tab's stored chip selections down to whitelisted dimensions
+ * with string arrays.
+ * @param {object} filters The stored chip filters, if any.
+ * @returns {object|undefined} The clean filters, or undefined when empty.
+ */
+function sanitizeTabFilters(filters) {
+	if (!filters || typeof filters !== "object") return undefined;
+	const clean = {};
+	for (const key of CHIP_FILTER_KEYS) {
+		const values = Array.isArray(filters[key]) ? filters[key].filter((v) => typeof v === "string") : [];
+		if (values.length) clean[key] = values;
+	}
+	return Object.keys(clean).length ? clean : undefined;
+}
+
 /**
  * The actor's catalog tab definitions: the stored sheetDisplay.catalog.tabs
  * flags with missing fields backfilled, or defaults when nothing is stored
  * yet — the class presets for a character with detected classes (covering
  * pack actors too, whose flags can't be written), a single "Catalog" tab
  * for a PC the v2 sheet has never touched, otherwise "Items by Type" from
- * the legacy powers flags the v2 sheet still owns and "Items by Action"
- * from the retired action plan's. Unmigrated actors get the derivation
+ * the legacy powers flags the v2 sheet still owns and "Items by Action" from
+ * the retired action plan's. Unmigrated actors get the derivation
  * fresh on every render, since their flags can't be written.
  * @param actorData
  */
@@ -74,6 +97,8 @@ export function catalogTabDefs(actorData) {
 				};
 				const filter = sanitizeTabFilter(def.filter);
 				if (filter) clean.filter = filter;
+				const filters = sanitizeTabFilters(def.filters);
+				if (filters) clean.filters = filters;
 				return clean;
 			});
 		if (defs.length) return defs;

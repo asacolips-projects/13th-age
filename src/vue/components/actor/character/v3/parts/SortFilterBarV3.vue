@@ -11,7 +11,6 @@
 			</div>
 		</slot>
 		<div class="search-control">
-			<label :for="concat(id, '-filter')">{{ localize('ARCHMAGE.filter') }}</label>
 			<div class="search-input">
 				<input v-model="search" type="text" :name="concat(id, '-filter')" :placeholder="localize('ARCHMAGE.filterName')">
 				<button
