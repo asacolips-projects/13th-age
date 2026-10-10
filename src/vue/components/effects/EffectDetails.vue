@@ -27,10 +27,24 @@
 			</select>
 		</div>
 	</div>
+
+	<div v-if="isSaveEnds" class="form-group">
+		<label>{{ localize("ARCHMAGE.SAVE.dc") }}</label>
+		<div class="form-fields">
+			<input
+				v-model="viewModel.saveDC"
+				type="number"
+				min="1"
+				step="1"
+				:placeholder="defaultSaveDC"
+			>
+		</div>
+		<p class="hint">{{ localize("ARCHMAGE.SAVE.dcHint") }}</p>
+	</div>
 </template>
 
 <script setup>
-import { reactive, watch, inject } from "vue";
+import { reactive, watch, inject, computed } from "vue";
 import { localize } from "@/methods/Helpers";
 
 const props = defineProps(["effect", "context"]);
@@ -41,8 +55,11 @@ const viewModel = reactive({
 	origin: effect.origin,
 	disabled: effect.disabled,
 	stacksAlways: effect.flags.archmage?.stacksAlways ?? false,
-	duration: effect.flags.archmage?.duration ?? null
+	duration: effect.flags.archmage?.duration ?? null,
+	saveDC: effect.flags.archmage?.saveDC ?? ""
 });
+const defaultSaveDC = computed(() => game.archmage.MacroUtils.SAVE_ENDS_TARGETS[viewModel.duration]);
+const isSaveEnds = computed(() => !!defaultSaveDC.value);
 watch(viewModel, (newValue) => {
 	foundryEffect.update({
 		origin: newValue.origin,
@@ -51,5 +68,9 @@ watch(viewModel, (newValue) => {
 
 	foundryEffect.setFlag("archmage", "stacksAlways", newValue.stacksAlways);
 	foundryEffect.setFlag("archmage", "duration", newValue.duration);
+	// Only save ends durations carry a DC, blank means the duration's default.
+	const saveDC = Number(newValue.saveDC);
+	if (isSaveEnds.value && newValue.saveDC !== "" && Number.isFinite(saveDC)) foundryEffect.setFlag("archmage", "saveDC", saveDC);
+	else if (foundryEffect.flags.archmage?.saveDC !== undefined) foundryEffect.unsetFlag("archmage", "saveDC");
 }, { deep: true });
 </script>

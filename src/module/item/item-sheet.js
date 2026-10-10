@@ -64,7 +64,7 @@ export class ItemArchmageSheet extends foundry.appv1.sheets.ItemSheet {
 		context.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		for (let [index, effect] of context.effects.entries()) {
 			context.effects[index].duration = effect.flags?.archmage?.duration
-				? game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration])
+				? game.archmage.MacroUtils.getDurationLabel(effect)
 				: false;
 			context.effects[index].ongoingDamage = effect.flags?.archmage?.ongoingDamage
 				? `${roundOngoingDamage(effect.flags.archmage.ongoingDamage)} ongoing ${effect.flags.archmage.ongoingDamageType} damage`

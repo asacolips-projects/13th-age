@@ -650,8 +650,10 @@ Hooks.once("init", async function () {
 Hooks.on("ready", () => {
 	// Precompile regexps
 	// Do it after ready to wait for localization to load
-	CONFIG.ARCHMAGE.REGEXP.ONGOING_DAMAGE = new RegExp(`(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\\/i>)*(-?\\d+)(<\\/a>)* ${game.i18n.localize("ARCHMAGE.ongoing")} ([a-zA-Z]*) ?${game.i18n.localize("ARCHMAGE.damage")}(?:\\s*\\((\\w*) ?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}(?:, \\d*\\+)?\\))?`, "ig");
-	// /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage(?:\s*\((\w*) ?save ends(?:, \d*\+)?\))?/ig
+	// A custom save DC like ", 14+", either plain or as an evaluated inline roll
+	const saveDC = `(?:<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\\/i>)?(\\d+)(?:<\\/a>)?\\+`;
+	CONFIG.ARCHMAGE.REGEXP.ONGOING_DAMAGE = new RegExp(`(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\\/i>)*(-?\\d+)(<\\/a>)* ${game.i18n.localize("ARCHMAGE.ongoing")} ([a-zA-Z]*) ?${game.i18n.localize("ARCHMAGE.damage")}(?:\\s*\\((\\w*) ?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}(?:,\\s*${saveDC})?\\))?`, "ig");
+	// /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(-?\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage(?:\s*\((\w*) ?save ends(?:,\s*(?:<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)?(\d+)(?:<\/a>)?\+)?\))?/ig
 	CONFIG.ARCHMAGE.REGEXP.CONDITIONS = new Map(
 		CONFIG.ARCHMAGE.statusEffects.filter((x) => x.journal).map((x) => {
 			const localizedName = game.i18n.localize(x.name);
@@ -659,7 +661,7 @@ Hooks.on("ready", () => {
 				localizedName,
 				[
 					x,
-					new RegExp(`\\*?\\b(${localizedName})\\b\\*?(?:\\s*\\(?(\\w*\\s?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}|${game.i18n.localize("ARCHMAGE.DURATION.NextTurnFilter")})(?:,\\s\\d*\\+)?\\)?)?`, "ig")
+					new RegExp(`\\*?\\b(${localizedName})\\b\\*?(?:\\s*\\(?(\\w*\\s?${game.i18n.localize("ARCHMAGE.DURATION.SaveEnds")}|${game.i18n.localize("ARCHMAGE.DURATION.NextTurnFilter")})(?:,\\s*${saveDC})?\\)?)?`, "ig")
 				]
 			];
 		})
@@ -885,6 +887,7 @@ Hooks.once("ready", async () => {
 		if (dataset.damageType) data.damageType = dataset.damageType;
 		if (dataset.value) data.value = dataset.value;
 		if (dataset.ends) data.ends = dataset.ends;
+		if (dataset.dc) data.dc = dataset.dc;
 		if (dataset.source) data.source = dataset.source;
 		if (dataset.tooltip) data.tooltip = dataset.tooltip;
 		if (dataset.name) data.name = dataset.name;
@@ -1359,7 +1362,7 @@ async function _applyAE(actor, data) {
 			statusEffect.statuses = [statusEffect.id];
 			statusEffect.duration = ends;
 
-			return await _applyAEDurationDialog(actor, statusEffect, ends, data.source, data.type);
+			return await _applyAEDurationDialog(actor, statusEffect, ends, data.source, data.type, data.dc);
 		}
 
 		// Just a generic condition, transfer the name
@@ -1369,7 +1372,7 @@ async function _applyAE(actor, data) {
 			origin: data.source,
 			duration: ends
 		};
-		return await _applyAEDurationDialog(actor, effectData, ends, data.source, data.type);
+		return await _applyAEDurationDialog(actor, effectData, ends, data.source, data.type, data.dc);
 
 	}
 	else if (data.type === "effect" || data.type === "ActiveEffect") {
@@ -1396,7 +1399,8 @@ async function _applyAE(actor, data) {
 		}
 		let effectData = foundry.utils.duplicate(effect);
 		const ends = effectData.flags?.archmage?.duration ?? "Unknown";
-		return await _applyAEDurationDialog(actor, effectData, ends, sourceDocument?.uuid, data.type);
+		const dc = data.dc ?? effectData.flags?.archmage?.saveDC;
+		return await _applyAEDurationDialog(actor, effectData, ends, sourceDocument?.uuid, data.type, dc);
 	}
 	else if (data.type == "ongoing-damage") {
 		const img = data.value >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
@@ -1415,7 +1419,7 @@ async function _applyAE(actor, data) {
 				}
 			}
 		};
-		return await _applyAEDurationDialog(actor, effectData, data.ends, data.source, data.type);
+		return await _applyAEDurationDialog(actor, effectData, data.ends, data.source, data.type, data.dc);
 	}
 }
 
@@ -1426,9 +1430,10 @@ async function _applyAE(actor, data) {
  * @param {string} duration      The default duration type key.
  * @param {string} source        The UUID of the effect's source.
  * @param {string|null} type     The drop data type.
+ * @param {number|null} saveDC   A custom save target for save ends durations.
  * @returns {Promise<ActiveEffect[]|undefined>} The created effects when the dialog is skipped, otherwise undefined.
  */
-async function _applyAEDurationDialog(actor, effectData, duration, source, type = null) {
+async function _applyAEDurationDialog(actor, effectData, duration, source, type = null, saveDC = null) {
 	// If no effectData something went wrong, stop gracefully
 	if (effectData == undefined) {
 		ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnStatusEffect"));
@@ -1442,6 +1447,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
 		if (["StartOfNextSourceTurn", "EndOfNextSourceTurn"].includes(duration)) {
 			options = { sourceTurnUuid: source };
 		}
+		options.saveDC = saveDC;
 		game.archmage.MacroUtils.setDuration(effectData, duration, options);
 		return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
 	}
@@ -1456,7 +1462,8 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
 		sourceName: sourceActor?.name ?? "",
 		ongoing: effectData?.flags?.archmage?.ongoingDamage ?? false,
 		defaultDuration: duration != "Unknown" ? duration : "",
-		durations: durations
+		durations: durations,
+		saveDC: saveDC ?? ""
 	};
 
 	foundry.applications.handlebars.renderTemplate(template, dialogData).then((dlg) => {
@@ -1482,6 +1489,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
 							if (!game.combat) ui.notifications.warn(game.i18n.localize("ARCHMAGE.DURATION.EndOfRoundWarning"));
 							options = { round: game.combat?.round || 1 };
 						}
+						options.saveDC = html.find('[name="saveDC"]').val();
 						if (ongoing.half) {
 							// Kept fractional, it's rounded up when the damage is dealt.
 							effectData.flags.archmage.ongoingDamage =
@@ -1505,6 +1513,15 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
 				multipliers.on("change", (event) => {
 					if (event.currentTarget.checked) multipliers.not(event.currentTarget).prop("checked", false);
 				});
+				// The save DC only applies to save ends durations.
+				const durationInputs = $(html).find('[name="duration"]');
+				const toggleSaveDC = () => {
+					const selected = durationInputs.filter(":checked").val();
+					$(html).find(".save-dc")
+						.toggle(!!game.archmage.MacroUtils.SAVE_ENDS_TARGETS[selected]);
+				};
+				durationInputs.on("change", toggleSaveDC);
+				toggleSaveDC();
 			}
 		}).render(true);
 	});
@@ -1777,7 +1794,7 @@ Hooks.on("renderChatMessageHTML", (chatMessage, rawhtml, options) => {
 					NormalSaveEnds: "normal",
 					HardSaveEnds: "hard"
 				};
-				await actor.rollSave(durationToDifficulty[duration] ?? "normal");
+				await actor.rollSave(durationToDifficulty[duration] ?? "normal", game.archmage.MacroUtils.getSaveTarget(effect));
 				if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag("archmage", `effectSaved.${effectId}`, true);
 				else game.socket.emit("system.archmage", { type: "condButton", msg: chatMessage.id, flg: `effectSaved.${effectId}` });
 				break;

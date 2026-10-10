@@ -4,6 +4,18 @@ import Triggers from "../Triggers/Triggers.mjs";
 
 export default class preCreateChatMessageHandler {
 
+	/**
+	 * The save DC captured from a "(save ends, 14+)" clause, if it differs from the duration's default
+	 * @param duration
+	 * @param captured
+	 */
+	static customSaveDC(duration, captured) {
+		const defaultTarget = game.archmage.MacroUtils.SAVE_ENDS_TARGETS[duration];
+		const dc = Number(captured);
+		if (!defaultTarget || !captured || dc === defaultTarget) return null;
+		return dc;
+	}
+
 	static replaceEffectAndConditionReferences(uuid, $rows) {
 		for (const row of $rows) {
 			CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach(([condition, regexp], name, map) => {
@@ -37,10 +49,12 @@ export default class preCreateChatMessageHandler {
 						}
 					})(match[2]);
 					const source = uuid;
+					const dc = preCreateChatMessageHandler.customSaveDC(duration, match[3]);
+					// Strip markup too, a DC from an inline roll would nest its link in ours
 					const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
-                                         data-source="${source}" data-ends="${duration}">
+                                         data-source="${source}" data-ends="${duration}"${dc ? ` data-dc="${dc}"` : ""}>
                                          <img class="effects-icon" src="${condition.img}" />
-                                         ${match[0].replace(/\*/g, "")}</a>`;
+                                         ${match[0].replace(/\*|<[^>]*>/g, "")}</a>`;
 					row.innerHTML = row.innerHTML.substring(0, match.index)
 						+ conditionLink
 						+ row.innerHTML.substring(match.index + match[0].length);
@@ -89,8 +103,9 @@ export default class preCreateChatMessageHandler {
 					else if (saveEndsValue === "hard") saveEndsConfigValue = "HardSaveEnds";
 					let source = uuid;
 					let message = `${damageValue} ongoing ${damageType}damage`;
+					const dc = preCreateChatMessageHandler.customSaveDC(saveEndsConfigValue, ongoingEffect[6]);
 					if (saveEndsValue !== undefined) {
-						message += ` (${game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[saveEndsConfigValue])})`;
+						message += ` (${game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[saveEndsConfigValue])}${dc ? `, ${dc}+` : ""})`;
 					}
 					let name = options.item.name;
 					// Replace any R: at the start of the name
@@ -98,7 +113,7 @@ export default class preCreateChatMessageHandler {
 					let tooltip = message;
 					const img = damageValue >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
 					let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
-                        data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
+                        data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"${dc ? ` data-dc="${dc}"` : ""}
                         data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><img class="effects-icon" src="${img}"/> ${message}</a>`;
 					row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
 				});

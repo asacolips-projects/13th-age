@@ -99,7 +99,7 @@ export default {
 		 * @param effect
 		 */
 		function getDuration(effect) {
-			return game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration]);
+			return game.archmage.MacroUtils.getDurationLabel(effect);
 		}
 
 		/**
