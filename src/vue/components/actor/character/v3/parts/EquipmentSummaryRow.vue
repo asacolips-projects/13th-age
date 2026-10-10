@@ -1,0 +1,287 @@
+<template>
+	<div class="equipment-summary grid equipment-grid equipment" :class="{ 'narrow-summary': narrow, 'loot-summary': isLoot }">
+		<!-- Portrait, which activates the item; .stop keeps the click from also
+         reaching the sheet's delegated roll listener. -->
+		<RollableV3 :overlay="true" @click.stop="activateItem"><img :src="equipment.img" class="equipment-image"></RollableV3>
+		<!-- Name, which expands the item. -->
+		<a class="equipment-name" :data-item-id="equipment._id" @click="$emit('toggle')">
+			<h3 class="equipment-title unit-subtitle">{{ equipment.name }}<i v-if="equipment.grantedBy" class="fas fa-link item-granted" :data-tooltip="localize('ARCHMAGE.ITEM.grantedBy', {names: equipment.grantedBy})" data-tooltip-direction="UP" /></h3>
+		</a>
+		<!-- Active pip, equipment only. Two stacked pips mark an item above the
+         character's tier: attuning it spends two slots. -->
+		<ItemPipV3
+			v-if="equipment.type === 'equipment'"
+			variant="attunement"
+			:active="equipment.system.isActive"
+			:count="costsTwo ? 2 : 1"
+			:item-id="equipment._id"
+			:tooltip="pipTooltip"
+			@toggle-pip="togglePip(actor, equipment._id)"
+		/>
+		<div v-if="equipment.system.attributes" class="equipment-bonus flexrow">
+			<span v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp" class="bonus">
+				<span class="bonus-label">{{ localizeEquipmentBonus(bonusProp) }} </span>
+				<span class="bonus-value">{{ numberFormat(bonus, 0, true) }}</span>
+			</span>
+		</div>
+		<div v-if="equipment.system.chackra" class="equipment-chakra">{{ chakraLabel(equipment.system.chackra) }}</div>
+		<div v-if="equipment.system.recharge && equipment.system.recharge.value && equipment.system.powerUsage.value == 'recharge'" class="equipment-recharge">
+			<RollableV3 name="recharge" @click="rechargeItem">{{ Number(equipment.system.recharge.value) || 16 }}+</RollableV3>
+		</div>
+		<div
+			class="equipment-quantity"
+			:data-item-id="equipment._id"
+			:data-quantity="equipment.system.quantity.value"
+			@click="changeQuantity(actor, equipment._id)"
+			@contextmenu.prevent="changeQuantity(actor, equipment._id, false)"
+		>
+			<span>{{ equipment.system.quantity.value }}</span>
+		</div>
+		<div class="item-controls">
+			<a class="item-control item-edit" :data-item-id="equipment._id" @click.stop="editItem(actor, equipment._id)"><i class="fas fa-edit" /></a>
+			<a class="item-control item-delete" :data-item-id="equipment._id" @click.stop="deleteItem(actor, equipment._id, $event.shiftKey)"><i class="fas fa-trash" /></a>
+		</div>
+	</div>
+</template>
+
+<script setup>
+/**
+ * One row of an equipment listing: its portrait, its name and whichever
+ * summary cells the item has data for. Loot rows share this markup; only the
+ * active pip is exclusive to equipment items. Rendered by ExpandableRowV3,
+ * which reports the row's expansion to the listing.
+ *
+ * The row owns its own interactions — editing, deleting, spending uses and
+ * toggling the active pip — resolving the actor document from the actor data
+ * the sheet passes down. The portrait is the exception: it activates the item
+ * directly through the injected actor document.
+ */
+import { inject, computed, ref } from "vue";
+import { attunementCost, changeQuantity, characterTierIndex, chakraLabel, equipmentBonuses, deleteItem, editItem, localize, localizeEquipmentBonus, numberFormat, togglePip } from "@/methods/Helpers";
+import ItemPipV3 from "./ItemPipV3.vue";
+import RollableV3 from "@/components/actor/character/v3/RollableV3.vue";
+
+const props = defineProps({
+	equipment: { type: Object, required: true },
+	actor: { type: [Object, Boolean], default: null }
+});
+
+defineEmits(["toggle"]);
+
+// An item above the character's tier attunes as two slots, which the row
+// marks with two stacked pips. No actor (loot rows, shared lists) means the
+// single pip: the cost can't be judged.
+const costsTwo = computed(() => {
+	if (!props.actor) return false;
+	const level = Number(props.actor?.system?.attributes?.level?.value) || 0;
+	return attunementCost(props.equipment, characterTierIndex(level)) > 1;
+});
+
+const pipTooltip = computed(() =>
+	localize(costsTwo.value ? "ARCHMAGE.ITEM.attunesTwo" : "ARCHMAGE.ITEM.active"));
+
+// DiceArchmage and the roll methods live on the real document, which the
+// listing's context only carries as a prepared clone. The sheet provides
+// the document for injection.
+const actorDocument = inject("actorDocument", null);
+
+// Narrow layout, injected from the sheet root like the power rows read it:
+// the summary collapses to the portrait, name, attunement pip, quantity and
+// controls; bonus, chakra and recharge fold into the expanded details.
+const narrow = inject("narrowLayout", ref(false));
+
+// Loot and legacy tool rows render only the quantity and controls after the
+// name — their schema has no attunement pip, bonuses, chakra or recharge —
+// so their grid drops the tracks those empty cells would hold.
+const isLoot = computed(() => props.equipment.type !== "equipment");
+
+/**
+ * Activate the item: its roll() is the same entry point the sheet's delegated
+ * roll listener used for the portrait.
+ */
+function activateItem() {
+	actorDocument?.items?.get(props.equipment._id)?.roll();
+}
+
+/**
+ * Roll the item's recharge: its recharge() is the same entry point the V2
+ * sheet's delegated listener used for the recharge cell.
+ */
+function rechargeItem() {
+	actorDocument?.items?.get(props.equipment._id)?.recharge();
+}
+</script>
+
+<style scoped lang="scss">
+// The row itself: white text over the equipment colour, links that glow on
+// hover. The portrait is RollableV3's overlay mode: the icon fades in over
+// the image on hover.
+.equipment-summary {
+  color: var(--c-white);
+  text-shadow: 0 0 10px var(--c-black--50);
+  margin: 0 0 1px 0;
+  background: var(--v3-power-equipment);
+
+  .rollable,
+  a {
+    color: var(--c-white);
+
+    &:hover {
+      color: var(--c-white);
+      text-shadow: 0 0 10px var(--c-white);
+    }
+
+    &::before {
+      color: var(--c-white);
+    }
+  }
+}
+
+// The row's grid, matching the inventory tab's columns. The typography is
+// the shared V3 row tokens, the same ones the power rows standardise.
+.equipment-grid {
+  grid-template-columns: 32px auto 36px 130px 60px 60px 36px 56px;
+  gap: 2px;
+  font-size: var(--font-size-12);
+  font-family: var(--v3-font-label);
+  text-align: center;
+
+  > * {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // The portrait, kept inside the standard 32px column like the power rows.
+  .equipment-image {
+    width: var(--font-size-28);
+    height: var(--font-size-28);
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+
+  .equipment-name {
+    grid-column-start: 2;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .equipment-feat-pips { grid-column-start: 3; }
+  .equipment-bonus { grid-column-start: 4; }
+  .equipment-chakra { grid-column-start: 5; }
+  .equipment-recharge { grid-column-start: 6; }
+  .equipment-quantity { grid-column-start: 7; }
+  .item-controls { grid-column-start: 8; }
+  .item-control { width: 28px; }
+}
+
+// The name cell: its typography and the way the trailing cells dim while the
+// name is hovered. The trailing cells are the row's own summary slot content,
+// hence :deep().
+.equipment-name {
+  font-size: var(--font-size-14);
+  font-family: $font-stack-secondary;
+  overflow: hidden;
+  padding-left: $padding-sm;
+  text-align: left;
+  justify-content: flex-start;
+
+  &:hover {
+    ~ :deep(.equipment-feat-pips),
+    ~ :deep(.equipment-action) {
+      opacity: 0.25;
+    }
+
+    .equipment-title {
+      position: absolute;
+      overflow: visible;
+      padding-right: $padding-md;
+      z-index: 10;
+    }
+  }
+}
+
+.equipment-title {
+  color: var(--color-light-1);
+  margin: 0;
+  border: 0;
+  text-align: left;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // The same size the power rows' titles read at.
+  font-size: var(--font-size-16);
+}
+
+// Marks an item that came along with another one; the tooltip names the
+// parent. The V2 bundle styles this under .archmage-v2, which the V3 sheet's
+// root lacks, hence its own rule here.
+.item-granted {
+  margin-left: $padding-sm;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+.equipment-bonus {
+  align-items: stretch;
+}
+
+.equipment-chakra {
+  text-transform: uppercase;
+  font-size: var(--font-size-10);
+}
+
+.bonus {
+  background: var(--v3-chip-bg);
+  border-radius: $padding-sm;
+  margin: 1px 2px;
+  font-size: var(--font-size-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 50px;
+}
+
+.bonus-label {
+  text-transform: uppercase;
+  margin-right: 2px;
+}
+
+// Left-click spends a use, right-click restores one.
+.equipment-quantity {
+  cursor: pointer;
+}
+
+// Narrow summary rows: the template swaps to portrait, name, attunement pip,
+// quantity, controls, so the dropped cells hide and the kept ones re-seat
+// onto the five tracks (the pip keeps the third, its standard slot).
+.equipment-summary.narrow-summary {
+  grid-template-columns: 32px auto 36px 36px 56px;
+
+  .equipment-bonus,
+  .equipment-chakra,
+  .equipment-recharge {
+    display: none;
+  }
+
+  .equipment-quantity { grid-column-start: 4; }
+  .item-controls { grid-column-start: 5; }
+}
+
+// Loot and legacy tool rows: no pip, bonus, chakra or recharge cells render,
+// so the grid collapses to portrait, name, quantity and controls — the name
+// takes the space the other kinds spend on their extra cells. Kept after the
+// narrow block so it also wins for a narrow loot row.
+.equipment-summary.loot-summary {
+  grid-template-columns: 32px auto 36px 56px;
+
+  .equipment-quantity { grid-column-start: 3; }
+  .item-controls { grid-column-start: 4; }
+}
+
+.item-control {
+  cursor: pointer;
+}
+</style>

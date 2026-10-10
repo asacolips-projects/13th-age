@@ -1,10 +1,20 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 
 /**
- * Mix Vue rendering into a Foundry ApplicationV2 class.
+ * Injection keys used to provide documents to the Vue apps via
+ * provide/inject. Applications set `documentProvideKey` to the key matching
+ * their document, and components inject the same key.
  *
- * @param {typeof ApplicationV2} BaseApplication The application class to extend
- * @returns {typeof ApplicationV2} The extended application class
+ * @type {Record<string, string>}
+ */
+export const DOCUMENT_PROVIDE_KEYS = {
+	itemDocument: "itemDocument",
+	actorDocument: "actorDocument"
+};
+
+/**
+ *
+ * @param BaseApplication
  */
 export default function VueRenderingMixin(BaseApplication) {
 
@@ -38,6 +48,9 @@ export default function VueRenderingMixin(BaseApplication) {
 		 */
 		vueParts = {};
 
+		/** Injection key used to provide the document to the Vue app. Subclasses override (e.g. DOCUMENT_PROVIDE_KEYS.actorDocument). */
+		documentProvideKey = DOCUMENT_PROVIDE_KEYS.itemDocument;
+
 		/**
 		 * Getter for vueComponents
 		 *
@@ -48,7 +61,6 @@ export default function VueRenderingMixin(BaseApplication) {
 		 *   'document-sheet': DocumentSheet,
 		 *   'foobar': Foobar,
 		 * }
-		 * @returns {object} Component tags mapped to component instances
 		 */
 		get vueComponents() {
 			const components = {};
@@ -70,7 +82,6 @@ export default function VueRenderingMixin(BaseApplication) {
 		 *   '<document-sheet :context="context">Failed to render</document-sheet>',
 		 *   '<foobar :context="context"/>'
 		 * ]
-		 * @returns {string[]} Template strings for each Vue part
 		 */
 		get vueTemplates() {
 			return Object.values(this.vueParts).map((part) => part.template);
@@ -111,7 +122,9 @@ export default function VueRenderingMixin(BaseApplication) {
 					updateContext(newContext) {
 						// Note that 'this' refers to this.vueApp, not the full AppV2 instance.
 						for (let key of Object.keys(this.context)) {
-							if (newContext[key]) {
+							// Use `in` rather than a truthiness check so falsy updates
+							// (e.g. editable: true -> false) propagate.
+							if (key in newContext) {
 								this.context[key] = newContext[key];
 							}
 						}
@@ -124,7 +137,7 @@ export default function VueRenderingMixin(BaseApplication) {
 			this.vueApp.config.globalProperties.foundry = foundry;
 
 			// Expose the document.
-			this.vueApp.provide("itemDocument", this.document);
+			this.vueApp.provide(this.documentProvideKey, this.document);
 
 			// Mount and store the vue application.
 			this.vueRoot = this.vueApp.mount(target);

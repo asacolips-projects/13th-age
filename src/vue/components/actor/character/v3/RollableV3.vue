@@ -1,0 +1,99 @@
+<template>
+	<component :is="tag" class="rollable" :class="modifiers"><slot /></component>
+</template>
+
+<script setup>
+import { computed } from "vue";
+
+const props = defineProps({
+	// Modifier hook, e.g. 'save' or 'recovery' (renders .rollable--save).
+	name: { type: String, default: "" },
+	// Centre the die icon over the slotted image; the two crossfade on hover.
+	overlay: { type: Boolean, default: false },
+	// Read inert: muted die, no pointer or glow, and clicks don't land.
+	disabled: { type: Boolean, default: false },
+	// Render the rollable as a different element (e.g. 'span') when a link
+	// isn't appropriate.
+	tag: { type: String, default: "a" }
+});
+
+const modifiers = computed(() => [
+	props.name ? `rollable--${props.name}` : "",
+	props.overlay ? "overlay" : "",
+	props.disabled ? "disabled" : ""
+]);
+</script>
+
+<!-- Local styles: the shared V2 rollable styles are nested under .archmage-v2
+     in the SCSS bundle, which the V3 sheet root (.archmage-v3-vue) doesn't
+     have, so the die icon and hover behavior live here. -->
+<style scoped lang="scss">
+.rollable {
+  position: relative;
+  transition: all ease-in-out 0.1s;
+  cursor: pointer;
+
+  &::before {
+    @include fa-icon;
+    content: fa-content($fa-var-dice-d20);
+    margin-right: $padding-sm;
+    color: var(--v3-rollable);
+  }
+
+  &:hover {
+    color: var(--v3-rollable);
+    text-shadow: 0 0 5px var(--v3-rollable-glow);
+  }
+
+  // Disabled rollables read inert: the die mutes and no click can land.
+  &.disabled {
+    pointer-events: none;
+    cursor: default;
+
+    &::before {
+      color: var(--color-text-secondary);
+    }
+  }
+
+  // Overlay mode: the die icon is centred over the slotted image and the two
+  // crossfade on hover, the V2 .power-summary .rollable--item treatment. The
+  // image is slotted content, hence :deep().
+  &.overlay {
+    color: var(--c-white);
+
+    &::before {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      line-height: 1;
+      // Four-fifths of the portrait, the ratio the V2 power rows use.
+      font-size: var(--font-size-20);
+      width: var(--font-size-20);
+      height: var(--font-size-20);
+      display: block;
+      opacity: 0;
+      transition: all ease-in-out 0.25s;
+    }
+
+    :deep(img) {
+      transition: all ease-in-out 0.25s;
+    }
+
+    &:hover {
+      color: var(--c-white);
+      text-shadow: 0 0 10px var(--c-white);
+
+      &::before {
+        opacity: 1;
+      }
+
+      :deep(img) {
+        opacity: 0;
+      }
+    }
+  }
+}
+</style>

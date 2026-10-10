@@ -3,18 +3,17 @@ import chokidar from "chokidar";
 import { WATCH_GLOBS } from "../../scripts/build/constants.mjs";
 import { runBuildTasks, runDevTasks } from "../../scripts/build/index.mjs";
 import { compileImages, compileSvg } from "../../scripts/build/assets.mjs";
-import { copyFiles } from "../../scripts/build/copy.mjs";
+import { copyChangedPaths } from "../../scripts/build/copy.mjs";
 import { compileScss } from "../../scripts/build/scss.mjs";
 import { compileYaml } from "../../scripts/build/yaml.mjs";
-import { log, resolveFromRoot } from "../../scripts/build/utils.mjs";
+import { destPathFor, log, matchesGlobs, removeFile, resolveFromRoot } from "../../scripts/build/utils.mjs";
 
 const DEBOUNCE_MS = 150;
 
 /**
- * Create a debounced wrapper that delays calling `fn` until `wait` ms have passed without another call.
- * @param {Function} fn     Function to debounce.
- * @param {number} wait     Delay in milliseconds.
- * @returns {Function}      Debounced function.
+ *
+ * @param fn
+ * @param wait
  */
 function debounce(fn, wait) {
 	let timeout;
@@ -25,12 +24,8 @@ function debounce(fn, wait) {
 }
 
 /**
- * Vite plugin that runs the non-Vue system build (SCSS, YAML, assets, file copy, packs)
- * and, in watch mode, rebuilds those files when their sources change.
- * @param {object} [options]
- * @param {boolean} [options.prod=false]   Whether this is a production build.
- * @param {boolean} [options.packs=false]  Whether to also clean and compile compendium packs.
- * @returns {import("vite").Plugin}        The Vite plugin.
+ *
+ * @param options
  */
 export function foundrySystemBuild(options = {}) {
 	const { prod = false, packs = false } = options;
@@ -39,8 +34,7 @@ export function foundrySystemBuild(options = {}) {
 	let isWatch = false;
 
 	/**
-	 * Run the full build once, including packs if enabled.
-	 * @returns {Promise<void>}
+	 *
 	 */
 	async function runInitialBuild() {
 		if (packs) {
@@ -53,7 +47,7 @@ export function foundrySystemBuild(options = {}) {
 	}
 
 	/**
-	 * Start a file watcher that reruns the matching build task when a source file changes.
+	 *
 	 */
 	function startWatchers() {
 		if (watcher) return;
@@ -94,50 +88,86 @@ export function foundrySystemBuild(options = {}) {
 			}
 		}, DEBOUNCE_MS);
 
+		const pendingCopy = new Set();
 		const runCopy = debounce(async () => {
+			const changed = [...pendingCopy];
+			pendingCopy.clear();
 			try {
-				await copyFiles({ prod });
+				await copyChangedPaths(changed, { prod });
 			}
 			catch(error) {
 				log("watch:copy", error.message);
 			}
 		}, DEBOUNCE_MS);
 
-		watcher = chokidar.watch([
-			...WATCH_GLOBS.scss,
-			...WATCH_GLOBS.yaml,
-			...WATCH_GLOBS.images,
-			...WATCH_GLOBS.svg,
-			...WATCH_GLOBS.copy
-		].map((pattern) => path.join(resolveFromRoot("."), pattern)), {
-			ignoreInitial: true,
-			ignored: (watchPath) => watchPath.includes(`${path.sep}dist${path.sep}`)
+		// chokidar 4+ no longer expands globs, so watching the glob patterns from
+		// WATCH_GLOBS directly matches nothing. Watch the src tree instead and let
+		// matchesGlobs below decide which task (if any) a change belongs to.
+		watcher = chokidar.watch([path.join(resolveFromRoot("."), "src")], {
+			ignoreInitial: true
 		});
 
-		watcher.on("all", (_event, filePath) => {
+		watcher.on("all", (event, filePath) => {
 			const relativePath = path.relative(resolveFromRoot("."), filePath).replaceAll("\\", "/");
 
-			if (WATCH_GLOBS.scss.some((pattern) => matchGlob(relativePath, pattern))) {
+			// Directory events have no dist artifact of their own; leftover empty
+			// directories in dist are harmless, so skip them.
+			if (event === "addDir" || event === "unlinkDir") return;
+
+			// Deletion semantics: compileScss wipes dist/css and recompiles every
+			// entry point on each run, so deletions need no extra handling — a
+			// deleted partial affects the next rebuild, and a deleted entry
+			// point's css disappears along with the wiped directory.
+			if (matchesGlobs(relativePath, WATCH_GLOBS.scss)) {
 				runScss();
 				return;
 			}
 
-			if (WATCH_GLOBS.yaml.some((pattern) => matchGlob(relativePath, pattern))) {
+			if (matchesGlobs(relativePath, WATCH_GLOBS.yaml)) {
+				// compileYaml mirrors the src tree into dist with a .json extension
+				// (mirrors yaml.mjs), so a deleted yaml leaves a stale json behind.
+				if (event === "unlink") {
+					removeFile(destPathFor(filePath).replace(/\.(yaml|yml)$/, ".json"));
+					return;
+				}
 				runYaml();
 				return;
 			}
 
-			if (WATCH_GLOBS.images.some((pattern) => matchGlob(relativePath, pattern))) {
+			if (matchesGlobs(relativePath, WATCH_GLOBS.images)) {
+				// compileImages writes dist/assets/<path relative to src/assets/src>
+				// with a .webp extension (mirrors assets.mjs).
+				if (event === "unlink") {
+					removeFile(path.join(
+						resolveFromRoot("dist/assets"),
+						path.relative(resolveFromRoot("src/assets/src"), filePath)
+					).replace(/\.(png|jpe?g)$/i, ".webp"));
+					return;
+				}
 				runImages();
 				return;
 			}
 
-			if (WATCH_GLOBS.svg.some((pattern) => matchGlob(relativePath, pattern))) {
+			if (matchesGlobs(relativePath, WATCH_GLOBS.svg)) {
+				// compileSvg writes dist/assets/<path relative to src/assets/src>
+				// (mirrors assets.mjs). svg files also match SYSTEM_COPY, which
+				// mirrors them to dist/assets/src/..., so remove both artifacts.
+				if (event === "unlink") {
+					removeFile(path.join(
+						resolveFromRoot("dist/assets"),
+						path.relative(resolveFromRoot("src/assets/src"), filePath)
+					));
+					removeFile(destPathFor(filePath));
+					return;
+				}
 				runSvg();
 				return;
 			}
 
-			if (WATCH_GLOBS.copy.some((pattern) => matchGlob(relativePath, pattern))) {
+			if (matchesGlobs(relativePath, WATCH_GLOBS.copy)) {
+				// unlink paths are queued too: copyChangedPaths removes the dist
+				// copy when the source no longer exists.
+				pendingCopy.add(filePath);
 				runCopy();
 			}
 		});
@@ -170,26 +200,4 @@ export function foundrySystemBuild(options = {}) {
 			}
 		}
 	};
-}
-
-/**
- * Test a relative file path against a simple glob pattern. Negated ("!") patterns never match.
- * @param {string} filePath   Path relative to the repository root, using "/" separators.
- * @param {string} pattern    Glob pattern.
- * @returns {boolean}         True if the path matches the pattern.
- */
-function matchGlob(filePath, pattern) {
-	if (pattern.startsWith("!")) return false;
-
-	const regex = new RegExp(
-		`^${pattern
-			.replaceAll("/", "\\/")
-			.replaceAll("**", ".*")
-			.replaceAll("*", "[^/]*")
-			.replaceAll("{", "(")
-			.replaceAll("}", ")")
-			.replaceAll(",", "|")}$`
-	);
-
-	return regex.test(filePath);
 }

@@ -12,6 +12,7 @@ export { default as Prosemirror } from "@/components/parts/Prosemirror.vue";
 export { default as TextareaGrow } from "@/components/parts/TextareaGrow.vue";
 export { default as InlineRollsReferenceHint } from "@/components/parts/InlineRollsReferenceHint.vue";
 export { default as InfoBubble } from "@/components/parts/InfoBubble.vue";
+export { default as AutocompleteInput } from "@/components/parts/AutocompleteInput.vue";
 
 export { default as EffectDetails } from "@/components/effects/EffectDetails.vue";
 export { default as EffectAttack } from "@/components/effects/EffectAttack.vue";
@@ -32,6 +33,10 @@ export { default as ActionAttack } from "@/components/item/action/ActionAttack.v
 
 export { default as CharHeader } from "@/components/actor/character/top/CharHeader.vue";
 export { default as CharAttributes } from "@/components/actor/character/top/CharAttributes.vue";
+export { default as CharIdentityV3 } from "@/components/actor/character/v3/CharIdentityV3.vue";
+export { default as CharStatsHeaderV3 } from "@/components/actor/character/v3/CharStatsHeaderV3.vue";
+export { default as CharSidebarV3 } from "@/components/actor/character/v3/CharSidebarV3.vue";
+export { default as CharMainV3 } from "@/components/actor/character/v3/CharMainV3.vue";
 
 export { default as CharAbilities } from "@/components/actor/character/sidebar/CharAbilities.vue";
 export { default as CharBackgrounds } from "@/components/actor/character/sidebar/CharBackgrounds.vue";

@@ -4,7 +4,9 @@ import { parentNamesById } from "../item/item-relations.mjs";
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
-import { ActorHelpersV2 } from "./helpers/actor-helpers-v2.js";
+import { DOCUMENT_PROVIDE_KEYS } from "../item/_vue-application-mixin.mjs";
+import { pickImage } from "../helpers/sheet-helpers.mjs";
+import { ActorHelpersV2, buildSheetContext, sortItemDrop } from "./helpers/actor-helpers-v2.js";
 import { DiceArchmage } from "./dice.js";
 
 export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
@@ -55,75 +57,20 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/** @override */
 	getData(options) {
-
-		// Basic data
-		let isOwner = this.actor.isOwner;
-		const context = {
+		// Shared sheet context plus the AppV1-only fields this sheet adds.
+		const context = buildSheetContext(this.actor, {
 			appId: this.appId,
-			owner: isOwner,
-			limited: this.actor.limited,
 			options: this.options,
 			editable: this.isEditable,
-			cssClass: isOwner ? "editable" : "locked",
-			isCharacter: this.actor.type === "character",
 			isNPC: this.actor.type === "npc",
-			config: CONFIG.ARCHMAGE,
-			rollData: this.actor.getRollData(this.actor),
 			_renderKey: this._renderKey
-		};
-
-		// Convert the actor data into a more usable version.
-		let actorData = this.actor.toObject(false);
-
-		// Get drag data for later retrieval.
-		const dragData = this.actor.toDragData();
-		if (dragData.uuid.includes("Token.") && dragData.type !== "Token") {
-			dragData.type = "Token";
-		}
-
-		context.dragData = dragData;
-
-		// Add to our data object that the sheet will use.
-		context.actor = actorData;
-		context.data = actorData.system;
-		context.actor.owner = context.owner;
-		context.actor._source = foundry.utils.deepClone(this.actor._source);
-		context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
-		context.actor.dragData = context.dragData;
-
-		// Add token info if needed.
-		if (this.actor?.token?.id) {
-			if (!this.actor.token.actorLink && this.actor?.token?.id) {
-				context.actor.prototypeToken.id = this.actor.prototypeToken.id;
-				context.actor.prototypeToken.sceneId = this.actor.prototypeToken?.parent?.id;
-			}
-		}
-
-		// Add pack info if needed.
-		if (this.actor?.pack) {
-			context.actor.pack = this.actor.pack;
-		}
-
-		// Sort items.
-		context.actor.items = actorData.items;
-		context.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		});
 
 		// Mark the items that came along with another one.
 		const parentNames = parentNamesById(this.actor);
 		for (const item of context.actor.items) {
 			if (parentNames.has(item._id)) item.grantedBy = parentNames.get(item._id).join(", ");
 		}
-
-		// Sort effects.
-		context.actor.effects = actorData.effects;
-		context.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-
-		// Retrieve a list of locked fields due to AEs.
-		context.actor.lockedFields = [];
-		this.actor.effects.forEach((ae) => {
-			const changes = ae.changes.map((c) => c.key);
-			context.actor.lockedFields = context.actor.lockedFields.concat(changes);
-		});
 
 		return context;
 	}
@@ -159,6 +106,9 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 					}
 				}
 			});
+			// Expose the actor document for components that inject it, matching the
+			// Vue application mixin's documentProvideKey.
+			this.vueApp.provide(DOCUMENT_PROVIDE_KEYS.actorDocument, this.actor);
 		}
 		// Otherwise, perform update routines on the app.
 		else {
@@ -349,10 +299,8 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 		html.on("click", ".rest", (event) => this._onRest(event));
 
 		// Item listeners.
-		html.on("click", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, true));
-		html.on("contextmenu", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, false));
-		html.on("click", ".power-uses-secondary", (event) => this._updateQuantity(event, true, true));
-		html.on("contextmenu", ".power-uses-secondary", (event) => this._updateQuantity(event, false, true));
+		// Uses and quantity counters, and the expandable item rows'
+		// edit/delete controls are handled by their own Vue components.
 		html.on("click", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, true));
 		html.on("contextmenu", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, false));
 		html.on("click", ".feat-pip", (event) => this._updatePips(event));
@@ -360,33 +308,22 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Handle changing a Document's image.
+	 *
+	 * Delegates to the shared pickImage helper, preserving this sheet's
+	 * submitOnChange guard around the document update.
+	 *
 	 * @param {MouseEvent} event  The click event.
 	 * @returns {Promise}
 	 * @override
 	 */
 	_onEditImage(event) {
-		if (!this.isEditable) return false;
-		const attr = event.currentTarget.dataset.edit;
-		const current = foundry.utils.getProperty(this.object, attr);
-		const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
-		const fp = new foundry.applications.apps.FilePicker.implementation({
-			current,
-			type: "image",
-			redirectToRoot: img ? [img] : [],
-			callback: (path) => {
-				event.currentTarget.src = path;
-				if (this.options.submitOnChange) return this.document.update({ [attr]: path });
-			},
-			top: this.position.top + 40,
-			left: this.position.left + 10
-		});
-		return fp.browse();
+		return pickImage(this, event, event.currentTarget, { respectSubmitOnChange: true });
 	}
 
 	/**
 	 * Activate additional listeners on the rendered Vue app.
 	 * @param {jQuery} html
-	 * @param {boolean} repeat If true, skip the one-time listener bindings
+	 * @param repeat
 	 */
 	activateVueListeners(html, repeat = false) {
 		if (!this.options.editable) {
@@ -618,7 +555,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Handle rollable clicks.
-	 * @param {Event} event The originating click event
+	 * @param event
 	 */
 	async _onRollable(event) {
 		event.preventDefault();
@@ -637,7 +574,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 		else if (type == "init") this._onInitRoll();
 		else if (type == "ability") this._onAbilityRoll(opt);
 		else if (type == "background") this._onBackgroundRoll(opt);
-		else if (type == "icon") this._onIconRoll(opt);
+		else if (type == "icon") this.actor.rollIconDialog(opt);
 		else if (type == "command") this._onCommandRoll(opt);
 		else if (type == "recharge") this._onRechargeRoll(opt);
 		else if (type == "feat") this._onFeatRoll(opt, opt2);
@@ -670,7 +607,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Roll a recovery for the actor.
-	 * @param {Event} event The originating click event
+	 * @param event
 	 */
 	async _onRecoveryRoll(event) {
 		this.actor.rollRecoveryDialog(event);
@@ -688,6 +625,9 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Roll a disengage check for the actor.
+	 *
+	 * @param {string} difficulty
+	 *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
 	 */
 	async _onDisengageRoll() {
 		this.actor.rollDisengage();
@@ -697,53 +637,12 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	 * Roll initiative for the actor.
 	 */
 	async _onInitRoll() {
-		let combat = game.combat;
-		// Check to see if this actor is already in the combat.
-		if (!combat) {
-			ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
-			return;
-		}
-		const combatant = combat.combatants.find((c) => c?.actor?._id == this.actor.id);
-		if (combatant && combatant?.initiative !== null) {
-			return;
-		}
-
-		// Prompt the user for an optional bonus
-		let bonus = 0;
-		try {
-			bonus = await foundry.applications.api.DialogV2.prompt({
-				window: { title: "ARCHMAGE.initAdjustment" },
-				content: `
-          <label for="bonus">${game.i18n.localize("ARCHMAGE.initBonus")}</label>
-          <input name="bonus" type="number" step="1" default="0" placeholder="0" autofocus>`,
-				ok: {
-					label: "COMBAT.InitiativeRoll",
-					callback: (event, button, dialog) => button.form.elements.bonus.valueAsNumber
-				}
-			});
-		}
-		catch(error) {
-			// dialog canceled
-			console.error(error);
-			return;
-		}
-
-		let formula = this.actor.getInitiativeFormula();
-		if (bonus) formula += ` + ${bonus ?? 0}`;
-
-		// Create the combatant if needed.
-		if (!combatant) {
-			await this.actor.rollInitiative({ createCombatants: true, initiativeOptions: { formula } });
-		}
-		// Otherwise, determine if the existing combatant should roll init.
-		else if (!combatant.initiative && combatant.initiative !== 0) {
-			await combat.rollInitiative([combatant.id], { formula });
-		}
+		this.actor.rollInitiativeDialog();
 	}
 
 	/**
 	 * Roll ability check for the actor.
-	 * @param {string} ability The ability key to use by default
+	 * @param ability
 	 */
 	_onAbilityRoll(ability) {
 		DiceArchmage.BackgroundRoll(this.actor, { defaultAbility: ability });
@@ -751,144 +650,10 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Roll background check for the actor.
-	 * @param {string} background The background to use by default
+	 * @param background
 	 */
 	_onBackgroundRoll(background) {
 		DiceArchmage.BackgroundRoll(this.actor, { defaultBackground: background });
-	}
-
-	/**
-	 * Roll an icon relationship for the actor.
-	 *
-	 * @param {string} iconIndex | Index, such as i1 or i2
-	 * @returns {Promise<Dialog|undefined>} The rendered roll dialog
-	 */
-	async _onIconRoll(iconIndex) {
-		const actorData = this.actor.system;
-		if (!actorData.icons[iconIndex]) {
-			return;
-		}
-
-		const icon = actorData.icons[iconIndex];
-		return new Dialog({
-			title: game.i18n.localize("ARCHMAGE.ICONROLLS.rolldialogtitle"),
-			content: `<p>${game.i18n.format("ARCHMAGE.ICONROLLS.rollDialogHint", { name: icon.name.value })}</p>`,
-			buttons: {
-				singleicon: {
-					label: game.i18n.format("ARCHMAGE.ICONROLLS.rollone", { name: icon.name.value }),
-					callback: () => {
-						this.rollAndDisplayIconDice([iconIndex]);
-					}
-				},
-				allicons: {
-					label: game.i18n.localize("ARCHMAGE.ICONROLLS.rollall"),
-					callback: () => {
-						this.rollAndDisplayIconDice(Object.keys(actorData.icons));
-					}
-				},
-				cancel: {
-					label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-					callback: () => {}
-				}
-			},
-			default: "apply"
-		}).render(true);
-	}
-
-	async rollAndDisplayIconDice(iconIndexes) {
-		const actorData = this.actor.system;
-
-		const is2e = CONFIG.ARCHMAGE.is2e;
-		const is2eAlt = game.settings.get("archmage", "alternateIconRollingMethod");
-
-		// Gather the rolling inputs
-		const inputs = iconIndexes.map((iconIndex) => {
-			const icon = actorData.icons[iconIndex];
-
-			let numberOfDice = icon.bonus.value;
-			// If this is the 2e alt method, we only roll dice that haven't already been used
-			if (is2eAlt) {
-				const actorIconResults = actorData.icons?.[iconIndex]?.results || [];
-				const usedDice = actorIconResults.filter((x) => x > 0).length;
-				numberOfDice -= usedDice;
-			}
-
-			return { iconIndex, icon, numberOfDice };
-		}).filter((x) => x.numberOfDice > 0);
-
-		if (inputs.length === 0) {
-			ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
-			return;
-		}
-
-		// Roll the dice
-		const rollTerms = inputs.map((input) => `${input.numberOfDice}d6`);
-		const roll = await new Roll(`{${rollTerms.join(",")}}`).roll();
-
-		// Calculate the results and build up an actor-update object
-		const actorUpdate = {};
-		inputs.forEach((input, i) => {
-			const results = roll.terms[0].rolls[i].terms[0].results.map((x) => x.result);
-			input.results = results;
-
-			actorUpdate[`system.icons.${input.iconIndex}.results`] = [];
-			if (is2eAlt) {
-				// For 2e alt, we count 4, 5, and 6 as successes, and we do not replace the existing results
-				input.fives = 0;
-				input.sixes = results.filter((x) => [4, 5, 6].includes(x)).length;
-				actorUpdate[`system.icons.${input.iconIndex}.results`] = actorData.icons?.[input.iconIndex]?.results || [];
-			}
-			else if (is2e) {
-				// For 2e standard, we count 5 and 6 as successes and reset all dice
-				input.fives = 0;
-				input.sixes = results.filter((x) => [5, 6].includes(x)).length;
-			}
-			else {
-				// For 1e, we count 5 and 6 separately and reset all dice
-				input.fives = results.filter((x) => x === 5).length;
-				input.sixes = results.filter((x) => x === 6).length;
-			}
-
-			const replaceFirstZero = (arr, value) => {
-				for (let i = 0; i < arr.length; i++) {
-					if (arr[i] === 0) {
-						arr[i] = value;
-						return;
-					}
-				}
-				arr.push(value); // If no zero found, append the value
-			};
-			if (input.numberOfDice > 0) {
-				for (let i = 0; i < input.fives; i++) {
-					replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 5);
-				}
-				for (let i = 0; i < input.sixes; i++) {
-					replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 6);
-				}
-			}
-		});
-
-		// Update the actor
-		await this.actor.update(actorUpdate);
-
-		// Display the message
-		const template = `systems/archmage/templates/chat/icon-relationship-card.html`;
-		const token = this.actor.token;
-		const templateData = {
-			actor: this.actor,
-			tokenId: token ? `${token.id}` : null,
-			is2e,
-			is2eAlt,
-			inputs
-		};
-		const chatData = {
-			user: game.user.id,
-			roll: roll,  // TODO: fix template to use rolls prop
-			rolls: [roll],
-			speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
-			content: await foundry.applications.handlebars.renderTemplate(template, templateData)
-		};
-		await game.archmage.ArchmageUtility.createChatMessage(chatData);
 	}
 
 	/**
@@ -898,37 +663,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	 *   Dice formula to roll.
 	 */
 	async _onCommandRoll(dice) {
-		let actor = this.actor;
-		let roll = new Roll(dice, this.actor.getRollData());
-		await roll.roll();
-
-		let pointsOld = actor.system.resources.perCombat.commandPoints.current;
-		let pointsNew = roll.total;
-
-		// Basic template rendering data
-		const template = `systems/archmage/templates/chat/command-card.html`;
-		const token = actor.token;
-
-		// Basic chat message data
-		const chatData = {
-			user: game.user.id,
-			roll: roll,  // TODO: fix template to use rolls prop
-			rolls: [roll],
-			speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
-		};
-
-		const templateData = {
-			actor: actor,
-			tokenId: token ? `${token.id}` : null,
-			data: chatData
-		};
-
-		// Render the template
-		chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
-
-		await game.archmage.ArchmageUtility.createChatMessage(chatData);
-
-		await actor.update({ "system.resources.perCombat.commandPoints.current": Number(pointsOld) + Number(pointsNew) });
+		return this.actor.rollCommand(dice);
 	}
 
 	async _onRechargeRoll(itemId) {
@@ -942,51 +677,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	async _onRerollRoll(kind) {
-		let res = this.actor.system.resources.spendable.rerolls[kind];
-		if (res.current <= 0) return;
-
-		// We have uses to spend, find source item
-		let prop = "";
-		switch (kind) {
-			case "AC":
-				prop = "rerollAc";
-				break;
-			case "save":
-				prop = "rerollSave";
-				break;
-		}
-		this.actor.items.forEach((item) => {
-			if (item.type === "equipment" && item.system.isActive && item.system.attributes[prop].current > 0) {
-				// Found source of the bonus, update it
-				let itemOverrideData = { _id: item.id };
-				itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
-				this.actor.updateEmbeddedDocuments("Item", [itemOverrideData]);
-			}
-		});
-
-		// Basic template rendering data
-		const template = `systems/archmage/templates/chat/reroll-card.html`;
-		const token = this.actor.token;
-
-		// Basic chat message data
-		const chatData = {
-			user: game.user.id,
-			speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
-			title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
-			desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
-		};
-
-		const templateData = {
-			actor: this.actor,
-			tokenId: token ? `${token.id}` : null,
-			data: chatData
-		};
-
-		// Render the template
-		chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
-
-		await game.archmage.ArchmageUtility.createChatMessage(chatData);
-
+		this.actor.rollReroll(kind);
 	}
 
 	/* ------------------------------------------------------------------------ */
@@ -998,14 +689,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 		let dataset = target.dataset;
 
 		if (dataset.opt) {
-			let count = Number(dataset.opt);
-			if (count == this.actor.system.attributes.saves[saveType].value) {
-				count = Math.max(0, count - 1);
-			}
-			let updateData = {};
-			let path = `system.attributes.saves.${saveType}.value`;
-			updateData[path] = count;
-			await this.actor.update(updateData);
+			await this.actor.updateFails(saveType, dataset.opt);
 		}
 	}
 
@@ -1044,36 +728,11 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/**
-	 * Increase or decrease an item's remaining uses.
+	 * Increase or decrease a power feat's remaining uses.
 	 *
 	 * @param {MouseEvent} event  The click (increase) or contextmenu (decrease) event.
 	 * @param {boolean} increase  Whether to add or remove a use.
-	 * @param {boolean} secondary  Target the power's secondary pool of uses
-	 *   instead of the primary one.
 	 */
-	async _updateQuantity(event, increase = true, secondary = false) {
-		event.preventDefault();
-		let target = event.currentTarget;
-		let dataset = target.dataset;
-		let itemId = dataset.itemId;
-
-		if (!itemId) return;
-
-		let item = this.actor.items.get(itemId);
-		if (item) {
-			const quantityKey = secondary ? "quantitySecondary" : "quantity";
-			if (item.system?.[quantityKey]?.value == null) return;
-			// Update the quantity.
-			let newQuantity = Number(item.system[quantityKey].value) ?? 0;
-			newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
-
-			// TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
-			let maxQuantity = await item.resolveMaxQuantity(secondary ? "maxQuantitySecondary" : "maxQuantity") ?? 99;
-
-			await item.update({ [`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity) }, {});
-		}
-	}
-
 	async _updateFeatQuantity(event, increase = true) {
 		event.preventDefault();
 		let target = event.currentTarget;
@@ -1131,7 +790,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 
 	/**
 	 * Handle rests.
-	 * @param {Event} event The originating click event
+	 * @param event
 	 */
 	_onRest(event) {
 		event.preventDefault();
@@ -1252,84 +911,15 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	/**
 	 * Sort items on drop.
 	 *
-	 * Overrides ActorSheet._onSortItem(). Core resolves the drop target with
-	 * `event.target.closest('[data-item-id]')`, which is unsafe here: several
-	 * elements *inside* an item row also carry `data-item-id` (the name link, the
-	 * uses/quantity counter, the feat pips, the edit and delete controls). When
-	 * the cursor was over any of those, core resolved the drop target to that
-	 * inner element and then scanned `dropTarget.parentElement.children` for
-	 * siblings, collecting the row's own inner divs instead of the neighbouring
-	 * rows. The resulting sort value was computed against a bogus sibling list,
-	 * which is why drops appeared to do nothing, land in the wrong place, or
-	 * shuffle unrelated items.
+	 * Overrides ActorSheet._onSortItem(), delegating to the shared helper.
+	 * See sortItemDrop() for why the drop target resolution differs from core.
 	 *
 	 * @param {DragEvent} event   The drop event.
 	 * @param {object} itemData   Dropped item data.
-	 * @returns {Promise<Item[]>|undefined} The updated items, if any were re-sorted
 	 * @protected
 	 */
 	_onSortItem(event, itemData) {
-		const items = this.actor.items;
-		const source = items.get(itemData._id);
-		if (!source) return;
-
-		// Always resolve the drop target to the item row, never a descendant.
-		const dropTarget = event.target.closest(".item[data-item-id]");
-		if (!dropTarget) return;
-		const target = items.get(dropTarget.dataset.itemId);
-		if (!target || source.id === target.id) return;
-
-		// Work out whether the drop crossed into another group. The rendered lists
-		// are the groups, so ask the destination list whether it holds the source
-		// row rather than trying to re-derive the grouping from item data. Scoping
-		// the lookup to that list also keeps it correct for items that appear in
-		// more than one list (a power with a trigger shows up on both tabs).
-		const crossGroup = !dropTarget.parentElement
-			.querySelector(`:scope > .item[data-item-id="${source.id}"]`);
-		const groupBy = this.actor.flags?.archmage?.sheetDisplay?.powers?.groupBy?.value ?? "powerType";
-
-		// A drop into another group is only meaningful for custom power groups,
-		// where the group is free text stored on the power. Under the built-in
-		// groupings the group is derived from the power's own data, so the row would
-		// snap straight back to where it started with a new and meaningless sort
-		// value - which read as "nothing moved". Ignore those drops instead.
-		const regroup = crossGroup && source.type === "power" && target.type === "power" && groupBy === "group";
-		if (crossGroup && !regroup) return;
-
-		// Identify sibling rows from the list the drop target lives in, skipping
-		// anything that isn't itself an item row.
-		const siblings = [];
-		for (const el of dropTarget.parentElement.children) {
-			if (!el.matches(".item[data-item-id]")) continue;
-			const siblingId = el.dataset.itemId;
-			if (!siblingId || siblingId === source.id) continue;
-			const sibling = items.get(siblingId);
-			if (sibling) siblings.push(sibling);
-		}
-
-		// Drop into the half of the row the cursor is actually over so the item
-		// lands where it was released, rather than always above the target. Measure
-		// against the summary line rather than the whole row: an expanded row is
-		// mostly detail content, which would push the midpoint far off screen.
-		const rect = (dropTarget.firstElementChild ?? dropTarget).getBoundingClientRect();
-		const sortBefore = (event.clientY - rect.top) < (rect.height / 2);
-
-		// Perform the sort.
-		const sortUpdates = SortingHelpers.performIntegerSort(source, { target, siblings, sortBefore });
-		const updateData = sortUpdates.map((u) => {
-			const update = u.update;
-			update._id = u.target._id;
-			return update;
-		});
-
-		// Adopt the destination group. The target row already lives there, so its
-		// own group value is the label to copy.
-		if (regroup) {
-			const sourceUpdate = updateData.find((u) => u._id === source.id);
-			if (sourceUpdate) sourceUpdate["system.group.value"] = target.system.group?.value ?? "";
-		}
-
-		return this.actor.updateEmbeddedDocuments("Item", updateData);
+		return sortItemDrop(this.actor, event, itemData);
 	}
 
 	/** @override */
@@ -1347,7 +937,6 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	 * Sort effects on drop. Adapted from ActorSheet._onSortItem().
 	 * @param {Event} event
 	 * @param {object} effectData
-	 * @returns {Promise<ActiveEffect[]>|undefined} The updated effects, if any were re-sorted
 	 * @private
 	 */
 	_onSortEffect(event, effectData) {

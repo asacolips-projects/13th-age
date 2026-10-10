@@ -3,6 +3,7 @@ import { ActorArchmage } from "./actor/actor.js";
 import { ActorArchmageNpcSheetV2 } from "./actor/actor-npc-sheet-v2.js";
 import { ActorTabFocusSheet } from "./actor/actor-tab-focus-sheet.js";
 import { ActorArchmageSheetV2 } from "./actor/actor-sheet-v2.js";
+import { ActorArchmageSheetV3 } from "./actor/actor-sheet-v3.js";
 import { ItemArchmage } from "./item/item.js";
 import { ItemArchmageSheet } from "./item/item-sheet.js";
 import { ArchmagePowerSheetV2 } from "./item/power-sheet-v2.js";
@@ -10,7 +11,9 @@ import { ArchmageEquipmentSheetV2 } from "./item/equipment-sheet-v2.js";
 import { ArchmageActionSheetV2 } from "./item/action-sheet-v2.js";
 import { wrapRolls } from "./item/_item-sheet-helpers.mjs";
 import { ArchmageMacros } from "./setup/macros.js";
-import { ArchmageUtility, MacroUtils, ArchmageReference } from "./setup/utility-classes.js";
+import { ArchmageUtility } from "./setup/utility-classes.js";
+import { MacroUtils } from "./setup/utility-classes.js";
+import { ArchmageReference } from "./setup/utility-classes.js";
 import { ContextMenu2 } from "./setup/contextMenu2.js";
 import { DamageApplicator } from "./setup/damageApplicator.js";
 import { DiceArchmage } from "./actor/dice.js";
@@ -23,6 +26,8 @@ import { registerModuleArt } from "./setup/register-module-art.js";
 import { TokenArchmage } from "./actor/token.js";
 import { combatRound, combatStart, combatTurn, preDeleteCombat } from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from "./applications/compendium-browser.js";
+import { ArchmageCharacterSettingsApp } from "./applications/character-settings.js";
+import { ArchmagePowerImporterApplication } from "./applications/power-importer.js";
 import { ArchmageActiveEffectSheetV2 } from "./active-effects/effect-sheet-v2.js";
 import { baselineMonsterDialog } from "./actor/baseline-monster.js";
 import FlexibleAttacks from "./rolls/FlexibleAttacks.mjs";
@@ -145,6 +150,8 @@ Hooks.once("init", async function () {
 		rollItemMacro,
 		ActorHelpersV2,
 		ArchmageCompendiumBrowserApplication,
+		ArchmageCharacterSettingsApp,
+		ArchmagePowerImporterApplication,
 		isSocketGM: () => game.users.activeGM.id === game.user.id,
 		system: {
 			moduleArt: {
@@ -340,6 +347,13 @@ Hooks.once("init", async function () {
 		makeDefault: true
 	});
 
+	// V3 actor sheet shell (ApplicationV2 + Vue). Opt-in until it replaces the V2 (ApplicationV1) sheet.
+	foundry.documents.collections.Actors.registerSheet("archmage", ActorArchmageSheetV3, {
+		label: "ARCHMAGE.sheetCharacterV3",
+		types: ["character"],
+		makeDefault: false
+	});
+
 	/* -------------------------------------------- */
 	CONFIG.Actor.characterFlags = FLAGS.characterFlags;
 	CONFIG.Actor.npcFlags = FLAGS.npcFlags;
@@ -348,7 +362,7 @@ Hooks.once("init", async function () {
 
 	/**
 	 * Register Initiative formula setting
-	 * @param {boolean} tiebreaker  Whether to use the dexterity tiebreaker.
+	 * @param tiebreaker
 	 */
 	function _setArchmageInitiative(tiebreaker) {
 		CONFIG.Combat.initiative.tiebreaker = tiebreaker;
@@ -638,7 +652,6 @@ Hooks.once("init", async function () {
 	 * Apply the dexterity score as a decimal tiebreaker if requested
 	 * See Combat._getInitiativeFormula for more detail.
 	 * @private
-	 * @returns {string} The initiative formula.
 	 */
 	Combatant.prototype._getInitiativeFormula = function () {
 		return this.actor?.getInitiativeFormula() ?? "1d20";
@@ -754,7 +767,7 @@ Hooks.on("setup", (data, options, id) => {
 /* ---------------------------------------------- */
 
 /**
- * Render the escalation die display into the combat tracker.
+ *
  */
 async function addEscalationDie() {
 	const render = () => {
@@ -857,9 +870,7 @@ Hooks.once("ready", async () => {
 			CONFIG.ARCHMAGE.FLAGS[s][k].hint = game.i18n.localize(CONFIG.ARCHMAGE.FLAGS[s][k].hint);
 			if (CONFIG.ARCHMAGE.FLAGS[s][k].options) {
 				for (const k_opt of Object.keys(CONFIG.ARCHMAGE.FLAGS[s][k].options)) {
-					CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt] = game.i18n.localize(
-						CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt]
-					);
+					CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt] = game.i18n.localize(CONFIG.ARCHMAGE.FLAGS[s][k].options[k_opt]);
 				}
 			}
 		}
@@ -961,7 +972,7 @@ Hooks.on("renderDocumentDirectory", (app, html, options) => {
 /* -------------------------------------------- */
 
 /**
- * Render the terrain indicators for the currently viewed scene.
+ *
  */
 function renderSceneTerrains() {
 
@@ -1109,8 +1120,8 @@ Hooks.on("renderSettingsConfig", (app, html, data) => {
 
 	// Event listener for the color blind selector.
 	/**
-	 * Update the settings preview to match the selected color blind mode.
-	 * @param {Event} event  The change event from the color blind selector.
+	 *
+	 * @param event
 	 */
 	function changeColorBlindPreview(event) {
 		const element = event.currentTarget;
@@ -1234,8 +1245,8 @@ Hooks.on("diceSoNiceReady", (dice3d) => {
 
 	// Override some of DsN's defaults to better suit the system - let users change them back
 	if (game.user.isGM
-		&& foundry.utils.isNewerVersion(game.modules.get("dice-so-nice")?.version, "4.1.1")
-		&& !game.settings.get("archmage", "DsNDefaultConfigOverrides")) {
+    && foundry.utils.isNewerVersion(game.modules.get("dice-so-nice")?.version, "4.1.1")
+    && !game.settings.get("archmage", "DsNDefaultConfigOverrides")) {
 		ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.infoDsNDefaultsApplied"));
 		// Disable DsN's automatic parsing of inline rolls
 		game.settings.set("dice-so-nice", "animateInlineRoll", false);
@@ -1289,8 +1300,7 @@ Hooks.on("dropActorSheetData", (actor, sheet, data) => {
 Hooks.on("dropCanvasData", (canvas, data) => {
 
 	/**
-	 * Find the owned, visible token under the drop point, preferring the closest to its center.
-	 * @returns {TokenDocument|null} The token at the drop point, if any.
+	 *
 	 */
 	function findToken() {
 		// Get the token at the drop point, if any
@@ -1301,9 +1311,9 @@ Hooks.on("dropCanvasData", (canvas, data) => {
 		const targets = Array.from(canvas.scene.tokens.values()).filter((t) => {
 			if (t.hidden || !t.isOwner) return false;
 			return (t.x <= x
-				&& (t.x + t.width * gridSize) >= x
-				&& t.y <= y
-				&& (t.y + t.height * gridSize) >= y);
+          && (t.x + t.width * gridSize) >= x
+          && t.y <= y
+          && (t.y + t.height * gridSize) >= y);
 		});
 		if (targets.length == 0) return null;
 
@@ -1336,10 +1346,9 @@ Hooks.on("dropCanvasData", (canvas, data) => {
 });
 
 /**
- * Apply a dropped condition, effect, or ongoing damage to an actor.
- * @param {Actor} actor   The actor to apply the effect to.
- * @param {object} data   The drop data.
- * @returns {Promise<ActiveEffect[]|undefined>} The created effects, if created immediately.
+ *
+ * @param actor
+ * @param data
  */
 async function _applyAE(actor, data) {
 	if (data.type === "condition") {
@@ -1399,6 +1408,10 @@ async function _applyAE(actor, data) {
 		return await _applyAEDurationDialog(actor, effectData, ends, sourceDocument?.uuid, data.type);
 	}
 	else if (data.type == "ongoing-damage") {
+
+		// Load the source actor and grab its image if possible
+		let sourceActor = await fromUuid(data.source);
+		// let img = sourceActor?.img ?? "icons/skills/toxins/symbol-poison-drop-skull-green.webp";
 		const img = data.value >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
 
 		let effectData = {
@@ -1420,13 +1433,12 @@ async function _applyAE(actor, data) {
 }
 
 /**
- * Prompt for an effect's duration, then create it on the actor. Shift skips the dialog.
- * @param {Actor} actor          The actor to apply the effect to.
- * @param {object} effectData    The effect data to create.
- * @param {string} duration      The default duration type key.
- * @param {string} source        The UUID of the effect's source.
- * @param {string|null} type     The drop data type.
- * @returns {Promise<ActiveEffect[]|undefined>} The created effects when the dialog is skipped, otherwise undefined.
+ *
+ * @param actor
+ * @param effectData
+ * @param duration
+ * @param source
+ * @param type
  */
 async function _applyAEDurationDialog(actor, effectData, duration, source, type = null) {
 	// If no effectData something went wrong, stop gracefully
@@ -1484,8 +1496,7 @@ async function _applyAEDurationDialog(actor, effectData, duration, source, type 
 						}
 						if (ongoing.half) {
 							// Kept fractional, it's rounded up when the damage is dealt.
-							effectData.flags.archmage.ongoingDamage =
-								Number(effectData.flags.archmage.ongoingDamage) / 2;
+							effectData.flags.archmage.ongoingDamage = Number(effectData.flags.archmage.ongoingDamage) / 2;
 						}
 						if (ongoing.triple) effectData.flags.archmage.ongoingDamageMultiplier = 3;
 						else if (ongoing.double) effectData.flags.archmage.ongoingDamageMultiplier = 2;
@@ -1517,12 +1528,11 @@ Hooks.on("renderJournalSheet", async (app, html, data) => {
 /* ---------------------------------------------- */
 
 /**
- * Generate a random version 4 UUID.
- * @returns {string} The generated UUID.
+ *
  */
 function uuidv4() {
 	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-		var r = (Math.random() * 16) | 0; var v = c == "x" ? r : ((r & 0x3) | 0x8);
+		var r = Math.random() * 16 | 0; var v = c == "x" ? r : (r & 0x3 | 0x8);
 		return v.toString(16);
 	});
 }
@@ -1546,7 +1556,7 @@ Hooks.on("renderChatMessageHTML", (chatMessage, rawhtml, options) => {
 		const triggerTarget = `${game.i18n.localize("ARCHMAGE.CHAT.target")}:`;
 		const triggerCastPower = `${game.i18n.localize("ARCHMAGE.CHAT.castPower")}:`;
 		if ($(this).parent()[0].innerText.includes(triggerTarget)
-			&& !$(this).parent()[0].innerText.includes(triggerCastPower)) {
+        && !$(this).parent()[0].innerText.includes(triggerCastPower)) {
 			// Ignore if this is a "Target:" line (but not if its "Cast for Power:",
 			// which in some localizations contains "Target:").
 			return;
@@ -1603,9 +1613,8 @@ Hooks.on("renderChatMessageHTML", (chatMessage, rawhtml, options) => {
 		// Add all of the damage/healing options.
 		if (!isAttack) {
 			/**
-			 * Get the roll element: the element itself if it is an inline roll, otherwise its dice total.
-			 * @param {jQuery} element  The element the context menu was opened on.
-			 * @returns {jQuery} The roll element.
+			 *
+			 * @param element
 			 */
 			function getRollFromElement(element) {
 				return element.hasClass("inline-roll--archmage")
@@ -1761,9 +1770,7 @@ Hooks.on("renderChatMessageHTML", (chatMessage, rawhtml, options) => {
 			case "apply":
 				const value = parent.dataset.value;
 				// Healing always starts from 0 HP
-				const base = value >= 0
-					? actor.system.attributes.hp.value
-					: Math.max(actor.system.attributes.hp.value, 0);
+				const base = value >= 0 ? actor.system.attributes.hp.value : Math.max(actor.system.attributes.hp.value, 0);
 				await actor.update({ "system.attributes.hp.value": base - value });
 				if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag("archmage", `effectApplied.${effectId}`, true);
 				else game.socket.emit("system.archmage", { type: "condButton", msg: chatMessage.id, flg: `effectApplied.${effectId}` });
@@ -1831,8 +1838,8 @@ Hooks.on("renderChatMessageHTML", (chatMessage, rawhtml, options) => {
 });
 
 /**
- * Handle a condition button socket message: set its flag on the chat message as GM.
- * @param {object} msg  The socket message data.
+ *
+ * @param msg
  */
 function _handleCondButtonMsg(msg) {
 	if (!game.archmage.isSocketGM()) return;
@@ -1851,8 +1858,8 @@ function _handleCondButtonMsg(msg) {
 }
 
 /**
- * Handle an effect creation socket message: create the effects on each actor as GM.
- * @param {object} msg  The socket message data.
+ *
+ * @param msg
  */
 function _handlecreateAEsMsg(msg) {
 	if (!game.archmage.isSocketGM()) return;
@@ -1916,11 +1923,10 @@ function _handleApplyDamageHealing(data) {
 }
 
 /**
- * Run an actor's lifecycle hook script for its owning user.
- * @param {object} root0           The socket message data.
- * @param {string} root0.actorId   The ID of the actor whose hook to run.
- * @param {string} root0.hookName  The name of the lifecycle hook to run.
- * @returns {Promise<*>|undefined} The hook script's result, if it ran.
+ *
+ * @param root0
+ * @param root0.actorId
+ * @param root0.hookName
  */
 function _handleActorLifecycleHook({ actorId, hookName }) {
 	const actor = game.actors.get(actorId);
@@ -2194,9 +2200,7 @@ Hooks.on("dcCalcWhitelist", (whitelist, actor) => {
 				levelHalf: {
 					label: "level_half",
 					name: "1/2 Level",
-					formula: actor.system.attributes.level !== undefined
-						? Math.floor(actor.system.attributes.level.value / 2)
-						: 0
+					formula: actor.system.attributes.level !== undefined ? Math.floor(actor.system.attributes.level.value / 2) : 0
 				},
 				escalation: {
 					label: "escalation",
@@ -2286,8 +2290,8 @@ async function createArchmageMacro(data, slot) {
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemData  The item's UUID, or its name on the speaker's actor.
- * @returns {Promise<*>|undefined} The item roll when loaded by name, otherwise undefined.
+ * @param {string} itemData
+ * @returns {Promise}
  */
 function rollItemMacro(itemData) {
 	// Reconstruct the drop data so that we can load the item.

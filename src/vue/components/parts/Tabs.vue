@@ -6,18 +6,19 @@
 		</button>
 		<nav :class="`sheet-tabs tabs tabs--${group}`" :data-group="group">
 			<template v-if="noSpan">
-				<a
-					v-for="(tab, tabKey) in tabs"
-					:key="`tab-${group}-${tabKey}`"
-					:class="getTabClass(tab, tabKey)"
-					:data-tab="tabKey"
-					:data-tooltip="tab.hideLabel ? tab.label : undefined"
-					data-tooltip-direction="UP"
-					@click="changeTab"
-				>
-					<i v-if="tab.icon" :class="concat('fas ', tab.icon)" />
-					<span v-if="!tab.hideLabel">{{ tab.label }}</span>
-				</a>
+				<template v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`">
+					<a
+						v-if="!tab.hidden"
+						:class="getTabClass(tab, tabKey)"
+						:data-tab="tabKey"
+						:data-tooltip="tab.hideLabel ? tab.label : undefined"
+						data-tooltip-direction="UP"
+						@click="changeTab"
+					>
+						<i v-if="tab.icon" :class="concat('fas ', tab.icon)" />
+						<span v-if="!tab.hideLabel">{{ tab.label }}</span>
+					</a>
+				</template>
 			</template>
 			<template v-else>
 				<span v-for="(tab, tabKey) in tabs" :key="`tab-${group}-${tabKey}`" :data-tooltip="tab.hideLabel ? tab.label : undefined" data-tooltip-direction="UP">
@@ -43,6 +44,7 @@ import { toRaw } from "vue";
 export default {
 	name: "Tabs",
 	props: ["context", "actor", "group", "tabs", "flags", "hamburger", "no-span"],
+	emits: ["change"],
 	setup() {
 		return { concat };
 	},
@@ -57,17 +59,21 @@ export default {
 		// Otherwise, attempt to get the current tab from the first active tab.
 		const rawTabs = toRaw(this.tabs);
 		this.currentTab = flagTab ?? (Object.values(rawTabs).find((t) => t.active)?.key ?? "details");
-		// If the tab is hidden, default to details.
-		if (this.tabs[this.currentTab].hidden) {
-			this.currentTab = "details";
+		// If the tab is hidden, default to the first visible one.
+		if (this.tabs[this.currentTab]?.hidden) {
+			this.currentTab = Object.values(rawTabs).find((t) => !t.hidden)?.key ?? "details";
 		}
 		this.changeTab(false);
 	},
 	methods: {
 		changeTab(event) {
-			// If this was a click, update the default tab.
+			// If this was a click, update the default tab and tell the parent
+			// where the change came from, so it can run transitions. The
+			// mounted() restore below passes no event and stays silent.
 			if (event && event.currentTarget) {
+				const from = this.currentTab;
 				this.currentTab = event.currentTarget.dataset.tab;
+				this.$emit("change", { from, to: this.currentTab });
 			}
 
 			// Update the tab displays.

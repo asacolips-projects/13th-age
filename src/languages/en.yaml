@@ -7,6 +7,8 @@ ARCHMAGE:
   actions: Actions
   activeEffects: Active Effects
   add: Add
+  addTab: Add Tab
+  addToGroup: Add to {group}
   adventurer: Adventurer
   arc: Arc
   arc-desperate: Arc/Desperate
@@ -18,6 +20,7 @@ ARCHMAGE:
   avatarAlt: Character profile image
   background: Background
   backgrounds: Backgrounds
+  backgroundName: Background Name
   baseAC: Base AC
   baseHP: Base HP
   baseMD: Base MD
@@ -31,14 +34,20 @@ ARCHMAGE:
   byType: Group by Power Type
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
+  calculatedHPMaxHint: Max HP is calculated automatically from base HP, the CON modifier, level, and the HP adjustment.
+  calculatedRecoveriesMaxHint: Max recoveries is calculated automatically from the base recoveries value.
+  catalog: Catalog
   chakra: Chakra
   champion: Champion
+  character: Character
   checkBackground: Background Check
   checkBackgroundFormat: "{name} Background Check"
   checkSkill: Skill Check
   checkSkillFormat: "{name} Skill Check"
   class: Class
+  clear: Clear
   classFeat: Class Feat
+  classFeatsTab: Features & Talents
   combat: Combat
   Conflicted: Conflicted
   contextReroll: Reroll
@@ -67,10 +76,16 @@ ARCHMAGE:
   dragToReorderGroup: Drag to reorder this group
   edit: Edit
   effects: Effects
+  enableTracker: Show slot tracker
   epic: Epic
   equipment: Equipment
   equipmentName: Equipment Name
   escalationDieLabel: Escalation Die
+  extraASlots: Extra A slots
+  extraCSlots: Extra C slots
+  extraESlots: Extra E slots
+  extraSlots: Extra slots
+  extraZSlots: Extra Z slots
   feat: Feat
   feats: Feats
   feature: Feature
@@ -95,9 +110,11 @@ ARCHMAGE:
   iconic: Zenith
   iconRelationships: Icon Relationships
   import: Import Powers
+  importNeedsKinClass: "Set this character's {kin} and Class before importing powers."
   importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
+  itemsByGroup: By {group}
   initBonus: Optional Initiative Bonus
   initiative: Initiative
   INT: INT
@@ -112,6 +129,8 @@ ARCHMAGE:
   kin: Kin
   level: Level
   levelFormat: "{level} level"
+  levelUp: Level-Up
+  loadout: Loadout
   location: Location
   loot: Loot
   lvl: Lvl
@@ -130,9 +149,12 @@ ARCHMAGE:
   MOV: MOV
   move: Move Action
   move-short: Move
+  moveDown: Move Down
+  moveUp: Move Up
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
+  notes: Notes
   Negative: Negative
   newItem: New {item}
   noneOption: "- None -"
@@ -147,6 +169,9 @@ ARCHMAGE:
   powerName: Power Name
   powers: Powers
   preview: Preview
+  prodigiousLearner: Prodigious Learner
+  prodigiousLearnerHint: Grants three bonus adventurer-tier feats. At 5th level one becomes a champion-tier feat; at 8th, an epic-tier one.
+  progression: Progression
   punchWeaponDice: PUNCH Weapon Dice
   QCK: QCK
   quantity: Quantity
@@ -160,8 +185,12 @@ ARCHMAGE:
   recharge-desperate: Recharge/Desperate
   recoveries: Recoveries
   recovery: Recovery
+  removeTab: Remove Tab
   rerollAcShort: Reroll vs. AC
   rerollSaveShort: Reroll Save
+  resetClassTabs: Reset Tabs to Class Defaults
+  resourceful: Resourceful
+  resourcefulHint: Grants one extra feat slot in the highest tier the character has reached, beyond the tier's usual cap.
   recoveryAdventurer: Potion (Adv.)
   recoveryAdventurerFull: Adventurer Potion
   recoveryApplyHealingLabel: Apply healing?
@@ -179,6 +208,8 @@ ARCHMAGE:
   recoveryIconicFull: Iconic Potion
   recoveryNormal: Normal
   recoveryRoll: Recovery Roll
+  recoveryAvgTooltip: 'Average: {avg}'
+  recoveryFormulaTooltip: 'Formula: {formula}'
   resistance: Resistance
   role: Role
   rollAdvantageShort: Adv.
@@ -193,6 +224,7 @@ ARCHMAGE:
   sharePlayers: Show Players
   sheetActiveEffect: 13th Age Active Effect Sheet
   sheetCharacter: Character Sheet
+  sheetCharacterV3: Character Sheet V3
   sheetItem: Item Sheet
   sheetItemV2: Item Sheet V2
   sheetNPC: NPC Sheet
@@ -206,11 +238,13 @@ ARCHMAGE:
   standard-short: Standard
   STD: STD
   strength: Strength
+  tabSettings: Tab Settings
   talent: Talent
   talents: Talents
   terrains: Terrains
   tempHp: Temp HP
   tool: Tool
+  trackerSettings: Tracker options
   trait: Trait
   traits: Traits
   triggers: Triggers
@@ -368,6 +402,8 @@ ARCHMAGE:
     grimDeterminationName: Grim Determination
     overridePowerLevelHint: Automatically upgrade power's (e.g. spell's) level to your character's level when using it.
     overridePowerLevelName: Cast at Actor Level
+    portraitFullHint: Show the full portrait artwork in the header instead of cropping it to fill the banner. The image shrinks to fit inside the space, leaving empty bands where it would otherwise be cropped.
+    portraitFullName: Show Full Portrait Artwork
     portraitFrameHint: Whether or not the character portrait has a white frame and shadow on the V2 sheet.
     portraitFrameName: Portrait Frame
     portraitRoundHint: Whether or not the character portrait is rounded on the V2 sheet.
@@ -395,6 +431,29 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+    tabs:
+      core: Core
+      flags: Flags
+      hooks: Hooks
+      resources: Resources
+      weapons: Weapons
+    groups:
+      adjustments: Adjustments
+      defenses: Defenses & Health
+      dice: Dice
+      feats: Miscellaneous
+      flags: Character Flags
+      hooks: Lifecycle Hooks
+      modifiers: Modifiers
+      resourcesCustom: Custom Resources
+      resourcesPerCombat: Class Resources
+      resourcesSpendable: Spendable Resources
+      sheet: Sheet Options
+      stances: Stances
+      weaponDice: Weapon Dice
+  CHARACTERSHEETV3:
+    none: None
+    noPowersWithTriggers: No powers with triggers.
   RACES:
     aasimar: Aasimar
     darkelf: Dark Elf
@@ -545,6 +604,8 @@ ARCHMAGE:
     rollone: "{name} Only"
     rollall: Roll All
     rollDialogHint: "Roll dice for <strong>{name}</strong> only, or for all icons?"
+    rollDiceHint: Roll all of your icon dice, or just one?
+    rollDieNumbered: "{name} ({die})"
     noDiceLeft: You have no icon dice left to roll.
     chatCardTitle: Icon Relationship Roll
   COINS:
@@ -623,7 +684,7 @@ ARCHMAGE:
   GROUPS:
     actionType: Action
     group: Custom Groups
-    powerSource: Class/Race/Item
+    powerSource: Source
     powerType: Type
     powerUsage: Usage
   MONKFORMS:
@@ -643,6 +704,7 @@ ARCHMAGE:
     level: Level
     name: Name
   INVENTORY:
+    currency: Currency
     equipment: Magic Items
     loot: Loot
     tool: Tools
@@ -658,6 +720,7 @@ ARCHMAGE:
     active: Active
     arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
+    attunesTwo: Attunes as two slots
     chaBonus: Charisma checks bonus
     chakraSlot: Chakra Slot
     conBonus: Constitution checks bonus
@@ -1112,6 +1175,8 @@ ARCHMAGE:
     portrait: Portrait image.<br>Click to edit (may need permissions).
     pcAbility: |
       Ability Scores (or <b>Abilities</b>) are distributed during character creation to fit the character you want to portray and can be increased upon reaching certain levels. The <b>Modifier</b> (or <b>Mod</b>) is derived from this value. The character level acts as a bonus.
+    pcAbilityStats: |
+      Ability score: {score}<br>Modifier: {mod}<br>Mod + Level: {lvl}
     pcAbilitySuffix: |
       Click to roll a <b>Skill Check</b> based on this ability. You can optionally apply a <b>Background</b> and <b>Situational Bonus</b> in the roll dialog.
     pcAbilitystr: |
