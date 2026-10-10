@@ -46,6 +46,10 @@ system:
     label: Description
     type: String
     value: ''
+  disengageBonus:
+    label: Disengage Bonus
+    type: Number
+    value: 5
   effect:
     label: Effect
     type: String

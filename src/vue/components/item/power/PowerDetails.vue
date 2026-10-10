@@ -205,6 +205,21 @@
 
 		<div class="form-group">
 			<label>
+				{{ game.i18n.localize('ARCHMAGE.ITEM.disengageBonus') }}
+				<InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.ITEM.powerDisengageBonusHint')" />
+			</label>
+			<div class="field">
+				<input
+					v-model="item.system.disengageBonus.value"
+					type="number"
+					name="system.disengageBonus.value"
+					placeholder="0"
+				>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>
 				{{ game.i18n.localize('ARCHMAGE.CHAT.resources') }}
 				<InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.resourcesTitle')" />
 			</label>

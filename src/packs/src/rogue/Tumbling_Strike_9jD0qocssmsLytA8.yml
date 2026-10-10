@@ -56,7 +56,10 @@ system:
   embeddedMacro:
     label: Embedded Macro
     type: String
-    value: ''
+    value: '// For the code executed in this macro, see https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.rogueTumblingStrike(speaker, actor, token, character,
+      archmage);'
   feats: null
   finalVerse:
     label: Final Verse

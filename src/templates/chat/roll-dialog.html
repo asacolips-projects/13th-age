@@ -3,6 +3,12 @@
     <label>{{localize 'ARCHMAGE.rollFormula'}}</label>
     <input type="text" name="formula" value="{{formula}}" disabled/>
   </div>
+  {{#if bonuses.length}}
+  <div class="form-group">
+    <label>{{localize 'ARCHMAGE.CHAT.bonuses'}}</label>
+    <span>{{#each bonuses}}{{#unless @first}}, {{/unless}}{{name}} {{signed}}{{/each}}</span>
+  </div>
+  {{/if}}
   <div class="form-group">
     <label>{{localize 'ARCHMAGE.rollBonus'}}</label>
     <input type="text" name="bonus" value="" placeholder="{{localize 'ARCHMAGE.rollBonusPlaceholder'}}"/>

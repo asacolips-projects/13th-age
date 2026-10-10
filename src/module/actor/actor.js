@@ -353,8 +353,9 @@ export class ActorArchmage extends Actor {
 				if (this.system.incrementals?.skillInitiative) incrInit = 1;
 				// In 2e wizards have a talent to use Int instead of Dex
 				if (this.getFlag("archmage", "dexToInt")) statInit = data.abilities?.int?.nonKey?.mod || 0;
-				// In 2e beta the bonus to disengage also applies to initiative
-				incrInit += data.attributes.saves.disengageBonus;
+				// In 2e footwear adds its bonus to both initiative and disengage checks.
+				// Other disengage bonuses (talents, powers, effects) only affect the check.
+				incrInit += data.attributes.saves.footworkBonus ?? 0;
 			}
 			data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
 		}
@@ -469,6 +470,9 @@ export class ActorArchmage extends Actor {
 		if (!data.attributes.saves.disengageBonus) {
 			data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
 		}
+		if (!data.attributes.saves.footworkBonus) {
+			data.attributes.saves.footworkBonus = model.attributes.saves.footworkBonus;
+		}
 		// Incrementals
 		if (!("talent" in data.incrementals)) data.incrementals.talent = model.incrementals.talent;
 		if ("feature" in data.incrementals) {
@@ -535,6 +539,10 @@ export class ActorArchmage extends Actor {
 
 		var saveBonus = 0;
 		var disengageBonus = 0;
+		// Footwear bonus (initiative and disengage checks in 2e) and the named
+		// sources of the disengage bonus, shown on the disengage check.
+		var footworkBonus = 0;
+		var disengageSources = [];
 
 		var rerollAcCurr = 0;
 		var rerollAcMax = 0;
@@ -598,7 +606,19 @@ export class ActorArchmage extends Actor {
 						|| data.attributes.hp.value <= item.system.attributes.save.threshold) {
 						saveBonus += getBonusOr0(item.system.attributes.save);
 					}
-					disengageBonus += getBonusOr0(item.system.attributes.disengage);
+					const disengage = getBonusOr0(item.system.attributes.disengage);
+					disengageBonus += disengage;
+					footworkBonus += disengage;
+					if (disengage) disengageSources.push({ name: item.name, value: disengage });
+				}
+				// Talents with a permanent disengage bonus, such as the rogue's Tumble. These do
+				// not affect initiative. (On other powers the field is the amount of a temporary
+				// bonus, applied by the disengageBonus macro.)
+				else if (item.type === "power" && item.system.powerType?.value === "talent"
+					&& Number(item.system.disengageBonus?.value)) {
+					const disengage = Number(item.system.disengageBonus.value);
+					disengageBonus += disengage;
+					disengageSources.push({ name: item.name, value: disengage });
 				}
 			});
 		}
@@ -613,6 +633,8 @@ export class ActorArchmage extends Actor {
 		// Saves
 		data.attributes.saves.bonus = saveBonus;
 		data.attributes.saves.disengageBonus = disengageBonus;
+		data.attributes.saves.footworkBonus = footworkBonus;
+		this.disengageSources = disengageSources;
 
 		// 2e rerolls
 		data.resources.spendable.rerolls.AC.current = rerollAcCurr;
@@ -1009,13 +1031,58 @@ export class ActorArchmage extends Actor {
 		}
 	}
 
+	/**
+	 * List the bonuses that apply to a disengage check along with their sources.
+	 *
+	 * Item bonuses (footwear and talents) are collected while preparing the
+	 * actor, active effects are read from the effects themselves. Whatever remains of
+	 * the value on the sheet is the manual bonus. The values always add up to the
+	 * actual total, even when an effect cannot be attributed (for example an override).
+	 *
+	 * @returns {{name: string, value: number, signed: string}[]}
+	 */
+	getDisengageBonusSources() {
+		const key = "system.attributes.disengageBonus";
+		const itemSources = (this.disengageSources ?? []).map(s => ({ ...s }));
+		const effectSources = [];
+
+		// Active effects follow the stacking rules of applyActiveEffects: penalties only
+		// use the worst one, bonuses stack unless they share a name (best one applies).
+		let worstPenalty = null;
+		const bonusByName = {};
+		for (const effect of this.effects) {
+			if (effect.disabled) continue;
+			for (const c of effect.changes) {
+				if (c.key !== key || c.type !== "add" || isNaN(c.value) || c.value === "") continue;
+				const value = Number(c.value);
+				if (!value) continue;
+				const entry = { name: effect.name, value };
+				if (effect.flags?.archmage?.stacksAlways) effectSources.push(entry);
+				else if (value < 0) {
+					if (!worstPenalty || value < worstPenalty.value) worstPenalty = entry;
+				}
+				else if (!bonusByName[effect.name] || value > bonusByName[effect.name].value) bonusByName[effect.name] = entry;
+			}
+		}
+		if (worstPenalty) effectSources.push(worstPenalty);
+		effectSources.push(...Object.values(bonusByName));
+
+		// Anything on the sheet that no effect accounts for was typed in by hand
+		const sheet = Number(this.system.attributes?.disengageBonus || 0);
+		const fromEffects = effectSources.reduce((sum, s) => sum + s.value, 0);
+		const sources = itemSources.concat(effectSources);
+		const other = sheet - fromEffects;
+		if (other) sources.push({ name: game.i18n.localize("ARCHMAGE.CHAT.disengageSheetBonus"), value: other });
+		return sources.map(s => ({ ...s, signed: (s.value > 0 ? "+" : "") + s.value }));
+	}
+
 	async rollDisengage() {
 		const target = 11;
 
 		let terms = ["d20"];
-		// Add bonuses, if any
-		let bonus = this.system.attributes.saves.disengageBonus; // From items
-		bonus += (this.system.attributes?.disengageBonus || 0); // From sheet
+		// Add bonuses, if any, and remember where they come from for the card
+		const bonuses = this.getDisengageBonusSources();
+		const bonus = bonuses.reduce((sum, b) => sum + b.value, 0);
 		if (bonus != 0) terms.push(bonus.toString());
 
 		const dialogOptions = { width: 520 };
@@ -1068,7 +1135,8 @@ export class ActorArchmage extends Actor {
 				saveType: title,
 				success: success,
 				data: chatData,
-				target
+				target,
+				bonuses
 			};
 
 			// Render the template.
@@ -1087,6 +1155,7 @@ export class ActorArchmage extends Actor {
 		let dialogData = {
 			formula: terms.join(" + "),
 			data: data,
+			bonuses: bonuses,
 			defaultMessageMode: messageMode,
 			messageModes: CONFIG.ChatMessage.modes
 		};
