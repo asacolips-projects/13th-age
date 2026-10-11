@@ -21,8 +21,9 @@ export const ACTION_ORDER = ["standard", "move", "quick", "free", "interrupt"];
 // order with the catch-all's own chip trailing, the rest their CONFIG's key
 // order ('other' included here; the grouping's catch-all needn't cover it),
 // custom groups item-derived and alphabetical, the catch-all's chip
-// trailing when anything carries it.
-const FACET_DIMENSIONS = ["type", "powerType", "actionType", "powerUsage", "powerSource", "group"];
+// trailing when anything carries it, and the source name the same —
+// item-derived and alphabetical, with its catch-all chip trailing.
+const FACET_DIMENSIONS = ["type", "powerType", "actionType", "powerUsage", "powerSource", "powerSourceName", "group"];
 const FACET_TYPE_ORDER = ["power", "equipment", "loot", "currency"];
 
 // Chips that name item-less sections rather than item values: the currency
@@ -37,7 +38,8 @@ const SECTION_CHIP_LABELS = {
 // power type facets read more plainly.
 const FACET_LABEL_KEYS = {
 	type: "ARCHMAGE.itemType",
-	powerType: "ARCHMAGE.powerType"
+	powerType: "ARCHMAGE.powerType",
+	powerSourceName: "ARCHMAGE.CHAT.powerSourceName"
 };
 
 /**
@@ -67,6 +69,12 @@ const facetValue = (item, dim) => {
 		const raw = item.system?.group?.value;
 		return raw && cleanFilterKey(raw) !== "other" ? raw : "other";
 	}
+	if (dim === "powerSourceName") {
+		// The source name is the power sheet's free-text field; a power
+		// left untagged — and an item that doesn't carry the field at
+		// all — reads as the catch-all, like the custom groups.
+		return item.system?.powerSourceName?.value || "other";
+	}
 	const value = item.system?.[GROUP_MODES[dim]?.field]?.value;
 	return canonicalFacetOrder(dim).includes(value) ? value : "other";
 };
@@ -93,8 +101,9 @@ const facetLabel = (dim, value) => {
 	if (SECTION_CHIP_LABELS[value]) return localize(SECTION_CHIP_LABELS[value]);
 	if (dim === "type") return localize(`TYPES.Item.${value}`);
 	// Custom groups are the item's free-text group value, not a translation
-	// key — the catch-all's chip excepted, which reads like its group.
-	if (dim === "group") return value === "other" ? localize("ARCHMAGE.other") : value;
+	// key — the catch-all's chip excepted, which reads like its group. The
+	// source name is free text too, with its own catch-all chip.
+	if (dim === "group" || dim === "powerSourceName") return value === "other" ? localize("ARCHMAGE.other") : value;
 	if (dim === "powerType") return localize(`ARCHMAGE.${value}s`);
 	return localize(`ARCHMAGE.${value}`);
 };

@@ -54,7 +54,7 @@ function sanitizeTabFilter(filter) {
 // Chip dimensions a tab's own filters may select, matching the catalog
 // popover's facet rows. The type facet's currency chip names the item-less
 // currency strip, holding it in the listing per tab.
-const CHIP_FILTER_KEYS = ["type", "powerType", "powerUsage", "powerSource", "actionType", "group"];
+const CHIP_FILTER_KEYS = ["type", "powerType", "powerUsage", "powerSource", "powerSourceName", "actionType", "group"];
 
 /**
  * Sanitize the tab's stored chip selections down to whitelisted dimensions
