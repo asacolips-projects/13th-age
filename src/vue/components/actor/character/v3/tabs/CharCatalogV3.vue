@@ -607,7 +607,7 @@ const createGroupItem = async (section) => {
       flex-direction: column;
       gap: 0.375rem;
       padding-top: 0.375rem;
-      border-top: 1px dashed var(--color-border);
+      border-top: 1px solid var(--color-border);
 
       .filter-head {
         display: flex;

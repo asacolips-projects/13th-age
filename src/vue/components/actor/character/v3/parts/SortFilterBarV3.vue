@@ -58,7 +58,7 @@ const search = defineModel("search");
     display: flex;
     gap: $padding-md;
     font-family: $font-stack-label;
-    font-size: var(--font-size-10);
+    font-size: var(--font-size-12);
     padding: $padding-sm 0 $padding-md;
     border-bottom: 1px dashed var(--color-border);
 
