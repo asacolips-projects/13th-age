@@ -158,8 +158,8 @@ const tabId = computed(() => props.tab?.id ?? "catalog");
 // The group-by select's options; a labelKey overrides the shared GROUPS
 // key, so the power-type option reads "Power type" rather than "Type".
 const groupOptions = [
-	{ value: "actionType" },
 	{ value: "powerType", labelKey: "ARCHMAGE.powerType" },
+	{ value: "actionType" },
 	{ value: "powerUsage" },
 	{ value: "powerSource" },
 	{ value: "group" }

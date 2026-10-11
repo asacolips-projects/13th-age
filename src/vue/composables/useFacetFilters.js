@@ -22,7 +22,7 @@ export const ACTION_ORDER = ["standard", "move", "quick", "free", "interrupt"];
 // order ('other' included here; the grouping's catch-all needn't cover it),
 // custom groups item-derived and alphabetical, the catch-all's chip
 // trailing when anything carries it.
-const FACET_DIMENSIONS = ["type", "powerType", "powerUsage", "powerSource", "actionType", "group"];
+const FACET_DIMENSIONS = ["type", "powerType", "actionType", "powerUsage", "powerSource", "group"];
 const FACET_TYPE_ORDER = ["power", "equipment", "loot", "currency"];
 
 // Chips that name item-less sections rather than item values: the currency
