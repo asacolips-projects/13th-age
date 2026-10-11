@@ -1,24 +1,19 @@
 <template>
-	<span class="catalog-tabs-menu">
-		<button
-			type="button"
-			class="catalog-tabs-toggle"
-			:class="{ open }"
-			:data-tooltip="localize('ARCHMAGE.tabSettings')"
-			@click.stop="toggle"
-		>
-			<i class="fas fa-ellipsis-vertical" />
-		</button>
-		<!-- One popover for the whole tab set: rename each tab, drag the grip
-       to reorder, add or remove (one tab minimum). An empty name makes the
-       tab fall back to its derived label; the input's placeholder is a
-       plain "Title" prompt. -->
-		<div v-if="open" class="catalog-tabs-popover" @click.stop>
-			<div
+	<!-- One screen for the whole tab set, laid out like the other tab bodies:
+       a header bar with the add control, and the rows centered beneath at a
+       readable width. Rename each tab, drag the grip to reorder, add or
+       remove (one tab minimum). An empty name makes the tab fall back to its
+       derived label; the input's placeholder is a plain "Title" prompt. -->
+	<section class="tab-catalog-settings">
+		<header class="settings-header">
+			<button type="button" class="settings-add" @click="add"><i class="fas fa-plus" /> {{ localize('ARCHMAGE.addTab') }}</button>
+		</header>
+		<ul class="settings-list">
+			<li
 				v-for="def in defs"
 				:key="def.id"
-				class="catalog-tab-row"
-				:class="{ 'catalog-tab-row--drop-target': dragOverId === def.id }"
+				class="settings-row"
+				:class="{ 'settings-row--drop-target': dragOverId === def.id }"
 				@dragover="onDragOver($event, def)"
 				@dragleave="onDragLeave($event, def)"
 				@drop="onDrop($event, def)"
@@ -40,56 +35,27 @@
 				<span class="row-actions">
 					<button type="button" :disabled="defs.length < 2" :title="localize('ARCHMAGE.removeTab')" @click="remove(def)"><i class="fas fa-times" /></button>
 				</span>
-			</div>
-			<div class="catalog-tab-actions">
-				<button type="button" class="catalog-tab-add" @click="add"><i class="fas fa-plus" /> {{ localize('ARCHMAGE.addTab') }}</button>
-			</div>
-		</div>
-	</span>
+			</li>
+		</ul>
+	</section>
 </template>
 
 <script setup>
 /**
- * The catalog tabs' settings popover, docked beside the tab strip: one row
- * per tab with a name input, a grip to drag-reorder, an X to remove
- * (disabled while only one tab is left), and an add button — the set's
- * size, names and order are all it manages. Changes persist to the
- * sheetDisplay.catalog.tabs flags, which re-render the sheet and with it
- * the strip.
+ * The catalog tabs' settings panel, the body of the ellipsis tab at the
+ * strip's end: one row per tab with a name input, a grip to drag-reorder,
+ * an X to remove (disabled while only one tab is left), and an add button —
+ * the set's size, names and order are all it manages. Changes persist to
+ * the sheetDisplay.catalog.tabs flags, which re-render the sheet and with
+ * it the strip.
  */
-import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+import { computed, ref } from "vue";
 import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
 import { catalogTabDefs } from "@/methods/CatalogTabs";
 
 const props = defineProps(["actor"]);
 
 const defs = computed(() => catalogTabDefs(props.actor));
-
-// The popover's open state is transient; a document click outside the menu
-// or Escape closes it.
-const open = ref(false);
-
-const toggle = () => {
-	open.value = !open.value;
-};
-
-const onDocClick = (event) => {
-	if (open.value && !event.target.closest?.(".catalog-tabs-menu")) open.value = false;
-};
-
-const onDocKeydown = (event) => {
-	if (event.key === "Escape") open.value = false;
-};
-
-onMounted(() => {
-	document.addEventListener("click", onDocClick);
-	document.addEventListener("keydown", onDocKeydown);
-});
-
-onBeforeUnmount(() => {
-	document.removeEventListener("click", onDocClick);
-	document.removeEventListener("keydown", onDocKeydown);
-});
 
 /**
  * Persist a new tabs array; the sheet re-renders from the flags.
@@ -167,60 +133,36 @@ const add = () => {
 </script>
 
 <style scoped lang="scss">
-  // Docked at the strip's start, before the first tab.
-  .catalog-tabs-menu {
-    position: relative;
-    flex: 0 0 auto;
+  // The header bar, matching the effects tab's (controls over a rule); the
+  // add button docks at its right like the catalog's per-group "+".
+  .settings-header {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    justify-content: flex-end;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px dashed var(--color-border);
   }
 
-  // Dressed as one of the strip's tab links (Foundry's nav.tabs [data-tab])
-  // rather than a button: no chrome, the tab-link padding and icon size, and
-  // the link's base/hover/.active colors and text-shadow glow.
-  .catalog-tabs-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem;
-    background: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    font-size: var(--font-size-14);
-    line-height: 1;
-    color: var(--color-text-secondary);
-    cursor: var(--cursor-pointer);
-
-    &:hover {
-      color: var(--color-text-primary);
-      text-shadow: 0 0 10px var(--color-shadow-primary);
-    }
-
-    // Lit while its popover is open, like a link's active tab.
-    &.open {
-      color: var(--color-text-emphatic);
-      text-shadow: 0 0 10px var(--color-shadow-primary);
-    }
+  .settings-add {
+    height: var(--input-height);
+    font-size: var(--font-size-12);
+    border-radius: 3px;
+    background: transparent;
   }
 
-  .catalog-tabs-popover {
-    position: absolute;
-    top: calc(100% + 0.25rem);
-    left: 0;
-    z-index: 40;
+  // The rows, centered at a readable width so the name inputs never stretch
+  // across the whole body on a wide window.
+  .settings-list {
+    margin: 0.5rem auto 0;
+    padding: 0;
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.375rem;
-    width: 15rem;
-    padding: 0.5rem 0.625rem;
-    background: var(--v3-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 8px var(--c-black--50);
+    width: min(100%, 30rem);
   }
 
-  .catalog-tab-row {
+  .settings-row {
     display: flex;
     align-items: center;
     gap: 0.375rem;
@@ -276,24 +218,6 @@ const add = () => {
           cursor: not-allowed;
         }
       }
-    }
-  }
-
-  .catalog-tab-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  .catalog-tab-add {
-    height: var(--input-height);
-    font-size: var(--font-size-12);
-    border-radius: 3px;
-    background: transparent;
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
     }
   }
 </style>

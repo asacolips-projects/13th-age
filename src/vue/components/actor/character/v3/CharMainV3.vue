@@ -1,9 +1,8 @@
 <template>
 	<main class="sheet-main flexcol">
-		<!-- The catalog tabs are user-configured (see the settings popover
-         docked at the strip's start). -->
+		<!-- The catalog tabs are user-configured (the ellipsis tab between
+         them and the triggers tab opens their settings). -->
 		<div class="strip-row" :class="{ narrow }">
-			<CharCatalogTabSettingsV3 v-if="canConfigureTabs" :actor="context.actor" />
 			<Tabs
 				group="v3"
 				:tabs="stripTabs"
@@ -40,6 +39,11 @@
 				classes="tab-body"
 			>
 				<CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" :tab="def" />
+			</Tab>
+			<!-- The catalog tabs' settings, as a permanent icon-only tab: it
+           only exists where its writes can land. -->
+			<Tab v-if="canConfigureTabs" group="v3" :tab="tabs.settings" classes="tab-body">
+				<CharCatalogTabSettingsV3 :actor="context.actor" />
 			</Tab>
 			<Tab group="v3" :tab="tabs.triggers" classes="tab-body">
 				<CharTriggersV3 :actor="context.actor" :editable="context.editable" :context="context" />
@@ -95,7 +99,8 @@ const icons = {
 	loadout: "fa-box",
 	progression: "fa-chart-line",
 	notes: "fa-note-sticky",
-	character: "fa-user"
+	character: "fa-user",
+	settings: "fa-ellipsis-vertical"
 };
 
 const rawTabs = {
@@ -104,7 +109,8 @@ const rawTabs = {
 	effects: { key: "effects", label: localize("ARCHMAGE.effects") },
 	loadout: { key: "loadout", label: localize("ARCHMAGE.loadout") },
 	progression: { key: "progression", label: localize("ARCHMAGE.progression"), hideLabel: true },
-	notes: { key: "notes", label: localize("ARCHMAGE.notes"), hideLabel: true }
+	notes: { key: "notes", label: localize("ARCHMAGE.notes"), hideLabel: true },
+	settings: { key: "settings", label: localize("ARCHMAGE.tabSettings"), hideLabel: true }
 };
 const tabs = reactive(rawTabs);
 
@@ -160,24 +166,29 @@ const stripTabs = computed(() => {
 	// effect — the state map's own insertion order would go stale.
 	const merged = { character: tabs.character };
 	for (const { state } of catalogTabsView.value) merged[state.key] = state;
-	for (const key of ["triggers", "loadout", "effects", "progression", "notes"]) {
+	for (const key of ["settings", "triggers", "loadout", "effects", "progression", "notes"]) {
 		merged[key] = tabs[key];
 	}
 	return merged;
 });
 
+// The settings tab only makes sense where its writes can land.
+const canConfigureTabs = computed(() => props.context?.editable === true && !props.context.actor?.pack);
+
 // Runs immediately (so the first render already has the flag) and again
 // whenever the actor's items or the layout mode change. Hidden tabs: triggers
-// earn their slot only when the PC has trigger text, and the character tab
-// exists only in the narrow layout. If a tab is open when it becomes hidden,
-// move the active tab to the first visible one. Icons/labels: narrow swaps the
-// strip to icon-only (hideLabel keeps hover tooltips working); the catalog
-// tabs' icons were set in the sync above.
+// earn their slot only when the PC has trigger text, the character tab
+// exists only in the narrow layout, and the settings tab only where its
+// writes can land. If a tab is open when it becomes hidden, move the active
+// tab to the first visible one. Icons/labels: narrow swaps the strip to
+// icon-only (hideLabel keeps hover tooltips working); the catalog tabs'
+// icons were set in the sync above.
 watchEffect(() => {
 	tabs.triggers.hidden = !hasTriggers.value;
 	tabs.character.hidden = !props.narrow;
+	tabs.settings.hidden = !canConfigureTabs.value;
 
-	for (const key of ["character", "triggers", "effects", "loadout", "progression", "notes"]) {
+	for (const key of ["character", "triggers", "effects", "loadout", "progression", "notes", "settings"]) {
 		const tab = tabs[key];
 		tab.icon = (props.narrow || tab.hideLabel) ? icons[key] : undefined;
 		tab.hideLabel ||= props.narrow;
@@ -225,9 +236,6 @@ function endSlide(event) {
 }
 
 onUnmounted(() => clearTimeout(slideFallback));
-
-// The settings popover only makes sense where its writes can land.
-const canConfigureTabs = computed(() => props.context?.editable === true && !props.context.actor?.pack);
 
 // One-time migration: seed the catalog tab set (and its saved orders) from
 // the legacy powers/actionPlan flags, leaving those in place for the v2

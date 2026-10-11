@@ -1,20 +1,20 @@
 <template>
 	<section class="tab-catalog">
-		<!-- The ellipsis (grouping/sorting/filtering popover), the filter entry
+		<!-- The funnel (grouping/sorting/filtering popover), the filter entry
        and the import button. -->
 		<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
-			<!-- Ellipsis, opening the popover that holds this tab's grouping
-         and sorting selects and its filter chips. -->
+			<!-- Funnel button, opening the popover that holds this tab's
+          grouping and sorting selects and its filter chips. -->
 			<template #sort>
 				<span class="view-catalog">
 					<button
 						type="button"
 						class="catalog-view"
 						:class="{ 'catalog-view--open': openView }"
-						:data-tooltip="localize('ARCHMAGE.groupAndSort')"
+						:data-tooltip="localize('ARCHMAGE.filters')"
 						@click.stop="openView = !openView"
 					>
-						<i class="fas fa-ellipsis-vertical" />
+						<i class="fas fa-filter" />
 						<span v-if="activeFilterCount" class="catalog-view-count">{{ activeFilterCount }}</span>
 					</button>
 					<div v-if="openView" class="view-catalog-popover" @click.stop>
@@ -200,7 +200,7 @@ const sortBy = computed({
 });
 
 // The grouping/sorting popover's open state is transient; a document click
-// outside the ellipsis or Escape closes it.
+// outside the funnel button or Escape closes it.
 const openView = ref(false);
 
 const onDocClick = (event) => {
@@ -508,7 +508,7 @@ const createGroupItem = async (section) => {
 </script>
 
 <style scoped lang="scss">
-  // The ellipsis and its grouping/sorting popover, docked at the bar's
+  // The funnel and its grouping/sorting popover, docked at the bar's
   // start (in the bar's #sort slot, ahead of the filter entry).
   .view-catalog {
     position: relative;
@@ -518,17 +518,16 @@ const createGroupItem = async (section) => {
     align-items: center;
   }
 
+  // A standard button sized like the import button.
   .catalog-view {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 0.25rem;
-    background: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    font-size: var(--font-size-14);
+    height: var(--input-height);
+    font-size: var(--font-size-12);
+    border-radius: 3px;
+    background: transparent;
     line-height: 1;
     color: var(--color-text-secondary);
     cursor: var(--cursor-pointer);
@@ -538,14 +537,14 @@ const createGroupItem = async (section) => {
       text-shadow: 0 0 10px var(--color-shadow-primary);
     }
 
-    // Lit while its popover is open, like the tab strip's settings menu.
+    // Lit while its popover is open.
     &.catalog-view--open {
       color: var(--color-text-emphatic);
       text-shadow: 0 0 10px var(--color-shadow-primary);
     }
 
     // Filter count badge: chips can hide list content while the popover is
-    // closed, so the closed ellipsis carries the number of active chips.
+    // closed, so the closed funnel carries the number of active chips.
     .catalog-view-count {
       position: absolute;
       top: -0.3rem;
