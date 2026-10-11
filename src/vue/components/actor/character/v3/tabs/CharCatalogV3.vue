@@ -445,14 +445,15 @@ const catalogSections = computed(() => {
 			|| selected.some((chip) => cleanFilterKey(chip) === section.key))
 		: [...groups.values(), other];
 
-	// With chips active anywhere, the loot and currency sections render only
-	// when their type-facet chips do: they're the two sections no item
-	// group covers, so their chips name them outright. The grouped sections
-	// hold powers and equipment, so they render only while the type facet
-	// names either — a selection of just loot and currency chips leaves
-	// those two sections alone on the tab.
+	// With type-facet chips selected, the loot and currency sections render
+	// only when their chips do: they're the two sections no item group
+	// covers, so their chips name them outright. The grouped sections hold
+	// powers and equipment, so they render only while the type facet names
+	// either — a selection of just loot and currency chips leaves those two
+	// sections alone on the tab. A selection in any other facet narrows the
+	// members alone, leaving every section standing.
 	const typeSelected = activeFilters.value.type;
-	const typeNames = (chip) => !filtersActive.value || typeSelected.includes(chip);
+	const typeNames = (chip) => !typeSelected.length || typeSelected.includes(chip);
 	const sections = [
 		...(typeNames("power") || typeNames("equipment") ? facetSections : []),
 		...(typeNames("loot")

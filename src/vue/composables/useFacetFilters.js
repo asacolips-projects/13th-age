@@ -169,14 +169,20 @@ export function useFacetFilters({ items, filters, save }) {
 
 	/**
 	 * Whether an item passes the chip filters: a dimension with no active chips
-	 * passes as-is, otherwise the item's value must be among them. The
-	 * section-naming chips never match an item — the catalog reads those
-	 * sections' visibility off `activeFilters` instead.
+	 * passes as-is, otherwise the item's value must be among them. An item with
+	 * no value for a dimension — loot and tools carry none for the grouping
+	 * facets, rendering in their own section instead — passes unfiltered, so
+	 * chips in a grouping facet narrow the grouped sections and their members
+	 * without ever touching the loot section. The section-naming chips never
+	 * match an item — the catalog reads those sections' visibility off
+	 * `activeFilters` instead.
 	 * @param item
 	 */
 	const matchesFilters = (item) => FACET_DIMENSIONS.every((dim) => {
 		const active = activeFilters.value[dim];
-		return !active.length || active.includes(facetValue(item, dim));
+		const value = facetValue(item, dim);
+		if (value === undefined) return true;
+		return !active.length || active.includes(value);
 	});
 
 	/**
