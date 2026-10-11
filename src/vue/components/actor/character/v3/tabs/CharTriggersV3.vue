@@ -1,12 +1,40 @@
 <template>
 	<section class="tab-triggers">
 		<template v-if="powersWithTriggers.length">
-			<!-- Sorts, filters and the grouping toggle at the right-hand end. -->
+			<!-- Search entry, with the view button (sort and the grouping
+        toggle's popover) docked ahead of it, like the catalog tabs. -->
 			<SortFilterBarV3 id="trigger" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
-				<label class="filter-custom-groups">
-					<input v-model="useCustomGroups" type="checkbox">
-					<span>{{ localize('ARCHMAGE.GROUPS.group') }}</span>
-				</label>
+				<!-- View button, opening the popover that holds this tab's
+          sort select and its custom-groups toggle. -->
+				<template #sort>
+					<span class="view-trigger">
+						<button
+							type="button"
+							class="trigger-view"
+							:class="{ 'trigger-view--open': openView }"
+							:data-tooltip="localize('ARCHMAGE.groupAndSort')"
+							@click.stop="openView = !openView"
+						>
+							<i class="fas fa-bars" />
+						</button>
+						<div v-if="openView" class="view-trigger-popover" @click.stop>
+							<!-- Sort and the grouping toggle share the row, a
+                column each, styled like the bar's own controls. -->
+							<div class="group-sort-row">
+								<div class="group-sort-col">
+									<label :for="concat('trigger-sort')">{{ localize('ARCHMAGE.sort') }}</label>
+									<select :id="concat('trigger-sort')" v-model="sortBy" :name="concat('trigger-sort')">
+										<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
+									</select>
+								</div>
+								<label class="group-toggle">
+									<input v-model="useCustomGroups" type="checkbox">
+									<span>{{ localize('ARCHMAGE.GROUPS.group') }}</span>
+								</label>
+							</div>
+						</div>
+					</span>
+				</template>
 			</SortFilterBarV3>
 
 			<template v-if="filteredPowers.length">
@@ -49,10 +77,11 @@
  * The triggers tab: every power with trigger text, listed with the trigger
  * in its own column and expanding to the power's full details. Custom
  * grouping mirrors the V2 triggers tab, persisting under the same flag;
- * sorting and text filtering use the catalog tab's controls.
+ * sorting and the grouping toggle live in a view popover like the catalog
+ * tabs', and text filtering uses the shared search.
  */
-import { computed, ref, watch } from "vue";
-import { byLevel, byName, localize, saveSheetDisplayPref } from "@/methods/Helpers";
+import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { byLevel, byName, concat, localize, saveSheetDisplayPref } from "@/methods/Helpers";
 import { useSearchFilter } from "@/composables/useSearchFilter";
 import SortFilterBarV3 from "@/components/actor/character/v3/parts/SortFilterBarV3.vue";
 import ExpandableRowV3 from "../parts/ExpandableRowV3.vue";
@@ -68,6 +97,28 @@ const powersWithTriggers = computed(() => (props.actor?.items ?? [])
 // item sort order; the other modes ignore it.
 const sortOptions = [{ value: "name" }, { value: "level" }, { value: "custom" }];
 const sortBy = ref(props.actor?.flags?.archmage?.sheetDisplay?.triggers?.sortBy?.value ?? "custom");
+
+// The view popover's open state is transient; a document click outside the
+// view button or Escape closes it.
+const openView = ref(false);
+
+const onDocClick = (event) => {
+	if (openView.value && !event.target.closest?.(".view-trigger")) openView.value = false;
+};
+
+const onDocKeydown = (event) => {
+	if (event.key === "Escape") openView.value = false;
+};
+
+onMounted(() => {
+	document.addEventListener("click", onDocClick);
+	document.addEventListener("keydown", onDocKeydown);
+});
+
+onBeforeUnmount(() => {
+	document.removeEventListener("click", onDocClick);
+	document.removeEventListener("keydown", onDocKeydown);
+});
 
 // Searchable text for a row: the name and trigger text the row shows, plus
 // the description the expanded row adds.
@@ -117,19 +168,91 @@ const groups = computed(() => {
 <style scoped lang="scss">
   @import 'v3/empty';
 
-  // The grouping toggle slotted into the shared sort/filter bar, docking to
-  // the bottom of the row, level with the controls like the catalog's import
-  // button — styled here, since the bar's scoped rules don't reach it.
-  .filter-custom-groups {
-    flex: 0 auto;
+  // The view button and its sort/grouping popover, docked at the bar's
+  // start (in the bar's #sort slot, ahead of the search entry), like the
+  // catalog tabs'.
+  .view-trigger {
+    position: relative;
+    flex: 0 0 auto;
     align-self: flex-end;
     display: flex;
     align-items: center;
-    width: auto;
+  }
+
+  // A standard button sized like the bar's other controls.
+  .trigger-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: var(--input-height);
+    font-size: var(--font-size-12);
+    border-radius: 3px;
+    background: transparent;
+    line-height: 1;
+    color: var(--color-text-secondary);
+    cursor: var(--cursor-pointer);
+
+    &:hover {
+      color: var(--color-text-primary);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+    }
+
+    // Lit while its popover is open.
+    &.trigger-view--open {
+      color: var(--color-text-emphatic);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+    }
+  }
+
+  .view-trigger-popover {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
     gap: 0.375rem;
-    white-space: nowrap;
-    font-weight: normal;
+    width: 24rem;
+    padding: 0.5rem 0.625rem;
+    background: var(--v3-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 8px var(--c-black--50);
+
+    // The sort select and the grouping toggle share the row, a column
+    // each; styled like the bar's own controls, whose scoped rules don't
+    // reach slot content.
+    .group-sort-row {
+      display: flex;
+      gap: 0.375rem;
+
+      .group-sort-col {
+        flex: 1;
+        min-width: 0;
+
+        label {
+          display: block;
+          width: 100%;
+          font-weight: bold;
+        }
+
+        select {
+          width: 100%;
+        }
+      }
+
+      // The grouping toggle, riding the select's row.
+      .group-toggle {
+        flex: 0 auto;
+        align-self: flex-end;
+        display: flex;
+        align-items: center;
+        height: var(--input-height);
+        gap: 0.375rem;
+        white-space: nowrap;
+        font-weight: normal;
+      }
+    }
   }
 
   .trigger-group {

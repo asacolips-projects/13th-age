@@ -1,10 +1,10 @@
 <template>
 	<section class="tab-catalog">
-		<!-- The funnel (grouping/sorting/filtering popover), the filter entry
-       and the import button. -->
-		<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
-			<!-- Funnel button, opening the popover that holds this tab's
-          grouping and sorting selects and its filter chips. -->
+	<!-- The view button (grouping/sorting/filtering popover), the filter entry
+     and the import button. -->
+	<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
+		<!-- View button, opening the popover that holds this tab's
+        grouping and sorting selects and its filter chips. -->
 			<template #sort>
 				<span class="view-catalog">
 					<button
@@ -14,7 +14,7 @@
 						:data-tooltip="localize('ARCHMAGE.filters')"
 						@click.stop="openView = !openView"
 					>
-						<i class="fas fa-filter" />
+						<i class="fas fa-bars" />
 						<span v-if="activeFilterCount" class="catalog-view-count">{{ activeFilterCount }}</span>
 					</button>
 					<div v-if="openView" class="view-catalog-popover" @click.stop>
@@ -200,7 +200,7 @@ const sortBy = computed({
 });
 
 // The grouping/sorting popover's open state is transient; a document click
-// outside the funnel button or Escape closes it.
+// outside the view button or Escape closes it.
 const openView = ref(false);
 
 const onDocClick = (event) => {
@@ -509,7 +509,7 @@ const createGroupItem = async (section) => {
 </script>
 
 <style scoped lang="scss">
-  // The funnel and its grouping/sorting popover, docked at the bar's
+  // The view button and its grouping/sorting popover, docked at the bar's
   // start (in the bar's #sort slot, ahead of the filter entry).
   .view-catalog {
     position: relative;
@@ -545,7 +545,7 @@ const createGroupItem = async (section) => {
     }
 
     // Filter count badge: chips can hide list content while the popover is
-    // closed, so the closed funnel carries the number of active chips.
+    // closed, so the closed view button carries the number of active chips.
     .catalog-view-count {
       position: absolute;
       top: -0.3rem;

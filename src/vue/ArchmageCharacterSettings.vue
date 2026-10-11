@@ -402,8 +402,9 @@ const flagState = reactive(
 
 // Flags that only apply to the V2 sheet, hidden from the V3 settings. The
 // portrait round/frame treatments don't suit the V3 hero banner, which
-// offers "show full artwork" instead.
-const hiddenFlags = ["hideSettingsTab", "showTriggersTab", "portraitRound", "portraitFrame"];
+// offers "show full artwork" instead. hideCurrency and hideEmptyPowerGroups
+// are superseded by the V3 filter controls.
+const hiddenFlags = ["hideSettingsTab", "showTriggersTab", "portraitRound", "portraitFrame", "hideCurrency", "hideEmptyPowerGroups"];
 
 const sectionOrder = ["Dice", "Sheet", "Feats"];
 

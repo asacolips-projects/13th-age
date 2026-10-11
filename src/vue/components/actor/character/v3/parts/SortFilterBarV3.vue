@@ -1,7 +1,7 @@
 <template>
 	<header class="sort-filter-bar">
-		<!-- Leading control: a tab can slot its own (e.g. the catalog's
-         group/sort popover) in place of the built-in sort select. -->
+		<!-- Leading control: a tab can slot its own (e.g. the catalog's and
+        triggers tab's view popovers) in place of the built-in sort select. -->
 		<slot name="sort">
 			<div class="sort-control">
 				<label :for="concat(id, '-sort')">{{ localize('ARCHMAGE.sort') }}</label>
@@ -33,10 +33,10 @@
 /**
  * The sort/filter/search control row the listing tabs share: a sort select
  * and a filter input, with a slot for the tab's extra controls (the
- * triggers tab's grouping toggle, the catalog's import button). The leading
- * sort control can be replaced via the #sort slot (the catalog tucks sort
- * and group-by into a popover there). Sort and search are v-models; the
- * search's clear widget is owned here, resetting the model to null.
+ * catalog's import button). The leading sort control can be replaced via
+ * the #sort slot (the catalog and triggers tabs tuck sort — and their
+ * grouping controls — into a popover there). Sort and search are v-models;
+ * the search's clear widget is owned here, resetting the model to null.
  */
 import { concat, localize } from "@/methods/Helpers";
 
