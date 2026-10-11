@@ -61,7 +61,7 @@
 										:key="chip.value"
 										type="button"
 										class="facet-chip"
-										:class="{ 'facet-chip--on': chip.active, 'facet-chip--empty': chip.empty, 'facet-chip--hide': row.key === 'sections' }"
+										:class="{ 'facet-chip--on': chip.active, 'facet-chip--empty': chip.empty }"
 										@click="toggleFilter(row.key, chip.value)"
 									>{{ chip.label }}</button>
 								</div>
@@ -245,21 +245,12 @@ const { searchValue, matchesSearch } = useSearchFilter((item) => {
 // through come from the shared composable; the chip selections persist per
 // tab like group and sort, through this tab's definition patcher.
 const {
-	facetRows, activeFilters, activeFilterCount, filtersActive, hiddenSections, matchesFilters, toggleFilter, toggleAllFilters, clearFilters
+	facetRows, activeFilters, activeFilterCount, filtersActive, matchesFilters, toggleFilter, toggleAllFilters, clearFilters
 } = useFacetFilters({
 	items: () => props.actor?.items ?? [],
 	filters: () => props.tab?.filters ?? {},
 	save: (filters) => saveTabDef({ filters })
 });
-
-// Section keys the active chips hold open: an empty group whose chip is
-// selected still renders, so its add button stays reachable for filling it.
-// The chips of the tab's own grouping mode name its sections directly, and
-// a selected loot chip holds the loot group open whatever the mode.
-const keptSections = computed(() => new Set([
-	...(activeFilters.value[groupBy.value] ?? []),
-	...(activeFilters.value.type.includes("loot") ? ["inventory-loot"] : [])
-]));
 
 // Group reordering is only offered when the sheet is editable and the actor
 // isn't a compendium entry (where flags can't be written).
@@ -398,12 +389,14 @@ const groupLabel = (mode, key) => mode === "powerType" ? `ARCHMAGE.${key}s` : `A
  * Every catalog section in display order: the mode's canonical groups, the
  * 'Other' catch-all for items that fell through, then the loot and currency
  * groups. Collating is by field value only — an item joins the canonical
- * group its value names, or the catch-all — and while the list is unfiltered
- * every group renders, empty or not, keeping its add button reachable; once
- * the search or the chip filters are active, groups nothing matched drop
- * out. The sections facet's hide-chips drop the catch-all and the currency
- * strip on this tab outright. Group order is per tab and mode, shared by
- * power groups, the catch-all, loot and currency alike.
+ * group its value names, or the catch-all — and every group renders, empty
+ * or not, keeping its add button reachable — unless the tab groups by a
+ * facet with that facet's chips selected, in which case only the selected
+ * chips' groups render (the grouping facets' own Other chips name the
+ * catch-all). With any chips active anywhere, the loot and currency
+ * sections render only when their type-facet chips do. Without any selection
+ * every section renders. Group order is per tab and mode, shared by power
+ * groups, the catch-all, loot and currency alike.
  */
 const catalogSections = computed(() => {
 	const mode = groupBy.value;
@@ -434,28 +427,35 @@ const catalogSections = computed(() => {
 			const value = mode === "actionType" && item.type === "equipment"
 				? (item.system?.powerUsage?.value ? "free" : "other")
 				: item.system?.[field]?.value;
-			// Override legacy 'maneuver' with 'flexible'.
-			const key = value === "maneuver" ? "flexible" : value;
-			(groups.get(key) ?? other).members.push(item);
+			(groups.get(value) ?? other).members.push(item);
 		}
 	}
 
+	// When the tab groups by a facet, that facet's chips also narrow the
+	// sections themselves: with chips selected, only the selected chips'
+	// groups render. Custom groups' sections key off the cleaned free-text
+	// value, so chips match by raw and by cleaned value alike.
+	const selected = activeFilters.value[mode];
+	const facetSections = selected.length
+		? [...groups.values(), other].filter((section) => selected.includes(section.raw)
+			|| selected.some((chip) => cleanFilterKey(chip) === section.key))
+		: [...groups.values(), other];
+
+	// With chips active anywhere, the loot and currency sections render only
+	// when their type-facet chips do: they're the two sections no item
+	// group covers, so their chips name them outright.
+	const typeSelected = activeFilters.value.type;
+	const typeNames = (chip) => !filtersActive.value || typeSelected.includes(chip);
 	const sections = [
-		...groups.values(),
-		...(hiddenSections.value.has("other") ? [] : [other]),
-		{ key: "inventory-loot", labelKey: "ARCHMAGE.INVENTORY.loot", kind: "loot", members: loot.value },
-		...(showCurrency.value && !hiddenSections.value.has("currency")
+		...facetSections,
+		...(typeNames("loot")
+			? [{ key: "inventory-loot", labelKey: "ARCHMAGE.INVENTORY.loot", kind: "loot", members: loot.value }]
+			: []),
+		...(showCurrency.value && typeNames("currency")
 			? [{ key: "inventory-currency", labelKey: "ARCHMAGE.INVENTORY.currency", kind: "currency", members: [] }]
 			: [])
 	];
-	// The currency strip never carries members, so it is exempt from the
-	// empty-group hiding, as are the sections the active chips hold open.
-	const visible = (filtersActive.value || searchValue.value)
-		? sections.filter((section) => section.kind === "currency"
-			|| section.members.length > 0
-			|| keptSections.value.has(section.key))
-		: sections;
-	return orderedGroups(visible, savedGroupOrder.value);
+	return orderedGroups(sections, savedGroupOrder.value);
 });
 
 /**
@@ -606,6 +606,7 @@ const createGroupItem = async (section) => {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
+				min-height: 2.25em;
 
         // The filter heading, an h4 for a bit more division than a plain
         // label, with its hint bubble grouped at the row's start.
@@ -703,9 +704,8 @@ const createGroupItem = async (section) => {
         }
 
         // A chip no item carries: the dashed outline and dimmed label mark
-        // the group as empty — toggling one just holds its section open
-        // for adding to. Interaction and a held-open selection restore
-        // full legibility.
+        // the group as empty — its section still renders, add button ready.
+        // Interaction and an active selection restore full legibility.
         &.facet-chip--empty {
           border-style: dashed;
           opacity: 0.6;
@@ -713,30 +713,6 @@ const createGroupItem = async (section) => {
           &:hover,
           &.facet-chip--on {
             opacity: 1;
-          }
-        }
-
-        // The hide row's chips drop whole sections rather than narrowing
-        // items: a muted hint of the negative accent sets them apart from
-        // the filter facets without shouting. The wash stays behind
-        // theme-appropriate text so the chip reads on parchment and dark
-        // glass alike.
-        &.facet-chip--hide {
-          border-color: rgba(224, 22, 22, 0.4);
-          background: rgba(224, 22, 22, 0.05);
-
-          // Lit while its section is hidden: only then does the accent
-          // come fully out — solid border, deeper wash, and the label in
-          // the dark theme's lighter fail red over the raw negative red.
-          &.facet-chip--on {
-            border-color: var(--v3-negative);
-            background: rgba(224, 22, 22, 0.16);
-            color: var(--c-fail);
-            text-shadow: none;
-
-            .theme-light & {
-              color: var(--v3-negative);
-            }
           }
         }
       }
