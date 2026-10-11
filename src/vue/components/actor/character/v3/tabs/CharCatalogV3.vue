@@ -23,7 +23,7 @@
 							<div class="group-catalog">
 								<label :for="concat('catalog-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
 								<select :id="concat('catalog-group-', tabId)" v-model="groupBy" :name="concat('catalog-group-', tabId)">
-									<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.GROUPS.${option.value}`) }}</option>
+									<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(option.labelKey ?? `ARCHMAGE.GROUPS.${option.value}`) }}</option>
 								</select>
 							</div>
 							<div class="group-catalog">
@@ -155,9 +155,11 @@ const actorDocument = inject("actorDocument");
 // sheet's form submit collect each field twice.
 const tabId = computed(() => props.tab?.id ?? "catalog");
 
+// The group-by select's options; a labelKey overrides the shared GROUPS
+// key, so the power-type option reads "Power type" rather than "Type".
 const groupOptions = [
 	{ value: "actionType" },
-	{ value: "powerType" },
+	{ value: "powerType", labelKey: "ARCHMAGE.powerType" },
 	{ value: "powerUsage" },
 	{ value: "powerSource" },
 	{ value: "group" }
@@ -394,9 +396,11 @@ const groupLabel = (mode, key) => mode === "powerType" ? `ARCHMAGE.${key}s` : `A
  * facet with that facet's chips selected, in which case only the selected
  * chips' groups render (the grouping facets' own Other chips name the
  * catch-all). With any chips active anywhere, the loot and currency
- * sections render only when their type-facet chips do. Without any selection
- * every section renders. Group order is per tab and mode, shared by power
- * groups, the catch-all, loot and currency alike.
+ * sections render only when their type-facet chips do, and the grouped
+ * sections only while that facet still names power or equipment — so a
+ * loot-and-currency-only selection leaves just those two sections. Without
+ * any selection every section renders. Group order is per tab and mode,
+ * shared by power groups, the catch-all, loot and currency alike.
  */
 const catalogSections = computed(() => {
 	const mode = groupBy.value;
@@ -443,11 +447,14 @@ const catalogSections = computed(() => {
 
 	// With chips active anywhere, the loot and currency sections render only
 	// when their type-facet chips do: they're the two sections no item
-	// group covers, so their chips name them outright.
+	// group covers, so their chips name them outright. The grouped sections
+	// hold powers and equipment, so they render only while the type facet
+	// names either — a selection of just loot and currency chips leaves
+	// those two sections alone on the tab.
 	const typeSelected = activeFilters.value.type;
 	const typeNames = (chip) => !filtersActive.value || typeSelected.includes(chip);
 	const sections = [
-		...facetSections,
+		...(typeNames("power") || typeNames("equipment") ? facetSections : []),
 		...(typeNames("loot")
 			? [{ key: "inventory-loot", labelKey: "ARCHMAGE.INVENTORY.loot", kind: "loot", members: loot.value }]
 			: []),
