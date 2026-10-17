@@ -350,6 +350,8 @@ const createGroupItem = async (section) => {
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/empty';
+  @import 'v3/popover';
   // The view button and its grouping/sorting popover, docked at the bar's
   // start (in the bar's #sort slot, ahead of the filter entry).
   .view-catalog {
@@ -404,19 +406,7 @@ const createGroupItem = async (section) => {
   }
 
   .view-catalog-popover {
-    position: absolute;
-    top: calc(100% + 0.25rem);
-    left: 0;
-    z-index: 40;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    width: 24rem;
-    padding: 0.5rem 0.625rem;
-    background: var(--v3-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 8px var(--c-black--50);
+    @include v3-popover;
 
     // The group and sort selects share the top row, a labelled column
     // each; styled like the bar's own controls, whose scoped rules don't
@@ -426,18 +416,7 @@ const createGroupItem = async (section) => {
       gap: 0.375rem;
 
       .group-catalog {
-        flex: 1;
-        min-width: 0;
-
-        label {
-          display: block;
-          width: 100%;
-          font-weight: bold;
-        }
-
-        select {
-          width: 100%;
-        }
+        @include v3-popover-col;
       }
     }
 
@@ -621,7 +600,9 @@ const createGroupItem = async (section) => {
       }
 
       // Empty-catalog attention pulse, same accent as the identity fields'
-      // (charms even while disabled — the tooltip explains why).
+      // (charms even while disabled — the tooltip explains why). The
+      // keyframes are the v3 pulse partial's single global definition
+      // (CharSidebarV3's unscoped block imports it).
       &.catalog-import--pulse {
         animation: v3-empty-pulse 2s ease-in-out infinite;
       }
@@ -689,15 +670,5 @@ const createGroupItem = async (section) => {
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-
-  /* Empty-field attention pulse (shared look with the identity fields). */
-  @keyframes v3-empty-pulse {
-    0%, 100% {
-      box-shadow: 0 0 0 0 transparent;
-    }
-    50% {
-      box-shadow: 0 0 0 2px var(--v3-hint);
-    }
   }
 </style>

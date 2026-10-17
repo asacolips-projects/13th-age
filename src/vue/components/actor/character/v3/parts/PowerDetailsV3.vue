@@ -100,48 +100,11 @@ const usageColorClass = computed(() => powerUsageColor(props.power, props.actor)
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/details-meta';
+
   .power-details {
     padding: 0.375rem 0.375rem 0.25rem;
     font-size: var(--font-size-16);
-  }
-
-  .details-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.125rem 0.75rem;
-    margin-bottom: 0.375rem;
-    font-family: var(--v3-font-label);
-    font-size: var(--font-size-12);
-    color: var(--color-text-secondary);
-  }
-
-  .meta-item {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  // The usage tag wears its usage colour as a chip, by the system-wide
-  // gradients the colour-blind modes override.
-  .meta-usage {
-    padding: 0 0.375rem;
-    border-radius: 0.25rem;
-    color: var(--c-white);
-    text-shadow: 0 0 10px var(--c-black--50);
-
-    &.at-will { background: var(--v3-power-will); }
-    &.once-per-battle { background: var(--v3-power-battle); }
-    &.daily { background: var(--v3-power-daily); }
-    &.recharge { background: var(--v3-power-recharge); }
-    &.other { background: var(--v3-power-other); }
-  }
-
-  // Readability sectioning in the mould of the item sheet's fieldsets
-  fieldset {
-    margin: 0.375rem 0 0;
-    padding: 0.25rem 0 0;
-    border: none;
-    border-top: 1px solid var(--color-border);
   }
 
   .power-detail {

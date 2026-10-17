@@ -326,21 +326,6 @@ function featLetters(power) {
 }
 </style>
 
-<style>
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
-.slide-fade-enter-active {
-  transition: all 0.2s ease-in-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateY(-60%);
-}
+<style lang="scss">
+  @import 'v3/transitions';
 </style>

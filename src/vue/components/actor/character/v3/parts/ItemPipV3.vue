@@ -48,11 +48,11 @@ defineEmits(["toggle-pip"]);
 </script>
 
 <style scoped lang="scss">
-// The pip's presentation, sized and coloured like the hand-rolled pip in
-// PowerFeatsV3 (`.feat-active-pip`), the one V3 element that already renders
-// a feat's taken state: 8px circles ringed in the body text colour, filled
-// once taken. No --v3-* token covers the pip, so the core token flows
-// straight through; themes retint it like they do the text.
+  @import 'v3/pips';
+
+// The pip's presentation, sized and coloured like the loadout's slot-track
+// pips (the circle-pip mixin), interactive: 8px circles ringed in the body
+// text colour, filled once taken.
 .feat-pips {
   display: flex;
   flex-direction: row;
@@ -63,19 +63,8 @@ defineEmits(["toggle-pip"]);
   list-style-type: none;
 
   .feat-pip {
-    display: block;
-    width: 8px;
-    height: 8px;
-    background: transparent;
-    border-radius: 50%;
-    border: 1px solid var(--color-text-primary);
-    margin: 0 1px;
-    padding: 0;
+    @include v3-circle-pip(8px);
     cursor: pointer;
-
-    &.active {
-      background: var(--color-text-primary);
-    }
   }
 
   // Two pips, stacked, for an item that attunes as two slots.

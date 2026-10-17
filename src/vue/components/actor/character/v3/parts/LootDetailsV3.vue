@@ -40,17 +40,11 @@ const { diceFormulaMode, enrichmentOptions } = useItemEnrichment(
 </script>
 
 <style scoped lang="scss">
+  @import 'v3/details-meta';
+
   .loot-details {
     padding: 0.375rem 0.375rem 0.25rem;
     font-size: var(--font-size-14);
-  }
-
-  // Readability sectioning in the mould of the item sheet's fieldsets
-  fieldset {
-    margin: 0.375rem 0 0;
-    padding: 0.25rem 0 0;
-    border: none;
-    border-top: 1px solid var(--color-border);
   }
 
   .detail-value {

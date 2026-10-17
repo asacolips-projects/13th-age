@@ -311,6 +311,7 @@ const sections = computed(() => loadoutSections({
 
 <style scoped lang="scss">
   @import 'v3/drag-reorder';
+  @import 'v3/pips';
   @import 'v3/empty';
 
   .loadout-section {
@@ -453,7 +454,8 @@ const sections = computed(() => loadoutSections({
   }
 
   // The slot pips, mirrored from PowerFeatPips: hollow circles, filled when
-  // the slot is consumed. Red triangles mark slots used beyond the allowance.
+  // the slot is consumed (the shared circle-pip mixin). Red triangles mark
+  // slots used beyond the allowance.
   .slot-pips {
     display: flex;
     flex-direction: row;
@@ -464,20 +466,10 @@ const sections = computed(() => loadoutSections({
   }
 
   .slot-pip {
+    @include v3-circle-pip(var(--font-size-12));
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--font-size-12);
-    height: var(--font-size-12);
-    background: transparent;
-    border-radius: 50%;
-    border: 1px solid var(--color-text-primary);
-    margin: 0 1px;
-    padding: 0;
-
-    &.filled {
-      background: var(--color-text-primary);
-    }
 
     // A slot a lower-tier feat spent: the arrow marks the down-spend.
     &.borrowed i {

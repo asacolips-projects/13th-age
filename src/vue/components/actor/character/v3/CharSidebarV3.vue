@@ -19,6 +19,7 @@ defineProps(["actor"]);
      it re-homes the same body units. -->
 <style lang="scss">
   @import 'v3/unit-title';
+  @import 'v3/pulse';
 
 .sheet-sidebar {
   flex: 0 0 250px;
@@ -66,15 +67,6 @@ defineProps(["actor"]);
       animation: none;
       box-shadow: 0 0 0 1px var(--v3-hint);
     }
-  }
-}
-
-@keyframes v3-empty-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-  50% {
-    box-shadow: 0 0 0 2px var(--v3-hint);
   }
 }
 </style>

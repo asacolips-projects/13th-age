@@ -149,6 +149,7 @@ const groups = computed(() => {
 
 <style scoped lang="scss">
   @import 'v3/empty';
+  @import 'v3/popover';
 
   // The view button and its sort/grouping popover, docked at the bar's
   // start (in the bar's #sort slot, ahead of the search entry), like the
@@ -187,19 +188,7 @@ const groups = computed(() => {
   }
 
   .view-trigger-popover {
-    position: absolute;
-    top: calc(100% + 0.25rem);
-    left: 0;
-    z-index: 40;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    width: 24rem;
-    padding: 0.5rem 0.625rem;
-    background: var(--v3-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 8px var(--c-black--50);
+    @include v3-popover;
 
     // The sort select and the grouping toggle share the row, a column
     // each; styled like the bar's own controls, whose scoped rules don't
@@ -209,18 +198,7 @@ const groups = computed(() => {
       gap: 0.375rem;
 
       .group-sort-col {
-        flex: 1;
-        min-width: 0;
-
-        label {
-          display: block;
-          width: 100%;
-          font-weight: bold;
-        }
-
-        select {
-          width: 100%;
-        }
+        @include v3-popover-col;
       }
 
       // The grouping toggle, riding the select's row.
