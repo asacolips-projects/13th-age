@@ -66,7 +66,7 @@
 
 <script setup>
 import { computed, onUnmounted, reactive, ref, watchEffect } from "vue";
-import { localize } from "@/methods/Helpers";
+import { localize, powersWithTriggerText } from "@/methods/Helpers";
 import { Tabs, Tab } from "@/components";
 import { CATALOG_GROUP_ICONS, catalogTabDefs, catalogTabLabel, migrateCatalogTabs } from "@/methods/CatalogTabs";
 import CharCatalogV3 from "./tabs/CharCatalogV3.vue";
@@ -83,8 +83,7 @@ const props = defineProps(["context", "narrow"]);
 // The triggers tab only earns its strip slot when the PC has at least one
 // power with trigger text, using the same filter as CharTriggersV3. Reactive
 // because the sheet app swaps context.actor on every Foundry render.
-const hasTriggers = computed(() => (props.context.actor?.items ?? [])
-	.some((x) => x.type === "power" && x.system.trigger?.value));
+const hasTriggers = computed(() => powersWithTriggerText(props.context.actor?.items).length > 0);
 
 // Tab definitions for parts/Tabs.vue: the object keys are the tab ids, and the
 // component flips `active` on the objects on click, which drives the matching

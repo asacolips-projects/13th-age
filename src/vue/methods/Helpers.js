@@ -77,6 +77,18 @@ export function byLevel(a, b) {
 }
 
 /**
+ * Equipment tier comparator, ascending by the tier order (unset tiers first).
+ *
+ * @param {object} a Item data.
+ * @param {object} b Item data.
+ *
+ * @returns {number}
+ */
+export function byTier(a, b) {
+	return (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
+}
+
+/**
  * Apply a saved group order to a list of groups, with any group the saved
  * order doesn't know about appended in its natural spot.
  *
@@ -131,6 +143,40 @@ export function localizeEquipmentBonus(bonusProp) {
  */
 export function isSecondEdition() {
 	return game.settings.get("archmage", "secondEdition") === true;
+}
+
+/**
+ * The kin field's label, edition-dependent: "Kin" in 2e, "Race" in 1e.
+ *
+ * @returns {string} The localized label.
+ */
+export function kinLabel() {
+	return isSecondEdition() ? localize("ARCHMAGE.kin") : localize("ARCHMAGE.race");
+}
+
+/**
+ * Whether the character has neither kin nor class set — the importer needs
+ * at least one to build its tabs, so callers disable import with a tooltip.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ *
+ * @returns {boolean}
+ */
+export function missingKinClass(actorData) {
+	const details = actorData?.system?.details ?? {};
+	return !details.race?.value && !details.class?.value;
+}
+
+/**
+ * The actor's powers that carry trigger text, the ones the triggers tab
+ * shows (and the strip's triggers tab slot keys off).
+ *
+ * @param {Array} items The actor's items.
+ *
+ * @returns {Array} Powers with a trigger value.
+ */
+export function powersWithTriggerText(items) {
+	return (items ?? []).filter((x) => x.type === "power" && x.system.trigger?.value);
 }
 
 /**

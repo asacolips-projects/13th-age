@@ -75,7 +75,7 @@
 					type="button"
 					class="catalog-import"
 					:class="{ 'catalog-import--pulse': isEmptyCharacter }"
-					:disabled="missingKinClass"
+					:disabled="missingKinClass(actor)"
 					:data-tooltip="importTooltip"
 					@click="importPowers"
 				>
@@ -136,11 +136,14 @@
 </template>
 
 <script setup>
-import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
-import { byLevel as byPowerLevel, byName, cleanFilterKey, concat, equipmentBonuses, isSecondEdition, localize, orderedGroups, saveSheetDisplayPref, TIER_ORDER } from "@/methods/Helpers";
-import { ACTION_ORDER, GROUP_MODES, useFacetFilters } from "@/composables/useFacetFilters";
+import { computed, inject, ref } from "vue";
+import { byLevel as byPowerLevel, byName, byTier, concat, equipmentBonuses, kinLabel, localize, missingKinClass } from "@/methods/Helpers";
+import { useFacetFilters } from "@/composables/useFacetFilters";
 import { useGroupReorder } from "@/composables/useGroupReorder";
+import { useCatalogTabPrefs } from "@/composables/useCatalogTabPrefs";
+import { useDismissablePopover } from "@/composables/useDismissablePopover";
 import { useSearchFilter } from "@/composables/useSearchFilter";
+import { groupCatalogSections, groupCreateData } from "@/methods/CatalogSections";
 import SortFilterBarV3 from "@/components/actor/character/v3/parts/SortFilterBarV3.vue";
 import ExpandableRowV3 from "@/components/actor/character/v3/parts/ExpandableRowV3.vue";
 import InfoBubble from "@/components/parts/InfoBubble.vue";
@@ -170,56 +173,21 @@ const sortOptions = [
 	{ value: "custom" }
 ];
 
-/**
- * Patch this tab's definition in the stored tabs flags. Nothing to patch
- * until the tab set has been written once — migration seeds it on sheet
- * render, and pack actors keep the derived defaults — and pack actors
- * can't write flags at all.
- * @param patch
- */
-const saveTabDef = async (patch) => {
-	if (!canReorderGroups.value) return;
-	const defs = props.actor?.flags?.archmage?.sheetDisplay?.catalog?.tabs ?? [];
-	if (!defs.length) return;
-	const next = defs.map((def) => def.id === tabId.value ? { ...def, ...patch } : def);
-	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", next);
-};
-
 // Grouping and sorting are the tab's own: the controls patch this tab's
 // stored definition, so each tab groups and sorts independently of the
-// others and of the v2 sheet's powers flags. The sort falls back to
-// 'custom' like v2 does, since drag-to-reorder writes item sort values
-// that only that mode honors.
-const groupBy = computed({
-	get: () => props.tab?.groupBy ?? "powerType",
-	set: (value) => saveTabDef({ groupBy: value })
-});
-const sortBy = computed({
-	get: () => props.tab?.sortBy ?? "custom",
-	set: (value) => saveTabDef({ sortBy: value })
+// others and of the v2 sheet's powers flags.
+const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
+const { groupBy, sortBy, saveTabDef } = useCatalogTabPrefs({
+	actor: () => props.actor,
+	tab: () => props.tab,
+	tabId: () => tabId.value,
+	canWrite: canReorderGroups
 });
 
 // The grouping/sorting popover's open state is transient; a document click
 // outside the view button or Escape closes it.
 const openView = ref(false);
-
-const onDocClick = (event) => {
-	if (openView.value && !event.target.closest?.(".view-catalog")) openView.value = false;
-};
-
-const onDocKeydown = (event) => {
-	if (event.key === "Escape") openView.value = false;
-};
-
-onMounted(() => {
-	document.addEventListener("click", onDocClick);
-	document.addEventListener("keydown", onDocKeydown);
-});
-
-onBeforeUnmount(() => {
-	document.removeEventListener("click", onDocClick);
-	document.removeEventListener("keydown", onDocKeydown);
-});
+useDismissablePopover(openView, ".view-catalog");
 
 // Searchable text for an item: what the v2 inventory tab matches (name,
 // chakra, equipment's bonus keys and values) plus the fields only the
@@ -254,10 +222,6 @@ const {
 	save: (filters) => saveTabDef({ filters })
 });
 
-// Group reordering is only offered when the sheet is editable and the actor
-// isn't a compendium entry (where flags can't be written).
-const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
-
 // Group reordering, mirroring the v2 powers tab. The drag state is transient;
 // the ordering persists per tab and grouping mode, so each tab's arrangement
 // is its own.
@@ -280,16 +244,8 @@ const canImport = computed(() =>
 // The importer builds its tabs from the character's kin and class, so with
 // neither set it would just silently do nothing; the button disables itself
 // with an explanatory tooltip instead.
-const missingKinClass = computed(() => {
-	const details = props.actor?.system?.details ?? {};
-	return !details.race?.value && !details.class?.value;
-});
-
-const kinLabel = computed(() =>
-	isSecondEdition() ? localize("ARCHMAGE.kin") : localize("ARCHMAGE.race"));
-
-const importTooltip = computed(() => missingKinClass.value
-	? game.i18n.format("ARCHMAGE.importNeedsKinClass", { kin: kinLabel.value })
+const importTooltip = computed(() => missingKinClass(props.actor)
+	? game.i18n.format("ARCHMAGE.importNeedsKinClass", { kin: kinLabel() })
 	: game.i18n.localize('ARCHMAGE.import'));
 
 // The button pulses while the character has no items, advertising where a
@@ -334,8 +290,6 @@ const importPowers = () => game.archmage.ArchmagePowerImporterApplication.show(a
 
 const byCustom = (a, b) => (a.sort || 0) - (b.sort || 0);
 
-const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
-
 const byLevel = (a, b) => {
 	// Powers sort by level, equipment by tier, loot has no level so it falls
 	// back to name.
@@ -358,113 +312,17 @@ const catalogItems = (types) => (props.actor?.items ?? [])
 const collated = computed(() => catalogItems(["power", "equipment"]));
 const loot = computed(() => catalogItems(["loot", "tool"]));
 
-/**
- * Canonical group keys for the mode, in natural order: the fixed action
- * order for actionType, the CONFIG key order for the power field modes —
- * minus those configs' own 'other' entries, which the catch-all covers.
- * @param mode
- */
-const canonicalKeys = (mode) => {
-	if (mode === "actionType") return ACTION_ORDER;
-	const configKey = GROUP_MODES[mode].config;
-	return Object.keys(CONFIG.ARCHMAGE[configKey] ?? {}).filter((key) => key !== "other");
-};
-
-/**
- * Section factory for the mode's groups; `raw` keeps a custom group's
- * display name for pre-filling new items.
- * @param key
- * @param labelKey
- * @param raw
- */
-const makeGroup = (key, labelKey, raw = "") => ({ key, labelKey, raw, kind: "power", members: [] });
-
-/**
- * Label key for a canonical group; powerType labels are pluralized keys,
- * e.g. ARCHMAGE.talents.
- * @param mode
- * @param key
- */
-const groupLabel = (mode, key) => mode === "powerType" ? `ARCHMAGE.${key}s` : `ARCHMAGE.${key}`;
-
-/**
- * Every catalog section in display order: the mode's canonical groups, the
- * 'Other' catch-all for items that fell through, then the loot and currency
- * groups. Collating is by field value only — an item joins the canonical
- * group its value names, or the catch-all — and every group renders, empty
- * or not, keeping its add button reachable — unless the tab groups by a
- * facet with that facet's chips selected, in which case only the selected
- * chips' groups render (the grouping facets' own Other chips name the
- * catch-all). With any chips active anywhere, the loot and currency
- * sections render only when their type-facet chips do, and the grouped
- * sections only while that facet still names power or equipment — so a
- * loot-and-currency-only selection leaves just those two sections. Without
- * any selection every section renders. Group order is per tab and mode,
- * shared by power groups, the catch-all, loot and currency alike.
- */
-const catalogSections = computed(() => {
-	const mode = groupBy.value;
-	const groups = new Map(canonicalKeys(mode).map((key) => [key, makeGroup(key, groupLabel(mode, key))]));
-	const other = makeGroup("other", "ARCHMAGE.other");
-
-	if (mode === "group") {
-		// Custom groups come from the item's free-text group field, in
-		// first-appearance order; items without a group value — and custom
-		// groups literally named 'Other' — join the catch-all.
-		for (const item of collated.value) {
-			const raw = item.system?.group?.value;
-			const key = raw ? cleanFilterKey(raw) : "other";
-			if (key === "other") {
-				other.members.push(item);
-			}
-			else {
-				if (!groups.has(key)) groups.set(key, makeGroup(key, raw, raw));
-				groups.get(key).members.push(item);
-			}
-		}
-	}
-	else {
-		const field = GROUP_MODES[mode].field;
-		for (const item of collated.value) {
-			// In the action grouping, a magic item's power is a free action,
-			// so equipment with a power usage joins the free group.
-			const value = mode === "actionType" && item.type === "equipment"
-				? (item.system?.powerUsage?.value ? "free" : "other")
-				: item.system?.[field]?.value;
-			(groups.get(value) ?? other).members.push(item);
-		}
-	}
-
-	// When the tab groups by a facet, that facet's chips also narrow the
-	// sections themselves: with chips selected, only the selected chips'
-	// groups render. Custom groups' sections key off the cleaned free-text
-	// value, so chips match by raw and by cleaned value alike.
-	const selected = activeFilters.value[mode];
-	const facetSections = selected.length
-		? [...groups.values(), other].filter((section) => selected.includes(section.raw)
-			|| selected.some((chip) => cleanFilterKey(chip) === section.key))
-		: [...groups.values(), other];
-
-	// With type-facet chips selected, the loot and currency sections render
-	// only when their chips do: they're the two sections no item group
-	// covers, so their chips name them outright. The grouped sections hold
-	// powers and equipment, so they render only while the type facet names
-	// either — a selection of just loot and currency chips leaves those two
-	// sections alone on the tab. A selection in any other facet narrows the
-	// members alone, leaving every section standing.
-	const typeSelected = activeFilters.value.type;
-	const typeNames = (chip) => !typeSelected.length || typeSelected.includes(chip);
-	const sections = [
-		...(typeNames("power") || typeNames("equipment") ? facetSections : []),
-		...(typeNames("loot")
-			? [{ key: "inventory-loot", labelKey: "ARCHMAGE.INVENTORY.loot", kind: "loot", members: loot.value }]
-			: []),
-		...(showCurrency.value && typeNames("currency")
-			? [{ key: "inventory-currency", labelKey: "ARCHMAGE.INVENTORY.currency", kind: "currency", members: [] }]
-			: [])
-	];
-	return orderedGroups(sections, savedGroupOrder.value);
-});
+// The collation itself — the mode's canonical groups, the catch-all, the
+// facet narrowing, loot and currency, in the saved group order — lives in
+// methods/CatalogSections, mirroring the facet filters' chip values.
+const catalogSections = computed(() => groupCatalogSections({
+	mode: groupBy.value,
+	items: collated.value,
+	loot: loot.value,
+	showCurrency: showCurrency.value,
+	activeFilters: activeFilters.value,
+	savedOrder: savedGroupOrder.value
+}));
 
 /**
  * Title for a section's "+" button.
@@ -475,30 +333,13 @@ const addTitle = (section) => game.i18n.format("ARCHMAGE.addToGroup", {
 });
 
 /**
- * Item data for a section's "+" button, pre-filled so the new item lands in
- * the group it was added from: built-in group modes set the mode's system
- * field (e.g. system.powerUsage.value), custom groups set the free-text
- * group, the catch-all leaves it empty so the power lands there, and loot
- * sections just use their type.
- * @param section
- */
-const groupCreateData = (section) => {
-	if (section.kind !== "power") return { type: section.kind, system: {} };
-	if (section.key === "other") return { type: "power", system: {} };
-	if (groupBy.value === "group") {
-		return { type: "power", system: { group: { value: section.raw } } };
-	}
-	return { type: "power", system: { [groupBy.value]: { value: section.key } } };
-};
-
-/**
  * Create a new item from a section's "+" button, named and imaged like the
  * v2 sheet's add buttons.
  * @param section
  */
 const createGroupItem = async (section) => {
 	if (!actorDocument) return;
-	const { type, system } = groupCreateData(section);
+	const { type, system } = groupCreateData(section, groupBy.value);
 	await actorDocument.createEmbeddedDocuments("Item", [{
 		name: game.archmage.ArchmageUtility.formatNewItemName(type),
 		type,

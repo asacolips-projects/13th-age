@@ -44,8 +44,7 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
 	 * @param {Partial<ApplicationConfiguration>} [options]
 	 */
 	constructor(actor, options = {}) {
-		super({ id: `archmage-character-settings-${actor?.id ?? foundry.utils.randomID()}`,
-			actor, ...options });
+		super({ id: `archmage-character-settings-${actor.id}`, actor, ...options });
 		this.actor = actor;
 	}
 

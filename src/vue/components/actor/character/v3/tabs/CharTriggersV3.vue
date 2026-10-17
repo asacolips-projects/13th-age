@@ -80,17 +80,16 @@
  * sorting and the grouping toggle live in a view popover like the catalog
  * tabs', and text filtering uses the shared search.
  */
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { byLevel, byName, concat, localize, saveSheetDisplayPref } from "@/methods/Helpers";
+import { computed, ref, watch } from "vue";
+import { byLevel, byName, concat, localize, powersWithTriggerText, saveSheetDisplayPref } from "@/methods/Helpers";
+import { useDismissablePopover } from "@/composables/useDismissablePopover";
 import { useSearchFilter } from "@/composables/useSearchFilter";
 import SortFilterBarV3 from "@/components/actor/character/v3/parts/SortFilterBarV3.vue";
 import ExpandableRowV3 from "../parts/ExpandableRowV3.vue";
 
 const props = defineProps(["actor", "context"]);
 
-const powersWithTriggers = computed(() => (props.actor?.items ?? [])
-	.filter((x) => x.type === "power")
-	.filter((x) => x.system.trigger?.value)
+const powersWithTriggers = computed(() => powersWithTriggerText(props.actor?.items)
 	.sort((a, b) => (a.sort || 0) - (b.sort || 0)));
 
 // Sorts and filters, laid out like the catalog tab. 'custom' keeps the
@@ -101,24 +100,7 @@ const sortBy = ref(props.actor?.flags?.archmage?.sheetDisplay?.triggers?.sortBy?
 // The view popover's open state is transient; a document click outside the
 // view button or Escape closes it.
 const openView = ref(false);
-
-const onDocClick = (event) => {
-	if (openView.value && !event.target.closest?.(".view-trigger")) openView.value = false;
-};
-
-const onDocKeydown = (event) => {
-	if (event.key === "Escape") openView.value = false;
-};
-
-onMounted(() => {
-	document.addEventListener("click", onDocClick);
-	document.addEventListener("keydown", onDocKeydown);
-});
-
-onBeforeUnmount(() => {
-	document.removeEventListener("click", onDocClick);
-	document.removeEventListener("keydown", onDocKeydown);
-});
+useDismissablePopover(openView, ".view-trigger");
 
 // Searchable text for a row: the name and trigger text the row shows, plus
 // the description the expanded row adds.

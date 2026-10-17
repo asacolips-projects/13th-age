@@ -42,7 +42,7 @@
 
 <script setup>
 import { ref, computed, provide, onMounted, onBeforeUnmount } from "vue";
-import { localize, getActor } from "@/methods/Helpers";
+import { localize, getActor, missingKinClass as missingKinClassFor } from "@/methods/Helpers";
 import CharSidebarV3 from "@/components/actor/character/v3/CharSidebarV3.vue";
 import CharIdentityV3 from "@/components/actor/character/v3/CharIdentityV3.vue";
 import CharStatsHeaderV3 from "@/components/actor/character/v3/CharStatsHeaderV3.vue";
@@ -62,10 +62,7 @@ function toggleEdit() {
 // presumed brand new, so the sheet opens straight into edit mode once; the
 // blank fields then pulse for attention (CharIdentityV3), since the power
 // importer depends on both.
-const missingKinClass = computed(() => {
-	const details = props.context.actor?.system?.details ?? {};
-	return !details.race?.value && !details.class?.value;
-});
+const missingKinClass = computed(() => missingKinClassFor(props.context.actor));
 
 // Narrow layout switch: key off the sheet's own width rather than the
 // viewport, because a Foundry window resizes independently of the device.

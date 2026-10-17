@@ -25,33 +25,15 @@
 					<h1 class="char-name">{{ actor?.name }}</h1>
 					<p v-if="subtitle" class="char-subtitle">{{ subtitle }}</p>
 				</template>
-				<template v-else>
-					<input v-model="actor.name" type="text" name="name" :placeholder="localize('ARCHMAGE.name')">
-					<AutocompleteInput
-						v-model="actor.system.details.race.value"
-						name="system.details.race.value"
-						:placeholder="kinLabel"
-						:suggestions="kinSuggestions"
-						:input-class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
-						:separator="kinSeparators"
-					/>
-					<AutocompleteInput
-						v-model="actor.system.details.class.value"
-						name="system.details.class.value"
-						:placeholder="localize('ARCHMAGE.class')"
-						:suggestions="classSuggestions"
-						:input-class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
-						:separator="classSeparators"
-					/>
-					<input
-						v-model="actor.system.attributes.level.value"
-						type="number"
-						name="system.attributes.level.value"
-						:class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }"
-						min="0"
-						max="10"
-					>
-				</template>
+				<IdentityFieldsV3
+					v-else
+					:actor="actor"
+					:kin-label="kinLabel"
+					:kin-suggestions="kinSuggestions"
+					:kin-separators="kinSeparators"
+					:class-suggestions="classSuggestions"
+					:class-separators="classSeparators"
+				/>
 			</div>
 		</div>
 
@@ -88,33 +70,15 @@
 				<h1 class="char-name">{{ actor?.name }}</h1>
 				<p v-if="subtitle" class="char-subtitle">{{ subtitle }}</p>
 			</template>
-			<template v-else>
-				<input v-model="actor.name" type="text" name="name" :placeholder="localize('ARCHMAGE.name')">
-				<AutocompleteInput
-					v-model="actor.system.details.race.value"
-					name="system.details.race.value"
-					:placeholder="kinLabel"
-					:suggestions="kinSuggestions"
-					:input-class="{ 'field-empty': isBlank(actor.system.details.race.value) }"
-					:separator="kinSeparators"
-				/>
-				<AutocompleteInput
-					v-model="actor.system.details.class.value"
-					name="system.details.class.value"
-					:placeholder="localize('ARCHMAGE.class')"
-					:suggestions="classSuggestions"
-					:input-class="{ 'field-empty': isBlank(actor.system.details.class.value) }"
-					:separator="classSeparators"
-				/>
-				<input
-					v-model="actor.system.attributes.level.value"
-					type="number"
-					name="system.attributes.level.value"
-					:class="{ 'field-empty': isZeroish(actor.system.attributes.level.value) }"
-					min="0"
-					max="10"
-				>
-			</template>
+			<IdentityFieldsV3
+				v-else
+				:actor="actor"
+				:kin-label="kinLabel"
+				:kin-suggestions="kinSuggestions"
+				:kin-separators="kinSeparators"
+				:class-suggestions="classSuggestions"
+				:class-separators="classSeparators"
+			/>
 		</div>
 
 		<!-- One Unique Thing, hidden by the character settings flag like the
@@ -129,9 +93,9 @@
 
 <script setup>
 import { ref, computed, inject, watch, nextTick } from "vue";
-import { isBlank, isSecondEdition, isZeroish, localize, tooltip } from "@/methods/Helpers";
+import { kinLabel as kinLabelFor, localize, tooltip } from "@/methods/Helpers";
 import { useProseMirrorEditor } from "@/composables/useProseMirrorEditor";
-import AutocompleteInput from "@/components/parts/AutocompleteInput.vue";
+import IdentityFieldsV3 from "@/components/actor/character/v3/parts/IdentityFieldsV3.vue";
 
 const props = defineProps(["actor"]);
 
@@ -160,10 +124,8 @@ const narrow = inject("narrowLayout", ref(false));
 // The real document provides a UUID for ProseMirror's relative links.
 const actorDocument = inject("actorDocument");
 
-// Non-reactive: the setting read is cached once per mount, like the V2
-// sheet's use.
-const secondEdition = computed(isSecondEdition);
-const kinLabel = computed(() => secondEdition.value ? localize("ARCHMAGE.kin") : localize("ARCHMAGE.race"));
+// The kin field's label tracks the edition setting ("Kin" in 2e, "Race" in 1e).
+const kinLabel = computed(kinLabelFor);
 
 const subtitle = computed(() => {
 	const parts = [

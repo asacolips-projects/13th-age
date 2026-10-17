@@ -32,6 +32,9 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
  *   rows, each with an `_id`: getRows(containerKey). Multi-list tabs only.
  * @param {Function} [options.rows] Accessor for every displayed row;
  *   single-list tabs (the effects tab) use this instead of getRows.
+ * @param {Function} [options.rowId] Accessor for a row's id; defaults to
+ *   the item rows' `_id`. Tabs reordering other records (the catalog
+ *   settings' tab defs) pass their own, e.g. (row) => row.id.
  * @param {Function} [options.persist] async (order) => void, replacing the
  *   flag write.
  * @param {Function} [options.startDrag] Hook for rows the tab wires up for
@@ -47,6 +50,7 @@ export function useRowReorder({
 	flagPath = null,
 	getRows = null,
 	rows = null,
+	rowId = null,
 	persist = null,
 	startDrag = null
 }) {
@@ -54,6 +58,10 @@ export function useRowReorder({
 	const draggedContainer = ref(null);
 	const dragOverRow = ref(null);
 	const dropAfter = ref(false);
+
+	// A row's id within its container; item rows key off `_id`, other
+	// callers' records can pass their own accessor.
+	const idOf = rowId ?? ((row) => row._id);
 
 	// The saved order, when the rows persist to a flag.
 	const savedRowOrder = computed(() => {
@@ -144,7 +152,7 @@ export function useRowReorder({
 	 */
 	const insertRow = async (containerKey, sourceId, targetId, after) => {
 		const displayed = displayedRows(containerKey);
-		const rowIds = displayed.map((row) => row._id);
+		const rowIds = displayed.map(idOf);
 		const order = rowIds.filter((id) => id !== sourceId);
 		const index = order.indexOf(targetId);
 		if (index < 0) return;
@@ -155,9 +163,12 @@ export function useRowReorder({
 		// an item's own group, since the order is applied per group. Tabs that
 		// persist through something other than the flat flag read no saved order,
 		// so nothing precedes the reordered slice.
-		const containerIds = new Set(rowIds);
-		const itemIds = new Set((actor()?.items ?? []).map((item) => item._id));
-		const rest = savedRowOrder.value.filter((id) => !containerIds.has(id) && itemIds.has(id));
+		let rest = [];
+		if (flagPath) {
+			const containerIds = new Set(rowIds);
+			const itemIds = new Set((actor()?.items ?? []).map((item) => item._id));
+			rest = savedRowOrder.value.filter((id) => !containerIds.has(id) && itemIds.has(id));
+		}
 		await saveRowOrder([...rest, ...order]);
 	};
 

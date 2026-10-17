@@ -1,5 +1,6 @@
 import { getActor, localize } from "@/methods/Helpers";
 import { classCatalogTabPreset } from "@src/module/actor/catalog-tab-presets.js";
+import { FACET_DIMENSIONS, GROUP_MODES } from "@/composables/useFacetFilters";
 
 /**
  * The catalog's configurable tab set, stored under the sheetDisplay.catalog
@@ -18,9 +19,10 @@ import { classCatalogTabPreset } from "@src/module/actor/catalog-tab-presets.js"
  * sanitizeTabFilters).
  */
 
-// Group-by modes a user tab can take, in the settings popover's order.
+// Group-by modes a user tab can take, in the settings popover's order —
+// the GROUP_MODES keys' order, so a mode is added in one place.
 // 'inventory' is the Loot tab's mode and not offered.
-export const CATALOG_GROUP_MODES = ["powerType", "powerUsage", "powerSource", "group", "actionType"];
+export const CATALOG_GROUP_MODES = Object.keys(GROUP_MODES);
 
 // Icons for the narrow layout's icon-only strip, keyed by group-by mode.
 export const CATALOG_GROUP_ICONS = {
@@ -51,10 +53,10 @@ function sanitizeTabFilter(filter) {
 	return Object.keys(clean).length ? clean : undefined;
 }
 
-// Chip dimensions a tab's own filters may select, matching the catalog
-// popover's facet rows. The type facet's currency chip names the item-less
-// currency strip, holding it in the listing per tab.
-const CHIP_FILTER_KEYS = ["type", "powerType", "powerUsage", "powerSource", "powerSourceName", "actionType", "group"];
+// Chip dimensions a tab's own filters may select: the catalog popover's
+// facet rows' dimensions. The type facet's currency chip names the
+// item-less currency strip, holding it in the listing per tab.
+const CHIP_FILTER_KEYS = FACET_DIMENSIONS;
 
 /**
  * Sanitize the tab's stored chip selections down to whitelisted dimensions

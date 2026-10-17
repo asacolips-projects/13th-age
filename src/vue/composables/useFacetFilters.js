@@ -4,13 +4,15 @@ import { cleanFilterKey, localize } from "@/methods/Helpers";
 // Grouping modes: the item field each reads. The power field modes also name
 // the CONFIG key giving their canonical group order. Shared with the catalog
 // tab's grouping, whose sections collate by the same fields the chips
-// facet on.
+// facet on — and whose group-by select iterates the keys in this order (the
+// settings popover's), so adding a mode here offers and facets it in one
+// edit.
 export const GROUP_MODES = {
-	actionType: { field: "actionType" },
 	powerType: { field: "powerType", config: "powerTypes" },
 	powerUsage: { field: "powerUsage", config: "powerUsages" },
 	powerSource: { field: "powerSource", config: "powerSources" },
-	group: { field: "group" }
+	group: { field: "group" },
+	actionType: { field: "actionType" }
 };
 
 // Display order for the action grouping; the catch-all group trails it.
@@ -22,8 +24,9 @@ export const ACTION_ORDER = ["standard", "move", "quick", "free", "interrupt"];
 // order ('other' included here; the grouping's catch-all needn't cover it),
 // custom groups item-derived and alphabetical, the catch-all's chip
 // trailing when anything carries it, and the source name the same —
-// item-derived and alphabetical, with its catch-all chip trailing.
-const FACET_DIMENSIONS = ["type", "powerType", "actionType", "powerUsage", "powerSource", "powerSourceName", "group"];
+// item-derived and alphabetical, with its catch-all chip trailing. Shared
+// with the stored-tab filter sanitizing, which whitelists the same keys.
+export const FACET_DIMENSIONS = ["type", "powerType", "actionType", "powerUsage", "powerSource", "powerSourceName", "group"];
 const FACET_TYPE_ORDER = ["power", "equipment", "loot", "currency"];
 
 // Chips that name item-less sections rather than item values: the currency

@@ -212,8 +212,10 @@
  * a power's feat block drags with it, while the feats' own order stays the
  * author's.
  */
-import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { attunementCost, byName, characterTierIndex, filterFeats, getActor, localize, orderedRows, TIERS as TIER_SLOTS, TIER_ORDER } from "@/methods/Helpers";
+import { computed, inject, ref, watch } from "vue";
+import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
+import { loadoutConfig, loadoutSections } from "@/methods/LoadoutSlots";
+import { useDismissablePopover } from "@/composables/useDismissablePopover";
 import { useRowReorder } from "@/composables/useRowReorder";
 import ExpandableRowV3 from "@/components/actor/character/v3/parts/ExpandableRowV3.vue";
 import PowerFeatsV3 from "@/components/actor/character/v3/parts/PowerFeatsV3.vue";
@@ -227,34 +229,15 @@ const editing = inject("editMode", ref(false));
 // toggle flips it; a document click outside the open menu or Escape closes
 // it, and leaving edit mode takes the cogs (and any open popover) with it.
 const openConfig = ref(null);
+useDismissablePopover(openConfig, ".track-config-menu", null);
 
 const toggleConfig = (key) => {
 	openConfig.value = openConfig.value === key ? null : key;
 };
 
-const onDocClick = (event) => {
-	if (openConfig.value && !event.target.closest?.(".track-config-menu")) openConfig.value = null;
-};
-
-const onDocKeydown = (event) => {
-	if (event.key === "Escape") openConfig.value = null;
-};
-
-onMounted(() => {
-	document.addEventListener("click", onDocClick);
-	document.addEventListener("keydown", onDocKeydown);
-});
-
-onBeforeUnmount(() => {
-	document.removeEventListener("click", onDocClick);
-	document.removeEventListener("keydown", onDocKeydown);
-});
-
 watch(editing, () => {
 	openConfig.value = null;
 });
-
-const byTier = (a, b) => (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
 
 // Reordering is only offered when the sheet is editable and the actor isn't
 // a compendium entry (where flags can't be written).
@@ -276,51 +259,26 @@ const {
 });
 
 /**
- * One section's tracker config from its display flag: the enable checkbox
- * (default on) and the extra-slot grants. The feats section's bonuses are
- * keyed per tier letter; the magic item track stays a single number.
+ * One section's tracker config from its display flag; the parse itself is
+ * loadoutConfig in methods/LoadoutSlots, so the sections computed and the
+ * popover read the same shape.
  * @param key
  */
-const sectionConfig = (key) => {
-	const raw = props.actor?.flags?.archmage?.sheetDisplay?.loadout?.[key] ?? {};
-	if (key === "feats") {
-		return {
-			enabled: raw.enabled !== false,
-			resourceful: raw.resourceful === true,
-			prodigiousLearner: raw.prodigiousLearner === true,
-			extraSlots: {
-				A: Math.max(Math.trunc(Number(raw.extraSlots?.A)) || 0, 0),
-				C: Math.max(Math.trunc(Number(raw.extraSlots?.C)) || 0, 0),
-				E: Math.max(Math.trunc(Number(raw.extraSlots?.E)) || 0, 0),
-				Z: Math.max(Math.trunc(Number(raw.extraSlots?.Z)) || 0, 0)
-			}
-		};
-	}
-	return {
-		enabled: raw.enabled !== false,
-		extraSlots: Math.max(Number(raw.extraSlots) || 0, 0)
-	};
-};
+const sectionConfig = (key) => loadoutConfig(key,
+	props.actor?.flags?.archmage?.sheetDisplay?.loadout?.[key] ?? {});
 
 /**
  * Persist one config value through the live actor document; props.actor is a
- * data clone whose flag updates wouldn't round-trip. Writing only when the
- * stored value differs avoids a re-render loop from the update. Pack actors
- * have no setFlag; getActor resolves the live document from the context
- * actor's drag data.
+ * data clone whose flag updates wouldn't round-trip. saveSheetDisplayPref
+ * does the same job the loadout's flag writes need: the pack guard, resolving
+ * the live document, and writing only when the stored value differs (which
+ * avoids a re-render loop from the update).
  * @param key
  * @param path
  * @param value
  */
-const saveSectionFlag = async (key, path, value) => {
-	if (props.actor?.pack) return;
-	const actor = await getActor(props.actor);
-	const current = foundry.utils.getProperty(
-		props.actor?.flags?.archmage?.sheetDisplay?.loadout?.[key] ?? {}, path);
-	if (actor && current !== value) {
-		await actor.setFlag("archmage", `sheetDisplay.loadout.${key}.${path}`, value);
-	}
-};
+const saveSectionFlag = (key, path, value) =>
+	saveSheetDisplayPref(props.actor, `sheetDisplay.loadout.${key}.${path}`, value);
 
 /**
  * Clamp an extra-slots entry to a non-negative integer, then persist it.
@@ -335,145 +293,20 @@ const saveExtraSlots = (key, path, event) => {
 };
 
 /**
- * Slot bookkeeping for one track: filled pips up to the allowance, alert
- * triangles past it, hollow pips for what's left. A
- * disabled config hides the track; edit mode reveals it so the config pair
- * always has its target on screen.
- * @param key
- * @param consumed
- * @param slots
- * @param config
+ * The two inventories with their slot tracks. The rules — the magic-item
+ * track, the feat-slot cascade with its borrowed and overflow pips, the
+ * level grants and bonuses — live in methods/LoadoutSlots; this wiring
+ * re-runs them as the actor clone, the saved row order or edit mode change.
  */
-const slotTrack = (key, consumed, slots, config = {}) => ({
-	key,
-	filled: Math.min(consumed, slots),
-	overflow: Array(Math.max(consumed - slots, 0)).fill(null),
-	free: Math.max(slots - consumed, 0),
-	shown: config.enabled !== false && (slots > 0 || consumed > 0 || editing.value)
-});
-
-/**
- * The two inventories with their slot tracks. Equipment whose tier is unset
- * (the item sheet's none option) isn't a magic item and lives on the catalog
- * tab. Feats with no text are skipped, matching the power sheet's read view.
- */
-const sections = computed(() => {
-	const items = props.actor?.items ?? [];
-	const level = Number(props.actor?.system?.attributes?.level?.value) || 0;
-	const charTier = characterTierIndex(level);
-
-	// The feat and magic item incremental advances each add a bonus slot: one
-	// more magic item, and one feat slot in the tier of the PC's next level.
-	const incrementals = props.actor?.system?.incrementals ?? {};
-
-	// Tier first, then name; the stable sort needs the minor key applied first.
-	const magicItems = items
-		.filter((i) => i.type === "equipment" && TIER_ORDER[i.system?.tier] !== undefined)
-		.sort(byName)
-		.sort(byTier);
-	const powers = items.filter((i) => i.type === "power").sort(byName);
-
-	// Magic item slots: the level total plus the section's extra slots, no
-	// tier split. Only attuned items — the ones with their active pip filled —
-	// consume slots, and each higher-tier attunement burns two.
-	const itemsConfig = sectionConfig("equipment");
-	const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? attunementCost(item, charTier) : 0), 0);
-	const itemAllowance = level + itemsConfig.extraSlots + (incrementals.extraMagicItem === true ? 1 : 0);
-
-	// The feats a tier's track counts: the tier's taken feats with text.
-	const takenFeatsForTier = (tier) => powers.flatMap((power) =>
-		Object.values(filterFeats(power.system?.feats))
-			.filter((feat) => feat.tier?.value === tier.key && feat.isActive.value));
-
-	// Feat slots: each level grants a slot in its tier's track — one per level
-	// 1-4 for A, 5-7 for C, 8-10 for E — plus the single Z slot at 10th. A
-	// tier's own feats fill its slots first; past that, feats spend the next
-	// tier up, and the borrowed pips wear the down-arrow. Whatever the cascade
-	// can't place alerts on its own tier's track — which is why a track also
-	// shows when it has overflow. Spill keeps its letters only to route each
-	// overflow pip to the right tier's track.
-	const takenByTier = new Map(TIER_SLOTS.map((tier) =>
-		[tier.key, takenFeatsForTier(tier).length]));
-
-	// Feats still unplaced, by origin tier letter.
-	let spill = [];
-	const featsConfig = sectionConfig("feats");
-	// The feat incremental's bonus slot belongs to the tier of the PC's next
-	// level — a 4th-level PC's lands on C — clamped at 10th since the tiers
-	// run out there. It's a bonus, so it rides past the tier cap.
-	const featIncrementalTier = TIER_SLOTS[characterTierIndex(Math.min(level + 1, 10))].key;
-	const featIncrementalSlot = incrementals.feat === true ? 1 : 0;
-
-	// Prodigious Learner's bonus feats: three adventurer-tier at 1st; from
-	// 5th level one of them is replaced by a champion-tier feat, and from 8th
-	// another by an epic-tier one.
-	const prodigiousGrants = !featsConfig.prodigiousLearner ? {} : level >= 8
-		? { A: 1, C: 1, E: 1 }
-		: level >= 5 ? { A: 2, C: 1 } : { A: 3 };
-
-	const featTracks = TIER_SLOTS.map((tier) => {
-		// The level's grant, capped, then the bonuses, all of which ride past
-		// the cap: the tier's configured extras, the Resourceful kin power's
-		// slot in the highest tier the character has reached, the Prodigious
-		// Learner feats in their tiers, and the feat incremental's slot in the
-		// next level's tier.
-		const bonus = (featsConfig.extraSlots[tier.letter] ?? 0)
-			+ (tier.key === TIER_SLOTS[charTier].key && featsConfig.resourceful ? 1 : 0)
-			+ (prodigiousGrants[tier.letter] ?? 0)
-			+ (tier.key === featIncrementalTier ? featIncrementalSlot : 0);
-		const allowance = Math.min(Math.max(level - tier.firstSlot + 1, 0), tier.cap) + bonus;
-		const own = takenByTier.get(tier.key);
-		const demand = own + spill.length;
-		const filled = Math.min(demand, allowance);
-		const ownFilled = Math.min(own, filled);
-		// Own feats place first; what they leave, the carried feats and the
-		// tier's own unplaced ones spill upward, keeping their letters.
-		spill = spill.slice(filled - ownFilled).concat(Array(own - ownFilled).fill(tier.letter));
-		return {
-			key: tier.key,
-			letter: tier.letter,
-			filled: ownFilled,
-			borrowed: filled - ownFilled,
-			overflow: [],
-			free: allowance - filled,
-			shown: featsConfig.enabled !== false && (allowance > 0 || filled > 0 || editing.value)
-		};
-	});
-	for (const letter of spill) {
-		const track = featTracks.find((track) => track.letter === letter);
-		if (track) {
-			track.overflow.push(letter);
-			// Overflow only forces an otherwise-hidden track out when the section
-			// is enabled; a disabled tracker stays dark.
-			if (featsConfig.enabled !== false) track.shown = true;
-		}
-	}
-
-	// The section's rows: every power with feats, in the saved row order
-	// falling back to name order, its feats rendered beneath it by the read
-	// view's feat rows.
-	const featPowers = powers
-		.filter((power) => Object.keys(filterFeats(power.system?.feats)).length);
-
-	return [
-		{
-			key: "equipment",
-			kind: "equipment",
-			labelKey: "ARCHMAGE.INVENTORY.equipment",
-			members: orderedRows(magicItems, savedRowOrder.value),
-			config: itemsConfig,
-			tracks: [slotTrack("items", itemsConsumed, itemAllowance, itemsConfig)]
-		},
-		{
-			key: "feats",
-			kind: "feats",
-			labelKey: "ARCHMAGE.feats",
-			members: orderedRows(featPowers, savedRowOrder.value),
-			config: featsConfig,
-			tracks: featTracks
-		}
-	];
-});
+const sections = computed(() => loadoutSections({
+	actor: props.actor,
+	editing: editing.value,
+	configs: {
+		equipment: sectionConfig("equipment"),
+		feats: sectionConfig("feats")
+	},
+	rowOrder: savedRowOrder.value
+}));
 </script>
 
 <style scoped lang="scss">

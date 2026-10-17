@@ -13,17 +13,17 @@
 				v-for="def in defs"
 				:key="def.id"
 				class="settings-row"
-				:class="{ 'settings-row--drop-target': dragOverId === def.id }"
-				@dragover="onDragOver($event, def)"
-				@dragleave="onDragLeave($event, def)"
-				@drop="onDrop($event, def)"
+				:class="{ 'settings-row--drop-target': dragOverRow === def.id }"
+				@dragover="onRowDragOver($event, 'tabs', def.id)"
+				@dragleave="onRowDragLeave($event, def.id)"
+				@drop="onRowDrop($event, 'tabs', def.id)"
 			>
 				<i
 					class="fas fa-grip-lines row-grip"
 					draggable="true"
 					:title="localize('ARCHMAGE.dragToReorderTab')"
-					@dragstart="onDragStart($event, def)"
-					@dragend="onDragEnd"
+					@dragstart="onRowDragStart($event, 'tabs', def.id)"
+					@dragend="onRowDragEnd"
 				/>
 				<input
 					type="text"
@@ -49,9 +49,10 @@
  * the sheetDisplay.catalog.tabs flags, which re-render the sheet and with
  * it the strip.
  */
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
 import { catalogTabDefs } from "@/methods/CatalogTabs";
+import { useRowReorder } from "@/composables/useRowReorder";
 
 const props = defineProps(["actor"]);
 
@@ -73,54 +74,26 @@ const remove = (def) => {
 	save(defs.value.filter((other) => other.id !== def.id));
 };
 
-// Row reordering: the grip starts the drag, the rows highlight as drop
-// targets, and the drop rebuilds the array around the release point (above
-// or below the target row, by cursor position). The drag state is transient.
-const draggedId = ref(null);
-const dragOverId = ref(null);
-
-const onDragStart = (event, def) => {
-	draggedId.value = def.id;
-	event.dataTransfer.effectAllowed = "move";
-	// Tag the payload so nothing downstream mistakes this for an item drag.
-	event.dataTransfer.setData("text/plain", JSON.stringify({ type: "CatalogTabOrder", tabId: def.id }));
-};
-
-const onDragOver = (event, def) => {
-	if (!draggedId.value || dragOverId.value === def.id) return;
-	event.preventDefault();
-	event.dataTransfer.dropEffect = "move";
-	dragOverId.value = def.id;
-};
-
-const onDragLeave = (event, def) => {
-	if (dragOverId.value !== def.id) return;
-	// dragleave also fires when moving between the row's children, so only
-	// clear the highlight once the cursor has actually left the row.
-	if (event.currentTarget.contains(event.relatedTarget)) return;
-	dragOverId.value = null;
-};
-
-const onDrop = (event, def) => {
-	const source = draggedId.value;
-	draggedId.value = null;
-	dragOverId.value = null;
-	if (!source || source === def.id) return;
-	const from = defs.value.findIndex((other) => other.id === source);
-	if (from < 0) return;
-	const rect = event.currentTarget.getBoundingClientRect();
-	const before = (event.clientY - rect.top) < (rect.height / 2);
-	const tabs = defs.value.filter((other) => other.id !== source);
-	const to = tabs.findIndex((other) => other.id === def.id);
-	if (to < 0) return;
-	tabs.splice(before ? to : to + 1, 0, defs.value[from]);
-	save(tabs);
-};
-
-const onDragEnd = () => {
-	draggedId.value = null;
-	dragOverId.value = null;
-};
+// Row reordering, through the shared composable: the grip starts the drag,
+// the rows highlight as drop targets, and the drop rebuilds the array around
+// the release point (above or below the target row, by cursor position). The
+// tabs persist as a whole array rather than a flat id flag, so `persist`
+// replaces the flag write, and the defs' `id` field keys them.
+const canReorder = computed(() => !props.actor?.pack);
+const {
+	dragOverRow, onRowDragStart, onRowDragOver, onRowDragLeave, onRowDrop, onRowDragEnd
+} = useRowReorder({
+	actor: () => props.actor,
+	canReorder,
+	rows: () => defs.value,
+	rowId: (def) => def.id,
+	persist: save,
+	startDrag: (event, _containerKey, tabId) => {
+		event.dataTransfer.effectAllowed = "move";
+		// Tag the payload so nothing downstream mistakes this for an item drag.
+		event.dataTransfer.setData("text/plain", JSON.stringify({ type: "CatalogTabOrder", tabId }));
+	}
+});
 
 const add = () => {
 	// "Catalog N", one past the highest number already in the set.
