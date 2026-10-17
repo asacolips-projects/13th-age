@@ -1,15 +1,8 @@
 <template>
 	<header class="sort-filter-bar">
-		<!-- Leading control: a tab can slot its own (e.g. the catalog's and
-        triggers tab's view popovers) in place of the built-in sort select. -->
-		<slot name="sort">
-			<div class="sort-control">
-				<label :for="concat(id, '-sort')">{{ localize('ARCHMAGE.sort') }}</label>
-				<select v-model="sort" :name="concat(id, '-sort')">
-					<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
-				</select>
-			</div>
-		</slot>
+		<!-- Leading control: a tab slots its own (e.g. the catalog's and
+        triggers tab's view popovers) here. -->
+		<slot name="sort" />
 		<div class="search-control">
 			<div class="search-input">
 				<input v-model="search" type="text" :name="concat(id, '-filter')" :placeholder="localize('ARCHMAGE.filterName')">
@@ -31,22 +24,19 @@
 
 <script setup>
 /**
- * The sort/filter/search control row the listing tabs share: a sort select
- * and a filter input, with a slot for the tab's extra controls (the
- * catalog's import button). The leading sort control can be replaced via
- * the #sort slot (the catalog and triggers tabs tuck sort — and their
- * grouping controls — into a popover there). Sort and search are v-models;
+ * The filter/search control row the listing tabs share: a named slot for the
+ * tab's sort/grouping controls (the catalog and triggers tabs tuck their
+ * sort — and grouping — into a popover there), a filter input, and a slot
+ * for extra controls (the catalog's import button). Search is a v-model;
  * the search's clear widget is owned here, resetting the model to null.
  */
 import { concat, localize } from "@/methods/Helpers";
 
 defineProps({
-	// Prefix for the controls' ids and names, e.g. 'plan' -> plan-sort.
-	id: { type: String, required: true },
-	sortOptions: { type: Array, required: true }
+	// Prefix for the controls' ids and names, e.g. 'plan' -> plan-filter.
+	id: { type: String, required: true }
 });
 
-const sort = defineModel("sort");
 const search = defineModel("search");
 </script>
 

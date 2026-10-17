@@ -46,7 +46,7 @@
 				<CharCatalogTabSettingsV3 :actor="context.actor" />
 			</Tab>
 			<Tab group="v3" :tab="tabs.triggers" classes="tab-body">
-				<CharTriggersV3 :actor="context.actor" :editable="context.editable" :context="context" />
+				<CharTriggersV3 :actor="context.actor" :context="context" />
 			</Tab>
 			<Tab group="v3" :tab="tabs.effects" classes="tab-body">
 				<CharEffectsV3 :actor="context.actor" :editable="context.editable" />
@@ -217,6 +217,7 @@ const slideDir = ref(null); // null until the first click: no slide on open
 let slideFallback;
 const stripIndexOf = (key) => Object.keys(stripTabs.value).indexOf(key);
 
+/** Set the slide direction from the tab strip's change and start the out-slide. */
 function onTabChange({ from, to }) {
 	const [fromIdx, toIdx] = [stripIndexOf(from), stripIndexOf(to)];
 	if (fromIdx < 0 || toIdx < 0 || fromIdx === toIdx) return;
@@ -227,6 +228,7 @@ function onTabChange({ from, to }) {
 	slideFallback = setTimeout(endSlide, 400);
 }
 
+/** End the tab slide: clear the direction and the outgoing-tab marker. */
 function endSlide(event) {
 	// Only the outgoing tab's slide-out ends the transition; the incoming
 	// tab's slide-in bubbles an animationend here too.

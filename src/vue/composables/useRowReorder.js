@@ -6,8 +6,8 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
 // insertion edge on the side the drop would land.
 
 /**
- * Drag-to-reorder for the v3 tabs' item rows, shared by the action plan,
- * loadout and effects tabs. The rows are the same draggable item rows the
+ * Drag-to-reorder for the v3 tabs' item rows, shared by the loadout and
+ * effects tabs. The rows are the same draggable item rows the
  * sheet wires up for item drags, so their dragstart is left alone — arming
  * the item payload lets a drag out of the tab (to the hotbar, canvas or
  * another sheet) behave as usual — and only the drop is intercepted here.
@@ -25,12 +25,8 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
  *   resolved from).
  * @param {object} options.canReorder Computed: whether reordering is offered
  *   (the sheet is editable and the actor isn't a compendium entry).
- * @param {object} [options.canStart] Computed: whether a drag may begin;
- *   defaults to canReorder. The action plan pauses reordering while a text
- *   filter hides rows, since a drop on the filtered view would rebuild the
- *   saved order from a partial list.
  * @param {string|null} [options.flagPath] The actor flag path the order
- *   persists to, e.g. 'sheetDisplay.actionPlan.rowOrder'. Null when persist
+ *   persists to, e.g. 'sheetDisplay.loadout.rowOrder'. Null when persist
  *   is used.
  * @param {Function} [options.getRows] Accessor for a container's displayed
  *   rows, each with an `_id`: getRows(containerKey). Multi-list tabs only.
@@ -48,7 +44,6 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
 export function useRowReorder({
 	actor,
 	canReorder,
-	canStart = null,
 	flagPath = null,
 	getRows = null,
 	rows = null,
@@ -78,7 +73,7 @@ export function useRowReorder({
 	});
 
 	const onRowDragStart = (event, containerKey, rowId) => {
-		if (!(canStart ?? canReorder).value) return;
+		if (!canReorder.value) return;
 		draggedRow.value = rowId;
 		draggedContainer.value = containerKey;
 		if (startDrag) startDrag(event, containerKey, rowId);
@@ -181,18 +176,13 @@ export function useRowReorder({
 
 	return {
 		draggedRow,
-		draggedContainer,
 		dragOverRow,
-		dropAfter,
 		savedRowOrder,
 		rowClasses,
 		onRowDragStart,
 		onRowDragOver,
 		onRowDragLeave,
 		onRowDrop,
-		onRowDragEnd,
-		clearRowDrag,
-		insertRow,
-		saveRowOrder
+		onRowDragEnd
 	};
 }

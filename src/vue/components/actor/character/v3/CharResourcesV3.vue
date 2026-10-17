@@ -15,8 +15,8 @@
 					>
 					<div v-if="!editing" class="command-rolls">
 						<!-- TODO: Add support for epic feat to bump to d6. -->
-						<RollableV3 data-roll-type="command" data-roll-opt="d4" @click="rollCommand('d4')">d4</RollableV3>
-						<RollableV3 data-roll-type="command" data-roll-opt="d3" @click="rollCommand('d3')">d3</RollableV3>
+						<RollableV3 @click="rollCommand('d4')">d4</RollableV3>
+						<RollableV3 @click="rollCommand('d3')">d3</RollableV3>
 					</div>
 				</div>
 			</div>
@@ -226,7 +226,6 @@ const hasUnits = computed(() =>
 // value is derived in prepareDerivedData(), so there is nothing to update
 // there.
 /**
- *
  * @param kind
  * @param event
  */
@@ -246,7 +245,6 @@ function setReroll(kind, event) {
 // Roll command points and apply them to the pool, like the V2 sheet's
 // command rollables do through its _onCommandRoll.
 /**
- *
  * @param die
  */
 function rollCommand(die) {
@@ -258,7 +256,6 @@ function rollCommand(die) {
 // post the reroll card to chat. The logic lives on the actor document, shared
 // with the V2 sheet's _onRerollRoll.
 /**
- *
  * @param kind
  */
 function rollReroll(kind) {

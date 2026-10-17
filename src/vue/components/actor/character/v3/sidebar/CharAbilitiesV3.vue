@@ -39,14 +39,12 @@ const editing = inject("editMode", ref(false));
 const abilities = computed(() => props.actor?.system?.abilities ?? {});
 
 /**
- *
  * @param bonus
  */
 function formatBonus(bonus) {
 	return bonus >= 0 ? `+${bonus}` : `${bonus}`;
 }
 /**
- *
  * @param ability
  */
 function abilityTooltip(ability) {
@@ -57,7 +55,6 @@ function abilityTooltip(ability) {
 	});
 }
 /**
- *
  * @param label
  */
 function abilityAbbr(label) {
@@ -65,7 +62,6 @@ function abilityAbbr(label) {
 		.toUpperCase();
 }
 /**
- *
  * @param key
  */
 function rollAbility(key) {

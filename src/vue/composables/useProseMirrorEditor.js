@@ -36,10 +36,7 @@ export function useProseMirrorEditor({
 }) {
 	const editorEl = ref(null);
 
-	/**
-	 *
-	 * @param raw
-	 */
+	/** Enrich a raw editor value the way the sheets do. */
 	async function enrich(raw) {
 		return foundry.applications.ux.TextEditor.implementation.enrichHTML(raw, {
 			secrets: owner(),
@@ -51,9 +48,7 @@ export function useProseMirrorEditor({
 		});
 	}
 
-	/**
-	 *
-	 */
+	/** Create the ProseMirror element and mount it into the host. */
 	async function mountEditor() {
 		const raw = getValue();
 		const editor = foundry.applications.elements.HTMLProseMirrorElement.create({

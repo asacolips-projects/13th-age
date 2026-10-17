@@ -20,9 +20,7 @@ const actorDocument = inject("actorDocument");
 
 // Initiative rolling (combatant check, bonus prompt, roll) lives on the actor
 // document, shared with the V2 sheet's _onInitRoll.
-/**
- *
- */
+/** Open the initiative dialog via the actor document. */
 function rollInitiative() {
 	actorDocument?.rollInitiativeDialog();
 }

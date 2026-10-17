@@ -766,9 +766,7 @@ Hooks.on("setup", (data, options, id) => {
 
 /* ---------------------------------------------- */
 
-/**
- *
- */
+/** Render the escalation die display into the hotbar area and wire its controls. */
 async function addEscalationDie() {
 	const render = () => {
 		const escalation = ArchmageUtility.getEscalation();
@@ -971,9 +969,7 @@ Hooks.on("renderDocumentDirectory", (app, html, options) => {
 
 /* -------------------------------------------- */
 
-/**
- *
- */
+/** Render the viewed scene's terrain flags as an aside next to the hotbar. */
 function renderSceneTerrains() {
 
 	// Remove any existing element
@@ -1029,7 +1025,6 @@ Hooks.on("renderSettingsConfig", (app, html, data) => {
 				"hideExtraRolls",
 				"showDefensesInChat",
 				"showVulnsInChat",
-				"roundUpDamageApplication",
 				"allowTargetDamageApplication",
 				"allowRerolls",
 				"rechargeOncePerDay",
@@ -1120,7 +1115,6 @@ Hooks.on("renderSettingsConfig", (app, html, data) => {
 
 	// Event listener for the color blind selector.
 	/**
-	 *
 	 * @param event
 	 */
 	function changeColorBlindPreview(event) {
@@ -1299,10 +1293,8 @@ Hooks.on("dropActorSheetData", (actor, sheet, data) => {
 
 Hooks.on("dropCanvasData", (canvas, data) => {
 
-	/**
-	 *
-	 */
-	function findToken() {
+		/** The token at the drop point, or the first targeted token. */
+		function findToken() {
 		// Get the token at the drop point, if any
 		const x = data.x;
 		const y = data.y;
@@ -1346,7 +1338,6 @@ Hooks.on("dropCanvasData", (canvas, data) => {
 });
 
 /**
- *
  * @param actor
  * @param data
  */
@@ -1433,7 +1424,6 @@ async function _applyAE(actor, data) {
 }
 
 /**
- *
  * @param actor
  * @param effectData
  * @param duration
@@ -1527,9 +1517,7 @@ Hooks.on("renderJournalSheet", async (app, html, data) => {
 
 /* ---------------------------------------------- */
 
-/**
- *
- */
+/** RFC4122-ish v4 UUID generator for macro payloads. */
 function uuidv4() {
 	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
 		var r = Math.random() * 16 | 0; var v = c == "x" ? r : (r & 0x3 | 0x8);
@@ -1613,7 +1601,6 @@ Hooks.on("renderChatMessageHTML", (chatMessage, rawhtml, options) => {
 		// Add all of the damage/healing options.
 		if (!isAttack) {
 			/**
-			 *
 			 * @param element
 			 */
 			function getRollFromElement(element) {
@@ -1838,7 +1825,6 @@ Hooks.on("renderChatMessageHTML", (chatMessage, rawhtml, options) => {
 });
 
 /**
- *
  * @param msg
  */
 function _handleCondButtonMsg(msg) {
@@ -1858,7 +1844,6 @@ function _handleCondButtonMsg(msg) {
 }
 
 /**
- *
  * @param msg
  */
 function _handlecreateAEsMsg(msg) {
@@ -1923,7 +1908,6 @@ function _handleApplyDamageHealing(data) {
 }
 
 /**
- *
  * @param root0
  * @param root0.actorId
  * @param root0.hookName

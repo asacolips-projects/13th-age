@@ -54,9 +54,7 @@ const effects = computed(() => [...(props.actor?.effects ?? [])]
 // a compendium entry (where documents can't be written).
 const canReorder = computed(() => props.editable === true && !props.actor?.pack);
 
-/**
- *
- */
+/** Create a new active effect owned by this actor. */
 async function createEffect() {
 	if (!actorDocument) return;
 	await actorDocument.createEmbeddedDocuments("ActiveEffect", [{
@@ -115,15 +113,6 @@ const {
     justify-content: space-between;
     padding-bottom: 0.25rem;
     border-bottom: 1px solid var(--color-border);
-
-    .effects-title {
-      margin: 0;
-      font-family: var(--v3-font-display);
-      font-size: var(--font-size-12);
-      font-weight: normal;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
 
     .effect-controls {
       display: flex;

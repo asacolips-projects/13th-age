@@ -3,7 +3,7 @@
 		<template v-if="powersWithTriggers.length">
 			<!-- Search entry, with the view button (sort and the grouping
         toggle's popover) docked ahead of it, like the catalog tabs. -->
-			<SortFilterBarV3 id="trigger" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
+			<SortFilterBarV3 id="trigger" v-model:search="searchValue">
 				<!-- View button, opening the popover that holds this tab's
           sort select and its custom-groups toggle. -->
 				<template #sort>

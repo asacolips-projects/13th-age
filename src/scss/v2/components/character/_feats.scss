@@ -1,6 +1,7 @@
-// The pips PowerFeatPips.vue renders carry these rules as scoped styles (the
-// V3 sheet root never matches this bundle), so these remain only for the
-// hand-rolled equipment rows: CharInventory's and the item sheet preview's.
+// PowerFeatPips.vue renders the pips these rules style (it has no style
+// block of its own, so it relies on this bundle — which the V3 sheet root
+// never matches). These remain for the hand-rolled equipment rows:
+// CharInventory's and the item sheet preview's.
 .feat-pips {
   display: flex;
   flex-direction: row;

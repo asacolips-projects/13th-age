@@ -133,7 +133,6 @@ const incrementals = computed(() => {
 // Toggles go through the real actor document; props.actor is a data clone
 // whose updates wouldn't round-trip.
 /**
- *
  * @param inc
  */
 function toggleIncremental(inc) {

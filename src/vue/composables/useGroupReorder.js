@@ -2,8 +2,8 @@ import { computed, ref } from "vue";
 import { saveSheetDisplayPref } from "@/methods/Helpers";
 
 /**
- * Drag-to-reorder for the v3 tabs' group sections, shared by the action plan
- * and catalog tabs: each section's title drags, the sections highlight as
+ * Drag-to-reorder for the v3 tabs' group sections, shared by the catalog
+ * tabs: each section's title drags, the sections highlight as
  * drop targets, and the drop rebuilds the display order around the release
  * point. The drag state is transient; the ordering persists to the actor
  * flag path given.
@@ -17,10 +17,6 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
  *   from).
  * @param {object} options.canReorder Computed: whether reordering is offered
  *   (the sheet is editable and the actor isn't a compendium entry).
- * @param {object} [options.canStart] Computed: whether a drag may begin;
- *   defaults to canReorder. The action plan pauses reordering while a text
- *   filter hides rows, since a drop on the filtered view would rebuild the
- *   saved order from a partial list.
  * @param {Function} options.getSections Accessor for the sections currently
  *   displayed, in display order, each with a `key`.
  * @param {string|Function} options.flagPath The actor flag path the order
@@ -31,7 +27,7 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
  * @returns {object} The drag state and event handlers to wire the sections up
  *   with.
  */
-export function useGroupReorder({ actor, canReorder, canStart = null, getSections, flagPath, classPrefix }) {
+export function useGroupReorder({ actor, canReorder, getSections, flagPath, classPrefix }) {
 	const draggedGroup = ref(null);
 	const dragOverGroup = ref(null);
 
@@ -53,7 +49,7 @@ export function useGroupReorder({ actor, canReorder, canStart = null, getSection
 	});
 
 	const onGroupDragStart = (event, groupKey) => {
-		if (!(canStart ?? canReorder).value) return;
+		if (!canReorder.value) return;
 		draggedGroup.value = groupKey;
 		event.dataTransfer.effectAllowed = "move";
 		// Tag the payload so nothing downstream mistakes this for an item drag.
@@ -116,8 +112,6 @@ export function useGroupReorder({ actor, canReorder, canStart = null, getSection
 	};
 
 	return {
-		draggedGroup,
-		dragOverGroup,
 		savedGroupOrder,
 		groupClasses,
 		onGroupDragStart,

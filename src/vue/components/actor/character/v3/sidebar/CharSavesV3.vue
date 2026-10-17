@@ -19,7 +19,6 @@ import { localize } from "@/methods/Helpers";
 const actorDocument = inject("actorDocument");
 
 /**
- *
  * @param difficulty
  */
 function rollSave(difficulty) {

@@ -526,7 +526,6 @@ export class ActorArchmage extends Actor {
 		var chaBonus = 0;
 
 		/**
-		 *
 		 * @param type
 		 */
 		function getBonusOr0(type) {
@@ -3132,7 +3131,6 @@ export class ActorArchmage extends Actor {
 }
 
 /**
- *
  * @param exp
  * @param mul
  */

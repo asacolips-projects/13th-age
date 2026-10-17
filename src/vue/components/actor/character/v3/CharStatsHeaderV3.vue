@@ -161,25 +161,17 @@ const lastGaspFails = computed(() => {
 	};
 });
 
-/**
- *
- * @param difficulty
- */
+/** Roll a save against a difficulty, via the actor document. */
 function rollSave(difficulty) {
 	actorDocument?.rollSave(difficulty);
 }
 
-/**
- *
- */
+/** Roll a disengage check, via the actor document. */
 function rollDisengage() {
 	actorDocument?.rollDisengage();
 }
 
-/**
- *
- * @param event
- */
+/** Open the recovery dialog, via the actor document. */
 function rollRecovery(event) {
 	actorDocument?.rollRecoveryDialog(event);
 }
@@ -188,7 +180,6 @@ function rollRecovery(event) {
 // sheet's _updateFails: clicking step N sets the count to N, or unchecks it
 // (N - 1) if it was already checked.
 /**
- *
  * @param saveType
  * @param opt
  */

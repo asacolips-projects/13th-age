@@ -53,9 +53,7 @@ const props = defineProps(["context"]);
 const editing = ref(false);
 provide("editMode", editing);
 
-/**
- *
- */
+/** Toggle the sheet's view/edit mode. */
 function toggleEdit() {
 	editing.value = !editing.value;
 }
@@ -100,9 +98,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect());
 // Opens the per-character settings window. The AppV2 class lives in the
 // module bundle (exposed on game.archmage) to keep the module -> vue bundle
 // dependency one-directional.
-/**
- *
- */
+/** Open the per-character settings window (module-side AppV2). */
 async function openSettings() {
 	const App = game.archmage?.ArchmageCharacterSettingsApp;
 	if (!App || props.context.actor?.pack) return;

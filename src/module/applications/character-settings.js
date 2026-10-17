@@ -114,7 +114,7 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
 		return options;
 	}
 
-	/** The actor must be in a world (not a compendium pack) to be editable. */
+	/** Ownership is the edit gate; the compendium-pack guard lives in show(). */
 	get isEditable() {
 		return this.actor.isOwner;
 	}

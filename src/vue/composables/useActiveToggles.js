@@ -29,18 +29,14 @@ export function useActiveToggles(document, field, entries) {
 		return key;
 	});
 
-	/**
-	 *
-	 */
+	/** Enable the first inactive record in the record order. */
 	function enableNext() {
 		if (nextKey.value) {
 			document?.update({ [`system.${field}.${nextKey.value}.isActive.value`]: true });
 		}
 	}
 
-	/**
-	 *
-	 */
+	/** Disable the last active record in the record order. */
 	function disableLast() {
 		if (lastEnabledKey.value) {
 			document?.update({ [`system.${field}.${lastEnabledKey.value}.isActive.value`]: false });

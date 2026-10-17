@@ -1,5 +1,4 @@
 /**
- *
  * @param property
  * @param defaultValue
  */
@@ -9,7 +8,6 @@ export function getSafeValue(property, defaultValue) {
 }
 
 /**
- *
  * @param key
  * @param data
  */
@@ -30,26 +28,9 @@ export function chakraLabel(chakra) {
 }
 
 /**
- * Strip HTML from a string and collapse whitespace, for plain-text display of
- * enriched values.
- *
- * Uses DOMParser rather than a temp element, so the content is parsed without
- * executing it.
- *
- * @param {string} html HTML string, e.g. a stored enriched editor value.
- *
- * @returns {string} Plain text.
- */
-export function stripHtml(html) {
-	if (!html) return "";
-	const doc = new DOMParser().parseFromString(html, "text/html");
-	return doc.body.textContent.replace(/\s+/g, " ").trim();
-}
-
-/**
  * Strip HTML tags from a string with a regex, leaving entity references and
- * whitespace alone. The cheap search-index counterpart of stripHtml: the
- * listings' filters only need tags gone so raw HTML doesn't match tag names.
+ * whitespace alone. The listings' filters only need tags gone so raw HTML
+ * doesn't match tag names.
  *
  * @param {string} html HTML string, e.g. a stored enriched editor value.
  *
@@ -136,7 +117,6 @@ export function orderedRows(rows, order, tiebreak = null) {
 }
 
 /**
- *
  * @param bonusProp
  */
 export function localizeEquipmentBonus(bonusProp) {
@@ -154,7 +134,6 @@ export function isSecondEdition() {
 }
 
 /**
- *
  * @param {...any} keys
  */
 export function tooltip(...keys) {
@@ -162,7 +141,6 @@ export function tooltip(...keys) {
 }
 
 /**
- *
  * @param string
  */
 export function cssClass(string) {
@@ -172,7 +150,6 @@ export function cssClass(string) {
 }
 
 /**
- *
  * @param value
  * @param dec
  * @param sign
@@ -185,7 +162,6 @@ export function numberFormat(value, dec = 0, sign = false) {
 }
 
 /**
- *
  * @param {...any} args
  */
 export function concat(...args) {
@@ -339,7 +315,6 @@ export {
 export { wrapRolls } from "@src/module/item/_item-sheet-helpers.mjs";
 
 /**
- *
  * @param actorData
  */
 export async function getActor(actorData) {

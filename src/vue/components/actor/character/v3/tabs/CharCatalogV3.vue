@@ -2,7 +2,7 @@
 	<section class="tab-catalog">
 	<!-- The view button (grouping/sorting/filtering popover), the filter entry
      and the import button. -->
-	<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:sort="sortBy" v-model:search="searchValue" :sort-options="sortOptions">
+	<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:search="searchValue">
 		<!-- View button, opening the popover that holds this tab's
         grouping and sorting selects and its filter chips. -->
 			<template #sort>

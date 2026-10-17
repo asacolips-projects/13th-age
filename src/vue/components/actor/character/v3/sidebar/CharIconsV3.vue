@@ -2,7 +2,7 @@
 	<section class="unit unit--icons">
 		<div class="unit-header">
 			<h2 class="unit-title">{{ localize('ARCHMAGE.iconRelationships') }}</h2>
-			<RollableV3 class="icon-roll" data-roll-type="icon" @click="rollIcons" />
+			<RollableV3 class="icon-roll" @click="rollIcons" />
 		</div>
 		<ul v-if="icons.length" class="icon-list">
 			<li v-for="icon in icons" :key="icon.key" class="icon-row" :class="{ 'icon-row--edit': editing }">
@@ -97,7 +97,6 @@ const { nextKey: nextIconKey, lastEnabledKey, enableNext: enableNextIcon, disabl
 // Font Awesome glyph for the icon's relationship; unknown values fall
 // back to a question mark.
 /**
- *
  * @param relationship
  */
 function relationshipIcon(relationship) {
@@ -117,7 +116,6 @@ const altIconRolling = game.settings.get("archmage", "alternateIconRollingMethod
 // One box per relationship point; the value comes from the icon's results
 // array (0 = empty, 5/6 = rolled results).
 /**
- *
  * @param icon
  */
 function dice(icon) {
@@ -131,7 +129,6 @@ function dice(icon) {
 // plus for a full benefit and a spiral for a partial one. The alternate
 // method replaces the 6 with a cross marking a claimed benefit.
 /**
- *
  * @param value
  */
 function dieIcon(value) {
@@ -144,7 +141,6 @@ function dieIcon(value) {
 }
 
 /**
- *
  * @param value
  */
 function dieTooltip(value) {
@@ -166,7 +162,6 @@ function dieTooltip(value) {
 // Clicking a die box cycles its result through the edition's states and back
 // to empty: 5 -> 6 -> empty (1e), + -> ~ -> empty (2e), x -> empty (2e alt).
 /**
- *
  * @param icon
  * @param index
  */
@@ -179,10 +174,7 @@ function cycleDie(icon, index) {
 	actorDocument?.update({ [`system.icons.${icon.key}.results`]: results });
 }
 
-// Open the icon roll dialog: roll one icon at a time, or all at once.
-/**
- *
- */
+/** Open the icon roll dialog: roll one icon at a time, or all at once. */
 function rollIcons() {
 	actorDocument?.rollIconsDialog();
 }

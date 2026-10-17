@@ -425,7 +425,6 @@ const flagGroups = computed(() => {
 });
 
 /**
- *
  * @param section
  */
 function sectionLegend(section) {
@@ -444,7 +443,6 @@ const restTypes = ["none", "quickreset", "fullreset", "quick", "full"];
 // The second-edition filter from the old CharSettings component: resources
 // marked 2e only show up while second edition rules are enabled.
 /**
- *
  * @param resources
  * @param predicate
  */
@@ -464,7 +462,6 @@ const resourcesPerCombat = computed(() => filterResources(actor.value.system.res
 const resourcesSpendable = computed(() => filterResources(actor.value.system.resources.spendable, (key) => !key.includes("custom") && !key.includes("reroll")));
 
 /**
- *
  * @param path
  */
 function isOverridden(path) {

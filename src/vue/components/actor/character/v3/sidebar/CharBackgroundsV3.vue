@@ -62,14 +62,12 @@ const { nextKey: nextBgKey, lastEnabledKey, enableNext: enableNextBackground, di
 	useActiveToggles(actorDocument, "backgrounds", () => allBackgrounds.value);
 
 /**
- *
  * @param bonus
  */
 function formatBonus(bonus) {
 	return bonus >= 0 ? `+${bonus}` : `${bonus}`;
 }
 /**
- *
  * @param name
  */
 function rollBackground(name) {

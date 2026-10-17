@@ -11,6 +11,7 @@ import { destPathFor, log, matchesGlobs, removeFile, resolveFromRoot } from "../
 const DEBOUNCE_MS = 150;
 
 /**
+ * Delay calling `fn` until `wait` ms have passed without another call.
  *
  * @param fn
  * @param wait
@@ -24,6 +25,8 @@ function debounce(fn, wait) {
 }
 
 /**
+ * The vite plugin: builds the system via the scripts/build tasks, and in
+ * watch mode increments re-runs them as source files change.
  *
  * @param options
  */
@@ -33,9 +36,7 @@ export function foundrySystemBuild(options = {}) {
 	let initialBuildDone = false;
 	let isWatch = false;
 
-	/**
-	 *
-	 */
+	/** Run the full build once, packs included when configured. */
 	async function runInitialBuild() {
 		if (packs) {
 			await runBuildTasks({ prod, packs: true });
@@ -46,9 +47,7 @@ export function foundrySystemBuild(options = {}) {
 		initialBuildDone = true;
 	}
 
-	/**
-	 *
-	 */
+	/** Start (once) the chokidar watchers that re-run build tasks on change. */
 	function startWatchers() {
 		if (watcher) return;
 

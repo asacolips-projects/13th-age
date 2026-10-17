@@ -60,9 +60,7 @@ const actorDocument = inject("actorDocument");
 // This row's description starts collapsed.
 const expanded = ref(false);
 
-/**
- *
- */
+/** Expand or collapse this row's description. */
 function toggleExpanded() {
 	expanded.value = !expanded.value;
 }
@@ -80,35 +78,25 @@ const ongoingDamage = computed(() => {
 
 // Resolve the live effect document from the actor document, falling back to
 // the drag-data lookup for pack actors where injection is unavailable.
-/**
- *
- */
 async function getEffectDoc() {
 	const doc = actorDocument?.effects?.get(props.effect._id);
 	if (doc) return doc;
 	return (await getActor(props.actor))?.effects?.get(props.effect._id) ?? null;
 }
 
-/**
- *
- */
+/** Toggle this effect's disabled state on the live document. */
 async function toggleEffect() {
 	const doc = await getEffectDoc();
 	await doc?.update({ disabled: !doc.disabled });
 }
 
-/**
- *
- */
+/** Open the effect's sheet for editing. */
 async function editEffect() {
 	const doc = await getEffectDoc();
 	doc?.sheet?.render(true);
 }
 
-/**
- *
- * @param bypass
- */
+/** Delete this effect, confirming first unless bypassed. */
 async function deleteEffect(bypass = false) {
 	const doc = await getEffectDoc();
 	if (!doc) return;

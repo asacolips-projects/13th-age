@@ -13,7 +13,6 @@ export const DOCUMENT_PROVIDE_KEYS = {
 };
 
 /**
- *
  * @param BaseApplication
  */
 export default function VueRenderingMixin(BaseApplication) {
