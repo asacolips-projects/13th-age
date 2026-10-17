@@ -35,7 +35,7 @@ export class DamageApplicator {
 	}
 
 	asDamage(roll, modifier = 1, targetType = "selected") {
-		let toApply = this.getRollValue(roll);
+		let toApply = this.getRollValue(roll) * modifier;
 
 		// Always round to the greater absolute value, as per 2e
 		toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
@@ -63,7 +63,7 @@ export class DamageApplicator {
 	}
 
 	asHealing(roll, modifier = 1, targetType = "selected") {
-		let toApply = this.getRollValue(roll);
+		let toApply = this.getRollValue(roll) * modifier;
 
 		// Always round to the greater absolute value, as per 2e
 		toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
@@ -91,7 +91,7 @@ export class DamageApplicator {
 	}
 
 	asTempHealth(roll, modifier = 1, targetType = "selected") {
-		let toApply = this.getRollValue(roll);
+		let toApply = this.getRollValue(roll) * modifier;
 
 		// Always round to the greater absolute value, as per 2e
 		toApply = Math.sign(toApply) * Math.ceil(Math.abs(toApply));
