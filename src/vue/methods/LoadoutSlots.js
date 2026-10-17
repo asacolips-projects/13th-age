@@ -101,7 +101,8 @@ export function loadoutSections({ actor, editing, configs, rowOrder }) {
 	// tier split. Only attuned items — the ones with their active pip filled —
 	// consume slots, and each higher-tier attunement burns two.
 	const itemsConfig = configs.equipment;
-	const itemsConsumed = magicItems.reduce((sum, item) => sum + (item.system.isActive ? attunementCost(item, charTier) : 0), 0);
+	const itemsConsumed = magicItems.reduce(
+		(sum, item) => sum + (item.system.isActive ? attunementCost(item, charTier) : 0), 0);
 	const itemAllowance = level + itemsConfig.extraSlots + (incrementals.extraMagicItem === true ? 1 : 0);
 
 	// The feats a tier's track counts: the tier's taken feats with text.

@@ -1,5 +1,5 @@
 import { getActor, localize } from "@/methods/Helpers";
-import { classCatalogTabPreset } from "@src/module/actor/catalog-tab-presets.js";
+import { classCatalogTabPreset } from "@/methods/catalog-tab-presets.js";
 import { FACET_DIMENSIONS, GROUP_MODES } from "@/composables/useFacetFilters";
 
 /**
@@ -140,7 +140,7 @@ export function catalogTabDefs(actorData) {
 export function catalogTabLabel(def) {
 	const custom = def?.label?.trim();
 	if (custom) return custom;
-	return game.i18n.format("ARCHMAGE.itemsByGroup", {
+	return localize("ARCHMAGE.itemsByGroup", {
 		group: localize(`ARCHMAGE.GROUPS.${def?.groupBy ?? "powerType"}`)
 	});
 }

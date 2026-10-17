@@ -245,8 +245,8 @@ const canImport = computed(() =>
 // neither set it would just silently do nothing; the button disables itself
 // with an explanatory tooltip instead.
 const importTooltip = computed(() => missingKinClass(props.actor)
-	? game.i18n.format("ARCHMAGE.importNeedsKinClass", { kin: kinLabel() })
-	: game.i18n.localize('ARCHMAGE.import'));
+	? localize("ARCHMAGE.importNeedsKinClass", { kin: kinLabel() })
+	: localize('ARCHMAGE.import'));
 
 // The button pulses while the character has no items, advertising where a
 // new character's powers come from.
@@ -328,7 +328,7 @@ const catalogSections = computed(() => groupCatalogSections({
  * Title for a section's "+" button.
  * @param section
  */
-const addTitle = (section) => game.i18n.format("ARCHMAGE.addToGroup", {
+const addTitle = (section) => localize("ARCHMAGE.addToGroup", {
 	group: localize(section.labelKey)
 });
 

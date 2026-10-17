@@ -5,10 +5,8 @@
  * classes: `catalogTabDefs` falls back to them when no tab set is stored
  * yet, and the one-time tab migration seeds them as the stored flags.
  * They are applied once — the stored tab set is never rewritten afterward,
- * so changing a character's class doesn't touch the tabs. Import-free on
- * purpose: both bundles load this file (the module scripts copy it raw, the
- * Vue bundle inlines it), so it may only touch runtime globals like CONFIG
- * and game.
+ * so changing a character's class doesn't touch the tabs. Lives beside
+ * CatalogTabs.js, its only consumer chain.
  */
 
 /**
