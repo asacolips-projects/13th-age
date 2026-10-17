@@ -146,7 +146,7 @@ export default {
 				{ value: "powerType", label: "Type" },
 				{ value: "actionType", label: "Action" },
 				{ value: "powerUsage", label: "Usage" },
-				{ value: "powerSource", label: "Class/Race/Item" },
+				{ value: "powerSource", label: "Source" },
 				{ value: "group", label: "Custom Groups" }
 			],
 			sortOptions: [

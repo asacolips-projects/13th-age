@@ -79,15 +79,11 @@ export default {
 			classes: computed(() => `section section--effects flexcol`)
 		});
 		// Define methods.
-		/**
-		 *
-		 */
-		function getEffects() {
+				function getEffects() {
 			let effects = this.actor.effects;
 			this.effects = effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		}
 		/**
-		 *
 		 * @param effect
 		 */
 		function getChanges(effect) {
@@ -95,7 +91,6 @@ export default {
 		}
 
 		/**
-		 *
 		 * @param effect
 		 */
 		function getDuration(effect) {
@@ -103,7 +98,6 @@ export default {
 		}
 
 		/**
-		 *
 		 * @param effect
 		 */
 		function getOngoingDamage(effect) {
