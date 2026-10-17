@@ -42,7 +42,7 @@
 				</div>
 				<div v-if="item.system.actionType.value" class="power-action">{{ getActionShort(item.system.actionType.value) }}</div>
 				<div v-if="item.system.recharge.value && ['recharge', 'recharge-desperate'].includes(item.system.powerUsage.value)" class="power-recharge">
-					<Rollable name="recharge" type="recharge" :opt="item._id">{{ Number(item.system.recharge.value) || 16 }}+</Rollable>
+					<RollableV3 name="recharge" @click.stop="rechargeItem">{{ Number(item.system.recharge.value) || 16 }}+</RollableV3>
 				</div>
 				<div class="power-uses">
 					<span
@@ -115,7 +115,6 @@
 import { computed, inject, ref, useSlots } from "vue";
 import { changeQuantity, concat, deleteItem, editItem, filterFeats, getActionShort, hasFeats, hasSecondaryUsage, localize, TIERS } from "@/methods/Helpers";
 import PowerSummaryRow from "@/components/parts/PowerSummaryRow.vue";
-import Rollable from "@/components/parts/Rollable.vue";
 import EquipmentSummaryRow from "./EquipmentSummaryRow.vue";
 import EquipmentDetailsV3 from "./EquipmentDetailsV3.vue";
 import LootDetailsV3 from "./LootDetailsV3.vue";
@@ -184,6 +183,14 @@ const actorDocument = inject("actorDocument", null);
  */
 function activateItem() {
 	actorDocument?.items?.get(props.item._id)?.roll();
+}
+
+/**
+ * Roll the power's recharge: its recharge() is the same entry point the V2
+ * sheet's delegated listener used for the recharge cell.
+ */
+function rechargeItem() {
+	actorDocument?.items?.get(props.item._id)?.recharge();
 }
 
 /**

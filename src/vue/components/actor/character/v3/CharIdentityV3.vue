@@ -57,7 +57,7 @@
 
 		<!-- One Unique Thing, hidden by the character settings flag like the
        v2 sidebar's OUT block. -->
-		<div v-if="showOut" class="header-out" :class="{ 'header-out--editing': editing }">
+		<div v-if="showOut" class="header-out">
 			<h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
 			<!-- Display shows the enriched HTML; edit mode swaps in a full
            ProseMirror editor (same mechanism as the notes tab). -->
@@ -119,7 +119,7 @@
 
 		<!-- One Unique Thing, hidden by the character settings flag like the
        v2 sidebar's OUT block. -->
-		<div v-if="showOut" class="header-out" :class="{ 'header-out--editing': editing }">
+		<div v-if="showOut" class="header-out">
 			<h2 class="out-label">{{ localize('ARCHMAGE.oneUniqueThing') }}</h2>
 			<div v-if="!editing" class="out-text" v-html="outEnriched" />
 			<div v-else ref="outEditorHost" class="out-editor" />
