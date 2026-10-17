@@ -80,10 +80,11 @@ export default class preCreateChatMessageHandler {
 			if (ongoingEffects.length > 0) {
 				ongoingEffects.forEach((ongoingEffect) => {
 					let damageValue = Number(ongoingEffect[2]);
-					let damageType = ongoingEffect[4];
+					// Type follows "ongoing" in group 4, or precedes it in group 5.
+					let damageType = ongoingEffect[4] ?? ongoingEffect[5];
 					if (damageType) damageType += " ";
 					// Undefined without a save ends clause, empty for a plain "(save ends)".
-					let saveEndsValue = ongoingEffect[5]?.toLowerCase();
+					let saveEndsValue = ongoingEffect[6]?.toLowerCase();
 					let saveEndsConfigValue = "NormalSaveEnds";
 					if (saveEndsValue === "easy") saveEndsConfigValue = "EasySaveEnds";
 					else if (saveEndsValue === "hard") saveEndsConfigValue = "HardSaveEnds";
