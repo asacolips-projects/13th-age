@@ -3,9 +3,12 @@
 		<h2 class="unit-title">{{ localize('ARCHMAGE.saves') }}</h2>
 		<!-- Disengage lives with the death/last-gasp tracks in the top bar. -->
 		<p class="saves-list">
-			<button @click="rollSave('easy')">{{ localize('ARCHMAGE.SAVE.easyShort') }} 6+</button>
-			<button @click="rollSave('normal')">{{ localize('ARCHMAGE.SAVE.normalShort') }} 11+</button>
-			<button @click="rollSave('hard')">{{ localize('ARCHMAGE.SAVE.hardShort') }} 16+</button>
+			<!-- type="button" so these aren't the form's default submit button:
+			     the sheet lives in a <form>, and Enter in any text field would
+			     otherwise click the first untyped button (implicit submission). -->
+			<button type="button" @click="rollSave('easy')">{{ localize('ARCHMAGE.SAVE.easyShort') }} 6+</button>
+			<button type="button" @click="rollSave('normal')">{{ localize('ARCHMAGE.SAVE.normalShort') }} 11+</button>
+			<button type="button" @click="rollSave('hard')">{{ localize('ARCHMAGE.SAVE.hardShort') }} 16+</button>
 		</p>
 	</section>
 </template>

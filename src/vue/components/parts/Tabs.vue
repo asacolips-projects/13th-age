@@ -1,7 +1,7 @@
 <template>
 	<section :class="`section section--tabs section--tabs-${group} flexshrink`">
 		<!-- <input type="hidden" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="currentTab"/> -->
-		<button v-if="hamburger" :class="`sheet-tabs-toggle sheet-tabs-toggle--${group}`" @click="toggleMenu">
+		<button v-if="hamburger" type="button" :class="`sheet-tabs-toggle sheet-tabs-toggle--${group}`" @click="toggleMenu">
 			<i class="fas fa-bars" /><span class="visually-hidden"> Toggle Navigation</span>
 		</button>
 		<nav :class="`sheet-tabs tabs tabs--${group}`" :data-group="group">
