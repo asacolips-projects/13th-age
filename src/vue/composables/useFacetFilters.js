@@ -134,8 +134,8 @@ const facetLabel = (dim, value) => {
  *   object for the tab; the tab gates writability itself.
  *
  * @returns {object} The `facetRows`, `activeFilters`, `activeFilterCount`,
- *   `filtersActive`, `matchesFilters`, `toggleFilter`, `toggleAllFilters`
- *   and `clearFilters`.
+ *   `filtersActive`, `matchesFilters`, `toggleFilter`, `toggleAllFilters`,
+ *   `hideEmptyFilters` and `clearFilters`.
  */
 export function useFacetFilters({ items, filters, save }) {
 	// Chips offer the values this character's items actually carry plus every
@@ -222,6 +222,17 @@ export function useFacetFilters({ items, filters, save }) {
 		save({ ...stored, [dim]: next });
 	};
 
+	/**
+	 * Select all but a facet row's empty chips: the item-carried values only,
+	 * so the grouped facet's "hide empty" link leaves just the groups with
+	 * members showing.
+	 * @param dim
+	 */
+	const hideEmptyFilters = (dim) => {
+		const stored = filters() ?? {};
+		save({ ...stored, [dim]: [...facetValues.value.itemValues[dim]] });
+	};
+
 	const clearFilters = () => save({});
 
 	// The popover's chip rows in display order, one per dimension at least one
@@ -236,19 +247,24 @@ export function useFacetFilters({ items, filters, save }) {
 			...extras.filter((value) => value !== "other").sort(),
 			...(extras.includes("other") ? ["other"] : [])
 		];
+		const chips = ordered.map((value) => ({
+			value,
+			label: facetLabel(dim, value),
+			active: activeFilters.value[dim].includes(value),
+			// Section-naming chips name whole sections and aren't
+			// item-derived; any other chip is empty when no item
+			// carries the value.
+			empty: !SECTION_CHIPS.includes(value) && !itemValues.has(value)
+		}));
 		return {
 			key: dim,
 			labelKey: FACET_LABEL_KEYS[dim] ?? `ARCHMAGE.GROUPS.${dim}`,
 			allActive: ordered.length > 0 && ordered.every((value) => activeFilters.value[dim].includes(value)),
-			chips: ordered.map((value) => ({
-				value,
-				label: facetLabel(dim, value),
-				active: activeFilters.value[dim].includes(value),
-				// Section-naming chips name whole sections and aren't
-				// item-derived; any other chip is empty when no item
-				// carries the value.
-				empty: !SECTION_CHIPS.includes(value) && !itemValues.has(value)
-			}))
+			// Whether the row has any empty chip at all: the grouped
+			// facet's "hide empty" link only shows when it would do
+			// something.
+			hasEmpty: chips.some((chip) => chip.empty),
+			chips
 		};
 	}).filter((row) => row.chips.length));
 
@@ -260,6 +276,7 @@ export function useFacetFilters({ items, filters, save }) {
 		matchesFilters,
 		toggleFilter,
 		toggleAllFilters,
+		hideEmptyFilters,
 		clearFilters
 	};
 }

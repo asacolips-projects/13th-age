@@ -102,11 +102,13 @@ export function groupCatalogSections({ mode, items, loot, showCurrency, activeFi
 	// When the tab groups by a facet, that facet's chips also narrow the
 	// sections themselves: with chips selected, only the selected chips'
 	// groups render. Custom groups' sections key off the cleaned free-text
-	// value, so chips match by raw and by cleaned value alike.
+	// value, so chips match by raw and by cleaned value alike; canonical
+	// sections' keys are the chip values verbatim, hyphens included.
 	const selected = activeFilters[mode];
 	const facetSections = selected.length
 		? [...groups.values(), other].filter((section) => selected.includes(section.raw)
-			|| selected.some((chip) => cleanFilterKey(chip) === section.key))
+			|| selected.some((chip) => chip === section.key
+				|| cleanFilterKey(chip) === section.key))
 		: [...groups.values(), other];
 
 	// With type-facet chips selected, the loot and currency sections render

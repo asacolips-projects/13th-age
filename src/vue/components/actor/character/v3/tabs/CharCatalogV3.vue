@@ -48,12 +48,24 @@
 							<div v-for="row in facetRows" :key="row.key" class="facet-row">
 								<span class="facet-row-label">
 									<span>{{ localize(row.labelKey) }}</span>
-									<button
-										type="button"
-										class="facet-all"
-										:class="{ 'facet-all--on': row.allActive }"
-										@click="toggleAllFilters(row.key)"
-									>{{ localize('ARCHMAGE.all') }}</button>
+									<!-- The grouped facet's row also offers "hide
+										 empty", selecting all but its empty chips so
+										 only filled groups show. -->
+									<span class="facet-row-links">
+										<button
+											v-if="row.key === groupBy && row.hasEmpty"
+											type="button"
+											class="facet-all"
+											@click="hideEmptyFilters(row.key)"
+										>{{ localize('ARCHMAGE.hideEmpty') }}</button>
+										<!-- The row's select-all widget reads "none" while
+											 every chip is active, its click clearing the row. -->
+										<button
+											type="button"
+											class="facet-all"
+											@click="toggleAllFilters(row.key)"
+										>{{ localize(row.allActive ? 'ARCHMAGE.none' : 'ARCHMAGE.all') }}</button>
+									</span>
 								</span>
 								<div class="facet-row-chips">
 									<button
@@ -230,7 +242,7 @@ const { searchValue, matchesSearch } = useSearchFilter((item) => {
 // through come from the shared composable; the chip selections persist per
 // tab like group and sort, through this tab's definition patcher.
 const {
-	facetRows, activeFilters, activeFilterCount, filtersActive, matchesFilters, toggleFilter, toggleAllFilters, clearFilters
+	facetRows, activeFilters, activeFilterCount, filtersActive, matchesFilters, toggleFilter, toggleAllFilters, hideEmptyFilters, clearFilters
 } = useFacetFilters({
 	items: () => props.actor?.items ?? [],
 	filters: () => props.tab?.filters ?? {},
@@ -523,6 +535,14 @@ const createGroupItem = async (section, type) => {
         font-weight: bold;
       }
 
+      // A row's links, grouped at the label's end: the grouped facet's
+      // optional "hide empty" beside the always-present "all".
+      .facet-row-links {
+        display: inline-flex;
+        gap: 0.5rem;
+        font-weight: normal;
+      }
+
       // The row's select-all widget, styled like the clear button.
       .facet-all {
         padding: 0;
@@ -539,12 +559,6 @@ const createGroupItem = async (section, type) => {
         &:hover {
           color: var(--color-text-primary);
           text-shadow: 0 0 5px var(--v3-hover-glow);
-        }
-
-        // Lit while the row's every chip is active, like the chips themselves.
-        &.facet-all--on {
-          color: var(--color-text-emphatic);
-          text-shadow: 0 0 5px var(--color-shadow-primary);
         }
       }
 
