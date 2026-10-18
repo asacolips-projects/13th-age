@@ -103,7 +103,22 @@
 			>
 				<i v-if="canReorderGroups" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')" />
 				<span class="group-title-label">{{ localize(section.labelKey) }}</span>
-				<a v-if="editable && section.kind !== 'currency'" class="group-add" :title="addTitle(section)" @click.stop="createGroupItem(section)"><i class="fas fa-plus" /></a>
+				<span v-if="editable && section.kind !== 'currency'" class="group-add-wrap">
+					<a
+						class="group-add"
+						:class="{ 'group-add--open': openAddMenu === section.key }"
+						:title="addTitle(section)"
+						@click.stop="onGroupAdd(section)"
+					><i class="fas fa-plus" /></a>
+					<!-- Ambiguous groups' type menu: a group both powers and
+             equipment (or, for the catch-all, loot) can land in opens
+             this dropdown to pick what the "+" adds. -->
+					<div v-if="openAddMenu === section.key" class="group-add-menu" @click.stop>
+						<button v-for="option in addOptions(section)" :key="option" type="button" @click="createGroupItem(section, option)">
+							{{ localize(`TYPES.Item.${option}`) }}
+						</button>
+					</div>
+				</span>
 			</h4>
 			<!-- Coin purses, matching the v2 inventory tab. Deliberately
            nameless inputs persisting through the live actor document on
@@ -143,7 +158,7 @@ import { useGroupReorder } from "@/composables/useGroupReorder";
 import { useCatalogTabPrefs } from "@/composables/useCatalogTabPrefs";
 import { useDismissablePopover } from "@/composables/useDismissablePopover";
 import { useSearchFilter } from "@/composables/useSearchFilter";
-import { groupCatalogSections, groupCreateData } from "@/methods/CatalogSections";
+import { groupCatalogSections, groupCreateData, groupCreateOptions } from "@/methods/CatalogSections";
 import SortFilterBarV3 from "@/components/actor/character/v3/parts/SortFilterBarV3.vue";
 import ExpandableRowV3 from "@/components/actor/character/v3/parts/ExpandableRowV3.vue";
 import InfoBubble from "@/components/parts/InfoBubble.vue";
@@ -326,24 +341,55 @@ const catalogSections = computed(() => groupCatalogSections({
 
 /**
  * Title for a section's "+" button.
- * @param section
+ * @param {object} section
  */
 const addTitle = (section) => localize("ARCHMAGE.addToGroup", {
 	group: localize(section.labelKey)
 });
 
+// The type menu an ambiguous group's "+" opens — the key of the one section
+// whose menu is showing, or null. A document click outside the group's add
+// control, or Escape, closes it.
+const openAddMenu = ref(null);
+useDismissablePopover(openAddMenu, ".group-add-wrap", null);
+
+/**
+ * The item types a section's "+" can create.
+ * @param {object} section
+ * @returns {Array}
+ */
+const addOptions = (section) => groupCreateOptions(section, groupBy.value);
+
+/**
+ * A section's "+" click: a group whose item type is ambiguous opens the
+ * type menu instead of creating a power outright.
+ * @param {object} section
+ */
+const onGroupAdd = (section) => {
+	if (addOptions(section).length > 1) {
+		openAddMenu.value = openAddMenu.value === section.key ? null : section.key;
+	}
+	else {
+		createGroupItem(section);
+	}
+};
+
 /**
  * Create a new item from a section's "+" button, named and imaged like the
- * v2 sheet's add buttons.
- * @param section
+ * v2 sheet's add buttons; the type menu's choice passes through, defaulting
+ * to the section's own single type.
+ * @param {object} section
+ * @param {string} [type]
+ * @returns {Promise<void>}
  */
-const createGroupItem = async (section) => {
+const createGroupItem = async (section, type) => {
 	if (!actorDocument) return;
-	const { type, system } = groupCreateData(section, groupBy.value);
+	openAddMenu.value = null;
+	const { type: itemType, system } = groupCreateData(section, groupBy.value, type);
 	await actorDocument.createEmbeddedDocuments("Item", [{
-		name: game.archmage.ArchmageUtility.formatNewItemName(type),
-		type,
-		img: CONFIG.ARCHMAGE.defaultTokens[type] ?? CONFIG.DEFAULT_TOKEN,
+		name: game.archmage.ArchmageUtility.formatNewItemName(itemType),
+		type: itemType,
+		img: CONFIG.ARCHMAGE.defaultTokens[itemType] ?? CONFIG.DEFAULT_TOKEN,
 		system
 	}]);
 };
@@ -627,12 +673,58 @@ const createGroupItem = async (section) => {
       text-align: left;
     }
 
+    // The add control, wrapped so the ambiguous groups' type menu can
+    // anchor to it.
+    .group-add-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
     .group-add {
       cursor: pointer;
       font-size: var(--font-size-14);
 
       &:hover {
         text-shadow: 0 0 5px var(--v3-hover-glow);
+      }
+
+      // Lit while its type menu is open.
+      &.group-add--open {
+        color: var(--color-text-emphatic);
+        text-shadow: 0 0 10px var(--color-shadow-primary);
+      }
+    }
+
+    // The type menu an ambiguous group's "+" opens: a small right-aligned
+    // popover listing the item types the group can hold.
+    .group-add-menu {
+      @include v3-popover;
+
+      top: calc(100% + 0.375rem);
+      right: 0;
+      left: auto;
+      width: auto;
+      min-width: 8rem;
+      gap: 0;
+      padding: 0.25rem 0;
+
+      button {
+        padding: 0.25rem 0.625rem;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: var(--font-size-12);
+        line-height: 1.4;
+        text-align: left;
+        color: var(--color-text-secondary);
+        cursor: var(--cursor-pointer);
+
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
       }
     }
 

@@ -131,19 +131,53 @@ export function groupCatalogSections({ mode, items, loot, showCurrency, activeFi
 }
 
 /**
+ * The item types a section's "+" button can create, in menu order. A grouped
+ * section is ambiguous — needing a type choice — when both powers and
+ * equipment can land in it: the action grouping files equipment with a set
+ * usage under 'free' (a magic item's power is a free action), the usage
+ * grouping files equipment under the usage groups it shares the field with,
+ * and the catch-all takes whatever fell through (plus loot, which has no
+ * grouping value and so can't reach it — but a "+" that adds loot beats
+ * scrolling to the loot section).
+ * @param {object} section The section the button belongs to.
+ * @param {string} mode The tab's group-by mode.
+ *
+ * @returns {Array} The item types to offer.
+ */
+export function groupCreateOptions(section, mode) {
+	if (section.kind !== "power") return [section.kind];
+	if (section.key === "other") return ["power", "equipment", "loot"];
+	let takesEquipment = false;
+	if (mode === "actionType") takesEquipment = section.key === "free";
+	else if (mode === "powerUsage") takesEquipment = section.key in (CONFIG.ARCHMAGE.equipUsages ?? {});
+	return takesEquipment ? ["power", "equipment"] : ["power"];
+}
+
+/**
  * Item data for a section's "+" button, pre-filled so the new item lands in
  * the group it was added from: built-in group modes set the mode's system
  * field (e.g. system.powerUsage.value), custom groups set the free-text
  * group, the catch-all leaves it empty so the power lands there, and loot
- * sections just use their type.
+ * sections just use their type. The type menu's choice passes through for
+ * the ambiguous groups — equipment lands by its powerUsage: the usage
+ * grouping's group name is the value itself, the action grouping's free
+ * group takes any set usage ('other' being the plainest one), and the
+ * catch-all takes none at all.
  *
  * @param {object} section The section the button belongs to.
  * @param {string} mode The tab's group-by mode.
+ * @param {string} [type] The chosen item type, from groupCreateOptions.
  *
  * @returns {object} The embedded document data for the new item.
  */
-export function groupCreateData(section, mode) {
+export function groupCreateData(section, mode, type) {
 	if (section.kind !== "power") return { type: section.kind, system: {} };
+	if (type === "equipment") {
+		const usage = mode === "powerUsage" && section.key !== "other" ? section.key
+			: mode === "actionType" && section.key === "free" ? "other"
+				: "";
+		return { type, system: usage ? { powerUsage: { value: usage } } : {} };
+	}
 	if (section.key === "other") return { type: "power", system: {} };
 	if (mode === "group") {
 		return { type: "power", system: { group: { value: section.raw } } };
