@@ -1,10 +1,10 @@
 <template>
 	<section class="tab-catalog">
-	<!-- The view button (grouping/sorting/filtering popover), the filter entry
-     and the import button. -->
-	<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:search="searchValue">
-		<!-- View button, opening the popover that holds this tab's
-        grouping and sorting selects and its filter chips. -->
+		<!-- The view button (grouping/sorting/filtering popover), the filter entry
+			and the import button. -->
+		<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:search="searchValue">
+			<!-- View button, opening the popover that holds this tab's
+				grouping and sorting selects and its filter chips. -->
 			<template #sort>
 				<span class="view-catalog">
 					<button
@@ -34,9 +34,9 @@
 							</div>
 						</div>
 						<!-- Filter facets: chips for the values this character's
-             items actually carry plus its groups' canonical values, OR
-             within a row and AND across rows (and with the search).
-             Cleared as a whole; persisted per tab like group and sort. -->
+							items actually carry plus its groups' canonical values, OR
+							within a row and AND across rows (and with the search).
+							Cleared as a whole; persisted per tab like group and sort. -->
 						<div class="filter-catalog">
 							<div class="filter-head">
 								<h4 class="filter-title">
@@ -49,8 +49,8 @@
 								<span class="facet-row-label">
 									<span>{{ localize(row.labelKey) }}</span>
 									<!-- The grouped facet's row also offers "hide
-										 empty", selecting all but its empty chips so
-										 only filled groups show. -->
+											empty", selecting all but its empty chips so
+											only filled groups show. -->
 									<span class="facet-row-links">
 										<button
 											v-if="row.key === groupBy && row.hasEmpty"
@@ -59,7 +59,7 @@
 											@click="hideEmptyFilters(row.key)"
 										>{{ localize('ARCHMAGE.hideEmpty') }}</button>
 										<!-- The row's select-all widget reads "none" while
-											 every chip is active, its click clearing the row. -->
+												every chip is active, its click clearing the row. -->
 										<button
 											type="button"
 											class="facet-all"
@@ -97,7 +97,7 @@
 		</SortFilterBarV3>
 
 		<!-- Sections are the reorderable groups; the currency group renders its
-         coin purses in place of an item list. -->
+					coin purses in place of an item list. -->
 		<section
 			v-for="section in catalogSections"
 			:key="section.key"
@@ -123,8 +123,8 @@
 						@click.stop="onGroupAdd(section)"
 					><i class="fas fa-plus" /></a>
 					<!-- Ambiguous groups' type menu: a group both powers and
-             equipment (or, for the catch-all, loot) can land in opens
-             this dropdown to pick what the "+" adds. -->
+							equipment (or, for the catch-all, loot) can land in opens
+							this dropdown to pick what the "+" adds. -->
 					<div v-if="openAddMenu === section.key" class="group-add-menu" @click.stop>
 						<button v-for="option in addOptions(section)" :key="option" type="button" @click="createGroupItem(section, option)">
 							{{ localize(`TYPES.Item.${option}`) }}
@@ -133,10 +133,10 @@
 				</span>
 			</h4>
 			<!-- Coin purses, matching the v2 inventory tab. Deliberately
-           nameless inputs persisting through the live actor document on
-           change: every mounted catalog tab renders this row, and named
-           copies would make the sheet's form submit collect each field
-           twice as an array. -->
+						nameless inputs persisting through the live actor document on
+						change: every mounted catalog tab renders this row, and named
+						copies would make the sheet's form submit collect each field
+						twice as an array. -->
 			<div v-if="section.kind === 'currency'" class="catalog-currency flexrow">
 				<div v-for="type in CURRENCY" :key="type" :class="concat('currency-unit currency-unit-', type)">
 					<label :for="concat('catalog-coin-', tabId, '-', type)">{{ localize(`ARCHMAGE.COINS.${type}`) }}</label>
@@ -273,7 +273,7 @@ const canImport = computed(() =>
 // with an explanatory tooltip instead.
 const importTooltip = computed(() => missingKinClass(props.actor)
 	? localize("ARCHMAGE.importNeedsKinClass", { kin: kinLabel() })
-	: localize('ARCHMAGE.import'));
+	: localize("ARCHMAGE.import"));
 
 // The button pulses while the character has no items, advertising where a
 // new character's powers come from.
@@ -408,373 +408,373 @@ const createGroupItem = async (section, type) => {
 </script>
 
 <style scoped lang="scss">
-  @import 'v3/empty';
-  @import 'v3/popover';
-  // The view button and its grouping/sorting popover, docked at the bar's
-  // start (in the bar's #sort slot, ahead of the filter entry).
-  .view-catalog {
-    position: relative;
-    flex: 0 0 auto;
-    align-self: flex-end;
-    display: flex;
-    align-items: center;
-  }
+	@import 'v3/empty';
+	@import 'v3/popover';
+	// The view button and its grouping/sorting popover, docked at the bar's
+	// start (in the bar's #sort slot, ahead of the filter entry).
+	.view-catalog {
+		position: relative;
+		flex: 0 0 auto;
+		align-self: flex-end;
+		display: flex;
+		align-items: center;
+	}
 
-  // A standard button sized like the import button.
-  .catalog-view {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: var(--input-height);
-    font-size: var(--font-size-12);
-    border-radius: 3px;
-    background: transparent;
-    line-height: 1;
-    color: var(--color-text-secondary);
-    cursor: var(--cursor-pointer);
+	// A standard button sized like the import button.
+	.catalog-view {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		height: var(--input-height);
+		font-size: var(--font-size-12);
+		border-radius: 3px;
+		background: transparent;
+		line-height: 1;
+		color: var(--color-text-secondary);
+		cursor: var(--cursor-pointer);
 
-    &:hover {
-      color: var(--color-text-primary);
-      text-shadow: 0 0 10px var(--color-shadow-primary);
-    }
+		&:hover {
+			color: var(--color-text-primary);
+			text-shadow: 0 0 10px var(--color-shadow-primary);
+		}
 
-    // Lit while its popover is open.
-    &.catalog-view--open {
-      color: var(--color-text-emphatic);
-      text-shadow: 0 0 10px var(--color-shadow-primary);
-    }
+		// Lit while its popover is open.
+		&.catalog-view--open {
+			color: var(--color-text-emphatic);
+			text-shadow: 0 0 10px var(--color-shadow-primary);
+		}
 
-    // Filter count badge: chips can hide list content while the popover is
-    // closed, so the closed view button carries the number of active chips.
-    .catalog-view-count {
-      position: absolute;
-      top: -0.3rem;
-      right: -0.4rem;
-      min-width: 1em;
-      padding: 0 0.25em;
-      border-radius: 1em;
-      background: var(--v3-hint);
-      color: var(--c-black);
-      font-size: var(--font-size-10);
-      font-weight: bold;
-      line-height: 1.3;
-      text-align: center;
-    }
-  }
+		// Filter count badge: chips can hide list content while the popover is
+		// closed, so the closed view button carries the number of active chips.
+		.catalog-view-count {
+			position: absolute;
+			top: -0.3rem;
+			right: -0.4rem;
+			min-width: 1em;
+			padding: 0 0.25em;
+			border-radius: 1em;
+			background: var(--v3-hint);
+			color: var(--c-black);
+			font-size: var(--font-size-10);
+			font-weight: bold;
+			line-height: 1.3;
+			text-align: center;
+		}
+	}
 
-  .view-catalog-popover {
-    @include v3-popover;
+	.view-catalog-popover {
+		@include v3-popover;
 
-    // The group and sort selects share the top row, a labelled column
-    // each; styled like the bar's own controls, whose scoped rules don't
-    // reach slot content.
-    .group-sort-row {
-      display: flex;
-      gap: 0.375rem;
+		// The group and sort selects share the top row, a labelled column
+		// each; styled like the bar's own controls, whose scoped rules don't
+		// reach slot content.
+		.group-sort-row {
+			display: flex;
+			gap: 0.375rem;
 
-      .group-catalog {
-        @include v3-popover-col;
-      }
-    }
+			.group-catalog {
+				@include v3-popover-col;
+			}
+		}
 
-    // The filter facet rows, under a dashed rule matching the bar's own
-    // divider: a bold label and a wrap of toggle chips each.
-    .filter-catalog {
-      display: flex;
-      flex-direction: column;
-      gap: 0.375rem;
-      padding-top: 0.375rem;
-      border-top: 1px solid var(--color-border);
+		// The filter facet rows, under a dashed rule matching the bar's own
+		// divider: a bold label and a wrap of toggle chips each.
+		.filter-catalog {
+			display: flex;
+			flex-direction: column;
+			gap: 0.375rem;
+			padding-top: 0.375rem;
+			border-top: 1px solid var(--color-border);
 
-      .filter-head {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
+			.filter-head {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
 				min-height: 2.25em;
 
-        // The filter heading, an h4 for a bit more division than a plain
-        // label, with its hint bubble grouped at the row's start.
-        h4.filter-title {
-          margin: 0;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.25rem;
-          font-size: var(--font-size-16);
-          font-weight: bold;
-        }
-      }
+				// The filter heading, an h4 for a bit more division than a plain
+				// label, with its hint bubble grouped at the row's start.
+				h4.filter-title {
+					margin: 0;
+					display: inline-flex;
+					align-items: center;
+					gap: 0.25rem;
+					font-size: var(--font-size-16);
+					font-weight: bold;
+				}
+			}
 
-      .filter-clear {
-        padding: 0;
-        background: none;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        font-size: inherit;
-        color: var(--color-text-secondary);
-        text-decoration: underline;
-        cursor: var(--cursor-pointer);
+			.filter-clear {
+				padding: 0;
+				background: none;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+				font-size: inherit;
+				color: var(--color-text-secondary);
+				text-decoration: underline;
+				cursor: var(--cursor-pointer);
 
-        &:hover {
-          color: var(--color-text-primary);
-          text-shadow: 0 0 5px var(--v3-hover-glow);
-        }
-      }
+				&:hover {
+					color: var(--color-text-primary);
+					text-shadow: 0 0 5px var(--v3-hover-glow);
+				}
+			}
 
-      .facet-row {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-      }
+			.facet-row {
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+			}
 
-      .facet-row-label {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        font-weight: bold;
-      }
+			.facet-row-label {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				font-weight: bold;
+			}
 
-      // A row's links, grouped at the label's end: the grouped facet's
-      // optional "hide empty" beside the always-present "all".
-      .facet-row-links {
-        display: inline-flex;
-        gap: 0.5rem;
-        font-weight: normal;
-      }
+			// A row's links, grouped at the label's end: the grouped facet's
+			// optional "hide empty" beside the always-present "all".
+			.facet-row-links {
+				display: inline-flex;
+				gap: 0.5rem;
+				font-weight: normal;
+			}
 
-      // The row's select-all widget, styled like the clear button.
-      .facet-all {
-        padding: 0;
-        background: none;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        font-size: inherit;
-        font-weight: normal;
-        color: var(--color-text-secondary);
-        text-decoration: underline;
-        cursor: var(--cursor-pointer);
+			// The row's select-all widget, styled like the clear button.
+			.facet-all {
+				padding: 0;
+				background: none;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+				font-size: inherit;
+				font-weight: normal;
+				color: var(--color-text-secondary);
+				text-decoration: underline;
+				cursor: var(--cursor-pointer);
 
-        &:hover {
-          color: var(--color-text-primary);
-          text-shadow: 0 0 5px var(--v3-hover-glow);
-        }
-      }
+				&:hover {
+					color: var(--color-text-primary);
+					text-shadow: 0 0 5px var(--v3-hover-glow);
+				}
+			}
 
-      .facet-row-chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.25rem;
-      }
+			.facet-row-chips {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.25rem;
+			}
 
-      .facet-chip {
-        padding: 0.125rem 0.5rem;
-        border: 1px solid var(--color-border);
-        border-radius: 1rem;
-        background: var(--v3-chip-bg);
-        font-size: inherit;
-        line-height: 1.3;
-        color: var(--color-text-secondary);
-        cursor: var(--cursor-pointer);
+			.facet-chip {
+				padding: 0.125rem 0.5rem;
+				border: 1px solid var(--color-border);
+				border-radius: 1rem;
+				background: var(--v3-chip-bg);
+				font-size: inherit;
+				line-height: 1.3;
+				color: var(--color-text-secondary);
+				cursor: var(--cursor-pointer);
 
-        &:hover {
-          color: var(--color-text-primary);
-          text-shadow: 0 0 5px var(--v3-hover-glow);
-        }
+				&:hover {
+					color: var(--color-text-primary);
+					text-shadow: 0 0 5px var(--v3-hover-glow);
+				}
 
-        // On chips light up like the open ellipsis does.
-        &.facet-chip--on {
-          border-color: currentcolor;
-          color: var(--color-text-emphatic);
-          text-shadow: 0 0 5px var(--color-shadow-primary);
-        }
+				// On chips light up like the open ellipsis does.
+				&.facet-chip--on {
+					border-color: currentcolor;
+					color: var(--color-text-emphatic);
+					text-shadow: 0 0 5px var(--color-shadow-primary);
+				}
 
-        // A chip no item carries: the dashed outline and dimmed label mark
-        // the group as empty — its section still renders, add button ready.
-        // Interaction and an active selection restore full legibility.
-        &.facet-chip--empty {
-          border-style: dashed;
-          opacity: 0.6;
+				// A chip no item carries: the dashed outline and dimmed label mark
+				// the group as empty — its section still renders, add button ready.
+				// Interaction and an active selection restore full legibility.
+				&.facet-chip--empty {
+					border-style: dashed;
+					opacity: 0.6;
 
-          &:hover,
-          &.facet-chip--on {
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
+					&:hover,
+					&.facet-chip--on {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
 
-  // Coin purses, styled like the filter controls (label above slim input).
-  // Units share the row evenly; gold/silver/copper copy the v2 sheet's
-  // denomination text colors (platinum keeps the default color there too).
-  .catalog-currency {
-    gap: 2em;
+	// Coin purses, styled like the filter controls (label above slim input).
+	// Units share the row evenly; gold/silver/copper copy the v2 sheet's
+	// denomination text colors (platinum keeps the default color there too).
+	.catalog-currency {
+		gap: 2em;
 
-    > div {
-      text-align: center;
+		> div {
+			text-align: center;
 
-      &.currency-unit-gold {
-        color: #efc44a;
-      }
+			&.currency-unit-gold {
+				color: #efc44a;
+			}
 
-      &.currency-unit-silver {
-        color: #888;
-      }
+			&.currency-unit-silver {
+				color: #888;
+			}
 
-      &.currency-unit-copper {
-        color: #c17a58;
-      }
-    }
+			&.currency-unit-copper {
+				color: #c17a58;
+			}
+		}
 
-    label {
-      display: block;
-      width: 100%;
-      font-weight: bold;
-      // Keeps the light denomination colors legible on the light theme.
-      text-shadow: 0 0 5px var(--c-black--50);
-    }
+		label {
+			display: block;
+			width: 100%;
+			font-weight: bold;
+			// Keeps the light denomination colors legible on the light theme.
+			text-shadow: 0 0 5px var(--c-black--50);
+		}
 
-    input[type="number"] {
-      font-weight: bold;
-      text-align: center;
-    }
-  }
+		input[type="number"] {
+			font-weight: bold;
+			text-align: center;
+		}
+	}
 
-  // Import button, slotted into the shared sort/filter bar and aligned to
-  // the control row (no label above it).
-  .import-catalog {
-    flex: 0 auto;
-    align-self: flex-end;
+	// Import button, slotted into the shared sort/filter bar and aligned to
+	// the control row (no label above it).
+	.import-catalog {
+		flex: 0 auto;
+		align-self: flex-end;
 
-    button {
-      height: var(--input-height);
-      font-size: var(--font-size-12);
-      border-radius: 3px;
-      background: transparent;
+		button {
+			height: var(--input-height);
+			font-size: var(--font-size-12);
+			border-radius: 3px;
+			background: transparent;
 
-      &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
+			&:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
 
-      // Empty-catalog attention pulse, same accent as the identity fields'
-      // (charms even while disabled — the tooltip explains why). The
-      // keyframes are the v3 pulse partial's single global definition
-      // (CharSidebarV3's unscoped block imports it).
-      &.catalog-import--pulse {
-        animation: v3-empty-pulse 2s ease-in-out infinite;
-      }
-    }
-  }
+			// Empty-catalog attention pulse, same accent as the identity fields'
+			// (charms even while disabled — the tooltip explains why). The
+			// keyframes are the v3 pulse partial's single global definition
+			// (CharSidebarV3's unscoped block imports it).
+			&.catalog-import--pulse {
+				animation: v3-empty-pulse 2s ease-in-out infinite;
+			}
+		}
+	}
 
-  .catalog-group {
-    margin-bottom: 1.5rem;
+	.catalog-group {
+		margin-bottom: 1.5rem;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 
-  .catalog-group-title {
-    margin: 0 0 0.25rem;
-    display: flex;
-    align-items: center;
+	.catalog-group-title {
+		margin: 0 0 0.25rem;
+		display: flex;
+		align-items: center;
 
-    .group-title-label {
-      flex: 1;
-      text-align: left;
-    }
+		.group-title-label {
+			flex: 1;
+			text-align: left;
+		}
 
-    // The add control, wrapped so the ambiguous groups' type menu can
-    // anchor to it.
-    .group-add-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-    }
+		// The add control, wrapped so the ambiguous groups' type menu can
+		// anchor to it.
+		.group-add-wrap {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+		}
 
-    .group-add {
-      cursor: pointer;
-      font-size: var(--font-size-14);
+		.group-add {
+			cursor: pointer;
+			font-size: var(--font-size-14);
 
-      &:hover {
-        text-shadow: 0 0 5px var(--v3-hover-glow);
-      }
+			&:hover {
+				text-shadow: 0 0 5px var(--v3-hover-glow);
+			}
 
-      // Lit while its type menu is open.
-      &.group-add--open {
-        color: var(--color-text-emphatic);
-        text-shadow: 0 0 10px var(--color-shadow-primary);
-      }
-    }
+			// Lit while its type menu is open.
+			&.group-add--open {
+				color: var(--color-text-emphatic);
+				text-shadow: 0 0 10px var(--color-shadow-primary);
+			}
+		}
 
-    // The type menu an ambiguous group's "+" opens: a small right-aligned
-    // popover listing the item types the group can hold.
-    .group-add-menu {
-      @include v3-popover;
+		// The type menu an ambiguous group's "+" opens: a small right-aligned
+		// popover listing the item types the group can hold.
+		.group-add-menu {
+			@include v3-popover;
 
-      top: calc(100% + 0.375rem);
-      right: 0;
-      left: auto;
-      width: auto;
-      min-width: 8rem;
-      gap: 0;
-      padding: 0.25rem 0;
+			top: calc(100% + 0.375rem);
+			right: 0;
+			left: auto;
+			width: auto;
+			min-width: 8rem;
+			gap: 0;
+			padding: 0.25rem 0;
 
-      button {
-        padding: 0.25rem 0.625rem;
-        background: none;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        font-size: var(--font-size-12);
-        line-height: 1.4;
-        text-align: left;
-        color: var(--color-text-secondary);
-        cursor: var(--cursor-pointer);
+			button {
+				padding: 0.25rem 0.625rem;
+				background: none;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+				font-size: var(--font-size-12);
+				line-height: 1.4;
+				text-align: left;
+				color: var(--color-text-secondary);
+				cursor: var(--cursor-pointer);
 
-        &:hover {
-          color: var(--color-text-primary);
-          text-shadow: 0 0 5px var(--v3-hover-glow);
-        }
-      }
-    }
+				&:hover {
+					color: var(--color-text-primary);
+					text-shadow: 0 0 5px var(--v3-hover-glow);
+				}
+			}
+		}
 
-    // Group reordering affordances.
-    &[draggable="true"] {
-      cursor: grab;
+		// Group reordering affordances.
+		&[draggable="true"] {
+			cursor: grab;
 
-      &:active {
-        cursor: grabbing;
-      }
-    }
+			&:active {
+				cursor: grabbing;
+			}
+		}
 
-    &:hover .group-grip {
-      opacity: 1;
-    }
-  }
+		&:hover .group-grip {
+			opacity: 1;
+		}
+	}
 
-  .group-grip {
-    font-size: var(--font-size-14);
-    margin-right: $padding-sm;
-    opacity: 0.35;
-  }
+	.group-grip {
+		font-size: var(--font-size-14);
+		margin-right: $padding-sm;
+		opacity: 0.35;
+	}
 
-  .catalog-group--dragging {
-    opacity: 0.5;
-  }
+	.catalog-group--dragging {
+		opacity: 0.5;
+	}
 
-  .catalog-group--drop-target > .catalog-group-title {
-    outline: 2px dashed;
-    outline-offset: 2px;
-    margin-left: 4px;
-  }
+	.catalog-group--drop-target > .catalog-group-title {
+		outline: 2px dashed;
+		outline-offset: 2px;
+		margin-left: 4px;
+	}
 
-  .catalog-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+	.catalog-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
 </style>

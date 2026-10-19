@@ -1293,8 +1293,8 @@ Hooks.on("dropActorSheetData", (actor, sheet, data) => {
 
 Hooks.on("dropCanvasData", (canvas, data) => {
 
-		/** The token at the drop point, or the first targeted token. */
-		function findToken() {
+	/** The token at the drop point, or the first targeted token. */
+	function findToken() {
 		// Get the token at the drop point, if any
 		const x = data.x;
 		const y = data.y;

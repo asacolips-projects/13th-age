@@ -4,8 +4,8 @@
 		<!-- Disengage lives with the death/last-gasp tracks in the top bar. -->
 		<p class="saves-list">
 			<!-- type="button" so these aren't the form's default submit button:
-			     the sheet lives in a <form>, and Enter in any text field would
-			     otherwise click the first untyped button (implicit submission). -->
+					the sheet lives in a <form>, and Enter in any text field would
+					otherwise click the first untyped button (implicit submission). -->
 			<button type="button" @click="rollSave('easy')">{{ localize('ARCHMAGE.SAVE.easyShort') }} 6+</button>
 			<button type="button" @click="rollSave('normal')">{{ localize('ARCHMAGE.SAVE.normalShort') }} 11+</button>
 			<button type="button" @click="rollSave('hard')">{{ localize('ARCHMAGE.SAVE.hardShort') }} 16+</button>
@@ -31,18 +31,18 @@ function rollSave(difficulty) {
 
 <style scoped lang="scss">
 .saves-list {
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 0.25rem;
-  font-size: var(--font-size-14);
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 0.25rem;
+	font-size: var(--font-size-14);
 
-  button {
-    flex: 1 1 0;
-    min-width: 0;
-    text-align: center;
-    font-size: var(--font-size-10);
-  }
+	button {
+		flex: 1 1 0;
+		min-width: 0;
+		text-align: center;
+		font-size: var(--font-size-10);
+	}
 }
 </style>
