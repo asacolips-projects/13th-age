@@ -16,12 +16,14 @@ defineProps(["actor"]);
      components, which scoped selectors on this component cannot. Each child
      owns its own internal styles. The scaffolding selectors also cover
      .sidebar-units, the wrapper the narrow layout's character tab uses when
-     it re-homes the same body units. -->
+     it re-homes the same body units. Layout rules are namespaced under the
+     sheet root so they can't collide with the legacy global sheet CSS or
+     the v2 components' .unit-title — only the keyframes stay global. -->
 <style lang="scss">
   @import 'v3/unit-title';
   @import 'v3/pulse';
 
-.sheet-sidebar {
+.archmage-v3-vue .sheet-sidebar {
   flex: 0 0 250px;
 
   /* Explicit height: the parent root's flexed height is treated as indefinite
@@ -32,20 +34,22 @@ defineProps(["actor"]);
   border-right: 1px solid var(--color-border);
 }
 
-.sheet-sidebar, .sidebar-units {
-  .unit {
-    padding: 0.5rem 0.75rem;
-  }
+.archmage-v3-vue {
+  .sheet-sidebar, .sidebar-units {
+    .unit {
+      padding: 0.5rem 0.75rem;
+    }
 
-  .unit-title {
-    @include v3-unit-title;
-  }
+    .unit-title {
+      @include v3-unit-title;
+    }
 
-  .rollable {
-    cursor: pointer;
+    .rollable {
+      cursor: pointer;
 
-    &:hover {
-      text-shadow: 0 0 5px var(--v3-hover-glow);
+      &:hover {
+        text-shadow: 0 0 5px var(--v3-hover-glow);
+      }
     }
   }
 }
@@ -57,15 +61,17 @@ defineProps(["actor"]);
    The class is bound per field in the child components (CSS can't see a
    number input's zero). The command bar is the narrow layout's re-home of
    the identity fields. */
-.sheet-sidebar,
-.sidebar-units,
-.sheet-command-bar {
-  .field-empty {
-    animation: v3-empty-pulse 2s ease-in-out infinite;
+.archmage-v3-vue {
+  .sheet-sidebar,
+  .sidebar-units,
+  .sheet-command-bar {
+    .field-empty {
+      animation: v3-empty-pulse 2s ease-in-out infinite;
 
-    &:focus {
-      animation: none;
-      box-shadow: 0 0 0 1px var(--v3-hint);
+      &:focus {
+        animation: none;
+        box-shadow: 0 0 0 1px var(--v3-hint);
+      }
     }
   }
 }

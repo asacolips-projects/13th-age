@@ -86,7 +86,7 @@
 				<button
 					type="button"
 					class="catalog-import"
-					:class="{ 'catalog-import--pulse': isEmptyCharacter }"
+					:class="{ 'v3-pulse': isEmptyCharacter }"
 					:disabled="missingKinClass(actor)"
 					:data-tooltip="importTooltip"
 					@click="importPowers"
@@ -662,13 +662,8 @@ const createGroupItem = async (section, type) => {
 				cursor: not-allowed;
 			}
 
-			// Empty-catalog attention pulse, same accent as the identity fields'
-			// (charms even while disabled — the tooltip explains why). The
-			// keyframes are the v3 pulse partial's single global definition
-			// (CharSidebarV3's unscoped block imports it).
-			&.catalog-import--pulse {
-				animation: v3-empty-pulse 2s ease-in-out infinite;
-			}
+			// Empty-catalog attention pulse: the v3-pulse class from the shared
+			// partial carries the animation.
 		}
 	}
 
