@@ -53,6 +53,13 @@ const props = defineProps(["context"]);
 const editing = ref(false);
 provide("editMode", editing);
 
+// Whether the current user may write to this actor at all (permission and
+// pack checks) — distinct from editMode above, which is the sheet's own
+// view/edit toggle. Components consult it before mutating through the
+// actor document, so an observer's clicks don't reach the server to fail.
+const canEdit = computed(() => props.context.editable === true && !props.context.actor?.pack);
+provide("canEdit", canEdit);
+
 /** Toggle the sheet's view/edit mode. */
 function toggleEdit() {
 	editing.value = !editing.value;

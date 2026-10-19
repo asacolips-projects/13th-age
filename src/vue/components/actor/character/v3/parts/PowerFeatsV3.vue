@@ -33,7 +33,7 @@
  * right edge. PowerDetailsV3 lists them in its feats fieldset; the loadout
  * tab lists them beneath the power's row.
  */
-import { computed, inject } from "vue";
+import { computed, inject, ref } from "vue";
 import { filterFeats, TIERS } from "@/methods/Helpers";
 import { useItemEnrichment } from "@/composables/useItemEnrichment";
 import Enriched from "@/components/parts/Enriched.vue";
@@ -68,11 +68,16 @@ function tierLetter(feat) {
 // the context's prepared clone. The sheet provides the document for injection.
 const actorDocument = inject("actorDocument", null);
 
+// Write permission comes from the sheet root the same way; every control
+// here writes through the document, so observers' clicks are ignored.
+const canEdit = inject("canEdit", ref(false));
+
 /**
  * Roll a feat: rolls and spends one of its uses, per the item's rollFeat().
  * @param featKey
  */
 function rollFeat(featKey) {
+	if (!canEdit.value) return;
 	actorDocument?.items?.get(props.power._id)?.rollFeat(featKey);
 }
 
@@ -81,6 +86,7 @@ function rollFeat(featKey) {
  * @param featKey
  */
 async function toggleFeat(featKey) {
+	if (!canEdit.value) return;
 	const item = actorDocument?.items?.get(props.power._id);
 	const feat = item?.system?.feats?.[featKey];
 	if (!feat) return;
@@ -96,17 +102,35 @@ async function toggleFeat(featKey) {
  * @param increase
  */
 async function changeFeatUses(featKey, increase = true) {
+	if (!canEdit.value) return;
 	const item = actorDocument?.items?.get(props.power._id);
 	const feat = item?.system?.feats?.[featKey];
 	if (!feat) return;
 
 	const current = Number(feat.quantity?.value) || 0;
-	// Parse, don't clamp raw: maxQuantity is a String field that may hold a
-	// formula ('[[@cha.mod]]'), and Math.min against that would NaN the
-	// update. Nothing resolves feat maxima (the v2 sheet shares the flaw,
-	// with its TODO), so a non-numeric value falls back to the 99 ceiling.
-	const parsedMax = Number(feat.maxQuantity?.value);
-	const max = Number.isFinite(parsedMax) && parsedMax > 0 ? parsedMax : 99;
+	// maxQuantity is a String field that may hold a formula ('[[@cha.mod]]'):
+	// take a plain number first, then evaluate a formula against the actor's
+	// roll data, and only fall back to the 99 ceiling when neither resolves —
+	// nothing else resolves feat maxima (the v2 sheet shares the flaw, with
+	// its TODO), and Math.min against an unparseable value would NaN the
+	// update.
+	const rawMax = feat.maxQuantity?.value;
+	const parsedMax = Number(rawMax);
+	let max = 99;
+	if (Number.isFinite(parsedMax) && parsedMax > 0) {
+		max = parsedMax;
+	}
+	else if (typeof rawMax === "string" && rawMax.trim() !== "") {
+		try {
+			const roll = new Roll(String(rawMax).trim(), actorDocument?.getRollData?.() ?? {});
+			await roll.evaluate({ allowInteractive: false });
+			const total = Number(roll.total);
+			if (Number.isFinite(total) && total > 0) max = Math.floor(total);
+		}
+		catch{
+			// Unparseable or interactive formula: keep the 99 ceiling.
+		}
+	}
 	const next = increase ? Math.min(max, current + 1) : Math.max(0, current - 1);
 	await item.update({ [`system.feats.${featKey}.quantity.value`]: next });
 }

@@ -76,6 +76,9 @@ const props = defineProps(["actor"]);
 const editing = inject("editMode", ref(false));
 const actorDocument = inject("actorDocument");
 
+// Write permission comes from the sheet root the same way.
+const canEdit = inject("canEdit", ref(false));
+
 const icons = computed(() =>
 	Object.entries(props.actor?.system?.icons ?? {})
 		.filter(([_, icon]) => icon.isActive.value === true)
@@ -162,11 +165,13 @@ function dieTooltip(value) {
 
 // Clicking a die box cycles its result through the edition's states and back
 // to empty: 5 -> 6 -> empty (1e), + -> ~ -> empty (2e), x -> empty (2e alt).
+// Observers can't write the results, so their clicks are ignored.
 /**
  * @param icon
  * @param index
  */
 function cycleDie(icon, index) {
+	if (!canEdit.value) return;
 	const cycle = altIconRolling ? [6, 0] : is2e ? [6, 5, 0] : [5, 6, 0];
 	const results = [...(icon.raw.results ?? [])];
 	while (results.length < icon.bonus) results.push(0);
