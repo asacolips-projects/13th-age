@@ -116,7 +116,8 @@ const add = () => {
 	// the scan matches on the localized word so numbering keeps working in
 	// translations that renamed the base term.
 	const base = localize("ARCHMAGE.catalog");
-	const scan = new RegExp(`^${foundry.utils.escapeRegExp(base)} (\\d+)$`);
+	const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+	const scan = new RegExp(`^${escaped} (\\d+)$`);
 	const nums = defs.value
 		.map((def) => scan.exec(def.label ?? ""))
 		.filter((match) => match)
