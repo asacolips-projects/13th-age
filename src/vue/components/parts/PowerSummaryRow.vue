@@ -80,9 +80,12 @@ const classes = computed(() => [
 // The row itself: white text over the usage colour, links that glow on hover,
 // and the hatching for powers that are spent. The V2 SCSS bundle carries the
 // same rules nested under .archmage-v2 for the V2 sheet; these stand alone so
-// the V3 rows (whose root lacks that class) are styled too.
+// the V3 rows (whose root lacks that class) are styled too — keep the two in
+// sync, and prefer the same tokens: this component's scoped selectors
+// out-specify the V2 bundle, so a divergence here silently restyles the V2
+// sheet's rows.
 .power-summary {
-  color: var(--color-light-1);
+  color: var(--c-white);
   text-shadow: 0 0 10px $c-black--50;
   margin: 0 0 1px 0;
   position: relative;
@@ -90,15 +93,15 @@ const classes = computed(() => [
 
   .rollable,
   a {
-    color: var(--color-light-1);
+    color: var(--c-white);
 
     &:hover {
-      color: var(--color-light-1);
-      text-shadow: 0 0 10px var(--color-light-1);
+      color: var(--c-white);
+      text-shadow: 0 0 10px var(--c-white);
     }
 
     &::before {
-      color: var(--color-light-1);
+      color: var(--c-white);
     }
   }
 
@@ -238,7 +241,7 @@ const classes = computed(() => [
   }
 
   .power-title {
-    color: var(--color-light-1);
+    color: var(--c-white);
     white-space: nowrap;
     position: relative;
     overflow: hidden;
