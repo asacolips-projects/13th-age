@@ -41,7 +41,11 @@ export function useDismissablePopover(state, rootSelector, closed = false) {
 	const onDocKeydown = (event) => {
 		if (event.key !== "Escape" || !state.value) return;
 		const el = instance?.proxy?.$el;
-		const root = el?.closest?.(".window-app") ?? el;
+		// AppV1 windows root at .window-app; AppV2 applications root at
+		// .application, so Escape answers to either — under AppV2 the
+		// fallback would otherwise be the component's own element, which
+		// swallows the key unless focus already sits inside it.
+		const root = el?.closest?.(".window-app, .application") ?? el;
 		if (!(event.target instanceof Element) || !root?.contains(event.target)) return;
 		event.stopPropagation();
 		state.value = closed;

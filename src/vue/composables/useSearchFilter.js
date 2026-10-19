@@ -10,6 +10,10 @@ import { cleanFilterKey, stripTags } from "@/methods/Helpers";
  * and spacing don't need to match exactly. Clearing the filter is the bar's
  * clear widget writing the model to null.
  *
+ * Each row's cleaned text is cached per item id until its source text
+ * changes, so a keystroke only re-runs the needle against ready strings
+ * instead of re-stripping every row's full description.
+ *
  * @param {Function} searchText (item) => the searchable text for a row: its
  *   name plus whatever fields the expanded row shows.
  *
@@ -22,9 +26,23 @@ export function useSearchFilter(searchText) {
 	// the listing filter runs it against every row on every keystroke.
 	const needle = computed(() => cleanFilterKey(searchValue.value ?? ""));
 
+	// Per-item cache of the cleaned text, keyed by item id and holding the
+	// raw source it was computed from, so an edited item re-cleans while
+	// untouched rows reuse theirs.
+	const cache = new Map();
+	const cleanedText = (item) => {
+		const raw = searchText(item);
+		const id = item?._id ?? item?.id;
+		const hit = cache.get(id);
+		if (hit && hit.raw === raw) return hit.cleaned;
+		const cleaned = cleanFilterKey(stripTags(raw));
+		cache.set(id, { raw, cleaned });
+		return cleaned;
+	};
+
 	const matchesSearch = (item) => {
 		if (!needle.value) return true;
-		return cleanFilterKey(stripTags(searchText(item))).includes(needle.value);
+		return cleanedText(item).includes(needle.value);
 	};
 
 	return { searchValue, matchesSearch };
