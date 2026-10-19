@@ -22,13 +22,16 @@
 						<div class="group-sort-row">
 							<div class="group-item-index">
 								<label :for="concat('item-index-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
-								<select :id="concat('item-index-group-', tabId)" v-model="groupBy" :name="concat('item-index-group-', tabId)">
+								<!-- Unnamed: the v-model persists through saveTabDef; a
+									name would put the select on the sheet form's submit
+									path (submitOnChange -> a full actor.update). -->
+								<select :id="concat('item-index-group-', tabId)" v-model="groupBy">
 									<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(option.labelKey ?? `ARCHMAGE.GROUPS.${option.value}`) }}</option>
 								</select>
 							</div>
 							<div class="group-item-index">
 								<label :for="concat('item-index-sort-', tabId)">{{ localize('ARCHMAGE.sort') }}</label>
-								<select :id="concat('item-index-sort-', tabId)" v-model="sortBy" :name="concat('item-index-sort-', tabId)">
+								<select :id="concat('item-index-sort-', tabId)" v-model="sortBy">
 									<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
 								</select>
 							</div>
@@ -149,7 +152,7 @@
 					>
 				</div>
 			</div>
-			<ul v-else class="item-index-list flexcol">
+			<ul v-else class="item-index-list flexcol" :data-group-by="groupBy">
 				<ExpandableRowV3
 					v-for="item in section.members"
 					:key="item._id"
@@ -312,6 +315,7 @@ const coinValue = (type) => {
  * @param event
  */
 const setCoin = async (type, event) => {
+	if (props.editable === false) return;
 	const num = Number(event.target.value);
 	await actorDocument?.update({ [`system.coins.${type}.value`]: Number.isFinite(num) ? num : 0 });
 };
@@ -413,368 +417,367 @@ const createGroupItem = async (section, type) => {
 </script>
 
 <style scoped lang="scss">
-	@import 'v3/empty';
-	@import 'v3/popover';
-	// The view button and its grouping/sorting popover, docked at the bar's
-	// start (in the bar's #sort slot, ahead of the filter entry).
-	.view-item-index {
-		position: relative;
-		flex: 0 0 auto;
-		align-self: flex-end;
-		display: flex;
-		align-items: center;
-	}
+  @import 'v3/popover';
+  // The view button and its grouping/sorting popover, docked at the bar's
+  // start (in the bar's #sort slot, ahead of the filter entry).
+  .view-item-index {
+    position: relative;
+    flex: 0 0 auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+  }
 
-	// A standard button sized like the import button.
-	.item-index-view {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		height: var(--input-height);
-		font-size: var(--font-size-12);
-		border-radius: 3px;
-		background: transparent;
-		line-height: 1;
-		color: var(--color-text-secondary);
-		cursor: var(--cursor-pointer);
+  // A standard button sized like the import button.
+  .item-index-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: var(--input-height);
+    font-size: var(--font-size-12);
+    border-radius: 3px;
+    background: transparent;
+    line-height: 1;
+    color: var(--color-text-secondary);
+    cursor: var(--cursor-pointer);
 
-		&:hover {
-			color: var(--color-text-primary);
-			text-shadow: 0 0 10px var(--color-shadow-primary);
-		}
+    &:hover {
+      color: var(--color-text-primary);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+    }
 
-		// Lit while its popover is open.
-		&.item-index-view--open {
-			color: var(--color-text-emphatic);
-			text-shadow: 0 0 10px var(--color-shadow-primary);
-		}
+    // Lit while its popover is open.
+    &.item-index-view--open {
+      color: var(--color-text-emphatic);
+      text-shadow: 0 0 10px var(--color-shadow-primary);
+    }
 
-		// Filter count badge: chips can hide list content while the popover is
-		// closed, so the closed view button carries the number of active chips.
-		.item-index-view-count {
-			position: absolute;
-			top: -0.3rem;
-			right: -0.4rem;
-			min-width: 1em;
-			padding: 0 0.25em;
-			border-radius: 1em;
-			background: var(--v3-hint);
-			color: var(--c-black);
-			font-size: var(--font-size-10);
-			font-weight: bold;
-			line-height: 1.3;
-			text-align: center;
-		}
-	}
+    // Filter count badge: chips can hide list content while the popover is
+    // closed, so the closed view button carries the number of active chips.
+    .item-index-view-count {
+      position: absolute;
+      top: -0.3rem;
+      right: -0.4rem;
+      min-width: 1em;
+      padding: 0 0.25em;
+      border-radius: 1em;
+      background: var(--v3-hint);
+      color: var(--c-black);
+      font-size: var(--font-size-10);
+      font-weight: bold;
+      line-height: 1.3;
+      text-align: center;
+    }
+  }
 
-	.view-item-index-popover {
-		@include v3-popover;
+  .view-item-index-popover {
+    @include v3-popover;
 
-		// The group and sort selects share the top row, a labelled column
-		// each; styled like the bar's own controls, whose scoped rules don't
-		// reach slot content.
-		.group-sort-row {
-			display: flex;
-			gap: 0.375rem;
+    // The group and sort selects share the top row, a labelled column
+    // each; styled like the bar's own controls, whose scoped rules don't
+    // reach slot content.
+    .group-sort-row {
+      display: flex;
+      gap: 0.375rem;
 
-			.group-item-index {
-				@include v3-popover-col;
-			}
-		}
+      .group-item-index {
+        @include v3-popover-col;
+      }
+    }
 
-		// The filter facet rows, under a dashed rule matching the bar's own
-		// divider: a bold label and a wrap of toggle chips each.
-		.filter-item-index {
-			display: flex;
-			flex-direction: column;
-			gap: 0.375rem;
-			padding-top: 0.375rem;
-			border-top: 1px solid var(--color-border);
+    // The filter facet rows, under a dashed rule matching the bar's own
+    // divider: a bold label and a wrap of toggle chips each.
+    .filter-item-index {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      padding-top: 0.375rem;
+      border-top: 1px solid var(--color-border);
 
-			.filter-head {
-				display: flex;
-				align-items: baseline;
-				justify-content: space-between;
-				min-height: 2.25em;
+      .filter-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        min-height: 2.25em;
 
-				// The filter heading, an h4 for a bit more division than a plain
-				// label, with its hint bubble grouped at the row's start.
-				h4.filter-title {
-					margin: 0;
-					display: inline-flex;
-					align-items: center;
-					gap: 0.25rem;
-					font-size: var(--font-size-16);
-					font-weight: bold;
-				}
-			}
+        // The filter heading, an h4 for a bit more division than a plain
+        // label, with its hint bubble grouped at the row's start.
+        h4.filter-title {
+          margin: 0;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: var(--font-size-16);
+          font-weight: bold;
+        }
+      }
 
-			.filter-clear {
-				padding: 0;
-				background: none;
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				font-size: inherit;
-				color: var(--color-text-secondary);
-				text-decoration: underline;
-				cursor: var(--cursor-pointer);
+      .filter-clear {
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: inherit;
+        color: var(--color-text-secondary);
+        text-decoration: underline;
+        cursor: var(--cursor-pointer);
 
-				&:hover {
-					color: var(--color-text-primary);
-					text-shadow: 0 0 5px var(--v3-hover-glow);
-				}
-			}
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
+      }
 
-			.facet-row {
-				display: flex;
-				flex-direction: column;
-				gap: 0.25rem;
-			}
+      .facet-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
 
-			.facet-row-label {
-				display: flex;
-				align-items: baseline;
-				justify-content: space-between;
-				font-weight: bold;
-			}
+      .facet-row-label {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-weight: bold;
+      }
 
-			// A row's links, grouped at the label's end: the grouped facet's
-			// optional "hide empty" beside the always-present "all".
-			.facet-row-links {
-				display: inline-flex;
-				gap: 0.5rem;
-				font-weight: normal;
-			}
+      // A row's links, grouped at the label's end: the grouped facet's
+      // optional "hide empty" beside the always-present "all".
+      .facet-row-links {
+        display: inline-flex;
+        gap: 0.5rem;
+        font-weight: normal;
+      }
 
-			// The row's select-all widget, styled like the clear button.
-			.facet-all {
-				padding: 0;
-				background: none;
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				font-size: inherit;
-				font-weight: normal;
-				color: var(--color-text-secondary);
-				text-decoration: underline;
-				cursor: var(--cursor-pointer);
+      // The row's select-all widget, styled like the clear button.
+      .facet-all {
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: inherit;
+        font-weight: normal;
+        color: var(--color-text-secondary);
+        text-decoration: underline;
+        cursor: var(--cursor-pointer);
 
-				&:hover {
-					color: var(--color-text-primary);
-					text-shadow: 0 0 5px var(--v3-hover-glow);
-				}
-			}
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
+      }
 
-			.facet-row-chips {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.25rem;
-			}
+      .facet-row-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+      }
 
-			.facet-chip {
-				padding: 0.125rem 0.5rem;
-				border: 1px solid var(--color-border);
-				border-radius: 1rem;
-				background: var(--v3-chip-bg);
-				font-size: inherit;
-				line-height: 1.3;
-				color: var(--color-text-secondary);
-				cursor: var(--cursor-pointer);
+      .facet-chip {
+        padding: 0.125rem 0.5rem;
+        border: 1px solid var(--color-border);
+        border-radius: 1rem;
+        background: var(--v3-chip-bg);
+        font-size: inherit;
+        line-height: 1.3;
+        color: var(--color-text-secondary);
+        cursor: var(--cursor-pointer);
 
-				&:hover {
-					color: var(--color-text-primary);
-					text-shadow: 0 0 5px var(--v3-hover-glow);
-				}
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
 
-				// On chips light up like the open ellipsis does.
-				&.facet-chip--on {
-					border-color: currentcolor;
-					color: var(--color-text-emphatic);
-					text-shadow: 0 0 5px var(--color-shadow-primary);
-				}
+        // On chips light up like the open ellipsis does.
+        &.facet-chip--on {
+          border-color: currentcolor;
+          color: var(--color-text-emphatic);
+          text-shadow: 0 0 5px var(--color-shadow-primary);
+        }
 
-				// A chip no item carries: the dashed outline and dimmed label mark
-				// the group as empty — its section still renders, add button ready.
-				// Interaction and an active selection restore full legibility.
-				&.facet-chip--empty {
-					border-style: dashed;
-					opacity: 0.6;
+        // A chip no item carries: the dashed outline and dimmed label mark
+        // the group as empty — its section still renders, add button ready.
+        // Interaction and an active selection restore full legibility.
+        &.facet-chip--empty {
+          border-style: dashed;
+          opacity: 0.6;
 
-					&:hover,
-					&.facet-chip--on {
-						opacity: 1;
-					}
-				}
-			}
-		}
-	}
+          &:hover,
+          &.facet-chip--on {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 
-	// Coin purses, styled like the filter controls (label above slim input).
-	// Units share the row evenly; gold/silver/copper copy the v2 sheet's
-	// denomination text colors (platinum keeps the default color there too).
-	.item-index-currency {
-		gap: 2em;
+  // Coin purses, styled like the filter controls (label above slim input).
+  // Units share the row evenly; gold/silver/copper copy the v2 sheet's
+  // denomination text colors (platinum keeps the default color there too).
+  .item-index-currency {
+    gap: 2em;
 
-		> div {
-			text-align: center;
+    > div {
+      text-align: center;
 
-			&.currency-unit-gold {
-				color: #efc44a;
-			}
+      &.currency-unit-gold {
+        color: #efc44a;
+      }
 
-			&.currency-unit-silver {
-				color: #888;
-			}
+      &.currency-unit-silver {
+        color: #888;
+      }
 
-			&.currency-unit-copper {
-				color: #c17a58;
-			}
-		}
+      &.currency-unit-copper {
+        color: #c17a58;
+      }
+    }
 
-		label {
-			display: block;
-			width: 100%;
-			font-weight: bold;
-			// Keeps the light denomination colors legible on the light theme.
-			text-shadow: 0 0 5px var(--c-black--50);
-		}
+    label {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+      // Keeps the light denomination colors legible on the light theme.
+      text-shadow: 0 0 5px var(--c-black--50);
+    }
 
-		input[type="number"] {
-			font-weight: bold;
-			text-align: center;
-		}
-	}
+    input[type="number"] {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
 
-	// Import button, slotted into the shared sort/filter bar and aligned to
-	// the control row (no label above it).
-	.import-item-index {
-		flex: 0 auto;
-		align-self: flex-end;
+  // Import button, slotted into the shared sort/filter bar and aligned to
+  // the control row (no label above it).
+  .import-item-index {
+    flex: 0 auto;
+    align-self: flex-end;
 
-		button {
-			height: var(--input-height);
-			font-size: var(--font-size-12);
-			border-radius: 3px;
-			background: transparent;
+    button {
+      height: var(--input-height);
+      font-size: var(--font-size-12);
+      border-radius: 3px;
+      background: transparent;
 
-			&:disabled {
-				opacity: 0.5;
-				cursor: not-allowed;
-			}
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
 
-			// Empty-index attention pulse: the v3-pulse class from the shared
-			// partial carries the animation.
-		}
-	}
+      // Empty-index attention pulse: the v3-pulse class from the shared
+      // partial carries the animation.
+    }
+  }
 
-	.item-index-group {
-		margin-bottom: 1.5rem;
+  .item-index-group {
+    margin-bottom: 1.5rem;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
-	.item-index-group-title {
-		margin: 0 0 0.25rem;
-		display: flex;
-		align-items: center;
+  .item-index-group-title {
+    margin: 0 0 0.25rem;
+    display: flex;
+    align-items: center;
 
-		.group-title-label {
-			flex: 1;
-			text-align: left;
-		}
+    .group-title-label {
+      flex: 1;
+      text-align: left;
+    }
 
-		// The add control, wrapped so the ambiguous groups' type menu can
-		// anchor to it.
-		.group-add-wrap {
-			position: relative;
-			display: inline-flex;
-			align-items: center;
-		}
+    // The add control, wrapped so the ambiguous groups' type menu can
+    // anchor to it.
+    .group-add-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
 
-		.group-add {
-			cursor: pointer;
-			font-size: var(--font-size-14);
+    .group-add {
+      cursor: pointer;
+      font-size: var(--font-size-14);
 
-			&:hover {
-				text-shadow: 0 0 5px var(--v3-hover-glow);
-			}
+      &:hover {
+        text-shadow: 0 0 5px var(--v3-hover-glow);
+      }
 
-			// Lit while its type menu is open.
-			&.group-add--open {
-				color: var(--color-text-emphatic);
-				text-shadow: 0 0 10px var(--color-shadow-primary);
-			}
-		}
+      // Lit while its type menu is open.
+      &.group-add--open {
+        color: var(--color-text-emphatic);
+        text-shadow: 0 0 10px var(--color-shadow-primary);
+      }
+    }
 
-		// The type menu an ambiguous group's "+" opens: a small right-aligned
-		// popover listing the item types the group can hold.
-		.group-add-menu {
-			@include v3-popover;
+    // The type menu an ambiguous group's "+" opens: a small right-aligned
+    // popover listing the item types the group can hold.
+    .group-add-menu {
+      @include v3-popover;
 
-			top: calc(100% + 0.375rem);
-			right: 0;
-			left: auto;
-			width: auto;
-			min-width: 8rem;
-			gap: 0;
-			padding: 0.25rem 0;
+      top: calc(100% + 0.375rem);
+      right: 0;
+      left: auto;
+      width: auto;
+      min-width: 8rem;
+      gap: 0;
+      padding: 0.25rem 0;
 
-			button {
-				padding: 0.25rem 0.625rem;
-				background: none;
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				font-size: var(--font-size-12);
-				line-height: 1.4;
-				text-align: left;
-				color: var(--color-text-secondary);
-				cursor: var(--cursor-pointer);
+      button {
+        padding: 0.25rem 0.625rem;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: var(--font-size-12);
+        line-height: 1.4;
+        text-align: left;
+        color: var(--color-text-secondary);
+        cursor: var(--cursor-pointer);
 
-				&:hover {
-					color: var(--color-text-primary);
-					text-shadow: 0 0 5px var(--v3-hover-glow);
-				}
-			}
-		}
+        &:hover {
+          color: var(--color-text-primary);
+          text-shadow: 0 0 5px var(--v3-hover-glow);
+        }
+      }
+    }
 
-		// Group reordering affordances.
-		&[draggable="true"] {
-			cursor: grab;
+    // Group reordering affordances.
+    &[draggable="true"] {
+      cursor: grab;
 
-			&:active {
-				cursor: grabbing;
-			}
-		}
+      &:active {
+        cursor: grabbing;
+      }
+    }
 
-		&:hover .group-grip {
-			opacity: 1;
-		}
-	}
+    &:hover .group-grip {
+      opacity: 1;
+    }
+  }
 
-	.group-grip {
-		font-size: var(--font-size-14);
-		margin-right: $padding-sm;
-		opacity: 0.35;
-	}
+  .group-grip {
+    font-size: var(--font-size-14);
+    margin-right: $padding-sm;
+    opacity: 0.35;
+  }
 
-	.item-index-group--dragging {
-		opacity: 0.5;
-	}
+  .item-index-group--dragging {
+    opacity: 0.5;
+  }
 
-	.item-index-group--drop-target > .item-index-group-title {
-		outline: 2px dashed;
-		outline-offset: 2px;
-		margin-left: 4px;
-	}
+  .item-index-group--drop-target > .item-index-group-title {
+    outline: 2px dashed;
+    outline-offset: 2px;
+    margin-left: 4px;
+  }
 
-	.item-index-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+  .item-index-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 </style>

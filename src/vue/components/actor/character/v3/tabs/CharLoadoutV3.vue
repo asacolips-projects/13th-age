@@ -115,7 +115,7 @@
 				</span>
 			</h4>
 
-			<ul class="loadout-list flexcol">
+			<ul class="loadout-list flexcol" data-group-by="powerType">
 				<!-- Magic items, with the full equipment row treatment. -->
 				<template v-if="section.kind === 'equipment'">
 					<ExpandableRowV3

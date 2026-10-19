@@ -239,7 +239,13 @@ export function sortItemDrop(actor, event, item) {
 	// more than one list (a power with a trigger shows up on both tabs).
 	const crossGroup = !dropTarget.parentElement
 		.querySelector(`:scope > .item[data-item-id="${source.id}"]`);
-	const groupBy = actor.getFlag("archmage", "sheetDisplay.powers.groupBy.value") ?? "powerType";
+
+	// The grouping mode is read from the destination list's data-group-by,
+	// which each sheet's templates stamp on their group lists: the v3 tabs
+	// each group independently of the v2 sheet's powers flag (the previous
+	// source here), so no single flag describes the list the drop landed in.
+	// A list that doesn't declare one counts as built-in grouped.
+	const groupBy = dropTarget.parentElement?.dataset.groupBy ?? "powerType";
 
 	// A drop into another group is only meaningful for custom power groups,
 	// where the group is free text stored on the power. Under the built-in

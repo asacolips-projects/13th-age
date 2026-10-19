@@ -23,7 +23,10 @@
 							<div class="group-sort-row">
 								<div class="group-sort-col">
 									<label :for="concat('trigger-sort')">{{ localize('ARCHMAGE.sort') }}</label>
-									<select :id="concat('trigger-sort')" v-model="sortBy" :name="concat('trigger-sort')">
+									<!-- Unnamed: the v-model persists through saveSheetDisplayPref;
+									a name would put the select on the sheet form's submit
+									path (submitOnChange -> a full actor.update). -->
+								<select :id="concat('trigger-sort')" v-model="sortBy">
 										<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
 									</select>
 								</div>
@@ -40,7 +43,7 @@
 			<template v-if="filteredPowers.length">
 				<section v-for="group in groups" :key="group.title" class="trigger-group">
 					<h3 v-if="group.title" class="group-title">{{ group.title }}</h3>
-					<ul class="trigger-list">
+					<ul class="trigger-list" :data-group-by="useCustomGroups ? 'group' : 'powerType'">
 						<ExpandableRowV3
 							v-for="power in group.powerRows"
 							:key="power._id"
