@@ -44,6 +44,7 @@ ARCHMAGE:
   checkBackground: Background Check
   checkBackgroundFormat: "{name} Background Check"
   checkSkill: Skill Check
+  commaSeparatedHint: Separate multiple values with commas.
   checkSkillFormat: "{name} Skill Check"
   class: Class
   clear: Clear

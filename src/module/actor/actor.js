@@ -426,6 +426,9 @@ export class ActorArchmage extends Actor {
 		}
 
 		// Fallbacks for potentially missing data
+		// Details (added after these actors were created)
+		if (!data.details.resistance) data.details.resistance = model.details.resistance;
+		if (!data.details.vulnerability) data.details.vulnerability = model.details.vulnerability;
 		// Coins
 		if (!data.coins) data.coins = model.coins;
 		// Weapons

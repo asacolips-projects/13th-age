@@ -5,11 +5,51 @@
 			<span class="defense"><span class="defense-label">PD</span> {{ actor?.system?.attributes?.pd?.value }}</span>
 			<span class="defense"><span class="defense-label">MD</span> {{ actor?.system?.attributes?.md?.value }}</span>
 		</p>
+
+		<!-- Resistances & vulnerabilities: free text, so edit mode mounts each
+		as a full-width stacked input. In play, only fields with content
+		render, as compact read-only rows. -->
+		<div v-if="editing" class="resist-vuln-edit">
+			<label class="resist-vuln-field">
+				<span class="field-label">
+					{{ localize('ARCHMAGE.resistance') }}
+					<i class="fas fa-circle-info" :data-tooltip="localize('ARCHMAGE.commaSeparatedHint')" data-tooltip-direction="UP" />
+				</span>
+				<input v-model="actor.system.details.resistance.value" type="text" name="system.details.resistance.value">
+			</label>
+			<label class="resist-vuln-field">
+				<span class="field-label">
+					{{ localize('ARCHMAGE.vulnerability') }}
+					<i class="fas fa-circle-info" :data-tooltip="localize('ARCHMAGE.commaSeparatedHint')" data-tooltip-direction="UP" />
+				</span>
+				<input v-model="actor.system.details.vulnerability.value" type="text" name="system.details.vulnerability.value">
+			</label>
+		</div>
+		<div v-else-if="hasResistVuln" class="resist-vuln-view">
+			<p v-if="actor.system.details.resistance.value" class="resist-vuln">
+				<span class="defense-label">{{ localize('ARCHMAGE.resistance') }}</span>
+				{{ actor.system.details.resistance.value }}
+			</p>
+			<p v-if="actor.system.details.vulnerability.value" class="resist-vuln">
+				<span class="defense-label">{{ localize('ARCHMAGE.vulnerability') }}</span>
+				{{ actor.system.details.vulnerability.value }}
+			</p>
+		</div>
 	</section>
 </template>
 
 <script setup>
-defineProps(["actor"]);
+import { ref, computed, inject } from "vue";
+import { localize } from "@/methods/Helpers";
+
+const props = defineProps(["actor"]);
+
+// Edit mode is owned by the sheet root and broadcast via provide/inject.
+const editing = inject("editMode", ref(false));
+
+const hasResistVuln = computed(() => Boolean(
+	props.actor?.system?.details?.resistance?.value || props.actor?.system?.details?.vulnerability?.value
+));
 </script>
 
 <style scoped lang="scss">
@@ -29,5 +69,48 @@ defineProps(["actor"]);
   margin-right: 0.25rem;
   font-weight: 600;
   color: var(--color-text-secondary);
+}
+
+/* Full-width stacked free-text inputs (edit mode). */
+.resist-vuln-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+
+  .resist-vuln-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+
+    input[type='text'] {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  font-size: var(--font-size-11);
+  color: var(--color-text-secondary);
+
+  i {
+    cursor: help;
+  }
+}
+
+/* Compact read-only rows (view mode). */
+.resist-vuln-view {
+  margin-top: 0.25rem;
+
+  .resist-vuln {
+    margin: 0;
+    font-size: var(--font-size-12);
+    text-align: left;
+  }
 }
 </style>
