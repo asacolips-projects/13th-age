@@ -109,11 +109,11 @@
 		>
 			<h4
 				class="catalog-group-title unit-title"
-				:draggable="canReorderGroups"
+				:draggable="canDragGroups"
 				@dragstart="onGroupDragStart($event, section.key)"
 				@dragend="onGroupDragEnd"
 			>
-				<i v-if="canReorderGroups" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')" />
+				<i v-if="canDragGroups" class="fas fa-grip-lines group-grip" :title="localize('ARCHMAGE.dragToReorderGroup')" />
 				<span class="group-title-label">{{ localize(section.labelKey) }}</span>
 				<span v-if="editable && section.kind !== 'currency'" class="group-add-wrap">
 					<a
@@ -251,13 +251,16 @@ const {
 
 // Group reordering, mirroring the v2 powers tab. The drag state is transient;
 // the ordering persists per tab and grouping mode, so each tab's arrangement
-// is its own.
+// is its own. Dragging pauses while facet filters are active: the drop
+// rebuilds the saved order from the displayed sections, and groups filtered
+// out of the display would drop out of the saved order with them.
+const canDragGroups = computed(() => canReorderGroups.value && !filtersActive.value);
 const {
 	savedGroupOrder,
 	groupClasses, onGroupDragStart, onGroupDragOver, onGroupDragLeave, onGroupDrop, onGroupDragEnd
 } = useGroupReorder({
 	actor: () => props.actor,
-	canReorder: canReorderGroups,
+	canReorder: canDragGroups,
 	flagPath: () => `sheetDisplay.catalog.groupOrder.${tabId.value}.${groupBy.value}`,
 	getSections: () => catalogSections.value,
 	classPrefix: "catalog-group"
