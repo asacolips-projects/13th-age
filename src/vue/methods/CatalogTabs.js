@@ -83,6 +83,12 @@ export function catalogTabDefs(actorData) {
 	return [{ id: "catalog", label: localize("ARCHMAGE.catalog"), groupBy: "powerType", sortBy: "custom" }];
 }
 
+// Label keys per group mode for derived tab names — the shared GROUPS
+// labels, except power source: the v2 sheet's "Class/Race/Item" entry is
+// about what the source *can be*, which reads wrong in "Items by …"; the
+// chat label "Power Source" is the plain name.
+const LABEL_KEYS = { powerSource: "ARCHMAGE.CHAT.powerSource" };
+
 /**
  * Display label for a tab: its custom name, or one derived from its
  * group-by mode — "Items by Type", "Items by Action", and so on.
@@ -92,6 +98,6 @@ export function catalogTabLabel(def) {
 	const custom = def?.label?.trim();
 	if (custom) return custom;
 	return localize("ARCHMAGE.itemsByGroup", {
-		group: localize(`ARCHMAGE.GROUPS.${def?.groupBy ?? "powerType"}`)
+		group: localize(LABEL_KEYS[def?.groupBy] ?? `ARCHMAGE.GROUPS.${def?.groupBy ?? "powerType"}`)
 	});
 }

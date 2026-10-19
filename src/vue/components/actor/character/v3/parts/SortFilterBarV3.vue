@@ -5,7 +5,7 @@
 		<slot name="sort" />
 		<div class="search-control">
 			<div class="search-input">
-				<input v-model="search" type="text" :name="concat(id, '-filter')" :placeholder="localize('ARCHMAGE.filterName')">
+				<input v-model="search" type="text" :name="concat(id, '-filter')" :placeholder="localize('ARCHMAGE.search')">
 				<button
 					v-if="search"
 					type="button"

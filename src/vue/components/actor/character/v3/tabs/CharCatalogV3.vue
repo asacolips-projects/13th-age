@@ -187,9 +187,14 @@ const actorDocument = inject("actorDocument");
 const tabId = computed(() => props.tab?.id ?? "catalog");
 
 // The group-by select's options, derived from the shared mode list so a new
-// mode needs adding in one place; a labelKey overrides the shared GROUPS
-// key, so the power-type option reads "Power type" rather than "Type".
-const GROUP_LABEL_KEYS = { powerType: "ARCHMAGE.powerType" };
+// mode needs adding in one place. A labelKey overrides the shared GROUPS
+// key — the power-type option reads "Power type" rather than "Type", and the
+// power-source one reads "Power Source", which the v2 sheet's
+// "Class/Race/Item" GROUPS entry isn't.
+const GROUP_LABEL_KEYS = {
+	powerType: "ARCHMAGE.powerType",
+	powerSource: "ARCHMAGE.CHAT.powerSource"
+};
 const groupOptions = CATALOG_GROUP_MODES.map((value) => ({ value, labelKey: GROUP_LABEL_KEYS[value] }));
 const sortOptions = [
 	{ value: "name" },

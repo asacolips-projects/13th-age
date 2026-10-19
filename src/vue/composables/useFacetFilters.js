@@ -38,10 +38,13 @@ const SECTION_CHIP_LABELS = {
 };
 
 // Facet row labels that differ from the shared group labels: the type and
-// power type facets read more plainly.
+// power type facets read more plainly, and the power source facet reads
+// "Power Source" — the v2 sheet's GROUPS entry is "Class/Race/Item", which
+// isn't a facet row's title.
 const FACET_LABEL_KEYS = {
 	type: "ARCHMAGE.itemType",
 	powerType: "ARCHMAGE.powerType",
+	powerSource: "ARCHMAGE.CHAT.powerSource",
 	powerSourceName: "ARCHMAGE.CHAT.powerSourceName"
 };
 

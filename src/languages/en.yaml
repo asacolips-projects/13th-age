@@ -96,7 +96,7 @@ ARCHMAGE:
   features: Features
   filter: Filter
   filterHint: If nothing is selected, all items are shown; with one or more chips active, only matching items are shown.
-  filterName: Search
+  filterName: Filter by name
   filters: Filters
   flavor: Flavor
   flexible: Flexible Attack
@@ -124,6 +124,7 @@ ARCHMAGE:
   importNeedsKinClass: "Set this character's {kin} and Class before importing powers."
   importSubmit: Import
   incrementalAdvances: Incremental Advances
+  search: Search
   initAdjustment: Initiative Adjustment
   itemsByGroup: By {group}
   initBonus: Optional Initiative Bonus
@@ -702,7 +703,7 @@ ARCHMAGE:
   GROUPS:
     actionType: Action
     group: Custom Groups
-    powerSource: Source
+    powerSource: Class/Race/Item
     powerType: Type
     powerUsage: Usage
   MONKFORMS:
