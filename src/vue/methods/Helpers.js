@@ -41,15 +41,17 @@ export function stripTags(html) {
 }
 
 /**
- * Normalize free-text filter input to its bare alphanumerics, so punctuation
- * and spacing don't need to match exactly.
+ * Normalize free-text filter input to its bare letters and digits, so
+ * punctuation and spacing don't need to match exactly. Unicode-aware, so
+ * keys for names like "Zählt" or "Задача" keep their letters instead of
+ * collapsing into the empty key shared by everything non-ASCII.
  *
  * @param {string} string Raw filter text.
  *
  * @returns {string} The stripped key, e.g. 'Finger-Wiggle' -> 'fingerwiggle'.
  */
 export function cleanFilterKey(string) {
-	return string ? string.toLowerCase().replace(/[^a-zA-Z\d]/g, "") : "";
+	return string ? string.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "") : "";
 }
 
 /**
