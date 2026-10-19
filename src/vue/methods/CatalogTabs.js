@@ -1,5 +1,4 @@
 import { getActor, localize } from "@/methods/Helpers";
-import { classCatalogTabPreset } from "@/methods/catalog-tab-presets.js";
 import { FACET_DIMENSIONS, GROUP_MODES } from "@/composables/useFacetFilters";
 
 /**
@@ -7,16 +6,14 @@ import { FACET_DIMENSIONS, GROUP_MODES } from "@/composables/useFacetFilters";
  * flags:
  *
  *   sheetDisplay.catalog: {
- *     tabs: [{ id, label, groupBy, sortBy, filter?, filters? }, ...]   // at least one
+ *     tabs: [{ id, label, groupBy, sortBy, filters? }, ...]   // at least one
  *     groupOrder: { <tabId>: { <groupBy>: [keys] } }
  *     rowOrder:   { <tabId>: [itemIds] }
  *   }
  *
  * Each tab groups and sorts independently, and its saved group/row orders
- * key off the tab's id. An optional filter restricts the tab to items whose
- * power system fields match (e.g. the class presets' `powerSource: ["class"]`);
- * the optional filters hold the tab's own chip selections (see
- * sanitizeTabFilters).
+ * key off the tab's id. The optional filters hold the tab's own chip
+ * selections (see sanitizeTabFilters).
  */
 
 // Group-by modes a user tab can take, in the settings popover's order —
@@ -34,24 +31,6 @@ export const CATALOG_GROUP_ICONS = {
 };
 
 const SORTS = ["name", "level", "custom"];
-
-// Power system fields a tab's filter may restrict, and the shape check.
-const FILTER_KEYS = ["powerSource", "powerType", "powerUsage"];
-
-/**
- * Sanitize a stored tab filter down to whitelisted keys with string arrays.
- * @param {object} filter The stored filter, if any.
- * @returns {object|undefined} The clean filter, or undefined when empty.
- */
-function sanitizeTabFilter(filter) {
-	if (!filter || typeof filter !== "object") return undefined;
-	const clean = {};
-	for (const key of FILTER_KEYS) {
-		const values = Array.isArray(filter[key]) ? filter[key].filter((v) => typeof v === "string") : [];
-		if (values.length) clean[key] = values;
-	}
-	return Object.keys(clean).length ? clean : undefined;
-}
 
 // Chip dimensions a tab's own filters may select: the catalog popover's
 // facet rows' dimensions. The type facet's currency chip names the
@@ -77,12 +56,11 @@ function sanitizeTabFilters(filters) {
 /**
  * The actor's catalog tab definitions: the stored sheetDisplay.catalog.tabs
  * flags with missing fields backfilled, or defaults when nothing is stored
- * yet — the class presets for a character with detected classes (covering
- * pack actors too, whose flags can't be written), a single "Catalog" tab
- * for a PC the v2 sheet has never touched, otherwise "Items by Type" from
- * the legacy powers flags the v2 sheet still owns and "Items by Action" from
- * the retired action plan's. Unmigrated actors get the derivation
- * fresh on every render, since their flags can't be written.
+ * yet — a single "Catalog" tab for a PC the v2 sheet has never touched,
+ * otherwise "Items by Type" from the legacy powers flags the v2 sheet still
+ * owns and "Items by Action" from the retired action plan's. Unmigrated
+ * actors get the derivation fresh on every render, since their flags can't
+ * be written.
  * @param actorData
  */
 export function catalogTabDefs(actorData) {
@@ -97,17 +75,11 @@ export function catalogTabDefs(actorData) {
 					groupBy: CATALOG_GROUP_MODES.includes(def.groupBy) ? def.groupBy : "powerType",
 					sortBy: SORTS.includes(def.sortBy) ? def.sortBy : "custom"
 				};
-				const filter = sanitizeTabFilter(def.filter);
-				if (filter) clean.filter = filter;
 				const filters = sanitizeTabFilters(def.filters);
 				if (filters) clean.filters = filters;
 				return clean;
 			});
 		if (defs.length) return defs;
-	}
-	const detectedClasses = actorData?.system?.details?.detectedClasses;
-	if (Array.isArray(detectedClasses) && detectedClasses.length) {
-		return classCatalogTabPreset(detectedClasses);
 	}
 	const powers = actorData?.flags?.archmage?.sheetDisplay?.powers ?? {};
 	const plan = actorData?.flags?.archmage?.sheetDisplay?.actionPlan ?? {};
