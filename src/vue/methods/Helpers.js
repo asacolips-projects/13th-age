@@ -380,19 +380,30 @@ export async function getActor(actorData) {
  * Writing only when the stored value differs avoids a re-render loop from
  * the update.
  *
+ * All writes funnel through one queue and read the live document's flags,
+ * so two rapid writes to the same path can't both compose from the same
+ * stale clone and silently lose the first update.
+ *
  * @param {object} actorData Actor data, as passed down by the sheet.
  * @param {string} flagPath Full flag path, e.g. `sheetDisplay.actionPlan.sortBy.value`.
  * @param {*} value The preference value.
  */
+let prefQueue = Promise.resolve();
 export async function saveSheetDisplayPref(actorData, flagPath, value) {
 	// Pack actors have no setFlag; getActor resolves the live document from
 	// the context actor's drag data.
-	if (actorData?.pack) return;
-	const actor = await getActor(actorData);
-	const current = foundry.utils.getProperty(actorData?.flags?.archmage ?? {}, flagPath);
-	if (actor && current !== value) {
+	const run = async () => {
+		if (actorData?.pack) return;
+		const actor = await getActor(actorData);
+		if (!actor) return;
+		const current = foundry.utils.getProperty(actor.flags?.archmage ?? {}, flagPath);
+		if (current === value) return;
 		await actor.setFlag("archmage", flagPath, value);
-	}
+	};
+	const next = prefQueue.then(run, run);
+	// Failures surface to this caller without poisoning the shared chain.
+	prefQueue = next.catch(() => {});
+	await next;
 }
 
 /**
