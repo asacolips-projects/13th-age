@@ -409,11 +409,17 @@ export async function getActor(actorData) {
  *
  * All writes funnel through one queue and read the live document's flags,
  * so two rapid writes to the same path can't both compose from the same
- * stale clone and silently lose the first update.
+ * stale clone and silently lose the first update. A function value composes
+ * inside that queue: it receives the stored value at the path (possibly
+ * undefined) as read from the live document and returns the value to store,
+ * so callers patching a subtree (a tab's definition in a tabs array) build
+ * on the previous queued write instead of a stale clone. Returning
+ * undefined from the function skips the write.
  *
  * @param {object} actorData Actor data, as passed down by the sheet.
  * @param {string} flagPath Full flag path, e.g. `sheetDisplay.actionPlan.sortBy.value`.
- * @param {*} value The preference value.
+ * @param {*} value The preference value, or a function producing it from the
+ *   live stored value.
  */
 let prefQueue = Promise.resolve();
 export async function saveSheetDisplayPref(actorData, flagPath, value) {
@@ -428,8 +434,10 @@ export async function saveSheetDisplayPref(actorData, flagPath, value) {
 			if (current !== undefined) await actor.unsetFlag("archmage", flagPath);
 			return;
 		}
-		if (current === value) return;
-		await actor.setFlag("archmage", flagPath, value);
+		const next = typeof value === "function" ? value(current) : value;
+		if (next === undefined) return;
+		if (current === next) return;
+		await actor.setFlag("archmage", flagPath, next);
 	};
 	const next = prefQueue.then(run, run);
 	// Failures surface to this caller without poisoning the shared chain.

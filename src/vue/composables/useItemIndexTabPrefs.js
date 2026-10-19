@@ -28,17 +28,20 @@ export function useItemIndexTabPrefs({ actor, tab, tabId, canWrite }) {
 	 * Patch this tab's definition in the stored tabs flags. Until the tab set
 	 * has been stored once, the tab is one of the derived defaults — seed the
 	 * flags with them so the first patch lands — and pack actors can't write
-	 * flags at all.
+	 * flags at all. The patch composes inside saveSheetDisplayPref's queue
+	 * from the live stored tabs, so two rapid changes (a group-by followed by
+	 * a sort or filter chip) can't each rebuild the array from a stale clone
+	 * and silently drop the first one.
 	 * @param patch
 	 */
 	const saveTabDef = async (patch) => {
 		if (!canWrite.value) return;
 		const actorData = actor();
-		const stored = actorData?.flags?.archmage?.sheetDisplay?.itemIndex?.tabs;
-		const defs = Array.isArray(stored) && stored.length ? stored : itemIndexTabDefs(actorData);
-		if (!defs.length) return;
-		const next = defs.map((def) => def.id === tabId() ? { ...def, ...patch } : def);
-		await saveSheetDisplayPref(actorData, "sheetDisplay.itemIndex.tabs", next);
+		await saveSheetDisplayPref(actorData, "sheetDisplay.itemIndex.tabs", (stored) => {
+			const defs = Array.isArray(stored) && stored.length ? stored : itemIndexTabDefs(actorData);
+			if (!defs.length) return undefined;
+			return defs.map((def) => def.id === tabId() ? { ...def, ...patch } : def);
+		});
 	};
 
 	const groupBy = computed({
