@@ -1,5 +1,6 @@
 import { computed } from "vue";
 import { saveSheetDisplayPref } from "@/methods/Helpers";
+import { catalogTabDefs } from "@/methods/CatalogTabs";
 
 /**
  * A catalog tab's group-by and sort-by preferences: computeds that read the
@@ -24,18 +25,20 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
  */
 export function useCatalogTabPrefs({ actor, tab, tabId, canWrite }) {
 	/**
-	 * Patch this tab's definition in the stored tabs flags. Nothing to patch
-	 * until the tab set has been written once — migration seeds it on sheet
-	 * render, and pack actors keep the derived defaults — and pack actors
-	 * can't write flags at all.
+	 * Patch this tab's definition in the stored tabs flags. Until the tab set
+	 * has been stored once, the tab is one of the derived defaults — seed the
+	 * flags with them so the first patch lands — and pack actors can't write
+	 * flags at all.
 	 * @param patch
 	 */
 	const saveTabDef = async (patch) => {
 		if (!canWrite.value) return;
-		const defs = actor()?.flags?.archmage?.sheetDisplay?.catalog?.tabs ?? [];
+		const actorData = actor();
+		const stored = actorData?.flags?.archmage?.sheetDisplay?.catalog?.tabs;
+		const defs = Array.isArray(stored) && stored.length ? stored : catalogTabDefs(actorData);
 		if (!defs.length) return;
 		const next = defs.map((def) => def.id === tabId() ? { ...def, ...patch } : def);
-		await saveSheetDisplayPref(actor(), "sheetDisplay.catalog.tabs", next);
+		await saveSheetDisplayPref(actorData, "sheetDisplay.catalog.tabs", next);
 	};
 
 	const groupBy = computed({
