@@ -2647,7 +2647,6 @@ export class ActorArchmage extends Actor {
 
 			let mWpn = parseInt(this.system.attributes.weapon.melee.dice.substring(1));
 			if (isNaN(mWpn)) mWpn = 8; // Fallback
-			let lvl = this.system.attributes.level.value;
 			data.system.attributes.attackMod = { value: this.system.attributes.attackMod.value };
 			let wpn = { shieldPen: 0, twohandedPen: 0 };
 			if (this.system.attributes.weapon.melee.twohanded) {
@@ -2856,7 +2855,6 @@ export class ActorArchmage extends Actor {
 					punchWpn -= 2;
 					kickWpn -= 2;
 				}
-				let lvl = this.system.attributes.level.value;
 				let shield = false;
 				let dualwield = false;
 				let twohanded = false;
