@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, onBeforeUnmount } from "vue";
 
 /**
  * A Foundry ProseMirror editor mounted onto a host element, enriched like the
@@ -16,6 +16,9 @@ import { ref } from "vue";
  *   value.
  * @param {Function} options.owner Accessor for whether the viewer may see
  *   secrets, e.g. () => props.actor?.owner.
+ * @param {Function} [options.rollData] Accessor for the roll data inline
+ *   formulas in the value resolve against, e.g. () => actorDocument?.getRollData().
+ *   Empty like the v2 display path when omitted.
  * @param {string} [options.documentUUID] The owning document's UUID, for
  *   ProseMirror's relative links.
  * @param {boolean} [options.toggled] Whether the editor starts open.
@@ -30,6 +33,7 @@ export function useProseMirrorEditor({
 	field,
 	getValue,
 	owner,
+	rollData = null,
 	documentUUID = null,
 	toggled = false,
 	disabled = null
@@ -43,13 +47,16 @@ export function useProseMirrorEditor({
 			documents: true,
 			links: true,
 			rolls: true,
-			rollData: {},
+			rollData: rollData?.() ?? {},
 			async: false
 		});
 	}
 
 	/** Create the ProseMirror element and mount it into the host. */
 	async function mountEditor() {
+		// Remounting into the same host orphans the previous element — destroy
+		// its editor first so the old ProseMirror view and its listeners go.
+		unmountEditor();
 		const raw = getValue();
 		const editor = foundry.applications.elements.HTMLProseMirrorElement.create({
 			name: field,
@@ -63,6 +70,21 @@ export function useProseMirrorEditor({
 		host.value.replaceChildren(editor);
 		return editor;
 	}
+
+	/** Tear the mounted editor down, if one is live. */
+	function unmountEditor() {
+		const editor = editorEl.value;
+		if (!editor) return;
+		editorEl.value = null;
+		// HTMLProseMirrorElement may not offer a destroy on every core
+		// version; the optional call is insurance either way.
+		editor.destroy?.();
+		editor.remove?.();
+	}
+
+	// The host is dropped with the component; make sure the editor element
+	// inside it lets go of its ProseMirror view and listeners too.
+	onBeforeUnmount(unmountEditor);
 
 	return { editorEl, enrich, mountEditor };
 }

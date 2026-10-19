@@ -24,6 +24,7 @@ const { editorEl, mountEditor } = useProseMirrorEditor({
 	field: editorField,
 	getValue: () => props.actor?.system?.details?.biography?.value ?? "",
 	owner: () => props.actor?.owner,
+	rollData: () => actorDocument?.getRollData?.() ?? {},
 	documentUUID: actorDocument?.uuid,
 	toggled: true,
 	disabled: () => props.editable === false

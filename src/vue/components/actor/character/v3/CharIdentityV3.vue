@@ -155,6 +155,7 @@ const { enrich: enrichOut, mountEditor: mountOutEditor } = useProseMirrorEditor(
 	field: outField,
 	getValue: () => outRaw.value,
 	owner: () => props.actor?.owner,
+	rollData: () => actorDocument?.getRollData?.() ?? {},
 	documentUUID: actorDocument?.uuid
 });
 
