@@ -8,6 +8,11 @@
 			:placeholder="placeholder"
 			:class="inputClass"
 			autocomplete="off"
+			role="combobox"
+			:aria-expanded="open && matches.length ? 'true' : 'false'"
+			:aria-controls="listId"
+			aria-autocomplete="list"
+			:aria-activedescendant="highlighted >= 0 ? optionId(highlighted) : undefined"
 			@input="onInput"
 			@focus="onFocus"
 			@keydown="onKeydown"
@@ -18,10 +23,11 @@
 		which no z-index inside can escape. mousedown is prevented so choosing
 		an entry doesn't blur the input before the click lands. -->
 		<Teleport to="body">
-			<ul v-if="open && matches.length" class="autocomplete-list" role="listbox" :style="listStyle">
+			<ul v-if="open && matches.length" :id="listId" class="autocomplete-list" role="listbox" :style="listStyle">
 				<li
 					v-for="(match, index) in matches"
 					:key="match"
+					:id="optionId(index)"
 					role="option"
 					:aria-selected="index === highlighted"
 					:class="{ 'is-highlighted': index === highlighted }"
@@ -44,6 +50,11 @@ const emit = defineEmits(["update:modelValue"]);
 const inputEl = ref(null);
 const open = ref(false);
 const highlighted = ref(-1);
+
+// Combobox wiring: the listbox's id and each option's, so the input's
+// aria-controls/aria-activedescendant can point at them across the teleport.
+const listId = `archmage-autocomplete-${foundry.utils.randomID()}`;
+const optionId = (index) => `${listId}-${index}`;
 
 // Fixed-position coordinates, taken from the input's viewport rect whenever
 // the list opens or the page moves under it.

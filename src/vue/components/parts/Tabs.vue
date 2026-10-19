@@ -13,7 +13,12 @@
 						:data-tab="tabKey"
 						:data-tooltip="tab.hideLabel ? tab.label : undefined"
 						data-tooltip-direction="UP"
+						:aria-label="tab.hideLabel ? tab.label : undefined"
+						:aria-current="tab.active ? 'true' : undefined"
+						tabindex="0"
 						@click="changeTab"
+						@keydown.enter="changeTab"
+						@keydown.space.prevent="changeTab"
 					>
 						<i v-if="tab.icon" :class="concat('fas ', tab.icon)" />
 						<span v-if="!tab.hideLabel">{{ tab.label }}</span>
@@ -26,8 +31,13 @@
 						v-if="!tab.hidden"
 						:class="getTabClass(tab, tabKey)"
 						:data-tab="tabKey"
+						:aria-label="tab.hideLabel ? tab.label : undefined"
+						:aria-current="tab.active ? 'true' : undefined"
+						tabindex="0"
 						@click="changeTab"
 						@click.right="popOut"
+						@keydown.enter="changeTab"
+						@keydown.space.prevent="changeTab"
 					>
 						<i v-if="tab.icon" :class="concat('fas ', tab.icon)" />
 						<span v-if="!tab.hideLabel">{{ tab.label }}</span>

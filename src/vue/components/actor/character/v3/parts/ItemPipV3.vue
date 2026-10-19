@@ -9,7 +9,13 @@
 				:key="n"
 				:class="concat('feat-pip', (active ? ' active' : ''))"
 				:data-item-id="itemId"
+				role="button"
+				tabindex="0"
+				:aria-label="tooltip || undefined"
+				:aria-pressed="active"
 				@click="$emit('toggle-pip')"
+				@keydown.enter.prevent="$emit('toggle-pip')"
+				@keydown.space.prevent="$emit('toggle-pip')"
 			>
 				<div class="hide">{{ active }}</div>
 			</li>

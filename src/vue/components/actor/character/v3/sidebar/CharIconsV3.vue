@@ -2,7 +2,7 @@
 	<section class="unit unit--icons">
 		<div class="unit-header">
 			<h2 class="unit-title">{{ localize('ARCHMAGE.iconRelationships') }}</h2>
-			<RollableV3 class="icon-roll" @click="rollIcons" />
+			<RollableV3 class="icon-roll" :aria-label="localize('ARCHMAGE.ICONROLLS.rollall')" @click="rollIcons" />
 		</div>
 		<ul v-if="icons.length" class="icon-list">
 			<li v-for="icon in icons" :key="icon.key" class="icon-row" :class="{ 'icon-row--edit': editing }">
@@ -18,6 +18,7 @@
 							type="button"
 							class="icon-die"
 							:data-tooltip="dieTooltip(die.value)"
+							:aria-label="dieTooltip(die.value)"
 							@click="cycleDie(icon, die.index)"
 						>
 							<i v-if="dieIcon(die.value)" class="fas" :class="dieIcon(die.value)" />
@@ -57,8 +58,8 @@
 		</ul>
 		<p v-else class="v3-empty">{{ localize('ARCHMAGE.CHARACTERSHEETV3.none') }}</p>
 		<div v-if="editing" class="icon-controls">
-			<button type="button" class="icon-toggle" :disabled="!nextIconKey" @click="enableNextIcon"><i class="fas fa-plus" /></button>
-			<button type="button" class="icon-toggle" :disabled="!lastEnabledKey" @click="disableLastIcon"><i class="fas fa-minus" /></button>
+			<button type="button" class="icon-toggle" :disabled="!nextIconKey" :aria-label="localize('ARCHMAGE.iconsAdd')" @click="enableNextIcon"><i class="fas fa-plus" /></button>
+			<button type="button" class="icon-toggle" :disabled="!lastEnabledKey" :aria-label="localize('ARCHMAGE.iconsRemove')" @click="disableLastIcon"><i class="fas fa-minus" /></button>
 		</div>
 	</section>
 </template>

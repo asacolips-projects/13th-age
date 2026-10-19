@@ -117,6 +117,8 @@ ARCHMAGE:
   icon: Icon
   iconic: Zenith
   iconRelationships: Icon Relationships
+  iconsAdd: Show another icon relationship track
+  iconsRemove: Hide the last icon relationship track
   import: Import Powers
   importNeedsKinClass: "Set this character's {kin} and Class before importing powers."
   importSubmit: Import

@@ -1,5 +1,14 @@
 <template>
-	<component :is="tag" class="rollable" :class="modifiers"><slot /></component>
+	<component
+		:is="tag"
+		class="rollable"
+		:class="modifiers"
+		role="button"
+		:tabindex="disabled ? undefined : 0"
+		:aria-disabled="disabled || undefined"
+		@keydown.enter.prevent="activate"
+		@keydown.space.prevent="activate"
+	><slot /></component>
 </template>
 
 <script setup>
@@ -22,6 +31,12 @@ const modifiers = computed(() => [
 	props.overlay ? "overlay" : "",
 	props.disabled ? "disabled" : ""
 ]);
+
+// Keyboard activation: Enter or Space clicks the element, so the parents'
+// @click handlers fire without knowing a keyboard exists.
+const activate = (event) => {
+	if (!props.disabled) event.currentTarget.click();
+};
 </script>
 
 <!-- Local styles: the shared V2 rollable styles are nested under .archmage-v2
