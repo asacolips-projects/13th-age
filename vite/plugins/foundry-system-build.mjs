@@ -11,10 +11,10 @@ import { destPathFor, log, matchesGlobs, removeFile, resolveFromRoot } from "../
 const DEBOUNCE_MS = 150;
 
 /**
- * Delay calling `fn` until `wait` ms have passed without another call.
- *
- * @param fn
- * @param wait
+ * Create a debounced wrapper that delays calling `fn` until `wait` ms have passed without another call.
+ * @param {Function} fn     Function to debounce.
+ * @param {number} wait     Delay in milliseconds.
+ * @returns {Function}      Debounced function.
  */
 function debounce(fn, wait) {
 	let timeout;
@@ -28,7 +28,10 @@ function debounce(fn, wait) {
  * The vite plugin: builds the system via the scripts/build tasks, and in
  * watch mode increments re-runs them as source files change.
  *
- * @param options
+ * @param {object} [options]
+ * @param {boolean} [options.prod=false]   Whether this is a production build.
+ * @param {boolean} [options.packs=false]  Whether to also clean and compile compendium packs.
+ * @returns {import("vite").Plugin}        The Vite plugin.
  */
 export function foundrySystemBuild(options = {}) {
 	const { prod = false, packs = false } = options;

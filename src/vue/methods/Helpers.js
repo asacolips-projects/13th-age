@@ -1,6 +1,9 @@
 /**
- * @param property
- * @param defaultValue
+ * Get a property's value, or a default if the property is missing.
+ *
+ * @param {object} property Property object with a `value` key.
+ * @param {*} defaultValue Value to return if the property is missing.
+ * @returns {*}
  */
 export function getSafeValue(property, defaultValue) {
 	if (property) return property.value;
@@ -8,8 +11,11 @@ export function getSafeValue(property, defaultValue) {
 }
 
 /**
- * @param key
- * @param data
+ * Localize a string, formatting it with data if given.
+ *
+ * @param {string} key Localization key.
+ * @param {object|null} data Format data for game.i18n.format().
+ * @returns {string}
  */
 export function localize(key, data = null) {
 	return data ? game.i18n.format(key, data) : game.i18n.localize(key);
@@ -131,7 +137,10 @@ export function orderedRows(rows, order, tiebreak = null) {
 }
 
 /**
- * @param bonusProp
+ * Localize an equipment bonus property name.
+ *
+ * @param {string} bonusProp Bonus property, such as 'ac'.
+ * @returns {string}
  */
 export function localizeEquipmentBonus(bonusProp) {
 	return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
@@ -182,14 +191,20 @@ export function powersWithTriggerText(items) {
 }
 
 /**
+ * Build tooltip HTML from one or more localization keys; see ArchmageUtility.tooltip().
+ *
  * @param {...any} keys
+ * @returns {string|undefined}
  */
 export function tooltip(...keys) {
 	return game.archmage.ArchmageUtility.tooltip(...keys);
 }
 
 /**
- * @param string
+ * Convert a string to a lowercase CSS class name, replacing special characters with dashes.
+ *
+ * @param {string} string String to convert.
+ * @returns {string}
  */
 export function cssClass(string) {
 	return encodeURIComponent(
@@ -198,9 +213,12 @@ export function cssClass(string) {
 }
 
 /**
- * @param value
- * @param dec
- * @param sign
+ * Format a number with a fixed number of decimals and an optional sign.
+ *
+ * @param {number|string} value Value to format.
+ * @param {number} dec Number of decimals.
+ * @param {boolean} sign Whether to prefix positive values with '+'.
+ * @returns {string|*} The formatted number, or the original value if it isn't numeric.
  */
 export function numberFormat(value, dec = 0, sign = false) {
 	const parsedValue = parseFloat(value).toFixed(dec);
@@ -210,7 +228,10 @@ export function numberFormat(value, dec = 0, sign = false) {
 }
 
 /**
+ * Concatenate all arguments into a string.
+ *
  * @param {...any} args
+ * @returns {string}
  */
 export function concat(...args) {
 	return args.reduce((acc, cur) => {
@@ -363,7 +384,10 @@ export {
 export { wrapRolls } from "@src/module/item/_item-sheet-helpers.mjs";
 
 /**
- * @param actorData
+ * Load the actor referenced by an entry's drag data.
+ *
+ * @param {object} actorData Object with `dragData.uuid`.
+ * @returns {Promise<Actor|false>} The actor, or false if there's no drag data.
  */
 export async function getActor(actorData) {
 	// If no drag data is available, we can't retrieve the actor.
@@ -528,7 +552,7 @@ export function getActorModuleArt(actor) {
  *
  * @param {Array} packNames Array of compendiums to index.
  * @param {Array} fields Array of field paths to include in the index.
- * @returns Combined entries from the queried compendiums.
+ * @returns {Promise<object[]|undefined>} Combined entries from the queried compendiums.
  */
 export async function getPackIndex(packNames = [], fields = []) {
 	if (!packNames) return;
@@ -575,7 +599,7 @@ export function openDocument(uuid, type = "Actor") {
  *
  * @param {Event} event Drag event.
  * @param {object} entry Pack index entry object.
- * @param type
+ * @param {string} type Document type of the entry. Defaults to 'Actor'.
  */
 export function startDrag(event, entry, type = "Actor") {
 	event.dataTransfer.setData("text/plain", JSON.stringify({

@@ -71,7 +71,6 @@ export class ActorArchmage extends Actor {
 
 	/**
 	 * Augment the basic actor data with additional dynamic data.
-	 * @param {object} actorData The actor to prepare.
 	 *
 	 * @returns {undefined}
 	 */
@@ -390,10 +389,9 @@ export class ActorArchmage extends Actor {
 
 	/**
 	 * Prepare Character type specific data
-	 * @param data
-	 *
-	 * @param model
-	 * @param flags
+	 * @param {object} data   The actor's system data.
+	 * @param {object} model  The default data model for the actor type.
+	 * @param {object} flags  The actor's flags.
 	 * @returns {undefined}
 	 */
 	_prepareCharacterData(data, model, flags) {
@@ -529,7 +527,9 @@ export class ActorArchmage extends Actor {
 		var chaBonus = 0;
 
 		/**
-		 * @param type
+		 * Get the bonus of an item attribute, or 0 if it has none.
+		 * @param {object} type  The item attribute to read the bonus from.
+		 * @returns {number} The bonus, or 0.
 		 */
 		function getBonusOr0(type) {
 			if (type && type.bonus) return type.bonus;
@@ -710,10 +710,9 @@ export class ActorArchmage extends Actor {
 
 	/**
 	 * Prepare NPC type specific data
-	 * @param data
-	 *
-	 * @param model
-	 * @param flags
+	 * @param {object} data   The actor's system data.
+	 * @param {object} model  The default data model for the actor type.
+	 * @param {object} flags  The actor's flags.
 	 * @returns {undefined}
 	 */
 	_prepareNPCData(data, model, flags) {
@@ -1548,7 +1547,7 @@ export class ActorArchmage extends Actor {
 	/**
 	 * Recovery roll dialog.
 	 *
-	 * @param event
+	 * @param {Event} event  The triggering event, if any; shift-click skips the dialog.
 	 * @returns {undefined}
 	 */
 	rollRecoveryDialog(event) {
@@ -1643,10 +1642,9 @@ export class ActorArchmage extends Actor {
 
 	/**
 	 * Recovery roll.
-	 * @param data object{bonus: "+X", max: 0, free: false, label: "", apply: true}
-	 * @param print boolean
+	 * @param {object} data  Recovery options: {bonus: "+X", max: 0, free: false, label: "", apply: true}
 	 *
-	 * @returns {Roll} The rolled roll for the recovery
+	 * @returns {Promise<Roll>} The rolled roll for the recovery
 	 */
 	async rollRecovery(data) {
 		data.bonus = (data.bonus !== undefined) ? data.bonus : "";
@@ -2169,9 +2167,8 @@ export class ActorArchmage extends Actor {
 	/**
 	 * Roll a generic ability test or saving throw.
 	 * Prompt the user for input on which variety of roll they want to do.
-	 * @param abilityId {String}    The ability id (e.g. "str")
-	 *
-	 * @param background
+	 * @param {string} abilityId   The ability id (e.g. "str")
+	 * @param {string} background  The background name to roll with.
 	 * @returns {undefined}
 	 */
 	rollAbility(abilityId = null, background = null) {
@@ -2184,12 +2181,12 @@ export class ActorArchmage extends Actor {
 	/* -------------------------------------------- */
 
 	/**
-	 * @deprecated Use DiceArchmage.BackgroundRoll() instead.
 	 * Roll an Ability Test
-	 * @param background
 	 * Prompt the user for input regarding Advantage/Disadvantage and any
 	 * Situational Bonus
-	 * @param abilityId {String}    The ability ID (e.g. "str")
+	 * @deprecated Use DiceArchmage.BackgroundRoll() instead.
+	 * @param {string} abilityId   The ability ID (e.g. "str")
+	 * @param {string} background  The background name to roll with.
 	 *
 	 * @returns {undefined}
 	 */
@@ -2254,10 +2251,11 @@ export class ActorArchmage extends Actor {
 	/**
 	 * Override default method to avoid clamping when isBar=true and not
 	 * using the .value property when not.
-	 * @param attribute
-	 * @param value
-	 * @param isDelta
-	 * @param isBar
+	 * @param {string} attribute  The attribute path to modify (e.g. "attributes.hp").
+	 * @param {number} value      The new value, or the delta if isDelta is true.
+	 * @param {boolean} isDelta   Whether value is a delta to the current value.
+	 * @param {boolean} isBar     Whether the attribute is displayed as a token bar.
+	 * @returns {Promise<Actor|undefined>} The updated actor for hp changes, otherwise undefined.
 	 */
 	async modifyTokenAttribute(attribute, value, isDelta=false, isBar=true) {
 		// Handle hps manually for compatibility with our setup
@@ -2278,13 +2276,13 @@ export class ActorArchmage extends Actor {
 	/**
 	 * HP conditions helper method
 	 *
-	 * @param data
-	 * @param id
-	 * @param thres
-	 * @param maxHp
-	 * @param label
-	 * @param overlay
-	 * @returns {undefined}
+	 * @param {object} data      The pending actor update data.
+	 * @param {string} id        The status effect id (e.g. "staggered").
+	 * @param {number} thres     The hp fraction at or below which the condition applies.
+	 * @param {number} maxHp     The actor's max hp.
+	 * @param {string} label     The localized effect name.
+	 * @param {boolean} overlay  Whether to show the effect as a token overlay.
+	 * @returns {Promise<undefined>}
 	 */
 	async _updateHpCondition(data, id, thres, maxHp, label, overlay) {
 		let filtered = this.effects.filter((x) => x.name === label);
@@ -2314,10 +2312,10 @@ export class ActorArchmage extends Actor {
 	/**
 	 * Scrolling text helper method
 	 *
-	 * @param delta
-	 * @param suffix
-	 * @param overrideOptions
-	 * @param ringColor
+	 * @param {number} delta            The amount changed; its sign sets the color.
+	 * @param {string} suffix           Text shown after the number.
+	 * @param {object} overrideOptions  Options merged over the default scrolling text options.
+	 * @param {string|null} ringColor   CSS color for the token ring flash, overriding the default.
 	 * @returns {undefined}
 	 */
 	_showScrollingText(delta, suffix="", overrideOptions={}, ringColor = null) {
@@ -3120,7 +3118,7 @@ export class ActorArchmage extends Actor {
 	/**
 	 * Helper method to determine if a character actor is multiclassed
 	 *
-	 * @returns boolean
+	 * @returns {boolean} Whether the actor is multiclassed
 	 */
 	isMulticlass() {
 		// If not a character can't be MC
@@ -3135,8 +3133,10 @@ export class ActorArchmage extends Actor {
 }
 
 /**
- * @param exp
- * @param mul
+ * Scale a dice expression (e.g. "2d6") by a multiplier, keeping a similar average.
+ * @param {string} exp  The dice expression to scale.
+ * @param {number} mul  The multiplier.
+ * @returns {string} The scaled dice expression.
  */
 function _scaleDice(exp, mul) {
 	let y = parseInt(exp.split("d")[1]);

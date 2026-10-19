@@ -4,6 +4,7 @@ export class ActorHelpersV2 {
 	 *
 	 * @param {object} actorData
 	 *   `actor.data` object to compute derived data for.
+	 * @returns {object} The same actor data, with derived data applied.
 	 */
 	static prepareData(actorData) {
 		ActorHelpersV2._prepareCharacterData(actorData);

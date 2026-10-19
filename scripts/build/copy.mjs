@@ -7,8 +7,9 @@ import { copyFileWithReplace, destPathFor, globFiles, log, matchesGlobs, removeF
  * Copy the system's files to dist, skipping the prod-excluded ones (the dev
  * Vue build) when building for release.
  *
- * @param root0
- * @param root0.prod
+ * @param {object} [options]
+ * @param {boolean} [options.prod=false]  Whether this is a production build (rewrites Vue references).
+ * @returns {Promise<void>}
  */
 export async function copyFiles({ prod = false } = {}) {
 	const files = (await globFiles(SYSTEM_COPY))
