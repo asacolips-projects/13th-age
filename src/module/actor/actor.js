@@ -903,7 +903,7 @@ export class ActorArchmage extends Actor {
 			ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
 			return;
 		}
-		const combatant = combat.combatants.find((c) => c?.actor?._id == this.id);
+		const combatant = combat.combatants.find((c) => c.actorId === this.id);
 		if (combatant && combatant?.initiative !== null) {
 			return;
 		}
@@ -922,9 +922,8 @@ export class ActorArchmage extends Actor {
 				}
 			});
 		}
-		catch(error) {
-			// dialog canceled
-			console.error(error);
+		catch {
+			// Cancelled or closed without resolving; nothing to roll.
 			return;
 		}
 

@@ -679,7 +679,7 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	async _onRerollRoll(kind) {
-		this.actor.rollReroll(kind);
+		return this.actor.rollReroll(kind);
 	}
 
 	/* ------------------------------------------------------------------------ */
