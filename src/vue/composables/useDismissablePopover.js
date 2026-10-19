@@ -1,10 +1,16 @@
-import { getCurrentInstance, onBeforeUnmount, onMounted } from "vue";
+import { getCurrentInstance, onBeforeUnmount, onMounted, watch } from "vue";
+
+// Every live popover's dismissal, so opening one can close the others — a
+// control that stops propagation (the catalog's view button, the group "+")
+// never lets the others' document listeners see the click that opened it.
+const livePopovers = new Set();
 
 /**
  * Outside-click and Escape dismissal for the v3 tabs' popovers: the view
  * popovers (catalog's and triggers tab's) and the loadout's tracker-config
  * popovers all share the lifecycle — a document click outside the popover's
  * root, or Escape, closes it, and the listeners come back down on unmount.
+ * Opening one popover closes any others, so two can't sit open at once.
  *
  * Escape only answers to the window the popover belongs to, and swallows
  * itself there, so another sheet's Escape never reaches in — and the first
@@ -24,6 +30,10 @@ export function useDismissablePopover(state, rootSelector, closed = false) {
 	// at setup — used to tell which window an Escape belongs to.
 	const instance = getCurrentInstance();
 
+	const dismiss = () => {
+		if (state.value !== closed) state.value = closed;
+	};
+
 	const onDocClick = (event) => {
 		if (state.value && !event.target.closest?.(rootSelector)) state.value = closed;
 	};
@@ -37,12 +47,22 @@ export function useDismissablePopover(state, rootSelector, closed = false) {
 		state.value = closed;
 	};
 
+	// Opening this popover dismisses the live ones, so two never sit open.
+	watch(state, (value) => {
+		if (value === closed) return;
+		for (const popover of livePopovers) {
+			if (popover !== dismiss) popover();
+		}
+	});
+
 	onMounted(() => {
+		livePopovers.add(dismiss);
 		document.addEventListener("click", onDocClick);
 		document.addEventListener("keydown", onDocKeydown);
 	});
 
 	onBeforeUnmount(() => {
+		livePopovers.delete(dismiss);
 		document.removeEventListener("click", onDocClick);
 		document.removeEventListener("keydown", onDocKeydown);
 	});
