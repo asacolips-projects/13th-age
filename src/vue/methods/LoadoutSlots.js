@@ -1,4 +1,4 @@
-import { attunementCost, characterTierIndex, filterFeats, orderedRows, TIERS as TIER_SLOTS, TIER_ORDER, byName, byTier } from "@/methods/Helpers";
+import { attunementCost, characterTierIndex, filterFeats, isSecondEdition, orderedRows, TIERS as TIER_SLOTS, TIER_ORDER, byName, byTier } from "@/methods/Helpers";
 
 /**
  * The loadout tab's slot bookkeeping: the pure rules that turn a character's
@@ -66,8 +66,9 @@ const slotTrack = (key, consumed, slots, config, editing) => ({
  * skipped, matching the power sheet's read view.
  *
  * The feat cascade: each level grants a slot in its tier's track — one per
- * level 1-4 for A, 5-7 for C, 8-10 for E — plus the single Z slot at 10th.
- * A tier's own feats fill its slots first; past that, feats spend the next
+ * level 1-4 for A, 5-7 for C, 8-10 for E — plus the single Z slot at 10th
+ * in second edition. A tier's own feats fill its slots first; past that,
+ * feats spend the next
  * tier up, and the borrowed pips wear the down-arrow. Whatever the cascade
  * can't place alerts on its own tier's track — which is why a track also
  * shows when it has overflow.
@@ -85,6 +86,11 @@ export function loadoutSections({ actor, editing, configs, rowOrder }) {
 	const items = actor?.items ?? [];
 	const level = Number(actor?.system?.attributes?.level?.value) || 0;
 	const charTier = characterTierIndex(level);
+
+	// First edition has no iconic/zenith tier — the config doesn't offer Z
+	// feats, so the track would be a permanently hollow pip at 10th level.
+	// Second edition's cap notes ride on the tier entries themselves.
+	const tiers = isSecondEdition() ? TIER_SLOTS : TIER_SLOTS.filter((tier) => tier.key !== "iconic");
 
 	// The feat and magic item incremental advances each add a bonus slot: one
 	// more magic item, and one feat slot in the tier of the PC's next level.
@@ -110,7 +116,7 @@ export function loadoutSections({ actor, editing, configs, rowOrder }) {
 		Object.values(filterFeats(power.system?.feats))
 			.filter((feat) => feat.tier?.value === tier.key && feat.isActive.value));
 
-	const takenByTier = new Map(TIER_SLOTS.map((tier) =>
+	const takenByTier = new Map(tiers.map((tier) =>
 		[tier.key, takenFeatsForTier(tier).length]));
 
 	// Feats still unplaced, by origin tier letter.
@@ -119,7 +125,7 @@ export function loadoutSections({ actor, editing, configs, rowOrder }) {
 	// The feat incremental's bonus slot belongs to the tier of the PC's next
 	// level — a 4th-level PC's lands on C — clamped at 10th since the tiers
 	// run out there. It's a bonus, so it rides past the tier cap.
-	const featIncrementalTier = TIER_SLOTS[characterTierIndex(Math.min(level + 1, 10))].key;
+	const featIncrementalTier = tiers[characterTierIndex(Math.min(level + 1, 10))].key;
 	const featIncrementalSlot = incrementals.feat === true ? 1 : 0;
 
 	// Prodigious Learner's bonus feats: three adventurer-tier at 1st; from
@@ -129,7 +135,7 @@ export function loadoutSections({ actor, editing, configs, rowOrder }) {
 		? { A: 1, C: 1, E: 1 }
 		: level >= 5 ? { A: 2, C: 1 } : { A: 3 };
 
-	const featTracks = TIER_SLOTS.map((tier) => {
+	const featTracks = tiers.map((tier) => {
 		// The level's grant, capped, then the bonuses, all of which ride past
 		// the cap: the tier's configured extras, the Resourceful kin power's
 		// slot in the highest tier the character has reached, the Prodigious
