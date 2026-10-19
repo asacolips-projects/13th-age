@@ -71,7 +71,18 @@ const rename = (def, event) => save(defs.value.map((other) =>
 
 const remove = (def) => {
 	if (defs.value.length < 2) return;
+	// Prune the tab's saved group/row orders in the same pass — with the tab
+	// gone, nothing reads them back.
 	save(defs.value.filter((other) => other.id !== def.id));
+	pruneOrders(def.id);
+};
+
+// Clear a removed tab's saved group/row orders from the flags — nothing
+// reads them back once the tab is gone, so they'd only accumulate.
+const pruneOrders = (id) => {
+	for (const path of [`sheetDisplay.catalog.groupOrder.${id}`, `sheetDisplay.catalog.rowOrder.${id}`]) {
+		saveSheetDisplayPref(props.actor, path, null);
+	}
 };
 
 // Row reordering, through the shared composable: the grip starts the drag,

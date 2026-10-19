@@ -380,7 +380,8 @@ export async function getActor(actorData) {
  * Persist one sheetDisplay preference through the live actor document;
  * the sheet's actor data is a clone whose flag updates wouldn't round-trip.
  * Writing only when the stored value differs avoids a re-render loop from
- * the update.
+ * the update. A null value clears the path instead (a removed tab's saved
+ * orders), leaving no key behind.
  *
  * All writes funnel through one queue and read the live document's flags,
  * so two rapid writes to the same path can't both compose from the same
@@ -399,6 +400,10 @@ export async function saveSheetDisplayPref(actorData, flagPath, value) {
 		const actor = await getActor(actorData);
 		if (!actor) return;
 		const current = foundry.utils.getProperty(actor.flags?.archmage ?? {}, flagPath);
+		if (value === null) {
+			if (current !== undefined) await actor.unsetFlag("archmage", flagPath);
+			return;
+		}
 		if (current === value) return;
 		await actor.setFlag("archmage", flagPath, value);
 	};
