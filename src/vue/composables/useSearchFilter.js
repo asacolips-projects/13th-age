@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { cleanFilterKey, stripTags } from "@/methods/Helpers";
 
 /**
@@ -18,10 +18,13 @@ import { cleanFilterKey, stripTags } from "@/methods/Helpers";
 export function useSearchFilter(searchText) {
 	const searchValue = ref(null);
 
+	// The needle reduces once per input change, not once per item per change —
+	// the listing filter runs it against every row on every keystroke.
+	const needle = computed(() => cleanFilterKey(searchValue.value ?? ""));
+
 	const matchesSearch = (item) => {
-		const needle = cleanFilterKey(searchValue.value ?? "");
-		if (!needle) return true;
-		return cleanFilterKey(stripTags(searchText(item))).includes(needle);
+		if (!needle.value) return true;
+		return cleanFilterKey(stripTags(searchText(item))).includes(needle.value);
 	};
 
 	return { searchValue, matchesSearch };
