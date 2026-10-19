@@ -1148,29 +1148,30 @@ export class ActorArchmage extends Actor {
 		}
 
 		const icon = actorData.icons[iconIndex];
-		return new Dialog({
-			title: game.i18n.localize("ARCHMAGE.ICONROLLS.rolldialogtitle"),
-			content: `<p>${game.i18n.format("ARCHMAGE.ICONROLLS.rollDialogHint", { name: icon.name.value })}</p>`,
-			buttons: {
-				singleicon: {
-					label: game.i18n.format("ARCHMAGE.ICONROLLS.rollone", { name: icon.name.value }),
-					callback: () => {
-						this.rollAndDisplayIconDice([iconIndex]);
-					}
-				},
-				allicons: {
-					label: game.i18n.localize("ARCHMAGE.ICONROLLS.rollall"),
-					callback: () => {
-						this.rollAndDisplayIconDice(Object.keys(actorData.icons));
-					}
-				},
-				cancel: {
-					label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-					callback: () => {}
+		const name = icon.name.value;
+		return new foundry.applications.api.DialogV2({
+			window: { title: game.i18n.localize("ARCHMAGE.ICONROLLS.rolldialogtitle") },
+			// The icon's name is user input; escape it before it goes into HTML.
+			content: `<p>${game.i18n.format("ARCHMAGE.ICONROLLS.rollDialogHint", { name: foundry.utils.escapeHTML(name) })}</p>`,
+			buttons: [{
+				action: "singleicon",
+				label: game.i18n.format("ARCHMAGE.ICONROLLS.rollone", { name }),
+				default: true,
+				callback: () => {
+					this.rollAndDisplayIconDice([iconIndex]);
 				}
-			},
-			default: "apply"
-		}).render(true);
+			}, {
+				action: "allicons",
+				label: game.i18n.localize("ARCHMAGE.ICONROLLS.rollall"),
+				callback: () => {
+					this.rollAndDisplayIconDice(Object.keys(actorData.icons));
+				}
+			}, {
+				action: "cancel",
+				label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+				callback: () => {}
+			}]
+		}).render({ force: true });
 	}
 
 	/**
