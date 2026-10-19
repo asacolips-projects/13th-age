@@ -38,6 +38,7 @@ ARCHMAGE:
   calculatedHPMaxHint: Max HP is calculated automatically from base HP, the CON modifier, level, and the HP adjustment.
   calculatedRecoveriesMaxHint: Max recoveries is calculated automatically from the base recoveries value.
   catalog: Catalog
+  catalogTabNumbered: "Catalog {n}"
   chakra: Chakra
   champion: Champion
   character: Character
@@ -175,6 +176,7 @@ ARCHMAGE:
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
   ongoing: Ongoing
+  ongoingDamageFormat: "{amount} ongoing {type} damage"
   other: Other
   others: Other
   Positive: Positive
@@ -257,6 +259,7 @@ ARCHMAGE:
   talents: Talents
   terrains: Terrains
   tempHp: Temp HP
+  tempHpShort: temp
   title: Title
   tool: Tool
   trackerSettings: Tracker options

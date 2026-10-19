@@ -15,7 +15,7 @@
 				<p class="unit-value">
 					<input v-model="actor.system.attributes.hp.value" type="number" name="system.attributes.hp.value">
 					<span class="value-separator">+</span>
-					<input v-model="actor.system.attributes.hp.temp" type="number" name="system.attributes.hp.temp" placeholder="temp">
+					<input v-model="actor.system.attributes.hp.temp" type="number" name="system.attributes.hp.temp" :placeholder="localize('ARCHMAGE.tempHpShort')">
 					<span class="value-separator">/</span>
 					<input
 						v-if="editing"

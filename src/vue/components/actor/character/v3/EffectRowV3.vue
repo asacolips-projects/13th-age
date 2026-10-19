@@ -73,7 +73,10 @@ const duration = computed(() =>
 
 const ongoingDamage = computed(() => {
 	const flags = props.effect.flags.archmage;
-	return `${roundOngoingDamage(flags.ongoingDamage)} ongoing ${flags.ongoingDamageType} damage`;
+	return game.i18n.format("ARCHMAGE.ongoingDamageFormat", {
+		amount: roundOngoingDamage(flags.ongoingDamage),
+		type: flags.ongoingDamageType
+	});
 });
 
 // Resolve the live effect document from the actor document, falling back to

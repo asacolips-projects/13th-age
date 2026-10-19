@@ -101,12 +101,16 @@ const {
 });
 
 const add = () => {
-	// "Catalog N", one past the highest number already in the set.
+	// Localized "Catalog N", one past the highest number already in the set —
+	// the scan matches on the localized word so numbering keeps working in
+	// translations that renamed the base term.
+	const base = localize("ARCHMAGE.catalog");
+	const scan = new RegExp(`^${foundry.utils.escapeRegExp(base)} (\\d+)$`);
 	const nums = defs.value
-		.map((def) => /^Catalog (\d+)$/.exec(def.label ?? ""))
+		.map((def) => scan.exec(def.label ?? ""))
 		.filter((match) => match)
 		.map((match) => Number(match[1]));
-	save([...defs.value, { id: foundry.utils.randomID(), label: `Catalog ${(nums.length ? Math.max(...nums) : 0) + 1}` }]);
+	save([...defs.value, { id: foundry.utils.randomID(), label: game.i18n.format("ARCHMAGE.catalogTabNumbered", { n: (nums.length ? Math.max(...nums) : 0) + 1 }) }]);
 };
 </script>
 

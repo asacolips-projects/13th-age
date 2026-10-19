@@ -101,7 +101,10 @@ export default {
 		 * @param effect
 		 */
 		function getOngoingDamage(effect) {
-			return `${roundOngoingDamage(effect.flags.archmage.ongoingDamage)} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
+			return game.i18n.format("ARCHMAGE.ongoingDamageFormat", {
+				amount: roundOngoingDamage(effect.flags.archmage.ongoingDamage),
+				type: effect.flags.archmage.ongoingDamageType
+			});
 		}
 
 		// Return our custom data, methods, and any imported methods.
