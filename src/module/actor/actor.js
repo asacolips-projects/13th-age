@@ -470,7 +470,7 @@ export class ActorArchmage extends Actor {
 
 		// Fix max death saves based on 2e.
 		data.attributes.saves.deathFails.max = parseInt(data.attributes.saves.deathFails.maxOverride)
-      || (game.settings.get("archmage", "secondEdition") ? 5 : 4);
+			|| (game.settings.get("archmage", "secondEdition") ? 5 : 4);
 		// Update death save count.
 		let deathCount = data.attributes.saves.deathFails.value;
 		data.attributes.saves.deathFails.steps = Array(data.attributes.saves.deathFails.max).fill(false);
@@ -569,7 +569,7 @@ export class ActorArchmage extends Actor {
 					chaBonus += getBonusOr0(item.system.attributes.cha);
 
 					if (!item.system.attributes.save.threshold
-            || data.attributes.hp.value <= item.system.attributes.save.threshold) {
+						|| data.attributes.hp.value <= item.system.attributes.save.threshold) {
 						saveBonus += getBonusOr0(item.system.attributes.save);
 					}
 					disengageBonus += getBonusOr0(item.system.attributes.disengage);
@@ -628,7 +628,7 @@ export class ActorArchmage extends Actor {
 
 		// Barbarians get a bonus based on 'skulls' as of 2e beta
 		if (this.getFlag("archmage", "grimDetermination")
-      && game.settings.get("archmage", "secondEdition")) {
+			&& game.settings.get("archmage", "secondEdition")) {
 			data.grimDeterminationBonus = Math.min(data.attributes.saves.deathFails.value, 2);
 			data.attributes.ac.value += data.grimDeterminationBonus;
 			data.attributes.pd.value += data.grimDeterminationBonus;
@@ -1724,7 +1724,7 @@ export class ActorArchmage extends Actor {
 
 		// If 3d dice are enabled, handle them
 		if (game.dice3d
-        && (!game.settings.get("dice-so-nice", "animateInlineRoll") || !data.createMessage)) {
+				&& (!game.settings.get("dice-so-nice", "animateInlineRoll") || !data.createMessage)) {
 			await game.archmage.ArchmageUtility.show3DDiceForRoll(roll, chatData, msg?.id);
 		}
 
@@ -1772,9 +1772,9 @@ export class ActorArchmage extends Actor {
 
 		// Death saves.
 		if (this.system.attributes.saves.deathFails.value > 0
-      && this.system.attributes.saves.deathFails.value < this.system.attributes.saves.deathFails.max) {
+			&& this.system.attributes.saves.deathFails.value < this.system.attributes.saves.deathFails.max) {
 			if (game.settings.get("archmage", "secondEdition")
-        && this.system.attributes.saves.deathFails.value >= 1) {
+				&& this.system.attributes.saves.deathFails.value >= 1) {
 				updateData["system.attributes.saves.deathFails.value"] = 1;
 			}
 			else updateData["system.attributes.saves.deathFails.value"] = 0;
@@ -1792,15 +1792,15 @@ export class ActorArchmage extends Actor {
 			let resourceName = this.system.resources.spendable[resourcePathName].label;
 			let curr = this.system.resources.spendable[resourcePathName].current;
 			if (this.system.resources.spendable[resourcePathName].enabled
-        && this.system.resources.spendable[resourcePathName].rest != "none") {
+				&& this.system.resources.spendable[resourcePathName].rest != "none") {
 				let max = this.system.resources.spendable[resourcePathName].max;
 				let path = `system.resources.spendable.${resourcePathName}.current`;
 				if (this.system.resources.spendable[resourcePathName].rest == "quick"
-          && max && curr < max) {
+					&& max && curr < max) {
 					updateData[path] = max;
 				}
 				else if (this.system.resources.spendable[resourcePathName].rest == "quickreset"
-          && curr > 0) {
+					&& curr > 0) {
 					updateData[path] = 0;
 				}
 				if (updateData[path] !== undefined) {
@@ -1832,10 +1832,10 @@ export class ActorArchmage extends Actor {
 				}
 				// Per battle powers.
 				if ((item.system.powerUsage?.value == "once-per-battle"
-          || item.system.powerUsage?.value == "cyclic"
-          || (item.system.powerUsage?.value == "at-will"
-          && item.system.quantity.value != null))
-          && item.system.quantity.value < maxQuantity) {
+					|| item.system.powerUsage?.value == "cyclic"
+					|| (item.system.powerUsage?.value == "at-will"
+					&& item.system.quantity.value != null))
+					&& item.system.quantity.value < maxQuantity) {
 					itemUpdateData["system.quantity"] = { value: maxQuantity };
 					templateData.items.push({
 						key: item.name,
@@ -1870,8 +1870,8 @@ export class ActorArchmage extends Actor {
 				let usageSecondary = item.system.powerUsageSecondary.value;
 				let currSecondary = item.system.quantitySecondary?.value ?? 0;
 				if ((["once-per-battle", "cyclic"].includes(usageSecondary)
-          || (usageSecondary == "at-will" && item.system.quantitySecondary?.value != null))
-          && currSecondary < maxSecondary) {
+					|| (usageSecondary == "at-will" && item.system.quantitySecondary?.value != null))
+					&& currSecondary < maxSecondary) {
 					itemUpdateData["system.quantitySecondary.value"] = maxSecondary;
 					templateData.items.push({
 						key: item.name,
@@ -1945,7 +1945,7 @@ export class ActorArchmage extends Actor {
 		// Resources
 		// Ki
 		if (this.system.resources.spendable.ki.enabled
-      && this.system.resources.spendable.ki.current < this.system.resources.spendable.ki.max) {
+			&& this.system.resources.spendable.ki.current < this.system.resources.spendable.ki.max) {
 			updateData["system.resources.spendable.ki.current"] = this.system.resources.spendable.ki.max;
 			templateData.resources.push({
 				key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
@@ -1963,17 +1963,17 @@ export class ActorArchmage extends Actor {
 			let resourceName = this.system.resources.spendable[resourcePathName].label;
 			let curr = this.system.resources.spendable[resourcePathName].current;
 			if (this.system.resources.spendable[resourcePathName].enabled
-        && this.system.resources.spendable[resourcePathName].rest != "none") {
+				&& this.system.resources.spendable[resourcePathName].rest != "none") {
 				let max = this.system.resources.spendable[resourcePathName].max;
 				let path = `system.resources.spendable.${resourcePathName}.current`;
 				if ((this.system.resources.spendable[resourcePathName].rest == "full"
-          || this.system.resources.spendable[resourcePathName].rest == "quick")
-          && max && curr < max) {
+					|| this.system.resources.spendable[resourcePathName].rest == "quick")
+					&& max && curr < max) {
 					updateData[path] = max;
 				}
 				else if ((this.system.resources.spendable[resourcePathName].rest == "fullreset"
-          || this.system.resources.spendable[resourcePathName].rest == "quickreset")
-          && curr > 0) {
+					|| this.system.resources.spendable[resourcePathName].rest == "quickreset")
+					&& curr > 0) {
 					updateData[path] = 0;
 				}
 				if (updateData[path] !== undefined) {
@@ -2014,7 +2014,7 @@ export class ActorArchmage extends Actor {
 			let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
 			let maxQuantity = await item.resolveMaxQuantity() ?? fallbackQuantity;
 			if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
-        && (item.system.quantity.value < maxQuantity || item.system.rechargeAttempts.value > 0)) {
+				&& (item.system.quantity.value < maxQuantity || item.system.rechargeAttempts.value > 0)) {
 				itemUpdateData["system.quantity"] = { value: maxQuantity };
 				itemUpdateData["system.rechargeAttempts"] = { value: 0 };
 				templateData.items.push({
@@ -2028,7 +2028,7 @@ export class ActorArchmage extends Actor {
 			if (item.type == "power") {
 				let maxSecondary = await item.resolveMaxQuantity("maxQuantitySecondary") ?? 1;
 				if (typeof maxSecondary === "number" && usageArray.includes(item.system.powerUsageSecondary?.value)
-          && item.system.quantitySecondary?.value != maxSecondary) {
+					&& item.system.quantitySecondary?.value != maxSecondary) {
 					itemUpdateData["system.quantitySecondary.value"] = maxSecondary;
 					templateData.items.push({
 						key: item.name,
@@ -2119,7 +2119,7 @@ export class ActorArchmage extends Actor {
 			let rechAttempts = maxQuantity - item.system.quantity.value;
 			rechAttempts = Math.max(rechAttempts - item.system.rechargeAttempts.value, 0);
 			if (maxQuantity && item.system.quantity.value < maxQuantity
-        && ["recharge-desperate", "daily-desperate"].includes(item.system.powerUsage?.value)) {
+				&& ["recharge-desperate", "daily-desperate"].includes(item.system.powerUsage?.value)) {
 				if (rechAttempts > 0) {
 					await item.update({
 						"system.quantity.value": item.system.quantity.value + rechAttempts,
@@ -2135,7 +2135,7 @@ export class ActorArchmage extends Actor {
 			// heal-up flag above already limits this to once per full heal up, so no
 			// attempt bookkeeping is needed for the secondary pool.
 			if (item.type == "power" && item.system.quantitySecondary?.value !== null
-        && ["recharge-desperate", "daily-desperate"].includes(item.system.powerUsageSecondary?.value)) {
+				&& ["recharge-desperate", "daily-desperate"].includes(item.system.powerUsageSecondary?.value)) {
 				let maxSecondary = await item.resolveMaxQuantity("maxQuantitySecondary") ?? 1;
 				if (maxSecondary && item.system.quantitySecondary.value < maxSecondary) {
 					await item.update({ "system.quantitySecondary.value": maxSecondary });
@@ -2233,8 +2233,8 @@ export class ActorArchmage extends Actor {
 			data: {
 				abil: abl ? abl.nonKey.mod + abl.bonus : 0,
 				lvl: this.system.attributes.level.value
-          + ((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition")
-          || this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition")) ? 1 : 0),
+					+ ((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition")
+					|| this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition")) ? 1 : 0),
 				bg: bg ? bg[1].bonus.value : 0,
 				abilityName: abilityName,
 				backgroundName: backgroundName,
@@ -2399,9 +2399,9 @@ export class ActorArchmage extends Actor {
 
 		// Update default images on npc type change
 		if (changes.system?.details?.type?.value
-      && this.type == "npc"
-      && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)
-      && CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value]) {
+			&& this.type == "npc"
+			&& Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)
+			&& CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value]) {
 			data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value];
 			changes.img = data.img;
 		}
@@ -2512,11 +2512,11 @@ export class ActorArchmage extends Actor {
 		}
 
 		if (changes.system.attributes?.hp?.value !== undefined
-      && changes.system.attributes?.hp?.temp == undefined) {
+			&& changes.system.attributes?.hp?.temp == undefined) {
 			// Here we received an update of the total hp but not the temp, check them
 			let hp = foundry.utils.duplicate(this.system.attributes.hp);
 			if (changes.system.attributes.hp.value === null
-        || isNaN(changes.system.attributes.hp.value)) {
+				|| isNaN(changes.system.attributes.hp.value)) {
 				// If the update is nonsensical ignore it
 				data.system.attributes.hp.value = hp.value;
 			}
@@ -2639,8 +2639,8 @@ export class ActorArchmage extends Actor {
 		options.fromPreUpdate.rec = deltaRec;
 
 		if (changes.system.attributes?.weapon?.melee?.shield !== undefined
-      || changes.system.attributes?.weapon?.melee?.dualwield !== undefined
-      || changes.system.attributes?.weapon?.melee?.twohanded !== undefined) {
+			|| changes.system.attributes?.weapon?.melee?.dualwield !== undefined
+			|| changes.system.attributes?.weapon?.melee?.twohanded !== undefined) {
 			// Here we received an update of the melee weapon checkboxes
 
 			// Fallback for sheet closure bug
@@ -2673,7 +2673,7 @@ export class ActorArchmage extends Actor {
 					mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
 					mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
 					if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h
-            && CONFIG.ARCHMAGE.classes[item].wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
+						&& CONFIG.ARCHMAGE.classes[item].wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
 						// Handles special case of monk MC with classes that don't benefit from 2h
 						twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
 					}
@@ -2776,14 +2776,14 @@ export class ActorArchmage extends Actor {
 
 				// Check that the matched classes actually changed
 				if (this.system.details.detectedClasses !== undefined
-          && JSON.stringify(this.system.details.detectedClasses) == JSON.stringify(matchedClasses)
+					&& JSON.stringify(this.system.details.detectedClasses) == JSON.stringify(matchedClasses)
 				) {
 					return;
 				}
 			}
 
 			if (matchedClasses !== null
-        && game.settings.get("archmage", "automateBaseStatsFromClass")) {
+				&& game.settings.get("archmage", "automateBaseStatsFromClass")) {
 				// Class changed, alert the user we're about to muck with the base stats
 				ui.notifications.info(game.i18n.format("ARCHMAGE.UI.classChange",
 					{ classes: ArchmageUtility.formatClassList(matchedClasses) }));
@@ -2908,7 +2908,7 @@ export class ActorArchmage extends Actor {
 				if (matchedClasses.length == 2) {
 					// Check that we have the data stored - just in case
 					if (CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]]
-            && CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]]) {
+						&& CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]]) {
 						let km = CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]];
 						data.system.attributes.keyModifier = { mod1: km[0], mod2: km[1] };
 					}
@@ -2923,7 +2923,7 @@ export class ActorArchmage extends Actor {
 				data.system.resources = {
 					perCombat: {
 						momentum: { enabled: (matchedClasses.includes("rogue") && !game.settings.get("archmage", "secondEdition"))
-                                || (matchedClasses.includes("fighter") && game.settings.get("archmage", "secondEdition")) },
+																|| (matchedClasses.includes("fighter") && game.settings.get("archmage", "secondEdition")) },
 						commandPoints: { enabled: matchedClasses.includes("commander") },
 						focus: { enabled: matchedClasses.includes("occultist") },
 						bravado: { enabled: matchedClasses.includes("rogue") && game.settings.get("archmage", "secondEdition") }

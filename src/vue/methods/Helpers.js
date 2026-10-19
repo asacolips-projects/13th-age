@@ -306,7 +306,7 @@ export function equipmentBonuses(equipment) {
  */
 export function getActionShort(actionType) {
 	return CONFIG.ARCHMAGE.actionTypesShort[actionType]
-    ?? CONFIG.ARCHMAGE.actionTypesShort.standard;
+		?? CONFIG.ARCHMAGE.actionTypesShort.standard;
 }
 
 // The character tiers, keyed by the values featTiers and system.tier use. 'Z'
