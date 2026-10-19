@@ -46,6 +46,11 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
 	constructor(actor, options = {}) {
 		super({ id: `archmage-character-settings-${actor.id}`, actor, ...options });
 		this.actor = actor;
+		// The Vue mixin provides `this.document` to the app as the injected
+		// actorDocument. DocumentSheetV2 sets that property for its own sheets;
+		// this is a plain ApplicationV2, so set it here — children injecting
+		// actorDocument would otherwise get undefined.
+		this.document = actor;
 	}
 
 	/** @override */
