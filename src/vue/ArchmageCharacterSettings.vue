@@ -425,12 +425,18 @@ const flagGroups = computed(() => {
 });
 
 /**
+ * Localize a settings section's legend title. Sections another module added
+ * have no key of their own, so the fallback localizes a generic "other
+ * section" string instead of leaking the raw (English-only) section name —
+ * a module can still pass a translation key-shaped section to get its own
+ * title through.
  * @param section
  */
 function sectionLegend(section) {
 	if (!section) return "";
 	const key = concat("ARCHMAGE.CHARACTERSETTINGS.groups.", section.toLowerCase());
-	return game.i18n.has(key) ? localize(key) : section;
+	if (game.i18n.has(key)) return localize(key);
+	return localize("ARCHMAGE.CHARACTERSETTINGS.otherSection", { section });
 }
 
 const abilities = ["str", "con", "dex", "int", "wis", "cha"].map((ability) => ({

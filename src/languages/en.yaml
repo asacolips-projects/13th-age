@@ -471,6 +471,7 @@ ARCHMAGE:
       sheet: Sheet Options
       stances: Stances
       weaponDice: Weapon Dice
+    otherSection: "{section} options"
   CHARACTERSHEETV3:
     none: None
     noPowersWithTriggers: No powers with triggers.
