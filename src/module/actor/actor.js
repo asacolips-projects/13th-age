@@ -547,15 +547,12 @@ export class ActorArchmage extends Actor {
 					hpBonus += getBonusOr0(item.system.attributes.hp);
 					recoveriesBonus += getBonusOr0(item.system.attributes.recoveries);
 
-					// Enforce only one of this group
-					if (rerollAcMax == 0) {
-						rerollAcCurr += item.system.attributes.rerollAc.current ? item.system.attributes.rerollAc.current : 0;
-						rerollAcMax += getBonusOr0(item.system.attributes.rerollAc);
-					}
-					if (rerollSaveMax == 0) {
-						rerollSaveCurr += item.system.attributes.rerollSave.current ? item.system.attributes.rerollSave.current : 0;
-						rerollSaveMax += getBonusOr0(item.system.attributes.rerollSave);
-					}
+					// The reroll pools stack across every active item granting
+					// them; spending drains those items in sort order.
+					rerollAcCurr += item.system.attributes.rerollAc.current ? item.system.attributes.rerollAc.current : 0;
+					rerollAcMax += getBonusOr0(item.system.attributes.rerollAc);
+					rerollSaveCurr += item.system.attributes.rerollSave.current ? item.system.attributes.rerollSave.current : 0;
+					rerollSaveMax += getBonusOr0(item.system.attributes.rerollSave);
 
 					strBonus += getBonusOr0(item.system.attributes.str);
 					dexBonus += getBonusOr0(item.system.attributes.dex);
@@ -1076,10 +1073,13 @@ export class ActorArchmage extends Actor {
 		}
 		if (!prop) return;
 
-		// The pool's count is the first active item granting it — the one
-		// prepareDerivedData() counts, under its one-reroll-item rule — so the
-		// spend comes from that item. No source, no card.
-		const source = this.items.find((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0);
+		// The pool stacks across every active item granting it, so a spend
+		// drains the first one in sort order that still has uses left —
+		// once, in a single batched update. No source, no card.
+		const source = this.items
+			.filter((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0)
+			.sort((a, b) => (a.sort || 0) - (b.sort || 0))
+			.find((item) => item.system.attributes[prop].current > 0);
 		if (!source) return;
 		await this.updateEmbeddedDocuments("Item", [{
 			_id: source.id,

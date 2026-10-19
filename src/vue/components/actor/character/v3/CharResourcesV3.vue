@@ -224,9 +224,10 @@ const hasUnits = computed(() =>
 	|| customResources.value.length > 0
 );
 
-// Set a reroll pool's count from view mode: write through to the equipped
-// item that grants it — the one item prepareDerivedData() counts (the first
-// active granting item) and rollReroll() spends, so write and read agree.
+// Set a reroll pool's count from view mode: the pool stacks across every
+// active item granting it, so a typed total fills those items in sort
+// order — each up to its own max, the rest zeroed — and the pool then
+// reads back exactly what was typed.
 /**
  * @param kind
  * @param event
@@ -235,8 +236,17 @@ function setReroll(kind, event) {
 	if (!actorDocument || !canEdit.value) return;
 	const value = Number(event.target.value) || 0;
 	const prop = kind === "AC" ? "rerollAc" : "rerollSave";
-	const source = actorDocument.items.find((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0);
-	if (source) actorDocument.updateEmbeddedDocuments("Item", [{ _id: source.id, [`system.attributes.${prop}.current`]: value }]);
+	let remaining = value;
+	const updates = actorDocument.items
+		.filter((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0)
+		.sort((a, b) => (a.sort || 0) - (b.sort || 0))
+		.map((item) => {
+			const max = Math.max(item.system.attributes[prop].bonus, 0);
+			const take = Math.min(Math.max(remaining, 0), max);
+			remaining -= take;
+			return { _id: item.id, [`system.attributes.${prop}.current`]: take };
+		});
+	if (updates.length) actorDocument.updateEmbeddedDocuments("Item", updates);
 }
 
 // Roll command points and apply them to the pool, like the V2 sheet's

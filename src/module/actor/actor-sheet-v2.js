@@ -676,57 +676,18 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 	}
 
 	/**
-	 * Spend an AC or save reroll: decrement every active item granting the
-	 * pool and post the reroll card to chat.
+	 * Spend an AC or save reroll and post the reroll card to chat.
+	 *
+	 * The pool stacks across every active item granting it, so the spend has
+	 * to drain one item at the shared logic's discretion — writing the pool
+	 * count into every granting item, as this handler once did, would grow
+	 * the pool instead of shrinking it.
 	 *
 	 * @param {string} kind
 	 *   The reroll pool, such as 'AC' or 'save'.
 	 */
 	async _onRerollRoll(kind) {
-		let res = this.actor.system.resources.spendable.rerolls[kind];
-		if (res.current <= 0) return;
-
-		// We have uses to spend, find source item
-		let prop = "";
-		switch (kind) {
-			case "AC":
-				prop = "rerollAc";
-				break;
-			case "save":
-				prop = "rerollSave";
-				break;
-		}
-		this.actor.items.forEach((item) => {
-			if (item.type === "equipment" && item.system.isActive && item.system.attributes[prop].current > 0) {
-				// Found source of the bonus, update it
-				const itemOverrideData = { _id: item.id };
-				itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
-				this.actor.updateEmbeddedDocuments("Item", [itemOverrideData]);
-			}
-		});
-
-		// Basic template rendering data
-		const template = `systems/archmage/templates/chat/reroll-card.html`;
-		const token = this.actor.token;
-
-		// Basic chat message data
-		const chatData = {
-			user: game.user.id,
-			speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
-			title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
-			desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
-		};
-
-		const templateData = {
-			actor: this.actor,
-			tokenId: token ? `${token.id}` : null,
-			data: chatData
-		};
-
-		// Render the template
-		chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
-
-		await game.archmage.ArchmageUtility.createChatMessage(chatData);
+		return this.actor.rollReroll(kind);
 	}
 
 	/* ------------------------------------------------------------------------ */
