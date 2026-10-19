@@ -1,13 +1,13 @@
 import { getCurrentInstance, onBeforeUnmount, onMounted, watch } from "vue";
 
 // Every live popover's dismissal, so opening one can close the others — a
-// control that stops propagation (the catalog's view button, the group "+")
+// control that stops propagation (the item index's view button, the group "+")
 // never lets the others' document listeners see the click that opened it.
 const livePopovers = new Set();
 
 /**
  * Outside-click and Escape dismissal for the v3 tabs' popovers: the view
- * popovers (catalog's and triggers tab's) and the loadout's tracker-config
+ * popovers (item index's and triggers tab's) and the loadout's tracker-config
  * popovers all share the lifecycle — a document click outside the popover's
  * root, or Escape, closes it, and the listeners come back down on unmount.
  * Opening one popover closes any others, so two can't sit open at once.

@@ -1,34 +1,34 @@
 <template>
-	<section class="tab-catalog">
+	<section class="tab-item-index">
 		<!-- The view button (grouping/sorting/filtering popover), the filter entry
 			and the import button. -->
-		<SortFilterBarV3 :id="concat('catalog-', tabId)" v-model:search="searchValue">
+		<SortFilterBarV3 :id="concat('item-index-', tabId)" v-model:search="searchValue">
 			<!-- View button, opening the popover that holds this tab's
 				grouping and sorting selects and its filter chips. -->
 			<template #sort>
-				<span class="view-catalog">
+				<span class="view-item-index">
 					<button
 						type="button"
-						class="catalog-view"
-						:class="{ 'catalog-view--open': openView }"
+						class="item-index-view"
+						:class="{ 'item-index-view--open': openView }"
 						:data-tooltip="localize('ARCHMAGE.filters')"
 						@click.stop="openView = !openView"
 					>
 						<i class="fas fa-bars" />
-						<span v-if="activeFilterCount" class="catalog-view-count">{{ activeFilterCount }}</span>
+						<span v-if="activeFilterCount" class="item-index-view-count">{{ activeFilterCount }}</span>
 					</button>
-					<div v-if="openView" class="view-catalog-popover" @click.stop>
+					<div v-if="openView" class="view-item-index-popover" @click.stop>
 						<!-- Group and sort share the top row, a column each. -->
 						<div class="group-sort-row">
-							<div class="group-catalog">
-								<label :for="concat('catalog-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
-								<select :id="concat('catalog-group-', tabId)" v-model="groupBy" :name="concat('catalog-group-', tabId)">
+							<div class="group-item-index">
+								<label :for="concat('item-index-group-', tabId)">{{ localize('ARCHMAGE.groupBy') }}</label>
+								<select :id="concat('item-index-group-', tabId)" v-model="groupBy" :name="concat('item-index-group-', tabId)">
 									<option v-for="option in groupOptions" :key="option.value" :value="option.value">{{ localize(option.labelKey ?? `ARCHMAGE.GROUPS.${option.value}`) }}</option>
 								</select>
 							</div>
-							<div class="group-catalog">
-								<label :for="concat('catalog-sort-', tabId)">{{ localize('ARCHMAGE.sort') }}</label>
-								<select :id="concat('catalog-sort-', tabId)" v-model="sortBy" :name="concat('catalog-sort-', tabId)">
+							<div class="group-item-index">
+								<label :for="concat('item-index-sort-', tabId)">{{ localize('ARCHMAGE.sort') }}</label>
+								<select :id="concat('item-index-sort-', tabId)" v-model="sortBy" :name="concat('item-index-sort-', tabId)">
 									<option v-for="option in sortOptions" :key="option.value" :value="option.value">{{ localize(`ARCHMAGE.SORTS.${option.value}`) }}</option>
 								</select>
 							</div>
@@ -37,7 +37,7 @@
 							items actually carry plus its groups' canonical values, OR
 							within a row and AND across rows (and with the search).
 							Cleared as a whole; persisted per tab like group and sort. -->
-						<div class="filter-catalog">
+						<div class="filter-item-index">
 							<div class="filter-head">
 								<h4 class="filter-title">
 									<span>{{ localize('ARCHMAGE.filters') }}</span>
@@ -82,10 +82,10 @@
 					</div>
 				</span>
 			</template>
-			<div v-if="canImport" class="import-catalog">
+			<div v-if="canImport" class="import-item-index">
 				<button
 					type="button"
-					class="catalog-import"
+					class="item-index-import"
 					:class="{ 'v3-pulse': isEmptyCharacter }"
 					:disabled="missingKinClass(actor)"
 					:data-tooltip="importTooltip"
@@ -99,16 +99,16 @@
 		<!-- Sections are the reorderable groups; the currency group renders its
 					coin purses in place of an item list. -->
 		<section
-			v-for="section in catalogSections"
+			v-for="section in itemIndexSections"
 			:key="section.key"
-			class="catalog-group"
+			class="item-index-group"
 			:class="groupClasses(section.key)"
 			@dragover="onGroupDragOver($event, section.key)"
 			@dragleave="onGroupDragLeave($event, section.key)"
 			@drop="onGroupDrop($event, section.key)"
 		>
 			<h4
-				class="catalog-group-title unit-title"
+				class="item-index-group-title unit-title"
 				:draggable="canDragGroups"
 				@dragstart="onGroupDragStart($event, section.key)"
 				@dragend="onGroupDragEnd"
@@ -134,14 +134,14 @@
 			</h4>
 			<!-- Coin purses, matching the v2 inventory tab. Deliberately
 						nameless inputs persisting through the live actor document on
-						change: every mounted catalog tab renders this row, and named
+						change: every mounted item index tab renders this row, and named
 						copies would make the sheet's form submit collect each field
 						twice as an array. -->
-			<div v-if="section.kind === 'currency'" class="catalog-currency flexrow">
+			<div v-if="section.kind === 'currency'" class="item-index-currency flexrow">
 				<div v-for="type in CURRENCY" :key="type" :class="concat('currency-unit currency-unit-', type)">
-					<label :for="concat('catalog-coin-', tabId, '-', type)">{{ localize(`ARCHMAGE.COINS.${type}`) }}</label>
+					<label :for="concat('item-index-coin-', tabId, '-', type)">{{ localize(`ARCHMAGE.COINS.${type}`) }}</label>
 					<input
-						:id="concat('catalog-coin-', tabId, '-', type)"
+						:id="concat('item-index-coin-', tabId, '-', type)"
 						:value="coinValue(type)"
 						type="number"
 						placeholder="0"
@@ -149,7 +149,7 @@
 					>
 				</div>
 			</div>
-			<ul v-else class="catalog-list flexcol">
+			<ul v-else class="item-index-list flexcol">
 				<ExpandableRowV3
 					v-for="item in section.members"
 					:key="item._id"
@@ -165,13 +165,13 @@
 <script setup>
 import { computed, inject, ref } from "vue";
 import { byLevel as byPowerLevel, byName, byTier, concat, equipmentBonuses, kinLabel, localize, missingKinClass } from "@/methods/Helpers";
-import { CATALOG_GROUP_MODES } from "@/methods/CatalogTabs";
+import { ITEM_INDEX_GROUP_MODES } from "@/methods/ItemIndexTabs";
 import { useFacetFilters } from "@/composables/useFacetFilters";
 import { useGroupReorder } from "@/composables/useGroupReorder";
-import { useCatalogTabPrefs } from "@/composables/useCatalogTabPrefs";
+import { useItemIndexTabPrefs } from "@/composables/useItemIndexTabPrefs";
 import { useDismissablePopover } from "@/composables/useDismissablePopover";
 import { useSearchFilter } from "@/composables/useSearchFilter";
-import { groupCatalogSections, groupCreateData, groupCreateOptions } from "@/methods/CatalogSections";
+import { groupItemIndexSections, groupCreateData, groupCreateOptions } from "@/methods/ItemIndexSections";
 import SortFilterBarV3 from "@/components/actor/character/v3/parts/SortFilterBarV3.vue";
 import ExpandableRowV3 from "@/components/actor/character/v3/parts/ExpandableRowV3.vue";
 import InfoBubble from "@/components/parts/InfoBubble.vue";
@@ -181,10 +181,10 @@ const props = defineProps(["actor", "editable", "context", "tab"]);
 // Creation writes go through the real actor document; props.actor is a clone.
 const actorDocument = inject("actorDocument");
 
-// The tab id keys the controls' ids and names only: every mounted catalog
+// The tab id keys the controls' ids and names only: every mounted item index
 // tab renders the same list, and duplicate name= attributes would make the
 // sheet's form submit collect each field twice.
-const tabId = computed(() => props.tab?.id ?? "catalog");
+const tabId = computed(() => props.tab?.id ?? "item-index");
 
 // The group-by select's options, derived from the shared mode list so a new
 // mode needs adding in one place. A labelKey overrides the shared GROUPS
@@ -195,7 +195,7 @@ const GROUP_LABEL_KEYS = {
 	powerType: "ARCHMAGE.powerType",
 	powerSource: "ARCHMAGE.CHAT.powerSource"
 };
-const groupOptions = CATALOG_GROUP_MODES.map((value) => ({ value, labelKey: GROUP_LABEL_KEYS[value] }));
+const groupOptions = ITEM_INDEX_GROUP_MODES.map((value) => ({ value, labelKey: GROUP_LABEL_KEYS[value] }));
 const sortOptions = [
 	{ value: "name" },
 	{ value: "level" },
@@ -206,7 +206,7 @@ const sortOptions = [
 // stored definition, so each tab groups and sorts independently of the
 // others and of the v2 sheet's powers flags.
 const canReorderGroups = computed(() => props.editable === true && !props.actor?.pack);
-const { groupBy, sortBy, saveTabDef } = useCatalogTabPrefs({
+const { groupBy, sortBy, saveTabDef } = useItemIndexTabPrefs({
 	actor: () => props.actor,
 	tab: () => props.tab,
 	tabId: () => tabId.value,
@@ -216,7 +216,7 @@ const { groupBy, sortBy, saveTabDef } = useCatalogTabPrefs({
 // The grouping/sorting popover's open state is transient; a document click
 // outside the view button or Escape closes it.
 const openView = ref(false);
-useDismissablePopover(openView, ".view-catalog");
+useDismissablePopover(openView, ".view-item-index");
 
 // Searchable text for an item: what the v2 inventory tab matches (name,
 // chakra, equipment's bonus keys and values) plus the fields only the
@@ -263,9 +263,9 @@ const {
 } = useGroupReorder({
 	actor: () => props.actor,
 	canReorder: canDragGroups,
-	flagPath: () => `sheetDisplay.catalog.groupOrder.${tabId.value}.${groupBy.value}`,
-	getSections: () => catalogSections.value,
-	classPrefix: "catalog-group"
+	flagPath: () => `sheetDisplay.itemIndex.groupOrder.${tabId.value}.${groupBy.value}`,
+	getSections: () => itemIndexSections.value,
+	classPrefix: "item-index-group"
 });
 
 // The import button opens the power importer for the live actor. Like the v2
@@ -307,7 +307,7 @@ const coinValue = (type) => {
 /**
  * Persist a purse through the real actor document on change, like the
  * loadout's tracker inputs — not through the sheet's named-input submit,
- * which every mounted catalog tab would join.
+ * which every mounted item index tab would join.
  * @param type
  * @param event
  */
@@ -332,7 +332,7 @@ const byLevel = (a, b) => {
 
 const sortFns = { name: byName, level: byLevel, custom: byCustom };
 
-const catalogItems = (types) => (props.actor?.items ?? [])
+const itemIndexItems = (types) => (props.actor?.items ?? [])
 	.filter((i) => types.includes(i.type))
 	.filter(matchesSearch)
 	.filter(matchesFilters)
@@ -340,14 +340,14 @@ const catalogItems = (types) => (props.actor?.items ?? [])
 
 // The items the group-by mode collates: powers and equipment by their field
 // values, with anything the mode has no group for falling into the catch-all.
-// Legacy 'tool' items are catalogued as loot, matching the inventory tab.
-const collated = computed(() => catalogItems(["power", "equipment"]));
-const loot = computed(() => catalogItems(["loot", "tool"]));
+// Legacy 'tool' items are indexed as loot, matching the inventory tab.
+const collated = computed(() => itemIndexItems(["power", "equipment"]));
+const loot = computed(() => itemIndexItems(["loot", "tool"]));
 
 // The collation itself — the mode's canonical groups, the catch-all, the
 // facet narrowing, loot and currency, in the saved group order — lives in
-// methods/CatalogSections, mirroring the facet filters' chip values.
-const catalogSections = computed(() => groupCatalogSections({
+// methods/ItemIndexSections, mirroring the facet filters' chip values.
+const itemIndexSections = computed(() => groupItemIndexSections({
 	mode: groupBy.value,
 	items: collated.value,
 	loot: loot.value,
@@ -417,7 +417,7 @@ const createGroupItem = async (section, type) => {
 	@import 'v3/popover';
 	// The view button and its grouping/sorting popover, docked at the bar's
 	// start (in the bar's #sort slot, ahead of the filter entry).
-	.view-catalog {
+	.view-item-index {
 		position: relative;
 		flex: 0 0 auto;
 		align-self: flex-end;
@@ -426,7 +426,7 @@ const createGroupItem = async (section, type) => {
 	}
 
 	// A standard button sized like the import button.
-	.catalog-view {
+	.item-index-view {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -445,14 +445,14 @@ const createGroupItem = async (section, type) => {
 		}
 
 		// Lit while its popover is open.
-		&.catalog-view--open {
+		&.item-index-view--open {
 			color: var(--color-text-emphatic);
 			text-shadow: 0 0 10px var(--color-shadow-primary);
 		}
 
 		// Filter count badge: chips can hide list content while the popover is
 		// closed, so the closed view button carries the number of active chips.
-		.catalog-view-count {
+		.item-index-view-count {
 			position: absolute;
 			top: -0.3rem;
 			right: -0.4rem;
@@ -468,7 +468,7 @@ const createGroupItem = async (section, type) => {
 		}
 	}
 
-	.view-catalog-popover {
+	.view-item-index-popover {
 		@include v3-popover;
 
 		// The group and sort selects share the top row, a labelled column
@@ -478,14 +478,14 @@ const createGroupItem = async (section, type) => {
 			display: flex;
 			gap: 0.375rem;
 
-			.group-catalog {
+			.group-item-index {
 				@include v3-popover-col;
 			}
 		}
 
 		// The filter facet rows, under a dashed rule matching the bar's own
 		// divider: a bold label and a wrap of toggle chips each.
-		.filter-catalog {
+		.filter-item-index {
 			display: flex;
 			flex-direction: column;
 			gap: 0.375rem;
@@ -614,7 +614,7 @@ const createGroupItem = async (section, type) => {
 	// Coin purses, styled like the filter controls (label above slim input).
 	// Units share the row evenly; gold/silver/copper copy the v2 sheet's
 	// denomination text colors (platinum keeps the default color there too).
-	.catalog-currency {
+	.item-index-currency {
 		gap: 2em;
 
 		> div {
@@ -649,7 +649,7 @@ const createGroupItem = async (section, type) => {
 
 	// Import button, slotted into the shared sort/filter bar and aligned to
 	// the control row (no label above it).
-	.import-catalog {
+	.import-item-index {
 		flex: 0 auto;
 		align-self: flex-end;
 
@@ -664,12 +664,12 @@ const createGroupItem = async (section, type) => {
 				cursor: not-allowed;
 			}
 
-			// Empty-catalog attention pulse: the v3-pulse class from the shared
+			// Empty-index attention pulse: the v3-pulse class from the shared
 			// partial carries the animation.
 		}
 	}
 
-	.catalog-group {
+	.item-index-group {
 		margin-bottom: 1.5rem;
 
 		&:last-child {
@@ -677,7 +677,7 @@ const createGroupItem = async (section, type) => {
 		}
 	}
 
-	.catalog-group-title {
+	.item-index-group-title {
 		margin: 0 0 0.25rem;
 		display: flex;
 		align-items: center;
@@ -762,17 +762,17 @@ const createGroupItem = async (section, type) => {
 		opacity: 0.35;
 	}
 
-	.catalog-group--dragging {
+	.item-index-group--dragging {
 		opacity: 0.5;
 	}
 
-	.catalog-group--drop-target > .catalog-group-title {
+	.item-index-group--drop-target > .item-index-group-title {
 		outline: 2px dashed;
 		outline-offset: 2px;
 		margin-left: 4px;
 	}
 
-	.catalog-list {
+	.item-index-list {
 		margin: 0;
 		padding: 0;
 		list-style: none;

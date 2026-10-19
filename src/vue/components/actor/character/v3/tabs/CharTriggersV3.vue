@@ -2,7 +2,7 @@
 	<section class="tab-triggers">
 		<template v-if="powersWithTriggers.length">
 			<!-- Search entry, with the view button (sort and the grouping
-        toggle's popover) docked ahead of it, like the catalog tabs. -->
+        toggle's popover) docked ahead of it, like the item index tabs. -->
 			<SortFilterBarV3 id="trigger" v-model:search="searchValue">
 				<!-- View button, opening the popover that holds this tab's
           sort select and its custom-groups toggle. -->
@@ -52,7 +52,7 @@
 							columns="32px minmax(6rem, 10rem) minmax(0, 1fr)"
 						>
 							<!-- Standard power row: the portrait, the name, then the trigger
-                   text where the catalog rows carry their feats, uses and
+                   text where the item index rows carry their feats, uses and
                    controls. -->
 							<template #cells="{toggle}">
 								<!-- Clicking the trigger text expands the row, like the name.
@@ -77,7 +77,7 @@
  * The triggers tab: every power with trigger text, listed with the trigger
  * in its own column and expanding to the power's full details. Custom
  * grouping mirrors the V2 triggers tab, persisting under the same flag;
- * sorting and the grouping toggle live in a view popover like the catalog
+ * sorting and the grouping toggle live in a view popover like the item index
  * tabs', and text filtering uses the shared search.
  */
 import { computed, ref, watch } from "vue";
@@ -92,7 +92,7 @@ const props = defineProps(["actor", "context"]);
 const powersWithTriggers = computed(() => powersWithTriggerText(props.actor?.items)
 	.sort((a, b) => (a.sort || 0) - (b.sort || 0)));
 
-// Sorts and filters, laid out like the catalog tab. 'custom' keeps the
+// Sorts and filters, laid out like the item index tab. 'custom' keeps the
 // item sort order; the other modes ignore it.
 const sortOptions = [{ value: "name" }, { value: "level" }, { value: "custom" }];
 const sortBy = ref(props.actor?.flags?.archmage?.sheetDisplay?.triggers?.sortBy?.value ?? "custom");
@@ -153,7 +153,7 @@ const groups = computed(() => {
 
   // The view button and its sort/grouping popover, docked at the bar's
   // start (in the bar's #sort slot, ahead of the search entry), like the
-  // catalog tabs'.
+  // item index tabs'.
   .view-trigger {
     position: relative;
     flex: 0 0 auto;
@@ -235,7 +235,7 @@ const groups = computed(() => {
 
     // Hovering the name escapes it over the trigger text (PowerSummaryRow's
     // rule), and the cells it escapes over recede so it reads over them —
-    // the catalog dims its feat and action cells the same way, from the row
+    // the item index dims its feat and action cells the same way, from the row
     // component that owns them. This cell is the tab's own, so its dim rule
     // is too, hence :deep() for the name it hangs off.
     :deep(.power-name:hover ~ .trigger-text) {

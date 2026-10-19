@@ -1,6 +1,6 @@
 <template>
 	<header class="sort-filter-bar">
-		<!-- Leading control: a tab slots its own (e.g. the catalog's and
+		<!-- Leading control: a tab slots its own (e.g. the item index's and
         triggers tab's view popovers) here. -->
 		<slot name="sort" />
 		<div class="search-control">
@@ -25,9 +25,9 @@
 <script setup>
 /**
  * The filter/search control row the listing tabs share: a named slot for the
- * tab's sort/grouping controls (the catalog and triggers tabs tuck their
+ * tab's sort/grouping controls (the item index and triggers tabs tuck their
  * sort — and grouping — into a popover there), a filter input, and a slot
- * for extra controls (the catalog's import button). Search is a v-model;
+ * for extra controls (the item index's import button). Search is a v-model;
  * the search's clear widget is owned here, resetting the model to null.
  */
 import { concat, localize } from "@/methods/Helpers";

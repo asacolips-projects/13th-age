@@ -1,9 +1,9 @@
 import { computed } from "vue";
 import { saveSheetDisplayPref } from "@/methods/Helpers";
-import { catalogTabDefs } from "@/methods/CatalogTabs";
+import { itemIndexTabDefs } from "@/methods/ItemIndexTabs";
 
 /**
- * A catalog tab's group-by and sort-by preferences: computeds that read the
+ * An item index tab's group-by and sort-by preferences: computeds that read the
  * tab's stored definition and patch it through `saveTabDef`, so each tab
  * groups and sorts independently of the others and of the v2 sheet's powers
  * flags. The sort falls back to 'custom' like v2 does, since drag-to-reorder
@@ -14,7 +14,7 @@ import { catalogTabDefs } from "@/methods/CatalogTabs";
  * @param {Function} options.actor Accessor for the sheet's actor data the
  *   flags are read from and written through.
  * @param {Function} options.tab Accessor for the tab's stored definition
- *   (from catalogTabDefs), whose `groupBy`/`sortBy` the computeds reflect.
+ *   (from itemIndexTabDefs), whose `groupBy`/`sortBy` the computeds reflect.
  * @param {Function} options.tabId Accessor for the tab's id, keying its
  *   entry in the stored tabs array.
  * @param {object} options.canWrite Computed: whether the actor's display
@@ -23,7 +23,7 @@ import { catalogTabDefs } from "@/methods/CatalogTabs";
  * @returns {object} The `groupBy`/`sortBy` writable computeds and the
  *   `saveTabDef` patcher.
  */
-export function useCatalogTabPrefs({ actor, tab, tabId, canWrite }) {
+export function useItemIndexTabPrefs({ actor, tab, tabId, canWrite }) {
 	/**
 	 * Patch this tab's definition in the stored tabs flags. Until the tab set
 	 * has been stored once, the tab is one of the derived defaults — seed the
@@ -34,11 +34,11 @@ export function useCatalogTabPrefs({ actor, tab, tabId, canWrite }) {
 	const saveTabDef = async (patch) => {
 		if (!canWrite.value) return;
 		const actorData = actor();
-		const stored = actorData?.flags?.archmage?.sheetDisplay?.catalog?.tabs;
-		const defs = Array.isArray(stored) && stored.length ? stored : catalogTabDefs(actorData);
+		const stored = actorData?.flags?.archmage?.sheetDisplay?.itemIndex?.tabs;
+		const defs = Array.isArray(stored) && stored.length ? stored : itemIndexTabDefs(actorData);
 		if (!defs.length) return;
 		const next = defs.map((def) => def.id === tabId() ? { ...def, ...patch } : def);
-		await saveSheetDisplayPref(actorData, "sheetDisplay.catalog.tabs", next);
+		await saveSheetDisplayPref(actorData, "sheetDisplay.itemIndex.tabs", next);
 	};
 
 	const groupBy = computed({

@@ -16,7 +16,7 @@ Partials:
 - `_pulse.scss`: the single global `v3-empty-pulse` keyframes definition
   (imported by CharSidebarV3's unscoped style block) and the `.v3-pulse`
   helper class — the class binds the animation to whole elements the
-  per-field `.field-empty` bindings don't cover, e.g. the catalog's import
+  per-field `.field-empty` bindings don't cover, e.g. the item index's import
   button while the character is empty.
 - `_transitions.scss`: the expandable rows' slide-fade rules.
 - `_unit-title.scss`: the sidebar/unit heading mixin.

@@ -23,7 +23,7 @@
 					<img :src="item.img" class="power-image">
 				</RollableV3>
 			</template>
-			<!-- The header cells after the name, defaulting to the catalog row's
+			<!-- The header cells after the name, defaulting to the item index row's
            feat letters, action, recharge, uses and controls. -->
 			<slot name="cells" :toggle="toggle">
 				<!-- The feat tiers as display-only letters: bright when taken, dim
@@ -96,7 +96,7 @@
  * details, which slide open beneath it. Owns its own expanded/collapsed
  * state, keyed to the item by the caller's v-for key, and covers every item
  * kind the listings show: powers, equipment, loot (and legacy tools), laid
- * out per kind from the item's type — the catalog grid with feat letters,
+ * out per kind from the item's type — the item index grid with feat letters,
  * action, recharge, uses and controls for powers, the inventory grid for the
  * rest — and expanding to the kind's V3 read view.
  *

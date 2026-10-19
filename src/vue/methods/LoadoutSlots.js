@@ -62,7 +62,7 @@ const slotTrack = (key, consumed, slots, config, editing) => ({
 /**
  * The loadout's two inventories with their slot tracks: magic items and
  * feats. Equipment whose tier is unset (the item sheet's none option) isn't
- * a magic item and lives on the catalog tab. Feats with no text are
+ * a magic item and lives on the item index tab. Feats with no text are
  * skipped, matching the power sheet's read view.
  *
  * The feat cascade: each level grants a slot in its tier's track — one per

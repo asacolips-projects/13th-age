@@ -132,7 +132,7 @@
 					/>
 				</template>
 
-				<!-- Feats grouped under their power. The power gets the catalog's
+				<!-- Feats grouped under their power. The power gets the item index's
              collapsible row, expanding to its read view minus the feats;
              beneath it, indented, the read view's feat rows: rollable tier
              and uses at left, description in the middle, taken pip at
@@ -189,7 +189,7 @@
  * for free, red triangles for slots used beyond the allowance, and filled
  * pips wearing a down-arrow where a feat spent a
  * higher tier's slot. Feats group under their power: the power is a
- * collapsible catalog-style row whose expanded view is the read view minus
+ * collapsible item-index-style row whose expanded view is the read view minus
  * the feats, with the read view's feat rows — always expanded — indented
  * beneath it; the pips and rolls are the same flips the powers tab makes.
  *
@@ -246,7 +246,7 @@ const canReorder = computed(() => props.editable === true && !props.actor?.pack)
 // Row reordering, shared by both sections: magic items and the powers in the
 // feats section (each dragging its feat block with it — the feats themselves
 // keep the order their author wrote). The order persists to this tab's own
-// flag: the catalog's custom order lives in the items' sort values, shared
+// flag: the item index's custom order lives in the items' sort values, shared
 // with the v2 sheet, and must not move because the loadout was tidied.
 const {
 	draggedRow, savedRowOrder,

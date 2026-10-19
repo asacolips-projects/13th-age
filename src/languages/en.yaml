@@ -37,8 +37,6 @@ ARCHMAGE:
   calculateRecoveries: Calculate Max Recoveries?
   calculatedHPMaxHint: Max HP is calculated automatically from base HP, the CON modifier, level, and the HP adjustment.
   calculatedRecoveriesMaxHint: Max recoveries is calculated automatically from the base recoveries value.
-  catalog: Catalog
-  catalogTabNumbered: "Catalog {n}"
   chakra: Chakra
   champion: Champion
   character: Character
@@ -135,6 +133,9 @@ ARCHMAGE:
   inventory: Inventory
   item: Item
   items: Items
+  itemIndex: Powers & Loot
+  itemIndexTab: Index
+  itemIndexTabNumbered: "Index {n}"
   itemType: Item type
   jabWeaponDice: JAB Weapon Dice
   keyMod: Key Modifier

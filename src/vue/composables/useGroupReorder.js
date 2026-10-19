@@ -2,7 +2,7 @@ import { computed, ref } from "vue";
 import { saveSheetDisplayPref } from "@/methods/Helpers";
 
 /**
- * Drag-to-reorder for the v3 tabs' group sections, shared by the catalog
+ * Drag-to-reorder for the v3 tabs' group sections, shared by the item index
  * tabs: each section's title drags, the sections highlight as
  * drop targets, and the drop rebuilds the display order around the release
  * point. The drag state is transient; the ordering persists to the actor
@@ -32,7 +32,7 @@ export function useGroupReorder({ actor, canReorder, getSections, flagPath, clas
 	const dragOverGroup = ref(null);
 
 	// The saved order, when one has been stored for the flag path; per-mode
-	// paths (the catalog's) re-read as the mode changes.
+	// paths (the item index's) re-read as the mode changes.
 	const savedGroupOrder = computed(() => {
 		const path = typeof flagPath === "function" ? flagPath() : flagPath;
 		const stored = foundry.utils.getProperty(actor()?.flags?.archmage ?? {}, path);

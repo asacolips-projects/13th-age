@@ -33,7 +33,7 @@ import { saveSheetDisplayPref } from "@/methods/Helpers";
  * @param {Function} [options.rows] Accessor for every displayed row;
  *   single-list tabs (the effects tab) use this instead of getRows.
  * @param {Function} [options.rowId] Accessor for a row's id; defaults to
- *   the item rows' `_id`. Tabs reordering other records (the catalog
+ *   the item rows' `_id`. Tabs reordering other records (the item index
  *   settings' tab defs) pass their own, e.g. (row) => row.id.
  * @param {Function} [options.persist] async (order) => void, replacing the
  *   flag write.

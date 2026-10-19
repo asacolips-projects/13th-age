@@ -2,7 +2,7 @@ import { computed } from "vue";
 import { cleanFilterKey, localize } from "@/methods/Helpers";
 
 // Grouping modes: the item field each reads. The power field modes also name
-// the CONFIG key giving their canonical group order. Shared with the catalog
+// the CONFIG key giving their canonical group order. Shared with the item index
 // tab's grouping, whose sections collate by the same fields the chips
 // facet on — and whose group-by select iterates the keys in this order (the
 // settings popover's), so adding a mode here offers and facets it in one
@@ -115,7 +115,7 @@ const facetLabel = (dim, value) => {
 };
 
 /**
- * The catalog popover's filter chips: the facet rows in display order —
+ * The item index popover's filter chips: the facet rows in display order —
  * chips for the values the character's items carry plus each dimension's
  * canonical values, so an empty group keeps its chip — plus the active-chip
  * count, the matcher the listing filters through, and the toggle/clear
@@ -127,7 +127,7 @@ const facetLabel = (dim, value) => {
  * 'daily' persists — the popover marks it empty — rather than expiring and
  * hiding that a selection is still active. The type facet's currency chip
  * names an item-less section, so nothing
- * ever carries it — the catalog reads the section's visibility off
+ * ever carries it — the item index reads the section's visibility off
  * `activeFilters`.
  *
  * @param {object} options
@@ -192,7 +192,7 @@ export function useFacetFilters({ items, filters, save }) {
 	 * facets, rendering in their own section instead — passes unfiltered, so
 	 * chips in a grouping facet narrow the grouped sections and their members
 	 * without ever touching the loot section. The section-naming chips never
-	 * match an item — the catalog reads those sections' visibility off
+	 * match an item — the item index reads those sections' visibility off
 	 * `activeFilters` instead.
 	 * @param item
 	 */

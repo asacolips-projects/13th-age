@@ -1,6 +1,6 @@
 <template>
 	<main class="sheet-main flexcol">
-		<!-- The catalog tabs are user-configured (the ellipsis tab between
+		<!-- The item index tabs are user-configured (the ellipsis tab between
          them and the triggers tab opens their settings). -->
 		<div class="strip-row" :class="{ narrow }">
 			<Tabs
@@ -32,18 +32,18 @@
 			</Tab>
 
 			<Tab
-				v-for="{ def, state } in catalogTabsView"
+				v-for="{ def, state } in itemIndexTabsView"
 				:key="def.id"
 				group="v3"
 				:tab="state"
 				classes="tab-body"
 			>
-				<CharCatalogV3 :actor="context.actor" :editable="context.editable" :context="context" :tab="def" />
+				<CharItemIndexV3 :actor="context.actor" :editable="context.editable" :context="context" :tab="def" />
 			</Tab>
-			<!-- The catalog tabs' settings, as a permanent icon-only tab: it
+			<!-- The item index tabs' settings, as a permanent icon-only tab: it
            only exists where its writes can land. -->
 			<Tab v-if="canConfigureTabs" group="v3" :tab="tabs.settings" classes="tab-body">
-				<CharCatalogTabSettingsV3 :actor="context.actor" />
+				<ItemIndexTabSettingsV3 :actor="context.actor" />
 			</Tab>
 			<Tab group="v3" :tab="tabs.triggers" classes="tab-body">
 				<CharTriggersV3 :actor="context.actor" :context="context" />
@@ -68,9 +68,9 @@
 import { computed, onUnmounted, reactive, ref, watchEffect } from "vue";
 import { localize, powersWithTriggerText } from "@/methods/Helpers";
 import { Tabs, Tab } from "@/components";
-import { CATALOG_GROUP_ICONS, catalogTabDefs, catalogTabLabel } from "@/methods/CatalogTabs";
-import CharCatalogV3 from "./tabs/CharCatalogV3.vue";
-import CharCatalogTabSettingsV3 from "./parts/CatalogTabSettingsV3.vue";
+import { ITEM_INDEX_GROUP_ICONS, itemIndexTabDefs, itemIndexTabLabel } from "@/methods/ItemIndexTabs";
+import CharItemIndexV3 from "./tabs/CharItemIndexV3.vue";
+import ItemIndexTabSettingsV3 from "./parts/ItemIndexTabSettingsV3.vue";
 import CharTriggersV3 from "./tabs/CharTriggersV3.vue";
 import CharEffectsV3 from "./tabs/CharEffectsV3.vue";
 import CharLoadoutV3 from "./tabs/CharLoadoutV3.vue";
@@ -88,7 +88,7 @@ const hasTriggers = computed(() => powersWithTriggerText(props.context.actor?.it
 // Tab definitions for parts/Tabs.vue: the object keys are the tab ids, and the
 // component flips `active` on the objects on click, which drives the matching
 // <Tab> wrappers above. reactive() so those mutations propagate; the object is
-// built once so actor updates never rebuild it. The catalog tabs themselves are
+// built once so actor updates never rebuild it. The item index tabs themselves are
 // user-configured and synced in below; the character tab only exists in the
 // narrow layout, and the icon map backfills the strip there too (the wide strip
 // stays label-only, notes excepted).
@@ -113,58 +113,58 @@ const rawTabs = {
 };
 const tabs = reactive(rawTabs);
 
-// The user-configured catalog tabs (sheetDisplay.catalog.tabs): stable
+// The user-configured item index tabs (sheetDisplay.itemIndex.tabs): stable
 // reactive state per tab id, synced from the flag-stored definitions so
 // re-renders never drop the active tab or the strip's click state. The
 // version ref just tells the computeds below when the set changed — the
 // flags only swap when the sheet re-renders.
-const catalogStates = new Map();
-const catalogVersion = ref(0);
+const itemIndexStates = new Map();
+const itemIndexVersion = ref(0);
 
 watchEffect(() => {
-	const defs = catalogTabDefs(props.context.actor);
+	const defs = itemIndexTabDefs(props.context.actor);
 	const known = new Set(defs.map((def) => def.id));
-	for (const id of [...catalogStates.keys()]) {
-		if (!known.has(id)) catalogStates.delete(id);
+	for (const id of [...itemIndexStates.keys()]) {
+		if (!known.has(id)) itemIndexStates.delete(id);
 	}
 	defs.forEach((def) => {
-		let state = catalogStates.get(def.id);
+		let state = itemIndexStates.get(def.id);
 		if (!state) {
 			state = reactive({ key: def.id, active: false });
-			catalogStates.set(def.id, state);
+			itemIndexStates.set(def.id, state);
 		}
-		state.label = catalogTabLabel(def);
-		state.icon = props.narrow ? (CATALOG_GROUP_ICONS[def.groupBy] ?? "fa-book") : undefined;
+		state.label = itemIndexTabLabel(def);
+		state.icon = props.narrow ? (ITEM_INDEX_GROUP_ICONS[def.groupBy] ?? "fa-book") : undefined;
 		state.hideLabel = props.narrow;
 	});
 
 	// Nothing active — first render, or the active tab was just removed:
-	// light the first catalog tab so the sheet never shows a dead strip.
-	if (!Object.values(tabs).some((t) => t.active) && ![...catalogStates.values()].some((s) => s.active)) {
-		const first = catalogStates.get(defs[0]?.id);
+	// light the first item index tab so the sheet never shows a dead strip.
+	if (!Object.values(tabs).some((t) => t.active) && ![...itemIndexStates.values()].some((s) => s.active)) {
+		const first = itemIndexStates.get(defs[0]?.id);
 		if (first) first.active = true;
 	}
-	catalogVersion.value++;
+	itemIndexVersion.value++;
 });
 
 /**
- * The strip's tab view: the static tabs with the catalog ones spliced in
+ * The strip's tab view: the static tabs with the item index ones spliced in
  * after the narrow-only character tab, in the stored tab order.
  */
-const catalogTabsView = computed(() => {
-	catalogVersion.value;
-	return catalogTabDefs(props.context.actor).map((def) => ({
+const itemIndexTabsView = computed(() => {
+	itemIndexVersion.value;
+	return itemIndexTabDefs(props.context.actor).map((def) => ({
 		def,
-		state: catalogStates.get(def.id) ?? { key: def.id, active: false }
+		state: itemIndexStates.get(def.id) ?? { key: def.id, active: false }
 	}));
 });
 
 const stripTabs = computed(() => {
-	catalogVersion.value;
+	itemIndexVersion.value;
 	// Order follows the stored tab definitions, so popover reorders take
 	// effect — the state map's own insertion order would go stale.
 	const merged = { character: tabs.character };
-	for (const { state } of catalogTabsView.value) merged[state.key] = state;
+	for (const { state } of itemIndexTabsView.value) merged[state.key] = state;
 	for (const key of ["settings", "triggers", "loadout", "effects", "progression", "notes"]) {
 		merged[key] = tabs[key];
 	}
@@ -180,7 +180,7 @@ const canConfigureTabs = computed(() => props.context?.editable === true && !pro
 // exists only in the narrow layout, and the settings tab only where its
 // writes can land. If a tab is open when it becomes hidden, move the active
 // tab to the first visible one. Icons/labels: narrow swaps the strip to
-// icon-only (hideLabel keeps hover tooltips working); the catalog tabs'
+// icon-only (hideLabel keeps hover tooltips working); the item index tabs'
 // icons were set in the sync above.
 watchEffect(() => {
 	tabs.triggers.hidden = !hasTriggers.value;
@@ -244,12 +244,12 @@ onUnmounted(() => clearTimeout(slideFallback));
 // persists clicks through the actor prop (pack actors are skipped there) under
 // archmage.sheetDisplay.tabs.v3.value like before — its own group so stale V2
 // values can't collide. A stored value pointing at a tab that no longer exists
-// (a removed catalog tab among them) would crash its mounted() lookup, so
+// (a removed item index tab among them) would crash its mounted() lookup, so
 // sanitize it back to the default.
 const storedTab = props.context.actor?.flags?.archmage?.sheetDisplay?.tabs?.v3?.value;
 const knownTabs = new Set([
 	...Object.keys(rawTabs),
-	...catalogTabDefs(props.context.actor).map((def) => def.id)
+	...itemIndexTabDefs(props.context.actor).map((def) => def.id)
 ]);
 const flags = {
 	sheetDisplay: {

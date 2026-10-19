@@ -2,10 +2,10 @@ import { localize } from "@/methods/Helpers";
 import { FACET_DIMENSIONS, GROUP_MODES } from "@/composables/useFacetFilters";
 
 /**
- * The catalog's configurable tab set, stored under the sheetDisplay.catalog
+ * The item index's configurable tab set, stored under the sheetDisplay.itemIndex
  * flags:
  *
- *   sheetDisplay.catalog: {
+ *   sheetDisplay.itemIndex: {
  *     tabs: [{ id, label, groupBy, sortBy, filters? }, ...]   // at least one
  *     groupOrder: { <tabId>: { <groupBy>: [keys] } }
  *     rowOrder:   { <tabId>: [itemIds] }
@@ -19,10 +19,10 @@ import { FACET_DIMENSIONS, GROUP_MODES } from "@/composables/useFacetFilters";
 // Group-by modes a user tab can take, in the settings popover's order —
 // the GROUP_MODES keys' order, so a mode is added in one place.
 // 'inventory' is the Loot tab's mode and not offered.
-export const CATALOG_GROUP_MODES = Object.keys(GROUP_MODES);
+export const ITEM_INDEX_GROUP_MODES = Object.keys(GROUP_MODES);
 
 // Icons for the narrow layout's icon-only strip, keyed by group-by mode.
-export const CATALOG_GROUP_ICONS = {
+export const ITEM_INDEX_GROUP_ICONS = {
 	powerType: "fa-book",
 	powerUsage: "fa-bolt",
 	powerSource: "fa-hat-wizard",
@@ -32,7 +32,7 @@ export const CATALOG_GROUP_ICONS = {
 
 const SORTS = ["name", "level", "custom"];
 
-// Chip dimensions a tab's own filters may select: the catalog popover's
+// Chip dimensions a tab's own filters may select: the item index popover's
 // facet rows' dimensions. The type facet's currency chip names the
 // item-less currency strip, holding it in the listing per tab.
 const CHIP_FILTER_KEYS = FACET_DIMENSIONS;
@@ -54,15 +54,15 @@ function sanitizeTabFilters(filters) {
 }
 
 /**
- * The actor's catalog tab definitions: the stored sheetDisplay.catalog.tabs
- * flags with missing fields backfilled, or a single default "Catalog" tab
+ * The actor's item index tab definitions: the stored sheetDisplay.itemIndex.tabs
+ * flags with missing fields backfilled, or a single default "Powers & Loot" tab
  * when nothing usable is stored yet — pack actors included, whose flags
  * can't be written, so the default derives fresh on every render until the
  * actor can store its own.
  * @param actorData
  */
-export function catalogTabDefs(actorData) {
-	const stored = actorData?.flags?.archmage?.sheetDisplay?.catalog?.tabs;
+export function itemIndexTabDefs(actorData) {
+	const stored = actorData?.flags?.archmage?.sheetDisplay?.itemIndex?.tabs;
 	if (Array.isArray(stored) && stored.length) {
 		const defs = stored
 			.filter((def) => def?.id)
@@ -70,7 +70,7 @@ export function catalogTabDefs(actorData) {
 				const clean = {
 					id: def.id,
 					label: typeof def.label === "string" ? def.label : "",
-					groupBy: CATALOG_GROUP_MODES.includes(def.groupBy) ? def.groupBy : "powerType",
+					groupBy: ITEM_INDEX_GROUP_MODES.includes(def.groupBy) ? def.groupBy : "powerType",
 					sortBy: SORTS.includes(def.sortBy) ? def.sortBy : "custom"
 				};
 				const filters = sanitizeTabFilters(def.filters);
@@ -79,8 +79,8 @@ export function catalogTabDefs(actorData) {
 			});
 		if (defs.length) return defs;
 	}
-	// Nothing stored yet: one "Catalog" tab, grouped by power type.
-	return [{ id: "catalog", label: localize("ARCHMAGE.catalog"), groupBy: "powerType", sortBy: "custom" }];
+	// Nothing stored yet: one "Powers & Loot" tab, grouped by power type.
+	return [{ id: "item-index", label: localize("ARCHMAGE.itemIndex"), groupBy: "powerType", sortBy: "custom" }];
 }
 
 // Label keys per group mode for derived tab names — the shared GROUPS
@@ -94,7 +94,7 @@ const LABEL_KEYS = { powerSource: "ARCHMAGE.CHAT.powerSource" };
  * group-by mode — "Items by Type", "Items by Action", and so on.
  * @param def
  */
-export function catalogTabLabel(def) {
+export function itemIndexTabLabel(def) {
 	const custom = def?.label?.trim();
 	if (custom) return custom;
 	return localize("ARCHMAGE.itemsByGroup", {

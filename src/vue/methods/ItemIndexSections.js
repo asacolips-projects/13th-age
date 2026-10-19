@@ -2,7 +2,7 @@ import { cleanFilterKey, orderedGroups } from "@/methods/Helpers";
 import { ACTION_ORDER, GROUP_MODES } from "@/composables/useFacetFilters";
 
 /**
- * The catalog tab's section collation: turning the tab's filtered items into
+ * The item index tab's section collation: turning the tab's filtered items into
  * the ordered group sections its listing renders. Pure functions — the
  * collation the facet filters' chips must mirror — kept out of the tab
  * component so they can be reasoned about (and unit-tested) on their own.
@@ -39,7 +39,7 @@ const makeGroup = (key, labelKey, raw = "") => ({ key, labelKey, raw, kind: "pow
 const groupLabel = (mode, key) => mode === "powerType" ? `ARCHMAGE.${key}s` : `ARCHMAGE.${key}`;
 
 /**
- * Every catalog section in display order: the mode's canonical groups, the
+ * Every item index section in display order: the mode's canonical groups, the
  * 'Other' catch-all for items that fell through, then the loot and currency
  * groups. Collating is by field value only — an item joins the canonical
  * group its value names, or the catch-all — and every group renders, empty
@@ -67,7 +67,7 @@ const groupLabel = (mode, key) => mode === "powerType" ? `ARCHMAGE.${key}s` : `A
  *
  * @returns {Array} The sections in display order.
  */
-export function groupCatalogSections({ mode, items, loot, showCurrency, activeFilters, savedOrder }) {
+export function groupItemIndexSections({ mode, items, loot, showCurrency, activeFilters, savedOrder }) {
 	const groups = new Map(canonicalKeys(mode).map((key) => [key, makeGroup(key, groupLabel(mode, key))]));
 	const other = makeGroup("other", "ARCHMAGE.other");
 

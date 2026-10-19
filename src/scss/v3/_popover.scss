@@ -1,7 +1,7 @@
-// The v3 tabs' view popovers (the catalog's grouping/sort/filter panel, the
+// The v3 tabs' view popovers (the item index's grouping/sort/filter panel, the
 // triggers tab's sort/group panel): the floating panel the view button
 // opens, and the labelled control column its top row lays out. Mixins,
-// following the v3-unit-title pattern; imported by CharCatalogV3 and
+// following the v3-unit-title pattern; imported by CharItemIndexV3 and
 // CharTriggersV3.
 
 @mixin v3-popover {

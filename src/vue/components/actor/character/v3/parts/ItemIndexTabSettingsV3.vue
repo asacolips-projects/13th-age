@@ -4,7 +4,7 @@
        readable width. Rename each tab, drag the grip to reorder, add or
        remove (one tab minimum). An empty name makes the tab fall back to its
        derived label; the input's placeholder is a plain "Title" prompt. -->
-	<section class="tab-catalog-settings">
+	<section class="tab-item-index-settings">
 		<header class="settings-header">
 			<button type="button" class="settings-add" @click="add"><i class="fas fa-plus" /> {{ localize('ARCHMAGE.addTab') }}</button>
 		</header>
@@ -42,28 +42,28 @@
 
 <script setup>
 /**
- * The catalog tabs' settings panel, the body of the ellipsis tab at the
+ * The item index tabs' settings panel, the body of the ellipsis tab at the
  * strip's end: one row per tab with a name input, a grip to drag-reorder,
  * an X to remove (disabled while only one tab is left), and an add button —
  * the set's size, names and order are all it manages. Changes persist to
- * the sheetDisplay.catalog.tabs flags, which re-render the sheet and with
+ * the sheetDisplay.itemIndex.tabs flags, which re-render the sheet and with
  * it the strip.
  */
 import { computed } from "vue";
 import { localize, saveSheetDisplayPref } from "@/methods/Helpers";
-import { catalogTabDefs } from "@/methods/CatalogTabs";
+import { itemIndexTabDefs } from "@/methods/ItemIndexTabs";
 import { useRowReorder } from "@/composables/useRowReorder";
 
 const props = defineProps(["actor"]);
 
-const defs = computed(() => catalogTabDefs(props.actor));
+const defs = computed(() => itemIndexTabDefs(props.actor));
 
 /**
  * Persist a new tabs array; the sheet re-renders from the flags.
  * @param tabs
  */
 const save = async (tabs) => {
-	await saveSheetDisplayPref(props.actor, "sheetDisplay.catalog.tabs", tabs);
+	await saveSheetDisplayPref(props.actor, "sheetDisplay.itemIndex.tabs", tabs);
 };
 
 const rename = (def, event) => save(defs.value.map((other) =>
@@ -80,7 +80,7 @@ const remove = (def) => {
 // Clear a removed tab's saved group/row orders from the flags — nothing
 // reads them back once the tab is gone, so they'd only accumulate.
 const pruneOrders = (id) => {
-	for (const path of [`sheetDisplay.catalog.groupOrder.${id}`, `sheetDisplay.catalog.rowOrder.${id}`]) {
+	for (const path of [`sheetDisplay.itemIndex.groupOrder.${id}`, `sheetDisplay.itemIndex.rowOrder.${id}`]) {
 		saveSheetDisplayPref(props.actor, path, null);
 	}
 };
@@ -107,28 +107,28 @@ const {
 	startDrag: (event, _containerKey, tabId) => {
 		event.dataTransfer.effectAllowed = "move";
 		// Tag the payload so nothing downstream mistakes this for an item drag.
-		event.dataTransfer.setData("text/plain", JSON.stringify({ type: "CatalogTabOrder", tabId }));
+		event.dataTransfer.setData("text/plain", JSON.stringify({ type: "ItemIndexTabOrder", tabId }));
 	}
 });
 
 const add = () => {
-	// Localized "Catalog N", one past the highest number already in the set —
+	// Localized "Index N", one past the highest number already in the set —
 	// the scan matches on the localized word so numbering keeps working in
 	// translations that renamed the base term.
-	const base = localize("ARCHMAGE.catalog");
+	const base = localize("ARCHMAGE.itemIndexTab");
 	const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 	const scan = new RegExp(`^${escaped} (\\d+)$`);
 	const nums = defs.value
 		.map((def) => scan.exec(def.label ?? ""))
 		.filter((match) => match)
 		.map((match) => Number(match[1]));
-	save([...defs.value, { id: foundry.utils.randomID(), label: game.i18n.format("ARCHMAGE.catalogTabNumbered", { n: (nums.length ? Math.max(...nums) : 0) + 1 }) }]);
+	save([...defs.value, { id: foundry.utils.randomID(), label: game.i18n.format("ARCHMAGE.itemIndexTabNumbered", { n: (nums.length ? Math.max(...nums) : 0) + 1 }) }]);
 };
 </script>
 
 <style scoped lang="scss">
   // The header bar, matching the effects tab's (controls over a rule); the
-  // add button docks at its right like the catalog's per-group "+".
+  // add button docks at its right like the item index's per-group "+".
   .settings-header {
     display: flex;
     align-items: baseline;
@@ -161,7 +161,7 @@ const add = () => {
     align-items: center;
     gap: 0.375rem;
 
-    // Reorder affordances, matching the catalog's group titles.
+    // Reorder affordances, matching the item index's group titles.
     .row-grip {
       flex: 0 0 auto;
       font-size: var(--font-size-14);
