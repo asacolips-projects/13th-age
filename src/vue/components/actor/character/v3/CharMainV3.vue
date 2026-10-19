@@ -189,8 +189,10 @@ watchEffect(() => {
 
 	for (const key of ["character", "triggers", "effects", "loadout", "progression", "notes", "settings"]) {
 		const tab = tabs[key];
+		// Recomputed, not ||= — narrow-induced labels must come back when the
+		// strip widens, while the permanently label-less tabs keep their flag.
+		tab.hideLabel = props.narrow || !!rawTabs[key].hideLabel;
 		tab.icon = (props.narrow || tab.hideLabel) ? icons[key] : undefined;
-		tab.hideLabel ||= props.narrow;
 	}
 
 	const hiddenActive = Object.values(tabs).find((t) => t.hidden && t.active);
