@@ -149,6 +149,11 @@ const onKeydown = (event) => {
 			if (highlighted.value >= 0) choose(matches.value[highlighted.value]);
 			break;
 		case "Escape":
+			// Swallow it: the first Escape dismisses the dropdown, not the
+			// sheet window it floats over. With the list closed the early
+			// return above lets Escape through to the window as usual.
+			event.preventDefault();
+			event.stopPropagation();
 			open.value = false;
 			highlighted.value = -1;
 			break;
