@@ -141,8 +141,6 @@ function toggleIncremental(inc) {
 </script>
 
 <style scoped lang="scss">
-  @import 'v3/empty';
-
   .progression-section {
     margin-bottom: 1.5rem;
 

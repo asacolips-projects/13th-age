@@ -119,6 +119,15 @@ async function deleteEffect(bypass = false) {
 }
 </script>
 
+<style lang="scss">
+  /* Own import of the slide-fade rules: the Transition above relies on them,
+     and this row can't depend on another component's unscoped import also
+     being present. Unscoped like the rows' import, so the rules stay global
+     and the keyframe-bound class names keep working when scoped styles
+     can't see them. */
+  @import 'v3/transitions';
+</style>
+
 <style scoped lang="scss">
   .effect-row {
     /* 1px seam between stacked rows so the page background peeks through. */

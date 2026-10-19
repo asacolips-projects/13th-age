@@ -10,7 +10,8 @@ Partials:
   colours and fieldset sectioning.
 - `_drag-reorder.scss`: the row/group drag-reorder feedback classes the
   reorder composables emit.
-- `_empty.scss`: the listings' empty-state dash (`.v3-empty`).
+- `_empty.scss`: the muted italic empty-state paragraph (`.v3-empty`) a
+  list or tab shows when it has nothing to render.
 - `_pips.scss`: the circle state-pip mixin (feat pips, loadout slot pips).
 - `_popover.scss`: the view popover shell and control-column mixins.
 - `_pulse.scss`: the single global `v3-empty-pulse` keyframes definition
