@@ -1079,14 +1079,17 @@ export class ActorArchmage extends Actor {
 				prop = "rerollSave";
 				break;
 		}
-		this.items.forEach((item) => {
-			if (item.type === "equipment" && item.system.isActive && item.system.attributes[prop].current > 0) {
-				// Found source of the bonus, update it
-				let itemOverrideData = { _id: item.id };
-				itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
-				this.updateEmbeddedDocuments("Item", [itemOverrideData]);
-			}
-		});
+		if (!prop) return;
+
+		// The pool's count is the sum across every equipped item granting it, so
+		// a spend decrements the first item that still has uses left — once, in
+		// a single batched update. No source, no card.
+		const source = this.items.find((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.current > 0);
+		if (!source) return;
+		await this.updateEmbeddedDocuments("Item", [{
+			_id: source.id,
+			[`system.attributes.${prop}.current`]: source.system.attributes[prop].current - 1
+		}]);
 
 		// Basic template rendering data
 		const template = `systems/archmage/templates/chat/reroll-card.html`;
