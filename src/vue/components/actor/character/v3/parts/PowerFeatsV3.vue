@@ -101,7 +101,12 @@ async function changeFeatUses(featKey, increase = true) {
 	if (!feat) return;
 
 	const current = Number(feat.quantity?.value) || 0;
-	const max = feat.maxQuantity?.value ?? 99;
+	// Parse, don't clamp raw: maxQuantity is a String field that may hold a
+	// formula ('[[@cha.mod]]'), and Math.min against that would NaN the
+	// update. Nothing resolves feat maxima (the v2 sheet shares the flaw,
+	// with its TODO), so a non-numeric value falls back to the 99 ceiling.
+	const parsedMax = Number(feat.maxQuantity?.value);
+	const max = Number.isFinite(parsedMax) && parsedMax > 0 ? parsedMax : 99;
 	const next = increase ? Math.min(max, current + 1) : Math.max(0, current - 1);
 	await item.update({ [`system.feats.${featKey}.quantity.value`]: next });
 }
