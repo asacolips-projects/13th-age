@@ -169,6 +169,13 @@ watch(editing, (value) => {
 	if (value && showOut.value) nextTick(mountOutEditor);
 });
 
+// The layout flip swaps the hero header for the narrow command bar — a new
+// host element for the OUT editor. While editing, remount onto it; otherwise
+// the next edit-mode toggle does it.
+watch(narrow, () => {
+	if (editing.value && showOut.value) nextTick(mountOutEditor);
+});
+
 // Portrait treatment flags (the round/frame ones the V2 sheets honor, plus
 // the V3-only full-artwork opt-out of the banner crop — hero only; the
 // command bar's thumb never crops).
