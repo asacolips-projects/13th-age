@@ -11,9 +11,7 @@ import { ArchmageEquipmentSheetV2 } from "./item/equipment-sheet-v2.js";
 import { ArchmageActionSheetV2 } from "./item/action-sheet-v2.js";
 import { wrapRolls } from "./item/_item-sheet-helpers.mjs";
 import { ArchmageMacros } from "./setup/macros.js";
-import { ArchmageUtility } from "./setup/utility-classes.js";
-import { MacroUtils } from "./setup/utility-classes.js";
-import { ArchmageReference } from "./setup/utility-classes.js";
+import { ArchmageUtility, MacroUtils, ArchmageReference } from "./setup/utility-classes.js";
 import { ContextMenu2 } from "./setup/contextMenu2.js";
 import { DamageApplicator } from "./setup/damageApplicator.js";
 import { DiceArchmage } from "./actor/dice.js";
@@ -1517,7 +1515,7 @@ Hooks.on("renderJournalSheet", async (app, html, data) => {
 /** RFC4122-ish v4 UUID generator for macro payloads. */
 function uuidv4() {
 	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-		var r = Math.random() * 16 | 0; var v = c == "x" ? r : (r & 0x3 | 0x8);
+		var r = (Math.random() * 16) | 0; var v = c == "x" ? r : ((r & 0x3) | 0x8);
 		return v.toString(16);
 	});
 }

@@ -1,5 +1,4 @@
-import { ArchmageUtility } from "../setup/utility-classes.js";
-import { MacroUtils } from "../setup/utility-classes.js";
+import { ArchmageUtility, MacroUtils } from "../setup/utility-classes.js";
 import { DiceArchmage } from "./dice.js";
 /**
  * Extend the base Actor class to implement additional logic specialized for the system.
@@ -225,47 +224,44 @@ export class ActorArchmage extends Actor {
 				}
 				// Else if it's new save it
 				else if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
-				// And if it isn't check if the new penalty is worse
-				else { // Check if the new penalty is worse than the earlier one
-					if (change.numeric < uniquePenalties[change.key].numeric) {
-						uniquePenalties[change.key].numeric = change.numeric;
-					}
+				// And if it isn't check if the new penalty is worse than the earlier one
+				else if (change.numeric < uniquePenalties[change.key].numeric) {
+					uniquePenalties[change.key].numeric = change.numeric;
 				}
 			}
-			// Bonuses stack if the name is different or if flagged to
-			else {
-				// If it's meant to stack save it and handle it later
-				if (change.effect.flags.archmage?.stacksAlways) {
-					if (!stackingBonuses[change.key]) stackingBonuses[change.key] = [];
-					stackingBonuses[change.key].push(change);
-				}
-				// Else if it's new save it
-				else if (!uniqueBonuses[change.key]) {
+			// Bonuses stack if the name is different or if flagged to.
+			// If it's meant to stack save it and handle it later
+			else if (change.effect.flags.archmage?.stacksAlways) {
+				if (!stackingBonuses[change.key]) stackingBonuses[change.key] = [];
+				stackingBonuses[change.key].push(change);
+			}
+			// Else if it's new save it
+			else if (!uniqueBonuses[change.key]) {
+				uniqueBonuses[change.key] = change;
+				uniqueBonusLabels[change.key] = {};
+				uniqueBonusLabels[change.key][change.name] = change;
+			}
+			// And if it isn't check if the new bonus has a new name.
+			// An effect with the same name already exists, use better one
+			else if (uniqueBonusLabels[change.key][change.name]) {
+				if (change.numeric > uniqueBonusLabels[change.key][change.name].numeric) {
 					uniqueBonuses[change.key] = change;
-					uniqueBonusLabels[change.key] = {};
 					uniqueBonusLabels[change.key][change.name] = change;
 				}
-				// And if it isn't check if the new bonus has a new name
-				else { // Check if we have other bonuses with the same name
-					if (uniqueBonusLabels[change.key][change.name]) {
-						// An effect with the same name already exists, use better one
-						if (change.numeric > uniqueBonusLabels[change.key][change.name].numeric) {
-							uniqueBonuses[change.key] = change;
-							uniqueBonusLabels[change.key][change.name] = change;
-						}
-					}
-					else {
-						// No other effect with this name exists, stack
-						uniqueBonusLabels[change.key][change.name] = change;
-						if (change.value) uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((acc, c) => acc + c.value, ""))
-							.toString();
-						if (change.numeric) uniqueBonuses[change.key].numeric += change.numeric;
-					}
+			}
+			// No other effect with this name exists, stack
+			else {
+				uniqueBonusLabels[change.key][change.name] = change;
+				if (change.value) {
+					uniqueBonuses[change.key].value = Object.values(uniqueBonusLabels[change.key])
+						.reduce((acc, c) => acc + c.value, "")
+						.toString();
 				}
+				if (change.numeric) uniqueBonuses[change.key].numeric += change.numeric;
 			}
 		}
 		// Merge stacking bonuses and penalties into unique bonuses
-		for (let [k, v] of Object.entries(stackingPenalties)) {
+		for (let v of Object.values(stackingPenalties)) {
 			// TODO: is this correct, or should we stack by name and still keep the worst?
 			// Compute stacked change
 			stackedChange = v[0];
@@ -280,7 +276,7 @@ export class ActorArchmage extends Actor {
 				uniquePenalties[stackedChange.key].numeric += stackedChange.numeric;
 			}
 		}
-		for (let [k, v] of Object.entries(stackingBonuses)) {
+		for (let v of Object.values(stackingBonuses)) {
 			// Compute stacked change
 			stackedChange = v[0];
 			for (let change of Object.values(v.slice(1))) {
@@ -405,7 +401,7 @@ export class ActorArchmage extends Actor {
 		// Build out the icon results structure if it hasn't been
 		// previously initialized.
 		if (data?.icons) {
-			for (let [k, v] of Object.entries(data.icons)) {
+			for (let v of Object.values(data.icons)) {
 				if (v.results && v.results.length != v.bonus.value) {
 					let results = [];
 					for (let i = 0; i < v.bonus.value; i++) {
@@ -921,7 +917,7 @@ export class ActorArchmage extends Actor {
 				}
 			});
 		}
-		catch {
+		catch{
 			// Cancelled or closed without resolving; nothing to roll.
 			return;
 		}
@@ -1842,12 +1838,10 @@ export class ActorArchmage extends Actor {
 				}
 				else if (["recharge", "recharge-desperate"].includes(item.system.powerUsage?.value) && rechAttempts > 0) {
 					// This captures other as well
-					let successes = 0;
 					for (let j = 0; j < rechAttempts; j++) {
 						let roll = await this.items.get(item.id).recharge({ createMessage: false });
 						rollsToAnimate.push(roll.roll);
 						if (roll.total >= rechValue) {
-							successes++;
 							templateData.items.push({
 								key: item.name,
 								message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${rechValue})`
@@ -2230,8 +2224,8 @@ export class ActorArchmage extends Actor {
 			data: {
 				abil: abl ? abl.nonKey.mod + abl.bonus : 0,
 				lvl: this.system.attributes.level.value
-					+ ((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition")
-					|| this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition")) ? 1 : 0),
+					+ (((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition"))
+					|| (this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition"))) ? 1 : 0),
 				bg: bg ? bg[1].bonus.value : 0,
 				abilityName: abilityName,
 				backgroundName: backgroundName,
@@ -2241,10 +2235,7 @@ export class ActorArchmage extends Actor {
 			abilities: this.system.abilities,
 			backgrounds: this.system.backgrounds,
 			title: flavor,
-			alias: this.name,
-			actor: this,
-			ability: abl,
-			background: bg
+			actor: this
 		});
 	}
 
@@ -2661,11 +2652,11 @@ export class ActorArchmage extends Actor {
 
 			// Compute penalties due to equipment (if classes known)
 			if (this.system.details.detectedClasses) {
-				let shieldPen = new Array();
-				let twohandedPen = new Array();
-				let mWpn1h = new Array();
-				let mWpn2h = new Array();
-				let skilledWarrior = new Array();
+				let shieldPen = [];
+				let twohandedPen = [];
+				let mWpn1h = [];
+				let mWpn2h = [];
+				let skilledWarrior = [];
 				this.system.details.detectedClasses.forEach(function (item) {
 					shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
 					mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
@@ -2788,18 +2779,18 @@ export class ActorArchmage extends Actor {
 
 				// Collect base stats for detected classes
 				let base = {
-					hp: new Array(),
-					ac: new Array(),
-					ac_hvy: new Array(),
-					shld_pen: new Array(),
-					pd: new Array(),
-					md: new Array(),
-					rec: new Array(),
-					rec_num: new Array(),
-					mWpn_1h: new Array(),
-					mWpn_2h: new Array(),
-					rWpn: new Array(),
-					skilledWarrior: new Array()
+					hp: [],
+					ac: [],
+					ac_hvy: [],
+					shld_pen: [],
+					pd: [],
+					md: [],
+					rec: [],
+					rec_num: [],
+					mWpn_1h: [],
+					mWpn_2h: [],
+					rWpn: [],
+					skilledWarrior: []
 				};
 
 				matchedClasses.forEach(function (item) {
