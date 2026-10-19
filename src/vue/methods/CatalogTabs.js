@@ -1,4 +1,4 @@
-import { getActor, localize } from "@/methods/Helpers";
+import { localize } from "@/methods/Helpers";
 import { FACET_DIMENSIONS, GROUP_MODES } from "@/composables/useFacetFilters";
 
 /**
@@ -55,12 +55,10 @@ function sanitizeTabFilters(filters) {
 
 /**
  * The actor's catalog tab definitions: the stored sheetDisplay.catalog.tabs
- * flags with missing fields backfilled, or defaults when nothing is stored
- * yet — a single "Catalog" tab for a PC the v2 sheet has never touched,
- * otherwise "Items by Type" from the legacy powers flags the v2 sheet still
- * owns and "Items by Action" from the retired action plan's. Unmigrated
- * actors get the derivation fresh on every render, since their flags can't
- * be written.
+ * flags with missing fields backfilled, or a single default "Catalog" tab
+ * when nothing usable is stored yet — pack actors included, whose flags
+ * can't be written, so the default derives fresh on every render until the
+ * actor can store its own.
  * @param actorData
  */
 export function catalogTabDefs(actorData) {
@@ -81,27 +79,8 @@ export function catalogTabDefs(actorData) {
 			});
 		if (defs.length) return defs;
 	}
-	const powers = actorData?.flags?.archmage?.sheetDisplay?.powers ?? {};
-	const plan = actorData?.flags?.archmage?.sheetDisplay?.actionPlan ?? {};
-	// A PC the v2 sheet has never touched has no legacy arrangement to carry
-	// over: start it on a single "Catalog" tab rather than the derived pair.
-	if (!Object.keys(powers).length && !Object.keys(plan).length) {
-		return [{ id: "catalog", label: localize("ARCHMAGE.catalog"), groupBy: "powerType", sortBy: "custom" }];
-	}
-	return [
-		{
-			id: "byType",
-			label: "",
-			groupBy: CATALOG_GROUP_MODES.includes(powers.groupBy?.value) ? powers.groupBy.value : "powerType",
-			sortBy: SORTS.includes(powers.sortBy?.value) ? powers.sortBy.value : "custom"
-		},
-		{
-			id: "byAction",
-			label: "",
-			groupBy: "actionType",
-			sortBy: SORTS.includes(plan.sortBy?.value) ? plan.sortBy.value : "custom"
-		}
-	];
+	// Nothing stored yet: one "Catalog" tab, grouped by power type.
+	return [{ id: "catalog", label: localize("ARCHMAGE.catalog"), groupBy: "powerType", sortBy: "custom" }];
 }
 
 /**
@@ -115,57 +94,4 @@ export function catalogTabLabel(def) {
 	return localize("ARCHMAGE.itemsByGroup", {
 		group: localize(`ARCHMAGE.GROUPS.${def?.groupBy ?? "powerType"}`)
 	});
-}
-
-/**
- * One-time migration to the configurable tab set, run on sheet render for
- * editable actors when no tab set is stored yet. Seeds the new flag paths
- * from the legacy ones so saved arrangements survive the swap:
- *
- * - The tab set itself is whatever catalogTabDefs derives — the class
- *   presets for a character with a class, the legacy derivation otherwise.
- *   It is seeded once and never regenerated afterward: class changes don't
- *   touch the stored tabs.
- * - The powers flags' per-mode group orders carry over to the "Items by
- *   Type" tab; the action plan's group and row orders to the action one.
- * - Custom sort no longer reads the items' shared sort values (the v2
- *   sheet keeps those), so each new tab's flat row order is seeded from
- *   them: what the old catalog showed in custom mode is what the new tabs
- *   start from.
- *
- * The legacy flags are left in place for the v2 sheet.
- * @param actorData
- */
-export async function migrateCatalogTabs(actorData) {
-	const sheetDisplay = actorData?.flags?.archmage?.sheetDisplay ?? {};
-	if (Array.isArray(sheetDisplay.catalog?.tabs) && sheetDisplay.catalog.tabs.length) return;
-
-	const updates = [
-		["sheetDisplay.catalog.tabs", catalogTabDefs(actorData)]
-	];
-	const legacyGroupOrders = sheetDisplay.powers?.groupOrder ?? {};
-	if (Object.keys(legacyGroupOrders).length) {
-		updates.push(["sheetDisplay.catalog.groupOrder.byType", legacyGroupOrders]);
-	}
-	const plan = sheetDisplay.actionPlan ?? {};
-	if (Array.isArray(plan.groupOrder) && plan.groupOrder.length) {
-		updates.push(["sheetDisplay.catalog.groupOrder.byAction.actionType", plan.groupOrder]);
-	}
-	if (Array.isArray(plan.rowOrder) && plan.rowOrder.length) {
-		updates.push(["sheetDisplay.catalog.rowOrder.byAction", plan.rowOrder]);
-	}
-
-	const bySort = (a, b) => (a.sort || 0) - (b.sort || 0);
-	const ids = (actorData?.items ?? []).slice().sort(bySort)
-		.map((item) => item._id);
-	if (ids.length) {
-		updates.push(["sheetDisplay.catalog.rowOrder.byType", ids]);
-		updates.push(["sheetDisplay.catalog.rowOrder.loot", ids]);
-	}
-
-	const actor = await getActor(actorData);
-	if (!actor) return;
-	for (const [path, value] of updates) {
-		await actor.setFlag("archmage", path, value);
-	}
 }

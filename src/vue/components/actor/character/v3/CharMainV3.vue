@@ -68,7 +68,7 @@
 import { computed, onUnmounted, reactive, ref, watchEffect } from "vue";
 import { localize, powersWithTriggerText } from "@/methods/Helpers";
 import { Tabs, Tab } from "@/components";
-import { CATALOG_GROUP_ICONS, catalogTabDefs, catalogTabLabel, migrateCatalogTabs } from "@/methods/CatalogTabs";
+import { CATALOG_GROUP_ICONS, catalogTabDefs, catalogTabLabel } from "@/methods/CatalogTabs";
 import CharCatalogV3 from "./tabs/CharCatalogV3.vue";
 import CharCatalogTabSettingsV3 from "./parts/CatalogTabSettingsV3.vue";
 import CharTriggersV3 from "./tabs/CharTriggersV3.vue";
@@ -237,13 +237,6 @@ function endSlide(event) {
 }
 
 onUnmounted(() => clearTimeout(slideFallback));
-
-// One-time migration: seed the catalog tab set (and its saved orders) from
-// the legacy powers/actionPlan flags, leaving those in place for the v2
-// sheet. Fire and forget — the sheet re-renders when the flags land.
-if (props.context?.editable === true && !props.context.actor?.pack) {
-	migrateCatalogTabs(props.context.actor);
-}
 
 // parts/Tabs.vue restores the last-open tab from this blob in mounted() and
 // persists clicks through the actor prop (pack actors are skipped there) under
