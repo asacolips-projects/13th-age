@@ -547,12 +547,15 @@ export class ActorArchmage extends Actor {
 					hpBonus += getBonusOr0(item.system.attributes.hp);
 					recoveriesBonus += getBonusOr0(item.system.attributes.recoveries);
 
-					// The reroll pools stack across every active item granting
-					// them; spending drains those items in sort order.
-					rerollAcCurr += item.system.attributes.rerollAc.current ? item.system.attributes.rerollAc.current : 0;
-					rerollAcMax += getBonusOr0(item.system.attributes.rerollAc);
-					rerollSaveCurr += item.system.attributes.rerollSave.current ? item.system.attributes.rerollSave.current : 0;
-					rerollSaveMax += getBonusOr0(item.system.attributes.rerollSave);
+					// Enforce only one of this group
+					if (rerollAcMax == 0) {
+						rerollAcCurr += item.system.attributes.rerollAc.current ? item.system.attributes.rerollAc.current : 0;
+						rerollAcMax += getBonusOr0(item.system.attributes.rerollAc);
+					}
+					if (rerollSaveMax == 0) {
+						rerollSaveCurr += item.system.attributes.rerollSave.current ? item.system.attributes.rerollSave.current : 0;
+						rerollSaveMax += getBonusOr0(item.system.attributes.rerollSave);
+					}
 
 					strBonus += getBonusOr0(item.system.attributes.str);
 					dexBonus += getBonusOr0(item.system.attributes.dex);
@@ -1051,16 +1054,17 @@ export class ActorArchmage extends Actor {
 	}
 
 	/**
-	 * Spend an AC or save reroll from the equipped item that grants it and post
-	 * the reroll card to chat.
+	 * Spend an AC or save reroll from the equipped items that grant it and
+	 * post the reroll card to chat.
+	 *
+	 * Owns its own pool arithmetic instead of reading the derived
+	 * resources.spendable.rerolls: those stay first-item-only for the V2
+	 * sheet's sake, while this stacked spend serves the V3 sheet.
 	 *
 	 * @param {string} kind
 	 *   The reroll pool, such as 'AC' or 'save'.
 	 */
 	async rollReroll(kind) {
-		let res = this.system.resources.spendable.rerolls[kind];
-		if (!res || res.current <= 0) return;
-
 		// We have uses to spend, find source item
 		let prop = "";
 		switch (kind) {
@@ -1076,10 +1080,12 @@ export class ActorArchmage extends Actor {
 		// The pool stacks across every active item granting it, so a spend
 		// drains the first one in sort order that still has uses left —
 		// once, in a single batched update. No source, no card.
-		const source = this.items
+		const granting = this.items
 			.filter((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0)
-			.sort((a, b) => (a.sort || 0) - (b.sort || 0))
-			.find((item) => item.system.attributes[prop].current > 0);
+			.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		const total = granting.reduce((sum, item) => sum + (item.system.attributes[prop].current || 0), 0);
+		if (total <= 0) return;
+		const source = granting.find((item) => item.system.attributes[prop].current > 0);
 		if (!source) return;
 		await this.updateEmbeddedDocuments("Item", [{
 			_id: source.id,

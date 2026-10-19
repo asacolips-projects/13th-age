@@ -192,9 +192,28 @@ const secondEdition = computed(isSecondEdition);
 
 const perCombat = computed(() => props.actor?.system?.resources?.perCombat ?? {});
 
-// Reroll uses are derived from equipped items in prepareDerivedData(), so they
-// arrive with the context clone like the other computed attributes.
-const rerolls = computed(() => props.actor?.system?.resources?.spendable?.rerolls);
+// Reroll uses come from the equipped items granting them, stacked across
+// every active one — the shared prepareDerivedData() keeps its
+// first-item-only pool for the V2 sheet's sake, so the V3 sheet sums its
+// own here, off the context clone's item data.
+const rerolls = computed(() => {
+	const pools = {
+		AC: { current: 0, max: 0 },
+		save: { current: 0, max: 0 },
+		enabled: false
+	};
+	for (const item of props.actor?.items ?? []) {
+		if (item.type !== "equipment" || !item.system.isActive) continue;
+		for (const [kind, prop] of [["AC", "rerollAc"], ["save", "rerollSave"]]) {
+			const attr = item.system?.attributes?.[prop];
+			if (!attr || !(attr.bonus > 0)) continue;
+			pools[kind].current += attr.current || 0;
+			pools[kind].max += attr.bonus;
+		}
+	}
+	pools.enabled = (pools.AC.max + pools.save.max) > 0;
+	return pools;
+});
 
 // Both pools active: the rerolls tile keeps its two one-line groups. With a
 // single pool it falls back to the stacked numeric-resource layout.
