@@ -119,9 +119,11 @@ const facetLabel = (dim, value) => {
  * controls. Chip selections persist per tab through the given save callback
  * (like group and sort, a no-op where flags can't be written), OR within a
  * row and AND across rows (and with the search). Stored chips are pruned to
- * values the items still carry: deleting the last 'daily' power drops the
- * stale chip instead of leaving a filter that silently excludes everything.
- * The type facet's currency chip names an item-less section, so nothing
+ * values the facets still offer: item-derived ones (custom groups, source
+ * names) drop off when their last item goes, while a canonical chip like
+ * 'daily' persists — the popover marks it empty — rather than expiring and
+ * hiding that a selection is still active. The type facet's currency chip
+ * names an item-less section, so nothing
  * ever carries it — the catalog reads the section's visibility off
  * `activeFilters`.
  *
@@ -165,7 +167,8 @@ export function useFacetFilters({ items, filters, save }) {
 		return { values, itemValues };
 	});
 
-	// The stored chips for a dimension, pruned to values the items still carry.
+	// The stored chips for a dimension, pruned to values the facets still
+	// offer — canonical chips survive, item-derived ones drop with their items.
 	const activeFilters = computed(() => {
 		const stored = filters() ?? {};
 		return Object.fromEntries(FACET_DIMENSIONS.map((dim) => {

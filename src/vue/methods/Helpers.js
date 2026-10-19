@@ -482,8 +482,8 @@ export async function changeQuantity(actorData, itemId, increase = true, seconda
  *
  * @param {object} actorData Actor data, as passed down by the sheet.
  * @param {string} itemId Item id, e.g. `power._id`.
- * @param {string} tier For power feats, the feat's tier (e.g. '1st'). Ignored
- *   for equipment items, which carry a single active pip.
+ * @param {string} tier For power feats, the feat's tier (e.g. 'adventurer').
+ *   Ignored for equipment items, which carry a single active pip.
  */
 export async function togglePip(actorData, itemId, tier = null) {
 	const actor = await getActor(actorData);
