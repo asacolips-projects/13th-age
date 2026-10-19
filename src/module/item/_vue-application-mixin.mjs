@@ -171,29 +171,56 @@ export default function VueRenderingMixin(BaseApplication) {
 		}
 
 		_onRender(context, options) {
+			// Re-renders can replace this.element, so an observer watching the
+			// previous one is stale — drop it and let the branches below bind
+			// a fresh one.
+			if (this._disableObserverEl !== this.element) {
+				this._disableObserver?.disconnect();
+				this._disableObserver = null;
+				this._disableObserverEl = null;
+			}
+
 			if (!this.isEditable) {
-				const inputs = this.element.querySelectorAll("input, textarea");
-				const selects = this.element.querySelectorAll("select");
-
-				if (inputs) {
-					for (let input of inputs) {
-						input.setAttribute("readonly", true);
-						input.setAttribute("disabled", true);
+				// Observers and non-owners get read-only fields. _onRender runs
+				// on every re-render, but inputs mounted after it — a tab
+				// switch, an expanded row, the narrow/wide layout swap — never
+				// see one, so a mutation observer applies the same pass to
+				// fields as they arrive.
+				const disableFields = (root) => {
+					for (let field of root.querySelectorAll("input, textarea, select")) {
+						field.setAttribute("readonly", true);
+						field.setAttribute("disabled", true);
 					}
-				}
-
-				if (selects) {
-					for (let select of selects) {
-						select.setAttribute("disabled", true);
-					}
+				};
+				disableFields(this.element);
+				if (!this._disableObserver) {
+					this._disableObserver = new MutationObserver((mutations) => {
+						for (const mutation of mutations) {
+							for (const node of mutation.addedNodes) {
+								if (node.nodeType !== Node.ELEMENT_NODE) continue;
+								if (node.matches("input, textarea, select")) {
+									node.setAttribute("readonly", true);
+									node.setAttribute("disabled", true);
+								}
+								disableFields(node);
+							}
+						}
+					});
+					this._disableObserverEl = this.element;
+					this._disableObserver.observe(this.element, { childList: true, subtree: true });
 				}
 			}
 			else {
 				// Set a variable when the shift key is pressed to avoid paste events.
-				// Bound once: _onRender runs on every re-render (with submitOnChange,
-				// every save), and addEventListener would stack duplicate listeners.
-				if (!this._vueKeyListenersBound) {
-					this._vueKeyListenersBound = true;
+				// Bound once per element: _onRender runs on every re-render (with
+				// submitOnChange, every save), and Foundry caches the sheet
+				// instance while re-renders replace this.element — so an
+				// instance-level guard would leave every element after the first
+				// one without listeners. Keying the guard on the element, like the
+				// paste handler below, rebinds for each new element without
+				// stacking duplicates on the re-renders that keep it.
+				if (!this.element.dataset.archmageKeysBound) {
+					this.element.dataset.archmageKeysBound = "true";
 					this.element.addEventListener("keydown", (event) => {
 						if (event.key === "Shift" && !this.isShift) {
 							this.isShift = true;
