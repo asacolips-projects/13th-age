@@ -190,18 +190,26 @@ export default function VueRenderingMixin(BaseApplication) {
 			}
 			else {
 				// Set a variable when the shift key is pressed to avoid paste events.
-				this.element.addEventListener("keydown", (event) => {
-					if (event.key === "Shift" && !this.isShift) {
-						this.isShift = true;
-					}
-				});
-				this.element.addEventListener("keyup", (event) => {
-					if (event.key === "Shift" && this.isShift) {
-						this.isShift = false;
-					}
-				});
-				// Handle paste events.
+				// Bound once: _onRender runs on every re-render (with submitOnChange,
+				// every save), and addEventListener would stack duplicate listeners.
+				if (!this._vueKeyListenersBound) {
+					this._vueKeyListenersBound = true;
+					this.element.addEventListener("keydown", (event) => {
+						if (event.key === "Shift" && !this.isShift) {
+							this.isShift = true;
+						}
+					});
+					this.element.addEventListener("keyup", (event) => {
+						if (event.key === "Shift" && this.isShift) {
+							this.isShift = false;
+						}
+					});
+				}
+				// Handle paste events — once per editor element, since re-renders
+				// re-query .editor-content and Vue may have replaced the element.
 				this.element.querySelectorAll(".editor-content").forEach((editor) => {
+					if (editor.dataset.archmagePasteBound) return;
+					editor.dataset.archmagePasteBound = "true";
 					editor.addEventListener("paste", (event) => this._parsePastedContent(event));
 				});
 			}
