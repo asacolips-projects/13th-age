@@ -77,9 +77,14 @@ const remove = (def) => {
 // Row reordering, through the shared composable: the grip starts the drag,
 // the rows highlight as drop targets, and the drop rebuilds the array around
 // the release point (above or below the target row, by cursor position). The
-// tabs persist as a whole array rather than a flat id flag, so `persist`
-// replaces the flag write, and the defs' `id` field keys them.
+// tabs persist as a whole array of tab objects rather than a flat id flag, so
+// `persist` replaces the flag write: the composable hands back reordered row
+// ids, mapped back to their defs here before saving.
 const canReorder = computed(() => !props.actor?.pack);
+const saveTabOrder = async (ids) => {
+	const byId = new Map(defs.value.map((def) => [def.id, def]));
+	await save(ids.map((id) => byId.get(id)).filter((def) => def));
+};
 const {
 	dragOverRow, onRowDragStart, onRowDragOver, onRowDragLeave, onRowDrop, onRowDragEnd
 } = useRowReorder({
@@ -87,7 +92,7 @@ const {
 	canReorder,
 	rows: () => defs.value,
 	rowId: (def) => def.id,
-	persist: save,
+	persist: saveTabOrder,
 	startDrag: (event, _containerKey, tabId) => {
 		event.dataTransfer.effectAllowed = "move";
 		// Tag the payload so nothing downstream mistakes this for an item drag.
