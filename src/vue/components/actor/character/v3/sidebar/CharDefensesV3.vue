@@ -8,21 +8,24 @@
 
 		<!-- Resistances & vulnerabilities: free text, so edit mode mounts each
 		as a full-width stacked input. In play, only fields with content
-		render, as compact read-only rows. -->
+		render, as compact read-only rows. Each field edits through the
+		document via useDocumentField — unnamed, so the form's
+		submitOnChange doesn't also carry it — and rolls back if the write
+		is rejected. -->
 		<div v-if="editing" class="resist-vuln-edit">
 			<label class="resist-vuln-field">
 				<span class="field-label">
 					{{ localize('ARCHMAGE.resistance') }}
 					<i class="fas fa-circle-info" :data-tooltip="localize('ARCHMAGE.commaSeparatedHint')" data-tooltip-direction="UP" />
 				</span>
-				<input v-model="actor.system.details.resistance.value" type="text" name="system.details.resistance.value">
+				<input v-model="resistance.value" type="text" @change="resistance.write">
 			</label>
 			<label class="resist-vuln-field">
 				<span class="field-label">
 					{{ localize('ARCHMAGE.vulnerability') }}
 					<i class="fas fa-circle-info" :data-tooltip="localize('ARCHMAGE.commaSeparatedHint')" data-tooltip-direction="UP" />
 				</span>
-				<input v-model="actor.system.details.vulnerability.value" type="text" name="system.details.vulnerability.value">
+				<input v-model="vulnerability.value" type="text" @change="vulnerability.write">
 			</label>
 		</div>
 		<div v-else-if="hasResistVuln" class="resist-vuln-view">
@@ -41,11 +44,17 @@
 <script setup>
 import { ref, computed, inject } from "vue";
 import { localize } from "@/methods/Helpers";
+import { useDocumentField } from "@/composables/useDocumentField";
 
 const props = defineProps(["actor"]);
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject("editMode", ref(false));
+
+// The resist/vuln fields edit through the document via useDocumentField:
+// local values that roll back when a write is rejected.
+const resistance = useDocumentField(() => props.actor, () => "system.details.resistance.value");
+const vulnerability = useDocumentField(() => props.actor, () => "system.details.vulnerability.value");
 
 const hasResistVuln = computed(() => Boolean(
 	props.actor?.system?.details?.resistance?.value || props.actor?.system?.details?.vulnerability?.value

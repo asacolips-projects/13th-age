@@ -11,19 +11,22 @@
 					:temp="actor.system.attributes.hp.temp"
 				/>
 				<!-- Current + temp stay editable in play. Max is editable in edit
-             mode, except when it's calculated automatically from level/CON. -->
+             mode, except when it's calculated automatically from level/CON.
+             Each field edits through the document via useDocumentField —
+             unnamed, so the form's submitOnChange doesn't also carry it —
+             and rolls back if the write is rejected. -->
 				<p class="unit-value">
-					<input v-model="actor.system.attributes.hp.value" type="number" name="system.attributes.hp.value">
+					<input v-model="hp.value" type="number" @change="hp.write">
 					<span class="value-separator">+</span>
-					<input v-model="actor.system.attributes.hp.temp" type="number" name="system.attributes.hp.temp" :placeholder="localize('ARCHMAGE.tempHpShort')">
+					<input v-model="hpTemp.value" type="number" :placeholder="localize('ARCHMAGE.tempHpShort')" @change="hpTemp.write">
 					<span class="value-separator">/</span>
 					<input
 						v-if="editing"
-						v-model="actor.system.attributes.hp.max"
+						v-model="hpMax.value"
 						type="number"
-						name="system.attributes.hp.max"
 						:disabled="actor.system.attributes.hp.automatic"
 						:data-tooltip="actor.system.attributes.hp.automatic ? localize('ARCHMAGE.calculatedHPMaxHint') : null"
+						@change="hpMax.write"
 					>
 					<span v-else class="value-static">{{ actor.system.attributes.hp.max }}</span>
 				</p>
@@ -41,18 +44,18 @@
 				/>
 				<p class="unit-value">
 					<input
-						v-model="actor.system.attributes.recoveries.value"
+						v-model="recoveries.value"
 						type="number"
-						name="system.attributes.recoveries.value"
+						@change="recoveries.write"
 					>
 					<span class="value-separator">/</span>
 					<input
 						v-if="editing"
-						v-model="actor.system.attributes.recoveries.max"
+						v-model="recoveriesMax.value"
 						type="number"
-						name="system.attributes.recoveries.max"
 						:disabled="actor.system.attributes.recoveries.automatic"
 						:data-tooltip="actor.system.attributes.recoveries.automatic ? localize('ARCHMAGE.calculatedRecoveriesMaxHint') : null"
+						@change="recoveriesMax.write"
 					>
 					<span v-else class="value-static">{{ actor.system.attributes.recoveries.max }}</span>
 				</p>
@@ -106,6 +109,7 @@
 <script setup>
 import { ref, computed, inject } from "vue";
 import { isSecondEdition, localize } from "@/methods/Helpers";
+import { useDocumentField } from "@/composables/useDocumentField";
 import Progress from "@/components/parts/Progress.vue";
 import RollableV3 from "./RollableV3.vue";
 import CharResourcesV3 from "./CharResourcesV3.vue";
@@ -118,6 +122,18 @@ const actorDocument = inject("actorDocument");
 
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject("editMode", ref(false));
+
+// Write permission comes from the sheet root the same way.
+const canEdit = inject("canEdit", ref(false));
+
+// The vitals fields edit through the document via useDocumentField: local
+// values that roll back when a write is rejected, instead of v-model on
+// the actor clone (whose rejected edits would linger on screen).
+const hp = useDocumentField(() => props.actor, () => "system.attributes.hp.value");
+const hpTemp = useDocumentField(() => props.actor, () => "system.attributes.hp.temp");
+const hpMax = useDocumentField(() => props.actor, () => "system.attributes.hp.max");
+const recoveries = useDocumentField(() => props.actor, () => "system.attributes.recoveries.value");
+const recoveriesMax = useDocumentField(() => props.actor, () => "system.attributes.recoveries.max");
 
 // 2e death saves mark failures with skulls; 1e uses X's. Non-reactive: game
 // settings don't change mid-session.
@@ -178,12 +194,14 @@ function rollRecovery(event) {
 
 // Fail-track clicks go through the actor document, shared with the V2
 // sheet's _updateFails: clicking step N sets the count to N, or unchecks it
-// (N - 1) if it was already checked.
+// (N - 1) if it was already checked. Observers can't write, so their
+// clicks are ignored rather than sent to fail.
 /**
  * @param saveType
  * @param opt
  */
 function updateFails(saveType, opt) {
+	if (!canEdit.value) return;
 	actorDocument?.updateFails(saveType, opt);
 }
 </script>

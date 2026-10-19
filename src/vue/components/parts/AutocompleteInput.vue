@@ -17,6 +17,7 @@
 			@focus="onFocus"
 			@keydown="onKeydown"
 			@blur="open = false"
+			@change="emit('commit')"
 		>
 		<!-- Teleported to body: inside the sheet the list is boxed in by scroll
 		containers (the sidebar) and stacking contexts (the hero's isolation),
@@ -45,7 +46,7 @@
 import { ref, computed, onBeforeUnmount } from "vue";
 
 const props = defineProps(["modelValue", "name", "placeholder", "suggestions", "inputClass", "separator"]);
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "commit"]);
 
 const inputEl = ref(null);
 const open = ref(false);
@@ -185,6 +186,9 @@ const complete = (match) => {
 
 const choose = (value) => {
 	emit("update:modelValue", complete(value));
+	// A pick commits the value without a blur (mousedown is prevented so the
+	// input keeps focus), so report it the way the native change event would.
+	emit("commit");
 	open.value = false;
 	highlighted.value = -1;
 };
