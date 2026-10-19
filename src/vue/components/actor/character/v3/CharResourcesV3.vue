@@ -183,6 +183,9 @@ const actorDocument = inject("actorDocument");
 // Edit mode is owned by the sheet root and broadcast via provide/inject.
 const editing = inject("editMode", ref(false));
 
+// Write permission comes from the sheet root the same way.
+const canEdit = inject("canEdit", ref(false));
+
 // Same gate the V2 resources strip uses. Non-reactive: game settings aren't,
 // but resource sections re-render with the actor context.
 const secondEdition = computed(isSecondEdition);
@@ -222,24 +225,18 @@ const hasUnits = computed(() =>
 );
 
 // Set a reroll pool's count from view mode: write through to the equipped
-// item(s) that grant it, matching how rollReroll spends them. The actor-level
-// value is derived in prepareDerivedData(), so there is nothing to update
-// there.
+// item that grants it — the one item prepareDerivedData() counts (the first
+// active granting item) and rollReroll() spends, so write and read agree.
 /**
  * @param kind
  * @param event
  */
 function setReroll(kind, event) {
-	if (!actorDocument) return;
+	if (!actorDocument || !canEdit.value) return;
 	const value = Number(event.target.value) || 0;
 	const prop = kind === "AC" ? "rerollAc" : "rerollSave";
-	const updates = [];
-	actorDocument.items.forEach((item) => {
-		if (item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0) {
-			updates.push({ _id: item.id, [`system.attributes.${prop}.current`]: value });
-		}
-	});
-	if (updates.length) actorDocument.updateEmbeddedDocuments("Item", updates);
+	const source = actorDocument.items.find((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0);
+	if (source) actorDocument.updateEmbeddedDocuments("Item", [{ _id: source.id, [`system.attributes.${prop}.current`]: value }]);
 }
 
 // Roll command points and apply them to the pool, like the V2 sheet's
@@ -253,13 +250,13 @@ function rollCommand(die) {
 }
 
 // Spend an AC or save reroll: decrement the equipped item that grants it and
-// post the reroll card to chat. The logic lives on the actor document, shared
-// with the V2 sheet's _onRerollRoll.
+// post the reroll card to chat. The logic lives on the actor document; the
+// spend writes to the item, so observers' clicks are ignored.
 /**
  * @param kind
  */
 function rollReroll(kind) {
-	if (!actorDocument) return;
+	if (!actorDocument || !canEdit.value) return;
 	actorDocument.rollReroll(kind);
 }
 </script>

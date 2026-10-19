@@ -1080,10 +1080,10 @@ export class ActorArchmage extends Actor {
 		}
 		if (!prop) return;
 
-		// The pool's count is the sum across every equipped item granting it, so
-		// a spend decrements the first item that still has uses left — once, in
-		// a single batched update. No source, no card.
-		const source = this.items.find((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.current > 0);
+		// The pool's count is the first active item granting it — the one
+		// prepareDerivedData() counts, under its one-reroll-item rule — so the
+		// spend comes from that item. No source, no card.
+		const source = this.items.find((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0);
 		if (!source) return;
 		await this.updateEmbeddedDocuments("Item", [{
 			_id: source.id,
