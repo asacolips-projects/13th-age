@@ -8,7 +8,8 @@
 			<h3 class="equipment-title unit-subtitle">{{ equipment.name }}<i v-if="equipment.grantedBy" class="fas fa-link item-granted" :data-tooltip="localize('ARCHMAGE.ITEM.grantedBy', {names: equipment.grantedBy})" data-tooltip-direction="UP" /></h3>
 		</a>
 		<!-- Active pip, equipment only. Two stacked pips mark an item above the
-         character's tier: attuning it spends two slots. -->
+         character's tier: attuning it spends two slots. Observers can't
+         write, so their clicks are ignored. -->
 		<ItemPipV3
 			v-if="equipment.type === 'equipment'"
 			variant="attunement"
@@ -16,7 +17,7 @@
 			:count="costsTwo ? 2 : 1"
 			:item-id="equipment._id"
 			:tooltip="pipTooltip"
-			@toggle-pip="togglePip(actor, equipment._id)"
+			@toggle-pip="canEdit && togglePip(actor, equipment._id)"
 		/>
 		<div v-if="equipment.system.attributes" class="equipment-bonus flexrow">
 			<span v-for="(bonus, bonusProp) in equipmentBonuses(equipment)" :key="bonusProp" class="bonus">
@@ -32,8 +33,8 @@
 			class="equipment-quantity"
 			:data-item-id="equipment._id"
 			:data-quantity="equipment.system.quantity.value"
-			@click="changeQuantity(actor, equipment._id)"
-			@contextmenu.prevent="changeQuantity(actor, equipment._id, false)"
+			@click="canEdit && changeQuantity(actor, equipment._id)"
+			@contextmenu.prevent="canEdit && changeQuantity(actor, equipment._id, false)"
 		>
 			<span>{{ equipment.system.quantity.value }}</span>
 		</div>
@@ -84,6 +85,11 @@ const pipTooltip = computed(() =>
 // listing's context only carries as a prepared clone. The sheet provides
 // the document for injection.
 const actorDocument = inject("actorDocument", null);
+
+// Write permission comes from the sheet root the same way; the pip and the
+// quantity counters write through the document, so observers' clicks are
+// ignored.
+const canEdit = inject("canEdit", ref(false));
 
 // Narrow layout, injected from the sheet root like the power rows read it:
 // the summary collapses to the portrait, name, attunement pip, quantity and

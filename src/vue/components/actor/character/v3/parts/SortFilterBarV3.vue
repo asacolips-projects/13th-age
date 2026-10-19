@@ -5,7 +5,11 @@
 		<slot name="sort" />
 		<div class="search-control">
 			<div class="search-input">
-				<input v-model="search" type="text" :name="concat(id, '-filter')" :placeholder="localize('ARCHMAGE.search')">
+				<!-- Unnamed: search is view state (v-model only). A name would
+					put it on the sheet form's submit path, and with
+					submitOnChange every change here would run a full
+					actor.update for the whole form. -->
+				<input :id="concat(id, '-filter')" v-model="search" type="text" :placeholder="localize('ARCHMAGE.search')">
 				<button
 					v-if="search"
 					type="button"
