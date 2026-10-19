@@ -165,6 +165,7 @@
 <script setup>
 import { computed, inject, ref } from "vue";
 import { byLevel as byPowerLevel, byName, byTier, concat, equipmentBonuses, kinLabel, localize, missingKinClass } from "@/methods/Helpers";
+import { CATALOG_GROUP_MODES } from "@/methods/CatalogTabs";
 import { useFacetFilters } from "@/composables/useFacetFilters";
 import { useGroupReorder } from "@/composables/useGroupReorder";
 import { useCatalogTabPrefs } from "@/composables/useCatalogTabPrefs";
@@ -185,15 +186,11 @@ const actorDocument = inject("actorDocument");
 // sheet's form submit collect each field twice.
 const tabId = computed(() => props.tab?.id ?? "catalog");
 
-// The group-by select's options; a labelKey overrides the shared GROUPS
+// The group-by select's options, derived from the shared mode list so a new
+// mode needs adding in one place; a labelKey overrides the shared GROUPS
 // key, so the power-type option reads "Power type" rather than "Type".
-const groupOptions = [
-	{ value: "powerType", labelKey: "ARCHMAGE.powerType" },
-	{ value: "actionType" },
-	{ value: "powerUsage" },
-	{ value: "powerSource" },
-	{ value: "group" }
-];
+const GROUP_LABEL_KEYS = { powerType: "ARCHMAGE.powerType" };
+const groupOptions = CATALOG_GROUP_MODES.map((value) => ({ value, labelKey: GROUP_LABEL_KEYS[value] }));
 const sortOptions = [
 	{ value: "name" },
 	{ value: "level" },
