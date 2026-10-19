@@ -1,15 +1,18 @@
 import fs from "node:fs";
 import path from "node:path";
-import { SYSTEM_COPY } from "./constants.mjs";
+import { PROD_COPY_EXCLUDES, SYSTEM_COPY } from "./constants.mjs";
 import { copyFileWithReplace, destPathFor, globFiles, log, matchesGlobs, removeFile, resolveFromRoot } from "./utils.mjs";
 
 /**
+ * Copy the system's files to dist, skipping the prod-excluded ones (the dev
+ * Vue build) when building for release.
  *
  * @param root0
  * @param root0.prod
  */
 export async function copyFiles({ prod = false } = {}) {
-	const files = await globFiles(SYSTEM_COPY);
+	const files = (await globFiles(SYSTEM_COPY))
+		.filter((file) => !(prod && matchesGlobs(file, PROD_COPY_EXCLUDES)));
 
 	for (const file of files) {
 		await copyFileWithReplace(file, destPathFor(file), { prod });
@@ -35,6 +38,7 @@ export async function copyChangedPaths(changedPaths, { prod = false } = {}) {
 		// the src/ prefix (mirrors copyFiles).
 		const rootRelative = path.relative(root, file).replaceAll("\\", "/");
 		if (!matchesGlobs(rootRelative, SYSTEM_COPY)) continue;
+		if (prod && matchesGlobs(rootRelative, PROD_COPY_EXCLUDES)) continue;
 
 		const dest = destPathFor(file);
 
