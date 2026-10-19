@@ -299,8 +299,10 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 		html.on("click", ".rest", (event) => this._onRest(event));
 
 		// Item listeners.
-		// Uses and quantity counters, and the expandable item rows'
-		// edit/delete controls are handled by their own Vue components.
+		html.on("click", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, true));
+		html.on("contextmenu", ".power-uses-primary, .equipment-quantity", (event) => this._updateQuantity(event, false));
+		html.on("click", ".power-uses-secondary", (event) => this._updateQuantity(event, true, true));
+		html.on("contextmenu", ".power-uses-secondary", (event) => this._updateQuantity(event, false, true));
 		html.on("click", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, true));
 		html.on("contextmenu", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, false));
 		html.on("click", ".feat-pip", (event) => this._updatePips(event));
@@ -724,6 +726,37 @@ export class ActorArchmageSheetV2 extends foundry.appv1.sheets.ActorSheet {
 			let updates = {};
 			updates[`system.icons.${iconIndex}.results`] = results;
 			await this.actor.update(updates);
+		}
+	}
+
+	/**
+	 * Increase or decrease an item's remaining uses.
+	 *
+	 * @param {MouseEvent} event  The click (increase) or contextmenu (decrease) event.
+	 * @param {boolean} increase  Whether to add or remove a use.
+	 * @param {boolean} secondary  Target the power's secondary pool of uses
+	 *   instead of the primary one.
+	 */
+	async _updateQuantity(event, increase = true, secondary = false) {
+		event.preventDefault();
+		let target = event.currentTarget;
+		let dataset = target.dataset;
+		let itemId = dataset.itemId;
+
+		if (!itemId) return;
+
+		let item = this.actor.items.get(itemId);
+		if (item) {
+			const quantityKey = secondary ? "quantitySecondary" : "quantity";
+			if (item.system?.[quantityKey]?.value == null) return;
+			// Update the quantity.
+			let newQuantity = Number(item.system[quantityKey].value) ?? 0;
+			newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
+
+			// TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
+			let maxQuantity = await item.resolveMaxQuantity(secondary ? "maxQuantitySecondary" : "maxQuantity") ?? 99;
+
+			await item.update({ [`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity) }, {});
 		}
 	}
 
