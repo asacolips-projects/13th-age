@@ -171,8 +171,8 @@ export class DamageApplicator {
 				element.dataset.roll = escape(JSON.stringify(newRoll.toJSON()));
 				element.innerHTML = rollContent;
 				// Re-evaluate styling for attack lines.
-				if (rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.target")}:`)
-					|| rowText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`)) {
+				const rowProp = rowElement?.[0]?.dataset?.prop ?? null;
+				if (rowProp === "target" || rowProp === "attack") {
 					// Remove existing crit/fail classes.
 					element.classList.remove("dc-crit");
 					element.classList.remove("dc-fail");
@@ -209,25 +209,25 @@ export class DamageApplicator {
 						const triggers = new Triggers();
 						rows.forEach((rowSelf) => {
 							let $rowSelf = $(rowSelf);
-							const rowCleanText = $rowSelf.text();
+							const rowCleanProp = rowSelf.dataset?.prop ?? null;
 
 							// Remove existing targets.
 							$rowSelf.find(".dc-target")?.remove();
 
 							// Append hit targets to text
-							if (rowCleanText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.hit")}:`) && hitEvaluationResults.targetsHit.length > 0) {
+							if (rowCleanProp === "hit" && hitEvaluationResults.targetsHit.length > 0) {
 								$rowSelf.find("strong").after(`<span class='dc-target'> (${HitEvaluation.getNames(
 									hitEvaluationResults.targetsHit,
 									hitEvaluationResults.targetsCrit)}) </span>`);
 							}
 							// Append missed targets to text
-							if (rowCleanText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.miss")}:`) && hitEvaluationResults.targetsMissed.length > 0) {
+							if (rowCleanProp === "miss" && hitEvaluationResults.targetsMissed.length > 0) {
 								$rowSelf.find("strong").after(`<span class='dc-target'> (${HitEvaluation.getNames(
 									hitEvaluationResults.targetsMissed,
 									hitEvaluationResults.targetsFumbled)}) </span>`);
 							}
 							// Append target defenses to text
-							if (rowCleanText.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`) && hitEvaluationResults.defenses.length > 0
+							if (rowCleanProp === "attack" && hitEvaluationResults.defenses.length > 0
 								&& game.settings.get("archmage", "showDefensesInChat")) {
 								$rowSelf.append(`<span class='dc-target'> (${hitEvaluationResults.defenses.join(", ")}) </span>`);
 							}

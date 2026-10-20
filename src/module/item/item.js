@@ -379,6 +379,7 @@ export class ItemArchmage extends Item {
 		const propKeys = powerFieldKeys({ group: "property" });
 		const properties = propKeys.map((k) => {
 			return {
+				key: k,
 				label: data[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
 				value: data[k] ? data[k].value : null
 			};
@@ -401,6 +402,7 @@ export class ItemArchmage extends Item {
 
 		const effects = effectKeys.map((k) => {
 			return {
+				key: k,
 				label: data[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
 				value: data[k] ? data[k].value : null
 			};

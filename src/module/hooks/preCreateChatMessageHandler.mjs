@@ -1,6 +1,30 @@
 import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from "../rolls/Targeting.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
+import { isSpellLevelKey } from "../item/power-fields.mjs";
+
+/**
+ * Card rows keyed by their machine field name (stamped as `data-prop` by the
+ * card templates) that hit evaluation and trigger highlighting must skip:
+ * prose blocks and bookkeeping lines that can never be attack, hit or
+ * trigger rows.
+ *
+ * Replaces the former list of localized label prefixes ("Level:", "Special:",
+ * "Cast for Power:", ...), which broke whenever a translation changed the
+ * wording.
+ *
+ * @type {Set<string>}
+ */
+const SKIPPED_PROPS = new Set([
+	"recharge",
+	"resources",
+	"castBroadEffect",
+	"castPower",
+	"special",
+	"spellChain",
+	"breathWeapon",
+	"effect"
+]);
 
 export default class preCreateChatMessageHandler {
 
@@ -160,24 +184,6 @@ export default class preCreateChatMessageHandler {
 
 		// TODO: We have the data of what kind of damage (arcane, divine, etc) and range (melee, ranged), but it's hard to get here
 
-		// Lines containing any of the following need to be skipped:
-		// "Level:", "Recharge:", "Resources:", "Uses Remaining:"
-		// "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:"
-		// "Opening and Sustained Effect:", "Final Verse:"
-		// "Chain Spell", "Breath Weapon:"
-		let rowsToSkip = [
-			`${game.i18n.localize("ARCHMAGE.level")}:`,
-			`${game.i18n.localize("ARCHMAGE.recharge")}:`,
-			`${game.i18n.localize("ARCHMAGE.CHAT.resources")}:`,
-			`${game.i18n.localize("ARCHMAGE.ITEM.usesRemaining")}:`,
-			`${game.i18n.localize("ARCHMAGE.CHAT.special")}:`,
-			// game.i18n.localize("ARCHMAGE.CHAT.effect"),  // Handled separately to avoid overlap with Opening/Sustained Effect
-			`${game.i18n.localize("ARCHMAGE.CHAT.castBroadEffect")}:`,
-			`${game.i18n.localize("ARCHMAGE.CHAT.castPower")}:`,
-			`${game.i18n.localize("ARCHMAGE.CHAT.spellChain")}:`,
-			`${game.i18n.localize("ARCHMAGE.CHAT.breathWeapon")}:`
-		];
-
 		let tokens = canvas?.tokens?.controlled;
 		let actor = tokens ? tokens[0] : null;
 		let token = tokens ? tokens[0] : null;
@@ -214,18 +220,17 @@ export default class preCreateChatMessageHandler {
 				// Determine if this line is for an attack and if it's a crit/fail.
 				let $row_self = $(this);
 				let row_text = $row_self.html();
-				const row_text_clean = $row_self.text();
+				// The machine field name stamped by the card template, e.g.
+				// "attack" or "hit". Rows without one (descriptions, the
+				// vulnerability row) are never classified.
+				const rowProp = this.dataset?.prop ?? null;
 
-				if (rowsToSkip.filter((x) => row_text_clean.startsWith(x)).length > 0) {
+				if (rowProp !== null && SKIPPED_PROPS.has(rowProp)) {
 					return;
 				}
-				if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.effect"))
-					&& !row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect"))) {
-					return;
-				}
 
-				if ((type == "power" && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.target")}:`))
-					|| (type == "action" && row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`))) {
+				if ((type == "power" && rowProp === "target")
+					|| (type == "action" && rowProp === "attack")) {
 
 					// targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
 					// In case of manual rolls we may have more rolls than targets - replicate targets until we have enough.
@@ -241,25 +246,25 @@ export default class preCreateChatMessageHandler {
 					}
 				}
 
-				if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`)) {
+				if (rowProp === "attack") {
 					hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, critMod);
 				}
 
 				if (hitEvaluationResults) {
 					// Append hit targets to text
-					if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.hit")}:`) && hitEvaluationResults.targetsHit.length > 0) {
+					if (rowProp === "hit" && hitEvaluationResults.targetsHit.length > 0) {
 						$row_self.find("strong").after(`<span class='dc-target'> (${HitEvaluation.getNames(
 							hitEvaluationResults.targetsHit,
 							hitEvaluationResults.targetsCrit)}) </span>`);
 					}
 					// Append missed targets to text
-					if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.miss")}:`) && hitEvaluationResults.targetsMissed.length > 0) {
+					if (rowProp === "miss" && hitEvaluationResults.targetsMissed.length > 0) {
 						$row_self.find("strong").after(`<span class='dc-target'> (${HitEvaluation.getNames(
 							hitEvaluationResults.targetsMissed,
 							hitEvaluationResults.targetsFumbled)}) </span>`);
 					}
 					// Append target defenses to text
-					if (row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`) && hitEvaluationResults.defenses.length > 0
+					if (rowProp === "attack" && hitEvaluationResults.defenses.length > 0
 						&& game.settings.get("archmage", "showDefensesInChat")) {
 						$row_self.append(`<span class='dc-target'> (${hitEvaluationResults.defenses.join(", ")}) </span>`);
 					}
@@ -287,21 +292,16 @@ export default class preCreateChatMessageHandler {
 				// Highlight lines for higher level effects
 				for (let x of [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
 					// We'll only find rows up to the power's or actor's level
-					if (row_text_clean.startsWith(`${game.i18n.localize(`ARCHMAGE.CHAT.spellLevel${x}`)}:`)) {
+					if (isSpellLevelKey(rowProp) && Number(rowProp.replace("spellLevel", "")) === x) {
 						highestPowerLevelToHighlight = $row_self;
 					}
-					// if (x == options.powerLevel &&
-					// row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
-					// $row_self.addClass("trigger-active");
-					// highestPowerLevelToHighlight = $row_self;
-					// }
 				}
 
 				// Highlight sustain / final verse for songs
 				if ((["sustainedEffect", "openingEffect"].includes(options.usageMode)
-					&& row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect")}:`))
+					&& rowProp === "sustainedEffect")
 					|| (options.usageMode == "finalverse"
-					&& row_text_clean.startsWith(`${game.i18n.localize("ARCHMAGE.CHAT.finalVerse")}:`))) {
+					&& rowProp === "finalVerse")) {
 					$row_self.addClass("trigger-active");
 				}
 			});

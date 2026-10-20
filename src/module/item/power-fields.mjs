@@ -70,6 +70,21 @@ export function powerFieldKeys({ group = null, is2e = null } = {}) {
 }
 
 /**
+ * Whether a power field key is one of the per-level spell entries,
+ * `spellLevel2` ... `spellLevel11`.
+ *
+ * @param {string|null} key  The field key, such as from a chat card row's
+ *   `data-prop` attribute.
+ * @returns {boolean}
+ */
+export function isSpellLevelKey(key) {
+	if (typeof key !== "string") return false;
+	const level = Number(key.replace("spellLevel", ""));
+	return key.startsWith("spellLevel") && level >= 2 && level <= 11
+		&& Number.isInteger(level);
+}
+
+/**
  * Whether a power's field should be displayed.
  *
  * Only the per-level entries of a spell are ever hidden. They appear

@@ -24,22 +24,17 @@ export function activateRollListeners(chatMessage, html, options) {
 		$(this)[0].dataset.uuid = uuid;
 		$(this).off("contextmenu");
 
-		const triggerTarget = `${game.i18n.localize("ARCHMAGE.CHAT.target")}:`;
-		const triggerCastPower = `${game.i18n.localize("ARCHMAGE.CHAT.castPower")}:`;
-		if ($(this).parent()[0].innerText.includes(triggerTarget)
-			&& !$(this).parent()[0].innerText.includes(triggerCastPower)) {
-			// Ignore if this is a "Target:" line (but not if its "Cast for Power:",
-			// which in some localizations contains "Target:").
+		// The machine field name of the card row this roll sits on, stamped
+		// by the card template: "target", "attack", "hit", etc. Rolls on no
+		// classified row (feat descriptions, plain roll cards) get the full
+		// damage menu.
+		const rowProp = $(this).closest("[data-prop]")[0]?.dataset?.prop ?? null;
+		if (rowProp === "target") {
+			// Ignore rolls on the "Target:" line.
 			return;
 		}
 
-		const triggerAttack = `${game.i18n.localize("ARCHMAGE.attack")}:`;
-		let isAttack = false;
-		if ($(this).parent()[0].innerText.includes(triggerAttack)) {
-			// Ignore if this is a "Attack:" line.
-			// return;
-			isAttack = true;
-		}
+		const isAttack = rowProp === "attack";
 
 		/**
 		 * Get the roll element: the element itself if it is an inline roll, otherwise its dice total.
