@@ -5,7 +5,10 @@ import { DamageApplicator } from "../../setup/damageApplicator.js";
  * card: the target buttons, the damage modifiers, the damage / healing /
  * temp HP application actions, and the reroll action.
  *
- * Moved verbatim from the renderChatMessageHTML hook in archmage.js.
+ * The menu's transient state (which target type and damage modifier are
+ * selected) lives in a closure object instead of the dataset of the shared
+ * #context-menu2 element, so each menu starts fresh and no state leaks
+ * between menus.
  *
  * @param {object} args
  * @param {boolean} args.isAttack       Whether the roll sits on an attack
@@ -23,6 +26,10 @@ export function buildRollMenuItems({ isAttack, getRollFromElement, options }) {
 		game.settings.set("archmage", "userTargetDamageApplicationType", "selected");
 		targetType = "selected";
 	}
+
+	// This menu's transient state. The target type defaults to the user's
+	// setting; the modifier resets to 1x for every menu.
+	const menuState = { targetType, mod: 1 };
 
 	// Build the list of menu items, starting with the target buttons
 	// if allowed.
@@ -43,13 +50,10 @@ export function buildRollMenuItems({ isAttack, getRollFromElement, options }) {
 					// Deactivate the other target type.
 					const activeButtons = $("#context-menu2").find("button[data-target].active");
 					activeButtons.removeClass("active");
-					// Set the target type on the menu for later reference.
-					const menu = $("#context-menu2")[0];
-					if (menu) {
-						menu.dataset.target = button.dataset.target;
-					}
-					// Toggle the active button and update the user setting.
+					// Toggle the active button, remember the choice, and
+					// update the user setting.
 					button.classList.add("active");
+					menuState.targetType = button.dataset.target;
 					game.settings.set("archmage", "userTargetDamageApplicationType", button.dataset.target);
 				}
 			}
@@ -76,17 +80,12 @@ export function buildRollMenuItems({ isAttack, getRollFromElement, options }) {
 			callback: (inlineRoll, event) => {
 				const button = event?.target ?? event?.currentTarget;
 				if (button?.dataset?.mod) {
-					// Deactivate the other target type.
+					// Deactivate the other modifiers.
 					const activeButtons = $("#context-menu2").find("button[data-mod].active");
 					activeButtons.removeClass("active");
-					// Set the target type on the menu for later reference.
-					const menu = $("#context-menu2")[0];
-					if (menu) {
-						menu.dataset.mod = button.dataset.mod;
-					}
-					// Toggle the active button and update the user setting.
+					// Toggle the active button and remember the choice.
 					button.classList.add("active");
-					// game.settings.set('archmage', 'userTargetDamageApplicationType', button.dataset.target);
+					menuState.mod = Number(button.dataset.mod);
 				}
 			}
 		});
@@ -98,10 +97,8 @@ export function buildRollMenuItems({ isAttack, getRollFromElement, options }) {
 				id: "damage",
 				icon: '<i class="fas fa-tint"></i>',
 				callback: (inlineRoll, event) => {
-					const menu = $("#context-menu2")?.[0];
-					const targetType = menu?.dataset?.target ?? "selected";
-					const mod = menu?.dataset?.mod ? Number(menu.dataset.mod) : 1;
-					new DamageApplicator().asDamage(getRollFromElement(inlineRoll), mod, targetType);
+					const roll = getRollFromElement(inlineRoll);
+					new DamageApplicator().asDamage(roll, menuState.mod, menuState.targetType);
 				}
 			},
 			{
@@ -109,10 +106,8 @@ export function buildRollMenuItems({ isAttack, getRollFromElement, options }) {
 				id: "healing",
 				icon: '<i class="fas fa-medkit"></i>',
 				callback: (inlineRoll, event) => {
-					const menu = $("#context-menu2")?.[0];
-					const targetType = menu?.dataset?.target ?? "selected";
-					const mod = menu?.dataset?.mod ? Number(menu.dataset.mod) : 1;
-					new DamageApplicator().asHealing(getRollFromElement(inlineRoll), mod, targetType);
+					const roll = getRollFromElement(inlineRoll);
+					new DamageApplicator().asHealing(roll, menuState.mod, menuState.targetType);
 				}
 			},
 			{
@@ -120,10 +115,8 @@ export function buildRollMenuItems({ isAttack, getRollFromElement, options }) {
 				id: "temp-healing",
 				icon: '<i class="fas fa-heart"></i>',
 				callback: (inlineRoll, event) => {
-					const menu = $("#context-menu2")?.[0];
-					const targetType = menu?.dataset?.target ?? "selected";
-					const mod = menu?.dataset?.mod ? Number(menu.dataset.mod) : 1;
-					new DamageApplicator().asTempHealth(getRollFromElement(inlineRoll), mod, targetType);
+					const roll = getRollFromElement(inlineRoll);
+					new DamageApplicator().asTempHealth(roll, menuState.mod, menuState.targetType);
 				}
 			}
 		);

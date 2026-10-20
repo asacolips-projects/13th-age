@@ -1,6 +1,7 @@
 import ArchmageRolls from "../../rolls/ArchmageRolls.mjs";
 import { MacroUtils } from "../../setup/utility-classes.js";
 import preCreateChatMessageHandler from "../../hooks/preCreateChatMessageHandler.mjs";
+import { isSpellLevelKey } from "../../item/power-fields.mjs";
 import { powerUsageColor } from "../../item/power-usage.mjs";
 
 const RETAIN_FOCUS_REGEX = /retain focus.+(\d+)[^\d]+(\d+)/i;
@@ -787,23 +788,15 @@ export async function animate(ctx) {
 				// Iterate over properties.
 				$rows.each(function (index) {
 					let $row_self = $(this);
-					let row_text = $row_self.html();
+					// The machine field name stamped by the card template.
+					const rowProp = this.dataset?.prop ?? null;
 					// Attack or Target rows - keep all, in right order
-					const triggerAttack = `${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`;
-					const triggerTarget = `${game.i18n.localize("ARCHMAGE.CHAT.target")}:`;
-					const triggerHit = `${game.i18n.localize("ARCHMAGE.CHAT.hit")}:`;
-					const triggerLevelSpell = `${game.i18n.localize("ARCHMAGE.CHAT.spellLevelTrigger")}:`;
-					const triggerResources = `${game.i18n.localize("ARCHMAGE.CHAT.resources")}:`;
-					const triggerEffect = `${game.i18n.localize("ARCHMAGE.CHAT.effect")}:`;
-					if (row_text.includes(triggerAttack)
-						|| row_text.includes(triggerTarget)
-						|| row_text.includes(triggerResources)
-						|| row_text.includes(triggerEffect)) {
+					if (["attack", "target", "resources", "effect"].includes(rowProp)) {
 						let $roll_html = $row_self.find(".inline-result");
 						if ($roll_html.length > 0) {
 							$roll_html.each(function (i, e) {
 								let roll = Roll.fromJSON(unescape(e.dataset.roll));
-								if (row_text.includes(triggerAttack) && roll.terms[0].faces != 20) {
+								if (rowProp === "attack" && roll.terms[0].faces != 20) {
 									// Not an attack roll, usually a target roll, roll first
 									rolls.unshift(roll);
 								}
@@ -812,7 +805,7 @@ export async function animate(ctx) {
 						}
 					}
 					// Hit or Spell level rows - keep only the last
-					else if (row_text.includes(triggerHit) || row_text.includes(triggerLevelSpell)) {
+					else if (rowProp === "hit" || isSpellLevelKey(rowProp)) {
 						let newDamageRolls = [];
 						let $roll_html = $row_self.find(".inline-result");
 						if ($roll_html.length > 0) {
@@ -1068,10 +1061,11 @@ async function handleRetainFocus(ctx) {
 		if (naturalRoll >= low && naturalRoll <= high) {
 			delete ctx.actorUpdates["system.resources.perCombat.focus.current"];
 
-			const labelText = game.i18n.localize(`ARCHMAGE.CHAT.always`);
+			// Mark the "always" trigger row active. Keyed on the machine
+			// data-prop the template stamps, not the localized label.
 			ctx.chat.content = ctx.chat.content.replace(
-				`<div class="card-prop"><strong>${labelText}:`,
-				`<div class="card-prop trigger-active"><strong>${labelText}:`
+				`<div class="card-prop" data-prop="always">`,
+				`<div class="card-prop trigger-active" data-prop="always">`
 			);
 		}
 	}

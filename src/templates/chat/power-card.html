@@ -15,29 +15,29 @@
                     <em>{{data.range.value}}</em>
                 {{/if}}
                 {{#each data.properties}}
-                <div class="card-prop"><strong>{{this.label}}:</strong> {{{this.value}}}</div>
+                <div class="card-prop" data-prop="{{this.key}}"><strong>{{this.label}}:</strong> {{{this.value}}}</div>
                 {{/each}}
                 {{#if data.critMod.value }}
-                  <div class="card-prop"><strong>{{localize 'ARCHMAGE.CHAT.critMod'}}:</strong> {{{data.critMod.value}}}</div>
+                  <div class="card-prop" data-prop="critMod"><strong>{{localize 'ARCHMAGE.CHAT.critMod'}}:</strong> {{{data.critMod.value}}}</div>
                 {{/if}}
                 {{#each data.effects}}
                 <div class="card-row">
-                    <div class="card-prop"><strong class="card-label">{{this.label}}:</strong> {{{this.value}}}</div>
+                    <div class="card-prop" data-prop="{{this.key}}"><strong class="card-label">{{this.label}}:</strong> {{{this.value}}}</div>
                 </div>
                 {{/each}}
                 {{#if data.rollTable.value}}
                 <div class="card-row">
-                    <div class="card-prop"><strong class="card-label">{{data.rollTable.label}}:</strong> {{{data.rollTable.value}}}</div>
+                    <div class="card-prop" data-prop="rollTable"><strong class="card-label">{{data.rollTable.label}}:</strong> {{{data.rollTable.value}}}</div>
                 </div>
                 {{/if}}
                 {{#if data.description.value}}
                     <div class="card-row">
-                        <div class="card-prop">{{{data.description.value}}}</div>
+                        <div class="card-prop" data-prop="description">{{{data.description.value}}}</div>
                     </div>
                 {{/if}}
                 {{#if data.feats}}
                     {{#each data.feats as |feat key|}}
-                        <div class="tag tag--feat tag--{{#if feat.isActive}}active{{else}}inactive hide{{/if}} tag--{{safeCSSId feat.label}}">
+                        <div class="tag tag--feat tag--{{#if feat.isActive}}active{{else}}inactive hide{{/if}} tag--{{safeCSSId feat.label}}" data-prop="feat">
                             <strong>{{localize (concatenate "ARCHMAGE.CHAT." feat.label)}}:</strong>
                             <div class="description">{{{feat.description}}}</div>
                         </div>

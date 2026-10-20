@@ -56,14 +56,12 @@ export default class FlexibleAttacks {
 		const maneuvers = FlexibleAttacks.flexiblesFor(actor, kind);
 		if (!maneuvers.length) return content;
 
-		// The rows go inside the attack's own card row: DamageApplicator.rerollDice re-evaluates the trigger
-		// rows of that row only, so rows placed anywhere else would keep the first roll's result.
-		const attackLabel = `${game.i18n.localize("ARCHMAGE.CHAT.attack")}:`;
+		// The rows go inside the attack's own card row, which the template
+		// marks with data-prop="attack": DamageApplicator.rerollDice
+		// re-evaluates the trigger rows of that row only, so rows placed
+		// anywhere else would keep the first roll's result.
 		const $content = $(`<div class="wrapper">${content}</div>`);
-		const $attackRow = $content.find(".card-prop").filter((i, row) => $(row).text()
-			.trim()
-			.startsWith(attackLabel))
-			.first();
+		const $attackRow = $content.find('[data-prop="attack"]').first();
 		const $target = $attackRow.closest(".card-row");
 		if (!$target.length) return content;
 
