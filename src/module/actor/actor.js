@@ -1211,11 +1211,13 @@ export class ActorArchmage extends Actor {
 	/**
 	 * Recovery roll dialog.
 	 *
+	 * Closing the dialog without clicking a button cancels the roll.
+	 *
 	 * @param {Event} event  The triggering event, if any; shift-click skips the dialog.
-	 * @returns {undefined}
+	 * @returns {Promise<foundry.applications.api.DialogV2|undefined>} The rendered
+	 *   dialog, or undefined if the roll was fast-forwarded via shift-click.
 	 */
-	rollRecoveryDialog(event) {
-		let rolled = false;
+	async rollRecoveryDialog(event) {
 		let avg = this.getFlag("archmage", "averageRecoveries");
 		let data = { bonus: "", average: avg, createMessage: true };
 
@@ -1224,82 +1226,67 @@ export class ActorArchmage extends Actor {
 			return;
 		}
 
+		const is2e = game.settings.get("archmage", "secondEdition");
+		const epicBonus = is2e ? "+4d8" : "+3d8";
+		const epicMax = is2e ? 0 : 100;
+
 		// Render modal dialog
-		let template = "systems/archmage/templates/chat/recovery-dialog.html";
-		let dialogData = { avg: avg ? "checked" : "" };
-		let epicBonus = game.settings.get("archmage", "secondEdition") ? "+4d8" : "+3d8";
-		let epicMax = game.settings.get("archmage", "secondEdition") ? 0 : 100;
-		let dialogStruct = {
-			title: game.i18n.localize("ARCHMAGE.recoveryRoll"),
-			buttons: {
-				normal: {
-					label: game.i18n.localize("ARCHMAGE.recoveryNormal"),
-					callback: () => {
-						rolled = true;
-					}
-				},
-				free: {
-					label: game.i18n.localize("ARCHMAGE.recoveryFree"),
-					callback: () => {
-						data.label = game.i18n.localize("ARCHMAGE.recoveryFreeChat");
-						data.free = true;
-						rolled = true;
-					}
-				},
-				pot1: {
-					label: game.i18n.localize("ARCHMAGE.recoveryAdventurer"),
-					callback: () => {
-						data.label = game.i18n.localize("ARCHMAGE.recoveryAdventurerFull");
-						data.bonus = "+1d8";
-						data.max = 30;
-						rolled = true;
-					}
-				},
-				pot2: {
-					label: game.i18n.localize("ARCHMAGE.recoveryChampion"),
-					callback: () => {
-						data.label = game.i18n.localize("ARCHMAGE.recoveryChampionFull");
-						data.bonus = "+2d8";
-						data.max = 60;
-						rolled = true;
-					}
-				},
-				pot3: {
-					label: game.i18n.localize("ARCHMAGE.recoveryEpic"),
-					callback: () => {
-						data.label = game.i18n.localize("ARCHMAGE.recoveryEpicFull");
-						data.bonus = epicBonus;
-						data.max = epicMax;
-						rolled = true;
-					}
-				}
-			},
-			default: "normal",
-			close: (html) => {
-				if (rolled) {
-					data.bonus += html.find('[name="bonus"]').val();
-					data.apply = html.find('[name="apply"]').is(":checked");
-					data.average = html.find('[name="average"]').is(":checked");
+		const template = "systems/archmage/templates/chat/recovery-dialog.html";
+		const content = await foundry.applications.handlebars.renderTemplate(template, { avg: !!avg });
+
+		// Every button rolls a recovery: apply the button's overrides first, then
+		// append the dialog's situational bonus and read the checkboxes.
+		const makeButton = (action, label, overrides = {}, isDefault = false) => {
+			return {
+				action,
+				label,
+				default: isDefault,
+				callback: (event, button, dialog) => {
+					Object.assign(data, overrides);
+					data.bonus += button.form.elements.bonus.value;
+					data.apply = button.form.elements.apply.checked;
+					data.average = button.form.elements.average.checked;
 					this.setFlag("archmage", "averageRecoveries", data.average);
 					this.rollRecovery(data);
 				}
-			}
-		};
-		if (!game.settings.get("archmage", "secondEdition")) {
-			dialogStruct.buttons.pot4 = {
-				label: game.i18n.localize("ARCHMAGE.recoveryIconic"),
-				callback: () => {
-					data.label = game.i18n.localize("ARCHMAGE.recoveryIconicFull");
-					data.bonus = "+4d8";
-					data.max = 130;
-					rolled = true;
-				}
 			};
+		};
+
+		const buttons = [
+			makeButton("normal", game.i18n.localize("ARCHMAGE.recoveryNormal"), {}, true),
+			makeButton("free", game.i18n.localize("ARCHMAGE.recoveryFree"), {
+				label: game.i18n.localize("ARCHMAGE.recoveryFreeChat"),
+				free: true
+			}),
+			makeButton("pot1", game.i18n.localize("ARCHMAGE.recoveryAdventurer"), {
+				label: game.i18n.localize("ARCHMAGE.recoveryAdventurerFull"),
+				bonus: "+1d8",
+				max: 30
+			}),
+			makeButton("pot2", game.i18n.localize("ARCHMAGE.recoveryChampion"), {
+				label: game.i18n.localize("ARCHMAGE.recoveryChampionFull"),
+				bonus: "+2d8",
+				max: 60
+			}),
+			makeButton("pot3", game.i18n.localize("ARCHMAGE.recoveryEpic"), {
+				label: game.i18n.localize("ARCHMAGE.recoveryEpicFull"),
+				bonus: epicBonus,
+				max: epicMax
+			})
+		];
+		if (!is2e) {
+			buttons.push(makeButton("pot4", game.i18n.localize("ARCHMAGE.recoveryIconic"), {
+				label: game.i18n.localize("ARCHMAGE.recoveryIconicFull"),
+				bonus: "+4d8",
+				max: 130
+			}));
 		}
-		foundry.applications.handlebars.renderTemplate(template, dialogData).then((dlg) => {
-			dialogStruct.content = dlg;
-			new Dialog(dialogStruct).render(true);
-		});
+
+		return new foundry.applications.api.DialogV2({
+			window: { title: game.i18n.localize("ARCHMAGE.recoveryRoll") },
+			content,
+			buttons
+		}).render({ force: true });
 	}
 
 	/* -------------------------------------------- */
