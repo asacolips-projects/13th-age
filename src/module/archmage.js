@@ -2099,34 +2099,7 @@ Hooks.on("preDeleteCombat", preDeleteCombat);
 
 /* ---------------------------------------------- */
 
-// DEPRECATED?
-/* // Update escalation die values on scene change.
-Hooks.on('renderCombatTracker', (async () => {
-  // Handle non-gm users.
-  let combat = game.combat;
-  let escalation = 0;
-  let $escalationDiv = $('.archmage-escalation');
-
-  // Restore the escalation die.
-  if (combat !== null) {
-    escalation = ArchmageUtility.getEscalation(combat);
-    $escalationDiv.removeClass('hide');
-  }
-  // Hide the escalation die.
-  else {
-    $escalationDiv.addClass('hide');
-  }
-  // Update the value of the tracker.
-  $escalationDiv.attr('data-value', escalation);
-  $escalationDiv.find('.ed-number').text(escalation);
-})); */
-
-/* ---------------------------------------------- */
-
 Hooks.on("deleteCombat", (combat) => {
-	// Clear the escalation die.
-	$(".archmage-escalation").addClass("hide");
-
 	if (!game.user.isGM) return;
 
 	// Clear out death saves, per combat resources and temp HP.
