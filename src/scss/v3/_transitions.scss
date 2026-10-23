@@ -1,0 +1,15 @@
+// The v3 rows' expand/collapse transition, matching the Vue <Transition
+// name="slide-fade"> the expandable rows wrap their detail views in.
+
+.slide-fade-enter-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-60%);
+}

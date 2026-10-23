@@ -79,15 +79,11 @@ export default {
 			classes: computed(() => `section section--effects flexcol`)
 		});
 		// Define methods.
-		/**
-		 *
-		 */
-		function getEffects() {
+				function getEffects() {
 			let effects = this.actor.effects;
 			this.effects = effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		}
 		/**
-		 *
 		 * @param effect
 		 */
 		function getChanges(effect) {
@@ -95,7 +91,6 @@ export default {
 		}
 
 		/**
-		 *
 		 * @param effect
 		 */
 		function getDuration(effect) {
@@ -103,11 +98,13 @@ export default {
 		}
 
 		/**
-		 *
 		 * @param effect
 		 */
 		function getOngoingDamage(effect) {
-			return `${roundOngoingDamage(effect.flags.archmage.ongoingDamage)} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
+			return game.i18n.format("ARCHMAGE.ongoingDamageFormat", {
+				amount: roundOngoingDamage(effect.flags.archmage.ongoingDamage),
+				type: effect.flags.archmage.ongoingDamageType
+			});
 		}
 
 		// Return our custom data, methods, and any imported methods.
