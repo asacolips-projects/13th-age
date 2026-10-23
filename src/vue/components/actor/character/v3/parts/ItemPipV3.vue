@@ -16,9 +16,7 @@
 				@click="$emit('toggle-pip')"
 				@keydown.enter.prevent="$emit('toggle-pip')"
 				@keydown.space.prevent="$emit('toggle-pip')"
-			>
-				<div class="hide">{{ active }}</div>
-			</li>
+			/>
 		</ul>
 	</div>
 </template>
