@@ -1,0 +1,5 @@
+# Copy this file to foundry-config.yaml
+
+# This should point your local Foundry installation. It should include
+# the client/, common/, and lang/ subdirectories.
+installPath: "/path/to/foundry"

@@ -17,6 +17,7 @@
     "files": "node scripts/build/index.mjs --task=files",
     "compilePacks": "node scripts/build/index.mjs --task=compilePacks",
     "extractPacks": "node scripts/build/index.mjs --task=extractPacks",
+    "symlinks:create": "node ./tools/create-symlink.mjs",
     "lint": "eslint --ext .js,.cjs,.mjs,.vue .",
     "lint:fix": "eslint --ext .js,.cjs,.mjs,.vue --fix .",
     "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs,.vue .",
