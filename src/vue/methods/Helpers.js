@@ -22,6 +22,121 @@ export function localize(key, data = null) {
 }
 
 /**
+ * The localized label for a chakra slot value, e.g. 'Head' for 'head'.
+ *
+ * @param {string} chakra Chakra slot key, e.g. an equipment item's
+ *   `system.chackra`.
+ *
+ * @returns {string}
+ */
+export function chakraLabel(chakra) {
+	return localize(concat("ARCHMAGE.CHAKRA.", chakra, "Label"));
+}
+
+/**
+ * Strip HTML tags from a string with a regex, leaving entity references and
+ * whitespace alone. The listings' filters only need tags gone so raw HTML
+ * doesn't match tag names.
+ *
+ * @param {string} html HTML string, e.g. a stored enriched editor value.
+ *
+ * @returns {string}
+ */
+export function stripTags(html) {
+	return (html ?? "").replace(/<[^>]+>/g, "");
+}
+
+/**
+ * Normalize free-text filter input to its bare letters and digits, so
+ * punctuation and spacing don't need to match exactly. Unicode-aware, so
+ * keys for names like "Zählt" or "Задача" keep their letters instead of
+ * collapsing into the empty key shared by everything non-ASCII.
+ *
+ * @param {string} string Raw filter text.
+ *
+ * @returns {string} The stripped key, e.g. 'Finger-Wiggle' -> 'fingerwiggle'.
+ */
+export function cleanFilterKey(string) {
+	return string ? string.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "") : "";
+}
+
+/**
+ * Name comparator for item rows, alphabetical.
+ *
+ * @param {object} a Item data.
+ * @param {object} b Item data.
+ *
+ * @returns {number}
+ */
+export function byName(a, b) {
+	return a.name.localeCompare(b.name);
+}
+
+/**
+ * Power level comparator, ascending. Powers without a level sort first.
+ *
+ * @param {object} a Item data.
+ * @param {object} b Item data.
+ *
+ * @returns {number}
+ */
+export function byLevel(a, b) {
+	return Number(a.system?.powerLevel?.value ?? 0) - Number(b.system?.powerLevel?.value ?? 0);
+}
+
+/**
+ * Equipment tier comparator, ascending by the tier order (unset tiers first).
+ *
+ * @param {object} a Item data.
+ * @param {object} b Item data.
+ *
+ * @returns {number}
+ */
+export function byTier(a, b) {
+	return (TIER_ORDER[a.system?.tier] ?? 0) - (TIER_ORDER[b.system?.tier] ?? 0);
+}
+
+/**
+ * Apply a saved group order to a list of groups, with any group the saved
+ * order doesn't know about appended in its natural spot.
+ *
+ * @param {Array} groups The groups in natural order, each with a `key`.
+ * @param {Array} order The saved group keys, in display order.
+ *
+ * @returns {Array} The groups in display order.
+ */
+export function orderedGroups(groups, order) {
+	if (!order?.length) return groups;
+	const byKey = new Map(groups.map((g) => [g.key, g]));
+	return order.filter((key) => byKey.has(key)).map((key) => byKey.get(key))
+		.concat(groups.filter((g) => !order.includes(g.key)));
+}
+
+/**
+ * Apply a saved row order to a list of rows; rows the saved order doesn't
+ * know about (new items) keep their input order, or the tiebreak comparator's.
+ *
+ * @param {Array} rows The rows in natural order, each with an `_id`.
+ * @param {Array} order The saved row ids, in display order.
+ * @param {Function} [tiebreak] Comparator for rows the order doesn't know,
+ *   e.g. byName.
+ *
+ * @returns {Array} The rows in display order.
+ */
+export function orderedRows(rows, order, tiebreak = null) {
+	const positions = new Map(order.map((id, index) => [id, index]));
+	if (!positions.size) return rows;
+	return [...rows].sort((a, b) => {
+		const ai = positions.get(a._id);
+		const bi = positions.get(b._id);
+		if (ai === undefined && bi === undefined) return tiebreak ? tiebreak(a, b) : 0;
+		if (ai === undefined) return 1;
+		if (bi === undefined) return -1;
+		return ai - bi;
+	});
+}
+
+/**
  * Localize an equipment bonus property name.
  *
  * @param {string} bonusProp Bonus property, such as 'ac'.
@@ -29,6 +144,50 @@ export function localize(key, data = null) {
  */
 export function localizeEquipmentBonus(bonusProp) {
 	return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
+}
+
+/**
+ * Whether second-edition rules are enabled. NOT reactive: game settings
+ * aren't, so consumers re-render with the actor context rather than
+ * subscribing to the setting. Shared by the V3 sheet's edition gates
+ * (kin label, death-save glyphs, 2e resources and incrementals).
+ */
+export function isSecondEdition() {
+	return game.settings.get("archmage", "secondEdition") === true;
+}
+
+/**
+ * The kin field's label, edition-dependent: "Kin" in 2e, "Race" in 1e.
+ *
+ * @returns {string} The localized label.
+ */
+export function kinLabel() {
+	return isSecondEdition() ? localize("ARCHMAGE.kin") : localize("ARCHMAGE.race");
+}
+
+/**
+ * Whether the character has neither kin nor class set — the importer needs
+ * at least one to build its tabs, so callers disable import with a tooltip.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ *
+ * @returns {boolean}
+ */
+export function missingKinClass(actorData) {
+	const details = actorData?.system?.details ?? {};
+	return !details.race?.value && !details.class?.value;
+}
+
+/**
+ * The actor's powers that carry trigger text, the ones the triggers tab
+ * shows (and the strip's triggers tab slot keys off).
+ *
+ * @param {Array} items The actor's items.
+ *
+ * @returns {Array} Powers with a trigger value.
+ */
+export function powersWithTriggerText(items) {
+	return (items ?? []).filter((x) => x.type === "power" && x.system.trigger?.value);
 }
 
 /**
@@ -78,6 +237,30 @@ export function concat(...args) {
 	return args.reduce((acc, cur) => {
 		return acc + cur;
 	}, "");
+}
+
+/**
+ * Whether a field value is blank: null, undefined, or whitespace-only text.
+ * Used for the empty-field attention pulse.
+ *
+ * @param {*} value Field value.
+ *
+ * @returns {boolean}
+ */
+export function isBlank(value) {
+	return (value ?? "").toString().trim() === "";
+}
+
+/**
+ * Whether a numeric field value is blank or zero (Number(''), Number(null)
+ * and Number('0') are all 0). Used for the empty-field attention pulse.
+ *
+ * @param {*} value Field value.
+ *
+ * @returns {boolean}
+ */
+export function isZeroish(value) {
+	return !value || Number(value) === 0;
 }
 
 /**
@@ -147,6 +330,43 @@ export function getActionShort(actionType) {
 		?? CONFIG.ARCHMAGE.actionTypesShort.standard;
 }
 
+// The character tiers, keyed by the values featTiers and system.tier use. 'Z'
+// is the data's 'iconic' tier, localized as Zenith. Shared by the loadout's
+// slot bookkeeping and the equipment row's attunement pips. firstSlot is the
+// level the tier's slots begin at; cap is how many the tier grants across its
+// levels.
+export const TIERS = [
+	{ key: "adventurer", letter: "A", firstSlot: 1, cap: 4 },
+	{ key: "champion", letter: "C", firstSlot: 5, cap: 3 },
+	{ key: "epic", letter: "E", firstSlot: 8, cap: 3 },
+	{ key: "iconic", letter: "Z", firstSlot: 10, cap: 1 }
+];
+
+export const TIER_ORDER = Object.fromEntries(TIERS.map((tier, i) => [tier.key, i]));
+
+/**
+ * The character's tier index, from the same tier starts the feats use.
+ *
+ * @param {number} level The character's level.
+ *
+ * @returns {number} Index into TIERS.
+ */
+export const characterTierIndex = (level) =>
+	TIERS.reduce((index, tier, i) => level >= tier.firstSlot ? i : index, 0);
+
+/**
+ * Attunement cost against the level limit: an item at or below your tier
+ * counts as one; the rules let you attune one tier above and price that at
+ * two. (Anything higher can't be attuned at all; it still counts as two.)
+ *
+ * @param {object} item The magic item.
+ * @param {number} charTier The character's tier index.
+ *
+ * @returns {number} Slots the item consumes when attuned.
+ */
+export const attunementCost = (item, charTier) =>
+	(TIER_ORDER[item.system?.tier] ?? 0) > charTier ? 2 : 1;
+
 // Power usage colouring lives with the item code, so the actor sheets, the chat
 // cards, the compendium browser and the power importer all colour a power the
 // same way. Re-exported here because Vue components import their helpers from
@@ -178,6 +398,147 @@ export async function getActor(actorData) {
 
 	// If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
 	return document?.actor ?? document;
+}
+
+/**
+ * Persist one sheetDisplay preference through the live actor document;
+ * the sheet's actor data is a clone whose flag updates wouldn't round-trip.
+ * Writing only when the stored value differs avoids a re-render loop from
+ * the update. A null value clears the path instead (a removed tab's saved
+ * orders), leaving no key behind.
+ *
+ * All writes funnel through one queue and read the live document's flags,
+ * so two rapid writes to the same path can't both compose from the same
+ * stale clone and silently lose the first update. A function value composes
+ * inside that queue: it receives the stored value at the path (possibly
+ * undefined) as read from the live document and returns the value to store,
+ * so callers patching a subtree (a tab's definition in a tabs array) build
+ * on the previous queued write instead of a stale clone. Returning
+ * undefined from the function skips the write.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} flagPath Full flag path, e.g. `sheetDisplay.actionPlan.sortBy.value`.
+ * @param {*} value The preference value, or a function producing it from the
+ *   live stored value.
+ */
+let prefQueue = Promise.resolve();
+export async function saveSheetDisplayPref(actorData, flagPath, value) {
+	// Pack actors have no setFlag; getActor resolves the live document from
+	// the context actor's drag data.
+	const run = async () => {
+		if (actorData?.pack) return;
+		const actor = await getActor(actorData);
+		if (!actor) return;
+		const current = foundry.utils.getProperty(actor.flags?.archmage ?? {}, flagPath);
+		if (value === null) {
+			if (current !== undefined) await actor.unsetFlag("archmage", flagPath);
+			return;
+		}
+		const next = typeof value === "function" ? value(current) : value;
+		if (next === undefined) return;
+		if (current === next) return;
+		await actor.setFlag("archmage", flagPath, next);
+	};
+	const next = prefQueue.then(run, run);
+	// Failures surface to this caller without poisoning the shared chain.
+	prefQueue = next.catch(() => {});
+	await next;
+}
+
+/**
+ * The actions an item row offers for its item. Each resolves the actor
+ * document from the sheet's actor data, so rows own their interactions without
+ * reaching back into the sheet's delegated listeners.
+ */
+
+/**
+ * Open one of the actor's items on the actor for editing.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ */
+export async function editItem(actorData, itemId) {
+	const actor = await getActor(actorData);
+	actor?.items.get(itemId)?.sheet.render(true);
+}
+
+/**
+ * Delete one of the actor's items, confirming first unless bypassed.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ * @param {boolean} bypass Skip the confirmation, e.g. for shift-clicks.
+ */
+export async function deleteItem(actorData, itemId, bypass = false) {
+	const actor = await getActor(actorData);
+	const item = actor?.items.get(itemId);
+	if (!item) return;
+
+	if (bypass) {
+		await item.delete();
+		return;
+	}
+
+	const confirmed = await foundry.applications.api.DialogV2.confirm({
+		window: { title: localize("ARCHMAGE.CHAT.DeleteConfirmTitle") },
+		content: `<p>${localize("ARCHMAGE.CHAT.DeleteConfirm")}</p>`,
+		confirm: { label: localize("ARCHMAGE.CHAT.Delete") },
+		cancel: { label: localize("ARCHMAGE.CHAT.Cancel") }
+	});
+	if (confirmed) await item.delete();
+}
+
+/**
+ * Increase or decrease one of an actor item's remaining uses.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ * @param {boolean} increase Whether to add or remove a use.
+ * @param {boolean} secondary Target the item's secondary pool of uses instead
+ *   of the primary one.
+ */
+export async function changeQuantity(actorData, itemId, increase = true, secondary = false) {
+	const actor = await getActor(actorData);
+	const item = actor?.items.get(itemId);
+	if (!item) return;
+
+	const quantityKey = secondary ? "quantitySecondary" : "quantity";
+	if (item.system?.[quantityKey]?.value == null) return;
+	let quantity = Number(item.system[quantityKey].value);
+	quantity = increase ? quantity + 1 : quantity - 1;
+
+	// TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
+	let maxQuantity = await item.resolveMaxQuantity(secondary ? "maxQuantitySecondary" : "maxQuantity") ?? 99;
+
+	await item.update({ [`system.${quantityKey}.value`]: increase ? Math.min(maxQuantity, quantity) : Math.max(0, quantity) });
+}
+
+/**
+ * Toggle one of an actor item's pips: a power feat's taken state, or an
+ * equipment item's active state.
+ *
+ * @param {object} actorData Actor data, as passed down by the sheet.
+ * @param {string} itemId Item id, e.g. `power._id`.
+ * @param {string} tier For power feats, the feat's tier (e.g. 'adventurer').
+ *   Ignored for equipment items, which carry a single active pip.
+ */
+export async function togglePip(actorData, itemId, tier = null) {
+	const actor = await getActor(actorData);
+	const item = actor?.items.get(itemId);
+	if (!item) return;
+
+	let updateData = {};
+	if (item.type === "power") {
+		if (!tier) return;
+		let isActive = item.system.feats[tier].isActive.value;
+		updateData[`system.feats.${tier}.isActive.value`] = !isActive;
+	}
+	else if (item.type === "equipment") {
+		updateData["system.isActive"] = !item.system.isActive;
+	}
+	else return;
+
+	await item.update(updateData);
 }
 
 /**

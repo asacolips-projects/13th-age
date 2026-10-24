@@ -27,6 +27,13 @@ export const SYSTEM_COPY = [
 	"src/module/tours/configs/*"
 ];
 
+// Copied for development (where the dev Vue build is what runs) but skipped
+// for production releases: imports are rewritten to the .prod.js bundle, so
+// the 500-odd KB development build would only be dead weight in the zip.
+export const PROD_COPY_EXCLUDES = [
+	"src/scripts/lib/vue.esm-browser.js"
+];
+
 export const VUE_DEPS = [
 	"node_modules/vue/dist/vue.esm-browser.js",
 	"node_modules/vue/dist/vue.esm-browser.prod.js"

@@ -12,7 +12,7 @@
 				width="100"
 			>
 			<div class="header-fields flexrow">
-				<button class="item-roll flexshrink" @click="itemDocument.roll()">
+				<button type="button" class="item-roll flexshrink" @click="itemDocument.roll()">
 					<i class="fas fa-dice-d20" /><span
 						class="visually-hidden"
 					> Send to Chat</span>
@@ -65,9 +65,7 @@
 									<li
 										:class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))"
 										:data-item-id="equipment._id"
-									>
-										<div class="hide">{{ equipment.system.isActive }}</div>
-									</li>
+									/>
 								</ul>
 							</div>
 							<div v-if="equipment.system.attributes" class="equipment-bonus flexrow">
