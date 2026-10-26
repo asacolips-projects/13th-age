@@ -1,0 +1,22 @@
+// The v3 attention pulse: the empty-field glow the sidebar units and the
+// command bar give blank (or zero) entry fields, and the item index's import
+// button while the character has no items. The keyframes are defined once
+// here — imported by CharSidebarV3's unscoped style block, the only
+// definition in the bundle — so scoped blocks can reference the global
+// name without declaring their own copy.
+
+@keyframes v3-empty-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 2px var(--v3-hint);
+  }
+}
+
+// The pulse as a class, for elements the per-field .field-empty bindings
+// don't cover (the import button pulses while the character is empty,
+// charms even while disabled — the tooltip explains why).
+.v3-pulse {
+  animation: v3-empty-pulse 2s ease-in-out infinite;
+}

@@ -1,10 +1,19 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 
 /**
- * Mix Vue rendering into a Foundry ApplicationV2 class.
+ * Injection keys used to provide documents to the Vue apps via
+ * provide/inject. Applications set `documentProvideKey` to the key matching
+ * their document, and components inject the same key.
  *
- * @param {typeof ApplicationV2} BaseApplication The application class to extend
- * @returns {typeof ApplicationV2} The extended application class
+ * @type {Record<string, string>}
+ */
+export const DOCUMENT_PROVIDE_KEYS = {
+	itemDocument: "itemDocument",
+	actorDocument: "actorDocument"
+};
+
+/**
+ * @param BaseApplication
  */
 export default function VueRenderingMixin(BaseApplication) {
 
@@ -38,6 +47,9 @@ export default function VueRenderingMixin(BaseApplication) {
 		 */
 		vueParts = {};
 
+		/** Injection key used to provide the document to the Vue app. Subclasses override (e.g. DOCUMENT_PROVIDE_KEYS.actorDocument). */
+		documentProvideKey = DOCUMENT_PROVIDE_KEYS.itemDocument;
+
 		/**
 		 * Getter for vueComponents
 		 *
@@ -48,7 +60,6 @@ export default function VueRenderingMixin(BaseApplication) {
 		 *   'document-sheet': DocumentSheet,
 		 *   'foobar': Foobar,
 		 * }
-		 * @returns {object} Component tags mapped to component instances
 		 */
 		get vueComponents() {
 			const components = {};
@@ -70,7 +81,6 @@ export default function VueRenderingMixin(BaseApplication) {
 		 *   '<document-sheet :context="context">Failed to render</document-sheet>',
 		 *   '<foobar :context="context"/>'
 		 * ]
-		 * @returns {string[]} Template strings for each Vue part
 		 */
 		get vueTemplates() {
 			return Object.values(this.vueParts).map((part) => part.template);
@@ -111,7 +121,9 @@ export default function VueRenderingMixin(BaseApplication) {
 					updateContext(newContext) {
 						// Note that 'this' refers to this.vueApp, not the full AppV2 instance.
 						for (let key of Object.keys(this.context)) {
-							if (newContext[key]) {
+							// Use `in` rather than a truthiness check so falsy updates
+							// (e.g. editable: true -> false) propagate.
+							if (key in newContext) {
 								this.context[key] = newContext[key];
 							}
 						}
@@ -124,7 +136,7 @@ export default function VueRenderingMixin(BaseApplication) {
 			this.vueApp.config.globalProperties.foundry = foundry;
 
 			// Expose the document.
-			this.vueApp.provide("itemDocument", this.document);
+			this.vueApp.provide(this.documentProvideKey, this.document);
 
 			// Mount and store the vue application.
 			this.vueRoot = this.vueApp.mount(target);
@@ -159,37 +171,72 @@ export default function VueRenderingMixin(BaseApplication) {
 		}
 
 		_onRender(context, options) {
+			// Re-renders can replace this.element, so an observer watching the
+			// previous one is stale — drop it and let the branches below bind
+			// a fresh one.
+			if (this._disableObserverEl !== this.element) {
+				this._disableObserver?.disconnect();
+				this._disableObserver = null;
+				this._disableObserverEl = null;
+			}
+
 			if (!this.isEditable) {
-				const inputs = this.element.querySelectorAll("input, textarea");
-				const selects = this.element.querySelectorAll("select");
-
-				if (inputs) {
-					for (let input of inputs) {
-						input.setAttribute("readonly", true);
-						input.setAttribute("disabled", true);
+				// Observers and non-owners get read-only fields. _onRender runs
+				// on every re-render, but inputs mounted after it — a tab
+				// switch, an expanded row, the narrow/wide layout swap — never
+				// see one, so a mutation observer applies the same pass to
+				// fields as they arrive.
+				const disableFields = (root) => {
+					for (let field of root.querySelectorAll("input, textarea, select")) {
+						field.setAttribute("readonly", true);
+						field.setAttribute("disabled", true);
 					}
-				}
-
-				if (selects) {
-					for (let select of selects) {
-						select.setAttribute("disabled", true);
-					}
+				};
+				disableFields(this.element);
+				if (!this._disableObserver) {
+					this._disableObserver = new MutationObserver((mutations) => {
+						for (const mutation of mutations) {
+							for (const node of mutation.addedNodes) {
+								if (node.nodeType !== Node.ELEMENT_NODE) continue;
+								if (node.matches("input, textarea, select")) {
+									node.setAttribute("readonly", true);
+									node.setAttribute("disabled", true);
+								}
+								disableFields(node);
+							}
+						}
+					});
+					this._disableObserverEl = this.element;
+					this._disableObserver.observe(this.element, { childList: true, subtree: true });
 				}
 			}
 			else {
 				// Set a variable when the shift key is pressed to avoid paste events.
-				this.element.addEventListener("keydown", (event) => {
-					if (event.key === "Shift" && !this.isShift) {
-						this.isShift = true;
-					}
-				});
-				this.element.addEventListener("keyup", (event) => {
-					if (event.key === "Shift" && this.isShift) {
-						this.isShift = false;
-					}
-				});
-				// Handle paste events.
+				// Bound once per element: _onRender runs on every re-render (with
+				// submitOnChange, every save), and Foundry caches the sheet
+				// instance while re-renders replace this.element — so an
+				// instance-level guard would leave every element after the first
+				// one without listeners. Keying the guard on the element, like the
+				// paste handler below, rebinds for each new element without
+				// stacking duplicates on the re-renders that keep it.
+				if (!this.element.dataset.archmageKeysBound) {
+					this.element.dataset.archmageKeysBound = "true";
+					this.element.addEventListener("keydown", (event) => {
+						if (event.key === "Shift" && !this.isShift) {
+							this.isShift = true;
+						}
+					});
+					this.element.addEventListener("keyup", (event) => {
+						if (event.key === "Shift" && this.isShift) {
+							this.isShift = false;
+						}
+					});
+				}
+				// Handle paste events — once per editor element, since re-renders
+				// re-query .editor-content and Vue may have replaced the element.
 				this.element.querySelectorAll(".editor-content").forEach((editor) => {
+					if (editor.dataset.archmagePasteBound) return;
+					editor.dataset.archmagePasteBound = "true";
 					editor.addEventListener("paste", (event) => this._parsePastedContent(event));
 				});
 			}
