@@ -1,0 +1,9 @@
+// The V3 empty-state line: the muted, italic paragraph a list or tab shows
+// when it has nothing to render. The consuming components import this partial
+// into their scoped styles (the drag-reorder partial's pattern) and put the
+// class on the element.
+.v3-empty {
+  margin: 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}

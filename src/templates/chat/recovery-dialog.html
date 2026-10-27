@@ -1,4 +1,4 @@
-<form>
+<div>
   <div class="form-group">
     <label>{{localize 'ARCHMAGE.recoveryBonusLabel'}}</label>
     <input type="text" name="bonus" value="" placeholder="{{localize 'ARCHMAGE.rollBonusPlaceholder'}}"/>
@@ -9,6 +9,6 @@
   </div>
   <div class="form-group">
     <label>{{localize 'ARCHMAGE.rollAverageLabel'}}</label>
-    <input type="checkbox" name="average" {{avg}} />
+    <input type="checkbox" name="average" {{#if avg}}checked{{/if}} />
   </div>
-</form>
+</div>
