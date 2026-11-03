@@ -1,5 +1,5 @@
 <template>
-	<div :class="'tab ' + tab.key + (tab.active ? ' active' : '') + (classes ? ' ' + classes : '')" :data-group="group" :data-tab="tab.key">
+	<div :class="'tab ' + tab.key + (tab.active ? ' active' : '') + (tab.leaving ? ' leaving' : '') + (classes ? ' ' + classes : '')" :data-group="group" :data-tab="tab.key">
 		<slot />
 	</div>
 </template>
