@@ -9,10 +9,37 @@ import { ArchmagePrepopulate } from "../setup/archmage-prepopulate.js";
  * Renders compendium powers with the same components the character sheet uses,
  * so that what a player picks here looks like what they end up with.
  *
+ * @export
  * @class ArchmagePowerImporterApplication
  * @extends {Application}
  */
 export class ArchmagePowerImporterApplication extends Application {
+	/**
+	 * Gather the import data for an actor and show the importer, mirroring the
+	 * v2 sheet's _importPowers flow. Static so the Vue sheet can call it through
+	 * game.archmage without the vue bundle importing module internals.
+	 *
+	 * Like the character settings window, there is one importer per actor: an
+	 * already-open window is focused instead of duplicated.
+	 *
+	 * @param {Actor} actor   The character actor to import powers onto.
+	 * @returns {Promise<Application>|undefined}
+	 */
+	static async show(actor) {
+		if (!actor || actor.pack) return;
+		// The AppV1 registry (ui.windows) is keyed by numeric appId, so match open
+		// windows on our per-actor element id instead.
+		const id = `archmage-power-importer-${actor.id}`;
+		const existing = Object.values(ui.windows).find((app) => app.id === id);
+		if (existing) return existing.render(true);
+
+		const characterRace = actor.system.details.race.value;
+		const characterClasses = actor.system.details.detectedClasses ?? [];
+		const importData = await new ArchmagePrepopulate().getImportData(characterClasses, characterRace, actor);
+		if (!importData?.tabs?.length) return;
+		return new ArchmagePowerImporterApplication({ actor, importData }).render(true);
+	}
+
 	/** @override */
 	constructor(options = {}) {
 		super(options);
@@ -82,7 +109,6 @@ export class ArchmagePowerImporterApplication extends Application {
 	 * ticked child of an unticked power is imported on its own.
 	 *
 	 * @param {string[]} keys Keys of the rows to import.
-	 * @returns {Promise<void>} Resolves once the importer has closed.
 	 */
 	async _onImport(keys) {
 		if (keys.length && this.actor) {

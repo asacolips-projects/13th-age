@@ -67,7 +67,7 @@
 					<div class="item-controls">{{ localize('ARCHMAGE.edit') }}</div>
 				</div>
 			</div>
-			<ul class="power-group-content flexcol">
+			<ul class="power-group-content flexcol" :data-group-by="groupBy">
 				<li
 					v-for="power in powerGroups[groupKey]"
 					:key="power._id"
@@ -142,17 +142,21 @@ export default {
 	data() {
 		return {
 			powers: [],
+			// Options for the group-by and sort-by selects. Only the value is
+			// meaningful — the template renders each option's label through
+			// its ARCHMAGE.GROUPS./ARCHMAGE.SORTS. key, so nothing here is
+			// shown verbatim.
 			groupOptions: [
-				{ value: "powerType", label: "Type" },
-				{ value: "actionType", label: "Action" },
-				{ value: "powerUsage", label: "Usage" },
-				{ value: "powerSource", label: "Class/Race/Item" },
-				{ value: "group", label: "Custom Groups" }
+				{ value: "powerType" },
+				{ value: "actionType" },
+				{ value: "powerUsage" },
+				{ value: "powerSource" },
+				{ value: "group" }
 			],
 			sortOptions: [
-				{ value: "custom", label: "Custom" },
-				{ value: "name", label: "Name" },
-				{ value: "level", label: "Level" }
+				{ value: "custom" },
+				{ value: "name" },
+				{ value: "level" }
 			],
 			groupBy: "powerType",
 			sortBy: "custom",

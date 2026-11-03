@@ -1,6 +1,5 @@
 import { ArchmageUtility, MacroUtils } from "../setup/utility-classes.js";
 import { DiceArchmage } from "./dice.js";
-
 /**
  * Extend the base Actor class to implement additional logic specialized for the system.
  */
@@ -421,6 +420,9 @@ export class ActorArchmage extends Actor {
 		}
 
 		// Fallbacks for potentially missing data
+		// Details (added after these actors were created)
+		if (!data.details.resistance) data.details.resistance = model.details.resistance;
+		if (!data.details.vulnerability) data.details.vulnerability = model.details.vulnerability;
 		// Coins
 		if (!data.coins) data.coins = model.coins;
 		// Weapons
@@ -429,46 +431,30 @@ export class ActorArchmage extends Actor {
 		if (!data.attributes.weapon.punch) data.attributes.weapon.punch = model.attributes.weapon.punch;
 		if (!data.attributes.weapon.kick) data.attributes.weapon.kick = model.attributes.weapon.kick;
 		// Weapon options
-		if (data.attributes.weapon.melee.shield === undefined) {
-			data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
-		}
-		if (data.attributes.weapon.melee.dualwield === undefined) {
-			data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
-		}
-		if (data.attributes.weapon.melee.twohanded === undefined) {
-			data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
-		}
+		if (data.attributes.weapon.melee.shield === undefined) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
+		if (data.attributes.weapon.melee.dualwield === undefined) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
+		if (data.attributes.weapon.melee.twohanded === undefined) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
 		// Resources
 		if (!data.resources) data.resources = model.resources;
 		if (!data.resources.perCombat) data.resources.perCombat = model.resources.perCombat;
 		if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
-		if (!data.resources.perCombat.commandPoints) {
-			data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
-		}
+		if (!data.resources.perCombat.commandPoints) data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
 		if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
 		if (!data.resources.perCombat.bravado) data.resources.perCombat.bravado = model.resources.perCombat.bravado;
 		if (!data.resources.spendable) data.resources.spendable = model.resources.spendable;
 		if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
 		for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
-			if (!(data.resources.spendable[`custom${idx}`])) {
-				data.resources.spendable[`custom${idx}`] = model.resources.spendable[`custom${idx}`];
-			}
-			if (!data.resources.spendable[`custom${idx}`].rest) {
-				data.resources.spendable[`custom${idx}`].rest = model.resources.spendable[`custom${idx}`].rest;
-			}
+			if (!(data.resources.spendable[`custom${idx}`])) data.resources.spendable[`custom${idx}`] = model.resources.spendable[`custom${idx}`];
+			if (!data.resources.spendable[`custom${idx}`].rest) data.resources.spendable[`custom${idx}`].rest = model.resources.spendable[`custom${idx}`].rest;
 		}
 		// Saves
 		if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
 		if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
-		if (!data.attributes.saves.lastGaspFails) {
-			data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
-		}
+		if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
 		// Key Modifiers
 		if (!data.attributes.keyModifier) data.attributes.keyModifier = model.attributes.keyModifier;
 		if (!data.attributes.saves.bonus) data.attributes.saves.bonus = model.attributes.saves.bonus;
-		if (!data.attributes.saves.disengageBonus) {
-			data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
-		}
+		if (!data.attributes.saves.disengageBonus) data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
 		// Incrementals
 		if (!("talent" in data.incrementals)) data.incrementals.talent = model.incrementals.talent;
 		if ("feature" in data.incrementals) {
@@ -502,22 +488,10 @@ export class ActorArchmage extends Actor {
 		// Non nonKey modifiers are affected by the Key Modifier
 		let keyMod = data.attributes.keyModifier;
 		if (keyMod.mod1 && keyMod.mod2) {
-			data.abilities[keyMod.mod1].mod = Math.min(
-				data.abilities[keyMod.mod1].mod,
-				data.abilities[keyMod.mod2].mod
-			);
-			data.abilities[keyMod.mod2].mod = Math.min(
-				data.abilities[keyMod.mod1].mod,
-				data.abilities[keyMod.mod2].mod
-			);
-			data.abilities[keyMod.mod1].lvl = Math.min(
-				data.abilities[keyMod.mod1].lvl,
-				data.abilities[keyMod.mod2].lvl
-			);
-			data.abilities[keyMod.mod2].lvl = Math.min(
-				data.abilities[keyMod.mod1].lvl,
-				data.abilities[keyMod.mod2].lvl
-			);
+			data.abilities[keyMod.mod1].mod = Math.min(data.abilities[keyMod.mod1].mod, data.abilities[keyMod.mod2].mod);
+			data.abilities[keyMod.mod2].mod = Math.min(data.abilities[keyMod.mod1].mod, data.abilities[keyMod.mod2].mod);
+			data.abilities[keyMod.mod1].lvl = Math.min(data.abilities[keyMod.mod1].lvl, data.abilities[keyMod.mod2].lvl);
+			data.abilities[keyMod.mod2].lvl = Math.min(data.abilities[keyMod.mod1].lvl, data.abilities[keyMod.mod2].lvl);
 		}
 
 		// Bonuses
@@ -575,15 +549,11 @@ export class ActorArchmage extends Actor {
 
 					// Enforce only one of this group
 					if (rerollAcMax == 0) {
-						rerollAcCurr += item.system.attributes.rerollAc.current
-							? item.system.attributes.rerollAc.current
-							: 0;
+						rerollAcCurr += item.system.attributes.rerollAc.current ? item.system.attributes.rerollAc.current : 0;
 						rerollAcMax += getBonusOr0(item.system.attributes.rerollAc);
 					}
 					if (rerollSaveMax == 0) {
-						rerollSaveCurr += item.system.attributes.rerollSave.current
-							? item.system.attributes.rerollSave.current
-							: 0;
+						rerollSaveCurr += item.system.attributes.rerollSave.current ? item.system.attributes.rerollSave.current : 0;
 						rerollSaveMax += getBonusOr0(item.system.attributes.rerollSave);
 					}
 
@@ -640,27 +610,12 @@ export class ActorArchmage extends Actor {
 			}
 			if (this.getFlag("archmage", "dexToCha")) dexACBonus = Math.max(dexACBonus, data.abilities.cha.nonKey.lvlmod);
 		}
-		data.attributes.ac.value = Number(data.attributes.ac.base)
-			+ Number([
-				dexACBonus,
-				data.abilities.con.nonKey.lvlmod,
-				data.abilities.wis.nonKey.lvlmod
-			].sort((a, b) => a - b)[1])
-			+ Number(acBonus);
-		data.attributes.pd.value = Number(data.attributes.pd.base)
-			+ Number([
-				dexPDBonus,
-				data.abilities.con.nonKey.lvlmod,
-				data.abilities.str.nonKey.lvlmod
-			].sort((a, b) => a - b)[1])
-			+ Number(pdBonus);
-		data.attributes.md.value = Number(data.attributes.md.base)
-			+ Number([
-				data.abilities.int.nonKey.lvlmod,
-				data.abilities.cha.nonKey.lvlmod,
-				data.abilities.wis.nonKey.lvlmod
-			].sort((a, b) => a - b)[1])
-			+ Number(mdBonus);
+		data.attributes.ac.value = Number(data.attributes.ac.base) + Number([dexACBonus,
+			data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+		data.attributes.pd.value = Number(data.attributes.pd.base) + Number([dexPDBonus,
+			data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+		data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
+			data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
 
 		if (game.settings.get("archmage", "secondEdition")) {
 			if (data.incrementals?.pd) data.attributes.pd.value += 1;
@@ -778,7 +733,7 @@ export class ActorArchmage extends Actor {
 		const data = foundry.utils.deepClone(origData);
 
 		// Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
-		const model = (game.system.model || game.data.model).Actor.character.attributes.weapon;
+		const model = (game?.system?.model || game?.data?.model).Actor.character.attributes.weapon;
 
 		// Re-map all attributes onto the base roll data
 		let newData = foundry.utils.mergeObject(data.attributes, data.abilities);
@@ -930,6 +885,56 @@ export class ActorArchmage extends Actor {
 		return parts.filter((p) => p !== null).join(" + ");
 	}
 
+	/**
+	 * Roll initiative for the actor, prompting for an optional bonus first.
+	 *
+	 * Requires an active combat encounter: rolling outside one shows an error,
+	 * and a combatant that has already rolled is left alone.
+	 */
+	async rollInitiativeDialog() {
+		let combat = game.combat;
+		// Check to see if this actor is already in the combat.
+		if (!combat) {
+			ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
+			return;
+		}
+		const combatant = combat.combatants.find((c) => c.actorId === this.id);
+		if (combatant && combatant?.initiative !== null) {
+			return;
+		}
+
+		// Prompt the user for an optional bonus
+		let bonus = 0;
+		try {
+			bonus = await foundry.applications.api.DialogV2.prompt({
+				window: { title: "ARCHMAGE.initAdjustment" },
+				content: `
+          <label for="bonus">${game.i18n.localize("ARCHMAGE.initBonus")}</label>
+          <input name="bonus" type="number" step="1" default="0" placeholder="0" autofocus>`,
+				ok: {
+					label: "COMBAT.InitiativeRoll",
+					callback: (event, button, dialog) => button.form.elements.bonus.valueAsNumber
+				}
+			});
+		}
+		catch{
+			// Cancelled or closed without resolving; nothing to roll.
+			return;
+		}
+
+		let formula = this.getInitiativeFormula();
+		if (bonus) formula += ` + ${bonus ?? 0}`;
+
+		// Create the combatant if needed.
+		if (!combatant) {
+			await this.rollInitiative({ createCombatants: true, initiativeOptions: { formula } });
+		}
+		// Otherwise, determine if the existing combatant should roll init.
+		else if (!combatant.initiative && combatant.initiative !== 0) {
+			await combat.rollInitiative([combatant.id], { formula });
+		}
+	}
+
 	async rollSave(difficulty, target=11) {
 		// Determine target dc
 		if (difficulty == "easy") target = 6;
@@ -1007,6 +1012,339 @@ export class ActorArchmage extends Actor {
 			// Condition shaken off, clear all last gasp saves
 			await this.update({ "system.attributes.saves.lastGaspFails.value": 0 });
 		}
+	}
+
+	/**
+	 * Roll command points for an actor, and apply them.
+	 *
+	 * @param {string} dice
+	 *   Dice formula to roll.
+	 */
+	async rollCommand(dice) {
+		let roll = new Roll(dice, this.getRollData());
+		await roll.roll();
+
+		let pointsOld = this.system.resources.perCombat.commandPoints.current;
+		let pointsNew = roll.total;
+
+		// Basic template rendering data
+		const template = `systems/archmage/templates/chat/command-card.html`;
+		const token = this.token;
+
+		// Basic chat message data
+		const chatData = {
+			user: game.user.id,
+			roll: roll,  // TODO: fix template to use rolls prop
+			rolls: [roll],
+			speaker: game.archmage.ArchmageUtility.getSpeaker(this)
+		};
+
+		const templateData = {
+			actor: this,
+			tokenId: token ? `${token.id}` : null,
+			data: chatData
+		};
+
+		// Render the template
+		chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
+
+		await game.archmage.ArchmageUtility.createChatMessage(chatData);
+
+		await this.update({ "system.resources.perCombat.commandPoints.current": Number(pointsOld) + Number(pointsNew) });
+	}
+
+	/**
+	 * Spend an AC or save reroll from the equipped items that grant it and
+	 * post the reroll card to chat.
+	 *
+	 * Owns its own pool arithmetic instead of reading the derived
+	 * resources.spendable.rerolls: those stay first-item-only for the V2
+	 * sheet's sake, while this stacked spend serves the V3 sheet.
+	 *
+	 * @param {string} kind
+	 *   The reroll pool, such as 'AC' or 'save'.
+	 */
+	async rollReroll(kind) {
+		// We have uses to spend, find source item
+		let prop = "";
+		switch (kind) {
+			case "AC":
+				prop = "rerollAc";
+				break;
+			case "save":
+				prop = "rerollSave";
+				break;
+		}
+		if (!prop) return;
+
+		// The pool stacks across every active item granting it, so a spend
+		// drains the first one in sort order that still has uses left —
+		// once, in a single batched update. No source, no card.
+		const granting = this.items
+			.filter((item) => item.type === "equipment" && item.system.isActive && item.system.attributes[prop]?.bonus > 0)
+			.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		const total = granting.reduce((sum, item) => sum + (item.system.attributes[prop].current || 0), 0);
+		if (total <= 0) return;
+		const source = granting.find((item) => item.system.attributes[prop].current > 0);
+		if (!source) return;
+		await this.updateEmbeddedDocuments("Item", [{
+			_id: source.id,
+			[`system.attributes.${prop}.current`]: source.system.attributes[prop].current - 1
+		}]);
+
+		// Basic template rendering data
+		const template = `systems/archmage/templates/chat/reroll-card.html`;
+		const token = this.token;
+
+		// Basic chat message data
+		const chatData = {
+			user: game.user.id,
+			speaker: game.archmage.ArchmageUtility.getSpeaker(this),
+			title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
+			desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
+		};
+
+		const templateData = {
+			actor: this,
+			tokenId: token ? `${token.id}` : null,
+			data: chatData
+		};
+
+		// Render the template
+		chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
+
+		await game.archmage.ArchmageUtility.createChatMessage(chatData);
+	}
+
+	/**
+	 * Set a death or last-gasp fail track from the sheet's step buttons:
+	 * clicking step N sets the fail count to N, or unchecks it (N - 1) if it
+	 * was already set.
+	 *
+	 * @param {string} saveType
+	 *   The fail track, such as 'deathFails' or 'lastGaspFails'.
+	 * @param {number} opt
+	 *   The step that was clicked.
+	 */
+	async updateFails(saveType, opt) {
+		let count = Number(opt);
+		if (count == this.system.attributes.saves[saveType].value) {
+			count = Math.max(0, count - 1);
+		}
+		let updateData = {};
+		let path = `system.attributes.saves.${saveType}.value`;
+		updateData[path] = count;
+		await this.update(updateData);
+	}
+
+	/**
+	 * Open the icon relationship roll dialog for one icon.
+	 *
+	 * @param {string} iconIndex | Index, such as i1 or i2
+	 */
+	rollIconDialog(iconIndex) {
+		const actorData = this.system;
+		if (!actorData.icons[iconIndex]) {
+			return;
+		}
+
+		const icon = actorData.icons[iconIndex];
+		const name = icon.name.value;
+		return new foundry.applications.api.DialogV2({
+			window: { title: game.i18n.localize("ARCHMAGE.ICONROLLS.rolldialogtitle") },
+			// The icon's name is user input; escape it before it goes into HTML.
+			content: `<p>${game.i18n.format("ARCHMAGE.ICONROLLS.rollDialogHint", { name: foundry.utils.escapeHTML(name) })}</p>`,
+			buttons: [{
+				action: "singleicon",
+				label: game.i18n.format("ARCHMAGE.ICONROLLS.rollone", { name }),
+				default: true,
+				callback: () => {
+					this.rollAndDisplayIconDice([iconIndex]);
+				}
+			}, {
+				action: "allicons",
+				label: game.i18n.localize("ARCHMAGE.ICONROLLS.rollall"),
+				callback: () => {
+					this.rollAndDisplayIconDice(Object.keys(actorData.icons));
+				}
+			}, {
+				action: "cancel",
+				label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+				callback: () => {}
+			}]
+		}).render({ force: true });
+	}
+
+	/**
+	 * Roll icon relationship dice for the given icons, persist the results and
+	 * post the chat card.
+	 *
+	 * @param {string[]} iconIndexes | Indexes, such as ['i1', 'i2']
+	 * @param {number|null} diceOverride | Roll exactly this many dice per icon
+	 *   instead of each icon's full bonus (used by single-die rolls).
+	 * @param {number|null} dieSlot | With diceOverride, the 0-based results slot
+	 *   the rolled die belongs to; other dice are left untouched.
+	 * @returns object | Chat message
+	 */
+	async rollAndDisplayIconDice(iconIndexes, diceOverride = null, dieSlot = null) {
+		const actorData = this.system;
+
+		const is2e = CONFIG.ARCHMAGE.is2e;
+		const is2eAlt = game.settings.get("archmage", "alternateIconRollingMethod");
+
+		// Gather the rolling inputs
+		const inputs = iconIndexes.map((iconIndex) => {
+			const icon = actorData.icons[iconIndex];
+
+			let numberOfDice = diceOverride ?? icon.bonus.value;
+			// If this is the 2e alt method, we only roll dice that haven't already been used
+			if (is2eAlt) {
+				const actorIconResults = actorData.icons?.[iconIndex]?.results || [];
+				const usedDice = actorIconResults.filter((x) => x > 0).length;
+				numberOfDice = Math.min(numberOfDice, icon.bonus.value - usedDice);
+			}
+
+			return { iconIndex, icon, numberOfDice };
+		}).filter((x) => x.numberOfDice > 0);
+
+		if (inputs.length === 0) {
+			ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
+			return;
+		}
+
+		// Roll the dice
+		const rollTerms = inputs.map((input) => `${input.numberOfDice}d6`);
+		const roll = await new Roll(`{${rollTerms.join(",")}}`).roll();
+
+		// Calculate the results and build up an actor-update object
+		const actorUpdate = {};
+		inputs.forEach((input, i) => {
+			const results = roll.terms[0].rolls[i].terms[0].results.map((x) => x.result);
+			input.results = results;
+
+			const updateKey = `system.icons.${input.iconIndex}.results`;
+
+			if (dieSlot !== null) {
+				// Per-die roll: write the rolled die into its own slot and leave the
+				// other dice untouched. Only high rolls fill the slot; anything else
+				// empties it. Both 2e methods mark a success slot with a 6 (standard
+				// 2e records 5s as plain benefits, the twist is rolled at usage
+				// time); 1e keeps the raw 5/6 distinction.
+				input.fives = (!is2e && !is2eAlt && results[0] === 5) ? 1 : 0;
+				input.sixes = is2eAlt ? (results[0] >= 4 ? 1 : 0)
+					: is2e ? (results[0] >= 5 ? 1 : 0)
+						: (results[0] === 6 ? 1 : 0);
+				const success = input.sixes > 0 || input.fives > 0;
+				const current = [...(actorData.icons?.[input.iconIndex]?.results || [])];
+				while (current.length < input.icon.bonus.value) current.push(0);
+				current[dieSlot] = success ? (is2e || is2eAlt ? 6 : results[0]) : 0;
+				actorUpdate[updateKey] = current;
+				return;
+			}
+
+			actorUpdate[updateKey] = [];
+			if (is2eAlt) {
+				// For 2e alt, we count 4, 5, and 6 as successes, and we do not replace the existing results
+				input.fives = 0;
+				input.sixes = results.filter((x) => [4, 5, 6].includes(x)).length;
+				actorUpdate[`system.icons.${input.iconIndex}.results`] = actorData.icons?.[input.iconIndex]?.results || [];
+			}
+			else if (is2e) {
+				// For 2e standard, we count 5 and 6 as successes and reset all dice
+				input.fives = 0;
+				input.sixes = results.filter((x) => [5, 6].includes(x)).length;
+			}
+			else {
+				// For 1e, we count 5 and 6 separately and reset all dice
+				input.fives = results.filter((x) => x === 5).length;
+				input.sixes = results.filter((x) => x === 6).length;
+			}
+
+			const replaceFirstZero = (arr, value) => {
+				for (let i = 0; i < arr.length; i++) {
+					if (arr[i] === 0) {
+						arr[i] = value;
+						return;
+					}
+				}
+				arr.push(value); // If no zero found, append the value
+			};
+			if (input.numberOfDice > 0) {
+				for (let i = 0; i < input.fives; i++) {
+					replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 5);
+				}
+				for (let i = 0; i < input.sixes; i++) {
+					replaceFirstZero(actorUpdate[`system.icons.${input.iconIndex}.results`], 6);
+				}
+			}
+		});
+
+		// Update the actor
+		await this.update(actorUpdate);
+
+		// Display the message
+		const template = `systems/archmage/templates/chat/icon-relationship-card.html`;
+		const token = this.token;
+		const templateData = {
+			actor: this,
+			tokenId: token ? `${token.id}` : null,
+			is2e,
+			is2eAlt,
+			inputs
+		};
+		const chatData = {
+			user: game.user.id,
+			roll: roll,  // TODO: fix template to use rolls prop
+			rolls: [roll],
+			speaker: game.archmage.ArchmageUtility.getSpeaker(this),
+			content: await foundry.applications.handlebars.renderTemplate(template, templateData)
+		};
+		await game.archmage.ArchmageUtility.createChatMessage(chatData);
+	}
+
+	/**
+	 * Open a dialog prompting how to roll the active icon relationships: roll
+	 * all of their dice in one combined roll, or roll a single die of a chosen
+	 * icon. Multi-die icons get one button per die, e.g. "Lich King (2)".
+	 */
+	rollIconsDialog() {
+		const activeIcons = Object.entries(this.system.icons ?? {})
+			.filter(([_, icon]) => icon.isActive?.value === true);
+
+		if (activeIcons.length === 0) {
+			ui.notifications.warn(game.i18n.localize("ARCHMAGE.ICONROLLS.noDiceLeft"));
+			return;
+		}
+
+		const buttons = [{
+			action: "allAtOnce",
+			label: game.i18n.localize("ARCHMAGE.ICONROLLS.rollall"),
+			default: true,
+			callback: () => this.rollAndDisplayIconDice(activeIcons.map(([key]) => key))
+		}];
+
+		for (const [key, icon] of activeIcons) {
+			const name = icon.name.value;
+			const dice = Number(icon.bonus.value) || 0;
+			for (let die = 1; die <= dice; die++) {
+				// Single-die icons are labeled with their name alone; multi-die
+				// icons get one numbered button per die. Each rolls into its own
+				// results slot.
+				buttons.push({
+					action: `die-${key}-${die}`,
+					label: dice > 1
+						? game.i18n.format("ARCHMAGE.ICONROLLS.rollDieNumbered", { name, die })
+						: name,
+					callback: () => this.rollAndDisplayIconDice([key], 1, die - 1)
+				});
+			}
+		}
+
+		return new foundry.applications.api.DialogV2({
+			window: { title: game.i18n.localize("ARCHMAGE.ICONROLLS.rolldialogtitle") },
+			content: `<p>${game.i18n.localize("ARCHMAGE.ICONROLLS.rollDiceHint")}</p>`,
+			buttons
+		}).render({ force: true });
 	}
 
 	async rollDisengage() {
@@ -1370,10 +1708,7 @@ export class ActorArchmage extends Actor {
 
 			// Render the template
 			chatData.content = await foundry.applications.handlebars.renderTemplate(template, templateData);
-			chatData.content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-				chatData.content,
-				{ rollData: this.getRollData() }
-			);
+			chatData.content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(chatData.content, { rollData: this.getRollData() });
 			// Create the chat message
 			msg = await game.archmage.ArchmageUtility.createChatMessage(chatData);
 			// Get the roll from the chat message
@@ -1389,7 +1724,7 @@ export class ActorArchmage extends Actor {
 
 		// If 3d dice are enabled, handle them
 		if (game.dice3d
-			&& (!game.settings.get("dice-so-nice", "animateInlineRoll") || !data.createMessage)) {
+				&& (!game.settings.get("dice-so-nice", "animateInlineRoll") || !data.createMessage)) {
 			await game.archmage.ArchmageUtility.show3DDiceForRoll(roll, chatData, msg?.id);
 		}
 
@@ -1705,9 +2040,7 @@ export class ActorArchmage extends Actor {
 					let feat = item.system.feats[index];
 					if (!feat.isActive?.value) continue;
 					let maxQuantity = feat.maxQuantity?.value;
-					if (maxQuantity
-						&& feat.quantity?.value < maxQuantity
-						&& usageArray.includes(feat.powerUsage?.value)) {
+					if (maxQuantity && feat.quantity?.value < maxQuantity && usageArray.includes(feat.powerUsage?.value)) {
 						itemUpdateData[`system.feats.${index}.quantity.value`] = maxQuantity;
 						let tier = game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`);
 						templateData.items.push({
@@ -2167,8 +2500,7 @@ export class ActorArchmage extends Actor {
 					data.system.attributes.hp.value += changes.system.attributes.hp.extra;
 				}
 				else {
-					data.system.attributes.hp.value = this.system.attributes.hp.value
-						+ changes.system.attributes.hp.extra;
+					data.system.attributes.hp.value = this.system.attributes.hp.value + changes.system.attributes.hp.extra;
 				}
 			}
 			maxHp += deltaExtra;
@@ -2268,10 +2600,7 @@ export class ActorArchmage extends Actor {
 			// Here we received an update involving the number of remaining recoveries
 			// Make sure we are not exceeding the maximum
 			if (this.system.attributes.recoveries.max) {
-				data.system.attributes.recoveries.value = Math.min(
-					data.system.attributes.recoveries.value,
-					this.system.attributes.recoveries.max
-				);
+				data.system.attributes.recoveries.value = Math.min(data.system.attributes.recoveries.value, this.system.attributes.recoveries.max);
 			}
 
 			// Record updated recoveries
@@ -2436,8 +2765,7 @@ export class ActorArchmage extends Actor {
 			// Here we received an update of the class name for a character
 
 			let matchedClasses = ArchmageUtility.detectClasses(data.system.details.class.value);
-			if (matchedClasses !== null
-				&& game.settings.get("archmage", "automateBaseStatsFromClass")) {
+			if (matchedClasses !== null) {
 				// Remove duplicates and Sort to avoid problems with future matches
 				matchedClasses = [...new Set(matchedClasses)].sort();
 
@@ -2447,7 +2775,10 @@ export class ActorArchmage extends Actor {
 				) {
 					return;
 				}
+			}
 
+			if (matchedClasses !== null
+				&& game.settings.get("archmage", "automateBaseStatsFromClass")) {
 				// Class changed, alert the user we're about to muck with the base stats
 				ui.notifications.info(game.i18n.format("ARCHMAGE.UI.classChange",
 					{ classes: ArchmageUtility.formatClassList(matchedClasses) }));
@@ -2587,7 +2918,7 @@ export class ActorArchmage extends Actor {
 				data.system.resources = {
 					perCombat: {
 						momentum: { enabled: (matchedClasses.includes("rogue") && !game.settings.get("archmage", "secondEdition"))
-							|| (matchedClasses.includes("fighter") && game.settings.get("archmage", "secondEdition")) },
+																|| (matchedClasses.includes("fighter") && game.settings.get("archmage", "secondEdition")) },
 						commandPoints: { enabled: matchedClasses.includes("commander") },
 						focus: { enabled: matchedClasses.includes("occultist") },
 						bravado: { enabled: matchedClasses.includes("rogue") && game.settings.get("archmage", "secondEdition") }

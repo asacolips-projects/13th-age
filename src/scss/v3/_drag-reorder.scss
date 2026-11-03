@@ -1,0 +1,16 @@
+// Row drag-and-drop feedback, shared by the v3 tabs' reorderable lists (the
+// useRowReorder composable emits these classes): the dragged row dims, the
+// hovered row shows an insertion edge on the side the drop would land. The
+// consuming tabs import this partial into their scoped styles, so the rules
+// reach the rows' component roots.
+.v3-row--dragging {
+  opacity: 0.5;
+}
+
+.v3-row--drop-above {
+  box-shadow: inset 0 2px 0 var(--color-border);
+}
+
+.v3-row--drop-below {
+  box-shadow: inset 0 -2px 0 var(--color-border);
+}
