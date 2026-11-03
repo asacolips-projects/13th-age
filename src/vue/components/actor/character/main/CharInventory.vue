@@ -67,7 +67,7 @@
 						</a>
 						<div v-if="groupKey === 'equipment'" class="equipment-feat-pips">
 							<ul class="feat-pips">
-								<li :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{ equipment.system.isActive }}</div></li>
+								<li :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id" />
 							</ul>
 						</div>
 						<div v-if="equipment.system.attributes" class="equipment-bonus flexrow">

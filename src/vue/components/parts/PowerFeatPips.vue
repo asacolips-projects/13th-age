@@ -7,9 +7,7 @@
 				:class="`feat-pip${feat.isActive?.value ? ' active' : ''}`"
 				:data-item-id="itemId"
 				:data-tier="tier"
-			>
-				<div class="hide">{{ tier }}</div>
-			</li>
+			/>
 		</ul>
 	</div>
 </template>

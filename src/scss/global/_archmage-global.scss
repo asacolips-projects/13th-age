@@ -150,6 +150,13 @@ option[selected] {
     }
   }
 
+  // Inactive feat tags in chat cards (`.tag--feat.inactive.hide`, persisted in old
+  // messages' markup) stay hidden here. Scoped to chat containers because core Foundry
+  // reuses `hide` for hidden combat tracker rows, which must not be display:none'd.
+  .hide {
+    display: none;
+  }
+
   .card-header {
     font-family: $font-stack-base;
   }
@@ -1695,6 +1702,11 @@ option[selected] {
     width: 20px;
     font-size: 10px;
 
+    // The +/- buttons get `hide` from archmage.js for non-GM users (`hideIfNotGM`).
+    &.hide {
+      display: none;
+    }
+
     &.ed-minus {
       left: 2px;
     }
@@ -2107,10 +2119,6 @@ option[selected] {
   .flexible-attack-row:not(.flexible-attack-row--used) {
     opacity: 0.4;
   }
-}
-
-.hide {
-  display: none;
 }
 
 .currency-input {

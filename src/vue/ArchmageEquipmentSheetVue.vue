@@ -65,9 +65,7 @@
 									<li
 										:class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))"
 										:data-item-id="equipment._id"
-									>
-										<div class="hide">{{ equipment.system.isActive }}</div>
-									</li>
+									/>
 								</ul>
 							</div>
 							<div v-if="equipment.system.attributes" class="equipment-bonus flexrow">
