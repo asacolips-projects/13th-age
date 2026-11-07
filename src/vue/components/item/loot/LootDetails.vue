@@ -61,12 +61,3 @@ import {
 } from "@/components";
 defineProps(["item", "context"]);
 </script>
-
-<style scoped lang="scss">
-	// Not in edit mode the description renders in a plain wrapper with no
-	// intrinsic height, which collapses on a short or empty description;
-	// keep the field a comfortable read height either way.
-	.fieldset-description :deep(.prose-mirror-wrapper) {
-		min-height: 200px;
-	}
-</style>
