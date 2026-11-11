@@ -71,6 +71,8 @@ globalThis.game = {
 const statusEffects = [
 	{ id: "dead", name: "ARCHMAGE.EFFECT.StatusDead", img: "icons/svg/skull.svg", journal: "ig1kzvpojsk20dbt" },
 	{ id: "staggered", name: "ARCHMAGE.EFFECT.StatusStaggered", img: "icons/svg/blood.svg", journal: "oqkyq1xn6xi2ajmi" },
+	{ id: "dazed", name: "ARCHMAGE.EFFECT.StatusDazed", img: "icons/svg/sun.svg", journal: "dazed" },
+	{ id: "stunned", name: "ARCHMAGE.EFFECT.StatusStunned", img: "icons/svg/stun.svg", journal: "stunned" },
 	{ id: "vulnerable", name: "ARCHMAGE.EFFECT.StatusVulnerable", img: "icons/svg/vulnerable.svg", journal: "vulnerable" },
 	{ id: "ongoing-damage", name: "ARCHMAGE.EFFECT.StatusOngoingDamage", img: "icons/svg/degen.svg", journal: "ongoing-damage" }
 ];
@@ -102,7 +104,7 @@ globalThis.CONFIG = {
 				"ig"
 			),
 			// Populated from statusEffects with journal entries, mirroring the ready hook in
-			// archmage.js:655 (condition word -> [effect, matcher]).
+			// archmage.js:655: the localized condition word -> [effect, matcher].
 			CONDITIONS: new Map(
 				statusEffects.filter((effect) => effect.journal).map((effect) => {
 					const localized = lookup(effect.name);
