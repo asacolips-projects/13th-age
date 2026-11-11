@@ -5,6 +5,7 @@
 import { describe, it, expect, vi } from "vitest";
 import Targeting from "../src/module/rolls/Targeting.mjs";
 import { target, targetRow } from "./contract-fixtures.mjs";
+import { setup } from "./setup.mjs";
 
 const targets = (...names) => names.map((name) => target({ name }));
 

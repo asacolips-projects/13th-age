@@ -16,8 +16,11 @@ export default class preCreateChatMessageHandler {
 	}
 
 	static replaceActiveEffectLinkReferences(uuid, $content) {
+		// Mutate the live wrapper in place: writing innerHTML back through a serialized
+		// string would detach the row nodes handle() keeps in $rows, and the final
+		// .replaceWith($rows) would resurrect the pre-transform markup.
 		for (const element of $content) {
-			element.innerHTML = replaceActiveEffectReferencesInHtml(element.innerHTML, (elementUuid) => fromUuidSync(elementUuid));
+			replaceActiveEffectReferencesInHtml(element, (elementUuid) => fromUuidSync(elementUuid));
 		}
 	}
 
@@ -34,7 +37,7 @@ export default class preCreateChatMessageHandler {
 		// If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
 		for (const row of $rows) {
-			row.innerHTML = replaceOngoingEffectReferencesInHtml(row.innerHTML, uuid, { itemName: options.item.name });
+			row.innerHTML = replaceOngoingEffectReferencesInHtml(row.innerHTML, uuid, { itemName: options.item?.name ?? "" });
 		}
 	}
 

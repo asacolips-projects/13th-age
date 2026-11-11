@@ -148,7 +148,11 @@ globalThis.Roll = {
 globalThis.$ = jQuery;
 globalThis.jQuery = jQuery;
 
-/** Records every builder call so tests can assert on files and miss flags. */
+/**
+ * Records every builder call so tests can assert on files and miss flags. The builder is
+ * fluent and self-recording: effect() returns the spy itself, so the object handle() returns
+ * after chaining carries the full call history.
+ */
 class SequenceSpy {
 	constructor() {
 		this.calls = [];
@@ -158,32 +162,21 @@ class SequenceSpy {
 	effect() {
 		const step = { atLocation: [], stretchTo: [], file: undefined, missed: undefined, wait: undefined };
 		this.steps.push(step);
-		const builder = {
-			atLocation: (...args) => {
-				this.calls.push(["atLocation", ...args]);
-				step.atLocation.push(...args);
-				return builder;
-			},
-			stretchTo: (...args) => {
-				this.calls.push(["stretchTo", ...args]);
-				step.stretchTo.push(...args);
-				return builder;
-			},
-			file: (file) => {
-				this.calls.push(["file", file]);
-				step.file = file;
-				return builder;
-			},
-			missed: (missed) => {
-				this.calls.push(["missed", missed]);
-				step.missed = missed;
-				return builder;
-			},
-			wait: (ms) => {
-				step.wait = ms;
-				return builder;
-			}
+		const builder = {};
+		const record = (name, value) => {
+			this.calls.push([name, value]);
+			if (name === "atLocation" || name === "stretchTo") step[name].push(value);
+			else step[name] = value;
+			return builder;
 		};
+		builder.atLocation = (value) => record("atLocation", value);
+		builder.stretchTo = (value) => record("stretchTo", value);
+		builder.file = (value) => record("file", value);
+		builder.missed = (value) => record("missed", value);
+		builder.wait = (value) => record("wait", value);
+		// Callers reassign `sequence` to the builder's return value; keep a back-reference
+		// so the returned object still exposes the parent's calls/steps.
+		builder.sequence = this;
 		return builder;
 	}
 }

@@ -150,14 +150,18 @@ export function replaceOngoingEffectReferencesInHtml(html, uuid, { ongoingRegexp
 /**
  * Upgrade Foundry content-link elements for ActiveEffects into effect-link anchors. The
  * resolver turns each element's data-uuid into an effect document (fromUuidSync in
- * production); effects that do not resolve are left untouched.
- * @param {string} html
+ * production); effects that do not resolve are left untouched. Works on a live element
+ * (mutating it in place) or on an HTML string (parse, transform, serialize).
+ * @param {string|Element} htmlOrElement HTML string or a live element to mutate in place.
  * @param {function(string): {parent: {uuid: string}, img: string}|null} uuidResolver
- * @returns {string} The transformed HTML.
+ * @returns {string|Element} The transformed HTML (string input) or the element (element input).
  */
-export function replaceActiveEffectReferencesInHtml(html, uuidResolver) {
-	// Parse in a detached document so the DOM work stays local to this function.
-	const container = new DOMParser().parseFromString(`<div>${html}</div>`, "text/html").body.firstChild;
+export function replaceActiveEffectReferencesInHtml(htmlOrElement, uuidResolver) {
+	const isString = typeof htmlOrElement === "string";
+	// Parse in a detached document for string input; live elements keep their tree.
+	const container = isString
+		? new DOMParser().parseFromString(`<div>${htmlOrElement}</div>`, "text/html").body.firstChild
+		: htmlOrElement;
 	const elements = container.querySelectorAll('.content-link[data-type="ActiveEffect"]');
 	elements.forEach((element) => {
 		const effect = uuidResolver(element.dataset.uuid);
@@ -166,10 +170,10 @@ export function replaceActiveEffectReferencesInHtml(html, uuidResolver) {
 		element.dataset.source = effect.parent.uuid;
 		const hasImg = element.querySelector("img");
 		if (!hasImg) {
-			// innerText in production; textContent is equivalent for these text-only anchors
-			// and works in jsdom, which does not implement layout-based innerText.
-			element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.innerText ?? element.textContent}`;
+			// innerText is layout-based and unavailable in non-browser parsers (jsdom, and the
+			// DOMParser document here); textContent is equivalent for these text-only anchors.
+			element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.textContent}`;
 		}
 	});
-	return container.innerHTML;
+	return isString ? container.innerHTML : htmlOrElement;
 }
