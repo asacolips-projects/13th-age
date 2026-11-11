@@ -21,7 +21,7 @@ export class ArchmageLootSheetV2 extends VueRenderingMixin(ArchmageBaseItemSheet
 		classes: ["archmage-appv2", "item", "dialog-form", "standard-form"],
 		position: {
 			width: 640,
-			height: 480
+			height: 540
 		},
 		window: {
 			resizable: true,
