@@ -17,6 +17,7 @@
     "files": "node scripts/build/index.mjs --task=files",
     "compilePacks": "node scripts/build/index.mjs --task=compilePacks",
     "extractPacks": "node scripts/build/index.mjs --task=extractPacks",
+    "generateTestCorpus": "node scripts/test-corpus/generate.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint --ext .js,.cjs,.mjs,.vue .",

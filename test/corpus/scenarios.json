@@ -1,0 +1,2742 @@
+{
+	"generated": "by scripts/test-corpus/generate.mjs - edit scenario-spec.mjs and rerun, do not edit by hand",
+	"scenarios": [
+		{
+			"id": "wizard-5-magic-missile-auto-hit",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Explorer_Wizard_5_atT9xG6slENAVPLF.yml",
+					"id": "atT9xG6slENAVPLF"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Magic Missile"
+				},
+				"powerId": "XRDeRb8QmxRrnzUx",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"wizard"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One nearby or far away enemy.</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> Automatic hit</div>"
+				],
+				"rolls": [
+					null
+				]
+			},
+			"expect": {
+				"attackRowPresent": true,
+				"hasRolls": false,
+				"outcome": "hit",
+				"targetsMissed": []
+			}
+		},
+		{
+			"id": "wizard-5-hold-monster-md-hit-dazed-miss",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Explorer_Wizard_5_atT9xG6slENAVPLF.yml",
+					"id": "atT9xG6slENAVPLF"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Hold Monster"
+				},
+				"powerId": "hLEdtxwlGby6aIMc",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"wizard"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One nearby enemy with 60 hp or fewer</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:14,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:14%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:23,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>23</a> vs. MD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> The target cannot move or use move actions (hard save ends, 16+).</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> The target is *dazed* until the end of your next turn.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 14
+					}
+				]
+			},
+			"expect": {
+				"defense": "MD",
+				"outcome": "hit",
+				"targetsHit": [
+					"Orc Rager"
+				],
+				"targetsMissed": []
+			}
+		},
+		{
+			"id": "wizard-5-hold-monster-md-miss-dazed",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Explorer_Wizard_5_atT9xG6slENAVPLF.yml",
+					"id": "atT9xG6slENAVPLF"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Hold Monster"
+				},
+				"powerId": "hLEdtxwlGby6aIMc",
+				"targets": [
+					{
+						"monster": "Hill_Giant_qx4dKzHiCKZEI39v.yml",
+						"name": "Hill Giant",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"wizard"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "qx4dKzHiCKZEI39v",
+						"name": "Hill Giant",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 20
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 14
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One nearby enemy with 60 hp or fewer</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:4,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:4%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:13,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>13</a> vs. MD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> The target cannot move or use move actions (hard save ends, 16+).</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> The target is *dazed* until the end of your next turn.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 4
+					}
+				]
+			},
+			"expect": {
+				"defense": "MD",
+				"outcome": "miss",
+				"targetsMissed": [
+					"Hill Giant"
+				]
+			}
+		},
+		{
+			"id": "sorcerer-5-breath-white-1d2-two-targets",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Dragon_Sorcerer_5_GT9JjvD6EPOlRP5O.yml",
+					"id": "GT9JjvD6EPOlRP5O"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Breath of the White"
+				},
+				"powerId": "8tlPIpU32ZoGXio3",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					},
+					{
+						"monster": "Hill_Giant_qx4dKzHiCKZEI39v.yml",
+						"name": "Hill Giant",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 2
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"sorcerer"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					},
+					{
+						"id": "qx4dKzHiCKZEI39v",
+						"name": "Hill Giant",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 20
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 14
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%221d3%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:2,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:2,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>2</a> nearby enemies in a group; breath weapon</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:11,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:11%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:21,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>21</a>, <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:12,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:12%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:22,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>22</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2220%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:20,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:20,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>20</a> cold damage.</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> Half damage.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 11
+					},
+					{
+						"natural": 12
+					}
+				]
+			},
+			"expect": {
+				"defense": "PD",
+				"outcome": "hit",
+				"targetCount": 2,
+				"targetsHit": [
+					"Orc Rager",
+					"Hill Giant"
+				]
+			}
+		},
+		{
+			"id": "sorcerer-5-scorching-ray-even-trigger-active",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Dragon_Sorcerer_5_GT9JjvD6EPOlRP5O.yml",
+					"id": "GT9JjvD6EPOlRP5O"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Scorching Ray"
+				},
+				"powerId": "DVf5izPATYaISvCi",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"sorcerer"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One nearby enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:12,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:12%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:22,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>22</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2210%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:10,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>10</a> fire damage.</div>",
+					"<div class=\"card-prop\"><strong>Even Hit:</strong> The target also takes <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%228%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:8,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:8,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>8</a> ongoing fire damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl]] damage.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 12
+					}
+				]
+			},
+			"expect": {
+				"defense": "PD",
+				"outcome": "hit",
+				"triggerRows": [
+					{
+						"label": "even hit",
+						"state": "trigger-active"
+					}
+				]
+			}
+		},
+		{
+			"id": "sorcerer-5-scorching-ray-even-trigger-inactive",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Dragon_Sorcerer_5_GT9JjvD6EPOlRP5O.yml",
+					"id": "GT9JjvD6EPOlRP5O"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Scorching Ray"
+				},
+				"powerId": "DVf5izPATYaISvCi",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"sorcerer"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One nearby enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:11,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:11%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:21,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>21</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2210%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:10,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>10</a> fire damage.</div>",
+					"<div class=\"card-prop\"><strong>Even Hit:</strong> The target also takes <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%228%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:8,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:8,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>8</a> ongoing fire damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl]] damage.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 11
+					}
+				]
+			},
+			"expect": {
+				"outcome": "hit",
+				"triggerRows": [
+					{
+						"label": "even hit",
+						"state": "trigger-inactive"
+					}
+				]
+			}
+		},
+		{
+			"id": "wizard-5-sleep-md-hit-unconscious",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Explorer_Wizard_5_atT9xG6slENAVPLF.yml",
+					"id": "atT9xG6slENAVPLF"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Sleep"
+				},
+				"powerId": "jssTRi7PQ9TnpAgX",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"wizard"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:14,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:14%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:23,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>23</a> vs. MD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> The target falls *unconscious* (hard save ends, 16+; it also ends if the target takes 10+ damage).</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> The target is *dazed* until the end of your next turn.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 14
+					}
+				]
+			},
+			"expect": {
+				"defense": "MD",
+				"outcome": "hit"
+			}
+		},
+		{
+			"id": "sorcerer-5-breath-green-ongoing-poison",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Dragon_Sorcerer_5_GT9JjvD6EPOlRP5O.yml",
+					"id": "GT9JjvD6EPOlRP5O"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Breath of the Green"
+				},
+				"powerId": "r6dMgBxGVLI9Wubm",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"sorcerer"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> [[1d4]] nearby enemies in a group; breath weapon</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:16,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:16%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:26,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>26</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2225%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:25,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:25,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>25</a> ongoing poison damage.</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[5]] ongoing poison damage.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 16
+					}
+				]
+			},
+			"expect": {
+				"outcome": "hit",
+				"ongoingLinks": [
+					{
+						"value": 25,
+						"type": "poison",
+						"ends": "Unknown"
+					}
+				]
+			}
+		},
+		{
+			"id": "barbarian-5-rage-melee-2d20kh-crit",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Unstoppable_Barbarian_5_qP1EO9RjcBhMsEu7.yml",
+					"id": "qP1EO9RjcBhMsEu7"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "(Rage) Melee attack"
+				},
+				"powerId": "3ZgEcVfsnJthr8sz",
+				"targets": [
+					{
+						"monster": "Goblin_Scum_WXMiBSHV9Kujf46n.yml",
+						"name": "Goblin Scum",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"barbarian"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "WXMiBSHV9Kujf46n",
+						"name": "Goblin Scum",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 16
+									},
+									"pd": {
+										"value": 14
+									},
+									"md": {
+										"value": 11
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%222d20kh%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:2,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:19,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D,%7B%22result%22:15,%22active%22:false,%22discarded%22:true,%22rerolled%22:false%7D%5D,%22total%22:19%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:28,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>28</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2217%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:17,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:17,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>17</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl]] damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 19,
+						"natural2": 15
+					}
+				]
+			},
+			"expect": {
+				"defense": "AC",
+				"outcome": "crit",
+				"targetsHit": [
+					"Goblin Scum"
+				]
+			}
+		},
+		{
+			"id": "barbarian-5-rage-melee-2d20kh-miss",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Unstoppable_Barbarian_5_qP1EO9RjcBhMsEu7.yml",
+					"id": "qP1EO9RjcBhMsEu7"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "(Rage) Melee attack"
+				},
+				"powerId": "3ZgEcVfsnJthr8sz",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"barbarian"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%222d20kh%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:2,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:3,%22active%22:false,%22discarded%22:true,%22rerolled%22:false%7D,%7B%22result%22:9,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:9%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:18,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>18</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2217%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:17,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:17,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>17</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%225%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:5,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:5,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>5</a> damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 3,
+						"natural2": 9
+					}
+				]
+			},
+			"expect": {
+				"outcome": "miss",
+				"targetsMissed": [
+					"Orc Rager"
+				]
+			}
+		},
+		{
+			"id": "barbarian-1-melee-natural-1-fumble",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Unstoppable_Barbarian_1_nleq1FMYYGgTg9Ox.yml",
+					"id": "nleq1FMYYGgTg9Ox"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Melee attack (Barbarian)"
+				},
+				"powerId": "zQKcilRXpQBJAiSK",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"barbarian"
+							],
+							"level": {
+								"value": 1
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:1,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:1%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:5,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:6,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>6</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2212%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:12,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:12,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>12</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%221%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:1,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:1,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>1</a> damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 1
+					}
+				]
+			},
+			"expect": {
+				"outcome": "miss",
+				"fumble": true,
+				"targetsMissed": [
+					"Orc Rager"
+				]
+			}
+		},
+		{
+			"id": "fighter-5-dualwield-natural-2-reroll",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Winner_Fighter_5_yZYlThN227uKTpBk.yml",
+					"id": "yZYlThN227uKTpBk"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Melee attack (Fighter)"
+				},
+				"powerId": "zVZmur3CsLe52JgR",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": true
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"fighter"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:2,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:2%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:11,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>11</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2216%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:16,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:16,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>16</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%225%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:5,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:5,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>5</a> damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 2
+					}
+				]
+			},
+			"expect": {
+				"outcome": "miss",
+				"reroll": true,
+				"targetsMissed": [
+					"Orc Rager"
+				]
+			}
+		},
+		{
+			"id": "rogue-1-melee-hit",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Assassin_Rogue_1_6HIMT1iym095GExy.yml",
+					"id": "6HIMT1iym095GExy"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Melee attack (Rogue)"
+				},
+				"powerId": "sKyhv0JCIiaJzZ1i",
+				"targets": [
+					{
+						"monster": "Goblin_Scum_WXMiBSHV9Kujf46n.yml",
+						"name": "Goblin Scum",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"rogue"
+							],
+							"level": {
+								"value": 1
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "WXMiBSHV9Kujf46n",
+						"name": "Goblin Scum",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 16
+									},
+									"pd": {
+										"value": 14
+									},
+									"md": {
+										"value": 11
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:13,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:13%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:5,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:18,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>18</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2212%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:12,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:12,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>12</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl]] damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 13
+					}
+				]
+			},
+			"expect": {
+				"defense": "AC",
+				"outcome": "hit",
+				"targetsHit": [
+					"Goblin Scum"
+				]
+			}
+		},
+		{
+			"id": "ranger-5-double-melee-even-hit-repeat",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Multi_Attack_Ranger_5_5su1JHGlj5QVxTij.yml",
+					"id": "5su1JHGlj5QVxTij"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Double Melee Attack (Attack)"
+				},
+				"powerId": "6m7TpDLJ8vNZl5HX",
+				"targets": [
+					{
+						"monster": "Goblin_Scum_WXMiBSHV9Kujf46n.yml",
+						"name": "Goblin Scum",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"ranger"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "WXMiBSHV9Kujf46n",
+						"name": "Goblin Scum",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 16
+									},
+									"pd": {
+										"value": 14
+									},
+									"md": {
+										"value": 11
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:14,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:14%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:11,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:25,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>25</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2218%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:18,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:18,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>18</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Even Hit:</strong> Repeat this attack if this was your first attack with this action, with a +2 if against a different target.</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl + @lvl]] damage</div>",
+					"<div class=\"card-prop\"><strong>Even Miss:</strong> Repeat this attack if this was your first attack with this action, with a +2 if against a different target.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 14
+					}
+				]
+			},
+			"expect": {
+				"defense": "AC",
+				"outcome": "hit",
+				"triggerRows": [
+					{
+						"label": "even hit",
+						"state": "trigger-active"
+					}
+				]
+			}
+		},
+		{
+			"id": "bard-5-soundburst-1d4-three-of-four",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Battlethunder_Bard_5_6ovnxjMn2oITjm6F.yml",
+					"id": "6ovnxjMn2oITjm6F"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Soundburst"
+				},
+				"powerId": "27ggurNBGAbwWjjv",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					},
+					{
+						"monster": "Hill_Giant_qx4dKzHiCKZEI39v.yml",
+						"name": "Hill Giant",
+						"effects": []
+					},
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager 2",
+						"effects": []
+					},
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager 3",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 4
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"bard"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					},
+					{
+						"id": "qx4dKzHiCKZEI39v",
+						"name": "Hill Giant",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 20
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 14
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					},
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager 2",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					},
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager 3",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%221d3%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:4,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:4,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>4</a> nearby enemies in a group</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:8,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:8%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:17,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>17</a>, <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:18,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:18%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:27,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>27</a>, <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:5,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:5%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:14,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>14</a>, <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:12,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:12%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:21,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>21</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2222%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:22,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:22,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>22</a> thunder damage, and the target is *dazed* until end of your next turn.</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> Half damage, and deal thunder [[@lvl]] damage to each of your allies engaged with the target.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 8
+					},
+					{
+						"natural": 18
+					},
+					{
+						"natural": 5
+					},
+					{
+						"natural": 12
+					}
+				]
+			},
+			"expect": {
+				"defense": "PD",
+				"targetCount": 4,
+				"targetsHit": [
+					"Hill Giant",
+					"Orc Rager 3"
+				],
+				"targetsMissed": [
+					"Orc Rager",
+					"Orc Rager 2"
+				]
+			}
+		},
+		{
+			"id": "bard-5-song-of-thunder-caps-at-roll",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Battlethunder_Bard_5_6ovnxjMn2oITjm6F.yml",
+					"id": "6ovnxjMn2oITjm6F"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Song of Thunder"
+				},
+				"powerId": "uChSUFD9IjtLkbDS",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					},
+					{
+						"monster": "Hill_Giant_qx4dKzHiCKZEI39v.yml",
+						"name": "Hill Giant",
+						"effects": []
+					},
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager 2",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 2
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"bard"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					},
+					{
+						"id": "qx4dKzHiCKZEI39v",
+						"name": "Hill Giant",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 20
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 14
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					},
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager 2",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Sustain On:</strong> 11</div>",
+					"<div class=\"card-prop\"><strong>Target:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%221d3%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:2,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:2,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>2</a> nearby enemies</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:12,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:12%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:21,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>21</a>, <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:13,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:13%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:22,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>22</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2222%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:22,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:22,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>22</a> thunder damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> —</div>"
+				],
+				"rolls": [
+					{
+						"natural": 12
+					},
+					{
+						"natural": 13
+					}
+				]
+			},
+			"expect": {
+				"targetCount": 2,
+				"targetsHit": [
+					"Orc Rager",
+					"Hill Giant"
+				],
+				"targetsMissed": [],
+				"excludedTarget": "Orc Rager 2"
+			}
+		},
+		{
+			"id": "paladin-5-smite-evil-hit",
+			"note": "Total equals defense: ties hit.",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Divine_Paladin_5_4ETnAxMTOC0Oy2Nw.yml",
+					"id": "4ETnAxMTOC0Oy2Nw"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Smite Evil"
+				},
+				"powerId": "0W5fLRHV6X7SZhaQ",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"paladin"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:10,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:10%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:12,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:22,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>22</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2231%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:31,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:31,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>31</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> Half damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 10
+					}
+				]
+			},
+			"expect": {
+				"defense": "AC",
+				"outcome": "hit",
+				"note": "Total equals defense: ties hit.",
+				"targetsHit": [
+					"Orc Rager"
+				]
+			}
+		},
+		{
+			"id": "sorcerer-5-scorching-ray-vulnerable-fire",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Dragon_Sorcerer_5_GT9JjvD6EPOlRP5O.yml",
+					"id": "GT9JjvD6EPOlRP5O"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Scorching Ray"
+				},
+				"powerId": "DVf5izPATYaISvCi",
+				"targets": [
+					{
+						"monster": "Broken_Taranar_quaqrSQgPKggkKYy.yml",
+						"name": "Broken Taranar",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": true
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"sorcerer"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "quaqrSQgPKggkKYy",
+						"name": "Broken Taranar",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 20
+									},
+									"pd": {
+										"value": 18
+									},
+									"md": {
+										"value": 14
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": "cold, fire"
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One nearby enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:13,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:13%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:23,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>23</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2210%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:10,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:10,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>10</a> fire damage.</div>",
+					"<div class=\"card-prop\"><strong>Even Hit:</strong> The target also takes [[1d8]] ongoing fire damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl]] damage.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 13
+					}
+				]
+			},
+			"expect": {
+				"outcome": "hit",
+				"vulnerabilities": [
+					"cold",
+					"fire"
+				],
+				"vulnRow": true
+			}
+		},
+		{
+			"id": "wizard-5-acid-arrow-vulnerable-condition",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Explorer_Wizard_5_atT9xG6slENAVPLF.yml",
+					"id": "atT9xG6slENAVPLF"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Acid Arrow"
+				},
+				"powerId": "XZl4hMOQXrX1t2JN",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": [
+							"vulnerable"
+						]
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": true
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"wizard"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": [
+								{
+									"name": "vulnerable",
+									"statuses": {}
+								}
+							]
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One nearby or far away creature</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:17,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:17%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:26,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>26</a> vs. PD</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2227%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:27,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:27,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>27</a> acid damage, and <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2227%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:27,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:27,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>27</a> ongoing acid damage.</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[5]] ongoing acid damage, and you regain the spell during your next quick rest.</div>"
+				],
+				"rolls": [
+					{
+						"natural": 17
+					}
+				]
+			},
+			"expect": {
+				"outcome": "hit",
+				"vulnerabilities": [
+					"vulnerable"
+				],
+				"vulnRow": true
+			}
+		},
+		{
+			"id": "fighter-5-melee-18-crit-range",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Winner_Fighter_5_yZYlThN227uKTpBk.yml",
+					"id": "yZYlThN227uKTpBk"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Melee attack (Fighter)"
+				},
+				"powerId": "zVZmur3CsLe52JgR",
+				"targets": [
+					{
+						"monster": "Orc_Rager_YtnqxLcuPLZzxwQg.yml",
+						"name": "Orc Rager",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": true,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": true
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"fighter"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [
+					{
+						"id": "YtnqxLcuPLZzxwQg",
+						"name": "Orc Rager",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 22
+									},
+									"pd": {
+										"value": 20
+									},
+									"md": {
+										"value": 16
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:18,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:18%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:27,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>27</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2216%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:16,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:16,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>16</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl]] damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 18
+					}
+				]
+			},
+			"expect": {
+				"outcome": "crit",
+				"targetsHit": [
+					"Orc Rager"
+				]
+			}
+		},
+		{
+			"id": "rogue-5-melee-no-targets",
+			"source": {
+				"pc": {
+					"pack": "pregen-characters",
+					"file": "Assassin_Rogue_5_pjn3LFHu2cMowjqG.yml",
+					"id": "pjn3LFHu2cMowjqG"
+				},
+				"power": {
+					"pack": "pregen-characters",
+					"item": "Melee attack (Rogue)"
+				},
+				"powerId": "sKyhv0JCIiaJzZ1i",
+				"targets": []
+			},
+			"options": {
+				"type": "power",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": {
+					"type": "character",
+					"system": {
+						"attributes": {
+							"critMod": {
+								"atk": {
+									"value": 0
+								}
+							},
+							"weapon": {
+								"melee": {
+									"dualwield": false
+								}
+							}
+						},
+						"details": {
+							"detectedClasses": [
+								"rogue"
+							],
+							"level": {
+								"value": 5
+							}
+						}
+					}
+				},
+				"targets": [],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:15,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:15%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:24,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>24</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%2219%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:19,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:19,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>19</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> [[@lvl]] damage</div>"
+				],
+				"rolls": [
+					{
+						"natural": 15
+					}
+				]
+			},
+			"expect": {
+				"outcome": "undecided",
+				"targetsHit": [],
+				"targetsMissed": []
+			}
+		},
+		{
+			"id": "unowned-item-no-attacker",
+			"source": {
+				"pc": null,
+				"power": {
+					"pack": "rogue",
+					"file": "Sure_Cut_bhHw9nWiVPHqYYgG.yml",
+					"id": "bhHw9nWiVPHqYYgG"
+				},
+				"powerId": "bhHw9nWiVPHqYYgG",
+				"targets": [
+					{
+						"monster": "Goblin_Scum_WXMiBSHV9Kujf46n.yml",
+						"name": "Goblin Scum",
+						"effects": []
+					}
+				]
+			},
+			"options": {
+				"type": "item",
+				"critMod": 0,
+				"targets": 1
+			},
+			"settings": {
+				"optionalBaseCritRange": false,
+				"secondEdition": false,
+				"multiTargetAttackRolls": false,
+				"showDefensesInChat": false,
+				"showVulnsInChat": false
+			},
+			"fixture": {
+				"actor": null,
+				"targets": [
+					{
+						"id": "WXMiBSHV9Kujf46n",
+						"name": "Goblin Scum",
+						"actor": {
+							"type": "npc",
+							"system": {
+								"attributes": {
+									"ac": {
+										"value": 16
+									},
+									"pd": {
+										"value": 14
+									},
+									"md": {
+										"value": 11
+									},
+									"critMod": {
+										"atk": {
+											"value": 0
+										},
+										"def": {
+											"value": 0
+										}
+									}
+								},
+								"details": {
+									"vulnerability": {
+										"value": ""
+									}
+								}
+							},
+							"effects": []
+						}
+					}
+				],
+				"rows": [
+					"<div class=\"card-prop\"><strong>Target:</strong> One enemy</div>",
+					"<div class=\"card-prop\"><strong>Attack:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%22d20%22,%22terms%22:%5B%7B%22class%22:%22DiceTerm%22,%22faces%22:20,%22number%22:1,%22options%22:%7B%7D,%22results%22:%5B%7B%22result%22:16,%22active%22:true,%22discarded%22:false,%22rerolled%22:false%7D%5D,%22total%22:16%7D,%7B%22class%22:%22NumericTerm%22,%22number%22:0,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:16,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>16</a> vs. AC</div>",
+					"<div class=\"card-prop\"><strong>Hit:</strong> <a class=\"inline-result\" data-roll=\"%7B%22class%22:%22Roll%22,%22options%22:%7B%7D,%22dice%22:%5B%5D,%22formula%22:%229%22,%22terms%22:%5B%7B%22class%22:%22NumericTerm%22,%22number%22:9,%22options%22:%7B%7D,%22evaluated%22:true%7D%5D,%22total%22:9,%22evaluated%22:true%7D\"><i class=\"fas fa-dice-d20\"></i>9</a> damage</div>",
+					"<div class=\"card-prop\"><strong>Miss:</strong> Deal your Sneak Attack damage + [[@lvl]] damage.</div>",
+					"<div class=\"card-prop\"><strong>Resources:</strong> Momentum</div>"
+				],
+				"rolls": [
+					{
+						"natural": 16
+					}
+				]
+			},
+			"expect": {
+				"outcome": "hit",
+				"targetsHit": [
+					"Goblin Scum"
+				]
+			}
+		}
+	]
+}
