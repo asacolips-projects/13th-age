@@ -1,66 +1,27 @@
 import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from "../rolls/Targeting.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
+import {
+	replaceConditionReferencesInHtml,
+	replaceOngoingEffectReferencesInHtml,
+	replaceActiveEffectReferencesInHtml
+} from "../rolls/effect-links.mjs";
 
 export default class preCreateChatMessageHandler {
 
 	static replaceEffectAndConditionReferences(uuid, $rows) {
 		for (const row of $rows) {
-			CONFIG.ARCHMAGE.REGEXP.CONDITIONS.forEach(([condition, regexp], name, map) => {
-				const conditionInstances = Array.from(row.innerHTML.matchAll(regexp));
-				// Order by largest index first, to avoid stepping over our own toes during replacements
-				for (const match of conditionInstances.sort((a, b) => b.index - a.index)) {
-					const duration = ((val) => {
-						if (!val) return "Unknown";
-						// Lowercased on both sides: some of these are title cased UI labels.
-						const localize = (key) => game.i18n.localize(key).toLowerCase();
-						switch (val.toLowerCase()) {
-							case localize("ARCHMAGE.DURATION.SaveEnds"):
-							case localize("ARCHMAGE.DURATION.NormalSaveEnds"):
-								return "NormalSaveEnds";
-							case localize("ARCHMAGE.DURATION.HardSaveEnds"):
-								return "HardSaveEnds";
-							case localize("ARCHMAGE.DURATION.EasySaveEnds"):
-								return "EasySaveEnds";
-							case localize("ARCHMAGE.DURATION.StartOfNextTurnFull"):
-							case localize("ARCHMAGE.DURATION.StartOfNextTurnFull2"):
-								return "StartOfNextTurn";
-							case localize("ARCHMAGE.DURATION.EndOfNextTurnFull"):
-							case localize("ARCHMAGE.DURATION.EndOfNextTurnFull2"):
-								return "EndOfNextTurn";
-							case localize("ARCHMAGE.DURATION.StartOfNextSourceTurnFull"):
-								return "StartOfNextSourceTurn";
-							case localize("ARCHMAGE.DURATION.EndOfNextSourceTurnFull"):
-								return "EndOfNextSourceTurn";
-							default:
-								return "Unknown";
-						}
-					})(match[2]);
-					const source = uuid;
-					const conditionLink = `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title=""
-                                         data-source="${source}" data-ends="${duration}">
-                                         <img class="effects-icon" src="${condition.img}" />
-                                         ${match[0].replace(/\*/g, "")}</a>`;
-					row.innerHTML = row.innerHTML.substring(0, match.index)
-						+ conditionLink
-						+ row.innerHTML.substring(match.index + match[0].length);
-				}
-			}
-			);
+			row.innerHTML = replaceConditionReferencesInHtml(row.innerHTML, uuid);
 		}
 	}
 
 	static replaceActiveEffectLinkReferences(uuid, $content) {
-		const elements = $content[0].querySelectorAll('.content-link[data-type="ActiveEffect"]');
-		elements.forEach((element) => {
-			const effect = fromUuidSync(element.dataset.uuid);
-			element.classList.add("effect-link");
-			element.dataset.source = effect.parent.uuid;
-			const hasImg = element.querySelector("img");
-			if (!hasImg) {
-				element.innerHTML = `<img class="effects-icon" src="${effect.img}"/>${element.innerText}`;
-			}
-		});
+		// Mutate the live wrapper in place: writing innerHTML back through a serialized
+		// string would detach the row nodes handle() keeps in $rows, and the final
+		// .replaceWith($rows) would resurrect the pre-transform markup.
+		for (const element of $content) {
+			replaceActiveEffectReferencesInHtml(element, (elementUuid) => fromUuidSync(elementUuid));
+		}
 	}
 
 	static replaceOngoingEffectReferences(uuid, $rows, options) {
@@ -76,34 +37,7 @@ export default class preCreateChatMessageHandler {
 		// If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
 		for (const row of $rows) {
-			const ongoingEffects = Array.from(row.innerHTML.matchAll(CONFIG.ARCHMAGE.REGEXP.ONGOING_DAMAGE));
-			if (ongoingEffects.length > 0) {
-				ongoingEffects.forEach((ongoingEffect) => {
-					let damageValue = Number(ongoingEffect[2]);
-					// Type follows "ongoing" in group 4, or precedes it in group 5.
-					let damageType = ongoingEffect[4] ?? ongoingEffect[5];
-					if (damageType) damageType += " ";
-					// Undefined without a save ends clause, empty for a plain "(save ends)".
-					let saveEndsValue = ongoingEffect[6]?.toLowerCase();
-					let saveEndsConfigValue = "NormalSaveEnds";
-					if (saveEndsValue === "easy") saveEndsConfigValue = "EasySaveEnds";
-					else if (saveEndsValue === "hard") saveEndsConfigValue = "HardSaveEnds";
-					let source = uuid;
-					let message = `${damageValue} ongoing ${damageType}damage`;
-					if (saveEndsValue !== undefined) {
-						message += ` (${game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[saveEndsConfigValue])})`;
-					}
-					let name = options.item.name;
-					// Replace any R: at the start of the name
-					name = name.replace(/^R: /, "");
-					let tooltip = message;
-					const img = damageValue >= 0 ? "icons/svg/degen.svg" : "icons/svg/regen.svg";
-					let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
-                        data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
-                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><img class="effects-icon" src="${img}"/> ${message}</a>`;
-					row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
-				});
-			}
+			row.innerHTML = replaceOngoingEffectReferencesInHtml(row.innerHTML, uuid, { itemName: options.item?.name ?? "" });
 		}
 	}
 
