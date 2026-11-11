@@ -10,7 +10,6 @@ import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
 import jQuery from "jquery";
-import { vi } from "vitest";
 
 // ---------------------------------------------------------------------------
 // Localization, straight from the source of truth.
@@ -234,5 +233,4 @@ const setup = {
 
 globalThis.setup = setup;
 
-// A stable, controllable clock region for tests that need one; nothing uses it yet.
-export { statusEffects, SequenceSpy, vi };
+export { setup, statusEffects, SequenceSpy };

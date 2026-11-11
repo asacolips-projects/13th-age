@@ -4,7 +4,6 @@
  * Every factory takes the inputs the rules actually read, so tests state meaningful game
  * numbers ("attack 10 vs defense 12") instead of opaque blobs.
  */
-import { unescape, encodeURI } from "node:util";
 
 // ---------------------------------------------------------------------------
 // Actors and targets
@@ -83,13 +82,15 @@ export function attacker(options = {}) {
 	return {
 		type,
 		system: {
-			attributes: attributes({ ac: 16, pd: 12, md: 10, critAtk }),
+			attributes: {
+				...attributes({ ac: 16, pd: 12, md: 10, critAtk }),
+				weapon: { melee: { dualwield } }
+			},
 			details: {
 				detectedClasses: classes,
 				role: { value: role },
 				strength: { value: strength }
-			},
-			attributesLevel: level
+			}
 		}
 	};
 }
@@ -100,7 +101,8 @@ export function attacker(options = {}) {
 
 /**
  * A serialized inline-roll anchor for card HTML, as Foundry renders it. `natural` is the d20
- * face; `bonus` is added on to make the total. `discarded`/`rerolled` shape 2d20kh rows.
+ * face; `bonus` is added on to make the total. For 2d20kh rows, pass `naturals` with both
+ * faces: the highest die is kept (active), the rest discarded.
  * @param {object} [options]
  * @param {number} [options.natural]
  * @param {number} [options.bonus]
@@ -110,20 +112,31 @@ export function attacker(options = {}) {
  * @returns {string} HTML anchor with an escaped data-roll attribute.
  */
 export function inlineRoll({ natural = 10, bonus = 0, naturals, discarded = [], rerolled = [] } = {}) {
-	const dice = (naturals ?? [natural]).map((result, index) => ({
-		result,
-		active: !(discarded[index] ?? false),
-		discarded: discarded[index] ?? false,
-		rerolled: rerolled[index] ?? false
-	}));
-	const d20Total = dice.filter((die) => die.active).reduce((sum, die) => sum + die.result, 0);
+	let results;
+	let formula;
+	if (naturals) {
+		// Keep-highest (2d20kh): the best face stays active, the others are discarded.
+		const keep = Math.max(...naturals);
+		results = naturals.map((result, index) => ({
+			result,
+			active: !discarded[index] && result === keep,
+			discarded: discarded[index] ?? result !== keep,
+			rerolled: rerolled[index] ?? false
+		}));
+		formula = `${naturals.length}d20kh`;
+	}
+	else {
+		results = [{ result: natural, active: true, discarded: discarded[0] ?? false, rerolled: rerolled[0] ?? false }];
+		formula = `${natural + bonus}`;
+	}
+	const d20Total = results.filter((die) => die.active).reduce((sum, die) => sum + die.result, 0);
 	const roll = {
 		class: "Roll",
 		options: {},
 		dice: [],
-		formula: `${d20Total + bonus}`,
+		formula,
 		terms: [
-			{ class: "DiceTerm", faces: 20, number: dice.length, options: {}, results: dice, total: d20Total },
+			{ class: "DiceTerm", faces: 20, number: results.length, options: {}, results, total: d20Total },
 			{ class: "NumericTerm", number: bonus, options: {}, evaluated: true }
 		],
 		total: d20Total + bonus,
@@ -134,12 +147,12 @@ export function inlineRoll({ natural = 10, bonus = 0, naturals, discarded = [], 
 
 /** Serialize a roll the way Foundry escapes data-roll attributes. */
 export function escapeRoll(roll) {
-	return encodeURI(JSON.stringify(roll));
+	return globalThis.encodeURI(JSON.stringify(roll));
 }
 
 /** Deserialize a data-roll attribute the way the production code does. */
 export function unescapeRoll(text) {
-	return unescape(text);
+	return globalThis.unescape(text);
 }
 
 // ---------------------------------------------------------------------------
