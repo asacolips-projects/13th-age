@@ -36,7 +36,12 @@ export default class HitEvaluation {
 			hasHit = true;
 			hasMissed = false;
 			// A rollless outcome: enough to resolve "hit"/"miss" rows, not the roll-dependent ones.
-			rollOutcomes.push(evaluateRoll({ target: undefined, attacker: attackerConfig, critMod, baseCritRange: baseCritrange }));
+			rollOutcomes.push(evaluateRoll({
+				target: undefined,
+				attacker: attackerConfig,
+				critMod,
+				baseCritRange: baseCritrange
+			}));
 		}
 		else {
 			let targetsToProcess = Math.min($rolls.length, targets.length);
@@ -71,7 +76,13 @@ export default class HitEvaluation {
 				};
 
 				// Crit/fumble/hit arithmetic, delegated to the pure evaluator.
-				const result = evaluateRoll({ rollData: roll_data, target: targetConfig, attacker: attackerConfig, critMod, baseCritRange: baseCritrange });
+				const result = evaluateRoll({
+					rollData: roll_data,
+					target: targetConfig,
+					attacker: attackerConfig,
+					critMod,
+					baseCritRange: baseCritrange
+				});
 
 				// Apply the verdict to the DOM.
 				if (result.crit) $roll_self.addClass("dc-crit");

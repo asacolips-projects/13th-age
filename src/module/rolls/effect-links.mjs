@@ -123,7 +123,8 @@ export function replaceConditionReferencesInHtml(html, uuid, { conditions, local
  *   backed by game.i18n by default.
  * @returns {string} The transformed HTML.
  */
-export function replaceOngoingEffectReferencesInHtml(html, uuid, { ongoingRegexp, itemName, localization = (key) => game.i18n.localize(key) } = {}) {
+export function replaceOngoingEffectReferencesInHtml(html, uuid, { ongoingRegexp, itemName, localization } = {}) {
+	const localize = localization ?? ((key) => game.i18n.localize(key));
 	if (!ongoingRegexp) ongoingRegexp = globalThis.CONFIG?.ARCHMAGE?.REGEXP?.ONGOING_DAMAGE;
 	const name = normalizeItemName(itemName);
 	let result = html;
@@ -139,7 +140,7 @@ export function replaceOngoingEffectReferencesInHtml(html, uuid, { ongoingRegexp
 		if (saveEndsValue === "easy") saveEndsConfigValue = "EasySaveEnds";
 		else if (saveEndsValue === "hard") saveEndsConfigValue = "HardSaveEnds";
 		const saveEndsLabel = saveEndsValue !== undefined
-			? localization(globalThis.CONFIG.ARCHMAGE.effectDurationTypes[saveEndsConfigValue])
+			? localize(globalThis.CONFIG.ARCHMAGE.effectDurationTypes[saveEndsConfigValue])
 			: undefined;
 		const link = ongoingEffectLinkHtml({ damageValue, damageType, saveEndsConfigValue, uuid, name, saveEndsLabel });
 		result = result.replace(ongoingEffect[0], link);

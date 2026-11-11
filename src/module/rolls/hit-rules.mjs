@@ -50,7 +50,13 @@
  * @param {number} [args.baseCritRange] d20 face that starts the crit range (18 or 20).
  * @returns {HitEvaluationRollResult}
  */
-export function evaluateRoll({ rollData, target: targetConfig, attacker: attackerConfig, critMod = 0, baseCritRange = 20 }) {
+export function evaluateRoll({
+	rollData,
+	target: targetConfig,
+	attacker: attackerConfig,
+	critMod = 0,
+	baseCritRange = 20
+}) {
 	const critAtkMod = attackerConfig?.critAtkMod ?? 0;
 	const critDefMod = targetConfig?.critDefMod ?? 0;
 	// Without an attacker (e.g. rolled from an unowned item) only the power's own modifier applies.
