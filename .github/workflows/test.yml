@@ -6,7 +6,9 @@ on:
       - main
 
 concurrency:
-  group: "${{ github.ref }}"
+  # Namespace by workflow: github.ref alone is shared with pr-checks.yml on the same
+  # PR, and the two would cancel each other.
+  group: "${{ github.workflow }}-${{ github.ref }}"
   cancel-in-progress: true
 jobs:
 
