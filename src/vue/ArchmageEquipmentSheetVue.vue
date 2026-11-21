@@ -12,7 +12,7 @@
 				width="100"
 			>
 			<div class="header-fields flexrow">
-				<button class="item-roll flexshrink" @click="itemDocument.roll()">
+				<button type="button" class="item-roll flexshrink" @click="itemDocument.roll()">
 					<i class="fas fa-dice-d20" /><span
 						class="visually-hidden"
 					> Send to Chat</span>

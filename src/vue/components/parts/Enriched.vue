@@ -12,12 +12,19 @@ const props = defineProps(["tag", "text", "replacements", "diceFormulaMode", "ro
 
 const wrappedRolls = ref(props.text);
 
-watch(() => props.text, async (newText) => {
+// Re-enrich on either input changing: the text itself, or the roll data the
+// text's inline rolls evaluate against (level ups, ability score changes).
+// The rollData prop is rebuilt with every sheet context, so watching it
+// catches roll-data changes that leave the text untouched.
+watch([
+	() => props.text,
+	() => props.rollData
+], async ([newText, newRollData]) => {
 	wrappedRolls.value = await wrapRolls(
 		newText,
 		props.replacements,
 		props.diceFormulaMode,
-		props.rollData,
+		newRollData,
 		props.field,
 		props.enrichmentOptions ?? {}
 	);
