@@ -363,7 +363,7 @@
 </template>
 
 <script setup>
-import { toRaw, reactive, computed } from "vue";
+import { toRaw, reactive, computed, watch } from "vue";
 import { localize, concat } from "@/methods/Helpers";
 import { Tabs, Tab, CodemirrorWrapper, InfoBubble } from "@/components";
 
@@ -404,7 +404,15 @@ const flagState = reactive(
 // portrait round/frame treatments don't suit the V3 hero banner, which
 // offers "show full artwork" instead. hideCurrency and hideEmptyPowerGroups
 // are superseded by the V3 filter controls.
-const hiddenFlags = ["hideSettingsTab", "showTriggersTab", "portraitRound", "portraitFrame", "hideCurrency", "hideEmptyPowerGroups"];
+// The window re-renders on actor updates: re-sync the local copy so the flag
+// controls show the current values rather than those from when it opened.
+watch(() => props.context.actor?.flags?.archmage, (flags) => {
+	for (const flag of Object.values(flagState)) {
+		flag.value = flags?.[flag.key] ?? null;
+	}
+});
+
+const hiddenFlags =["hideSettingsTab", "showTriggersTab", "portraitRound", "portraitFrame", "hideCurrency", "hideEmptyPowerGroups"];
 
 const sectionOrder = ["Dice", "Sheet", "Feats"];
 
