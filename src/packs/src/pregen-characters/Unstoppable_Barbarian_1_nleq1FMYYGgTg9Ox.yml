@@ -22,8 +22,17 @@ flags:
           value: powerType
         sortBy:
           value: custom
+      triggers:
+        customGroups:
+          value: 'false'
     strongRecovery: false
     toughness: true
+    overridePowerLevel: false
+    grimDetermination: false
+    implacable: false
+    dexToCha: false
+    dexToInt: false
+    showTriggersTab: false
 folder: null
 img: icons/weapons/axes/axe-double.webp
 items:
@@ -2926,7 +2935,7 @@ system:
       deathFails:
         value: 0
         max: 4
-        maxOverride: 0
+        maxOverride: '0'
         steps:
           - false
           - false
@@ -3296,6 +3305,9 @@ system:
     recovery: false
     skillInitiative: false
     abilMultiplier: false
+    classFeature: false
+    md: false
+    pd: false
   coins:
     platinum:
       value: null
@@ -3311,11 +3323,11 @@ system:
 type: character
 _stats:
   coreVersion: '14.370'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
+  systemId: archmage
+  systemVersion: 1.42.1.beta-01
+  createdTime: 1795268478878
+  modifiedTime: 1795268478878
+  lastModifiedBy: lnt200FcM93SQq4g
   compendiumSource: null
   duplicateSource: null
   exportSource: null

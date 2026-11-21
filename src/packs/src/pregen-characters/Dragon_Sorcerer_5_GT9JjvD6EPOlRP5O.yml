@@ -25,8 +25,17 @@ flags:
       tabs:
         primary:
           value: powers
+      triggers:
+        customGroups:
+          value: 'false'
     strongRecovery: false
     toughness: false
+    overridePowerLevel: false
+    grimDetermination: false
+    implacable: false
+    dexToCha: false
+    dexToInt: false
+    showTriggersTab: false
   core: {}
 folder: null
 img: icons/creatures/reptiles/lizard-mouth-glowing-red.webp
@@ -6152,7 +6161,7 @@ prototypeToken:
     colors:
       background: null
       ring: null
-    effects: 1
+    effects: 0
     enabled: false
     subject:
       scale: 1
@@ -6175,7 +6184,7 @@ prototypeToken:
     fit: contain
     scaleX: 1
     scaleY: 1
-    src: icons/creatures/claws/claw-talons-glowing-orange.webp
+    src: icons/creatures/reptiles/lizard-mouth-glowing-red.webp
     tint: '#ffffff'
   turnMarker:
     animation: null
@@ -6243,7 +6252,7 @@ system:
       deathFails:
         value: 0
         max: 4
-        maxOverride: 0
+        maxOverride: '0'
         steps:
           - false
           - false
@@ -6613,6 +6622,9 @@ system:
     recovery: false
     skillInitiative: false
     abilMultiplier: false
+    classFeature: false
+    md: false
+    pd: false
   coins:
     platinum:
       value: null
@@ -6628,11 +6640,11 @@ system:
 type: character
 _stats:
   coreVersion: '14.370'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
+  systemId: archmage
+  systemVersion: 1.42.1.beta-01
+  createdTime: 1795268433390
+  modifiedTime: 1795268434464
+  lastModifiedBy: lnt200FcM93SQq4g
   compendiumSource: null
   duplicateSource: null
   exportSource: null
