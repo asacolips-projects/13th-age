@@ -450,7 +450,11 @@ ARCHMAGE:
     publicationSource: 'Publication Source:'
     settings: Settings
     shield: Shield
+    shieldEffect: +1 AC
+    shieldEffectPen: +1 AC, {delta} attack
     twohanded: Two-handed Weapon
+    twohandedEffect: '{dice} melee dice'
+    twohandedEffectPen: '{delta} attack, {dice} melee dice'
     tabs:
       core: Core
       flags: Flags
