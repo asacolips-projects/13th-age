@@ -188,7 +188,7 @@
 			</fieldset>
 		</Tab>
 
-		<!-- Weapons: dice and stances -->
+		<!-- Weapons: dice and off hand -->
 		<Tab group="primary" :tab="tabs.primary.weapons">
 			<fieldset>
 				<legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.weaponDice') }}</legend>
@@ -255,7 +255,7 @@
 			</fieldset>
 
 			<fieldset>
-				<legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.stances') }}</legend>
+				<legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.offHand') }}</legend>
 				<div class="form-group">
 					<label>{{ localize('ARCHMAGE.CHARACTERSETTINGS.shield') }}</label>
 					<div class="field stance-field">
@@ -420,7 +420,7 @@ watch(() => props.context.actor?.flags?.archmage, (flags) => {
 	}
 });
 
-// Stances (shield / dual-wield / two-handed) rewrite the attack modifier
+// Off hand (shield / dual-wield / two-handed) rewrites the attack modifier
 // through the actor's stance hook; the per-stance annotations below show
 // what each toggle does for this character's classes.
 
