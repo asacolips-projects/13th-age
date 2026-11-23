@@ -258,28 +258,23 @@
 				<legend>{{ localize('ARCHMAGE.CHARACTERSETTINGS.groups.offHand') }}</legend>
 				<div class="form-group">
 					<label>{{ localize('ARCHMAGE.CHARACTERSETTINGS.shield') }}</label>
-					<div class="field stance-field">
-						<input v-model="actor.system.attributes.weapon.melee.shield" type="checkbox" name="system.attributes.weapon.melee.shield">
-						<span
-							v-if="stanceEffects.known"
-							:title="stanceEffects.shieldSource"
-						>{{ stanceEffects.shield }}</span>
+					<div class="field offhand-field">
+						<input :checked="actor.system.attributes.weapon.melee.shield" type="checkbox" name="system.attributes.weapon.melee.shield">
+						<span :title="offHandEffects.shieldSource">{{ offHandEffects.shield }}</span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label>{{ localize('ARCHMAGE.CHARACTERSETTINGS.dualwield') }}</label>
-					<div class="field">
-						<input v-model="actor.system.attributes.weapon.melee.dualwield" type="checkbox" name="system.attributes.weapon.melee.dualwield">
+					<div class="field offhand-field">
+						<input :checked="actor.system.attributes.weapon.melee.dualwield" type="checkbox" name="system.attributes.weapon.melee.dualwield">
+						<span>{{ offHandEffects.dualwield }}</span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label>{{ localize('ARCHMAGE.CHARACTERSETTINGS.twohanded') }}</label>
-					<div class="field stance-field">
-						<input v-model="actor.system.attributes.weapon.melee.twohanded" type="checkbox" name="system.attributes.weapon.melee.twohanded">
-						<span
-							v-if="stanceEffects.known"
-							:title="stanceEffects.twohandedSource"
-						>{{ stanceEffects.twohanded }}</span>
+					<div class="field offhand-field">
+						<input :checked="actor.system.attributes.weapon.melee.twohanded" type="checkbox" name="system.attributes.weapon.melee.twohanded">
+						<span :title="offHandEffects.twohandedSource">{{ offHandEffects.twohanded }}</span>
 					</div>
 				</div>
 			</fieldset>
@@ -421,7 +416,7 @@ watch(() => props.context.actor?.flags?.archmage, (flags) => {
 });
 
 // Off hand (shield / dual-wield / two-handed) rewrites the attack modifier
-// through the actor's stance hook; the per-stance annotations below show
+// through the actor's off-hand automation; the annotations below show
 // what each toggle does for this character's classes.
 
 /**
@@ -433,55 +428,41 @@ function formatDelta(delta) {
 }
 
 /**
- * The stance penalties the actor's stance hook will apply, computed the same
- * way (actor.js: the max across detectedClasses of CONFIG.ARCHMAGE.classes).
- * Shown as small annotations next to the toggles, since the effect differs
- * per class and nothing else on this tab explains it. When the character has
- * no detected class the hook applies no penalties, so nothing is annotated.
+ * What each off-hand toggle does for this character, from the same figures
+ * the actor's off-hand automation applies (ArchmageUtility.offHandWeaponStats):
+ * the current melee die stepped to one- or two-handed, and the class penalties
+ * maxed across the detected classes. Shown as small annotations next to the
+ * toggles, since the effect differs per character and nothing else on this
+ * tab explains it. The tooltips list each class's penalty, unless the melee
+ * die is custom, in which case the automation applies no class penalties.
  */
-const stanceEffects = computed(() => {
-	const classes = props.context.actor?.system?.details?.detectedClasses ?? [];
-	const effect = {
-		known: classes.length > 0,
-		shield: "",
-		shieldSource: "",
-		twohanded: "",
-		twohandedSource: ""
-	};
-	if (!effect.known) return effect;
-
+const offHandEffects = computed(() => {
+	const wpn = game.archmage.ArchmageUtility.offHandWeaponStats(props.context.actor?.system);
+	const sourceText = (pens) => pens.map((c) => `${c.name}: ${formatDelta(c.pen)}`).join("\n");
 	const shieldPens = [];
 	const twohandedPens = [];
-	const wpn1h = [];
-	const wpn2h = [];
-	for (const key of classes) {
-		const cls = CONFIG.ARCHMAGE.classes[key];
-		if (!cls) continue;
-		const name = localize(concat("ARCHMAGE.CLASSES.", key));
-		shieldPens.push({ pen: cls.shld_pen, name });
-		wpn1h.push(cls.wpn_1h);
-		wpn2h.push(cls.wpn_2h);
-		// Mirrors the hook: only classes that benefit from 2h weapons (and can
-		// out-damage the monk's) apply the two-handed penalty.
-		if (cls.wpn_2h > cls.wpn_1h && cls.wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
-			twohandedPens.push({ pen: cls.wpn_2h_pen, name });
+	if (!wpn.custom) {
+		for (const cls of wpn.classes) {
+			const name = localize(concat("ARCHMAGE.CLASSES.", cls.key));
+			shieldPens.push({ pen: cls.shieldPen, name });
+			if (cls.twohandedPen !== null) twohandedPens.push({ pen: cls.twohandedPen, name });
 		}
 	}
-	const sourceText = (pens) => pens.map((c) => `${c.name}: ${formatDelta(c.pen)}`).join("\n");
 
-	const shieldPen = shieldPens.length ? Math.max(...shieldPens.map((c) => c.pen)) : 0;
-	effect.shield = shieldPen !== 0
-		? localize("ARCHMAGE.CHARACTERSETTINGS.shieldEffectPen", { delta: formatDelta(shieldPen) })
-		: localize("ARCHMAGE.CHARACTERSETTINGS.shieldEffect");
-	effect.shieldSource = sourceText(shieldPens);
-
-	const twohandedPen = twohandedPens.length ? Math.max(...twohandedPens.map((c) => c.pen)) : 0;
-	const dice = `d${Math.max(...wpn1h)} ↔ d${Math.max(...wpn2h)}`;
-	effect.twohanded = twohandedPen !== 0
-		? localize("ARCHMAGE.CHARACTERSETTINGS.twohandedEffectPen", { delta: formatDelta(twohandedPen), dice })
-		: localize("ARCHMAGE.CHARACTERSETTINGS.twohandedEffect", { dice });
-	effect.twohandedSource = twohandedPens.length ? sourceText(twohandedPens) : "";
-	return effect;
+	const dice = `d${wpn.mWpn1h} ↔ d${wpn.mWpn2h}`;
+	return {
+		shield: wpn.shieldPen !== 0
+			? localize("ARCHMAGE.CHARACTERSETTINGS.shieldEffectPen", { delta: formatDelta(wpn.shieldPen) })
+			: localize("ARCHMAGE.CHARACTERSETTINGS.shieldEffect"),
+		shieldSource: sourceText(shieldPens),
+		dualwield: game.settings.get("archmage", "secondEdition")
+			? localize("ARCHMAGE.CHARACTERSETTINGS.dualwieldEffect2e")
+			: localize("ARCHMAGE.CHARACTERSETTINGS.dualwieldEffect"),
+		twohanded: wpn.twohandedPen !== 0
+			? localize("ARCHMAGE.CHARACTERSETTINGS.twohandedEffectPen", { delta: formatDelta(wpn.twohandedPen), dice })
+			: localize("ARCHMAGE.CHARACTERSETTINGS.twohandedEffect", { dice }),
+		twohandedSource: sourceText(twohandedPens)
+	};
 });
 
 const hiddenFlags =["hideSettingsTab", "showTriggersTab", "portraitRound", "portraitFrame", "hideCurrency", "hideEmptyPowerGroups"];
@@ -566,9 +547,9 @@ function isOverridden(path) {
   flex: 0.2;
 }
 
-/* Stance effect annotations beside the toggles: small pill badges that read
+/* Off-hand effect annotations beside the toggles: small pill badges that read
    as a tag on the toggle rather than body text. */
-.stance-field {
+.offhand-field {
   display: flex;
   align-items: center;
   gap: 0.5rem;

@@ -2643,71 +2643,11 @@ export class ActorArchmage extends Actor {
 				this.system.attributes.weapon.melee.dice = "d8";
 			}
 
-			let mWpn = parseInt(this.system.attributes.weapon.melee.dice.substring(1));
-			if (isNaN(mWpn)) mWpn = 8; // Fallback
 			data.system.attributes.attackMod = { value: this.system.attributes.attackMod.value };
-			let wpn = { shieldPen: 0, twohandedPen: 0 };
-			if (this.system.attributes.weapon.melee.twohanded) {
-				wpn.mWpn2h = mWpn;
-				wpn.mWpn1h = Math.max(mWpn - 2, 4);
-			}
-			else {
-				wpn.mWpn2h = Math.min(mWpn + 2, 12);
-				wpn.mWpn1h = mWpn;
-			}
-
-			// Compute penalties due to equipment (if classes known)
-			if (this.system.details.detectedClasses) {
-				let shieldPen = [];
-				let twohandedPen = [];
-				let mWpn1h = [];
-				let mWpn2h = [];
-				let skilledWarrior = [];
-				this.system.details.detectedClasses.forEach((item) => {
-					let cls_shield_pen = CONFIG.ARCHMAGE.classes[item].shld_pen;
-					// In 2e, bard and ranger *might* not suffer a shield penalty
-					if (game.settings.get("archmage", "secondEdition")) {
-						const str = this.system.abilities.str.value;
-						const dex = this.system.abilities.dex.value;
-						// Str bards can use shields
-						if (item == "bard" && str >= dex) {
-							cls_shield_pen = 0;
-						}
-						// Str rangers with 17+ Str can use shields
-						else if (item == "ranger" && str >= 17) {
-							cls_shield_pen = 0;
-						}
-					}
-					shieldPen.push(cls_shield_pen);
-					mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
-					mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
-					if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h
-						&& CONFIG.ARCHMAGE.classes[item].wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
-						// Handles special case of monk MC with classes that don't benefit from 2h
-						twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
-					}
-					skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior);
-				});
-				wpn.shieldPen = Math.max.apply(null, shieldPen);
-				if (twohandedPen.length > 0) wpn.twohandedPen = Math.max.apply(null, twohandedPen);
-				mWpn1h = Math.max.apply(null, mWpn1h);
-				mWpn2h = Math.max.apply(null, mWpn2h);
-				if (skilledWarrior.length > 1 && !skilledWarrior.every((a) => a)) {
-					mWpn1h = Math.max(mWpn1h - 2, 4);
-					mWpn2h = Math.max(mWpn2h - 2, 4);
-				}
-				// Only use class values if the current values haven't been tampered with
-				if (this.system.attributes.weapon.melee.twohanded && wpn.mWpn2h == mWpn2h) {
-					wpn.mWpn1h = mWpn1h;
-				}
-				else if (!this.system.attributes.weapon.melee.twohanded && wpn.mWpn1h == mWpn1h) {
-					wpn.mWpn2h = mWpn2h;
-				}
-				else { // Values differ from rules, don't do anything
-					wpn.shieldPen = 0;
-					wpn.twohandedPen = 0;
-				}
-			}
+			// Weapon dice and penalties for each off-hand option (shared with the
+			// settings window's off-hand annotations)
+			const wpn = ArchmageUtility.offHandWeaponStats(this.system);
+			let mWpn = wpn.mWpn;
 
 			if (changes.system.attributes.weapon.melee.shield !== undefined) {
 				// Here we received an update of the shield checkbox
