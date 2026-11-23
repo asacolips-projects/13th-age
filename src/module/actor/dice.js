@@ -506,7 +506,7 @@ export class DiceArchmage {
 		}
 
 		// Next: the item bonus
-		if (ability.bonus) {
+		if (ability?.bonus) {
 			terms.push(`@${abilityKey}.bonus`);
 		}
 

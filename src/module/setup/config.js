@@ -1001,7 +1001,7 @@ ARCHMAGE.classes2e = {
 	},
 	rogue: {},
 	sorcerer: {
-		wpn_2h: 8
+		wpn_2h: 6
 	},
 	wizard: {}
 };
