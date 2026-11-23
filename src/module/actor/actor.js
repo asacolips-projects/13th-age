@@ -2334,8 +2334,22 @@ export class ActorArchmage extends Actor {
 				let mWpn1h = [];
 				let mWpn2h = [];
 				let skilledWarrior = [];
-				this.system.details.detectedClasses.forEach(function (item) {
-					shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
+				this.system.details.detectedClasses.forEach((item) => {
+					let cls_shield_pen = CONFIG.ARCHMAGE.classes[item].shld_pen;
+					// In 2e, bard and ranger *might* not suffer a shield penalty
+					if (game.settings.get("archmage", "secondEdition")) {
+						const str = this.system.abilities.str.value;
+						const dex = this.system.abilities.dex.value;
+						// Str bards can use shields
+						if (item == "bard" && str >= dex) {
+							cls_shield_pen = 0;
+						}
+						// Str rangers with 17+ Str can use shields
+						else if (item == "ranger" && str >= 17) {
+							cls_shield_pen = 0;
+						}
+					}
+					shieldPen.push(cls_shield_pen);
 					mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
 					mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
 					if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h
