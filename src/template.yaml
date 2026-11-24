@@ -235,6 +235,14 @@ Actor:
         label: One Unique Thing
         type: String
         value: ''
+      resistance:
+        type: String
+        label: Resistance
+        value: ''
+      vulnerability:
+        type: String
+        label: Vulnerability
+        value: ''
     backgrounds:
       bg1:
         name:
@@ -806,6 +814,10 @@ Item:
     templates:
       - standard
       - spendable
+    group:
+      type: String
+      label: Group
+      value: ''
   equipment:
     templates:
       - standard
@@ -813,6 +825,10 @@ Item:
       - usable
       - supportsMacro
       - hasChildren
+    group:
+      type: String
+      label: Group
+      value: ''
     properties: {}
     attributes:
       attack:

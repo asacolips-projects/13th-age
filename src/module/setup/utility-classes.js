@@ -302,6 +302,115 @@ export class ArchmageUtility {
 		return matchedClasses;
 	}
 
+	/**
+	 * Per-class melee off-hand figures for a character: the shield and two-handed
+	 * attack penalties and the weapon dice each detected class contributes.
+	 * Shared by the actor's off-hand automation (ActorArchmage._preUpdate) and
+	 * the settings window's off-hand annotations, so they can't drift apart.
+	 *
+	 * @param {string[]} classes   Detected class keys (system.details.detectedClasses)
+	 * @param {object} abilities   Prepared ability data (system.abilities)
+	 * @returns {object[]} One entry per known class:
+	 *   { key, shieldPen, twohandedPen, wpn1h, wpn2h, skilledWarrior }.
+	 *   twohandedPen is null for classes that don't apply a two-handed penalty.
+	 */
+	static classOffHandStats(classes, abilities) {
+		const secondEdition = game.settings.get("archmage", "secondEdition");
+		const monk2h = CONFIG.ARCHMAGE.classes.monk.wpn_2h;
+		return (classes ?? [])
+			.filter((key) => CONFIG.ARCHMAGE.classes[key])
+			.map((key) => {
+				const cls = CONFIG.ARCHMAGE.classes[key];
+				return {
+					key,
+					shieldPen: ArchmageUtility.classShieldPenalty(key, abilities, secondEdition),
+					// Only classes that benefit from 2h weapons (and can out-damage the
+					// monk's, for monk multiclasses) apply the two-handed penalty.
+					twohandedPen: cls.wpn_2h > cls.wpn_1h && cls.wpn_2h >= monk2h ? cls.wpn_2h_pen : null,
+					wpn1h: cls.wpn_1h,
+					wpn2h: cls.wpn_2h,
+					skilledWarrior: cls.skilled_warrior
+				};
+			});
+	}
+
+	/**
+	 * The melee weapon dice and attack penalties the off-hand options (shield,
+	 * two-handed) would give a character right now, starting from its current
+	 * melee die. Used by the actor's off-hand automation (ActorArchmage._preUpdate)
+	 * and the settings window's off-hand annotations.
+	 *
+	 * When the current die doesn't match the class rules (a custom weapon), the
+	 * die is still stepped by 2 between one- and two-handed, but no class
+	 * penalties apply.
+	 *
+	 * @param {object} system   The character's prepared system data
+	 * @returns {object} { mWpn, mWpn1h, mWpn2h, shieldPen, twohandedPen, custom, classes },
+	 *   where mWpn is the current die size and classes the classOffHandStats entries.
+	 */
+	static offHandWeaponStats(system) {
+		const melee = system?.attributes?.weapon?.melee ?? {};
+		const twohanded = Boolean(melee.twohanded);
+		let mWpn = parseInt(String(melee.dice ?? "").substring(1));
+		if (isNaN(mWpn)) mWpn = 8; // Fallback
+
+		const wpn = {
+			mWpn,
+			mWpn1h: twohanded ? Math.max(mWpn - 2, 4) : mWpn,
+			mWpn2h: twohanded ? mWpn : Math.min(mWpn + 2, 12),
+			shieldPen: 0,
+			twohandedPen: 0,
+			custom: false,
+			classes: ArchmageUtility.classOffHandStats(system?.details?.detectedClasses, system?.abilities)
+		};
+		// No known classes: no penalties
+		if (!wpn.classes.length) return wpn;
+
+		wpn.shieldPen = Math.max(...wpn.classes.map((c) => c.shieldPen));
+		const twohandedPens = wpn.classes.filter((c) => c.twohandedPen !== null).map((c) => c.twohandedPen);
+		if (twohandedPens.length > 0) wpn.twohandedPen = Math.max(...twohandedPens);
+		let classWpn1h = Math.max(...wpn.classes.map((c) => c.wpn1h));
+		let classWpn2h = Math.max(...wpn.classes.map((c) => c.wpn2h));
+		const skilledWarrior = wpn.classes.map((c) => c.skilledWarrior);
+		if (skilledWarrior.length > 1 && !skilledWarrior.every((a) => a)) {
+			classWpn1h = Math.max(classWpn1h - 2, 4);
+			classWpn2h = Math.max(classWpn2h - 2, 4);
+		}
+		// Only use class values if the current values haven't been tampered with
+		if (twohanded && wpn.mWpn2h == classWpn2h) {
+			wpn.mWpn1h = classWpn1h;
+		}
+		else if (!twohanded && wpn.mWpn1h == classWpn1h) {
+			wpn.mWpn2h = classWpn2h;
+		}
+		else { // Values differ from rules, don't apply class penalties
+			wpn.shieldPen = 0;
+			wpn.twohandedPen = 0;
+			wpn.custom = true;
+		}
+		return wpn;
+	}
+
+	/**
+	 * The attack penalty a class applies for using a shield. In 2e, Strength
+	 * bards and rangers with 17+ Strength are exempt. Compares the mods before
+	 * the Key Modifier, which would otherwise lower one of them for multiclasses.
+	 *
+	 * @param {string} key              Class key
+	 * @param {object} abilities        Prepared ability data (system.abilities)
+	 * @param {boolean} secondEdition   Whether 2e rules are enabled
+	 * @returns {number}
+	 */
+	static classShieldPenalty(key, abilities, secondEdition) {
+		const pen = CONFIG.ARCHMAGE.classes[key].shld_pen;
+		if (!secondEdition) return pen;
+		const str = abilities?.str;
+		const dex = abilities?.dex;
+		if (key === "bard" && str?.nonKey?.mod >= dex?.nonKey?.mod) return 0;
+		if (key === "ranger" && str?.value >= 17) return 0;
+		return pen;
+	}
+
 	static formatNewItemName(itemType) {
 		return game.i18n.format("ARCHMAGE.newItem",
 			{ item: game.i18n.localize(`ARCHMAGE.${itemType}`) });

@@ -70,6 +70,8 @@ jobs:
       with:
         bodyFile: release-notes/${{ env.REF }}.md
         draft: false
+        prerelease: ${{ contains(github.ref_name, 'beta') || contains(github.ref_name, 'alpha') }}
+        makeLatest: ${{ !(contains(github.ref_name, 'beta') || contains(github.ref_name, 'alpha')) }}
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }} # Provided by actions.
 

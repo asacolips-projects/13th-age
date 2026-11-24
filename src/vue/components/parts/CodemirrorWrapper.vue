@@ -39,6 +39,9 @@ onMounted(() => {
 			// Update the textarea value so Foundry can see it.
 			editor.on("change", (instance) => {
 				rawValue.value = instance.getValue();
+				// CodeMirror edits its own element, not the textarea: report the
+				// edit so forms tracking edited fields see it.
+				element.dispatchEvent(new Event("input", { bubbles: true }));
 			});
 
 			// Hacky, but refresh the editor content to fix quirks with CodeMirror + Vue.
