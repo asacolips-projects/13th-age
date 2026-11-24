@@ -2838,8 +2838,12 @@ export class ActorArchmage extends Actor {
 					twohanded = true;
 				}
 
-				// Assign computed values
-				data.system.attributes = {
+				// Assign computed values. Merge them into the update rather than
+				// replacing its attributes: anything else in it (HP adjusted above
+				// for extra HP or max, a clamped level, recoveries, or other fields
+				// submitted together with the class) would otherwise be dropped.
+				data.system.attributes ??= {};
+				foundry.utils.mergeObject(data.system.attributes, {
 					hp: { base: base.hp },
 					ac: { base: base.ac },
 					pd: { base: base.pd },
@@ -2860,7 +2864,7 @@ export class ActorArchmage extends Actor {
 						punch: { dice: `d${punchWpn}` },
 						kick: { dice: `d${kickWpn}` }
 					}
-				};
+				});
 
 				// Handle extra recoveries for fighters
 				if (matchedClasses.includes("fighter")) {
@@ -2882,8 +2886,10 @@ export class ActorArchmage extends Actor {
 					data.system.attributes.keyModifier = { mod1: "str", mod2: "str" };
 				}
 
-				// Enable resources based on detected classes
-				data.system.resources = {
+				// Enable resources based on detected classes (merged, as above:
+				// keeps resource edits submitted with the class)
+				data.system.resources ??= {};
+				foundry.utils.mergeObject(data.system.resources, {
 					perCombat: {
 						momentum: { enabled: (matchedClasses.includes("rogue") && !game.settings.get("archmage", "secondEdition"))
 																|| (matchedClasses.includes("fighter") && game.settings.get("archmage", "secondEdition")) },
@@ -2892,7 +2898,7 @@ export class ActorArchmage extends Actor {
 						bravado: { enabled: matchedClasses.includes("rogue") && game.settings.get("archmage", "secondEdition") }
 					},
 					spendable: { ki: { enabled: matchedClasses.includes("monk") } }
-				};
+				});
 				let busyResources = [];
 				for (let cl of matchedClasses) {
 					if (CONFIG.ARCHMAGE.classResources[cl]) {
