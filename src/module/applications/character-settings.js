@@ -144,9 +144,46 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
 	}
 
 	/**
-	 * Form submission handler: expand the flat dotted-key form data and update
-	 * the actor. Checkbox and select fields are read straight from the DOM, so
-	 * unchecked boxes persist correctly.
+	 * Names of the form fields the user edited since the last submit. Only
+	 * these are written back: every submit (on change and on close) carries
+	 * the whole form, and an untouched field may hold a value the actor has
+	 * since moved past — e.g. a Key Modifier reset by a class change on the
+	 * sheet, or an edit made by another user while this window sat open.
+	 *
+	 * @type {Set<string>}
+	 */
+	#dirtyFields = new Set();
+
+	/**
+	 * Register with the actor so document updates re-render this window (as
+	 * DocumentSheetV2 does for its sheets), and start tracking edited fields.
+	 *
+	 * @override
+	 */
+	async _onFirstRender(context, options) {
+		await super._onFirstRender(context, options);
+		this.actor.apps[this.id] = this;
+
+		// Capture phase, so the field is recorded before the bubbling change
+		// listener behind submitOnChange submits the form.
+		const markDirty = (event) => {
+			const name = event.target?.name;
+			if (name) this.#dirtyFields.add(name);
+		};
+		this.element.addEventListener("input", markDirty, { capture: true });
+		this.element.addEventListener("change", markDirty, { capture: true });
+	}
+
+	/** @override */
+	_onClose(options) {
+		super._onClose(options);
+		delete this.actor.apps[this.id];
+	}
+
+	/**
+	 * Form submission handler: write only the fields the user edited, expanded
+	 * from the flat dotted-key form data. Checkbox and select fields are read
+	 * straight from the DOM, so unchecked boxes persist correctly.
 	 *
 	 * @this ArchmageCharacterSettingsApp
 	 * @param {SubmitEvent} event          The originating form submission event
@@ -156,7 +193,12 @@ export class ArchmageCharacterSettingsApp extends VueRenderingMixin(
 	 */
 	static async _onFormSubmit(event, form, formData) {
 		if (!this.isEditable) return;
-		const submitData = foundry.utils.expandObject(formData.object);
-		await this.actor.update(submitData);
+		const edited = {};
+		for (const [key, value] of Object.entries(formData.object)) {
+			if (this.#dirtyFields.has(key)) edited[key] = value;
+		}
+		this.#dirtyFields.clear();
+		if (foundry.utils.isEmpty(edited)) return;
+		await this.actor.update(foundry.utils.expandObject(edited));
 	}
 }

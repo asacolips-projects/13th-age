@@ -31,24 +31,43 @@ export function useDocumentField(actorData, path) {
 	// every render.
 	const field = reactive({ value: read(actorData()) });
 
+	// The document value the field last showed. While the field differs from
+	// it, the user has an edit in progress (typed, or committed and still in
+	// flight).
+	let synced = field.value;
+
 	// The sheet rebuilds its context (a fresh actor clone) on every document
 	// update — including this field's own successful writes — so the field
-	// re-syncs from the new clone to show external changes.
+	// re-syncs from the new clone to show external changes. It doesn't while
+	// an edit is in progress: any unrelated update (another field, another
+	// user, an effect expiring) would otherwise reset the value mid-typing,
+	// and the keystrokes that follow would land on the old text.
 	watch(actorData, (actor) => {
-		field.value = read(actor);
+		const next = read(actor);
+		if (field.value !== synced && field.value !== next) return;
+		field.value = next;
+		synced = next;
 	});
 
 	const write = async () => {
 		const actor = await getActor(actorData());
 		if (!actor) return;
 		const current = read(actor);
-		if (field.value === current) return;
+		if (field.value === current) {
+			synced = current;
+			return;
+		}
 		try {
 			await actor.update({ [path()]: field.value });
+			// Show what was stored: the update may have adjusted the value (a
+			// clamped level, HP capped at max), or been dropped altogether.
+			field.value = read(actor);
+			synced = field.value;
 		}
 		catch{
 			// Rejected: roll the field back to the document's value.
 			field.value = read(actor);
+			synced = field.value;
 		}
 	};
 

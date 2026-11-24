@@ -310,13 +310,14 @@ export class ActorArchmage extends Actor {
 
 		// Apply all changes of this phase
 		for (let change of uniqueChanges) {
-			// Skip anything we already applied
-			if (overrides[change.key]) continue;
+			// Skip anything we already applied (by key: a result of 0 still counts)
+			if (change.key in overrides) continue;
 
 			// Apply effect
 			const result = ActiveEffect.applyChange(this, change);
-			// Remember we already applied change for everything but @ed and @std
-			if (result !== null && !change.key.includes("standardBonuses") && !change.key.includes("escalation")) {
+			// Remember we already applied change for everything but @ed and @std.
+			// applyChange only reports the key when the change actually applied.
+			if (result && (change.key in result) && !change.key.includes("standardBonuses") && !change.key.includes("escalation")) {
 				overrides[change.key] = result[change.key];
 			}
 		}
@@ -2481,13 +2482,15 @@ export class ActorArchmage extends Actor {
 		// If Extra hp have changed, reflect changes in actual hp
 		let deltaExtra = 0;
 		if (changes.system.attributes?.hp?.extra !== undefined) {
-			deltaExtra = changes.system.attributes.hp.extra - this.system.attributes.hp.extra;
+			// Compare with the stored value: the prepared one includes active effects
+			deltaExtra = changes.system.attributes.hp.extra - (this._source.system.attributes.hp?.extra || 0);
 			if (deltaExtra > 0) {
+				// Heal by the increase only, not by the whole new extra
 				if (data.system.attributes.hp.value !== undefined) {
-					data.system.attributes.hp.value += changes.system.attributes.hp.extra;
+					data.system.attributes.hp.value += deltaExtra;
 				}
 				else {
-					data.system.attributes.hp.value = this.system.attributes.hp.value + changes.system.attributes.hp.extra;
+					data.system.attributes.hp.value = this.system.attributes.hp.value + deltaExtra;
 				}
 			}
 			maxHp += deltaExtra;
@@ -2630,63 +2633,28 @@ export class ActorArchmage extends Actor {
 				this.system.attributes.weapon.melee.dice = "d8";
 			}
 
-			let mWpn = parseInt(this.system.attributes.weapon.melee.dice.substring(1));
-			if (isNaN(mWpn)) mWpn = 8; // Fallback
-			data.system.attributes.attackMod = { value: this.system.attributes.attackMod.value };
-			let wpn = { shieldPen: 0, twohandedPen: 0 };
-			if (this.system.attributes.weapon.melee.twohanded) {
-				wpn.mWpn2h = mWpn;
-				wpn.mWpn1h = Math.max(mWpn - 2, 4);
-			}
-			else {
-				wpn.mWpn2h = Math.min(mWpn + 2, 12);
-				wpn.mWpn1h = mWpn;
-			}
-
-			// Compute penalties due to equipment (if classes known)
-			if (this.system.details.detectedClasses) {
-				let shieldPen = [];
-				let twohandedPen = [];
-				let mWpn1h = [];
-				let mWpn2h = [];
-				let skilledWarrior = [];
-				this.system.details.detectedClasses.forEach(function (item) {
-					shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
-					mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
-					mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
-					if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h
-						&& CONFIG.ARCHMAGE.classes[item].wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
-						// Handles special case of monk MC with classes that don't benefit from 2h
-						twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
-					}
-					skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior);
-				});
-				wpn.shieldPen = Math.max.apply(null, shieldPen);
-				if (twohandedPen.length > 0) wpn.twohandedPen = Math.max.apply(null, twohandedPen);
-				mWpn1h = Math.max.apply(null, mWpn1h);
-				mWpn2h = Math.max.apply(null, mWpn2h);
-				if (skilledWarrior.length > 1 && !skilledWarrior.every((a) => a)) {
-					mWpn1h = Math.max(mWpn1h - 2, 4);
-					mWpn2h = Math.max(mWpn2h - 2, 4);
-				}
-				// Only use class values if the current values haven't been tampered with
-				if (this.system.attributes.weapon.melee.twohanded && wpn.mWpn2h == mWpn2h) {
-					wpn.mWpn1h = mWpn1h;
-				}
-				else if (!this.system.attributes.weapon.melee.twohanded && wpn.mWpn1h == mWpn1h) {
-					wpn.mWpn2h = mWpn2h;
-				}
-				else { // Values differ from rules, don't do anything
-					wpn.shieldPen = 0;
-					wpn.twohandedPen = 0;
-				}
-			}
+			// Start from the stored values, not the prepared ones: those include
+			// active effects (e.g. Dazed's -4 attack), which would otherwise be
+			// written into the actor's own data and outlive the effect.
+			const sourceAttributes = this._source.system.attributes;
+			const baseAc = sourceAttributes.ac?.base ?? this.system.attributes.ac.base;
+			data.system.attributes.attackMod = {
+				value: sourceAttributes.attackMod?.value ?? this.system.attributes.attackMod.value
+			};
+			// Weapon dice and penalties for each off-hand option (shared with the
+			// settings window's off-hand annotations), from the stored weapon dice
+			// so a die overridden by an effect isn't written back either
+			const wpn = ArchmageUtility.offHandWeaponStats({
+				...this.system,
+				attributes: { ...this.system.attributes, weapon: sourceAttributes.weapon ?? this.system.attributes.weapon }
+			});
+			let mWpn = wpn.mWpn;
 
 			if (changes.system.attributes.weapon.melee.shield !== undefined) {
 				// Here we received an update of the shield checkbox
 				if (changes.system.attributes.weapon.melee.shield) {
 					// Adding a shield
-					data.system.attributes.ac = { base: this.system.attributes.ac.base + 1 };
+					data.system.attributes.ac = { base: baseAc + 1 };
 					data.system.attributes.attackMod.value += wpn.shieldPen;
 					if (this.system.attributes.weapon.melee.twohanded) {
 						// Can't wield both a two-handed weapon and a shield
@@ -2700,7 +2668,7 @@ export class ActorArchmage extends Actor {
 					}
 				}
 				else {
-					data.system.attributes.ac = { base: this.system.attributes.ac.base - 1 };
+					data.system.attributes.ac = { base: baseAc - 1 };
 					data.system.attributes.attackMod.value -= wpn.shieldPen;
 				}
 			}
@@ -2716,7 +2684,7 @@ export class ActorArchmage extends Actor {
 					}
 					else if (this.system.attributes.weapon.melee.shield) {
 						// Can't dual-wield with a shield
-						data.system.attributes.ac = { base: this.system.attributes.ac.base - 1 };
+						data.system.attributes.ac = { base: baseAc - 1 };
 						data.system.attributes.weapon.melee.shield = false;
 						data.system.attributes.attackMod.value -= wpn.shieldPen;
 					}
@@ -2730,7 +2698,7 @@ export class ActorArchmage extends Actor {
 					data.system.attributes.attackMod.value += wpn.twohandedPen;
 					if (this.system.attributes.weapon.melee.shield) {
 						// Can't wield both a two-handed weapon and a shield
-						data.system.attributes.ac = { base: this.system.attributes.ac.base - 1 };
+						data.system.attributes.ac = { base: baseAc - 1 };
 						data.system.attributes.weapon.melee.shield = false;
 						data.system.attributes.attackMod.value -= wpn.shieldPen;
 					}
@@ -2857,8 +2825,12 @@ export class ActorArchmage extends Actor {
 					twohanded = true;
 				}
 
-				// Assign computed values
-				data.system.attributes = {
+				// Assign computed values. Merge them into the update rather than
+				// replacing its attributes: anything else in it (HP adjusted above
+				// for extra HP or max, a clamped level, recoveries, or other fields
+				// submitted together with the class) would otherwise be dropped.
+				data.system.attributes ??= {};
+				foundry.utils.mergeObject(data.system.attributes, {
 					hp: { base: base.hp },
 					ac: { base: base.ac },
 					pd: { base: base.pd },
@@ -2879,7 +2851,7 @@ export class ActorArchmage extends Actor {
 						punch: { dice: `d${punchWpn}` },
 						kick: { dice: `d${kickWpn}` }
 					}
-				};
+				});
 
 				// Handle extra recoveries for fighters
 				if (matchedClasses.includes("fighter")) {
@@ -2901,8 +2873,10 @@ export class ActorArchmage extends Actor {
 					data.system.attributes.keyModifier = { mod1: "str", mod2: "str" };
 				}
 
-				// Enable resources based on detected classes
-				data.system.resources = {
+				// Enable resources based on detected classes (merged, as above:
+				// keeps resource edits submitted with the class)
+				data.system.resources ??= {};
+				foundry.utils.mergeObject(data.system.resources, {
 					perCombat: {
 						momentum: { enabled: (matchedClasses.includes("rogue") && !game.settings.get("archmage", "secondEdition"))
 																|| (matchedClasses.includes("fighter") && game.settings.get("archmage", "secondEdition")) },
@@ -2911,7 +2885,7 @@ export class ActorArchmage extends Actor {
 						bravado: { enabled: matchedClasses.includes("rogue") && game.settings.get("archmage", "secondEdition") }
 					},
 					spendable: { ki: { enabled: matchedClasses.includes("monk") } }
-				};
+				});
 				let busyResources = [];
 				for (let cl of matchedClasses) {
 					if (CONFIG.ARCHMAGE.classResources[cl]) {

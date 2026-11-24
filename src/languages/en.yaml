@@ -442,6 +442,8 @@ ARCHMAGE:
     bg7: Background 7
     bg8: Background 8
     dualwield: Dual-Wielding
+    dualwieldEffect: Reroll nat. 2s
+    dualwieldEffect2e: Hit on nat. 2s
     i1: Icon 1
     i2: Icon 2
     i3: Icon 3
@@ -450,7 +452,11 @@ ARCHMAGE:
     publicationSource: 'Publication Source:'
     settings: Settings
     shield: Shield
+    shieldEffect: +1 AC
+    shieldEffectPen: +1 AC, {delta} attack
     twohanded: Two-handed Weapon
+    twohandedEffect: '{dice} melee dice'
+    twohandedEffectPen: '{delta} attack, {dice} melee dice'
     tabs:
       core: Core
       flags: Flags
@@ -469,7 +475,7 @@ ARCHMAGE:
       resourcesPerCombat: Class Resources
       resourcesSpendable: Spendable Resources
       sheet: Sheet Options
-      stances: Stances
+      offHand: Off Hand
       weaponDice: Weapon Dice
     otherSection: "{section} options"
   CHARACTERSHEETV3:

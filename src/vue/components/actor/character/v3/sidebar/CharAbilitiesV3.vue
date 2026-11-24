@@ -11,11 +11,15 @@
 					@click="rollAbility(key)"
 				>
 					<span class="ability-abbr">{{ abilityAbbr(ability.label) }}</span>
-					<span class="ability-bonus">{{ formatBonus(ability.lvl) }}</span>
+					<span class="ability-bonus" :class="{ 'is-key-reduced': isKeyReduced(ability) }">{{ formatBonus(ability.lvl) }}</span>
 				</button>
 				<div v-else class="ability-edit">
 					<span class="ability-abbr">{{ abilityAbbr(ability.label) }}</span>
-					<input v-model="ability.value" type="number" :name="`system.abilities.${key}.value`">
+					<!-- The stored score, not the prepared one: every form submit
+					(each change, and closing the sheet) sends this field, and the
+					prepared score includes active effects, which would then be
+					written into the actor's own data and stack up. -->
+					<input :value="storedScore(key, ability)" type="number" :name="`system.abilities.${key}.value`">
 				</div>
 			</template>
 		</div>
@@ -39,20 +43,52 @@ const editing = inject("editMode", ref(false));
 const abilities = computed(() => props.actor?.system?.abilities ?? {});
 
 /**
+ * The ability score as stored on the actor, before active effects. Falls
+ * back to the prepared score if the stored one is missing.
+ * @param {string} key      The ability key, e.g. "str"
+ * @param {object} ability  The prepared ability data
+ * @returns {number}
+ */
+function storedScore(key, ability) {
+	return props.actor?._source?.system?.abilities?.[key]?.value ?? ability?.value;
+}
+
+/**
+ * Whether the Key Modifier reduced this ability's mod below its raw
+ * (nonKey) value — multiclass pairs lower the weaker of the two stats.
+ * Mirrors the V2 unit's modColor() highlight.
+ * @param ability
+ */
+function isKeyReduced(ability) {
+	return Number.isFinite(ability?.mod) && Number.isFinite(ability?.nonKey?.mod)
+		&& ability.mod < ability.nonKey.mod;
+}
+/**
  * @param bonus
  */
 function formatBonus(bonus) {
-	return bonus >= 0 ? `+${bonus}` : `${bonus}`;
+	return Number.isFinite(bonus) ? (bonus >= 0 ? `+${bonus}` : `${bonus}`) : "–";
 }
 /**
  * @param ability
  */
 function abilityTooltip(ability) {
-	return game.i18n.format("ARCHMAGE.TOOLTIP.pcAbilityStats", {
-		score: ability?.value ?? "–",
-		mod: formatBonus(ability?.mod ?? 0),
-		lvl: formatBonus(ability?.lvl ?? 0)
+	// Reduced mods get the V2 explanation; the score column falls back to
+	// "–" for missing data rather than masquerading as a real +0.
+	const mod = Number.isFinite(ability?.mod) ? formatBonus(ability.mod) : "–";
+	const lvl = Number.isFinite(ability?.lvl) ? formatBonus(ability.lvl) : "–";
+	const score = ability?.value ?? "–";
+	const base = game.i18n.format("ARCHMAGE.TOOLTIP.pcAbilityStats", {
+		score: score,
+		mod: mod,
+		lvl: lvl
 	});
+	if (!isKeyReduced(ability)) return base;
+	return `${base}<br>${game.i18n.format("ARCHMAGE.keyReduced", {
+		mod: mod,
+		kmod1: actorDocument?.system?.attributes?.keyModifier?.mod1 ?? props.actor?.system?.attributes?.keyModifier?.mod1 ?? "",
+		kmod2: actorDocument?.system?.attributes?.keyModifier?.mod2 ?? props.actor?.system?.attributes?.keyModifier?.mod2 ?? ""
+	})}`;
 }
 /**
  * @param label
@@ -103,5 +139,9 @@ function rollAbility(key) {
   flex: 0 0 3ch;
   text-align: center;
   font-variant-numeric: tabular-nums;
+
+  &.is-key-reduced {
+    color: var(--v3-negative);
+  }
 }
 </style>
