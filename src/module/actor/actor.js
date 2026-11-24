@@ -310,13 +310,14 @@ export class ActorArchmage extends Actor {
 
 		// Apply all changes of this phase
 		for (let change of uniqueChanges) {
-			// Skip anything we already applied
-			if (overrides[change.key]) continue;
+			// Skip anything we already applied (by key: a result of 0 still counts)
+			if (change.key in overrides) continue;
 
 			// Apply effect
 			const result = ActiveEffect.applyChange(this, change);
-			// Remember we already applied change for everything but @ed and @std
-			if (result !== null && !change.key.includes("standardBonuses") && !change.key.includes("escalation")) {
+			// Remember we already applied change for everything but @ed and @std.
+			// applyChange only reports the key when the change actually applied.
+			if (result && (change.key in result) && !change.key.includes("standardBonuses") && !change.key.includes("escalation")) {
 				overrides[change.key] = result[change.key];
 			}
 		}
@@ -2494,13 +2495,15 @@ export class ActorArchmage extends Actor {
 		// If Extra hp have changed, reflect changes in actual hp
 		let deltaExtra = 0;
 		if (changes.system.attributes?.hp?.extra !== undefined) {
-			deltaExtra = changes.system.attributes.hp.extra - this.system.attributes.hp.extra;
+			// Compare with the stored value: the prepared one includes active effects
+			deltaExtra = changes.system.attributes.hp.extra - (this._source.system.attributes.hp?.extra || 0);
 			if (deltaExtra > 0) {
+				// Heal by the increase only, not by the whole new extra
 				if (data.system.attributes.hp.value !== undefined) {
-					data.system.attributes.hp.value += changes.system.attributes.hp.extra;
+					data.system.attributes.hp.value += deltaExtra;
 				}
 				else {
-					data.system.attributes.hp.value = this.system.attributes.hp.value + changes.system.attributes.hp.extra;
+					data.system.attributes.hp.value = this.system.attributes.hp.value + deltaExtra;
 				}
 			}
 			maxHp += deltaExtra;
@@ -2643,17 +2646,28 @@ export class ActorArchmage extends Actor {
 				this.system.attributes.weapon.melee.dice = "d8";
 			}
 
-			data.system.attributes.attackMod = { value: this.system.attributes.attackMod.value };
+			// Start from the stored values, not the prepared ones: those include
+			// active effects (e.g. Dazed's -4 attack), which would otherwise be
+			// written into the actor's own data and outlive the effect.
+			const sourceAttributes = this._source.system.attributes;
+			const baseAc = sourceAttributes.ac?.base ?? this.system.attributes.ac.base;
+			data.system.attributes.attackMod = {
+				value: sourceAttributes.attackMod?.value ?? this.system.attributes.attackMod.value
+			};
 			// Weapon dice and penalties for each off-hand option (shared with the
-			// settings window's off-hand annotations)
-			const wpn = ArchmageUtility.offHandWeaponStats(this.system);
+			// settings window's off-hand annotations), from the stored weapon dice
+			// so a die overridden by an effect isn't written back either
+			const wpn = ArchmageUtility.offHandWeaponStats({
+				...this.system,
+				attributes: { ...this.system.attributes, weapon: sourceAttributes.weapon ?? this.system.attributes.weapon }
+			});
 			let mWpn = wpn.mWpn;
 
 			if (changes.system.attributes.weapon.melee.shield !== undefined) {
 				// Here we received an update of the shield checkbox
 				if (changes.system.attributes.weapon.melee.shield) {
 					// Adding a shield
-					data.system.attributes.ac = { base: this.system.attributes.ac.base + 1 };
+					data.system.attributes.ac = { base: baseAc + 1 };
 					data.system.attributes.attackMod.value += wpn.shieldPen;
 					if (this.system.attributes.weapon.melee.twohanded) {
 						// Can't wield both a two-handed weapon and a shield
@@ -2667,7 +2681,7 @@ export class ActorArchmage extends Actor {
 					}
 				}
 				else {
-					data.system.attributes.ac = { base: this.system.attributes.ac.base - 1 };
+					data.system.attributes.ac = { base: baseAc - 1 };
 					data.system.attributes.attackMod.value -= wpn.shieldPen;
 				}
 			}
@@ -2683,7 +2697,7 @@ export class ActorArchmage extends Actor {
 					}
 					else if (this.system.attributes.weapon.melee.shield) {
 						// Can't dual-wield with a shield
-						data.system.attributes.ac = { base: this.system.attributes.ac.base - 1 };
+						data.system.attributes.ac = { base: baseAc - 1 };
 						data.system.attributes.weapon.melee.shield = false;
 						data.system.attributes.attackMod.value -= wpn.shieldPen;
 					}
@@ -2697,7 +2711,7 @@ export class ActorArchmage extends Actor {
 					data.system.attributes.attackMod.value += wpn.twohandedPen;
 					if (this.system.attributes.weapon.melee.shield) {
 						// Can't wield both a two-handed weapon and a shield
-						data.system.attributes.ac = { base: this.system.attributes.ac.base - 1 };
+						data.system.attributes.ac = { base: baseAc - 1 };
 						data.system.attributes.weapon.melee.shield = false;
 						data.system.attributes.attackMod.value -= wpn.shieldPen;
 					}

@@ -15,7 +15,11 @@
 				</button>
 				<div v-else class="ability-edit">
 					<span class="ability-abbr">{{ abilityAbbr(ability.label) }}</span>
-					<input v-model="ability.value" type="number" :name="`system.abilities.${key}.value`">
+					<!-- The stored score, not the prepared one: every form submit
+					(each change, and closing the sheet) sends this field, and the
+					prepared score includes active effects, which would then be
+					written into the actor's own data and stack up. -->
+					<input :value="storedScore(key, ability)" type="number" :name="`system.abilities.${key}.value`">
 				</div>
 			</template>
 		</div>
@@ -37,6 +41,17 @@ const actorDocument = inject("actorDocument");
 const editing = inject("editMode", ref(false));
 
 const abilities = computed(() => props.actor?.system?.abilities ?? {});
+
+/**
+ * The ability score as stored on the actor, before active effects. Falls
+ * back to the prepared score if the stored one is missing.
+ * @param {string} key      The ability key, e.g. "str"
+ * @param {object} ability  The prepared ability data
+ * @returns {number}
+ */
+function storedScore(key, ability) {
+	return props.actor?._source?.system?.abilities?.[key]?.value ?? ability?.value;
+}
 
 /**
  * Whether the Key Modifier reduced this ability's mod below its raw
