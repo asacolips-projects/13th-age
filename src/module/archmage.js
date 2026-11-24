@@ -9,6 +9,7 @@ import { ItemArchmageSheet } from "./item/item-sheet.js";
 import { ArchmagePowerSheetV2 } from "./item/power-sheet-v2.js";
 import { ArchmageEquipmentSheetV2 } from "./item/equipment-sheet-v2.js";
 import { ArchmageActionSheetV2 } from "./item/action-sheet-v2.js";
+import { ArchmageLootSheetV2 } from "./item/loot-sheet-v2.js";
 import { wrapRolls } from "./item/_item-sheet-helpers.mjs";
 import { ArchmageMacros } from "./setup/macros.js";
 import { ArchmageUtility, MacroUtils, ArchmageReference } from "./setup/utility-classes.js";
@@ -226,6 +227,11 @@ Hooks.once("init", async function () {
 	foundry.documents.collections.Items.registerSheet("archmage", ArchmageActionSheetV2, {
 		label: "ARCHMAGE.sheetItemV2",
 		types: ["action", "trait", "nastierSpecial"],
+		makeDefault: true
+	});
+	foundry.documents.collections.Items.registerSheet("archmage", ArchmageLootSheetV2, {
+		label: "ARCHMAGE.sheetItemV2",
+		types: ["loot", "tool"],
 		makeDefault: true
 	});
 

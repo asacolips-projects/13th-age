@@ -48,17 +48,20 @@ const groupLabel = (mode, key) => mode === "powerType" ? `ARCHMAGE.${key}s` : `A
  * chips' groups render (the grouping facets' own Other chips name the
  * catch-all). With any chips active anywhere, the loot and currency
  * sections render only when their type-facet chips do, and the grouped
- * sections only while that facet still names power or equipment — so a
- * loot-and-currency-only selection leaves just those two sections. Without
- * any selection every section renders. Group order is per tab and mode,
- * shared by power groups, the catch-all, loot and currency alike.
+ * sections only while that facet still names a type they hold — in group
+ * mode that's power, equipment and loot alike, in the field modes power
+ * and equipment — so a currency-only selection leaves just the currency
+ * section. Without any selection every section renders. Group order is per
+ * tab and mode, shared by power groups, the catch-all, loot and currency
+ * alike.
  *
  * @param {object} parts
  * @param {string} parts.mode The tab's group-by mode.
  * @param {Array} parts.items The tab's powers and equipment, already
  *   filtered by search and chips and sorted by the tab's sort mode.
  * @param {Array} parts.loot The tab's loot (and legacy tools), same
- *   filtering and sorting.
+ *   filtering and sorting. In group mode they join the custom-group
+ *   collation; every other mode leaves them their own section.
  * @param {boolean} parts.showCurrency Whether the currency section shows.
  * @param {object} parts.activeFilters The tab's active chip selections,
  *   keyed by facet dimension.
@@ -74,8 +77,9 @@ export function groupItemIndexSections({ mode, items, loot, showCurrency, active
 	if (mode === "group") {
 		// Custom groups come from the item's free-text group field, in
 		// first-appearance order; items without a group value — and custom
-		// groups literally named 'Other' — join the catch-all.
-		for (const item of items) {
+		// groups literally named 'Other' — join the catch-all. Powers,
+		// equipment and loot all carry the field and share the stream.
+		for (const item of [...items, ...loot]) {
 			const raw = item.system?.group?.value;
 			const key = raw ? cleanFilterKey(raw) : "other";
 			if (key === "other") {
@@ -113,16 +117,19 @@ export function groupItemIndexSections({ mode, items, loot, showCurrency, active
 
 	// With type-facet chips selected, the loot and currency sections render
 	// only when their chips do: they're the two sections no item group
-	// covers, so their chips name them outright. The grouped sections hold
-	// powers and equipment, so they render only while the type facet names
-	// either — a selection of just loot and currency chips leaves those two
-	// sections alone on the tab. A selection in any other facet narrows the
-	// members alone, leaving every section standing.
+	// covers, so their chips name them outright. In group mode the grouped
+	// sections also hold loot — its members bucket with powers and
+	// equipment's — so they render while the type facet names any of the
+	// three, and the dedicated loot section drops out. In every other mode
+	// loot has no grouping value and keeps its own section. A selection of
+	// just currency chips leaves those two sections alone on the tab. A
+	// selection in any other facet narrows the members alone, leaving every
+	// section standing.
 	const typeSelected = activeFilters.type;
 	const typeNames = (chip) => !typeSelected.length || typeSelected.includes(chip);
 	const sections = [
-		...(typeNames("power") || typeNames("equipment") ? facetSections : []),
-		...(typeNames("loot")
+		...(typeNames("power") || typeNames("equipment") || (mode === "group" && typeNames("loot")) ? facetSections : []),
+		...(mode !== "group" && typeNames("loot")
 			? [{ key: "inventory-loot", labelKey: "ARCHMAGE.INVENTORY.loot", kind: "loot", members: loot }]
 			: []),
 		...(showCurrency && typeNames("currency")
@@ -134,13 +141,13 @@ export function groupItemIndexSections({ mode, items, loot, showCurrency, active
 
 /**
  * The item types a section's "+" button can create, in menu order. A grouped
- * section is ambiguous — needing a type choice — when both powers and
- * equipment can land in it: the action grouping files equipment with a set
- * usage under 'free' (a magic item's power is a free action), the usage
- * grouping files equipment under the usage groups it shares the field with,
- * and the catch-all takes whatever fell through (plus loot, which has no
- * grouping value and so can't reach it — but a "+" that adds loot beats
- * scrolling to the loot section).
+ * section is ambiguous — needing a type choice — when more than power can
+ * land in it: the action grouping files equipment with a set usage under
+ * 'free' (a magic item's power is a free action), the usage grouping files
+ * equipment under the usage groups it shares the field with, and in group
+ * mode powers, equipment and loot all carry the free-text group and bucket
+ * into the same sections — the catch-all included (loot's own section
+ * drops out there, so a "+" that adds loot beats scrolling).
  * @param {object} section The section the button belongs to.
  * @param {string} mode The tab's group-by mode.
  *
@@ -149,6 +156,7 @@ export function groupItemIndexSections({ mode, items, loot, showCurrency, active
 export function groupCreateOptions(section, mode) {
 	if (section.kind !== "power") return [section.kind];
 	if (section.key === "other") return ["power", "equipment", "loot"];
+	if (mode === "group") return ["power", "equipment", "loot"];
 	let takesEquipment = false;
 	if (mode === "actionType") takesEquipment = section.key === "free";
 	else if (mode === "powerUsage") takesEquipment = section.key in (CONFIG.ARCHMAGE.equipUsages ?? {});
@@ -159,12 +167,13 @@ export function groupCreateOptions(section, mode) {
  * Item data for a section's "+" button, pre-filled so the new item lands in
  * the group it was added from: built-in group modes set the mode's system
  * field (e.g. system.powerUsage.value), custom groups set the free-text
- * group, the catch-all leaves it empty so the power lands there, and loot
- * sections just use their type. The type menu's choice passes through for
- * the ambiguous groups — equipment lands by its powerUsage: the usage
- * grouping's group name is the value itself, the action grouping's free
- * group takes any set usage ('other' being the plainest one), and the
- * catch-all takes none at all.
+ * group — for whichever type was created, in group mode — the catch-all
+ * leaves it empty so the item lands there, and loot sections just use
+ * their type. The type menu's choice passes through for the ambiguous
+ * groups — equipment lands by its powerUsage: the usage grouping's group
+ * name is the value itself, the action grouping's free group takes any set
+ * usage ('other' being the plainest one), and the catch-all takes none at
+ * all.
  *
  * @param {object} section The section the button belongs to.
  * @param {string} mode The tab's group-by mode.
@@ -174,6 +183,10 @@ export function groupCreateOptions(section, mode) {
  */
 export function groupCreateData(section, mode, type) {
 	if (section.kind !== "power") return { type: section.kind, system: {} };
+	if (mode === "group") {
+		if (section.key === "other") return { type: type ?? "power", system: {} };
+		return { type: type ?? "power", system: { group: { value: section.raw } } };
+	}
 	if (type === "equipment") {
 		const usage = mode === "powerUsage" && section.key !== "other" ? section.key
 			: mode === "actionType" && section.key === "free" ? "other"
@@ -181,8 +194,5 @@ export function groupCreateData(section, mode, type) {
 		return { type, system: usage ? { powerUsage: { value: usage } } : {} };
 	}
 	if (section.key === "other") return { type: "power", system: {} };
-	if (mode === "group") {
-		return { type: "power", system: { group: { value: section.raw } } };
-	}
 	return { type: "power", system: { [mode]: { value: section.key } } };
 }

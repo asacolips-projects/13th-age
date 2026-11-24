@@ -99,16 +99,17 @@
 			</div>
 		</SortFilterBarV3>
 
-		<!-- Sections are the reorderable groups; the currency group renders its
-					coin purses in place of an item list. -->
+		<!-- Sections are the reorderable groups; in custom-group mode they
+					also take item drops, filing the dropped item into the group. The
+					currency group renders its coin purses in place of an item list. -->
 		<section
 			v-for="section in itemIndexSections"
 			:key="section.key"
 			class="item-index-group"
-			:class="groupClasses(section.key)"
-			@dragover="onGroupDragOver($event, section.key)"
-			@dragleave="onGroupDragLeave($event, section.key)"
-			@drop="onGroupDrop($event, section.key)"
+			:class="[groupClasses(section.key), { 'item-index-group--drop-target': itemDropGroup === section.key }]"
+			@dragover="onSectionDragOver($event, section)"
+			@dragleave="onSectionDragLeave($event, section)"
+			@drop="onSectionDrop($event, section)"
 		>
 			<h4
 				class="item-index-group-title unit-title"
@@ -166,7 +167,7 @@
 </template>
 
 <script setup>
-import { computed, inject, ref } from "vue";
+import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
 import { byLevel as byPowerLevel, byName, byTier, concat, equipmentBonuses, kinLabel, localize, missingKinClass } from "@/methods/Helpers";
 import { ITEM_INDEX_GROUP_MODES } from "@/methods/ItemIndexTabs";
 import { useFacetFilters } from "@/composables/useFacetFilters";
@@ -223,8 +224,8 @@ useDismissablePopover(openView, ".view-item-index");
 
 // Searchable text for an item: what the v2 inventory tab matches (name,
 // chakra, equipment's bonus keys and values) plus the fields only the
-// expanded row shows — every type's description, a power's custom group and
-// its feats' text.
+// expanded row shows — every type's description and custom group, and a
+// power's feats' text.
 const { searchValue, matchesSearch } = useSearchFilter((item) => {
 	let text = `${item.name ?? ""}${item.system?.chackra ?? ""}`;
 	if (item.type === "equipment") {
@@ -234,8 +235,8 @@ const { searchValue, matchesSearch } = useSearchFilter((item) => {
 		}
 	}
 	text += item.system?.description?.value ?? "";
+	text += item.system?.group?.value ?? "";
 	if (item.type === "power") {
-		text += item.system?.group?.value ?? "";
 		for (const feat of Object.values(item.system?.feats ?? {})) {
 			text += feat.description?.value ?? "";
 		}
@@ -270,6 +271,91 @@ const {
 	getSections: () => itemIndexSections.value,
 	classPrefix: "item-index-group"
 });
+
+// Item-to-group drops: in custom-group mode, an item dragged onto a
+// section's header or empty stretch (anywhere but another row) files the
+// item into that group, matching what a drop onto one of its rows does.
+// The composable owns the group-header drags; this tracks the section an
+// item drag hovers for the shared drop-target highlight.
+const itemDropGroup = ref(null);
+const clearItemDropGroup = () => {
+	itemDropGroup.value = null;
+};
+onMounted(() => {
+	// Drags resolved elsewhere (dropped on another sheet, cancelled) end
+	// outside the section; clear the highlight from the document level.
+	document.addEventListener("dragend", clearItemDropGroup);
+	document.addEventListener("drop", clearItemDropGroup);
+});
+onBeforeUnmount(() => {
+	document.removeEventListener("dragend", clearItemDropGroup);
+	document.removeEventListener("drop", clearItemDropGroup);
+});
+
+/**
+ * A drag over a group section: header drags reorder (the composable claims
+ * those with preventDefault), item drags arm the section as a drop target.
+ * Only the header and empty stretches react — over another row, the drop is
+ * the sheet's row-to-row sorting, which positions the item within the group.
+ * @param {DragEvent} event
+ * @param {object} section
+ */
+const onSectionDragOver = (event, section) => {
+	onGroupDragOver(event, section.key);
+	if (event.defaultPrevented) return;
+	if (groupBy.value !== "group" || section.kind === "currency") return;
+	if (event.target.closest?.(".item[data-item-id]")) return;
+	if (!event.dataTransfer?.types?.includes("text/plain")) return;
+	event.preventDefault();
+	event.stopPropagation();
+	itemDropGroup.value = section.key;
+};
+
+/**
+ * A drag leaving a group section: clears whichever highlight the section
+ * holds once the cursor has actually left it.
+ * @param {DragEvent} event
+ * @param {object} section
+ */
+const onSectionDragLeave = (event, section) => {
+	onGroupDragLeave(event, section.key);
+	if (itemDropGroup.value !== section.key) return;
+	if (event.currentTarget.contains(event.relatedTarget)) return;
+	itemDropGroup.value = null;
+};
+
+/**
+ * A drop on a group section: group-header drags reorder through the
+ * composable; item drags file the item into the section's custom group.
+ * Payloads that aren't one of this actor's items — a compendium entry,
+ * another actor's item — fall through to the sheet's own drop handling,
+ * which imports them as usual.
+ * @param {DragEvent} event
+ * @param {object} section
+ */
+const onSectionDrop = (event, section) => {
+	if (itemDropGroup.value !== section.key) return onGroupDrop(event, section.key);
+	itemDropGroup.value = null;
+
+	// A drop released over a row is the sheet's row-to-row sorting.
+	if (event.target.closest?.(".item[data-item-id]")) return;
+
+	let data = null;
+	try {
+		data = JSON.parse(event.dataTransfer.getData("text/plain"));
+	}
+	catch (err) { /* not a JSON payload; let the sheet's drop handle it */ }
+	if (data?.type !== "Item" || !data.uuid) return;
+	const item = fromUuidSync(data.uuid);
+	if (!item?.actor || item.actor.id !== actorDocument?.id) return;
+	if (!["power", "equipment", "loot"].includes(item.type)) return;
+
+	event.preventDefault();
+	event.stopPropagation();
+	const group = section.key === "other" ? "" : section.raw;
+	if ((item.system?.group?.value ?? "") === group) return;
+	return item.update({ "system.group.value": group });
+};
 
 // The import button opens the power importer for the live actor. Like the v2
 // sheet, non-GM users who turned it off in the character settings don't see it.

@@ -54,14 +54,22 @@ const FACET_LABEL_KEYS = {
  * collation exactly, so a chip's selection shows precisely the groups it
  * names — anything the grouping drops into the catch-all reads 'other' (a
  * magic item's power is a free action, and a power with no usable field
- * value groups with the catch-all). Loot and tools carry no grouping value
- * at all: they render in their own section, which the type facet's loot
- * chip names instead.
+ * value groups with the catch-all). Loot and tools carry only the custom
+ * group value: they facet on it (their section buckets by it in group
+ * mode), while every other grouping facet reads undefined — they render in
+ * their own section, which the type facet's loot chip names instead.
  * @param item
  * @param dim
  */
 const facetValue = (item, dim) => {
 	if (dim === "type") return item.type === "tool" ? "loot" : item.type;
+	if (dim === "group") {
+		// Custom groups are the item's free-text group value, with no group
+		// at all — and groups literally named 'Other' — reading as the
+		// catch-all. Powers, equipment and loot all carry the field.
+		const raw = item.system?.group?.value;
+		return raw && cleanFilterKey(raw) !== "other" ? raw : "other";
+	}
 	if (item.type === "loot" || item.type === "tool") return undefined;
 	if (dim === "actionType") {
 		if (item.type === "equipment") return item.system?.powerUsage?.value ? "free" : "other";
@@ -189,11 +197,12 @@ export function useFacetFilters({ items, filters, save }) {
 	 * Whether an item passes the chip filters: a dimension with no active chips
 	 * passes as-is, otherwise the item's value must be among them. An item with
 	 * no value for a dimension — loot and tools carry none for the grouping
-	 * facets, rendering in their own section instead — passes unfiltered, so
-	 * chips in a grouping facet narrow the grouped sections and their members
-	 * without ever touching the loot section. The section-naming chips never
-	 * match an item — the item index reads those sections' visibility off
-	 * `activeFilters` instead.
+	 * facets but group, where they bucket with the custom groups — passes
+	 * unfiltered, so chips in a grouping facet narrow the grouped sections
+	 * and their members without touching the loot section (in group mode
+	 * there is no loot section, and loot joins the grouped ones). The
+	 * section-naming chips never match an item — the item index reads those
+	 * sections' visibility off `activeFilters` instead.
 	 * @param item
 	 */
 	const matchesFilters = (item) => FACET_DIMENSIONS.every((dim) => {

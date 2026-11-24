@@ -814,6 +814,10 @@ Item:
     templates:
       - standard
       - spendable
+    group:
+      type: String
+      label: Group
+      value: ''
   equipment:
     templates:
       - standard
@@ -821,6 +825,10 @@ Item:
       - usable
       - supportsMacro
       - hasChildren
+    group:
+      type: String
+      label: Group
+      value: ''
     properties: {}
     attributes:
       attack:

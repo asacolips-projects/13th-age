@@ -247,12 +247,14 @@ export function sortItemDrop(actor, event, item) {
 	// A list that doesn't declare one counts as built-in grouped.
 	const groupBy = dropTarget.parentElement?.dataset.groupBy ?? "powerType";
 
-	// A drop into another group is only meaningful for custom power groups,
-	// where the group is free text stored on the power. Under the built-in
-	// groupings the group is derived from the power's own data, so the row would
-	// snap straight back to where it started with a new and meaningless sort
-	// value - which read as "nothing moved". Ignore those drops instead.
-	const regroup = crossGroup && source.type === "power" && target.type === "power" && groupBy === "group";
+	// A drop into another group is only meaningful for custom groups, where
+	// the group is free text stored on the item — which powers, equipment and
+	// loot all carry. Under the built-in groupings the group is derived from
+	// the item's own data, so the row would snap straight back to where it
+	// started with a new and meaningless sort value - which read as "nothing
+	// moved". Ignore those drops instead.
+	const groupable = (item) => ["power", "equipment", "loot"].includes(item.type);
+	const regroup = crossGroup && groupBy === "group" && groupable(source) && groupable(target);
 	if (crossGroup && !regroup) return;
 
 	// Identify sibling rows from the list the drop target lives in, skipping

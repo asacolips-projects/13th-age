@@ -27,6 +27,8 @@ export { default as ItemChildren } from "@/components/item/ItemChildren.vue";
 export { default as EquipmentDetails } from "@/components/item/equipment/EquipmentDetails.vue";
 export { default as EquipmentBonuses } from "@/components/item/equipment/EquipmentBonuses.vue";
 
+export { default as LootDetails } from "@/components/item/loot/LootDetails.vue";
+
 export { default as ActionDetails } from "@/components/item/action/ActionDetails.vue";
 export { default as ActionAttack } from "@/components/item/action/ActionAttack.vue";
 

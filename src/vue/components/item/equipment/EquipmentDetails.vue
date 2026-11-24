@@ -131,6 +131,17 @@
 			</div>
 		</div>
 
+		<!-- group -->
+		<div class="form-group">
+			<label>
+				{{ game.i18n.localize('ARCHMAGE.CHAT.group') }}
+				<InfoBubble :tooltip="game.i18n.localize('ARCHMAGE.CHAT.groupTitle')" />
+			</label>
+			<div class="field">
+				<input v-model="item.system.group.value" type="text" name="system.group.value">
+			</div>
+		</div>
+
 		<!-- price -->
 		<div class="form-group">
 			<label>
